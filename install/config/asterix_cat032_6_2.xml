@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 32 v6.2 definition 
+	
+	Author:   dsalantic
+	Created:  9.2.2009.
+
+--> 
+
+<Category id="32" name="Messages Provided by Users to ARTAS" ver="6.2">
+    
+	<DataItem id="10">
+		<DataItemName>Server Identification Tag</DataItemName>
+		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identification Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+        <DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to the sender of the miniplan.</DataItemNote>
+	</DataItem>
+
+	<DataItem id="15">
+		<DataItemName>User Number</DataItemName>
+		<DataItemDefinition>Identification of the User of track information</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>user_number</BitsShortName>
+                    <BitsName>User number</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to the receiver of the miniplan.</DataItemNote>
+    </DataItem>
+    
+	<DataItem id="18">
+		<DataItemName>Data Source Identification Tag</DataItemName>
+		<DataItemDefinition>Identification of the data source (system) from which the information contained in the message was originated.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identity Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+        <DataItemNote>This item will be used if the system sending the minipln information (i.e. the system which is identified in I032/015 : USER NUMBER) is another system than the FPPS from which the minipln information has been received. This will be the case of e.g. an ARTAS unit forwarding minipln information to an adjacent unit.</DataItemNote>
+	</DataItem>
+            
+	<DataItem id="20">
+		<DataItemName>Time Of Message</DataItemName>
+		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+		<DataItemFormat desc="Three-byte fixed length data item.">
+			<Fixed length="3">
+				<Bits from="24" to="1" encode="unsigned">
+					<BitsShortName>time_of_messagee</BitsShortName>
+					<BitsName>Time Of Message</BitsName>
+					<BitsUnit scale="0.0078125">s</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+		<DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
+   </DataItem>		
+        
+   <DataItem id="35">
+		<DataItemName>Type Of Message</DataItemName>
+		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="5">
+                    <BitsShortName>family</BitsShortName>
+                    <BitsName>Familiy to which the message belongs</BitsName>
+                </Bits> 
+                <Bits from="4" to="1">
+                    <BitsShortName>nature</BitsShortName>
+                    <BitsName>Nature of the message (within its family)</BitsName>
+                    <BitsValue val="1">Flight Plan to track initial correlation</BitsValue>
+                    <BitsValue val="2">Minipln update</BitsValue>
+                    <BitsValue val="3">End of correlation</BitsValue>
+                    <BitsValue val="4">Minipln Cancellation</BitsValue>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY.</DataItemNote>
+    </DataItem>
+
+	<DataItem id="40">
+		<DataItemName>Track Number</DataItemName>
+		<DataItemDefinition>Identification of an ARTAS track (track number)</DataItemDefinition>
+		<DataItemFormat desc="Two-Octet fixed length data item">
+			<Fixed length="2">
+				<Bits from="16" to="14">
+					<BitsShortName>sb</BitsShortName>
+					<BitsName>Spare bits set to zero</BitsName>
+					<BitsConst>0</BitsConst>
+				</Bits>
+				<Bits bit="13">
+					<BitsShortName>sttn</BitsShortName>
+					<BitsName>Track number indicator</BitsName>
+				</Bits>
+				<Bits from="12" to="1">
+					<BitsShortName>track_number</BitsShortName>
+					<BitsName>Track number</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+		<DataItemNote>Unlike the ARTAS track number I032/050, the track number does not change when a track enters or leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.</DataItemNote>
+	</DataItem>
+    
+    <DataItem id="50">
+        <DataItemName>Artas Track Number</DataItemName>
+        <DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
+            <Variable>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsConst>0</BitsConst>
+					</Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
+    </DataItem>
+    
+	<DataItem id="60">
+		<DataItemName>Track Mode 3/A</DataItemName>
+		<DataItemDefinition>Mode 3/A identity associated to the track</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length Data Item.">
+			<Fixed length="2">
+                <Bits from="16" to="13">
+					<BitsShortName>sb</BitsShortName>
+					<BitsName>Spare bits set to 0</BitsName>
+					<BitsConst>0</BitsConst>
+				</Bits>
+				<Bits from="12" to="1" encode="octal">
+					<BitsShortName>mode_3_a</BitsShortName>
+					<BitsName>Mode-3/A reply in octal representation</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+        <DataItemNote></DataItemNote>
+	</DataItem>	
+    
+    <DataItem id="400">
+        <DataItemName>Callsign</DataItemName>
+        <DataItemDefinition>Callsign (in 7 characters) of an aircraft (provided in the Minipln).</DataItemDefinition>
+        <DataItemFormat desc="Seven-byte fixed length data item.">
+            <Fixed length="7">
+                <Bits from="56" to="1" encode="ascii">
+                    <BitsShortName>callsign</BitsShortName>
+                    <BitsName>Callsign</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>    
+    
+    <DataItem id="410">
+        <DataItemName>PLN Number</DataItemName>
+        <DataItemDefinition>The PLN NUMBER is an integer value representing a unique reference to a Flight-plan record within a particular FPPS (Information provided in the minipln).</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>PLN</BitsShortName>
+                    <BitsName>PLN Number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="420">
+        <DataItemName>Flight Category</DataItemName>
+        <DataItemDefinition>Flight Category (information provided in the Minipln).</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="7">
+                    <BitsShortName>GAT_OAT</BitsShortName>
+                    <BitsName>GAT/OAT</BitsName>
+                    <BitsValue val="0">Unknown</BitsValue>
+                    <BitsValue val="1">General Air Traffic</BitsValue>
+                    <BitsValue val="2">Operational Air Traffic</BitsValue>
+                    <BitsValue val="3">Not applicable</BitsValue>
+                </Bits>
+                <Bits from="6" to="5">
+                    <BitsShortName>FR1_FR2</BitsShortName>
+                    <BitsName>FR1/FR2</BitsName>
+                    <BitsValue val="0">Instrument Flight Rules</BitsValue>
+                    <BitsValue val="1">Visual Flight rules</BitsValue>
+                    <BitsValue val="2">Not applicable</BitsValue>
+                    <BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
+                </Bits>
+                <Bits from="4" to="2">
+                    <BitsShortName>SP</BitsShortName>
+                    <BitsName>Sub-category within the main categories.</BitsName>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>sb</BitsShortName>
+                    <BitsName>spare bit set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>        
+
+    <DataItem id="430">
+        <DataItemName>Type Of Aircraft</DataItemName>
+        <DataItemDefinition>Type of Aircraft indicated in a Minipln.</DataItemDefinition>
+        <DataItemFormat desc="Four-byte fixed length data item">
+            <Fixed length="4">
+                <Bits from="32" to="1" encode="ascii">
+                    <BitsShortName>TYPE</BitsShortName>
+                    <BitsName>Tape of Aircraft</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The types of aircraft are defined in the ICAO Document 4444.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="435">
+        <DataItemName>Category of Turbulence</DataItemName>
+        <DataItemDefinition>Category of turbulence of an aircraft (information provided in the Minipln).</DataItemDefinition>
+        <DataItemFormat desc="1-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1" encode="ascii">
+                    <BitsShortName>CAT</BitsShortName>
+                    <BitsName>category of turbulence</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="440">
+        <DataItemName>Departure Airport</DataItemName>
+        <DataItemDefinition>Departure Airport indicated in a Minipln</DataItemDefinition>
+        <DataItemFormat desc="Four-byte fixed length data item.">
+            <Fixed length="4">
+                <Bits from="32" to="1" encode="ascii">
+                    <BitsShortName>DEPA</BitsShortName>
+                    <BitsName>Departure Airport</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The Airport Names are indicated in the ICAO Location Indicators book</DataItemNote>
+    </DataItem>
+
+    <DataItem id="450">
+        <DataItemName>Destination Airport</DataItemName>
+        <DataItemDefinition>Destination Airport indicated in a Minipln</DataItemDefinition>
+        <DataItemFormat desc="Four-byte fixed length data item.">
+            <Fixed length="4">
+                <Bits from="32" to="1" encode="ascii">
+                    <BitsShortName>DESA</BitsShortName>
+                    <BitsName>Destination Airport</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The Airport Names are indicated in the ICAO Location Indicators book</DataItemNote>
+    </DataItem>
+
+    <DataItem id="460">
+        <DataItemName>Allocated SSR codes</DataItemName>
+        <DataItemDefinition>List of successive SSR codes allocated to a flight (Information provided in the minipln).</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, ">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+                        <BitsShortName>sb</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="12" to="1" encode="octal">
+                        <BitsShortName>3_a_code</BitsShortName>
+                        <BitsName>Mode 3/A Code</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="480">
+        <DataItemName>Current Cleared Flight Level</DataItemName>
+        <DataItemDefinition>Current Cleared Flight Level of an aircraft, provided by a FPPS.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>CCFL</BitsShortName>
+                    <BitsName>Current cleared flight level</BitsName>
+                    <BitsUnit scale="25">FL</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="490">
+        <DataItemName>Current Control Position</DataItemName>
+        <DataItemDefinition>Identification of the Current Control Position in charge of an aircraft, as provided by a FPPS</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>CENTRE</BitsShortName>
+                    <BitsName>Group identification code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>POSITION</BitsShortName>
+                    <BitsName>Control Position identification code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The centre and the control position identification codes have to be defined between communication partners.</DataItemNote>
+    </DataItem>
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">10</UAPItem>
+        <UAPItem bit="1" frn="2" len="2">15</UAPItem>
+        <UAPItem bit="2" frn="3" len="2">18</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">35</UAPItem>
+        <UAPItem bit="4" frn="5" len="3">20</UAPItem>
+        <UAPItem bit="5" frn="6" len="2">40</UAPItem>
+        <UAPItem bit="6" frn="7" len="3+">50</UAPItem>
+        <UAPItem bit="7" frn="FX">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="2">60</UAPItem>
+        <UAPItem bit="9" frn="9" len="7">400</UAPItem>
+        <UAPItem bit="10" frn="10" len="2">410</UAPItem>
+        <UAPItem bit="11" frn="11" len="1">420</UAPItem>
+        <UAPItem bit="12" frn="12" len="4">440</UAPItem>
+        <UAPItem bit="13" frn="13" len="4">450</UAPItem>
+        <UAPItem bit="14" frn="14" len="2">480</UAPItem>
+        <UAPItem bit="15" frn="FX">-</UAPItem>
+        <UAPItem bit="16" frn="15" len="2">490</UAPItem>
+        <UAPItem bit="17" frn="16" len="4">430</UAPItem>
+        <UAPItem bit="18" frn="17" len="1">435</UAPItem>
+        <UAPItem bit="19" frn="18" len="1+">460</UAPItem>
+        <UAPItem bit="22" frn="FX">-</UAPItem>
+    </UAP>
+        
+</Category>   

@@ -1,0 +1,68 @@
+#
+# Copyright (c) 2003 Croatia Control Ltd. All rights reserved.
+#
+# MODULE DESCRIPTION: Common include file for makefiles
+#
+# MODIFICATION/HISTORY:
+#
+# rev 1.2   2009/06/05  Damir Salantic (damir.salantic@crocontrol.hr)
+# Added ASTERIX
+#
+# rev. 1.1  2005/09/03  Jurica Baricevic  (jurica.baricevic@crocontrol.hr)
+# Added support for separate object files tree
+#
+# rev. 1.0  2003/04/16  Jurica Baricevic (jurica.baricevic@crocontrol.hr)
+# Created.
+#
+
+
+ifndef TOP
+TOP =..
+endif
+
+ifndef CUR_DIR
+CUR_DIR = .
+endif
+
+# Export variables for sublevel makefiles
+export CC CFLAGS AS LD AR STRIP
+CC            = g++
+AS            = as
+LD            = g++
+AR            = ar
+STRIP         = strip
+OBJCOPY       = objcopy
+CXX           = g++
+GDEBUG        = gdb
+RANLIB        = ranlib
+
+# Default compiler defines
+#GLOBAL_DEFINES = -D_CONVERTER
+
+ifeq ($(MODE), DEBUG)
+# Debug version
+CWARNING := -Wall
+DEBUGFLAGS := -g -O0
+CFLAGS := $(DEBUGFLAGS) $(CWARNING) -D_DEBUG $(GLOBAL_DEFINES)
+OBJ_DIR_SHORT = debug
+OBJ_DIR = $(TOP)/obj/$(CUR_DIR)/$(OBJ_DIR_SHORT)
+else
+# Retail version
+CWARNING := -Wall
+CFLAGS := $(CWARNING) -O2 $(GLOBAL_DEFINES)
+OBJ_DIR_SHORT = release
+OBJ_DIR = $(TOP)/obj/$(CUR_DIR)/$(OBJ_DIR_SHORT)
+endif
+
+INCLUDEDIRS   = -I$(TOP)/src/engine \
+                -I$(TOP)/src/asterix \
+                -I$(TOP)/src/main
+
+LIBDIRS       = -L$(TOP)/lib/$(OBJ_DIR_SHORT)
+ARFLAGS       = rcs
+LDFLAGS       = $(LIBDIRS)
+CXXFLAGS      = $(CFLAGS)
+EXTRACFLAGS   = $(INCLUDEDIRS)
+EXTRACXXFLAGS = $(EXTRACFLAGS)
+.PHONY: depend clean install all
+

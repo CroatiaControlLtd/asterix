@@ -1,0 +1,54 @@
+Instructions how to build Wireshark plugin.
+
+Windows (using MSVC2008EE)
+--------------------
+
+1. Copy sources (e.g. D:\workspace\wireshark-1.0.5)
+
+2. Edit config.nmake
+    VERSION_EXTRA="-Asterix"
+    #MSVC_VARIANT=MSVC6
+    MSVC_VARIANT=MSVC2008EE
+    
+3. Verify installed tools
+   "C:\Program Files\Microsoft Visual Studio 9.0\VC\bin\vcvars32.bat"
+   nmake -f Makefile.nmake verify_tools 
+      
+4. Install libraries
+   nmake -f Makefile.nmake setup
+   
+5. Distclean sources
+   nmake -f Makefile.nmake distclean
+   
+6. Build Wireshark
+   nmake -f Makefile.nmake all
+   
+7. Run Wireshark
+   C:\wireshark\wireshark-gtk2\wireshark.exe
+       
+
+Linux 
+---------------------------
+1. Create asterix_wireshark_src_YYYY_MM-DD.tgz package from asterix sources using /asterix/src/astrix/wireshark-plugin/make_package_src.sh
+
+2. Copy it to temporary folder and compare it with wireshark source folder (e.g using meld)
+
+Following files from original wireshark sources shall be changed:
+epan/Makefile.am
+plugins/Makefile.am
+plugins/Makefile.nmake
+packaging/nsis/Makefile.nmake
+packaging/nsis/wireshark.nsi
+Makefile.am
+configure.in
+CMakeLists.txt
+
+Following directoris are new:
+plugins/asterix
+usr
+
+3. "./autogen.sh"
+
+4. "./configure"
+
+5. "make rpm-package"

@@ -1,0 +1,1 @@
+./asterix.exe -P -d config/asterix.ini -l -f sample_data/asterix.pcap

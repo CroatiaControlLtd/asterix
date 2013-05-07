@@ -1,0 +1,1 @@
+./asterix.exe -d config/asterix.ini -i 232.1.1.11:10.17.58.37:21111

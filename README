@@ -1,0 +1,83 @@
+asterix
+=======
+
+Asterix is utility used for reading and parsing of Eurocontrol ASTERIX protocol data from stdin, file or network multicast stream.
+
+ASTERIX stands for All Purpose STructured Eurocontrol SuRveillance Information EXchange.
+It is an ATM Surveillance Data Binary Messaging Format which allows transmission of harmonised information between any surveillance and automation system.
+ASTERIX defines the structure of the data to be exchanged over a communication medium, from the encoding of every bit of information up to the organisation of the data within a block of data - without any loss of information during the whole process.
+More about ASTERIX protocol you can find here: http://www.eurocontrol.int/services/asterix
+
+Asterix application was developed by Croatia Control Ltd.
+
+This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.
+
+BUILDING FOR WINDOWS
+====================
+
+You need to install Cygwin (http://www.cygwin.com/)
+From asterix/src directory start following command:
+
+make
+make install
+
+for debug version:
+make MODE=DEBUG
+make MODE=DEBUG install
+
+asterix.exe will be created in asterix/install
+
+BUILDING FOR LINUX
+==================
+
+From asterix/src directory start following command:
+
+make
+make install
+
+for debug version:
+make MODE=DEBUG
+make MODE=DEBUG install
+
+asterix.exe will be created in asterix/install
+
+USAGE
+=====
+
+asterix.exe [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x] [-d filename] -f filename|-i mcastaddress:ipaddress:port
+
+Options:
+	-h,--help	Show this help message
+	-v,--verbose	Show more information during program execution
+	-P,--pcap	Input is from PCAP file
+	-O,--oradis	Asterix packet is encapsulated in ORADIS packet
+	-R,--oradispcap	Input is from PCAP file and
+			Asterix packet is encapsulated in ORADIS packet
+	-F,--final	Asterix packet is encapsulated in FINAL packet.
+	-H,--hdlc	Asterix packet is encapsulated in HDLC packet.
+	-l,--line	Output will be printed as one line per item. This format is suitable for parsing.
+	-x,--xml	Output will be printed in XML format.
+			Fields that are printed are defined in input
+			definition file as XIDEF.
+	-d,--def	XML protocol definitions filenames are listed in
+			specified filename.
+			By default are listed in config/asterix.ini
+	-f filename	File generated from libpcap (tcpdump or Wireshark)
+			or file in FINAL or HDLC format.
+			For example: -f filename.pcap
+	-i m:i:p	Multicast IP address:Interface address:Port.
+			For example: 232.1.1.12:10.17.58.37:21112
+
+WIRESHARK PLUGIN
+=================
+
+Wireshark (http://www.wireshark.org/) plugin can be created from Asterix source.
+For instructions see asterix\src\asterix\wireshark-plugin\HowToBuild.txt
+			
+CREDITS
+=======
+
+Jurica Baricevic	-	Created engine source (as part of converter project)
+Zeljko Harjac		-	Modifications of engine source
+Damir Salantic		-	Created Asterix source and part of Asterix XML files
+Darko Markus		-	Created Asterix XML files, debuging and testing

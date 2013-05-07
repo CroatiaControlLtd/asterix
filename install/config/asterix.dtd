@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+	DTD for Asterix format
+	
+	Author:   dsalantic
+	Created:  24.12.2008.
+				
+-->
+
+<!ELEMENT Category (DataItem*,UAP*)>
+	<!ATTLIST Category id CDATA #REQUIRED>
+	<!ATTLIST Category name CDATA #REQUIRED>
+	<!ATTLIST Category ver CDATA #REQUIRED>
+
+	<!ELEMENT Bits (BitsShortName?,BitsName?,(BitsConst|BitsValue*|BitsUnit|BitsPresence),XIDEF?)>
+		<!ATTLIST Bits bit CDATA "0">
+		<!ATTLIST Bits from CDATA "0">
+		<!ATTLIST Bits to CDATA "0">
+		<!ATTLIST Bits encode (signed|6bitschar|octal|unsigned|ascii) "unsigned">
+		<!ATTLIST Bits fx CDATA "0">
+		<!ATTLIST Bits rep CDATA "0">
+		<!ELEMENT BitsShortName (#PCDATA)>
+		<!ELEMENT BitsName (#PCDATA)>
+		<!ELEMENT XIDEF (#PCDATA)>
+		<!ELEMENT BitsValue (#PCDATA)>
+			<!ATTLIST BitsValue val CDATA "0" >
+			<!-- TODO <!ATTLIST BitsValue from CDATA "0" > -->
+			<!-- TODO <!ATTLIST BitsValue to CDATA "0" > -->
+		<!ELEMENT BitsConst (#PCDATA)>
+		<!ELEMENT BitsPresence (#PCDATA)>
+		<!ELEMENT BitsUnit (#PCDATA)>
+			<!ATTLIST BitsUnit scale CDATA "1" >
+			<!ATTLIST BitsUnit min CDATA "0" >
+			<!ATTLIST BitsUnit max CDATA "0" >
+
+	<!ELEMENT DataItem (DataItemName,DataItemDefinition,DataItemFormat,DataItemNote?)>
+		<!ATTLIST DataItem id CDATA #REQUIRED>
+		<!ATTLIST DataItem rule (mandatory|optional|unknown) "unknown">
+		<!ELEMENT DataItemName (#PCDATA)>
+		<!ELEMENT DataItemDefinition (#PCDATA)>
+		<!ELEMENT DataItemNote (#PCDATA)>
+		<!ELEMENT DataItemFormat (Fixed|Explicit|Repetitive|Variable|Compound)>
+			<!ATTLIST DataItemFormat desc CDATA "" >
+
+			<!-- Fixed length data fields -->
+			<!ELEMENT Fixed (XIDEF?,Bits+)>
+				<!ATTLIST Fixed length CDATA "1" >
+
+			<!-- Explicit length data fields -->
+			<!ELEMENT Explicit (Fixed+)>
+
+			<!-- Repetitive length data fields -->
+			<!ELEMENT Repetitive (Fixed+)>
+
+			<!-- Variable (extended) length data fields -->
+			<!ELEMENT Variable (Fixed+)>
+
+			<!-- Compund data fields -->
+			<!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable)*)>
+
+	<!-- User Application Profile -->
+	<!ELEMENT UAP (UAPItem*)>
+	<!ATTLIST UAP use_if_bit_set CDATA "0">
+	<!ATTLIST UAP use_if_byte_nr CDATA "0">
+	<!ATTLIST UAP is_set_to CDATA "0">
+	<!ELEMENT UAPItem (#PCDATA)>
+	<!ATTLIST UAPItem bit CDATA #REQUIRED>
+	<!ATTLIST UAPItem frn CDATA #REQUIRED>
+	<!ATTLIST UAPItem fx CDATA "0">
+	<!ATTLIST UAPItem len CDATA "-">

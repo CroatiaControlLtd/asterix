@@ -1,0 +1,75 @@
+/*
+ *  Copyright (c) 2013 Croatia Control Ltd. (www.crocontrol.hr)
+ *
+ *  This file is part of Asterix.
+ *
+ *  Asterix is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Asterix is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Asterix.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * AUTHORS: Damir Salantic, Croatia Control Ltd.
+ *
+ */
+
+#ifndef DATAITEMDESCRIPTION_H_
+#define DATAITEMDESCRIPTION_H_
+
+#include "DataItemFormat.h"
+
+class DataItemDescription
+{
+public:
+  DataItemDescription(int id);
+  virtual
+  ~DataItemDescription();
+
+  int m_nID;
+
+  void setName(char* name) { m_strName = name; }
+  void setDefinition(char* definition) { m_strDefinition = definition; }
+  void setFormat(char* format) { m_strFormat = format; }
+
+  bool getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
+  {
+    return m_pFormat->getText(strDescription, strHeader, pData, nLength);
+  };
+
+  bool getDescription(std::string& strDescription, unsigned char* pData, long nLength) // appends description to strDescription
+  {
+    return m_pFormat->getDescription(strDescription, pData, nLength);
+  };
+
+  bool getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength) // appends XIDEF to strXIDEF
+  {
+    return m_pFormat->getXIDEF(strXIDEF, pData, nLength);
+  };
+
+  std::string m_strName;
+  std::string m_strDefinition;
+  std::string m_strFormat;
+  std::string m_strNote;
+
+  DataItemFormat* m_pFormat;
+
+  typedef enum
+  {
+    DATAITEM_UNKNOWN = 0,
+    DATAITEM_OPTIONAL,
+    DATAITEM_MANDATORY
+  } _eRule;
+
+  _eRule m_eRule;
+
+};
+
+#endif /* DATAITEMDESCRIPTION_H_ */

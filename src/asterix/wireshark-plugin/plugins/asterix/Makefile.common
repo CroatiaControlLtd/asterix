@@ -1,0 +1,114 @@
+# Makefile.common for Asterix plugin
+#     Contains the stuff from Makefile.am and Makefile.nmake that is
+#     a) common to both files and
+#     b) portable between both files
+#
+# $Id: Makefile.common,v 1.3 2012-01-13 14:49:23 cvs Exp $
+#
+# Wireshark - Network traffic analyzer
+# By Gerald Combs <gerald@wireshark.org>
+# Copyright 1998 Gerald Combs
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+# the name of the plugin
+PLUGIN_NAME = asterix
+
+# the dissector sources (without any helpers)
+DISSECTOR_SRC = \
+	packet-asterix.c \
+	xmlparse.c \
+	xmlrole.c \
+	xmltok.c \
+	xmltok_impl.c \
+	xmltok_ns.c
+
+DISSECTOR_CPP_SRC = \
+	AsterixDefinition.cpp \
+	AsterixData.cpp \
+	Category.cpp \
+	DataBlock.cpp \
+	DataRecord.cpp \
+	DataItem.cpp \
+	DataItemBits.cpp \
+	DataItemDescription.cpp \
+	DataItemFormat.cpp \
+	DataItemFormatCompound.cpp \
+	DataItemFormatExplicit.cpp \
+	DataItemFormatFixed.cpp \
+	DataItemFormatRepetitive.cpp \
+	DataItemFormatVariable.cpp \
+	InputParser.cpp \
+	Tracer.cpp \
+	UAP.cpp \
+	UAPItem.cpp \
+	Utils.cpp \
+	XMLParser.cpp \
+	WiresharkWrapper.cpp
+
+AM_CPPFLAGS = -DWIRESHARK_WRAPPER -DLINUX
+
+# corresponding headers
+DISSECTOR_INCLUDES = \
+	ascii.h \
+	asciitab.h \
+	Category.h \
+	DataItemFormatExplicit.h \
+	DataItem.h \
+	iasciitab.h \
+	nametab.h \
+	Utils.h  \
+	DataBlock.h \
+	DataItemFormatFixed.h \
+	DataRecord.h \
+	InputParser.h \
+	Tracer.h \
+	WiresharkWrapper.h \
+	AsterixData.h \
+	DataItemBits.h \
+	DataItemFormat.h \
+	expat_config.h \
+	internal.h \
+	UAP.h \
+	XMLParser.h \
+	AsterixDefinition.h \
+	DataItemDescription.h \
+	DataItemFormatRepetitive.h \
+	expat_external.h \
+	latin1tab.h \
+	UAPItem.h \
+	xmlrole.h \
+	asterixhdlcparsing.h \
+	DataItemFormatCompound.h \
+	DataItemFormatVariable.h \
+	expat.h \
+	moduleinfo.h \
+	utf8tab.h \
+	xmltok.h \
+	xmltok_impl.h \
+	asterixfinalsubformat.hxx \
+	asterixformat.hxx \
+	asterixkmlsubformat.hxx \
+	asterixtxtsubformat.hxx \
+	asterixformatdescriptor.hxx \
+	asterixhdlcsubformat.hxx \
+	asterixpcapsubformat.hxx \
+	asterixtrackssubformat.hxx \
+	asterixxidefsubformat.hxx
+
+# Dissector helpers. They're included in the source files in this
+# directory, but they're not dissectors themselves, i.e. they're not
+# used to generate "plugin.c".
+DISSECTOR_SUPPORT_SRC =
