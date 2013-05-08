@@ -30,6 +30,14 @@
 #include "basedevice.hxx"
 #include "descriptor.hxx"
 
+/*
+ * MSG_NOSIGNAL is not defined on OS X
+ * but has an equivalent (SO_NOSIGPIPE)
+ */
+#ifdef __APPLE__
+#define MSG_NOSIGNAL SO_NOSIGPIPE
+#endif
+
 #define MAX_TCP_PACKET_SIZE     1500
 
 /**

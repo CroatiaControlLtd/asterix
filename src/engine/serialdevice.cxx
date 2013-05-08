@@ -281,7 +281,10 @@ void CSerialDevice::Init(const char *device)
     LOGDEBUG(ZONE_SERIALDEVICE, "old oflag=%08x\n", my_termios.c_oflag);
     LOGDEBUG(ZONE_SERIALDEVICE, "old iflag=%08x\n", my_termios.c_iflag);
     LOGDEBUG(ZONE_SERIALDEVICE, "old lflag=%08x\n", my_termios.c_lflag);
+#ifndef __APPLE__
+    // c_line is not defined on OS X
     LOGDEBUG(ZONE_SERIALDEVICE, "old line=%02x\n",  my_termios.c_line);
+#endif
 
     // Flush the serial port
     tcflush(_fileDesc, TCIFLUSH);
@@ -303,7 +306,10 @@ void CSerialDevice::Init(const char *device)
     LOGDEBUG(ZONE_SERIALDEVICE, "new oflag=%08x\n", my_termios.c_oflag);
     LOGDEBUG(ZONE_SERIALDEVICE, "new iflag=%08x\n", my_termios.c_iflag);
     LOGDEBUG(ZONE_SERIALDEVICE, "new lflag=%08x\n", my_termios.c_lflag);
+#ifndef __APPLE__
+    // c_line is not defined on OS X
     LOGDEBUG(ZONE_SERIALDEVICE, "new line=%02x\n", my_termios.c_line);
+#endif
 
     _opened = true;
 }
