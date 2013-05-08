@@ -40,15 +40,23 @@ plugins/Makefile.nmake
 packaging/nsis/Makefile.nmake
 packaging/nsis/wireshark.nsi
 Makefile.am
-configure.in
+configure.in		(Important: you will have to change AC_INIT(wireshark, 1.8.6) to current wireshark version)
 CMakeLists.txt
 
-Following directoris are new:
+Following directories are new:
 plugins/asterix
 usr
+
+When you are confident that changes are correct, move all sources to wireshark folder.
 
 3. "./autogen.sh"
 
 4. "./configure"
 
 5. "make rpm-package"
+
+Installation will be placed in : packaging/rpm/RPMS/x86_64
+
+6. Install wireshark with: "rpm -i wireshark-1.8.6.-2.x86_64.rpm"
+
+7. Copy configuration file to use dir: "cp -rf usr /"

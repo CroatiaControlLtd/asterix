@@ -28,12 +28,7 @@ PLUGIN_NAME = asterix
 
 # the dissector sources (without any helpers)
 DISSECTOR_SRC = \
-	packet-asterix.c \
-	xmlparse.c \
-	xmlrole.c \
-	xmltok.c \
-	xmltok_impl.c \
-	xmltok_ns.c
+	packet-asterix.c
 
 DISSECTOR_CPP_SRC = \
 	AsterixDefinition.cpp \
@@ -62,13 +57,9 @@ AM_CPPFLAGS = -DWIRESHARK_WRAPPER -DLINUX
 
 # corresponding headers
 DISSECTOR_INCLUDES = \
-	ascii.h \
-	asciitab.h \
 	Category.h \
 	DataItemFormatExplicit.h \
 	DataItem.h \
-	iasciitab.h \
-	nametab.h \
 	Utils.h  \
 	DataBlock.h \
 	DataItemFormatFixed.h \
@@ -79,25 +70,16 @@ DISSECTOR_INCLUDES = \
 	AsterixData.h \
 	DataItemBits.h \
 	DataItemFormat.h \
-	expat_config.h \
-	internal.h \
 	UAP.h \
 	XMLParser.h \
 	AsterixDefinition.h \
 	DataItemDescription.h \
 	DataItemFormatRepetitive.h \
-	expat_external.h \
-	latin1tab.h \
 	UAPItem.h \
-	xmlrole.h \
 	asterixhdlcparsing.h \
 	DataItemFormatCompound.h \
 	DataItemFormatVariable.h \
-	expat.h \
 	moduleinfo.h \
-	utf8tab.h \
-	xmltok.h \
-	xmltok_impl.h \
 	asterixfinalsubformat.hxx \
 	asterixformat.hxx \
 	asterixkmlsubformat.hxx \
