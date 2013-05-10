@@ -41,6 +41,25 @@ make MODE=DEBUG install
 
 asterix.exe will be created in asterix/install
 
+BUILDING FOR OS X
+=================
+
+You need to install the "Command Line Tools".
+On 10.7 (Lion) and 10.8 (Moutain Lion), download Xcode from the Mac App Store.
+After installing Xcode, go to "Xcode->Preferences->Downloads" and install the
+package "Command Line Tools".
+
+From asterix/src directory start following command:
+
+make
+make install
+
+for debug version:
+make MODE=DEBUG
+make MODE=DEBUG install
+
+asterix.exe will be created in asterix/install
+
 USAGE
 =====
 
