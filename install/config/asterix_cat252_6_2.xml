@@ -49,7 +49,7 @@
 		<DataItemFormat desc="Three-byte fixed length data item.">
 			<Fixed length="3">
 				<Bits from="24" to="1" encode="unsigned">
-					<BitsShortName>time_of_messagee</BitsShortName>
+					<BitsShortName>time_of_message</BitsShortName>
 					<BitsName>Time Of Message</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -395,7 +395,7 @@
                         <BitsValue val="1">Yes</BitsValue>
                     </Bits>
                     <Bits bit="5">
-                        <BitsShortName>C4</BitsShortName>
+                        <BitsShortName>C5</BitsShortName>
                         <BitsName>Complementary service 5</BitsName>
                         <BitsValue val="0">No</BitsValue>
                         <BitsValue val="1">Yes</BitsValue>
@@ -1358,6 +1358,7 @@
                 <Bits from="11" to="1">
                     <BitsShortName>code</BitsShortName>
                     <BitsName>Report code</BitsName>
+                    <BitsValue val="0">batch or sector number</BitsValue>
                     <BitsValue val="1">service degradation</BitsValue>
                     <BitsValue val="2">service degradation ended</BitsValue>
                     <BitsValue val="3">main radar out of service</BitsValue>

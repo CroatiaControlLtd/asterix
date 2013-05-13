@@ -688,8 +688,8 @@
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>RDPC</BitsShortName>
-                        <BitsValue val="0"></BitsValue>
-                        <BitsValue val="1"></BitsValue>
+                        <BitsValue val="0">RDP Chain 1</BitsValue>
+                        <BitsValue val="1">RDP Chain 2</BitsValue>
                         <XIDEF>TS_RDPC</XIDEF>
                     </Bits>
                     <Bits bit="3">

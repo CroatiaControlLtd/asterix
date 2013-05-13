@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Category SYSTEM "asterix.dtd">
 
-
-
-
-
 <!--  
 
 	Asterix Category 62 v1.16 definition 
 	
 	Author:   dmarkus
 	Created:  5.11.2012.
+	Modified: 10.5.2013.
 -->
 
 <Category id="62" name="SDPS Track Messages" ver="1.16">
 	
-	<DataItem id="10" >
+	<DataItem id="010" rule="mandatory" >
 		<DataItemName>Data Source Identifier</DataItemName>	
 		<DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
 		<DataItemFormat>
@@ -33,7 +30,7 @@
 		<DataItemNote>The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="15" >
+	<DataItem id="015" rule="optional">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
 		<DataItemFormat>
@@ -46,7 +43,7 @@
 		<DataItemNote>the service identification is allocated by the system</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="40" >
+	<DataItem id="040" rule="mandatory">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of a track</DataItemDefinition>
 		<DataItemFormat>
@@ -59,7 +56,7 @@
 <DataItemNote>This Item shall be present in every ASTERIX record</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="60" >
+	<DataItem id="060" rule="optional">
 		<DataItemName>Track Mode 3/A Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
 		<DataItemFormat>
@@ -85,7 +82,7 @@
 		</DataItemFormat>
 	</DataItem>	
 				
-	<DataItem id="70" >
+	<DataItem id="070" rule="mandatory" >
 		<DataItemName>Time Of Track Information</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
 		<DataItemFormat>
@@ -99,7 +96,7 @@
 		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
 				
-	<DataItem id="80">
+	<DataItem id="080" rule="mandatory">
 		<DataItemName>Track Status</DataItemName>
 		<DataItemDefinition>Status of a track.</DataItemDefinition>
 		<DataItemFormat>
@@ -333,16 +330,16 @@
 		<DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="100" >
+	<DataItem id="100" rule="optional">
 		<DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
 		<DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="6">
-				<Bits from="48" to="25">
+				<Bits from="48" to="25" encode="signed">
 					<BitsName>X</BitsName>
 					<BitsUnit scale="0.5">m</BitsUnit>
 				</Bits>
-				<Bits from="24" to="1">
+				<Bits from="24" to="1" encode="signed">
 					<BitsName>Y</BitsName>
 					<BitsUnit scale="0.5">m</BitsUnit>
 				</Bits>
@@ -350,7 +347,7 @@
 		</DataItemFormat>
 	</DataItem>
 		
-	<DataItem id="105" >
+	<DataItem id="105" rule="optional">
 		<DataItemName>Calculated Position In WGS-84 Co-ordinates</DataItemName>
 		<DataItemDefinition>Calculated Position in WGS-84 Co-ordinates with a resolution of 180/225. degrees</DataItemDefinition>
 		<DataItemFormat>
@@ -370,7 +367,7 @@
 		<DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="110" >
+	<DataItem id="110" rule="optional">
 		<DataItemName>Mode 5 Data reports and Extended Mode 1 Code</DataItemName>
 		<DataItemDefinition>Mode 5 Data reports and Extended Mode 1 Code</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
@@ -577,7 +574,7 @@
 		</DataItemFormat>
 	</DataItem>
 	
-	<DataItem id="120" >
+	<DataItem id="120" rule="optional">
 		<DataItemName>Track Mode 2 Code</DataItemName>
 		<DataItemDefinition>Mode 2 code associated to the track</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
@@ -593,12 +590,12 @@
 		</DataItemFormat>
 	</DataItem>
 	
-	<DataItem id="130" >
+	<DataItem id="130" rule="optional">
 		<DataItemName>Calculated Track Geometric Altitude</DataItemName>
 		<DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
 			<Fixed length="2">
-				<Bits from="1" to="16">
+				<Bits from="1" to="16" encode="signed">
 					<BitsName>Altitude</BitsName>
 					<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
@@ -607,7 +604,7 @@
 		<DataItemNote>1. LSB is required to be less than 10 ft by ICAO 2. The source of altitude is identified in bits (SRC) of item I062/080 Track Status</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="135" >
+	<DataItem id="135" rule="optional">
 		<DataItemName>Calculated Track Barometric Altitude</DataItemName>
 		<DataItemDefinition>Calculated Barometric Altitude of the track, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
@@ -617,7 +614,7 @@
 					<BitsValue val="0">No QNH correction applied</BitsValue>
 					<BitsValue val="1">QNH correction applied</BitsValue>
 				</Bits>
-				<Bits from="1" to="15">
+				<Bits from="1" to="15" encode="signed">
 					<BitsName>Calculated Track Barometric Altitude</BitsName>
 					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
@@ -626,12 +623,12 @@
 		<DataItemNote>ICAO specifies a range between –10 FL and 1267 FL for Mode C</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="136" >
+	<DataItem id="136" rule="optional">
 		<DataItemName>Measured Flight Level</DataItemName>
 		<DataItemDefinition>Last valid and credible flight level used to update the track, in two’s complement form,.</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
 			<Fixed length="2">
-				<Bits from="1" to="16">
+				<Bits from="1" to="16" encode="signed">
 					<BitsName>Measured Flight Level</BitsName>
 					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
@@ -640,7 +637,7 @@
 		<DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between –10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="185" >
+	<DataItem id="185" rule="optional">
 		<DataItemName>Calculated Track Velocity (Cartesian)</DataItemName>
 		<DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat desc="Four-octet fixed length Data Item .">
@@ -658,7 +655,7 @@
 		<DataItemNote>The y-axis points to the Geographical North at the location of the target.</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="200" >
+	<DataItem id="200" rule="optional">
 		<DataItemName>Mode of Movement</DataItemName>
 		<DataItemDefinition>Calculated Mode of Movement of a target.</DataItemDefinition>
 		<DataItemFormat desc="One-Octet fixed length data item.">
@@ -703,16 +700,16 @@
 		<DataItemNote>The ADF, if set, indicates that a difference has been detected in the altitude information derived from radar as compared to other technologies (such as ADS-B).</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="210" >
+	<DataItem id="210" rule="optional">
 		<DataItemName>Calculated Acceleration (Cartesian)</DataItemName>
 		<DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item .">
 			<Fixed length="2">
-				<Bits from="16" to="9">
+				<Bits from="16" to="9" encode="signed">
 					<BitsName>Ax</BitsName>
 					<BitsUnit scale="0.25">m/s2</BitsUnit>
 				</Bits>
-				<Bits from="8" to="1">
+				<Bits from="8" to="1" encode="signed">
 					<BitsName>Ay</BitsName>
 					<BitsUnit scale="0.25">m/s2</BitsUnit>
 				</Bits>
@@ -721,12 +718,12 @@
 		<DataItemNote>1. The y-axis points to the Geographical North at the location of the target. 2. Maximum value means maximum value or above.</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="220" >
+	<DataItem id="220" rule="optional">
 		<DataItemName>Calculated Rate Of Climb/Descent)</DataItemName>
 		<DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two’s complement form.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item .">
 			<Fixed length="2">
-				<Bits from="1" to="16">
+				<Bits from="1" to="16" encode="signed">
 					<BitsName>Rate of Climb/Descent</BitsName>
 					<BitsUnit scale="6.25">ft/min</BitsUnit>
 				</Bits>
@@ -735,7 +732,7 @@
 		<DataItemNote>A positive value indicates a climb, whereas a negative value indicates a descent.</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="245" >
+	<DataItem id="245" rule="optional">
 		<DataItemName>Target Identification</DataItemName>
 		<DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters.</DataItemDefinition>
 		<DataItemFormat desc="Seven-octet fixed length Data Item.">
@@ -759,7 +756,7 @@
 		<DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user’s side, this item SHALL not be used.</DataItemNote>
 	</DataItem>	
 
-	<DataItem id="270" >
+	<DataItem id="270" rule="optional">
 		<DataItemName>Target Size and Orientation</DataItemName>
 		<DataItemDefinition>Target size defined as length and width of the detected target, and orientation.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
@@ -805,7 +802,7 @@
 		<DataItemNote>1. The orientation gives the direction which the target nose is pointing to, relative to the Geographical North. 2. When the length only is sent, the largest dimension is provided.</DataItemNote>
 	</DataItem>	
 	
-	<DataItem id="290">
+	<DataItem id="290" rule="optional">
 		<DataItemName>System Track Update Ages</DataItemName>
 		<DataItemDefinition>Ages of the last plot/local track/target report update for eachsensor type.</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
@@ -968,7 +965,7 @@
 		</DataItemFormat>
 	</DataItem>	
 	
-	<DataItem id="295">
+	<DataItem id="295" rule="optional">
 		<DataItemName>Track Data Ages</DataItemName>
 		<DataItemDefinition>Ages of the data provided.</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to five octets, followed by the indicated subfields.">
@@ -1430,7 +1427,7 @@
 		</DataItemFormat>
 	</DataItem>	
 	
-	<DataItem id="300" >
+	<DataItem id="300" rule="optional">
 		<DataItemName>Vehicle Fleet Identification</DataItemName>
 		<DataItemDefinition>Vehicle fleet identification number.</DataItemDefinition>
 		<DataItemFormat desc="One octet fixed length Data Item.">
@@ -1444,7 +1441,7 @@
 		<DataItemNote></DataItemNote>
 	</DataItem>		
 	
-	<DataItem id="340">
+	<DataItem id="340" rule="optional">
 		<DataItemName>Measured In Data Item Formation</DataItemName>
 		<DataItemDefinition>All measured data related to the last report used to update the track</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by up to six subfields.">
@@ -1612,7 +1609,7 @@
 		</DataItemFormat>
 	</DataItem>
 		
-	<DataItem id="380">
+	<DataItem id="380" rule="optional">
 		<DataItemName>Aircraft Derived Data</DataItemName>
 		<DataItemDefinition>Data derived directly by the aircraft</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to four octets, followed by the indicated subfields">
@@ -1849,9 +1846,8 @@
 
 					<Bits from="13" to="1" encode="signed">
 						<BitsShortName>ALT</BitsShortName>
-						<BitsName>Altitude</BitsName>
-						
-<BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
+						<BitsName>Altitude</BitsName>						
+						<BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
 					</Bits>
 				</Fixed>
 				<Fixed length="2">
@@ -2262,7 +2258,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="390">
+	<DataItem id="390" rule="optional">
 		<DataItemName>Flight Plan Related Data</DataItemName>
 		<DataItemDefinition>All flight plan related information</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to fourteen subfields.">
@@ -2568,7 +2564,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="500">
+	<DataItem id="500" rule="optional">
 		<DataItemName>Estimated Accuracies</DataItemName>
 		<DataItemDefinition>Overview of all important accuracies</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to eight subfields of predefined length.">
@@ -2711,7 +2707,7 @@
 		</DataItemFormat>
 	</DataItem>
 	
-	<DataItem id="510">
+	<DataItem id="510" rule="optional">
 		<DataItemName>Composed Track Number</DataItemName>
 		<DataItemDefinition>Identification of a system track</DataItemDefinition>
 		<DataItemFormat desc="Extendible data item, comprising a first part of three octets (Master Track Number), followed by three-octet extents (Slave Tracks Numbers).">
@@ -2752,10 +2748,10 @@
 
 	
 		<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
 		<UAPItem bit="1" frn="2" len="-">-</UAPItem>
-		<UAPItem bit="2" frn="3" len="1">15</UAPItem>
-		<UAPItem bit="3" frn="4" len="3">70</UAPItem>
+		<UAPItem bit="2" frn="3" len="1">015</UAPItem>
+		<UAPItem bit="3" frn="4" len="3">070</UAPItem>
 		<UAPItem bit="4" frn="5" len="8">105</UAPItem>
 		<UAPItem bit="5" frn="6" len="6">100</UAPItem>
 		<UAPItem bit="6" frn="7" len="4">185</UAPItem>

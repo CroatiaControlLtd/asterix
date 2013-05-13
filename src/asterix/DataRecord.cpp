@@ -92,31 +92,46 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
     return;
   }
 
+  bool errorReported = false;
+
   // parse DataItems
   std::list<DataItem*>::iterator it;
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
   {
     DataItem* di = (DataItem*)(*it);
-    long usedbytes = di->parse(m_pItemDataStart, nUnparsed);
 
+    if (di->m_pDescription == NULL || di->m_pDescription->m_pFormat == NULL)
+    {
+        Tracer::Error("DataItem format not defined for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+        errorReported = true;
+        break;
+    }
+
+    long usedbytes = di->parse(m_pItemDataStart, nUnparsed);
     if (usedbytes <= 0 || usedbytes > nUnparsed)
     {
       Tracer::Error("Wrong length in DataItem format for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+      errorReported = true;
       break;
     }
 
     m_pItemDataStart += usedbytes;
     nUnparsed -= usedbytes;
   }
-
+/*
   if (nUnparsed > 0)
   {
-    m_nLength -= nUnparsed;
+	  Tracer::Error("Unparsed bytes: %ld", nUnparsed );
+//    m_nLength -= nUnparsed;
   }
-
+*/
   if (it != m_lDataItems.end())
   {
-    Tracer::Error("Not enough data in record for CAT%03d", cat->m_id );
+	if (errorReported == false)
+	{
+		Tracer::Error("Not enough data in record for CAT%03d", cat->m_id );
+	}
+
     while(it != m_lDataItems.end())
     {
       DataItem* di = (DataItem*)(*it);

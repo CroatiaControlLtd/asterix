@@ -39,6 +39,7 @@
                 <Fixed length="1">
                     <Bits from="8" to="6">
                         <BitsShortName>TYP</BitsShortName>
+                        <BitsName>TYP</BitsName>
                         <BitsValue val="0">No detection</BitsValue>
                         <BitsValue val="1">Single PSR detection</BitsValue>
 						<BitsValue val="2">Single SSR detection</BitsValue>
@@ -50,26 +51,31 @@
                     </Bits>
                     <Bits bit="5">
                         <BitsShortName>SIM</BitsShortName>
+                        <BitsName>SIM</BitsName>
                         <BitsValue val="0">Actual target report</BitsValue>
                         <BitsValue val="1">Simulated target report</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>RDP</BitsShortName>
+                        <BitsName>RDP</BitsName>
                         <BitsValue val="0">Report from RDP Chain 1</BitsValue>
                         <BitsValue val="1">Report from RDP Chain 2</BitsValue>
                     </Bits>
                     <Bits bit="3">
                         <BitsShortName>SPI</BitsShortName>
+                        <BitsName>SPI</BitsName>
                         <BitsValue val="0">Absence of SPI</BitsValue>
                         <BitsValue val="1">Special Position Identification</BitsValue>
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>RAB</BitsShortName>
+                        <BitsName>RAB</BitsName>
                         <BitsValue val="0">Report from aircraft transponder</BitsValue>
                         <BitsValue val="1">Plot or track from a fixed transponder</BitsValue>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
@@ -77,6 +83,7 @@
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>TST</BitsShortName>
+                        <BitsName>TST</BitsName>
                         <BitsValue val="0">Real target report</BitsValue>
                         <BitsValue val="1">Test target report</BitsValue>
                     </Bits>
@@ -87,16 +94,19 @@
                     </Bits>
                     <Bits bit="5">
                         <BitsShortName>ME</BitsShortName>
+                        <BitsName>ME</BitsName>
                         <BitsValue val="0">Default</BitsValue>
                         <BitsValue val="1">Military emergency</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>MI</BitsShortName>
+                        <BitsName>MI</BitsName>
                         <BitsValue val="0">Default</BitsValue>
                         <BitsValue val="1">Military identification</BitsValue>
                     </Bits>
                     <Bits from="3" to="2">
 						<BitsShortName>FOE/FRI</BitsShortName>
+                        <BitsName>FOE/FRI</BitsName>
                         <BitsValue val="0">No mode 4 interrogation</BitsValue>
                         <BitsValue val="1">Friendly target</BitsValue>
                         <BitsValue val="2">Unknown target</BitsValue>
@@ -104,6 +114,7 @@
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
@@ -143,6 +154,7 @@
                     </Bits>
                     <Bits bit="1" fx="0">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
@@ -655,9 +667,9 @@
                         <BitsName>APD Presence</BitsName>
                         <BitsPresence>7</BitsPresence>
                     </Bits>  
-					    <Bits bit="1" fx="1">
+					<Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
-                        <BitsPresence>8</BitsPresence>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>                    
                     </Bits>  					
@@ -723,6 +735,7 @@
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
+                    <BitsShortName>ToD</BitsShortName>
 					<BitsName>Time Of Day</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 <XIDEF>ToD</XIDEF>
@@ -755,11 +768,13 @@
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>CNF</BitsShortName>
+                        <BitsName>CBF</BitsName>
                         <BitsValue val="0">Confirmed Track</BitsValue>
                         <BitsValue val="1">Tentative Track</BitsValue>
                     </Bits>
                     <Bits from="7" to="6">
                         <BitsShortName>RAD</BitsShortName>
+                        <BitsName>RAD</BitsName>
 						<BitsValue val="0">Combined Track</BitsValue>
                         <BitsValue val="1">PSR Track</BitsValue>
                         <BitsValue val="2">SSR/ModeS Track</BitsValue>
@@ -767,16 +782,19 @@
                     </Bits>
 					<Bits bit="5">
                         <BitsShortName>DOU</BitsShortName>
+                        <BitsName>DOU</BitsName>
                         <BitsValue val="0">Normal confidence</BitsValue>
                         <BitsValue val="1">Low confidence in plot to track association</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>MAH</BitsShortName>
+                        <BitsName>MAH</BitsName>
                         <BitsValue val="0">No horizontal man. sensed</BitsValue>
                         <BitsValue val="1">Horizontal manoeuvring sensed</BitsValue>
                     </Bits>
                     <Bits from="3" to="2">
                         <BitsShortName>CDM</BitsShortName>
+                        <BitsName>CDM</BitsName>
                         <BitsValue val="0">Maintaining</BitsValue>
                         <BitsValue val="1">Climbing</BitsValue>
 						<BitsValue val="2">Descending</BitsValue>
@@ -784,6 +802,7 @@
                     </Bits>
 					<Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
@@ -791,21 +810,25 @@
 				<Fixed length="1">
 					<Bits bit="8">
                         <BitsShortName>TRE</BitsShortName>
+                        <BitsName>TRE</BitsName>
                         <BitsValue val="0">Track still alive</BitsValue>
                         <BitsValue val="1">Last report for a track</BitsValue>
                     </Bits>
 					<Bits bit="7">
                         <BitsShortName>GHO</BitsShortName>
+                        <BitsName>GHO</BitsName>
                         <BitsValue val="0">True target track</BitsValue>
                         <BitsValue val="1">Ghost target track</BitsValue>
                     </Bits>
 					<Bits bit="6">
                         <BitsShortName>SUP</BitsShortName>
+                        <BitsName>SUP</BitsName>
                         <BitsValue val="0">Track from cluster network - NO</BitsValue>
                         <BitsValue val="1">Track from cluster network - YES</BitsValue>
                     </Bits>
 					<Bits bit="5">
                         <BitsShortName>TCC</BitsShortName>
+                        <BitsName>TCC</BitsName>
                         <BitsValue val="0">Radar plane</BitsValue>
                         <BitsValue val="1">Slant range correction</BitsValue>
                     </Bits>
@@ -816,6 +839,7 @@
                     </Bits>
 					<Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>FX</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into second extent</BitsValue>
                     </Bits>
@@ -880,6 +904,7 @@
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
+					<BitsShortName>AircraftAddress</BitsShortName>
 					<BitsName>AircraftAddress</BitsName>
 <XIDEF>24bitAddress</XIDEF>
 				</Bits>
@@ -893,35 +918,42 @@
 		<DataItemFormat>
 			<Fixed length="2">
 				<Bits from="16" to="14">
+					<BitsShortName>COM</BitsShortName>
 					<BitsName>COM</BitsName>
 				</Bits>
 				<Bits from="13" to="11">
+					<BitsShortName>STAT</BitsShortName>
 					<BitsName>STAT</BitsName>
 				</Bits>
 				<Bits from="10" to="9">
-                        <BitsShortName>sb</BitsShortName>
-						<BitsName>spare bit set to 0</BitsName>
-						<BitsConst>0</BitsConst>
+                    <BitsShortName>sb</BitsShortName>
+					<BitsName>spare bit set to 0</BitsName>
+					<BitsConst>0</BitsConst>
                 </Bits>
 				<Bits bit="8">
+					<BitsShortName>ModeSSSC</BitsShortName>	
 					<BitsName>ModeS Specific Service Capability</BitsName>	
                     <BitsValue val="0">No</BitsValue>
                     <BitsValue val="1">Yes</BitsValue>					
 				</Bits>
 				<Bits bit="7">
+					<BitsShortName>ARC</BitsShortName>	
 					<BitsName>Altitude reporting capability</BitsName>
                     <BitsValue val="0">100ft resolution</BitsValue>
                     <BitsValue val="1">25ft resolution</BitsValue>						
 				</Bits>
 				<Bits bit="6">
+					<BitsShortName>AIC</BitsShortName>	
 					<BitsName>Aircraft identification capability</BitsName>	
                     <BitsValue val="0">No</BitsValue>
                     <BitsValue val="1">Yes</BitsValue>						
 				</Bits>
 				<Bits bit="5">
+					<BitsShortName>BDS16</BitsShortName>	
 					<BitsName>BDS 1,0 bit 16</BitsName>					
 				</Bits>
 				<Bits from="4" to="1">
+					<BitsShortName>BDS37</BitsShortName>	
 					<BitsName>BDS 1,0 bits 37/40</BitsName>					
 				</Bits>
 			</Fixed>
@@ -934,6 +966,7 @@
 		<DataItemFormat desc="Six-octet fixed length Data Item.">
 			<Fixed length="6">
 				<Bits from="1" to="48" encode="6bitschar">
+					<BitsShortName>targetID</BitsShortName>
 					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
 <XIDEF>CS</XIDEF>
 				</Bits>
@@ -955,10 +988,10 @@
 						</Bits>
 
   						<Bits from="32" to="9">
-                                                        <BitsShortName>MBdata2</BitsShortName>
-                                                        <BitsName>MBdata2</BitsName>
+							<BitsShortName>MBdata2</BitsShortName>
+                            <BitsName>MBdata2</BitsName>
 <XIDEF>MB2</XIDEF>
-                                                </Bits>
+                        </Bits>
 
 						<Bits from="8" to="5">
 							<BitsShortName>DSB1</BitsShortName>
