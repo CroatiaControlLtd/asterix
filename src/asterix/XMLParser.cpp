@@ -461,7 +461,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
         }
       }
       else if (!strcmp(attr[i], "encode"))
-      { // <!ATTLIST Bits encode (signed|6bitschar|octal|unsigned|ascii) "unsigned">
+      { // <!ATTLIST Bits encode (signed|6bitschar|octal|unsigned|ascii|hex) "unsigned">
         if (!strcmp(attr[i+1], "unsigned"))
         {
           p->m_pBits->m_eEncoding = DataItemBits::DATAITEM_ENCODING_UNSIGNED;
@@ -469,6 +469,10 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
         else if (!strcmp(attr[i+1], "6bitschar"))
         {
           p->m_pBits->m_eEncoding = DataItemBits::DATAITEM_ENCODING_SIX_BIT_CHAR;
+        }
+		else if (!strcmp(attr[i+1], "hex"))
+        {
+          p->m_pBits->m_eEncoding = DataItemBits::DATAITEM_ENCODING_HEX_BIT_CHAR;
         }
         else if (!strcmp(attr[i+1], "octal"))
         {

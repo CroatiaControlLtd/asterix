@@ -18,7 +18,7 @@
 		<!ATTLIST Bits bit CDATA "0">
 		<!ATTLIST Bits from CDATA "0">
 		<!ATTLIST Bits to CDATA "0">
-		<!ATTLIST Bits encode (signed|6bitschar|octal|unsigned|ascii) "unsigned">
+		<!ATTLIST Bits encode (signed|6bitschar|octal|unsigned|ascii|hex) "unsigned">
 		<!ATTLIST Bits fx CDATA "0">
 		<!ATTLIST Bits rep CDATA "0">
 		<!ELEMENT BitsShortName (#PCDATA)>

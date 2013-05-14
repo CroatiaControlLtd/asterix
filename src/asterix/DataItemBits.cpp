@@ -29,7 +29,7 @@ static const char SIXBITCODE[] = {' ','A','B','C','D','E','F','G','H','I','J','K
                         'P','Q','R','S','T','U','V','W','X','Y','Z',' ',' ',' ',' ',' ',
                         ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
                         '0','1','2','3','4','5','6','7','8','9',' ',' ',' ',' ',' ',' '};
-
+						
 DataItemBits::DataItemBits()
 : m_nFrom(0)
 , m_nTo(0)
@@ -249,6 +249,39 @@ unsigned char* DataItemBits::getSixBitString(unsigned char* pData, int bytes, in
   return str;
 }
 
+unsigned char* DataItemBits::getHexBitString(unsigned char* pData, int bytes, int frombit, int tobit)
+{
+  int numberOfBits = (tobit-frombit+1);
+  if (numberOfBits%4)
+  {
+    Tracer::Error("Hex representation not valid");
+    return (unsigned char*)strdup("???");
+  }
+
+  unsigned char* pB = getBits(pData, bytes, frombit, tobit);
+
+  if (!pB)
+  {
+    Tracer::Error("DATAITEM_ENCODING_HEX_BIT_CHAR : Error.");
+    return (unsigned char*)strdup("???");
+  }
+
+  int numberOfCharacters = numberOfBits/4;
+  unsigned char* str = new unsigned char[numberOfCharacters+1];
+
+  memset(str, 0, numberOfCharacters+1);
+
+  int numberOfBytes = (numberOfCharacters+1)/2;
+  int i;
+  for (i=0; i<numberOfBytes; i++)
+  {
+	  sprintf((char*)&str[i*2], "%02X", pB[i]);
+  }
+
+  delete[] pB;
+  return str;
+}
+
 unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int frombit, int tobit)
 {
   int numberOfBits = (tobit-frombit+1);
@@ -400,6 +433,13 @@ bool DataItemBits::getDescription(std::string& strDescription, unsigned char* pD
    delete[] str;
  }
    break;
+ case DATAITEM_ENCODING_HEX_BIT_CHAR:
+ {
+   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+   strDescription += format("\n\t%s: %s", m_strName.c_str() ,str);
+   delete[] str;
+ }
+   break;   
  case DATAITEM_ENCODING_OCTAL:
  {
    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -518,6 +558,13 @@ bool DataItemBits::getText(std::string& strDescription, std::string& strHeader, 
    delete[] str;
  }
    break;
+ case DATAITEM_ENCODING_HEX_BIT_CHAR:
+ {
+   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+   strDescription += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
+   delete[] str;
+ }
+   break;   
  case DATAITEM_ENCODING_OCTAL:
  {
    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -605,6 +652,13 @@ bool DataItemBits::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nL
    delete[] str;
  }
    break;
+ case DATAITEM_ENCODING_HEX_BIT_CHAR:
+ {
+   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+   strXIDEF += format("%s", str);
+   delete[] str;
+ }
+   break;   
  case DATAITEM_ENCODING_OCTAL:
  {
    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -670,6 +724,15 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, unsigned long& v
     delete[] str;
   }
     break;
+	
+  case DATAITEM_ENCODING_HEX_BIT_CHAR:
+  {
+    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+    value = atol((const char*)str);
+    delete[] str;
+  }
+    break;	
+	
   case DATAITEM_ENCODING_OCTAL:
   {
     unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -740,6 +803,13 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, long& value, con
     delete[] str;
   }
     break;
+  case DATAITEM_ENCODING_HEX_BIT_CHAR:
+  {
+    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+    value = atol((const char*)str);
+    delete[] str;
+  }
+    break;	
   case DATAITEM_ENCODING_OCTAL:
   {
     unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -813,6 +883,14 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, std::string& val
     delete[] str;
   }
     break;
+  case DATAITEM_ENCODING_HEX_BIT_CHAR:
+  {
+    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+    value = (char*)str;
+    delete[] str;
+  }
+    break;	
+
   case DATAITEM_ENCODING_OCTAL:
   {
     unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
@@ -986,6 +1064,12 @@ fulliautomatix_definitions* DataItemBits::getWiresharkDefinitions()
     def->display = FA_BASE_NONE;
   }
   break;
+  case DATAITEM_ENCODING_HEX_BIT_CHAR:
+  {
+    def->type = FA_FT_STRING;
+    def->display = FA_BASE_NONE;
+  }
+  break;
   case DATAITEM_ENCODING_OCTAL:
   {
     def->type = FA_FT_STRING;
@@ -1091,6 +1175,14 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
   case DATAITEM_ENCODING_SIX_BIT_CHAR:
   {
     unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
+    fulliautomatix_data* data = newDataString(NULL, getPID(), byteoffset+firstByte, numberOfBytes, (char*)str);
+    delete[] str;
+    return data;
+  }
+    break;
+  case DATAITEM_ENCODING_HEX_BIT_CHAR:
+  {
+    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
     fulliautomatix_data* data = newDataString(NULL, getPID(), byteoffset+firstByte, numberOfBytes, (char*)str);
     delete[] str;
     return data;

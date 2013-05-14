@@ -53,6 +53,7 @@ public:
     DATAITEM_ENCODING_UNSIGNED = 0,
     DATAITEM_ENCODING_SIGNED,
     DATAITEM_ENCODING_SIX_BIT_CHAR,
+	DATAITEM_ENCODING_HEX_BIT_CHAR,
     DATAITEM_ENCODING_OCTAL,
     DATAITEM_ENCODING_ASCII
   } _eEncoding;
@@ -92,6 +93,7 @@ private:
   unsigned long getUnsigned(unsigned char* pData, int bytes, int frombit, int tobit);
   signed long getSigned(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getSixBitString(unsigned char* pData, int bytes, int frombit, int tobit);
+  unsigned char* getHexBitString(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getOctal(unsigned char* pData, int bytes, int frombit, int tobit);
 
 

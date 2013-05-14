@@ -903,7 +903,7 @@
 		<DataItemDefinition>24-bits Mode S address</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="3">
-				<Bits from="24" to="1">
+				<Bits from="24" to="1" encode="hex">
 					<BitsShortName>AircraftAddress</BitsShortName>
 					<BitsName>AircraftAddress</BitsName>
 <XIDEF>24bitAddress</XIDEF>
@@ -981,17 +981,11 @@
 		<DataItemFormat desc="Repetetive">
 			<Repetitive>
 					<Fixed length="8">
-						<Bits from="64" to="33">
-							<BitsShortName>MBdata1</BitsShortName>
-							<BitsName>MBdata1</BitsName>						
-<XIDEF>MB1</XIDEF>
+						<Bits from="64" to="9" encode="hex">
+							<BitsShortName>MBdata</BitsShortName>
+							<BitsName>MBdata</BitsName>						
+<XIDEF>MB</XIDEF>
 						</Bits>
-
-  						<Bits from="32" to="9">
-							<BitsShortName>MBdata2</BitsShortName>
-                            <BitsName>MBdata2</BitsName>
-<XIDEF>MB2</XIDEF>
-                        </Bits>
 
 						<Bits from="8" to="5">
 							<BitsShortName>DSB1</BitsShortName>
@@ -1014,7 +1008,7 @@
 		<DataItemDefinition>RA</DataItemDefinition>
 		<DataItemFormat desc="Seven-octet fixed length Data Item">
 					<Fixed length="7">
-						<Bits from="56" to="1">
+						<Bits from="56" to="1" encode="hex">
 							<BitsShortName>MBdata</BitsShortName>
 							<BitsName>BDS 3,0</BitsName>						
 						</Bits>

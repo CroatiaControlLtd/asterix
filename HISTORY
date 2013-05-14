@@ -5,10 +5,14 @@ Version History for Asterix
 Converter project.
 
 1.0.0
-07.05.2013.	
+07.05.2013.
 Initial version of Asterix forked from converter.
 
 1.0.1
-13.05.2013.
-Reading of Raw format from file fixed.
+13.05.2013. 
+Reading of Raw format from file fixed. 
 Added new categories.
+
+1.0.2
+14.05.2013.
+Added "hex" encode format (see in CAT048)
