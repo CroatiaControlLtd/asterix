@@ -737,12 +737,19 @@
                             <BitsShortName>SDH_presence</BitsShortName>
                             <BitsPresence>3</BitsPresence>
                         </Bits>
-                        <Bits from="5" to="1">
+                        <Bits from="5" to="2">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare bits set to zero</BitsName>
                             <BitsConst>0</BitsConst>
                         </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                    </Bits>
                     </Fixed>
+                </Variable>
                     <Fixed length="6">
                         <Bits from="48" to="33">
                             <BitsShortName>DOPx</BitsShortName>
@@ -784,7 +791,6 @@
                             <BitsUnit scale="0.5">m</BitsUnit>
                         </Bits>
                     </Fixed>
-                </Variable>
             </Compound>
         </DataItemFormat>
     </DataItem>

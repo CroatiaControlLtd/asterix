@@ -358,7 +358,7 @@
     </DataItem>
 
     <DataItem id="074" rule="optional">
-        <DataItemName>Time of Message Reception of Position–High Precision</DataItemName>
+        <DataItemName>Time of Message Reception of Position-High Precision</DataItemName>
         <DataItemDefinition>Time at which the latest ADS-B position information was received by the ground station, expressed as fraction of the second of the UTC Time.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
@@ -395,7 +395,7 @@
     </DataItem>
 
     <DataItem id="076" rule="optional">
-        <DataItemName>Time of Message Reception of Velocity–High Precision</DataItemName>
+        <DataItemName>Time of Message Reception of Velocity-High Precision</DataItemName>
         <DataItemDefinition>Time at which the latest ADS-B velocity information was received by the ground station, expressed as fraction of the second of the UTC Time.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
@@ -632,12 +632,12 @@
             <Fixed length="6">
                 <Bits from="25" to="48" encode="signed">
                     <BitsShortName>Latitude</BitsShortName>
-                    <BitsName>In WGS.84 in two’s complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
+                    <BitsName>In WGS.84 in two's complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
                     <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                 </Bits>
                 <Bits from="1" to="24" encode="signed">
                     <BitsShortName>Longitude</BitsShortName>
-                    <BitsName>In WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+                    <BitsName>In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -651,12 +651,12 @@
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Latitude</BitsShortName>
-                    <BitsName>Latitude In WGS.84 in two’s complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
+                    <BitsName>Latitude In WGS.84 in two's complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Longitude</BitsShortName>
-                    <BitsName>Longitude In WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+                    <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -665,7 +665,7 @@
 
     <DataItem id="132" rule="optional">
         <DataItemName>Message Amplitude</DataItemName>
-        <DataItemDefinition>Amplitude, in dBm, of ADS-B messages received by the ground station, coded in two’s complement.</DataItemDefinition>
+        <DataItemDefinition>Amplitude, in dBm, of ADS-B messages received by the ground station, coded in two's complement.</DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="signed">
@@ -679,7 +679,7 @@
 
     <DataItem id="140" rule="optional">
         <DataItemName>Geometric Height</DataItemName>
-        <DataItemDefinition>Minimum height from a plane tangent to the earth’s ellipsoid, defined by WGS-84, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Minimum height from a plane tangent to the earth's ellipsoid, defined by WGS-84, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -693,7 +693,7 @@
 
     <DataItem id="145" rule="optional">
         <DataItemName>Flight Level</DataItemName>
-        <DataItemDefinition>Flight Level from barometric measurements, not QNH corrected, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Flight Level from barometric measurements, not QNH corrected, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -821,7 +821,7 @@
 
     <DataItem id="155" rule="optional">
         <DataItemName>Barometric Vertical Rate</DataItemName>
-        <DataItemDefinition>Barometric Vertical Rate, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Barometric Vertical Rate, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -842,7 +842,7 @@
 
     <DataItem id="157" rule="optional">
         <DataItemName>Geometric Vertical Rate</DataItemName>
-        <DataItemDefinition>Geometric Vertical Rate, in two’s complement form, with reference to WGS-84.</DataItemDefinition>
+        <DataItemDefinition>Geometric Vertical Rate, in two's complement form, with reference to WGS-84.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -907,7 +907,7 @@
 
     <DataItem id="165" rule="optional">
         <DataItemName>Track Angle Rate</DataItemName>
-        <DataItemDefinition>Rate of Turn, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Rate of Turn, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="2-Byte Fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="11">
@@ -1083,7 +1083,7 @@
 
     <DataItem id="230" rule="optional">
         <DataItemName>Roll Angle</DataItemName>
-        <DataItemDefinition>The roll angle, in two’s complement form, of an aircraft executing a turn.</DataItemDefinition>
+        <DataItemDefinition>The roll angle, in two's complement form, of an aircraft executing a turn.</DataItemDefinition>
         <DataItemFormat desc="A two byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -1123,7 +1123,7 @@
         <DataItemName>ACAS Resolution Advisory Report</DataItemName>
         <DataItemDefinition>Currently active Resolution Advisory (RA), if any, generated by the ACAS associated with the transponder transmitting the RA message and threat identity data.</DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item.">
-            <Fixed length="6">
+            <Fixed length="7">
                 <Bits from="56" to="1">
                     <BitsShortName>ARA</BitsShortName>
                     <BitsName>Information conveyed in an active ACAS Resoulution Advisory.</BitsName>
