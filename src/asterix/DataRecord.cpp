@@ -118,13 +118,13 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
     m_pItemDataStart += usedbytes;
     nUnparsed -= usedbytes;
   }
-/*
+
   if (nUnparsed > 0)
   {
-	  Tracer::Error("Unparsed bytes: %ld", nUnparsed );
-//    m_nLength -= nUnparsed;
+//	  Tracer::Error("Unparsed bytes: %ld", nUnparsed );
+      m_nLength -= nUnparsed;
   }
-*/
+
   if (it != m_lDataItems.end())
   {
 	if (errorReported == false)

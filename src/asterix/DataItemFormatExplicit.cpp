@@ -44,7 +44,7 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 {
   if (m_pFixed == NULL)
   {
-    Tracer::Error("Wrong data in Repetitive");
+    Tracer::Error("Wrong data in Explicit");
     return;
   }
   m_pFixed->m_lBits.push_back(pBits);
@@ -52,31 +52,43 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 
 bool DataItemFormatExplicit::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
 {
-//TODO  int fixedLength = m_pFixed->getLength(pData);
-  //TODO  unsigned char nFullLength = *pData;
-
+  int fixedLength = m_pFixed->getLength(pData);
+  unsigned char nFullLength = nLength - 1;
   pData++;
 
-  m_pFixed->getDescription(strDescription, pData, nLength);
+  for (int i=0; i<nFullLength; i+=fixedLength)
+  {
+	  m_pFixed->getDescription(strDescription, pData, fixedLength);
+	  pData += fixedLength;
+  }
   return true;
 }
 
 bool DataItemFormatExplicit::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
 {
-//TODO  int fixedLength = m_pFixed->getLength(pData);
-  //TODO  unsigned char nFullLength = *pData;
-
+  int fixedLength = m_pFixed->getLength(pData);
+  unsigned char nFullLength = nLength - 1;
   pData++;
 
-  m_pFixed->getText(strDescription, strHeader, pData, nLength);
+  for (int i=0; i<nFullLength; i+=fixedLength)
+  {
+	  m_pFixed->getText(strDescription, strHeader, pData, fixedLength);
+	  pData += fixedLength;
+  }
   return true;
 }
 
 bool DataItemFormatExplicit::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
 {
-//TODO  int fixedLength = m_pFixed->getLength(pData);
-  //TODO  unsigned char nFullLength = *pData;
+  int fixedLength = m_pFixed->getLength(pData);
+  unsigned char nFullLength = nLength - 1;
+  pData++;
 
+  for (int i=0; i<nFullLength; i+=fixedLength)
+  {
+	  m_pFixed->getDescription(strXIDEF, pData, fixedLength);
+	  pData += fixedLength;
+  }
   pData++;
 
   m_pFixed->getDescription(strXIDEF, pData, nLength);
@@ -87,40 +99,46 @@ bool DataItemFormatExplicit::getXIDEF(std::string& strXIDEF, unsigned char* pDat
 bool DataItemFormatExplicit::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {
   int fixedLength = m_pFixed->getLength(pData);
-  //TODO  unsigned char nFullLength = *pData;
-
+  unsigned char nFullLength = nLength - 1;
   pData++;
 
-  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-    return true;
-
+  for (int i=0; i<nFullLength; i+=fixedLength)
+  {
+	  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
+		  return true;
+	  pData += fixedLength;
+  }
   return false;
 }
 
 bool DataItemFormatExplicit::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {
   int fixedLength = m_pFixed->getLength(pData);
-  //TODO unsigned char nFullLength = *pData;
-
+  unsigned char nFullLength = nLength - 1;
   pData++;
 
-  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-    return true;
-
+  for (int i=0; i<nFullLength; i+=fixedLength)
+  {
+	  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
+		  return true;
+	  pData += fixedLength;
+  }
   return false;
 }
 
 bool DataItemFormatExplicit::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {
-  int fixedLength = m_pFixed->getLength(pData);
-  //TODO unsigned char nFullLength = *pData;
+	  int fixedLength = m_pFixed->getLength(pData);
+	  unsigned char nFullLength = nLength - 1;
+	  pData++;
 
-  pData++;
-
-  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-    return true;
-
-  return false;
+	  for (int i=0; i<nFullLength; i+=fixedLength)
+	  {
+		  if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
+			  return true;
+		  pData += fixedLength;
+	  }
+	  return false;
 }
 
 #ifdef WIRESHARK_WRAPPER
@@ -128,7 +146,7 @@ fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {
   if (!m_pFixed)
   {
-    Tracer::Error("Wring format of repetitive item");
+    Tracer::Error("Wrong format of explicit item");
     return NULL;
   }
   return m_pFixed->getWiresharkDefinitions();

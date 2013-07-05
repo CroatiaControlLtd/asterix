@@ -16,3 +16,8 @@ Added new categories.
 1.0.2
 14.05.2013.
 Added "hex" encode format (see in CAT048)
+
+1.0.3
+05.07.2013.
+Explicit format fixed (see example in asterix_cat021_0_26.xml)
+Fixed bug that prevented parsing of multipl Data Records in one Data Block
