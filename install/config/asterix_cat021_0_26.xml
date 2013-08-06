@@ -7,7 +7,6 @@
     Author:   S.Nastasyak
     Created:  2013-06-19
     Version:  1.0
-
 -->
 
 <Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="0.26">
@@ -426,12 +425,12 @@
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Latitude</BitsShortName>
                     <BitsName>In WGS.84 in two's complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
-                    <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Longitude</BitsShortName>
                     <BitsName>In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
-                    <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
