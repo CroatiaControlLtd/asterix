@@ -874,7 +874,7 @@
 		<DataItemDefinition>Calculated rate of Climb/Descent of an aircraft</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length Data Item .">
 			<Fixed length="2">
-				<Bits from="1" to="16">
+				<Bits from="1" to="16" encode="signed">
 					<BitsShortName>ROC</BitsShortName>
 					<BitsName>Rate of Climb/Descent</BitsName>
 					<BitsUnit scale="5.86">ft/min</BitsUnit>
