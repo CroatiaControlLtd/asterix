@@ -46,7 +46,7 @@ public:
   bool getValue(std::string& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
 
   long getLength() { return m_nLength; }
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif
 

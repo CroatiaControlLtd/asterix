@@ -41,7 +41,7 @@ public:
   std::string m_strDescription; //!< <!ATTLIST DataItemFormat desc CDATA "" >
   std::string m_strXIDEF; //!< name of XML item in XIDEF output format
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   static int m_nLastPID; //!< static used for allocation of m_nPID
 #endif
 
@@ -53,7 +53,7 @@ public:
   virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   virtual fulliautomatix_definitions* getWiresharkDefinitions() = 0;
   virtual fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset) = 0;
   int getPID() { return m_nPID; }

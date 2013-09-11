@@ -38,7 +38,7 @@ public:
 
   std::list<DataBlock*> m_lDataBlocks;
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData();
 #endif
 

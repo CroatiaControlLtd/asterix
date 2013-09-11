@@ -54,7 +54,7 @@ public:
   bool getValue(int itemid, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   bool getValue(int itemid, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif
 };

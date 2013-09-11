@@ -27,7 +27,7 @@
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
-		<DataItemNote>The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
+		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
 	</DataItem>
 	
 	<DataItem id="015" rule="optional">

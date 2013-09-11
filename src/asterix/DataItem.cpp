@@ -105,7 +105,7 @@ bool DataItem::getValue(std::string& value, long nLength, const char* pstrBitsSh
   return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_data* DataItem::getData(int byteoffset)
 {
   fulliautomatix_data *firstData, *lastData;

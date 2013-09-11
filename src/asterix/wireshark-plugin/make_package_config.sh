@@ -9,12 +9,7 @@
 x=`date +%Y_%m_%d`
 
 rm -rf usr
-mkdir usr
-mkdir usr/local
-mkdir usr/local/lib
-mkdir usr/local/lib/wireshark
-mkdir usr/local/lib/wireshark/plugins
-mkdir usr/local/lib/wireshark/plugins/asterix
+mkdir -p usr/local/lib/wireshark/plugins/asterix
 cp ../../../install/config/asterix.ini usr/local/lib/wireshark/plugins/asterix
 cp ../../../install/config/*.xml usr/local/lib/wireshark/plugins/asterix
 

@@ -1,5 +1,5 @@
 /* packet-asterix.c
- * Routines for All Purpose Structured Eurocontrol Surveillance Information Exhange (Asterix) Protocol disassembly
+ * Routines for All Purpose Structured Eurocontrol Surveillance Information Exchange (Asterix) Protocol disassembly
  * RFC 2257
  *
  * $Id: packet-asterix.c,v 1.2 2012-01-13 14:20:10 cvs Exp $
@@ -137,7 +137,7 @@ static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
           return;
 
    t_head_item = proto_tree_add_protocol_format(tree, proto_asterix, tvb, 0, -1,
-          "All Purpose Structured Eurocontrol Surveillance Information Exhange (Asterix) Protocol");
+          "All Purpose Structured EUROCONTROL Surveillance Information Exchange (Asterix) Protocol");
 
   asterix_tree[tree_depth] = proto_item_add_subtree(t_head_item, ett_asterix[tree_depth]);
 

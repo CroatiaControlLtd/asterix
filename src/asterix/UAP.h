@@ -39,7 +39,7 @@ public:
   std::list<UAPItem*> m_lUAPItems;
 
   UAPItem* newUAPItem(); //!< creates and returns new UAP Item
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
 #endif
   unsigned long getDataItemIDByUAPfrn(int uapfrn);
