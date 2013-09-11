@@ -262,7 +262,7 @@ bool DataItemFormatVariable::getValue(unsigned char* pData, long nLength, std::s
   return false;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatVariable::getWiresharkDefinitions()
 {
   fulliautomatix_definitions *def = NULL, *startDef = NULL;

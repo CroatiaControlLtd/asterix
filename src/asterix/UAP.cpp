@@ -48,7 +48,7 @@ UAPItem* UAP::newUAPItem()
   return uap;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* UAP::getWiresharkDefinitions()
 {
   fulliautomatix_definitions* startDef = NULL;

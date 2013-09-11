@@ -60,7 +60,7 @@ OBJS = AsterixData.o \
 	asterixoutsubformat.o \
 	asterixkmlsubformat.o \
 	asterixtrackssubformat.o \
-    asterixfinalsubformat.o \
+	asterixfinalsubformat.o \
 	asterixxidefsubformat.o \
 	asterixhdlcsubformat.o \
 	asterixhdlcparsing.o

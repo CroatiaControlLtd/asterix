@@ -23,13 +23,13 @@
 
 #include "DataItemFormat.h"
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 int DataItemFormat::m_nLastPID = PID_LAST;
 #endif
 
 DataItemFormat::DataItemFormat()
 {
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   m_nPID = m_nLastPID++;
 #endif
 }

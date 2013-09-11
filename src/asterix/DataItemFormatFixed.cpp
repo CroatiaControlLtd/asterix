@@ -250,7 +250,7 @@ bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, std::stri
   return false;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatFixed::getWiresharkDefinitions()
 {
   fulliautomatix_definitions *def = NULL, *startDef = NULL;

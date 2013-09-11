@@ -188,7 +188,7 @@ bool DataItemFormatRepetitive::getValue(unsigned char* pData, long nLength, std:
   return false;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatRepetitive::getWiresharkDefinitions()
 {
   if (!m_pFixed)
