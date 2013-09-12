@@ -43,7 +43,7 @@ public:
   bool getDescription(std::string& strDescription); // appends description to strDescription
   bool getText(std::string& strDescription, std::string& strHeader);
   bool getXIDEF(std::string& strXIDEF); // appends XIDEF description to strXIDEF
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif
 };

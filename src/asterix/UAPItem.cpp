@@ -36,7 +36,7 @@ UAPItem::~UAPItem()
 {
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* UAPItem::getWiresharkDefinitions()
 {
   fulliautomatix_definitions* def = new fulliautomatix_definitions;

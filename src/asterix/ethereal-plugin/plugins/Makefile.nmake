@@ -1,0 +1,374 @@
+#
+# $Id: Makefile.nmake 17768 2006-03-30 09:33:39Z jake $
+#
+
+include ..\config.nmake
+
+############### no need to modify below this line #########
+
+all: \
+	acn \
+	agentx \
+	artnet \
+	asn1 \
+	asterix \
+	ciscosm \
+	docsis \
+	enttec \
+	giop \
+	gryphon \
+	h223 \
+	irda \
+	lua\
+	lwres \
+	mate \
+	megaco \
+	mgcp \
+	opsi \
+	pcli \
+	profinet \
+	rdm \
+	rlm \
+	rtnet \
+	rudp \
+	stats_tree \
+	v5ua
+
+
+acn:: 
+	cd acn
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+agentx:: 
+	cd agentx
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+artnet:: 
+	cd artnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+asn1:: 
+	cd asn1
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+asterix:: 
+	cd asterix
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+ciscosm:: 
+	cd ciscosm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+docsis::
+	cd docsis
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+
+enttec::
+	cd enttec
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+
+giop::
+	cd giop
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+
+gryphon::
+	cd gryphon
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+h223::
+	cd h223
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+irda::
+	cd irda
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+lua::
+!IFDEF LUA_DIR
+	cd lua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake init.lua
+	cd ..
+!ENDIF
+
+lwres::
+	cd lwres
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+mate::
+	cd mate
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+
+megaco::
+	cd megaco
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+
+mgcp::
+	cd mgcp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd .. 
+opsi::
+	cd opsi
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+pcli:: 
+	cd pcli
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+profinet:: 
+	cd profinet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+rdm:: 
+	cd rdm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+rlm:: 
+	cd rlm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+rtnet:: 
+	cd rtnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+rudp:: 
+	cd rudp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+stats_tree:: 
+	cd stats_tree
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+v5ua:: 
+	cd v5ua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake
+	cd ..
+
+clean:
+	rm -rf $(VERSION)
+	cd acn
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../agentx
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../artnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../asn1
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../asterix
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../ciscosm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../docsis
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../enttec
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../giop
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../gryphon
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../h223
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../irda
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../lua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../lwres
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../mate
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../megaco
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../mgcp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../opsi
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../pcli
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../profinet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../rdm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../rlm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../rtnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../rudp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../stats_tree
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ../v5ua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake clean
+	cd ..
+
+distclean: clean
+	cd acn
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../agentx
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../artnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../asn1
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../asterix
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../ciscosm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../docsis
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../enttec
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../giop
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../gryphon
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../h223
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../irda
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../lua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../lwres
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../mate
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../megaco
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../mgcp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../opsi
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../pcli
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../profinet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../rdm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../rlm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../rtnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../rudp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../stats_tree
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ../v5ua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake distclean
+	cd ..
+
+maintainer-clean: distclean
+	cd acn
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../agentx
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../artnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../asn1
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../asterix
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../ciscosm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../docsis
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../enttec
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../giop
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../gryphon
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../h223
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../irda
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../lua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../lwres
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../mate
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../megaco
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../mgcp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../opsi
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../pcli
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../rdm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../rlm
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../rtnet
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../rudp
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../stats_tree
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ../v5ua
+	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake maintainer-clean
+	cd ..
+
+################################################################################
+# copy all plugins to /plugins/$(VERSION), so Ethereal will load them, when
+# started from within the source tree.
+################################################################################
+
+install-plugins:
+!IFDEF ENABLE_LIBETHEREAL
+	rm -rf $(VERSION)
+	mkdir $(VERSION)
+	xcopy acn\*.dll $(VERSION) /d
+	xcopy agentx\*.dll $(VERSION) /d
+	xcopy artnet\*.dll $(VERSION) /d
+	xcopy asn1\*.dll $(VERSION) /d
+	xcopy asterix\*.dll $(VERSION) /d
+	xcopy ciscosm\*.dll $(VERSION) /d
+	xcopy docsis\*.dll $(VERSION) /d
+	xcopy enttec\*.dll $(VERSION) /d
+	xcopy giop\*.dll $(VERSION) /d
+	xcopy gryphon\*.dll $(VERSION) /d
+	xcopy h223\*.dll $(VERSION) /d
+	xcopy irda\*.dll $(VERSION) /d
+!IFDEF LUA_DIR
+	xcopy lua\*.dll $(VERSION) /d
+!ENDIF
+	xcopy lwres\*.dll $(VERSION) /d
+	xcopy mate\*.dll $(VERSION) /d
+	xcopy megaco\*.dll $(VERSION) /d
+	xcopy mgcp\*.dll $(VERSION) /d
+	xcopy opsi\*.dll $(VERSION) /d
+	xcopy pcli\*.dll $(VERSION) /d
+	xcopy profinet\*.dll $(VERSION) /d
+	xcopy rdm\*.dll $(VERSION) /d
+	xcopy rlm\*.dll $(VERSION) /d
+	xcopy rtnet\*.dll $(VERSION) /d
+	xcopy rudp\*.dll $(VERSION) /d
+	xcopy stats_tree\*.dll $(VERSION) /d
+	xcopy v5ua\*.dll $(VERSION) /d
+!ENDIF
+
+clean-deps:
+	rm -rf $(VERSION)

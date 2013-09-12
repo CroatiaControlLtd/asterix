@@ -49,7 +49,7 @@ public:
   UAP* newUAP(); //!< creates and returns new UAP
   UAP* getUAP(const unsigned char* data, unsigned long len); // get UAP that matches condition
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions(); //!< returns linked list of Wireshark definitions
 #endif
 };

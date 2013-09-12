@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <string>
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 
 #include "WiresharkWrapper.h"
 #include "AsterixDefinition.h"

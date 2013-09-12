@@ -915,7 +915,7 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, std::string& val
   return true;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemBits::getWiresharkDefinitions()
 {
   if (m_strName.empty() && !m_strShortName.empty())

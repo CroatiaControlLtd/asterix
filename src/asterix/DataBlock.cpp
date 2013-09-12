@@ -145,7 +145,7 @@ bool DataBlock::getXIDEF(std::string& strXIDEF)
   return true;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_data* DataBlock::getData(int byteoffset)
 {
   fulliautomatix_data *firstData = NULL, *lastData=NULL;

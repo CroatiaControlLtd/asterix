@@ -1,0 +1,36 @@
+Instructions how to build Ethereal plugin.
+
+Linux 
+---------------------------
+1. Download and untar ethereal-0.99.0
+
+2. Create the archive update for Ethereal
+   Run 'make_package_src.sh'
+
+Following directories are new:
+plugins/asterix
+asterix
+
+3. Copy and untar asterix_ethereal_src_<date>.tgz
+   Run 'tar xzvf asterix_ethereal_src_<date>.tgz
+
+4. "./autogen.sh"
+
+5. Run './configure' in the Ethereal distribution directory.
+
+6. Run 'make'
+
+7. Run 'make rpm-package'
+
+or 
+
+7 Copy packaging/rpm/SPECS/ethereal-asterix.spec.in to
+  packaging/rpm/SPECS/ethereal.spec.in
+  and run 'make rpm-package'
+  to create archive with only asterix plugin and configuration files
+
+Installation will be placed in : packaging/rpm/RPMS/i386
+
+8. Install ethereal with: "rpm -i ethereal-0-99.0-1.i386.rpm" 
+or 
+8. Install ethereal asterix plugin with: "rpm -i --force ethereal-0-99.0-asterix.i386.rpm"

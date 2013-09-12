@@ -277,7 +277,7 @@ bool DataRecord::getValue(int itemid, std::string& value, const char* pstrBitsSh
   return false;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_data* DataRecord::getData(int byteoffset)
 {
   fulliautomatix_data *firstData = NULL, *lastData=NULL;

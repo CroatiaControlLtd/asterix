@@ -130,7 +130,7 @@ UAP* Category::getUAP(const unsigned char* data, unsigned long len)
   return NULL;
 }
 
-#ifdef WIRESHARK_WRAPPER
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* Category::getWiresharkDefinitions()
 {
   fulliautomatix_definitions* startDef = NULL;
