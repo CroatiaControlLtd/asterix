@@ -143,6 +143,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
   {
     m_bFormatOK = true;
   }
+  m_nLength = len - nUnparsed;//If without this row, the left data records in the block will not be parsed. Added by Christine Tan.
 }
 
 DataRecord::~DataRecord()
