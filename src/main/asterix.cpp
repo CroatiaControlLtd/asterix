@@ -68,7 +68,7 @@ static void show_usage(std::string name)
 			  << "\n\t-x,--xml\tOutput will be printed in XML format.\n\t\t\tFields that are printed are defined in input\n\t\t\tdefinition file as XIDEF."
 			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in\n\t\t\tspecified filename.\n\t\t\tBy default are listed in config/asterix.ini"
 			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark)\n\t\t\tor file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
-			  << "\n\t-i m:i:p\tMulticast IP address:Interface address:Port.\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112"
+			  << "\n\t-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address].\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112:10.17.22.23"
 			  << std::endl;
 }
 

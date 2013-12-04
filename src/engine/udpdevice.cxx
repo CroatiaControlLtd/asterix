@@ -48,6 +48,7 @@ CUdpDevice::CUdpDevice(CDescriptor &descriptor)
     const char *mcastAddress     = descriptor.GetFirst();
     const char *interfaceAddress = descriptor.GetNext();
     const char *port             = descriptor.GetNext();
+    const char *sourceAddress 	 = descriptor.GetNext();
     const char *server           = descriptor.GetNext();
     int portNo = 0;
     bool isServer = false;
@@ -92,7 +93,7 @@ CUdpDevice::CUdpDevice(CDescriptor &descriptor)
 
 
     // Call default initialization
-    Init(mcastAddress, interfaceAddress, portNo, isServer);
+    Init(mcastAddress, interfaceAddress, sourceAddress, portNo, isServer);
 }
 
 
@@ -240,20 +241,41 @@ bool CUdpDevice::InitServer()
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
     {
-       // Join multicast group
-       struct ip_mreq mreq; // Request block for multicast address.
-       mreq.imr_multiaddr.s_addr = _mcastAddr.sin_addr.s_addr;
-       mreq.imr_interface.s_addr = _interfaceAddr.s_addr;
+    	if (_sourceAddr.s_addr != htonl(INADDR_ANY))
+    	{
+ 	       // Join multicast group but only from specified address
+ 	       struct ip_mreq_source mreq; // Request block for multicast address.
+ 	       mreq.imr_multiaddr.s_addr = _mcastAddr.sin_addr.s_addr;
+ 	       mreq.imr_interface.s_addr = _interfaceAddr.s_addr;
+ 	       mreq.imr_sourceaddr.s_addr = _sourceAddr.s_addr;// source address
 
-       if (setsockopt(_socketDesc, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
-       {
-          LOGERROR(1, "Cannot join multicast address %s\n", inet_ntoa(_mcastAddr.sin_addr));
-          return false;
-       }
-	   else
-	   {
-	      LOGDEBUG(1, "Successfully joined multicast %s\n", inet_ntoa(_mcastAddr.sin_addr));
-	   }
+ 	       if (setsockopt(_socketDesc, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
+ 	       {
+ 	          LOGERROR(1, "Cannot join multicast address %s src: %s\n", inet_ntoa(_mcastAddr.sin_addr), inet_ntoa(_sourceAddr));
+ 	          return false;
+ 	       }
+ 		   else
+ 		   {
+ 		      LOGDEBUG(1, "Successfully joined multicast %s src: %s\n", inet_ntoa(_mcastAddr.sin_addr), inet_ntoa(_sourceAddr));
+ 		   }
+    	}
+    	else
+    	{
+			// Join multicast group
+			struct ip_mreq mreq; // Request block for multicast address.
+			mreq.imr_multiaddr.s_addr = _mcastAddr.sin_addr.s_addr;
+			mreq.imr_interface.s_addr = _interfaceAddr.s_addr;
+
+			if (setsockopt(_socketDesc, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
+			{
+			  LOGERROR(1, "Cannot join multicast address %s\n", inet_ntoa(_mcastAddr.sin_addr));
+			  return false;
+			}
+			else
+			{
+			  LOGDEBUG(1, "Successfully joined multicast %s\n", inet_ntoa(_mcastAddr.sin_addr));
+			}
+    	}
     }
     return true;
 }
@@ -290,7 +312,7 @@ bool CUdpDevice::InitClient()
 
 
 
-void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, const int port, const bool server)
+void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, const char *srcAddress, const int port, const bool server)
 {
     struct hostent *host;
     u_int yes=1;
@@ -321,6 +343,25 @@ void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, co
     }
 */
     _mcastAddr.sin_port = htons(_port);
+
+
+    // 1.1b Source interface
+    if (srcAddress != NULL && strlen(srcAddress) != 0)
+	{
+		// Specific interface is chosen
+		host = gethostbyname(srcAddress);
+		if (host == NULL)
+		{
+			LOGERROR(1, "Unknown source address '%s'\n", srcAddress);
+			return;
+		}
+		memcpy(&_sourceAddr, host->h_addr_list[0], host->h_length);
+	}
+	else
+	{
+		// Source address not chosen
+		_sourceAddr.s_addr = htonl(INADDR_ANY);
+	}
 
     // 1.2 Multicast interface
     if (strlen(interfaceAddress) != 0)

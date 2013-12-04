@@ -20,4 +20,10 @@ Added "hex" encode format (see in CAT048)
 1.0.3
 05.07.2013.
 Explicit format fixed (see example in asterix_cat021_0_26.xml)
-Fixed bug that prevented parsing of multipl Data Records in one Data Block
+Fixed bug that prevented parsing of multiple Data Records in one Data Block
+
+1.0.4
+03.12.2013.
+Optional source address in multicast definition implemented: format is "-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address]"
+  
+ 

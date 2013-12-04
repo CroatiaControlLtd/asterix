@@ -7,6 +7,9 @@
 	
 	Author:   dmarkus
 	Created:  13.2.2009.
+	
+	Modified: 3.11.2013 :  added items I048/55, I048/065 and I048/SP (FPS117-specific)
+	Modified: 22.11.2013 : I048/SP defined as Explicit
 
 --> 
 
@@ -20,12 +23,10 @@
 				<Bits from="16" to="9">
 					<BitsShortName>SAC</BitsShortName>
 					<BitsName>System Area Code</BitsName>
-<XIDEF>SAC</XIDEF>
 				</Bits>
 				<Bits from="8" to="1">
 					<BitsShortName>SIC</BitsShortName>
 					<BitsName>System Identification Code</BitsName>
-<XIDEF>SIC</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -233,6 +234,35 @@
         </DataItemFormat>
         <DataItemNote>Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track.</DataItemNote>
     </DataItem>
+	
+    <DataItem id="55">
+        <DataItemName>Mode-1 Code</DataItemName>
+        <DataItemDefinition>Reply to Mode-1 interrogation</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>V</BitsShortName>
+                    <BitsValue val="0">Code validated</BitsValue>
+                    <BitsValue val="1">Code not validated</BitsValue>
+                </Bits>
+                <Bits bit="7">
+                    <BitsShortName>G</BitsShortName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Garbled code</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>L</BitsShortName>
+                    <BitsValue val="0">Mode-1 code as derived from the reply of the transponder</BitsValue>
+                    <BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
+                </Bits>
+                <Bits from="5" to="1" encode="hex">
+                    <BitsShortName>mode_1</BitsShortName>
+                    <BitsName>Mode-1 code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>This item is optional. When used, it shall be sent when: 1) Mode 1 is present. Then, it represents the Mode 1 code for the plot, even  if associated with a track. 2) Mode 1 is absent and local tracking is performed. It shall then be sent with  the bit-6 (L) set to one..... Bit 7 has no meaning in the case of a smoothed Mode 1 and is set to 0 for a calculated track.</DataItemNote>
+    </DataItem>	
 
     <DataItem id="60">
         <DataItemName>Mode-2 Code Confidence Indicator</DataItemName>
@@ -309,6 +339,46 @@
         <DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality.</DataItemNote>
     </DataItem>
 
+    <DataItem id="65">
+        <DataItemName>Mode-1 Code Confidence Indicator</DataItemName>
+        <DataItemDefinition>Confidence level for each bit of a Mode-1 reply as provided by a monopulse SSR station.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="6">
+                    <BitsShortName>sb</BitsShortName>
+                    <BitsName>spares bit set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>QA4</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="4">
+                    <BitsShortName>QA2</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="3">
+                    <BitsShortName>QA1</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>QB2</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>QB1</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>This data item is optional. When used, it shall be transmitted only when at least one pulse is of low quality.  It represents the confidence level for each reply bit of the Mode 1 code of the  plot. </DataItemNote>
+   </DataItem>
+	
     <DataItem id="70">
         <DataItemName>Mode-3/A Code</DataItemName>
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
@@ -984,24 +1054,23 @@
 						<Bits from="64" to="9" encode="hex">
 							<BitsShortName>MBdata</BitsShortName>
 							<BitsName>MBdata</BitsName>						
-<XIDEF>MB</XIDEF>
 						</Bits>
 
 						<Bits from="8" to="5">
 							<BitsShortName>DSB1</BitsShortName>
 							<BitsName>Comm B Data Buffer Store 1</BitsName>
-<XIDEF>DSB1</XIDEF>
 						</Bits>
 						<Bits from="4" to="1">
 							<BitsShortName>DSB2</BitsShortName>
 							<BitsName>Comm B Data Buffer Store 2</BitsName>                       
-<XIDEF>DSB2</XIDEF>
 						</Bits>
 					</Fixed>
 			</Repetitive>	
 		</DataItemFormat>
 		<DataItemNote>.</DataItemNote>
 	</DataItem>	
+	
+	
 
 	<DataItem id="260" >
 		<DataItemName>ACAS Resolution Advisory Report</DataItemName>
@@ -1017,10 +1086,21 @@
 		<DataItemNote>.</DataItemNote>
 	</DataItem>			
 
+<!--Special Purpose Field - content unknown --> 	
+	<DataItem id="SP" >
+				<Explicit desc="SP Field">
+					<Fixed length="1">
+						<Bits from="8" to="1">
+							<BitsName>SP Byte</BitsName>						
+						</Bits>
+					</Fixed>
+				</Explicit>
+	</DataItem>		
+	
 <!--Transmission of Track--> 
     <UAP>
-        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
-        <UAPItem bit="1" frn="2" len="3">140</UAPItem>
+        	<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        	<UAPItem bit="1" frn="2" len="3">140</UAPItem>
 		<UAPItem bit="2" frn="3" len="1+">020</UAPItem>
 		<UAPItem bit="3" frn="4" len="4">040</UAPItem>
 		<UAPItem bit="4" frn="5" len="2">070</UAPItem>

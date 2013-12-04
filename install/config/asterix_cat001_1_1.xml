@@ -7,6 +7,8 @@
 	
 	Author:   dsalantic
 	Created:  13.2.2009.
+	
+	Modified: 3.11.2013. (dmarkus) added items I001/055 and I001/065, small corrections 
 
 --> 
 
@@ -232,6 +234,35 @@
         </DataItemFormat>
         <DataItemNote>Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track.</DataItemNote>
     </DataItem>
+	
+    <DataItem id="55">
+        <DataItemName>Mode-1 Code</DataItemName>
+        <DataItemDefinition>Reply to Mode-1 interrogation</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>V</BitsShortName>
+                    <BitsValue val="0">Code validated</BitsValue>
+                    <BitsValue val="1">Code not validated</BitsValue>
+                </Bits>
+                <Bits bit="7">
+                    <BitsShortName>G</BitsShortName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Garbled code</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>L</BitsShortName>
+                    <BitsValue val="0">Mode-1 code as derived from the reply of the transponder</BitsValue>
+                    <BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
+                </Bits>
+                <Bits from="5" to="1" encode="hex">
+                    <BitsShortName>mode_1</BitsShortName>
+                    <BitsName>Mode-1 code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>This item is optional. When used, it shall be sent when: 1) Mode 1 is present. Then, it represents the Mode 1 code for the plot, even  if associated with a track. 2) Mode 1 is absent and local tracking is performed. It shall then be sent with  the bit-6 (L) set to one..... Bit 7 has no meaning in the case of a smoothed Mode 1 and is set to 0 for a calculated track.</DataItemNote>
+    </DataItem>		
 
     <DataItem id="60">
         <DataItemName>Mode-2 Code Confidence Indicator</DataItemName>
@@ -308,6 +339,46 @@
         <DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality.</DataItemNote>
     </DataItem>
 
+    <DataItem id="65">
+        <DataItemName>Mode-1 Code Confidence Indicator</DataItemName>
+        <DataItemDefinition>Confidence level for each bit of a Mode-1 reply as provided by a monopulse SSR station.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="6">
+                    <BitsShortName>sb</BitsShortName>
+                    <BitsName>spares bit set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>QA4</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="4">
+                    <BitsShortName>QA2</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="3">
+                    <BitsShortName>QA1</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>QB2</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>QB1</BitsShortName>
+                    <BitsValue val="0">High quality pulse</BitsValue>
+                    <BitsValue val="1">Low quality pulse</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>This data item is optional. When used, it shall be transmitted only when at least one pulse is of low quality.  It represents the confidence level for each reply bit of the Mode 1 code of the  plot. </DataItemNote>
+   </DataItem>	
+	
     <DataItem id="70">
         <DataItemName>Mode-3/a Code</DataItemName>
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
@@ -325,8 +396,8 @@
                 </Bits>
                 <Bits bit="14">
                     <BitsShortName>L</BitsShortName>
-                    <BitsValue val="0">Mode-2 code as derived from the reply of the transponder</BitsValue>
-                    <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker</BitsValue>
+                    <BitsValue val="0">Mode-3/A code as derived from the reply of the transponder</BitsValue>
+                    <BitsValue val="1">Smoothed Mode-3/A code as provided by a local tracker</BitsValue>
                 </Bits>
                 <Bits bit="13">
                     <BitsShortName>sb</BitsShortName>
@@ -336,7 +407,6 @@
                 <Bits from="12" to="1" encode="octal">
                     <BitsShortName>mode_3A</BitsShortName>
                     <BitsName>Mode-3/A reply code</BitsName>
-                    <XIDEF>Mode3A</XIDEF>
                 </Bits>
             </Fixed>
         </DataItemFormat>

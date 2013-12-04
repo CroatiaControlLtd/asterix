@@ -8,6 +8,7 @@
 	Author:   dmarkus
 	Created:  5.11.2012.
 	Modified: 10.5.2013.
+	Modified: 3.11.2013. (dmarkus) : I062/SP defined as Explicit(content unknown)
 -->
 
 <Category id="62" name="SDPS Track Messages" ver="1.16">
@@ -412,7 +413,8 @@
                         <Bits bit="1" fx="1">
                             <BitsShortName>FX</BitsShortName>
                             <BitsName>Extension Indicator</BitsName>
-                            <BitsPresence>8</BitsPresence>
+							<BitsValue val="0">End of Data Item</BitsValue>
+							<BitsValue val="1">Extension into first extent</BitsValue>
                         </Bits>
                     </Fixed>
                     <Fixed length="1">
@@ -2424,13 +2426,13 @@
 					</Bits>
 				</Fixed>				
 				<Fixed length="1">
-					<Bits from="1" to="8" encode="ascii">
+					<Bits from="8" to="1" encode="ascii">
 						<BitsShortName>WTC</BitsShortName>
 						<BitsName>Wake Turbulence Category</BitsName>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
-					<Bits from="1" to="32" encode="ascii">
+					<Bits from="32" to="1" encode="ascii">
 						<BitsShortName>DEP</BitsShortName>
 						<BitsName>Departure Airport</BitsName>
 					</Bits>
@@ -2563,8 +2565,9 @@
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
-
+	
 	<DataItem id="500" rule="optional">
+
 		<DataItemName>Estimated Accuracies</DataItemName>
 		<DataItemDefinition>Overview of all important accuracies</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to eight subfields of predefined length.">
@@ -2573,37 +2576,37 @@
 					<Fixed length="1">
 						<Bits bit="8">
 							<BitsShortName>APC</BitsShortName>
-							<BitsName>Estimated Accuracy Of Track Position (Cartesian)</BitsName>
+							<BitsName>Estimated Accuracy Of Track Position Cartesian</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
 						<Bits bit="7">
-							<BitsShortName>APW</BitsShortName>
-							<BitsName>Estimated Accuracy Of Track Position (WGS-84)</BitsName>
+							<BitsShortName>COV</BitsShortName>
+							<BitsName>XY Covariance</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>
 						<Bits bit="6">
-							<BitsShortName>ATA</BitsShortName>
-							<BitsName>Estimated Accuracy Of Track Altitude</BitsName>
+							<BitsShortName>APW</BitsShortName>
+							<BitsName>Estimated Accuracy Of Track Position WGS-84</BitsName>
 							<BitsPresence>3</BitsPresence>
 						</Bits>
 						<Bits bit="5">
-							<BitsShortName>ATF</BitsShortName>
-							<BitsName>Estimated Accuracy Of Calculated Track Flight Level</BitsName>
+							<BitsShortName>AGA</BitsShortName>
+							<BitsName>Estimated Accuracy Of Calculated Track Geometric Altitude</BitsName>
 							<BitsPresence>4</BitsPresence>
 						</Bits>
 						<Bits bit="4">
-							<BitsShortName>ATV</BitsShortName>
-							<BitsName>Estimated Accuracy Of Track Velocity (Polar)</BitsName>
+							<BitsShortName>ABA</BitsShortName>
+							<BitsName>Estimated Accuracy Of Calculated Track Barometric Altitude</BitsName>
 							<BitsPresence>5</BitsPresence>
 						</Bits>
 						<Bits bit="3">
-							<BitsShortName>ART</BitsShortName>
-							<BitsName>Estimated Accuracy Of Rate Of Turn</BitsName>
+							<BitsShortName>ATV</BitsShortName>
+							<BitsName>Estimated Accuracy Of Track Velocity Cartesian</BitsName>
 							<BitsPresence>6</BitsPresence>
 						</Bits>
 						<Bits bit="2">
-							<BitsShortName>ALA</BitsShortName>
-							<BitsName>Estimated Accuracy Of Longitudinal Acceleration</BitsName>
+							<BitsShortName>AA</BitsShortName>
+							<BitsName>Estimated Accuracy Of Acceleration Cartesian</BitsName>
 							<BitsPresence>7</BitsPresence>
 						</Bits>
 						<Bits bit="1" fx="1">
@@ -2632,81 +2635,95 @@
 						</Bits>
 					</Fixed>
 				</Variable>
-				<Fixed length="2">
-					<Bits from="9" to="16">
+
+				<Fixed length="4">
+					<Bits from="32" to="17">
 						<BitsShortName>APC_X</BitsShortName>
-						<BitsName>Estimated accuracy (i.e. standard deviation) of the calculated position of an aircraft expressed in Cartesian co-ordinates</BitsName>
-						<BitsUnit scale="0.015625">NM</BitsUnit>
+						<BitsName>Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates</BitsName>
+						<BitsUnit scale="0.5">m</BitsUnit>
 					</Bits>
-					<Bits from="1" to="8">
+					<Bits from="16" to="1">
 						<BitsShortName>APC_Y</BitsShortName>
-						<BitsName>Estimated accuracy (i.e. standard deviation) of the calculated position of an aircraft expressed in Cartesian co-ordinates</BitsName>
-						<BitsUnit scale="0.015625">NM</BitsUnit>
+						<BitsName>Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates</BitsName>
+						<BitsUnit scale="0.5">m</BitsUnit>
 					</Bits>
 				</Fixed>
+
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>COV_XY</BitsShortName>
+						<BitsName>XY covariance component</BitsName>
+						<BitsUnit scale="0.5">m</BitsUnit>
+					</Bits>
+				</Fixed>
+
 				<Fixed length="4">
 					<Bits from="17" to="32">
 						<BitsShortName>APW_Lat</BitsShortName>
-						<BitsName>APW (Latitude Component)</BitsName>
+						<BitsName>APW Latitude Component</BitsName>
 						<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
 					</Bits>
 					<Bits from="1" to="16">
 						<BitsShortName>APW_Long</BitsShortName>
-						<BitsName>APW (Longitude Component)</BitsName>
+						<BitsName>APW Longitude Component</BitsName>
 						<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="2">
-					<Bits from="1" to="16">
-						<BitsShortName>ATA_est_acc</BitsShortName>
-						<BitsName>ATA Estimated accuracy</BitsName>
+
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>AGA_Acc</BitsShortName>
+						<BitsName>Calculated Track Geometric Altitude Estimated accuracy</BitsName>
 						<BitsUnit scale="6.25">ft</BitsUnit>
 					</Bits>
 				</Fixed>
+
 				<Fixed length="1">
 					<Bits from="1" to="8">
-						<BitsShortName>ATF_est_acc</BitsShortName>
-						<BitsName>ATF Estimated accuracy</BitsName>
-						<BitsUnit scale="0.25">FL</BitsUnit>
+						<BitsShortName>ABA_Acc</BitsShortName>
+						<BitsName>Calculated Track Barometric Altitude Estimated accuracy</BitsName>
+						<BitsUnit scale="6.25">ft</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="3">
-					<Bits from="17" to="24">
-						<BitsShortName>ATVS</BitsShortName>
-						<BitsName>ATV (Speed Component)</BitsName>
-						<BitsUnit scale="0.22">kt</BitsUnit>
-					</Bits>
-					<Bits from="1" to="16">
-						<BitsShortName>ATVH</BitsShortName>
-						<BitsName>ATV (Heading Component)</BitsName>
-						<BitsUnit scale="0.0054931640625">deg</BitsUnit>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits from="1" to="8">
-						<BitsShortName>ART_est_acc</BitsShortName>
-						<BitsName>ART Estimated accuracy</BitsName>
-						<BitsUnit scale="0.25" max="64">deg/sec</BitsUnit>
-					</Bits>
-				</Fixed>
+
 				<Fixed length="2">
-					<Bits from="1" to="16">
-						<BitsShortName>ALA_est_acc</BitsShortName>
-						<BitsName>ALA Estimated accuracy</BitsName>
-						<BitsUnit scale="0.00044155">m/s2</BitsUnit>
+					<Bits from="16" to="9">
+						<BitsShortName>ATV_X</BitsShortName>
+						<BitsName>Estimated Accuracy Of Track Velocity X_Cartesian</BitsName>
+						<BitsUnit scale="0.25">m/s</BitsUnit>
+					</Bits>
+					<Bits from="8" to="1">
+						<BitsShortName>ATV_Y</BitsShortName>
+						<BitsName>Estimated Accuracy Of Track Velocity Y_Cartesian</BitsName>
+						<BitsUnit scale="0.25">m/s</BitsUnit>
 					</Bits>
 				</Fixed>
+
+				<Fixed length="2">
+					<Bits from="16" to="9">
+						<BitsShortName>AA_X</BitsShortName>
+						<BitsName>Estimated Accuracy Of Acceleration X_Cartesian</BitsName>
+						<BitsUnit scale="0.25">m/s^2</BitsUnit>
+					</Bits>
+					<Bits from="8" to="1">
+						<BitsShortName>AA_Y</BitsShortName>
+						<BitsName>Estimated Accuracy Of Acceleration Y_Cartesian</BitsName>
+						<BitsUnit scale="0.25">m/s^2</BitsUnit>
+					</Bits>
+				</Fixed>							
+
 				<Fixed length="1">
 					<Bits from="1" to="8">
-						<BitsShortName>ARC_est_acc</BitsShortName>
-						<BitsName>ARC Estimated accuracy</BitsName>
+						<BitsShortName>ARC_Acc</BitsShortName>
+						<BitsName>Rate Of Climb/Descent Estimated accuracy</BitsName>
 						<BitsUnit scale="6.25">ft/min</BitsUnit>
 					</Bits>
 				</Fixed>
-			</Compound>
+
+				</Compound>
 		</DataItemFormat>
 	</DataItem>
-	
+
 	<DataItem id="510" rule="optional">
 		<DataItemName>Composed Track Number</DataItemName>
 		<DataItemDefinition>Identification of a system track</DataItemDefinition>
@@ -2746,8 +2763,34 @@
 		</DataItemFormat>
 	</DataItem>
 
+	<DataItem id="SP" >
+			<DataItemName>SP Field</DataItemName>
+			<DataItemDefinition>Sp Field</DataItemDefinition>
+			<DataItemFormat desc="Sp Field">
+			<Explicit>
+					<Fixed length="1">
+						<Bits from="8" to="1" encode="hex">
+							<BitsName>TargetReportIdentifier</BitsName>						
+						</Bits>
+					</Fixed>
+			</Explicit>
+		</DataItemFormat>
+	</DataItem>		
+<!--Special Purpose Field - ARTAS specific - [LEN-1Byte][RepetitionFactor-1Byte]*[TargetReportIdentifier-4Bytes]
+	<DataItem id="SP" >
+				<Explicit desc="SP Field">
+					<Repetitive>
+						<Fixed length="4">
+							<Bits from="32" to="1" encode="hex">
+								<BitsName>SP Byte</BitsName>						
+							</Bits>
+						</Fixed>
+					</Repetitive>
+				</Explicit>
+	</DataItem>				
+--> 	
 	
-		<UAP>
+	<UAP>
 		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
 		<UAPItem bit="1" frn="2" len="-">-</UAPItem>
 		<UAPItem bit="2" frn="3" len="1">015</UAPItem>
@@ -2786,7 +2829,7 @@
 		<UAPItem bit="35" frn="32" len="-">-</UAPItem>
 		<UAPItem bit="36" frn="33" len="-">-</UAPItem>
 		<UAPItem bit="37" frn="34" len="1+">RE</UAPItem>
-		<UAPItem bit="38" frn="35" len="1+">SP</UAPItem>
+		<UAPItem bit="38" frn="35" len="1+1+">SP</UAPItem>
 		<UAPItem bit="39" frn="FX" len="-">-</UAPItem>
 	</UAP>
 

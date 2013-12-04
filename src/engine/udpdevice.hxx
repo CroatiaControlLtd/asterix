@@ -56,6 +56,7 @@ private:
     bool               _server;
     struct sockaddr_in _mcastAddr;
     struct in_addr     _interfaceAddr;
+    struct in_addr     _sourceAddr;
     int                _port;
     int                _socketDesc;
 
@@ -85,7 +86,7 @@ public:
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
 
 private:
-    void Init(const char *mcastAddress, const char *interfaceAddress, const int port, const bool server);
+    void Init(const char *mcastAddress, const char *interfaceAddress, const char *srcAddress, const int port, const bool server);
 
 };
 
