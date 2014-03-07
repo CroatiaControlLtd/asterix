@@ -45,9 +45,7 @@ public:
 
   int getCategory() { return (m_pCategory) ? m_pCategory->m_id : 0; }
 
-  bool getDescription(std::string& strDescription); // appends description to strDescription
-  bool getText(std::string& strDescription, std::string& strHeader);
-  bool getXIDEF(std::string& strXIDEF); // appends XIDEF descriptin to strXIDEF
+  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
 
   DataItem* getItem(int itemid);
   bool getValue(int itemid, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);

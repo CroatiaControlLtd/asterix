@@ -86,7 +86,7 @@ void DataItemFormatVariable::addBits(DataItemBits* pBits)
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatVariable::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   std::list<DataItemFormatFixed*>::iterator it;
   bool lastPart = false;
@@ -98,7 +98,7 @@ bool DataItemFormatVariable::getDescription(std::string& strDescription, unsigne
   {
     lastPart = dip->isLastPart(pData);
 
-    dip->getDescription(strDescription, pData, dip->getLength());
+    dip->get(strResult, strHeader, formatType, pData, dip->getLength());
     pData += dip->getLength();
 
     if (it != m_lParts.end())
@@ -113,63 +113,6 @@ bool DataItemFormatVariable::getDescription(std::string& strDescription, unsigne
   while(!lastPart);
   return true;
 }
-
-bool DataItemFormatVariable::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
-  std::list<DataItemFormatFixed*>::iterator it;
-  bool lastPart = false;
-  it=m_lParts.begin();
-
-  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-
-  do
-  {
-    lastPart = dip->isLastPart(pData);
-
-    dip->getText(strDescription, strHeader, pData, dip->getLength());
-    pData += dip->getLength();
-
-    if (it != m_lParts.end())
-    {
-      it++;
-      if (it != m_lParts.end())
-      {
-        dip = (DataItemFormatFixed*)(*it);
-      }
-    }
-  }
-  while(!lastPart);
-  return true;
-}
-
-bool DataItemFormatVariable::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  std::list<DataItemFormatFixed*>::iterator it;
-  bool lastPart = false;
-  it=m_lParts.begin();
-
-  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-
-  do
-  {
-    lastPart = dip->isLastPart(pData);
-
-    dip->getXIDEF(strXIDEF, pData, dip->getLength());
-    pData += dip->getLength();
-
-    if (it != m_lParts.end())
-    {
-      it++;
-      if (it != m_lParts.end())
-      {
-        dip = (DataItemFormatFixed*)(*it);
-      }
-    }
-  }
-  while(!lastPart);
-  return true;
-}
-
 
 bool DataItemFormatVariable::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {

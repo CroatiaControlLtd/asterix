@@ -18,7 +18,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>type</BitsShortName>
+                    <BitsShortName>TYP</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">North marker message</BitsValue>
                     <BitsValue val="2">Sector crossing message</BitsValue>
@@ -58,7 +58,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>azimuth</BitsShortName>
+                    <BitsShortName>AZI</BitsShortName>
                     <BitsName>Antenna azimuth</BitsName>
                     <BitsUnit scale="1.40625">deg</BitsUnit>
                     <XIDEF>Azimuth</XIDEF>
@@ -74,7 +74,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>time_of_day</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                     <XIDEF>TimeOfDay</XIDEF>
@@ -90,7 +90,7 @@
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>rot_speed</BitsShortName>
+                    <BitsShortName>ARS</BitsShortName>
                     <BitsName>Antenna rotation speed</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -105,11 +105,11 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>status</BitsShortName>
+                        <BitsShortName>STA</BitsShortName>
                         <BitsName>Status</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
+                        <BitsShortName>FX</BitsShortName>
                         <BitsName>Field extension</BitsName>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                         <BitsValue val="0">End of Data Item</BitsValue>
@@ -127,11 +127,11 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>mode</BitsShortName>
+                        <BitsShortName>MOD</BitsShortName>
                         <BitsName>Mode</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
+                        <BitsShortName>FX</BitsShortName>
                         <BitsName>Field extension</BitsName>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                         <BitsValue val="0">End of Data Item</BitsValue>
@@ -155,14 +155,14 @@
                         <BitsValue val="1">Counter for antenna 2</BitsValue>
                     </Bits>
                     <Bits from="15" to="11">
-                        <BitsShortName>ident</BitsShortName>
+                        <BitsShortName>PCID</BitsShortName>
                         <BitsName>Plot category identification code</BitsName>
                         <BitsValue val="1">Sole primary plots</BitsValue>
                         <BitsValue val="2">Sole SSR plots</BitsValue>
                         <BitsValue val="3">Combined plots</BitsValue>
                     </Bits>
                     <Bits from="10" to="1">
-                        <BitsShortName>counter</BitsShortName>
+                        <BitsShortName>CNT</BitsShortName>
                         <BitsName>Counter value</BitsName>
                     </Bits>
                 </Fixed>
@@ -177,11 +177,11 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>err_value</BitsShortName>
+                        <BitsShortName>ERR</BitsShortName>
                         <BitsName>W/E Condition value</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
+                        <BitsShortName>FX</BitsShortName>
                         <BitsName>Field extension</BitsName>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                         <BitsValue val="0">End of Data Item</BitsValue>
@@ -198,12 +198,12 @@
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
-                    <BitsShortName>range_error</BitsShortName>
+                    <BitsShortName>RER</BitsShortName>
                     <BitsName>Range Error</BitsName>
                     <BitsUnit scale="0.0078125">NM</BitsUnit>
                 </Bits>
                 <Bits from="8" to="1" encode="signed">
-                    <BitsShortName>azimuth_error</BitsShortName>
+                    <BitsShortName>AER</BitsShortName>
                     <BitsName>Azimuth Error</BitsName>
                     <BitsUnit scale="0.02197265625">deg</BitsUnit>
                 </Bits>
@@ -218,22 +218,22 @@
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="49">
-                    <BitsShortName>rho_start</BitsShortName>
+                    <BitsShortName>RHOS</BitsShortName>
                     <BitsName>Rho start</BitsName>
                     <BitsUnit scale="0.0078125">NM</BitsUnit>
                 </Bits>
                 <Bits from="48" to="33">
-                    <BitsShortName>rho_end</BitsShortName>
+                    <BitsShortName>RHOE</BitsShortName>
                     <BitsName>Rho end</BitsName>
                     <BitsUnit scale="0.0078125">NM</BitsUnit>
                 </Bits>
                 <Bits from="32" to="17">
-                    <BitsShortName>theta_start</BitsShortName>
+                    <BitsShortName>THS</BitsShortName>
                     <BitsName>Theta start</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
-                    <BitsShortName>theta_end</BitsShortName>
+                    <BitsShortName>THE</BitsShortName>
                     <BitsName>Theta end</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>

@@ -25,6 +25,7 @@
 #include "DataRecord.h"
 #include "Tracer.h"
 #include "Utils.h"
+#include "asterixformat.hxx"
 
 DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
@@ -159,52 +160,7 @@ DataRecord::~DataRecord()
     free(m_pFSPECData);
 }
 
-bool DataRecord::getDescription(std::string& strDescription)
-{
-  strDescription += format("\n-------------------------\nData Record %d", m_nID);
-  strDescription += format("\nLen: %ld", m_nLength);
-  if (!m_bFormatOK)
-  {
-    strDescription += format("\nCould not be parsed");
-    return true;
-  }
-
-  // go through all present data items in this block
-  std::list<DataItem*>::iterator it;
-  for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
-  {
-    DataItem* di = (DataItem*)(*it);
-    if (di != NULL)
-    {
-      di->getDescription(strDescription);
-    }
-  }
-  return true;
-}
-
-bool DataRecord::getText(std::string& strDescription, std::string& strHeader)
-{
-  if (!m_bFormatOK)
-  {
-    strDescription += format("\nCould not be parsed");
-    return true;
-  }
-
-  // go through all present data items in this block
-  std::list<DataItem*>::iterator it;
-  for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
-  {
-    DataItem* di = (DataItem*)(*it);
-    if (di != NULL)
-    {
-      di->getText(strDescription, strHeader);
-    }
-  }
-  return true;
-}
-
-
-bool DataRecord::getXIDEF(std::string& strXIDEF)
+bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
   if (!m_bFormatOK)
   {
@@ -212,22 +168,61 @@ bool DataRecord::getXIDEF(std::string& strXIDEF)
     return true;
   }
 
-  const int nXIDEFv = 1;
-
-  strXIDEF += format("\n<XIDEF ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
+  switch(formatType)
+  {
+	  case CAsterixFormat::ETxt:
+		  strResult += format("\n-------------------------\nData Record %d", m_nID);
+		  strResult += format("\nLen: %ld", m_nLength);
+		  break;
+  	  case CAsterixFormat::EJSON:
+  		  strResult += format("\n{\"CAT%03d\":{", m_pCategory->m_id);
+  		  break;
+  	  case CAsterixFormat::EJSONH:
+  		  strResult += format("\n{\"CAT%03d\":{\n", m_pCategory->m_id);
+  		  break;
+  	  case CAsterixFormat::EXIDEF:
+  		  const int nXIDEFv = 1;
+  		  strResult += format("\n<XIDEF ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
+  		  break;
+  }
 
   // go through all present data items in this block
+  bool first = true;
+
   std::list<DataItem*>::iterator it;
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
   {
     DataItem* di = (DataItem*)(*it);
     if (di != NULL)
     {
-      di->getXIDEF(strXIDEF);
+    	if (!first)
+    	{
+    		  switch(formatType)
+    		  {
+    		  	  case CAsterixFormat::EJSON:
+    		  		  strResult += ",";
+    		  		  break;
+    		  	  case CAsterixFormat::EJSONH:
+    		  		  strResult += ",\n";
+    		  		  break;
+    		  }
+    	}
+		first = false;
+        di->get(strResult, strHeader, formatType);
     }
   }
 
-  strXIDEF += format("\n</XIDEF>");
+  switch(formatType)
+  {
+  	  case CAsterixFormat::EJSON:
+  	  case CAsterixFormat::EJSONH:
+  		  strResult += "}},";
+  		  break;
+  	  case CAsterixFormat::EXIDEF:
+  		  strResult += "\n</XIDEF>";
+  		  break;
+  }
+
   return true;
 }
 

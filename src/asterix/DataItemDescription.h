@@ -39,19 +39,9 @@ public:
   void setDefinition(char* definition) { m_strDefinition = definition; }
   void setFormat(char* format) { m_strFormat = format; }
 
-  bool getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
+  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) // appends value to strResult
   {
-    return m_pFormat->getText(strDescription, strHeader, pData, nLength);
-  };
-
-  bool getDescription(std::string& strDescription, unsigned char* pData, long nLength) // appends description to strDescription
-  {
-    return m_pFormat->getDescription(strDescription, pData, nLength);
-  };
-
-  bool getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength) // appends XIDEF to strXIDEF
-  {
-    return m_pFormat->getXIDEF(strXIDEF, pData, nLength);
+    return m_pFormat->get(strResult, strHeader, formatType, pData, nLength);
   };
 
   std::string m_strName;

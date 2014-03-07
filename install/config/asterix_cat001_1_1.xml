@@ -52,7 +52,7 @@
                         <XIDEF>TRD_SIM</XIDEF>
                     </Bits>
                     <Bits from="6" to="5">
-                        <BitsShortName>SSR/PSR</BitsShortName>
+                        <BitsShortName>SSRPSR</BitsShortName>
                         <BitsValue val="0">No detection</BitsValue>
                         <BitsValue val="1">Sole primary detection</BitsValue>
                         <BitsValue val="2">Sole secondary detection</BitsValue>
@@ -78,7 +78,7 @@
                         <XIDEF>TRD_RAB</XIDEF>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+                        <BitsShortName>FX1</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
@@ -91,7 +91,7 @@
                         <XIDEF>TRD_TST</XIDEF>
                     </Bits>
                     <Bits from="7" to="6">
-                        <BitsShortName>DS1/DS2</BitsShortName>
+                        <BitsShortName>DS1DS2</BitsShortName>
                         <BitsValue val="0">Default</BitsValue>
                         <BitsValue val="1">Unlawful interference (code 7500)</BitsValue>
                         <BitsValue val="2">Radio-communication failure (code 7600)</BitsValue>
@@ -116,7 +116,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+                        <BitsShortName>FX2</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
@@ -132,7 +132,7 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>W/E</BitsShortName>
+                        <BitsShortName>WE</BitsShortName>
                         <BitsName>First warning/error condition value</BitsName>
                         <BitsValue val="0">no warning nor error condition</BitsValue>
                         <BitsValue val="1">garbled reply</BitsValue>
@@ -530,7 +530,7 @@
                     <BitsValue val="1">Garbled code</BitsValue>
                 </Bits>
                 <Bits from="30" to="29">
-                    <BitsShortName>sb</BitsShortName>
+                    <BitsShortName>sb1</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -539,7 +539,7 @@
                     <BitsName>Mode-C reply in Gray notation</BitsName> <!-- TODO gray notation -->
                 </Bits>
                 <Bits from="16" to="13">
-                    <BitsShortName>sb</BitsShortName>
+                    <BitsShortName>sb2</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -630,7 +630,8 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>Indicator</BitsShortName>
+                        <BitsShortName>IND</BitsShortName>
+                        <BitsName>Indicator</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -648,7 +649,8 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="signed">
-                    <BitsShortName>Power</BitsShortName>
+                    <BitsShortName>PWR</BitsShortName>
+                    <BitsName>Power</BitsName>
                     <BitsUnit>dBm</BitsUnit>
                 </Bits>
             </Fixed>
@@ -682,7 +684,7 @@
                     <BitsValue val="1">X-pulse received in Mode-3/A reply</BitsValue>
                 </Bits>
                 <Bits bit="7">
-                    <BitsShortName>sb</BitsShortName>
+                    <BitsShortName>sb1</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -692,7 +694,7 @@
                     <BitsValue val="1">X-pulse received in Mode-C reply</BitsValue>
                 </Bits>
                 <Bits from="5" to="4">
-                    <BitsShortName>sb</BitsShortName>
+                    <BitsShortName>sb2</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -702,7 +704,7 @@
                     <BitsValue val="1">X-pulse received in Mode-2 reply</BitsValue>
                 </Bits>
                 <Bits from="2" to="1">
-                    <BitsShortName>sb</BitsShortName>
+                    <BitsShortName>sb3</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -717,7 +719,7 @@
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>tpn</BitsShortName>
+                    <BitsShortName>TPN</BitsShortName>
                     <BitsName>Track Plot Number</BitsName>
                     <XIDEF>TrackPlotNumber</XIDEF>
                 </Bits>
@@ -763,7 +765,7 @@
                         <XIDEF>TS_RDPC</XIDEF>
                     </Bits>
                     <Bits bit="3">
-                        <BitsShortName>sb</BitsShortName>
+                        <BitsShortName>sb1</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
@@ -774,7 +776,7 @@
                         <XIDEF>TS_GHO</XIDEF>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+                        <BitsShortName>FX1</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
@@ -787,12 +789,12 @@
                         <XIDEF>TS_TRE</XIDEF>
                     </Bits>
                     <Bits from="7" to="2">
-                        <BitsShortName>sb</BitsShortName>
+                        <BitsShortName>sb2</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
                     <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+                        <BitsShortName>FX2</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
@@ -808,13 +810,13 @@
         <DataItemFormat desc="Four-octet fixed length Data Item.">
             <Fixed length="4">
                 <Bits from="32" to="17">
-                    <BitsShortName>groundspeed</BitsShortName>
+                    <BitsShortName>GS</BitsShortName>
                     <BitsName>Calculated groundspeed</BitsName>
                     <BitsUnit scale="0.22">kt</BitsUnit>
                         <XIDEF>CalcGS</XIDEF>
                 </Bits>
                 <Bits from="16" to="1">
-                    <BitsShortName>heading</BitsShortName>
+                    <BitsShortName>HDNG</BitsShortName>
                     <BitsName>Calculated heading</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                         <XIDEF>CalcHdg</XIDEF>
@@ -830,7 +832,7 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
-                        <BitsShortName>quality</BitsShortName>
+                        <BitsShortName>QI</BitsShortName>
                         <BitsName>Quality indicator</BitsName>
                         <XIDEF>TrackQuality</XIDEF>
                     </Bits>

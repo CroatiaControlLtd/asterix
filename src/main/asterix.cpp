@@ -55,7 +55,7 @@ static void show_usage(std::string name)
 
 	std::cerr << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
 			  << "Usage:\n"
-			  <<  name << " [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x] [-d filename] -f filename|-i mcastaddress:ipaddress:port"
+			  <<  name << " [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] -f filename|-i mcastaddress:ipaddress:port"
 			  << "\n\nOptions:"
 			  << "\n\t-h,--help\tShow this help message"
 			  << "\n\t-v,--verbose\tShow more information during program execution"
@@ -66,6 +66,8 @@ static void show_usage(std::string name)
 			  << "\n\t-H,--hdlc\tAsterix packet is encapsulated in HDLC packet."
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
 			  << "\n\t-x,--xml\tOutput will be printed in XML format.\n\t\t\tFields that are printed are defined in input\n\t\t\tdefinition file as XIDEF."
+			  << "\n\t-j,--json\tOutput will be printed in compact JSON format (one object per line).\n"
+			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (one item per line).\n"
 			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in\n\t\t\tspecified filename.\n\t\t\tBy default are listed in config/asterix.ini"
 			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark)\n\t\t\tor file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
 			  << "\n\t-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address].\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112:10.17.22.23"
@@ -100,34 +102,92 @@ int main(int argc, const char *argv[])
 		}
 		else if ((arg == "-P") || (arg == "--pcap"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -P not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_PCAP";
 		}
 		else if ((arg == "-O") || (arg == "--oradis"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -O not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_ORADIS_RAW";
 		}
 		else if ((arg == "-R") || (arg == "--oradispcap"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -R not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_ORADIS_PCAP";
 		}
 		else if ((arg == "-F") || (arg == "--final"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -F not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_FINAL";
 		}
 		else if ((arg == "-H") || (arg == "--hdlc"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -H not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_HDLC";
 		}
 		else if ((arg == "-l") || (arg == "--line"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -l not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_OUT";
 		}
 		else if ((arg == "-x") || (arg == "--xml"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -x not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_XIDEF";
+		}
+		else if ((arg == "-j") || (arg == "--json"))
+		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -j not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
+			strOutputFormat = "ASTERIX_JSON";
+		}
+		else if ((arg == "-jh") || (arg == "--jsonh"))
+		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -jh not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
+			strOutputFormat = "ASTERIX_JSONH";
 		}
 		else if ((arg == "-k") || (arg == "--kml"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -k not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_KML";
 		}
 		else if ((arg == "-d") || (arg == "--definitions"))

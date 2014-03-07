@@ -30,10 +30,7 @@
 #include "asterixformat.hxx"
 #include "asterixrawsubformat.hxx"
 #include "asterixpcapsubformat.hxx"
-#include "asterixtxtsubformat.hxx"
-#include "asterixoutsubformat.hxx"
 #include "asterixkmlsubformat.hxx"
-#include "asterixxidefsubformat.hxx"
 #include "asterixtrackssubformat.hxx"
 #include "asterixfinalsubformat.hxx"
 #include "asterixformatdescriptor.hxx"
@@ -52,6 +49,8 @@ const char* CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
   "ASTERIX_TRACKS",
   "ASTERIX_FINAL",
   "ASTERIX_XIDEF",
+  "ASTERIX_JSON",
+  "ASTERIX_JSONH",
   "ASTERIX_HDLC",
   "ASTERIX_ORADIS_RAW",
   "ASTERIX_ORADIS_PCAP",
@@ -75,11 +74,13 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
           return CAsterixPcapSubformat::ReadPacket(formatDescriptor, device, discard, true);
       case EFinal:
           return CAsterixFinalSubformat::ReadPacket(formatDescriptor, device, discard);
-      case EXIDEF:
-          //todo return CAsterixXIDEFSubformat::ReadPacket(formatDescriptor, device, discard);
-          return false;
       case EHDLC:
           return CAsterixHDLCSubformat::ReadPacket(formatDescriptor, device, discard);
+      case EXIDEF:
+      case EJSON:
+      case EJSONH:
+          //todo not supported
+          return false;
       default:
           ASSERT(0);
   }
@@ -89,6 +90,8 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
 
 bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device, const unsigned int formatType, bool &discard)
 {
+  std::string strPacketDescription;
+
   switch (formatType)
   {
       case ERaw:
@@ -99,20 +102,48 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
           return CAsterixRawSubformat::WritePacket(formatDescriptor, device, discard, true); //TODO
       case EOradisPcap:
           return CAsterixPcapSubformat::WritePacket(formatDescriptor, device, discard, true);//TODO
-      case ETxt:
-        return CAsterixTxtSubformat::WritePacket(formatDescriptor, device, discard);
       case EKml:
         return CAsterixKmlSubformat::WritePacket(formatDescriptor, device, discard);
       case ETracks:
        return CAsterixTracksSubformat::WritePacket(formatDescriptor, device, discard);
       case EFinal:
         return CAsterixFinalSubformat::WritePacket(formatDescriptor, device, discard); // TODO
-      case EXIDEF:
-        return CAsterixXIDEFSubformat::WritePacket(formatDescriptor, device, discard);
-      case EHDLC:
+       case EHDLC:
           return CAsterixHDLCSubformat::WritePacket(formatDescriptor, device, discard);//TODO
+      case EXIDEF:
+      {
+			static bool firstTime = true;
+
+			if (firstTime)
+			{
+			  strPacketDescription = "<XIDEFSTART>";
+			  firstTime = false;
+			}
+      }
+      /* no break */
+      case EJSON:
+      case EJSONH:
+      case ETxt:
       case EOut:
-        return CAsterixOutSubformat::WritePacket(formatDescriptor, device, discard);
+      {
+    	  CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
+
+    	  if (Descriptor.m_pAsterixData == NULL)
+    	  {
+    	    LOGERROR(1, "Asterix data packet not present\n");
+    	    return true;
+    	  }
+
+    	  if (!Descriptor.m_pAsterixData->get(strPacketDescription, formatType))
+    	  {
+    	    LOGERROR(1, "Failed to get data packet description\n");
+    	    return false;
+    	  }
+
+    	  device.Write(strPacketDescription.c_str(), strPacketDescription.length());
+
+    	  return true;
+      }
       default:
           ASSERT(0);
   }
@@ -135,18 +166,16 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBas
           return CAsterixRawSubformat::ProcessPacket(formatDescriptor, device, discard, true);
       case EOradisPcap:
           return CAsterixPcapSubformat::ProcessPacket(formatDescriptor, device, discard, true);
-      case ETxt:
-          return false;
-      case EKml:
-          return false;
-      case ETracks:
-          return false;
       case EFinal:
         return CAsterixFinalSubformat::ProcessPacket(formatDescriptor, device, discard);
-      case EXIDEF:
-        return false;
       case EHDLC:
         return CAsterixHDLCSubformat::ProcessPacket(formatDescriptor, device, discard);
+      case ETxt:
+      case EKml:
+      case ETracks:
+      case EXIDEF:
+      case EJSON:
+      case EJSONH:
       case EOut:
           return false;
       default:
@@ -171,18 +200,17 @@ bool CAsterixFormat::HeartbeatProcessing(
         return CAsterixRawSubformat::Heartbeat(formatDescriptor, device, true);
     case EOradisPcap:
         return CAsterixPcapSubformat::Heartbeat(formatDescriptor, device, true);
-    case ETxt:
-        return false;
-    case EKml:
-        return false;
     case ETracks:
         return CAsterixTracksSubformat::Heartbeat(formatDescriptor, device);
     case EFinal:
         return CAsterixFinalSubformat::Heartbeat(formatDescriptor, device);
-    case EXIDEF:
-        return false;
     case EHDLC:
         return CAsterixHDLCSubformat::Heartbeat(formatDescriptor, device);
+    case ETxt:
+    case EKml:
+    case EXIDEF:
+    case EJSON:
+    case EJSONH:
     case EOut:
         return false;
     default:

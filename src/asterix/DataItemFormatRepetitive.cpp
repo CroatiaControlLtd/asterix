@@ -23,6 +23,7 @@
 
 #include "DataItemFormatRepetitive.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatRepetitive::DataItemFormatRepetitive()
 : m_pFixed(NULL)
@@ -56,7 +57,7 @@ void DataItemFormatRepetitive::addBits(DataItemBits* pBits)
   m_pFixed->m_lBits.push_back(pBits);
 }
 
-bool DataItemFormatRepetitive::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatRepetitive::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   int fixedLength = m_pFixed->getLength(pData);
   unsigned char nRepetition = *pData;
@@ -69,53 +70,41 @@ bool DataItemFormatRepetitive::getDescription(std::string& strDescription, unsig
 
   pData++;
 
-  while(nRepetition--)
+  switch(formatType)
   {
-    m_pFixed->getDescription(strDescription, pData, fixedLength);
-    pData += fixedLength;
-  }
-  return true;
-}
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+		  // replace last '{' with '[' or append '['
+		  if (strResult[strResult.length()-1] == '{')
+			  strResult[strResult.length()-1] = '[';
+		  else
+			  strResult += format("[");
 
-bool DataItemFormatRepetitive::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
+		  while(nRepetition--)
+		  {
+			  strResult += format("{");
+			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  pData += fixedLength;
 
-  if (1+nRepetition*fixedLength != nLength)
-  {
-    Tracer::Error("Wrong length in Repetitive");
-    return true;
-  }
+			  // replace last ',' with '}' or append }
+			  if (strResult[strResult.length()-1] == ',')
+				  strResult[strResult.length()-1] = '}';
+			  else
+				  strResult += format("}");
 
-  pData++;
-
-  while(nRepetition--)
-  {
-    m_pFixed->getText(strDescription, strHeader, pData, fixedLength);
-    pData += fixedLength;
-  }
-  return true;
-}
-
-bool DataItemFormatRepetitive::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
-  {
-    Tracer::Error("Wrong length in Repetitive");
-    return true;
-  }
-
-  pData++;
-
-  while(nRepetition--)
-  {
-    m_pFixed->getXIDEF(strXIDEF, pData, fixedLength);
-    pData += fixedLength;
-  }
+			  if (nRepetition > 0)
+				  strResult += format(",");
+		  }
+		  strResult += format("]");
+		  break;
+	  default:
+		  while(nRepetition--)
+		  {
+			m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+		    pData += fixedLength;
+		  }
+		  break;
+  	  }
   return true;
 }
 

@@ -38,9 +38,7 @@ public:
 
   long getLength(const unsigned char* pData);
   void addBits(DataItemBits* pBits);
-  bool getDescription(std::string& strDescription, unsigned char* pData, long nLength); // appends description to strDescription
-  bool getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength);
-  bool getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength); // appends XIDEF description to strXIDEF
+  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);

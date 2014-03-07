@@ -43,11 +43,7 @@ public:
 
   virtual long getLength(const unsigned char* pData) { Tracer::Error("Function should not be called!"); return 0; }
   virtual void addBits(DataItemBits* pBits) { Tracer::Error("Function should not be called!"); }
-  virtual bool getDescription(std::string& strDescription, unsigned char* pData, long nLength)
-  { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
-  virtual bool getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-  { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
-  virtual bool getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
+  virtual bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
   virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
   virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }

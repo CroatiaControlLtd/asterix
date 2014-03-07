@@ -23,6 +23,7 @@
 #include "DataBlock.h"
 #include "Tracer.h"
 #include "Utils.h"
+#include "asterixformat.hxx"
 
 DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
@@ -75,54 +76,21 @@ DataBlock::~DataBlock()
   }
 }
 
-bool DataBlock::getDescription(std::string& strDescription)
+bool DataBlock::get(std::string& strResult, const unsigned int formatType)
 {
-  strDescription += format("\nCategory: %d", m_pCategory->m_id);
-  strDescription += format("\nLen: %ld", m_nLength);
-  if (!m_bFormatOK)
-  {
-    strDescription += format("\nCould not be parsed");
-    return true;
-  }
+	std::string strHeader;
 
-  // go through all present data items in this block
-  std::list<DataRecord*>::iterator it;
-  for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
-  {
-    DataRecord* dr = (DataRecord*)(*it);
-    if (dr != NULL)
-    {
-      dr->getDescription(strDescription);
-    }
-  }
-  return true;
-}
+	switch(formatType)
+	{
+		case CAsterixFormat::ETxt:
+			strResult += format("\nCategory: %d", m_pCategory->m_id);
+			strResult += format("\nLen: %ld", m_nLength);
+			break;
+		case CAsterixFormat::EOut:
+			strHeader = format("Asterix.CAT%03d", m_pCategory->m_id);
+			break;
+	}
 
-bool DataBlock::getText(std::string& strDescription, std::string& strHeader)
-{
-  strHeader = format("Asterix.CAT%03d", m_pCategory->m_id);
-
-  if (!m_bFormatOK)
-  {
-    strDescription += format("\nCould not be parsed");
-    return true;
-  }
-
-  // go through all present data items in this block
-  std::list<DataRecord*>::iterator it;
-  for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
-  {
-    DataRecord* dr = (DataRecord*)(*it);
-    if (dr != NULL)
-    {
-      dr->getText(strDescription, strHeader);
-    }
-  }
-  return true;
-}
-
-bool DataBlock::getXIDEF(std::string& strXIDEF)
-{
   if (!m_bFormatOK)
   {
     Tracer::Error("Block not parsed properly.");
@@ -138,7 +106,7 @@ bool DataBlock::getXIDEF(std::string& strXIDEF)
       DataRecord* dr = (DataRecord*)(*it);
       if (dr != NULL)
       {
-        dr->getXIDEF(strXIDEF);
+    	  dr->get(strResult, strHeader, formatType);
       }
     }
   }

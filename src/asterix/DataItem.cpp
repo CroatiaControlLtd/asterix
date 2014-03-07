@@ -23,6 +23,7 @@
 #include "DataItem.h"
 #include "Tracer.h"
 #include "Utils.h"
+#include "asterixformat.hxx"
 
 DataItem::DataItem(DataItemDescription* pDesc)
 : m_pDescription(pDesc)
@@ -37,30 +38,44 @@ DataItem::~DataItem()
     delete[] m_pData;
 }
 
-bool DataItem::getDescription(std::string& strDescription)
+bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
-  strDescription += format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
-  strDescription += format("\n[ ");
-  for (int i=0; i<m_nLength; i++)
+  std::string newHeader;
+
+  switch(formatType)
   {
-    strDescription += format("%02X ", *(m_pData+i));
+	  case CAsterixFormat::EJSON:
+		  strResult += format("\"I%03d\":{", m_pDescription->m_nID);
+		  break;
+	  case CAsterixFormat::EJSONH:
+		  strResult += format("\t\"I%03d\":{", m_pDescription->m_nID);
+		  break;
+	  case CAsterixFormat::ETxt:
+		  strResult += format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
+		  strResult += format("\n[ ");
+		  for (int i=0; i<m_nLength; i++)
+		  {
+			  strResult += format("%02X ", *(m_pData+i));
+		  }
+		  strResult += format("]");
+		  break;
+	  case CAsterixFormat::EOut:
+			newHeader = format("%s.%d", strHeader.c_str(), m_pDescription->m_nID);
+		  break;
   }
-  strDescription += format("]");
 
-  m_pDescription->getDescription(strDescription, m_pData, m_nLength);
-  return true;
-}
+  m_pDescription->get(strResult, newHeader, formatType, m_pData, m_nLength);
 
-bool DataItem::getText(std::string& strDescription, std::string& strHeader)
-{
-	std::string newHeader = format("%s.%d", strHeader.c_str(), m_pDescription->m_nID);
-	m_pDescription->getText(strDescription, newHeader, m_pData, m_nLength);
-	return true;
-}
+  switch(formatType)
+  {
+  	  case CAsterixFormat::EJSON:
+  	  case CAsterixFormat::EJSONH:
+  		  // replace last ',' with '}' unless it is "],"
+  		  if (strResult[strResult.length()-1] == ',' && strResult[strResult.length()-2] != ']')
+  			  strResult[strResult.length()-1] = '}';
+  		  break;
+  }
 
-bool DataItem::getXIDEF(std::string& strXIDEF)
-{
-  m_pDescription->getXIDEF(strXIDEF, m_pData, m_nLength);
   return true;
 }
 

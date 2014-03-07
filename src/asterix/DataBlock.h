@@ -40,9 +40,7 @@ public:
 
   std::list<DataRecord*> m_lDataRecords;
 
-  bool getDescription(std::string& strDescription); // appends description to strDescription
-  bool getText(std::string& strDescription, std::string& strHeader);
-  bool getXIDEF(std::string& strXIDEF); // appends XIDEF description to strXIDEF
+  bool get(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif

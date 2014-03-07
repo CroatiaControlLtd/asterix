@@ -50,7 +50,7 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
   m_pFixed->m_lBits.push_back(pBits);
 }
 
-bool DataItemFormatExplicit::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatExplicit::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   int fixedLength = m_pFixed->getLength(pData);
   unsigned char nFullLength = nLength - 1;
@@ -58,43 +58,11 @@ bool DataItemFormatExplicit::getDescription(std::string& strDescription, unsigne
 
   for (int i=0; i<nFullLength; i+=fixedLength)
   {
-	  m_pFixed->getDescription(strDescription, pData, fixedLength);
+	  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
 	  pData += fixedLength;
   }
   return true;
 }
-
-bool DataItemFormatExplicit::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nFullLength = nLength - 1;
-  pData++;
-
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-	  m_pFixed->getText(strDescription, strHeader, pData, fixedLength);
-	  pData += fixedLength;
-  }
-  return true;
-}
-
-bool DataItemFormatExplicit::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nFullLength = nLength - 1;
-  pData++;
-
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-	  m_pFixed->getDescription(strXIDEF, pData, fixedLength);
-	  pData += fixedLength;
-  }
-  pData++;
-
-  m_pFixed->getDescription(strXIDEF, pData, nLength);
-  return true;
-}
-
 
 bool DataItemFormatExplicit::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {

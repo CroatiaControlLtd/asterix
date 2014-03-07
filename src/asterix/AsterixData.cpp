@@ -23,6 +23,7 @@
 #include "AsterixData.h"
 #include "Utils.h"
 #include <time.h>
+#include "asterixformat.hxx"
 
 AsterixData::AsterixData()
 {
@@ -40,59 +41,30 @@ AsterixData::~AsterixData()
 }
 
 /*
- * appends description to strDescription
+ * appends Asterix data description to strResult
  */
-bool AsterixData::getDescription(std::string& strDescription)
+bool AsterixData::get(std::string& strResult, const unsigned int formatType)
 {
   static int i = 1;
+
   std::list<DataBlock*>::iterator it;
   for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
   {
     DataBlock* db = (DataBlock*)(*it);
     if (db != NULL)
     {
-      strDescription += format("\n\n-------------------------\nData Block %d", i++);
-      db->getDescription(strDescription);
+    	switch(formatType)
+    	{
+    		case CAsterixFormat::ETxt:
+    			strResult += format("\n\n-------------------------\nData Block %d", i++);
+    			break;
+    	}
+    	db->get(strResult, formatType);
     }
   }
   return true;
 }
 
-/*
- * appends text to strDescription
- */
-bool AsterixData::getText(std::string& strDescription, std::string& strHeader)
-{
-  std::list<DataBlock*>::iterator it;
-  for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
-  {
-    DataBlock* db = (DataBlock*)(*it);
-    if (db != NULL)
-    {
-      db->getText(strDescription, strHeader);
-    }
-  }
-  return true;
-}
-
-
-
-/*
- * appends XIDEF description to strXIDEF
- */
-bool AsterixData::getXIDEF(std::string& strXIDEF)
-{
-  std::list<DataBlock*>::iterator it;
-  for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
-  {
-    DataBlock* db = (DataBlock*)(*it);
-    if (db != NULL)
-    {
-      db->getXIDEF(strXIDEF);
-    }
-  }
-  return true;
-}
 
 /*
  * Print out data KML file with plots with timestamp

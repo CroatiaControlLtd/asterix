@@ -23,6 +23,7 @@
 
 #include "DataItemFormatFixed.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatFixed::DataItemFormatFixed()
 : m_nLength(0)
@@ -103,6 +104,26 @@ bool DataItemFormatFixed::isLastPart(const unsigned char* pData)
   return true;
 }
 
+std::string& DataItemFormatFixed::getPartName(int part)
+{
+	  static std::string unknown = "unknown";
+
+	  // go through all bits and find which has BitsPresence set to part
+	  std::list<DataItemBits*>::iterator bitit;
+	  for ( bitit=m_lBits.begin() ; bitit != m_lBits.end(); bitit++ )
+	  {
+	    DataItemBits* bit = (DataItemBits*)(*bitit);
+	    if (bit != NULL && bit->m_nPresenceOfField == part)
+	    { // found
+			  if (bit->m_strShortName.empty())
+			 	 return bit->m_strName;
+			  return bit->m_strShortName;
+	    }
+	  }
+	  Tracer::Error("Compound part not found!");
+	  return unknown;
+}
+
 bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int part)
 {
   // go through all bits and find which has BitsPresence set to part
@@ -146,7 +167,7 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int
   return false;
 }
 
-bool DataItemFormatFixed::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   if (m_nLength != nLength)
   {
@@ -154,22 +175,16 @@ bool DataItemFormatFixed::getDescription(std::string& strDescription, unsigned c
     return true;
   }
 
-  std::list<DataItemBits*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+  switch(formatType)
   {
-    bv = (DataItemBits*)(*it);
-    bv->getDescription(strDescription, pData, m_nLength);
-  }
-  return true;
-}
-
-bool DataItemFormatFixed::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
-  if (m_nLength != nLength)
-  {
-    Tracer::Error("Length doesn't match!!!");
-    return true;
+	  case CAsterixFormat::EXIDEF:
+	  {
+		  if (!m_strXIDEF.empty())
+		  {
+			  strResult += format("\n<%s>", m_strXIDEF.c_str());
+		  }
+		  break;
+	  }
   }
 
   std::list<DataItemBits*>::iterator it;
@@ -177,40 +192,23 @@ bool DataItemFormatFixed::getText(std::string& strDescription, std::string& strH
   for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    bv->getText(strDescription, strHeader, pData, m_nLength);
-  }
-  return true;
-}
-
-bool DataItemFormatFixed::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  if (m_nLength != nLength)
-  {
-    Tracer::Error("Length doesn't match!!!");
-    return true;
+    bv->get(strResult, strHeader, formatType, pData, m_nLength);
   }
 
-  if (!m_strXIDEF.empty())
+  switch(formatType)
   {
-    strXIDEF += format("\n<%s>", m_strXIDEF.c_str());
-  }
-
-  std::list<DataItemBits*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    bv->getXIDEF(strXIDEF, pData, m_nLength);
-  }
-
-  if (!m_strXIDEF.empty())
-  {
-    strXIDEF += format("\n</%s>", m_strXIDEF.c_str());
+	  case CAsterixFormat::EXIDEF:
+	  {
+		  if (!m_strXIDEF.empty())
+		  {
+			  strResult += format("\n</%s>", m_strXIDEF.c_str());
+		  }
+		  break;
+	  }
   }
 
   return true;
 }
-
 bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {
   std::list<DataItemBits*>::iterator it;
