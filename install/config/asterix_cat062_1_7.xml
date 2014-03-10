@@ -7,7 +7,8 @@
 
     Author:   B.Bertrand
     Created:  11.09.2012
-    Version:  1.0
+    Modified: 11.03.2014
+    Version:  1.1
 
 -->
 
@@ -106,7 +107,7 @@
 		<DataItemDefinition>Status of a track.</DataItemDefinition>
 		<DataItemFormat>
 			<Variable>
-				<Fixed length="8">
+				<Fixed length="1">
 					<Bits bit="8">
 						<BitsShortName>MON</BitsShortName>
 						<BitsValue val="0">Multisensor track</BitsValue>
@@ -2050,8 +2051,8 @@
                         <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
                     </Bits>
                 </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1">
+                <Fixed length="1">
+                    <Bits from="8" to="1">
                         <BitsShortName>VUN</BitsShortName>
                         <BitsName>Velocity uncertainty category</BitsName>
                     </Bits>
