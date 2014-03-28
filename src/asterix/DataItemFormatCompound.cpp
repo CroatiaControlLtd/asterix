@@ -123,6 +123,16 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
     return true;
   }
 
+  switch(formatType)
+  {
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+	  {
+		  strResult += '{';
+	  }
+	  break;
+  }
+
   int primaryPartLength = m_pCompoundPrimary->getLength(pData);
   unsigned char* pSecData = pData + primaryPartLength;
 
@@ -156,19 +166,18 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
 			  strResult += "\n\t\t";
 			  /* no break */
 		  case CAsterixFormat::EJSON:
-			  strResult += "\"" + dip->getPartName(secondaryPart) + "\":{";
+			  strResult += "\"" + dip->getPartName(secondaryPart) + "\":";
 
 		        skip = dip2->getLength(pSecData);
 		        dip2->get(strResult, strHeader, formatType, pSecData, skip);
 		        pSecData += skip;
 
-		        // replace last ',' with '}' or append '}'
-		        if (strResult[strResult.length()-1] == ',')
-		        	strResult[strResult.length()-1] = '}';
-		        else
-		        	strResult += format("}");
-		        strResult += ",";
-
+			  // replace last ',' with '}'
+			  if (strResult[strResult.length()-1] == ',')
+			  {
+				  strResult[strResult.length()-1] = '}';
+			  }
+	          strResult += ",";
 			  break;
 		  default:
 		        skip = dip2->getLength(pSecData);
@@ -186,6 +195,23 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
     if (lastPart)
       break;
   }
+
+  switch(formatType)
+  {
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+	  {
+		  if (strResult[strResult.length()-1] == ',')
+		  {
+			  strResult[strResult.length()-1] = '}';
+		  }
+		  else
+			  strResult += '}';
+	  }
+	  break;
+  }
+
+
   return true;
 }
 

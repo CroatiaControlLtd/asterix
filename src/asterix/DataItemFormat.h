@@ -47,7 +47,7 @@ public:
 
   virtual long getLength(const unsigned char* pData) = 0;
   virtual void addBits(DataItemBits* pBits) = 0;
-  virtual bool get(std::string& strResult, std::string& strResult, const unsigned int formatType, unsigned char* pData, long nLength) = 0; // appends value to strResult
+  virtual bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) = 0; // appends value to strResult
   virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;

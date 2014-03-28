@@ -183,8 +183,14 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 		  {
 			  strResult += format("\n<%s>", m_strXIDEF.c_str());
 		  }
-		  break;
 	  }
+	  break;
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+	  {
+		  strResult += '{';
+	  }
+	  break;
   }
 
   std::list<DataItemBits*>::iterator it;
@@ -205,6 +211,15 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 		  }
 		  break;
 	  }
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+	  {
+		  if (strResult[strResult.length()-1] == ',')
+			  strResult[strResult.length()-1] = '}';
+		  else
+			  strResult += '}';
+	  }
+	  break;
   }
 
   return true;

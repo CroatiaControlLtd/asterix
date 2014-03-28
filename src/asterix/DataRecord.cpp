@@ -175,10 +175,10 @@ bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsig
 		  strResult += format("\nLen: %ld", m_nLength);
 		  break;
   	  case CAsterixFormat::EJSON:
-  		  strResult += format("\n{\"CAT%03d\":{", m_pCategory->m_id);
+  		  strResult += format("{\"CAT%03d\":{", m_pCategory->m_id);
   		  break;
   	  case CAsterixFormat::EJSONH:
-  		  strResult += format("\n{\"CAT%03d\":{\n", m_pCategory->m_id);
+  		  strResult += format("{\"CAT%03d\":{\n", m_pCategory->m_id);
   		  break;
   	  case CAsterixFormat::EXIDEF:
   		  const int nXIDEFv = 1;
@@ -216,7 +216,7 @@ bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsig
   {
   	  case CAsterixFormat::EJSON:
   	  case CAsterixFormat::EJSONH:
-  		  strResult += "}},";
+  		  strResult += "}},\n";
   		  break;
   	  case CAsterixFormat::EXIDEF:
   		  strResult += "\n</XIDEF>";
@@ -225,7 +225,6 @@ bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsig
 
   return true;
 }
-
 
 DataItem* DataRecord::getItem(int itemid)
 {

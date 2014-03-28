@@ -74,23 +74,12 @@ bool DataItemFormatRepetitive::get(std::string& strResult, std::string& strHeade
   {
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
-		  // replace last '{' with '[' or append '['
-		  if (strResult[strResult.length()-1] == '{')
-			  strResult[strResult.length()-1] = '[';
-		  else
-			  strResult += format("[");
+		  strResult += format("[");
 
 		  while(nRepetition--)
 		  {
-			  strResult += format("{");
 			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
-
-			  // replace last ',' with '}' or append }
-			  if (strResult[strResult.length()-1] == ',')
-				  strResult[strResult.length()-1] = '}';
-			  else
-				  strResult += format("}");
 
 			  if (nRepetition > 0)
 				  strResult += format(",");

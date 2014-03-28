@@ -45,10 +45,10 @@ bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigne
   switch(formatType)
   {
 	  case CAsterixFormat::EJSON:
-		  strResult += format("\"I%03d\":{", m_pDescription->m_nID);
+		  strResult += format("\"I%03d\":", m_pDescription->m_nID);
 		  break;
 	  case CAsterixFormat::EJSONH:
-		  strResult += format("\t\"I%03d\":{", m_pDescription->m_nID);
+		  strResult += format("\t\"I%03d\":", m_pDescription->m_nID);
 		  break;
 	  case CAsterixFormat::ETxt:
 		  strResult += format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
@@ -70,9 +70,11 @@ bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigne
   {
   	  case CAsterixFormat::EJSON:
   	  case CAsterixFormat::EJSONH:
-  		  // replace last ',' with '}' unless it is "],"
-  		  if (strResult[strResult.length()-1] == ',' && strResult[strResult.length()-2] != ']')
+  		  // replace last ',' with '}'
+  		  if (strResult[strResult.length()-1] == ',')
+  		  {
   			  strResult[strResult.length()-1] = '}';
+  		  }
   		  break;
   }
 

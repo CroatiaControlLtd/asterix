@@ -55,7 +55,7 @@ static void show_usage(std::string name)
 
 	std::cerr << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
 			  << "Usage:\n"
-			  <<  name << " [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] -f filename|-i mcastaddress:ipaddress:port"
+			  <<  name << " [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]"
 			  << "\n\nOptions:"
 			  << "\n\t-h,--help\tShow this help message"
 			  << "\n\t-v,--verbose\tShow more information during program execution"
@@ -244,7 +244,22 @@ int main(int argc, const char *argv[])
 	}
 	else if (!strIPInput.empty())
 	{
-		strInput = "udp " + strIPInput + ":S ";
+		// count ':'
+		int cntr=0;
+		int indx=0;
+		while((indx=strIPInput.find(':', indx+1)) >= 0)
+		{
+			cntr++;
+		}
+
+		if (cntr == 2)
+			strInput = "udp " + strIPInput + "::S ";
+		else if (cntr == 3)
+			strInput = "udp " + strIPInput + ":S ";
+		else {
+			std::cerr << "Error: Wrong input address format  (shall be: mcastaddress:ipaddress:port[:srcaddress]" << std::endl;
+			exit (3);
+		}
 	}
 
 	strInput += strInputFormat;

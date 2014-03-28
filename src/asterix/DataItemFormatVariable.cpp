@@ -23,6 +23,7 @@
 
 #include "DataItemFormatVariable.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatVariable::DataItemFormatVariable()
 {
@@ -91,14 +92,41 @@ bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader,
   std::list<DataItemFormatFixed*>::iterator it;
   bool lastPart = false;
   it=m_lParts.begin();
+  std::string tmpResult;
 
   DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+
+  switch(formatType)
+     {
+   	  case CAsterixFormat::EJSON:
+   	  case CAsterixFormat::EJSONH:
+   	  {
+   		strResult += '{';
+   	  }
+   	  break;
+     }
 
   do
   {
     lastPart = dip->isLastPart(pData);
 
-    dip->get(strResult, strHeader, formatType, pData, dip->getLength());
+    switch(formatType)
+    {
+  	  case CAsterixFormat::EJSON:
+  	  case CAsterixFormat::EJSONH:
+  	  {
+  		  tmpResult = "";
+  		  dip->get(tmpResult, strHeader, formatType, pData, dip->getLength());
+  		  strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
+  		 if (!lastPart)
+  			strResult += ',';
+  	  }
+  	  break;
+  	  default:
+  		  dip->get(strResult, strHeader, formatType, pData, dip->getLength());
+  	  break;
+    }
+
     pData += dip->getLength();
 
     if (it != m_lParts.end())
@@ -111,6 +139,17 @@ bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader,
     }
   }
   while(!lastPart);
+
+  switch(formatType)
+     {
+   	  case CAsterixFormat::EJSON:
+   	  case CAsterixFormat::EJSONH:
+   	  {
+   		strResult += '}';
+   	  }
+   	  break;
+     }
+
   return true;
 }
 

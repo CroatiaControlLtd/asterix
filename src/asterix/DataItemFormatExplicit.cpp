@@ -23,6 +23,7 @@
 
 #include "DataItemFormatExplicit.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatExplicit::DataItemFormatExplicit()
 : m_pFixed(NULL)
@@ -56,11 +57,37 @@ bool DataItemFormatExplicit::get(std::string& strResult, std::string& strHeader,
   unsigned char nFullLength = nLength - 1;
   pData++;
 
-  for (int i=0; i<nFullLength; i+=fixedLength)
+
+  switch(formatType)
   {
-	  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
-	  pData += fixedLength;
-  }
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+		  strResult += format("[");
+
+		  for (int i=0; i<nFullLength; i+=fixedLength)
+		  {
+			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  pData += fixedLength;
+			  strResult += format(",");
+		  }
+		  if (strResult[strResult.length()-1] == ',')
+		  {
+			  strResult[strResult.length()-1] = ']';
+		  }
+		  else
+		  {
+			  strResult += ']';
+		  }
+		  break;
+	  default:
+		  for (int i=0; i<nFullLength; i+=fixedLength)
+		  {
+			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  pData += fixedLength;
+		  }
+		  break;
+  	  }
+
   return true;
 }
 
