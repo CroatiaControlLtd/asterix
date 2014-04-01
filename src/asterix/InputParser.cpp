@@ -93,3 +93,17 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
   return pAsterixData;
 }
 
+std::string InputParser::printDefinition()
+{
+	return m_pDefinition->printDescriptors();
+}
+
+bool InputParser::filterOutItem(int cat, int item, const char* name)
+{
+	return m_pDefinition->filterOutItem(cat,item,name);
+}
+
+bool InputParser::isFiltered(int cat, int item, const char* name)
+{
+	return m_pDefinition->isFiltered(cat,item,name);
+}

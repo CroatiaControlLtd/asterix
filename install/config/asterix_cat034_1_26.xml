@@ -7,6 +7,7 @@
 	
 	Author:   dmarkus
 	Created:  5.1.2011.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
@@ -18,7 +19,7 @@
 		<DataItemFormat desc="One-octet fixed length Data Item.">
 			<Fixed length="1">
 				<Bits from="8" to="1">
-					<BitsShortName>TYP</BitsShortName>
+					<BitsShortName>MsgTyp</BitsShortName>
 					<BitsName>Message Type</BitsName>
 					<BitsValue val="1">North marker message</BitsValue>
 					<BitsValue val="2">Sector crossing message</BitsValue>
@@ -52,7 +53,7 @@
 		<DataItemFormat desc="One-octet fixed length Data Item.">
 			<Fixed length="1">
 				<Bits from="8" to="1">
-					<BitsShortName>AZI</BitsShortName>
+					<BitsShortName>Azi</BitsShortName>
 					<BitsName>Antenna azimuth</BitsName>
 					<BitsUnit scale="1.40625">deg</BitsUnit>
 				</Bits>
@@ -82,7 +83,7 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item">
 			<Fixed length="2">
 				<Bits from="16" to="1">
-					<BitsShortName>RS</BitsShortName>
+					<BitsShortName>RotS</BitsShortName>
 					<BitsName>Antenna rotation speed</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -98,42 +99,42 @@
 				<Variable>
 					<Fixed length="1">
 						<Bits bit="8">
-							<BitsShortName>COMP</BitsShortName>
+							<BitsShortName>COM_presence</BitsShortName>
 							<BitsName>COM Presence</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
 						<Bits bit="7">
-							<BitsShortName>sb1</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>   						
 						<Bits bit="6">
-							<BitsShortName>sb2</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
 						<Bits bit="5">
-							<BitsShortName>PSRP</BitsShortName>
+							<BitsShortName>PSR_presence</BitsShortName>
 							<BitsName>PSR Presence</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>
 						<Bits bit="4">
-							<BitsShortName>SSRP</BitsShortName>
+							<BitsShortName>SSR_presence</BitsShortName>
 							<BitsName>SSR Presence</BitsName>
 							<BitsPresence>3</BitsPresence>
 						</Bits>
 						<Bits bit="3">
-							<BitsShortName>MDSP</BitsShortName>
+							<BitsShortName>MDS_presence</BitsShortName>
 							<BitsName>MDS Presence</BitsName>
 							<BitsPresence>4</BitsPresence>
 						</Bits>
 						<Bits bit="2">
-							<BitsShortName>sb3</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
 						<Bits bit="1" fx="1">
-							<BitsShortName>FX</BitsShortName>
+							<BitsShortName>fx</BitsShortName>
 							<BitsName>Field extension</BitsName>
 							<BitsValue val="1">Extension into next extent</BitsValue>
 							<BitsValue val="0">End of Data Item</BitsValue>
@@ -185,7 +186,7 @@
 						<BitsValue val="0">Time source valid</BitsValue>
 					</Bits>
 					<Bits bit="1">
-						<BitsShortName>sb4</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -225,7 +226,7 @@
 						<BitsValue val="0">Monitoring system connected</BitsValue>
 					</Bits>
 					<Bits from="3" to="1">
-						<BitsShortName>sb5</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -259,7 +260,7 @@
 						<BitsValue val="0">Monitoring system connected</BitsValue>
 					</Bits>
 					<Bits from="3" to="1">
-						<BitsShortName>sb6</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -317,7 +318,7 @@
 						<BitsValue val="1">Overload</BitsValue>	
 					</Bits>
 					<Bits from="7" to="1">
-						<BitsShortName>sb7</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -336,40 +337,40 @@
 				<Variable>
 					<Fixed length="1">
 						<Bits bit="8">
-							<BitsShortName>COMP</BitsShortName>
+							<BitsShortName>COM_presence</BitsShortName>
 							<BitsName>COM Presence</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
 						<Bits bit="7">
-							<BitsShortName>sb1</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 						</Bits>   						
 						<Bits bit="6">
-							<BitsShortName>sb2</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 						</Bits>
 						<Bits bit="5">
-							<BitsShortName>PSRP</BitsShortName>
+							<BitsShortName>PSR_presence</BitsShortName>
 							<BitsName>PSR Presence</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>
 						<Bits bit="4">
-							<BitsShortName>SSRP</BitsShortName>
+							<BitsShortName>SSR_presence</BitsShortName>
 							<BitsName>SSR Presence</BitsName>
 							<BitsPresence>3</BitsPresence>
 						</Bits>
 						<Bits bit="3">
-							<BitsShortName>MDSP</BitsShortName>
+							<BitsShortName>MDS_presence</BitsShortName>
 							<BitsName>MDS Presence</BitsName>
 							<BitsPresence>4</BitsPresence>
 						</Bits>
 						<Bits bit="2">
-							<BitsShortName>sb3</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>Spare</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
 						<Bits bit="1" fx="1">
-							<BitsShortName>FX</BitsShortName>
+							<BitsShortName>fx</BitsShortName>
 							<BitsName>Field extension</BitsName>
 							<BitsValue val="1">Extension into next extent</BitsValue>
 							<BitsValue val="0">End of Data Item</BitsValue>
@@ -379,7 +380,7 @@
 
 				<Fixed length="1">
 					<Bits bit="8">
-						<BitsShortName>sb4</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -392,7 +393,7 @@
 						<BitsName>RED-XMT</BitsName>
 					</Bits>
 					<Bits bit="1">
-						<BitsShortName>sb5</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -414,7 +415,7 @@
 						<BitsName>Sensitivity Time Control Map in use</BitsName>
 					</Bits>
 					<Bits bit="1">
-						<BitsShortName>sb6</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -426,7 +427,7 @@
 						<BitsName>Reduction Steps in use</BitsName>
 					</Bits>
 					<Bits from="5" to="1">
-						<BitsShortName>sb7</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -444,7 +445,7 @@
 						<BitsValue val="1">Not autonomous</BitsValue>
 					</Bits>
 					<Bits from="4" to="1">
-						<BitsShortName>sb8</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
@@ -465,7 +466,7 @@
 						<BitsName>Type of message counter</BitsName>
 					</Bits>
 					<Bits from="11" to="1">
-						<BitsShortName>CNTV</BitsShortName>
+						<BitsShortName>counter</BitsShortName>
 						<BitsName>Counter value</BitsName>
 					</Bits>
 				</Fixed>
@@ -479,13 +480,13 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item">
 			<Fixed length="2">
 				<Bits from="16" to="9" encode="signed">
-					<BitsShortName>RERR</BitsShortName>
+					<BitsShortName>range_error</BitsShortName>
 					<BitsName>Range Error</BitsName>
 					<BitsUnit scale="0.0078125">NM</BitsUnit>
 				</Bits>
 				<Bits from="8" to="1" encode="signed">
-					<BitsShortName>AZERR</BitsShortName>
-					<BitsName>Azimuth Error</BitsName>
+					<BitsShortName>AziErr</BitsShortName>
+					<BitsName>Azimuth</BitsName>
 					<BitsUnit scale="0.02197265625">deg</BitsUnit>
 				</Bits>
 			</Fixed>
@@ -499,22 +500,22 @@
 		<DataItemFormat desc="Eight-octet fixed length Data Item">
 			<Fixed length="8">
 				<Bits from="64" to="49">
-					<BitsShortName>RHOS</BitsShortName>
+					<BitsShortName>RhoS</BitsShortName>
 					<BitsName>Rho start</BitsName>
 					<BitsUnit scale="0.0078125">NM</BitsUnit>
 				</Bits>
 				<Bits from="48" to="33">
-					<BitsShortName>RHOE</BitsShortName>
+					<BitsShortName>RhoE</BitsShortName>
 					<BitsName>Rho end</BitsName>
 					<BitsUnit scale="0.0078125">NM</BitsUnit>
 				</Bits>
 				<Bits from="32" to="17">
-					<BitsShortName>THES</BitsShortName>
+					<BitsShortName>ThetaS</BitsShortName>
 					<BitsName>Theta start</BitsName>
 					<BitsUnit scale="0.0054931640625">deg</BitsUnit>
 				</Bits>
 				<Bits from="16" to="1">
-					<BitsShortName>THEE</BitsShortName>
+					<BitsShortName>ThetaE</BitsShortName>
 					<BitsName>Theta end</BitsName>
 					<BitsUnit scale="0.0054931640625">deg</BitsUnit>
 				</Bits>
@@ -543,7 +544,7 @@
 		<DataItemFormat desc="Eight-octet fixed length Data Item.">
 			<Fixed length="8">
 				<Bits from="64" to="49">
-					<BitsShortName>HEIGHT</BitsShortName>
+					<BitsShortName>Height</BitsShortName>
 					<BitsName>Height in WGS-84</BitsName>
 					<BitsUnit  scale="1">m</BitsUnit>
 				</Bits>
@@ -553,7 +554,7 @@
 					<BitsUnit  scale="0.00002145767">deg</BitsUnit>
 				</Bits>
 				<Bits from="24" to="1" encode="signed">
-					<BitsShortName>LONG</BitsShortName>
+					<BitsShortName>Lon</BitsShortName>
 					<BitsName>Longitude in WGS-84</BitsName>
 					<BitsUnit scale="0.00002145767">deg</BitsUnit>
 				</Bits>

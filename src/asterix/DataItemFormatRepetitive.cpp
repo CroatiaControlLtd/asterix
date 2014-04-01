@@ -166,6 +166,21 @@ bool DataItemFormatRepetitive::getValue(unsigned char* pData, long nLength, std:
   return false;
 }
 
+std::string DataItemFormatRepetitive::printDescriptors(std::string header)
+{
+	return m_pFixed->printDescriptors(header);
+}
+
+bool DataItemFormatRepetitive::filterOutItem(const char* name)
+{
+	return m_pFixed->filterOutItem(name);
+}
+
+bool DataItemFormatRepetitive::isFiltered(const char* name)
+{
+	return m_pFixed->isFiltered(name);
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatRepetitive::getWiresharkDefinitions()
 {

@@ -34,7 +34,6 @@ CSingleton< CConverterEngine > CConverterEngine::_Instance;
 
 bool CConverterEngine::Initialize(const char *inputChannel, const char *outputChannel[], const unsigned int nOutput, const unsigned int chFailover)
 {
-
     ASSERT(inputChannel);
 
     CDescriptor inputDescriptor(inputChannel, " ");

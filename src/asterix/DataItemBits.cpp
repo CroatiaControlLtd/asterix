@@ -26,6 +26,8 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 static const char SIXBITCODE[] = {' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
 		'P','Q','R','S','T','U','V','W','X','Y','Z',' ',' ',' ',' ',' ',
 		' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
@@ -44,6 +46,7 @@ DataItemBits::DataItemBits()
 , m_dMinValue(0.0)
 , m_bExtension(false)
 , m_nPresenceOfField(0)
+, m_bFiltered(false)
 {
 
 }
@@ -340,6 +343,9 @@ unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int fromb
 
 bool DataItemBits::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+	if (gFiltering && !m_bFiltered)
+		return false;
+
 	if (m_nFrom > m_nTo)
 	{ // just in case
 		int tmp = m_nFrom;
@@ -361,21 +367,13 @@ bool DataItemBits::get(std::string& strResult, std::string& strHeader, const uns
 	switch(formatType)
 	{
 	case CAsterixFormat::EJSON:
-		if (m_strShortName.empty())
-			strResult += format("\"%s\":", m_strName.c_str());
-		else
-			strResult += format("\"%s\":", m_strShortName.c_str());
+		strResult += format("\"%s\":", m_strShortName.c_str());
 		break;
 	case CAsterixFormat::EJSONH:
-		if (m_strShortName.empty())
-			strResult += format("\n\t\t\"%s\":", m_strName.c_str());
-		else
 			strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
 		break;
 	case CAsterixFormat::EXIDEF:
-		if (m_strXIDEF.empty())
-			return true; // nothing to do
-		strResult += format("\n<%s>", m_strXIDEF.c_str());
+			strResult += format("\n<%s>", m_strShortName.c_str());
 		break;
 	}
 
@@ -659,7 +657,7 @@ bool DataItemBits::get(std::string& strResult, std::string& strHeader, const uns
 		strResult += format(",");
 		break;
 	case CAsterixFormat::EXIDEF:
-		strResult += format("</%s>", m_strXIDEF.c_str());
+		strResult += format("</%s>", m_strShortName.c_str());
 		break;
 	}
 
@@ -893,6 +891,39 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, std::string& val
 	}
 
 	return true;
+}
+
+std::string DataItemBits::printDescriptors(std::string header)
+{
+	std::string strDes;
+
+	if (gFiltering && !m_bFiltered)
+	{
+		strDes = "#";
+	}
+
+	strDes += header + m_strShortName;
+
+	int fill = 60 - strDes.length();
+	if (fill>0)
+	{
+		std::string strFill(fill, ' ');
+		strDes += strFill;
+	}
+
+	strDes += " "+m_strName+"\n";
+
+	return strDes;
+}
+
+bool DataItemBits::filterOutItem(const char* name)
+{
+	if (0 == strncmp(name, m_strShortName.c_str(), m_strShortName.length()))
+	{
+		m_bFiltered = true;
+		return true;
+	}
+	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

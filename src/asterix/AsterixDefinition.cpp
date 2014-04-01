@@ -57,3 +57,36 @@ bool AsterixDefinition::CategoryDefined(int i)
 {
   return (m_pCategory[i] != NULL) ? true : false;
 }
+
+std::string AsterixDefinition::printDescriptors()
+{
+	std::string strDef = "";
+	int i = 1;
+
+	for (i=1; i<MAX_CATEGORIES; i++)
+	{
+		if (CategoryDefined(i))
+		{
+			strDef += getCategory(i)->printDescriptors();
+		}
+	}
+	return strDef;
+}
+
+bool AsterixDefinition::filterOutItem(int cat, int item, const char* name)
+{
+	if (CategoryDefined(cat))
+	{
+		return getCategory(cat)->filterOutItem(item, name);
+	}
+	return false;
+}
+
+bool AsterixDefinition::isFiltered(int cat, int item, const char* name)
+{
+	if (CategoryDefined(cat))
+	{
+		return getCategory(cat)->isFiltered(item, name);
+	}
+	return false;
+}

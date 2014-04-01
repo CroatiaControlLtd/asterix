@@ -117,10 +117,13 @@ void DataItemFormatCompound::addBits(DataItemBits* pBits)
 
 bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+  bool ret = false;
+  std::string tmpStr;
+
   if (m_pCompoundPrimary == NULL)
   {
     Tracer::Error("Missing primary subfield of Compound");
-    return true;
+    return false;
   }
 
   switch(formatType)
@@ -147,7 +150,7 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
     if (it2 == m_lParts.end())
     {
       Tracer::Error("Error in compound format");
-      return true;
+      return false;
     }
 
     DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
@@ -163,25 +166,30 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
 		switch(formatType)
 		{
 		  case CAsterixFormat::EJSONH:
-			  strResult += "\n\t\t";
+			  tmpStr = "\n\t\t";
 			  /* no break */
 		  case CAsterixFormat::EJSON:
-			  strResult += "\"" + dip->getPartName(secondaryPart) + "\":";
+			  tmpStr = "\"" + dip->getPartName(secondaryPart) + "\":";
 
 		        skip = dip2->getLength(pSecData);
-		        dip2->get(strResult, strHeader, formatType, pSecData, skip);
+		        bool r = dip2->get(tmpStr, strHeader, formatType, pSecData, skip);
+		        ret |= r;
 		        pSecData += skip;
 
-			  // replace last ',' with '}'
-			  if (strResult[strResult.length()-1] == ',')
-			  {
-				  strResult[strResult.length()-1] = '}';
-			  }
-	          strResult += ",";
+		        if (r)
+		        {
+		          strResult += tmpStr;
+				  // replace last ',' with '}'
+				  if (strResult[strResult.length()-1] == ',')
+				  {
+					  strResult[strResult.length()-1] = '}';
+				  }
+				  strResult += ",";
+		        }
 			  break;
 		  default:
 		        skip = dip2->getLength(pSecData);
-		        dip2->get(strResult, strHeader, formatType, pSecData, skip);
+		        ret |= dip2->get(strResult, strHeader, formatType, pSecData, skip);
 		        pSecData += skip;
 		        break;
 		}
@@ -212,7 +220,7 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
   }
 
 
-  return true;
+  return ret;
 }
 
 bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
@@ -371,6 +379,42 @@ bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, std::s
   return false;
 }
 
+std::string DataItemFormatCompound::printDescriptors(std::string header)
+{
+	std::string strDef = "";
+
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		strDef += dip->printDescriptors(header);
+	}
+	return strDef;
+}
+
+bool DataItemFormatCompound::filterOutItem(const char* name)
+{
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->filterOutItem(name))
+			return true;
+	}
+	return false;
+}
+
+bool DataItemFormatCompound::isFiltered(const char* name)
+{
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->isFiltered(name))
+			return true;
+	}
+	return false;
+}
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatCompound::getWiresharkDefinitions()
 {

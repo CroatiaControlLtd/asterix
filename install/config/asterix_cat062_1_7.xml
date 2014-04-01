@@ -3,11 +3,12 @@
 
 <!--  
 
-    Asterix Category 62 v1.7 definition 
+	Asterix Category 62 v1.7 definition 
 
-    Author:   B.Bertrand
-    Created:  11.09.2012
-    Version:  1.0
+	Author:   B.Bertrand
+	Created:  11.09.2012
+	Version:  1.0
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 -->
 
@@ -29,7 +30,7 @@
 		</DataItemFormat>
 		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
 	</DataItem>
-	
+
 	<DataItem id="015" rule="optional">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
@@ -43,20 +44,20 @@
 		</DataItemFormat>
 		<DataItemNote>the service identification is allocated by the system</DataItemNote>
 	</DataItem>
-	
+
 	<DataItem id="040" rule="mandatory">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of a track</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="2">
 				<Bits from="16" to="1">
-					<BitsShortName>track_number</BitsShortName>
+					<BitsShortName>TrackN</BitsShortName>
 					<BitsName>Track number</BitsName>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 	</DataItem>
-	
+
 	<DataItem id="060" rule="optional">
 		<DataItemName>Track Mode 3/A Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
@@ -79,20 +80,20 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="12" to="1" encode="octal">
-                    <BitsShortName>mode_3_a</BitsShortName>
+					<BitsShortName>Mod3A</BitsShortName>
 					<BitsName>Mode-3/A reply in octal representation</BitsName>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 	</DataItem>	
-				
+
 	<DataItem id="070" rule="mandatory">
 		<DataItemName>Time Of Track Information</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
-					<BitsShortName>time_of_track_info</BitsShortName>
+					<BitsShortName>ToT</BitsShortName>
 					<BitsName>Time Of Track Information</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -100,13 +101,13 @@
 		</DataItemFormat>
 		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
-				
+
 	<DataItem id="080" rule="mandatory">
 		<DataItemName>Track Status</DataItemName>
 		<DataItemDefinition>Status of a track.</DataItemDefinition>
 		<DataItemFormat>
 			<Variable>
-				<Fixed length="8">
+				<Fixed length="1">
 					<Bits bit="8">
 						<BitsShortName>MON</BitsShortName>
 						<BitsValue val="0">Multisensor track</BitsValue>
@@ -270,252 +271,252 @@
 		</DataItemFormat>
 		<DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
 	</DataItem>
-	
+
 	<DataItem id="100" rule="optional">
 		<DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
 		<DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="6">
 				<Bits from="25" to="48" encode="signed">
-                    <BitsShortName>X</BitsShortName>
+					<BitsShortName>X</BitsShortName>
 					<BitsName>X</BitsName>
 					<BitsUnit scale="0.5">m</BitsUnit>
 				</Bits>
 				<Bits from="1" to="24" encode="signed">
-                    <BitsShortName>Y</BitsShortName>
+					<BitsShortName>Y</BitsShortName>
 					<BitsName>Y</BitsName>
 					<BitsUnit scale="0.5">m</BitsUnit>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 	</DataItem>
-		
+
 	<DataItem id="105" rule="optional">
 		<DataItemName>Calculated Position In WGS-84 Co-ordinates</DataItemName>
 		<DataItemDefinition>Calculated Position in WGS-84 Co-ordinates with a resolution of 180/225. degrees</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="8">
 				<Bits from="33" to="64" encode="signed">
-					<BitsShortName>Latitude</BitsShortName>
-					<BitsName>In WGS.84 in two’s complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude in WGS.84 in two’s complement. Range -90 &lt;= Lat &lt;= 90 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 				<Bits from="1" to="32" encode="signed">
-					<BitsShortName>Longitude</BitsShortName>
-					<BitsName>In WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+					<BitsShortName>Lon</BitsShortName>
+					<BitsName>Longitude in WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
 	</DataItem>
-	
+
 	<DataItem id="110" rule="optional">
 		<DataItemName>Mode 5 Data reports and Extended Mode 1 Code</DataItemName>
 		<DataItemDefinition>Mode 5 Data reports and Extended Mode 1 Code</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
 			<Compound>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>SUM_presence</BitsShortName>
-                            <BitsName>Mode 5 Summary</BitsName>
-                            <BitsPresence>1</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>PMN_presence</BitsShortName>
-                            <BitsName>Mode 5 PIN/ National Origin/Mission Code</BitsName>
-                            <BitsPresence>2</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>POS_presence</BitsShortName>
-                            <BitsName>Mode 5 Reported Position</BitsName>
-                            <BitsPresence>3</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>GA_presence</BitsShortName>
-                            <BitsName>Mode 5 GNSS-derived Altitude</BitsName>
-                            <BitsPresence>4</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>EM1_presence</BitsShortName>
-                            <BitsName>Extended Mode 1 Code in Octal Representation</BitsName>
-                            <BitsPresence>5</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>TOS_presence</BitsShortName>
-                            <BitsName>Time Offset for POS and GA.</BitsName>
-                            <BitsPresence>6</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>XP_presence</BitsShortName>
-                            <BitsName>X Pulse Presence</BitsName>
-                            <BitsPresence>7</BitsPresence>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>M5</BitsShortName>
-                            <BitsValue val="0">No Mode 5 interrogation</BitsValue>
-                            <BitsValue val="1">Mode 5 interrogation</BitsValue>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>ID</BitsShortName>
-                            <BitsValue val="0">No authenticated Mode 5 ID reply</BitsValue>
-                            <BitsValue val="1">Authenticated Mode 5 ID reply</BitsValue>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>DA</BitsShortName>
-                            <BitsValue val="0">No authenticated Mode 5 Data reply or Report</BitsValue>
-                            <BitsValue val="1">Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply type other than ID)</BitsValue>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>M1</BitsShortName>
-                            <BitsValue val="0">Mode 1 code not present or not from Mode 5 reply</BitsValue>
-                            <BitsValue val="1">Mode 1 code from Mode 5 reply</BitsValue>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>M2</BitsShortName>
-                            <BitsValue val="0">Mode 2 code not present or not from Mode 5 reply</BitsValue>
-                            <BitsValue val="1">Mode 2 code from Mode 5 reply</BitsValue>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>M3</BitsShortName>
-                            <BitsValue val="0">Mode 3 code not present or not from Mode 5 reply</BitsValue>
-                            <BitsValue val="1">Mode 3 code from Mode 5 reply</BitsValue>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>MC</BitsShortName>
-                            <BitsValue val="0">Mode C altitude not present or not from Mode 5 reply</BitsValue>
-                            <BitsValue val="1">Mode C altitude from Mode 5 reply</BitsValue>
-                        </Bits>
-                        <Bits bit="1">
-                            <BitsShortName>X</BitsShortName>
-                            <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
-                            <BitsValue val="1">X-pulse set to one.</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="4">
-                        <Bits from="31" to="32">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bits set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits from="17" to="30">
-                            <BitsShortName>PIN</BitsShortName>
-                            <BitsName>PIN Code</BitsName>
-                        </Bits>
-                        <Bits from="14" to="16">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bits set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits from="9" to="13">
-                            <BitsShortName>NAT</BitsShortName>
-                            <BitsName>National Origin</BitsName>
-                        </Bits>
-                        <Bits from="7" to="8">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bits set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits from="1" to="6">
-                            <BitsShortName>MIS</BitsShortName>
-                            <BitsName>Mission Code</BitsName>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="6">
-                        <Bits from="25" to="48" encode="signed">
-                            <BitsShortName>Latitude</BitsShortName>
-                            <BitsName>In WGS.84 in two’s complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
-                            <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
-                        </Bits>
-                        <Bits from="1" to="24" encode="signed">
-                            <BitsShortName>Longitude</BitsShortName>
-                            <BitsName>In WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
-                            <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="2">
-                        <Bits bit="16">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bit set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits bit="15">
-                            <BitsShortName>RES</BitsShortName>
-                            <BitsName>Resolution with which the GNSS-derived Altitude (GA) is reported.</BitsName>
-                            <BitsValue val="0">GA reported in 100 ft increments,</BitsValue>
-                            <BitsValue val="1">GA reported in 25 ft increments.</BitsValue>
-                        </Bits>
-                        <Bits from="1" to="14" encode="signed">
-                            <BitsShortName>GA</BitsShortName>
-                            <BitsName>GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.</BitsName>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="2">
-                        <Bits from="13" to="16">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bits set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits from="1" to="12" encode="octal">
-                            <BitsShortName>EM1</BitsShortName>
-                            <BitsName>Extended Mode 1 Code in octal representation</BitsName>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits from="1" to="8" encode="signed">
-                            <BitsShortName>TOS</BitsShortName>
-                            <BitsName>Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
-                            <BitsUnit scale="0.0078125">s</BitsUnit>						
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits from="6" to="8">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>spare bits set to 0</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>X5</BitsShortName>
-                            <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
-                            <BitsValue val="1">X-pulse set to one (present).</BitsValue>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>XC</BitsShortName>
-                            <BitsName>X-pulse from Mode C reply</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no Mode C reply</BitsValue>
-                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>X3</BitsShortName>
-                            <BitsName>X-pulse from Mode 3/A reply</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no Mode 3/A reply</BitsValue>
-                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>X2</BitsShortName>
-                            <BitsName>X-pulse from Mode 2 reply</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no Mode 2 reply</BitsValue>
-                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
-                        </Bits>
-                        <Bits bit="1">
-                            <BitsShortName>X1</BitsShortName>
-                            <BitsName>X-pulse from Mode 1 reply</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no Mode 1 reply</BitsValue>
-                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
+				<Variable>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>SUM_presence</BitsShortName>
+							<BitsName>Mode 5 Summary</BitsName>
+							<BitsPresence>1</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>PMN_presence</BitsShortName>
+							<BitsName>Mode 5 PIN/ National Origin/Mission Code</BitsName>
+							<BitsPresence>2</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>POS_presence</BitsShortName>
+							<BitsName>Mode 5 Reported Position</BitsName>
+							<BitsPresence>3</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>GA_presence</BitsShortName>
+							<BitsName>Mode 5 GNSS-derived Altitude</BitsName>
+							<BitsPresence>4</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>EM1_presence</BitsShortName>
+							<BitsName>Extended Mode 1 Code in Octal Representation</BitsName>
+							<BitsPresence>5</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>TOS_presence</BitsShortName>
+							<BitsName>Time Offset for POS and GA.</BitsName>
+							<BitsPresence>6</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>XP_presence</BitsShortName>
+							<BitsName>X Pulse Presence</BitsName>
+							<BitsPresence>7</BitsPresence>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension Indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>M5</BitsShortName>
+							<BitsValue val="0">No Mode 5 interrogation</BitsValue>
+							<BitsValue val="1">Mode 5 interrogation</BitsValue>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>ID</BitsShortName>
+							<BitsValue val="0">No authenticated Mode 5 ID reply</BitsValue>
+							<BitsValue val="1">Authenticated Mode 5 ID reply</BitsValue>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>DA</BitsShortName>
+							<BitsValue val="0">No authenticated Mode 5 Data reply or Report</BitsValue>
+							<BitsValue val="1">Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply type other than ID)</BitsValue>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>M1</BitsShortName>
+							<BitsValue val="0">Mode 1 code not present or not from Mode 5 reply</BitsValue>
+							<BitsValue val="1">Mode 1 code from Mode 5 reply</BitsValue>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>M2</BitsShortName>
+							<BitsValue val="0">Mode 2 code not present or not from Mode 5 reply</BitsValue>
+							<BitsValue val="1">Mode 2 code from Mode 5 reply</BitsValue>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>M3</BitsShortName>
+							<BitsValue val="0">Mode 3 code not present or not from Mode 5 reply</BitsValue>
+							<BitsValue val="1">Mode 3 code from Mode 5 reply</BitsValue>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>MC</BitsShortName>
+							<BitsValue val="0">Mode C altitude not present or not from Mode 5 reply</BitsValue>
+							<BitsValue val="1">Mode C altitude from Mode 5 reply</BitsValue>
+						</Bits>
+						<Bits bit="1">
+							<BitsShortName>X</BitsShortName>
+							<BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
+							<BitsValue val="1">X-pulse set to one.</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="4">
+						<Bits from="31" to="32">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bits set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits from="17" to="30">
+							<BitsShortName>PIN</BitsShortName>
+							<BitsName>PIN Code</BitsName>
+						</Bits>
+						<Bits from="14" to="16">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bits set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits from="9" to="13">
+							<BitsShortName>NAT</BitsShortName>
+							<BitsName>National Origin</BitsName>
+						</Bits>
+						<Bits from="7" to="8">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bits set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits from="1" to="6">
+							<BitsShortName>MIS</BitsShortName>
+							<BitsName>Mission Code</BitsName>
+						</Bits>
+					</Fixed>
+					<Fixed length="6">
+						<Bits from="25" to="48" encode="signed">
+							<BitsShortName>Lat</BitsShortName>
+							<BitsName>Latitude in WGS.84 in two’s complement. Range -90 &lt;= Lat &lt;= 90 deg.</BitsName>
+							<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+						</Bits>
+						<Bits from="1" to="24" encode="signed">
+							<BitsShortName>Lon</BitsShortName>
+							<BitsName>Longitude in WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+							<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+						</Bits>
+					</Fixed>
+					<Fixed length="2">
+						<Bits bit="16">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bit set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits bit="15">
+							<BitsShortName>RES</BitsShortName>
+							<BitsName>Resolution with which the GNSS-derived Altitude (GA) is reported.</BitsName>
+							<BitsValue val="0">GA reported in 100 ft increments,</BitsValue>
+							<BitsValue val="1">GA reported in 25 ft increments.</BitsValue>
+						</Bits>
+						<Bits from="1" to="14" encode="signed">
+							<BitsShortName>GA</BitsShortName>
+							<BitsName>GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.</BitsName>
+						</Bits>
+					</Fixed>
+					<Fixed length="2">
+						<Bits from="13" to="16">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bits set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits from="1" to="12" encode="octal">
+							<BitsShortName>EM1</BitsShortName>
+							<BitsName>Extended Mode 1 Code in octal representation</BitsName>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits from="1" to="8" encode="signed">
+							<BitsShortName>TOS</BitsShortName>
+							<BitsName>Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
+							<BitsUnit scale="0.0078125">s</BitsUnit>						
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits from="6" to="8">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>spare bits set to 0</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>X5</BitsShortName>
+							<BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
+							<BitsValue val="1">X-pulse set to one (present).</BitsValue>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>XC</BitsShortName>
+							<BitsName>X-pulse from Mode C reply</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no Mode C reply</BitsValue>
+							<BitsValue val="1">X-pulse set to one (present)</BitsValue>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>X3</BitsShortName>
+							<BitsName>X-pulse from Mode 3/A reply</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no Mode 3/A reply</BitsValue>
+							<BitsValue val="1">X-pulse set to one (present)</BitsValue>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>X2</BitsShortName>
+							<BitsName>X-pulse from Mode 2 reply</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no Mode 2 reply</BitsValue>
+							<BitsValue val="1">X-pulse set to one (present)</BitsValue>
+						</Bits>
+						<Bits bit="1">
+							<BitsShortName>X1</BitsShortName>
+							<BitsName>X-pulse from Mode 1 reply</BitsName>
+							<BitsValue val="0">X-pulse set to zero or no Mode 1 reply</BitsValue>
+							<BitsValue val="1">X-pulse set to one (present)</BitsValue>
+						</Bits>
+					</Fixed>
+				</Variable>
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
@@ -531,7 +532,7 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="1" to="12" encode="octal">
-					<BitsShortName>mode_2_code</BitsShortName>
+					<BitsShortName>Mode2_code</BitsShortName>
 					<BitsName>Mode-2 code in octal representation</BitsName>
 				</Bits>
 			</Fixed>
@@ -544,7 +545,7 @@
 		<DataItemFormat desc="Two-Octet fixed length data item">
 			<Fixed length="2">
 				<Bits from="1" to="16" encode="signed">
-					<BitsShortName>altitude</BitsShortName>
+					<BitsShortName>Alt</BitsShortName>
 					<BitsName>Altitude</BitsName>
 					<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
@@ -565,7 +566,7 @@
 					<BitsValue val="1">QNH correction applied</BitsValue>
 				</Bits>
 				<Bits from="1" to="15" encode="signed">
-					<BitsShortName>barometric_altitude</BitsShortName>
+					<BitsShortName>BAlt</BitsShortName>
 					<BitsName>Calculated Track Barometric Altitude</BitsName>
 					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
@@ -701,7 +702,7 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="1" to="48" encode="6bitschar">
-					<BitsShortName>target_id</BitsShortName>
+					<BitsShortName>TId</BitsShortName>
 					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
 				</Bits>
 			</Fixed>
@@ -721,19 +722,19 @@
 						<BitsUnit scale="1">m</BitsUnit>
 					</Bits>
 					<Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into first extent</BitsValue>
 					</Bits>
 				</Fixed>
 				<Fixed length="1">
 					<Bits from="2" to="8">
-						<BitsShortName>orientation</BitsShortName>
-						<BitsName>ORIENTATION</BitsName>
+						<BitsShortName>Ori</BitsShortName>
+						<BitsName>Orientation</BitsName>
 						<BitsUnit scale="2.8125">deg</BitsUnit>
 					</Bits>
 					<Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into next extent</BitsValue>
 					</Bits>
@@ -745,7 +746,7 @@
 						<BitsUnit scale="1">m</BitsUnit>
 					</Bits>
 					<Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
+						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into next extent</BitsValue>
 					</Bits>
@@ -757,7 +758,7 @@
 
 	<DataItem id="290" rule="optional">
 		<DataItemName>System Track Update Ages</DataItemName>
-        <DataItemDefinition>Ages of the last plot/local track/target report update for each sensor type.</DataItemDefinition>
+		<DataItemDefinition>Ages of the last plot/local track/target report update for each sensor type.</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
 			<Compound>
 				<Variable>
@@ -799,9 +800,9 @@
 						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
 						</Bits>
 					</Fixed>
 					<Fixed length="1">
@@ -828,8 +829,8 @@
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
 						</Bits>
 					</Fixed>
 				</Variable>
@@ -908,465 +909,465 @@
 		<DataItemNote>1. Except for Track Age, the ages are counted from Data Item I062/070, Time Of Track Information, using the following formula: Age = Time of track information - Time of last detection used to update the track. 2. The time of last detection is derived from monosensor category time of day 3. If the data has never been received, then the corresponding subfield is not sent.  4. Maximum value means maximum value or above.</DataItemNote>
 	</DataItem>
 
-    <DataItem id="295" rule="optional">
-        <DataItemName>Track Data Ages</DataItemName>
-        <DataItemDefinition>Ages of the data provided.</DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to five octets, followed by the indicated subfields.">
-            <Compound>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>MFL_presence</BitsShortName>
-                            <BitsName>Measured Flight Level age</BitsName>
-                            <BitsPresence>1</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>MD1_presence</BitsShortName>
-                            <BitsName>Mode 1 age</BitsName>
-                            <BitsPresence>2</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>MD2_presence</BitsShortName>
-                            <BitsName>Mode 2 age</BitsName>
-                            <BitsPresence>3</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>MDA_presence</BitsShortName>
-                            <BitsName>Mode 3/A age</BitsName>
-                            <BitsPresence>4</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>MD4_presence</BitsShortName>
-                            <BitsName>Mode 4 age</BitsName>
-                            <BitsPresence>5</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>MD5_presence</BitsShortName>
-                            <BitsName>Mode 5 age</BitsName>
-                            <BitsPresence>6</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>MHG_presence</BitsShortName>
-                            <BitsName>Magnetic Heading age</BitsName>
-                            <BitsPresence>7</BitsPresence>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>IAS_presence</BitsShortName>
-                            <BitsName>Indicated Airspeed/Mach Nb age</BitsName>
-                            <BitsPresence>8</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>TAS_presence</BitsShortName>
-                            <BitsName>True Airspeed age</BitsName>
-                            <BitsPresence>9</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>SAL_presence</BitsShortName>
-                            <BitsName>Selected Altitude age</BitsName>
-                            <BitsPresence>10</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>FSS_presence</BitsShortName>
-                            <BitsName>Final State Selected Altitude age</BitsName>
-                            <BitsPresence>11</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>TID_presence</BitsShortName>
-                            <BitsName>Trajectory Intent Data age</BitsName>
-                            <BitsPresence>12</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>COM_presence</BitsShortName>
-                            <BitsName>Communications / ACAS Capability and Flight Status age</BitsName>
-                            <BitsPresence>13</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>SAB_presence</BitsShortName>
-                            <BitsName>Status Reported by ADS-B age</BitsName>
-                            <BitsPresence>14</BitsPresence>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>ACS_presence</BitsShortName>
-                            <BitsName>ACAS Resolution Advisory Report age</BitsName>
-                            <BitsPresence>15</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>BVR_presence</BitsShortName>
-                            <BitsName>Barometric Vertical Rate age</BitsName>
-                            <BitsPresence>16</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>GVR_presence</BitsShortName>
-                            <BitsName>Geometric Vertical Rate age</BitsName>
-                            <BitsPresence>17</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>RAN_presence</BitsShortName>
-                            <BitsName>Roll Angle age</BitsName>
-                            <BitsPresence>18</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>TAR_presence</BitsShortName>
-                            <BitsName>Track Angle Rate age</BitsName>
-                            <BitsPresence>19</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>TAN_presence</BitsShortName>
-                            <BitsName>Track Angle age</BitsName>
-                            <BitsPresence>20</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>GSP_presence</BitsShortName>
-                            <BitsName>Ground Speed age</BitsName>
-                            <BitsPresence>21</BitsPresence>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>VUN_presence</BitsShortName>
-                            <BitsName>Velocity Uncertainty age</BitsName>
-                            <BitsPresence>22</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>MET_presence</BitsShortName>
-                            <BitsName>Meteorological Data age</BitsName>
-                            <BitsPresence>23</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>EMC_presence</BitsShortName>
-                            <BitsName>Emitter Category age</BitsName>
-                            <BitsPresence>24</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>POS_presence</BitsShortName>
-                            <BitsName>Position Data age</BitsName>
-                            <BitsPresence>25</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>GAL_presence</BitsShortName>
-                            <BitsName>Geometric Altitude Data age</BitsName>
-                            <BitsPresence>26</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>PUN_presence</BitsShortName>
-                            <BitsName>Position Uncertainty Data age</BitsName>
-                            <BitsPresence>27</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>MB_presence</BitsShortName>
-                            <BitsName>Mode S MB Data age</BitsName>
-                            <BitsPresence>28</BitsPresence>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>IAR_presence</BitsShortName>
-                            <BitsName>Indicated Airspeed Data age</BitsName>
-                            <BitsPresence>29</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>MAC_presence</BitsShortName>
-                            <BitsName>Mach Number Data age</BitsName>
-                            <BitsPresence>30</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>BPS_presence</BitsShortName>
-                            <BitsName>Barometric Pressure Setting Data age</BitsName>
-                            <BitsPresence>31</BitsPresence>
-                        </Bits>
-                        <Bits from="5" to="2">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to zero</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MFL</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode C code or barometric altitude from ADS-B used to update the track (I062/136)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MD1</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode 1 code used to update the track (I062/110)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MD2</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode 2 code used to update the track (I062/120)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MDA</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode 3/A code used to update the track (I062/060)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MD4</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode 4 code used to update the track (I062/120)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MD5</BitsShortName>
-                        <BitsName>Age of the last valid and credible Mode 5 code used to update the track (I062/110)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MHG</BitsShortName>
-                        <BitsName>Age of the DAP “Magnetic Heading” in item 062/380 (Subfield #3)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>IAS</BitsShortName>
-                        <BitsName>Age of the DAP “Indicated Airspeed / Mach Number” in item 062/380 (Subfield #4)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>TAS</BitsShortName>
-                        <BitsName>Age of the DAP “True Airspeed” in item 062/380 (Subfield #5)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>SAL</BitsShortName>
-                        <BitsName>Age of the DAP “Selected Altitude” in item 062/380 (Subfield #6)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>FSS</BitsShortName>
-                        <BitsName>Age of the DAP “Final State Selected Altitude” in item 062/380 (Subfield #7)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>TID</BitsShortName>
-                        <BitsName>Age of the DAP “Trajectory Intent” in item 062/380 (Subfield #8)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>COM</BitsShortName>
-                        <BitsName>Age of the DAP “Communication/ACAS Capability and Flight Status” in item 062/380 (Subfield #10)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>SAB</BitsShortName>
-                        <BitsName>Age of the DAP “Status Reported by ADS-B” in item 062/380 (Subfield #11)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>ACS</BitsShortName>
-                        <BitsName>Age of the DAP “ACAS Resolution Advisory Report” in item 062/380 (Subfield #12)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>BVR</BitsShortName>
-                        <BitsName>Age of the DAP “Barometric Vertical Rate” in item 062/380 (Subfield #13)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>GVR</BitsShortName>
-                        <BitsName>Age of the DAP “Geometrical Vertical Rate” in item 062/380 (Subfield #14)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>RAN</BitsShortName>
-                        <BitsName>Age of the DAP “Roll Angle” in item 062/380 (Subfield #15)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>TAR</BitsShortName>
-                        <BitsName>Age of the DAP “Track Angle Rate” in item 062/380 (Subfield #16)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>TAN</BitsShortName>
-                        <BitsName>Age of the DAP “Track Angle” in item 062/380 (Subfield #17)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>GSP</BitsShortName>
-                        <BitsName>Age of the DAP “Ground Speed” in item 062/380 (Subfield #18)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>VUN</BitsShortName>
-                        <BitsName>Age of the DAP “Velocity Uncertainty” in item 062/380 (Subfield #19)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MET</BitsShortName>
-                        <BitsName>Age of the DAP “Meteorological Data” in item 062/380 (Subfield #20)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>EMC</BitsShortName>
-                        <BitsName>Age of the DAP “Emitter Category” in item 062/380 (Subfield #21)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>POS</BitsShortName>
-                        <BitsName>Age of the DAP “Position” in item 062/380 (Subfield #23)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>GAL</BitsShortName>
-                        <BitsName>Age of the DAP “Geometric Altitude” in item 062/380 (Subfield #24)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>PUN</BitsShortName>
-                        <BitsName>Age of the DAP “Position Uncertainty” in item 062/380 (Subfield #25)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MB</BitsShortName>
-                        <BitsName>Age of the DAP “Mode S MB Data” in item 062/380 (Subfield #22)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>IAR</BitsShortName>
-                        <BitsName>Age of the DAP “Indicated Airspeed” in item 062/380 (Subfield #26)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>MAC</BitsShortName>
-                        <BitsName>Age of the DAP “Mach Number” in item 062/380 (Subfield #27)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="1" to="8">
-                        <BitsShortName>BPS</BitsShortName>
-                        <BitsName>Age of the DAP “Barometric Pressure Setting” in item 062/380 (Subfield #28)</BitsName>
-                        <BitsUnit scale=".25" max="63.75">s</BitsUnit>
-                    </Bits>
-                </Fixed>
+	<DataItem id="295" rule="optional">
+		<DataItemName>Track Data Ages</DataItemName>
+		<DataItemDefinition>Ages of the data provided.</DataItemDefinition>
+		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to five octets, followed by the indicated subfields.">
+			<Compound>
+				<Variable>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>MFL_presence</BitsShortName>
+							<BitsName>Measured Flight Level age</BitsName>
+							<BitsPresence>1</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>MD1_presence</BitsShortName>
+							<BitsName>Mode 1 age</BitsName>
+							<BitsPresence>2</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>MD2_presence</BitsShortName>
+							<BitsName>Mode 2 age</BitsName>
+							<BitsPresence>3</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>MDA_presence</BitsShortName>
+							<BitsName>Mode 3/A age</BitsName>
+							<BitsPresence>4</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>MD4_presence</BitsShortName>
+							<BitsName>Mode 4 age</BitsName>
+							<BitsPresence>5</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>MD5_presence</BitsShortName>
+							<BitsName>Mode 5 age</BitsName>
+							<BitsPresence>6</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>MHG_presence</BitsShortName>
+							<BitsName>Magnetic Heading age</BitsName>
+							<BitsPresence>7</BitsPresence>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>IAS_presence</BitsShortName>
+							<BitsName>Indicated Airspeed/Mach Nb age</BitsName>
+							<BitsPresence>8</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>TAS_presence</BitsShortName>
+							<BitsName>True Airspeed age</BitsName>
+							<BitsPresence>9</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>SAL_presence</BitsShortName>
+							<BitsName>Selected Altitude age</BitsName>
+							<BitsPresence>10</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>FSS_presence</BitsShortName>
+							<BitsName>Final State Selected Altitude age</BitsName>
+							<BitsPresence>11</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>TID_presence</BitsShortName>
+							<BitsName>Trajectory Intent Data age</BitsName>
+							<BitsPresence>12</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>COM_presence</BitsShortName>
+							<BitsName>Communications / ACAS Capability and Flight Status age</BitsName>
+							<BitsPresence>13</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>SAB_presence</BitsShortName>
+							<BitsName>Status Reported by ADS-B age</BitsName>
+							<BitsPresence>14</BitsPresence>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>ACS_presence</BitsShortName>
+							<BitsName>ACAS Resolution Advisory Report age</BitsName>
+							<BitsPresence>15</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>BVR_presence</BitsShortName>
+							<BitsName>Barometric Vertical Rate age</BitsName>
+							<BitsPresence>16</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>GVR_presence</BitsShortName>
+							<BitsName>Geometric Vertical Rate age</BitsName>
+							<BitsPresence>17</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>RAN_presence</BitsShortName>
+							<BitsName>Roll Angle age</BitsName>
+							<BitsPresence>18</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>TAR_presence</BitsShortName>
+							<BitsName>Track Angle Rate age</BitsName>
+							<BitsPresence>19</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>TAN_presence</BitsShortName>
+							<BitsName>Track Angle age</BitsName>
+							<BitsPresence>20</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>GSP_presence</BitsShortName>
+							<BitsName>Ground Speed age</BitsName>
+							<BitsPresence>21</BitsPresence>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>VUN_presence</BitsShortName>
+							<BitsName>Velocity Uncertainty age</BitsName>
+							<BitsPresence>22</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>MET_presence</BitsShortName>
+							<BitsName>Meteorological Data age</BitsName>
+							<BitsPresence>23</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>EMC_presence</BitsShortName>
+							<BitsName>Emitter Category age</BitsName>
+							<BitsPresence>24</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>POS_presence</BitsShortName>
+							<BitsName>Position Data age</BitsName>
+							<BitsPresence>25</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>GAL_presence</BitsShortName>
+							<BitsName>Geometric Altitude Data age</BitsName>
+							<BitsPresence>26</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>PUN_presence</BitsShortName>
+							<BitsName>Position Uncertainty Data age</BitsName>
+							<BitsPresence>27</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>MB_presence</BitsShortName>
+							<BitsName>Mode S MB Data age</BitsName>
+							<BitsPresence>28</BitsPresence>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>IAR_presence</BitsShortName>
+							<BitsName>Indicated Airspeed Data age</BitsName>
+							<BitsPresence>29</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>MAC_presence</BitsShortName>
+							<BitsName>Mach Number Data age</BitsName>
+							<BitsPresence>30</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>BPS_presence</BitsShortName>
+							<BitsName>Barometric Pressure Setting Data age</BitsName>
+							<BitsPresence>31</BitsPresence>
+						</Bits>
+						<Bits from="5" to="2">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>Spare bits set to zero</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
+				</Variable>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MFL</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode C code or barometric altitude from ADS-B used to update the track (I062/136)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MD1</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode 1 code used to update the track (I062/110)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MD2</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode 2 code used to update the track (I062/120)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MDA</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode 3/A code used to update the track (I062/060)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MD4</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode 4 code used to update the track (I062/120)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MD5</BitsShortName>
+						<BitsName>Age of the last valid and credible Mode 5 code used to update the track (I062/110)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MHG</BitsShortName>
+						<BitsName>Age of the DAP “Magnetic Heading” in item 062/380 (Subfield #3)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>IAS</BitsShortName>
+						<BitsName>Age of the DAP “Indicated Airspeed / Mach Number” in item 062/380 (Subfield #4)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>TAS</BitsShortName>
+						<BitsName>Age of the DAP “True Airspeed” in item 062/380 (Subfield #5)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>SAL</BitsShortName>
+						<BitsName>Age of the DAP “Selected Altitude” in item 062/380 (Subfield #6)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>FSS</BitsShortName>
+						<BitsName>Age of the DAP “Final State Selected Altitude” in item 062/380 (Subfield #7)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>TID</BitsShortName>
+						<BitsName>Age of the DAP “Trajectory Intent” in item 062/380 (Subfield #8)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>COM</BitsShortName>
+						<BitsName>Age of the DAP “Communication/ACAS Capability and Flight Status” in item 062/380 (Subfield #10)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>SAB</BitsShortName>
+						<BitsName>Age of the DAP “Status Reported by ADS-B” in item 062/380 (Subfield #11)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>ACS</BitsShortName>
+						<BitsName>Age of the DAP “ACAS Resolution Advisory Report” in item 062/380 (Subfield #12)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>BVR</BitsShortName>
+						<BitsName>Age of the DAP “Barometric Vertical Rate” in item 062/380 (Subfield #13)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>GVR</BitsShortName>
+						<BitsName>Age of the DAP “Geometrical Vertical Rate” in item 062/380 (Subfield #14)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>RAN</BitsShortName>
+						<BitsName>Age of the DAP “Roll Angle” in item 062/380 (Subfield #15)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>TAR</BitsShortName>
+						<BitsName>Age of the DAP “Track Angle Rate” in item 062/380 (Subfield #16)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>TAN</BitsShortName>
+						<BitsName>Age of the DAP “Track Angle” in item 062/380 (Subfield #17)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>GSP</BitsShortName>
+						<BitsName>Age of the DAP “Ground Speed” in item 062/380 (Subfield #18)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>VUN</BitsShortName>
+						<BitsName>Age of the DAP “Velocity Uncertainty” in item 062/380 (Subfield #19)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MET</BitsShortName>
+						<BitsName>Age of the DAP “Meteorological Data” in item 062/380 (Subfield #20)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>EMC</BitsShortName>
+						<BitsName>Age of the DAP “Emitter Category” in item 062/380 (Subfield #21)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>POS</BitsShortName>
+						<BitsName>Age of the DAP “Position” in item 062/380 (Subfield #23)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>GAL</BitsShortName>
+						<BitsName>Age of the DAP “Geometric Altitude” in item 062/380 (Subfield #24)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>PUN</BitsShortName>
+						<BitsName>Age of the DAP “Position Uncertainty” in item 062/380 (Subfield #25)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MB</BitsShortName>
+						<BitsName>Age of the DAP “Mode S MB Data” in item 062/380 (Subfield #22)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>IAR</BitsShortName>
+						<BitsName>Age of the DAP “Indicated Airspeed” in item 062/380 (Subfield #26)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>MAC</BitsShortName>
+						<BitsName>Age of the DAP “Mach Number” in item 062/380 (Subfield #27)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="1" to="8">
+						<BitsShortName>BPS</BitsShortName>
+						<BitsName>Age of the DAP “Barometric Pressure Setting” in item 062/380 (Subfield #28)</BitsName>
+						<BitsUnit scale=".25" max="63.75">s</BitsUnit>
+					</Bits>
+				</Fixed>
 			</Compound>
 		</DataItemFormat>
 		<DataItemNote>In all the subfields, the age is the time delay since the value was measured</DataItemNote>
 	</DataItem>
 
-    <DataItem id="300" rule="optional">
-        <DataItemName>Vehicle Fleet Identification</DataItemName>
-        <DataItemDefinition>Vehicle fleet identification number.</DataItemDefinition>
-        <DataItemFormat>
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>VFI</BitsShortName>
-                    <BitsName>Vehicle Fleet Identification</BitsName>
-                    <BitsValue val="0">Unknown</BitsValue>
-                    <BitsValue val="1">ATC equipment maintenance</BitsValue>
-                    <BitsValue val="2">Airport maintenance</BitsValue>
-                    <BitsValue val="3">Fire</BitsValue>
-                    <BitsValue val="4">Bird scarer</BitsValue>
-                    <BitsValue val="5">Snow plough</BitsValue>
-                    <BitsValue val="6">Runway sweeper</BitsValue>
-                    <BitsValue val="7">Emergency</BitsValue>
-                    <BitsValue val="8">Police</BitsValue>
-                    <BitsValue val="9">Bus</BitsValue>
-                    <BitsValue val="10">Tug (push/tow)</BitsValue>
-                    <BitsValue val="11">Grass cutter</BitsValue>
-                    <BitsValue val="12">Fuel</BitsValue>
-                    <BitsValue val="13">Baggage</BitsValue>
-                    <BitsValue val="14">Catering</BitsValue>
-                    <BitsValue val="15">Aircraft maintenance</BitsValue>
-                    <BitsValue val="16">Flyco (follow me)</BitsValue>
-                </Bits>
-            </Fixed>
-        </DataItemFormat>
-    </DataItem>
-		
+	<DataItem id="300" rule="optional">
+		<DataItemName>Vehicle Fleet Identification</DataItemName>
+		<DataItemDefinition>Vehicle fleet identification number.</DataItemDefinition>
+		<DataItemFormat>
+			<Fixed length="1">
+				<Bits from="8" to="1">
+					<BitsShortName>VFI</BitsShortName>
+					<BitsName>Vehicle Fleet Identification</BitsName>
+					<BitsValue val="0">Unknown</BitsValue>
+					<BitsValue val="1">ATC equipment maintenance</BitsValue>
+					<BitsValue val="2">Airport maintenance</BitsValue>
+					<BitsValue val="3">Fire</BitsValue>
+					<BitsValue val="4">Bird scarer</BitsValue>
+					<BitsValue val="5">Snow plough</BitsValue>
+					<BitsValue val="6">Runway sweeper</BitsValue>
+					<BitsValue val="7">Emergency</BitsValue>
+					<BitsValue val="8">Police</BitsValue>
+					<BitsValue val="9">Bus</BitsValue>
+					<BitsValue val="10">Tug (push/tow)</BitsValue>
+					<BitsValue val="11">Grass cutter</BitsValue>
+					<BitsValue val="12">Fuel</BitsValue>
+					<BitsValue val="13">Baggage</BitsValue>
+					<BitsValue val="14">Catering</BitsValue>
+					<BitsValue val="15">Aircraft maintenance</BitsValue>
+					<BitsValue val="16">Flyco (follow me)</BitsValue>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+
 	<DataItem id="340">
 		<DataItemName>Measured Information</DataItemName>
 		<DataItemDefinition>All measured data related to the last report used to update the track. These data are not used for ADS-B.</DataItemDefinition>
@@ -1485,7 +1486,7 @@
 						<BitsConst>0</BitsConst>
 					</Bits>
 					<Bits from="1" to="12" encode="octal"> 
-						<BitsShortName>mode_3a</BitsShortName>
+						<BitsShortName>Mode3A</BitsShortName>
 						<BitsName>Mode 3/A reply under the form of 4 digits in octal representation</BitsName>
 					</Bits>
 				</Fixed>
@@ -1526,7 +1527,7 @@
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
-	
+
 	<DataItem id="380">
 		<DataItemName>Aircraft Derived Data</DataItemName>
 		<DataItemDefinition>Data derived directly by the aircraft. This includes data transmitted via Mode-S and ADS-B.</DataItemDefinition>
@@ -1544,183 +1545,183 @@
 							<BitsName>Target Identification</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>
-                        <Bits bit="6">
-                            <BitsShortName>MHG_presence</BitsShortName>
-                            <BitsName>Magnetic Heading</BitsName>
-                            <BitsPresence>3</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>IAS_presence</BitsShortName>
-                            <BitsName>Indicated Airspeed/Mach Number</BitsName>
-                            <BitsPresence>4</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>TAS_presence</BitsShortName>
-                            <BitsName>True Airspeed</BitsName>
-                            <BitsPresence>5</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>SAL_presence</BitsShortName>
-                            <BitsName>Selected Altitude</BitsName>
-                            <BitsPresence>6</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>FSS_presence</BitsShortName>
-                            <BitsName>Final State Selected Altitude</BitsName>
-                            <BitsPresence>7</BitsPresence>
-                        </Bits>
+						<Bits bit="6">
+							<BitsShortName>MHG_presence</BitsShortName>
+							<BitsName>Magnetic Heading</BitsName>
+							<BitsPresence>3</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>IAS_presence</BitsShortName>
+							<BitsName>Indicated Airspeed/Mach Number</BitsName>
+							<BitsPresence>4</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>TAS_presence</BitsShortName>
+							<BitsName>True Airspeed</BitsName>
+							<BitsPresence>5</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>SAL_presence</BitsShortName>
+							<BitsName>Selected Altitude</BitsName>
+							<BitsPresence>6</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>FSS_presence</BitsShortName>
+							<BitsName>Final State Selected Altitude</BitsName>
+							<BitsPresence>7</BitsPresence>
+						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
 							<BitsValue val="0">no extension</BitsValue>
 							<BitsValue val="1">extension</BitsValue>
 						</Bits>
-                    </Fixed>
+					</Fixed>
 					<Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>TIS_presence</BitsShortName>
-                            <BitsName>Trajectory Intent Status</BitsName>
-                            <BitsPresence>8</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>TID_presence</BitsShortName>
-                            <BitsName>Trajectory Intent Data</BitsName>
-                            <BitsPresence>9</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>COM_presence</BitsShortName>
-                            <BitsName>Communications / ACAS Capability and Flight Status</BitsName>
-                            <BitsPresence>10</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>SAB_presence</BitsShortName>
-                            <BitsName>Status Reported by ADS-B</BitsName>
-                            <BitsPresence>11</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>ACS_presence</BitsShortName>
-                            <BitsName>ACAS Resolution Advisory Report</BitsName>
-                            <BitsPresence>12</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>BVR_presence</BitsShortName>
-                            <BitsName>Barometric Vertical Rate</BitsName>
-                            <BitsPresence>13</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>GVR_presence</BitsShortName>
-                            <BitsName>Geometric Vertical Rate</BitsName>
-                            <BitsPresence>14</BitsPresence>
-                        </Bits>
+						<Bits bit="8">
+							<BitsShortName>TIS_presence</BitsShortName>
+							<BitsName>Trajectory Intent Status</BitsName>
+							<BitsPresence>8</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>TID_presence</BitsShortName>
+							<BitsName>Trajectory Intent Data</BitsName>
+							<BitsPresence>9</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>COM_presence</BitsShortName>
+							<BitsName>Communications / ACAS Capability and Flight Status</BitsName>
+							<BitsPresence>10</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>SAB_presence</BitsShortName>
+							<BitsName>Status Reported by ADS-B</BitsName>
+							<BitsPresence>11</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>ACS_presence</BitsShortName>
+							<BitsName>ACAS Resolution Advisory Report</BitsName>
+							<BitsPresence>12</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>BVR_presence</BitsShortName>
+							<BitsName>Barometric Vertical Rate</BitsName>
+							<BitsPresence>13</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>GVR_presence</BitsShortName>
+							<BitsName>Geometric Vertical Rate</BitsName>
+							<BitsPresence>14</BitsPresence>
+						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
 							<BitsValue val="0">no extension</BitsValue>
 							<BitsValue val="1">extension</BitsValue>
 						</Bits>
-                    </Fixed>
+					</Fixed>
 					<Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>RAN_presence</BitsShortName>
-                            <BitsName>Roll Angle</BitsName>
-                            <BitsPresence>15</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>TAR_presence</BitsShortName>
-                            <BitsName>Track Angle Rate</BitsName>
-                            <BitsPresence>16</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>TAN_presence</BitsShortName>
-                            <BitsName>Track Angle</BitsName>
-                            <BitsPresence>17</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>GSP_presence</BitsShortName>
-                            <BitsName>Ground Speed</BitsName>
-                            <BitsPresence>18</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>VUN_presence</BitsShortName>
-                            <BitsName>Velocity Uncertainty</BitsName>
-                            <BitsPresence>19</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>MET_presence</BitsShortName>
-                            <BitsName>Meteorological Data</BitsName>
-                            <BitsPresence>20</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>EMC_presence</BitsShortName>
-                            <BitsName>Emitter Category</BitsName>
-                            <BitsPresence>21</BitsPresence>
-                        </Bits>
+						<Bits bit="8">
+							<BitsShortName>RAN_presence</BitsShortName>
+							<BitsName>Roll Angle</BitsName>
+							<BitsPresence>15</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>TAR_presence</BitsShortName>
+							<BitsName>Track Angle Rate</BitsName>
+							<BitsPresence>16</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>TAN_presence</BitsShortName>
+							<BitsName>Track Angle</BitsName>
+							<BitsPresence>17</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>GSP_presence</BitsShortName>
+							<BitsName>Ground Speed</BitsName>
+							<BitsPresence>18</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>VUN_presence</BitsShortName>
+							<BitsName>Velocity Uncertainty</BitsName>
+							<BitsPresence>19</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>MET_presence</BitsShortName>
+							<BitsName>Meteorological Data</BitsName>
+							<BitsPresence>20</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>EMC_presence</BitsShortName>
+							<BitsName>Emitter Category</BitsName>
+							<BitsPresence>21</BitsPresence>
+						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
 							<BitsValue val="0">no extension</BitsValue>
 							<BitsValue val="1">extension</BitsValue>
 						</Bits>
-                    </Fixed>
+					</Fixed>
 					<Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>POS_presence</BitsShortName>
-                            <BitsName>Position Data</BitsName>
-                            <BitsPresence>22</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>GAL_presence</BitsShortName>
-                            <BitsName>Geometric Altitude Data</BitsName>
-                            <BitsPresence>23</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>PUN_presence</BitsShortName>
-                            <BitsName>Position Uncertainty Data</BitsName>
-                            <BitsPresence>24</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>MB_presence</BitsShortName>
-                            <BitsName>Mode S MB Data</BitsName>
-                            <BitsPresence>25</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>IAR_presence</BitsShortName>
-                            <BitsName>Indicated Airspeed</BitsName>
-                            <BitsPresence>26</BitsPresence>
-                        </Bits>
-                        <Bits bit="3">
-                            <BitsShortName>MAC_presence</BitsShortName>
-                            <BitsName>Mach Number</BitsName>
-                            <BitsPresence>27</BitsPresence>
-                        </Bits>
-                        <Bits bit="2">
-                            <BitsShortName>BPS_presence</BitsShortName>
-                            <BitsName>Barometric Pressure Setting</BitsName>
-                            <BitsPresence>28</BitsPresence>
-                        </Bits>
+						<Bits bit="8">
+							<BitsShortName>POS_presence</BitsShortName>
+							<BitsName>Position Data</BitsName>
+							<BitsPresence>22</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>GAL_presence</BitsShortName>
+							<BitsName>Geometric Altitude Data</BitsName>
+							<BitsPresence>23</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>PUN_presence</BitsShortName>
+							<BitsName>Position Uncertainty Data</BitsName>
+							<BitsPresence>24</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>MB_presence</BitsShortName>
+							<BitsName>Mode S MB Data</BitsName>
+							<BitsPresence>25</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>IAR_presence</BitsShortName>
+							<BitsName>Indicated Airspeed</BitsName>
+							<BitsPresence>26</BitsPresence>
+						</Bits>
+						<Bits bit="3">
+							<BitsShortName>MAC_presence</BitsShortName>
+							<BitsName>Mach Number</BitsName>
+							<BitsPresence>27</BitsPresence>
+						</Bits>
+						<Bits bit="2">
+							<BitsShortName>BPS_presence</BitsShortName>
+							<BitsName>Barometric Pressure Setting</BitsName>
+							<BitsPresence>28</BitsPresence>
+						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
 							<BitsValue val="0">no extension</BitsValue>
 							<BitsValue val="1">extension</BitsValue>
 						</Bits>
-                    </Fixed>
+					</Fixed>
 				</Variable>
-                <Fixed length="3">
-                    <Bits from="1" to="24">
-                        <BitsShortName>ADR</BitsShortName>
-                        <BitsName>Target Address</BitsName>
-                    </Bits>
-                </Fixed>
+				<Fixed length="3">
+					<Bits from="1" to="24">
+						<BitsShortName>ADR</BitsShortName>
+						<BitsName>Target Address</BitsName>
+					</Bits>
+				</Fixed>
 				<Fixed length="6">
 					<Bits from="1" to="48" encode="6bitschar">
-						<BitsShortName>target_id</BitsShortName>
+						<BitsShortName>TId</BitsShortName>
 						<BitsName>Target Identification</BitsName>
 					</Bits>
 				</Fixed>
 				<Fixed length="2">
 					<Bits from="1" to="16">
-						<BitsShortName>magnetic_heading</BitsShortName>
+						<BitsShortName>MHdg</BitsShortName>
 						<BitsName>Magnetic Heading</BitsName>
 						<BitsUnit scale="0.0055">deg</BitsUnit>
 					</Bits>
@@ -1728,8 +1729,8 @@
 				<Fixed length="2">
 					<Bits bit="16">
 						<BitsShortName>IM</BitsShortName>
-                        <BitsValue val="0">Air Speed = IAS, LSB (Bit-1) = 2-14 NM/s</BitsValue>
-                        <BitsValue val="1">Air Speed = Mach, LSB (Bit-1) = 0.001</BitsValue>
+						<BitsValue val="0">Air Speed = IAS, LSB (Bit-1) = 2-14 NM/s</BitsValue>
+						<BitsValue val="1">Air Speed = Mach, LSB (Bit-1) = 0.001</BitsValue>
 					</Bits>
 					<Bits from="1" to="15">
 						<BitsShortName>airspeed</BitsShortName>
@@ -1738,153 +1739,153 @@
 				</Fixed>
 				<Fixed length="2">
 					<Bits from="1" to="16">
-						<BitsShortName>true_air_speed</BitsShortName>
+						<BitsShortName>TAS</BitsShortName>
 						<BitsName>True Air Speed</BitsName>
 						<BitsUnit scale="1" max="2046">knots</BitsUnit>
 					</Bits>
 				</Fixed>
-                <Fixed length="2">
-                    <Bits bit="16">
-                        <BitsShortName>SAS</BitsShortName>
-                        <BitsValue val="0">No source information provided</BitsValue>
-                        <BitsValue val="1">Source information provided</BitsValue>
-                    </Bits>
-                    <Bits from="15" to="14">
-                        <BitsShortName>Source</BitsShortName>
-                        <BitsValue val="0">Unknown</BitsValue>
-                        <BitsValue val="1">Aircraft Altitude</BitsValue>
-                        <BitsValue val="2">FCU/MCP Seclected Altitude</BitsValue>
-                        <BitsValue val="3">FMS Selected Altitude</BitsValue>
-                    </Bits>
-                    <Bits from="13" to="1" encode="signed">
-                        <BitsShortName>selected_altitude</BitsShortName>
-                        <BitsName>Selected Altitude</BitsName>
+				<Fixed length="2">
+					<Bits bit="16">
+						<BitsShortName>SAS</BitsShortName>
+						<BitsValue val="0">No source information provided</BitsValue>
+						<BitsValue val="1">Source information provided</BitsValue>
+					</Bits>
+					<Bits from="15" to="14">
+						<BitsShortName>Source</BitsShortName>
+						<BitsValue val="0">Unknown</BitsValue>
+						<BitsValue val="1">Aircraft Altitude</BitsValue>
+						<BitsValue val="2">FCU/MCP Seclected Altitude</BitsValue>
+						<BitsValue val="3">FMS Selected Altitude</BitsValue>
+					</Bits>
+					<Bits from="13" to="1" encode="signed">
+						<BitsShortName>SelAlt</BitsShortName>
+						<BitsName>Selected Altitude</BitsName>
 						<BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits bit="16">
-                        <BitsShortName>MV</BitsShortName>
-                        <BitsName>Manage Vertical Mode</BitsName>
-                        <BitsValue val="0">Not active</BitsValue>
-                        <BitsValue val="1">Active</BitsValue>
-                    </Bits>
-                    <Bits bit="15">
-                        <BitsShortName>AH</BitsShortName>
-                        <BitsName>Altitude Hold</BitsName>
-                        <BitsValue val="0">Not active</BitsValue>
-                        <BitsValue val="1">Active</BitsValue>
-                    </Bits>
-                    <Bits bit="14">
-                        <BitsShortName>AM</BitsShortName>
-                        <BitsName>Approach Mode</BitsName>
-                        <BitsValue val="0">Not active</BitsValue>
-                        <BitsValue val="1">Active</BitsValue>
-                    </Bits>
-                    <Bits from="13" to="1" encode="signed">
-                        <BitsShortName>fss_altitude</BitsShortName>
-                        <BitsName>Final State Selected Altitude</BitsName>
-                        <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits bit="8">
-                        <BitsShortName>NAV</BitsShortName>
-                        <BitsValue val="0">Trajectory Intent Data is available for this aircraft</BitsValue>
-                        <BitsValue val="1">Trajectory Intent Data is not available for this aircraft</BitsValue>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>NVB</BitsShortName>
-                        <BitsValue val="0">Trajectory Intent Data is valid</BitsValue>
-                        <BitsValue val="1">Trajectory Intent Data is not valid</BitsValue>
-                    </Bits>
-                    <Bits from="6" to="2">
-					    <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bits set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
-                        <BitsValue val="0">end of data item</BitsValue>
-                        <BitsValue val="1">extension into next extent</BitsValue>
-                    </Bits>
-                </Fixed>
-                <Repetitive>
-                    <Fixed length="15">
-                        <Bits bit="120">
-                            <BitsShortName>TCA</BitsShortName>
-                            <BitsValue val="0">TCP number available</BitsValue>
-                            <BitsValue val="1">TCP number not available</BitsValue>
-                        </Bits>
-                        <Bits bit="119">
-                            <BitsShortName>NC</BitsShortName>
-                            <BitsValue val="0">TCP compliance</BitsValue>
-                            <BitsValue val="1">TCP non-compliance</BitsValue>
-                        </Bits>
-                        <Bits from="118" to="113">
-                            <BitsShortName>tcp_number</BitsShortName>
-                            <BitsName>Trajectory Change Point Number</BitsName>
-                        </Bits>
-                        <Bits from="112" to="97" encode="signed">
-                            <BitsShortName>altitude</BitsShortName>
-                            <BitsName>Altitude</BitsName>
-                            <BitsUnit scale="10" min="-1500" max="150000">ft</BitsUnit>
-                        </Bits>
-                        <Bits from="96" to="73" encode="signed">
-                            <BitsShortName>latitude</BitsShortName>
-                            <BitsName>Latitude</BitsName>
-                            <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
-                        </Bits>
-                        <Bits from="72" to="49" encode="signed">
-                            <BitsShortName>longitude</BitsShortName>
-                            <BitsName>Longitude</BitsName>
-                            <BitsUnit scale="0.000021457672119140625" min="-180" max="180">deg</BitsUnit>
-                        </Bits>
-                        <Bits from="48" to="45">
-                            <BitsShortName>point_type</BitsShortName>
-                            <BitsName>Point Type</BitsName>
-                            <BitsValue val="0">Unknown</BitsValue>
-                            <BitsValue val="1">Fly by waypoint (LT)</BitsValue>
-                            <BitsValue val="2">Fly over waypoint (LT)</BitsValue>
-                            <BitsValue val="3">Hold pattern (LT)</BitsValue>
-                            <BitsValue val="4">Procedure hold (LT)</BitsValue>
-                            <BitsValue val="5">Procedure turn (LT)</BitsValue>
-                            <BitsValue val="6">RF leg (LT)</BitsValue>
-                            <BitsValue val="7">Top of climb (VT)</BitsValue>
-                            <BitsValue val="8">Top of descent (VT)</BitsValue>
-                            <BitsValue val="9">Start of level (VT)</BitsValue>
-                            <BitsValue val="10">Cross-over altitude (VT)</BitsValue>
-                            <BitsValue val="11">Transition altitude (VT)</BitsValue>
-                        </Bits>
-                        <Bits from="44" to="43">
-                            <BitsShortName>TD</BitsShortName>
-                            <BitsValue val="0">N/A</BitsValue>
-                            <BitsValue val="1">Turn right</BitsValue>
-                            <BitsValue val="2">Turn left</BitsValue>
-                            <BitsValue val="3">No turn</BitsValue>
-                        </Bits>
-                        <Bits bit="42">
-                            <BitsShortName>TRA</BitsShortName>
-                            <BitsName>Turn Radius Availability</BitsName>
-                            <BitsValue val="0">TTR not available</BitsValue>
-                            <BitsValue val="1">TTR available</BitsValue>
-                        </Bits>
-                        <Bits bit="41">
-                            <BitsShortName>TOA</BitsShortName>
-                            <BitsValue val="0">TOV available</BitsValue>
-                            <BitsValue val="1">TOV not available</BitsValue>
-                        </Bits>
-                        <Bits from="40" to="17">
-                            <BitsShortName>TOV</BitsShortName>
-                            <BitsName>Time Over Point</BitsName>
-                            <BitsUnit scale="1">s</BitsUnit>
-                        </Bits>
-                        <Bits from="16" to="1">
-                            <BitsShortName>TTR</BitsShortName>
-                            <BitsUnit scale="0.01" max="665.36">Nm</BitsUnit>
-                        </Bits>
-                    </Fixed>
-                </Repetitive>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits bit="16">
+						<BitsShortName>MV</BitsShortName>
+						<BitsName>Manage Vertical Mode</BitsName>
+						<BitsValue val="0">Not active</BitsValue>
+						<BitsValue val="1">Active</BitsValue>
+					</Bits>
+					<Bits bit="15">
+						<BitsShortName>AH</BitsShortName>
+						<BitsName>Altitude Hold</BitsName>
+						<BitsValue val="0">Not active</BitsValue>
+						<BitsValue val="1">Active</BitsValue>
+					</Bits>
+					<Bits bit="14">
+						<BitsShortName>AM</BitsShortName>
+						<BitsName>Approach Mode</BitsName>
+						<BitsValue val="0">Not active</BitsValue>
+						<BitsValue val="1">Active</BitsValue>
+					</Bits>
+					<Bits from="13" to="1" encode="signed">
+						<BitsShortName>fss_Alt</BitsShortName>
+						<BitsName>Final State Selected Altitude</BitsName>
+						<BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits bit="8">
+						<BitsShortName>NAV</BitsShortName>
+						<BitsValue val="0">Trajectory Intent Data is available for this aircraft</BitsValue>
+						<BitsValue val="1">Trajectory Intent Data is not available for this aircraft</BitsValue>
+					</Bits>
+					<Bits bit="7">
+						<BitsShortName>NVB</BitsShortName>
+						<BitsValue val="0">Trajectory Intent Data is valid</BitsValue>
+						<BitsValue val="1">Trajectory Intent Data is not valid</BitsValue>
+					</Bits>
+					<Bits from="6" to="2">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bits set to 0</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+				</Fixed>
+				<Repetitive>
+					<Fixed length="15">
+						<Bits bit="120">
+							<BitsShortName>TCA</BitsShortName>
+							<BitsValue val="0">TCP number available</BitsValue>
+							<BitsValue val="1">TCP number not available</BitsValue>
+						</Bits>
+						<Bits bit="119">
+							<BitsShortName>NC</BitsShortName>
+							<BitsValue val="0">TCP compliance</BitsValue>
+							<BitsValue val="1">TCP non-compliance</BitsValue>
+						</Bits>
+						<Bits from="118" to="113">
+							<BitsShortName>TcpN</BitsShortName>
+							<BitsName>Trajectory Change Point Number</BitsName>
+						</Bits>
+						<Bits from="112" to="97" encode="signed">
+							<BitsShortName>Alt</BitsShortName>
+							<BitsName>Altitude</BitsName>
+							<BitsUnit scale="10" min="-1500" max="150000">ft</BitsUnit>
+						</Bits>
+						<Bits from="96" to="73" encode="signed">
+							<BitsShortName>Lat</BitsShortName>
+							<BitsName>Latitude</BitsName>
+							<BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
+						</Bits>
+						<Bits from="72" to="49" encode="signed">
+							<BitsShortName>Lon</BitsShortName>
+							<BitsName>Longitude</BitsName>
+							<BitsUnit scale="0.000021457672119140625" min="-180" max="180">deg</BitsUnit>
+						</Bits>
+						<Bits from="48" to="45">
+							<BitsShortName>PType</BitsShortName>
+							<BitsName>Point Type</BitsName>
+							<BitsValue val="0">Unknown</BitsValue>
+							<BitsValue val="1">Fly by waypoint (LT)</BitsValue>
+							<BitsValue val="2">Fly over waypoint (LT)</BitsValue>
+							<BitsValue val="3">Hold pattern (LT)</BitsValue>
+							<BitsValue val="4">Procedure hold (LT)</BitsValue>
+							<BitsValue val="5">Procedure turn (LT)</BitsValue>
+							<BitsValue val="6">RF leg (LT)</BitsValue>
+							<BitsValue val="7">Top of climb (VT)</BitsValue>
+							<BitsValue val="8">Top of descent (VT)</BitsValue>
+							<BitsValue val="9">Start of level (VT)</BitsValue>
+							<BitsValue val="10">Cross-over altitude (VT)</BitsValue>
+							<BitsValue val="11">Transition altitude (VT)</BitsValue>
+						</Bits>
+						<Bits from="44" to="43">
+							<BitsShortName>TD</BitsShortName>
+							<BitsValue val="0">N/A</BitsValue>
+							<BitsValue val="1">Turn right</BitsValue>
+							<BitsValue val="2">Turn left</BitsValue>
+							<BitsValue val="3">No turn</BitsValue>
+						</Bits>
+						<Bits bit="42">
+							<BitsShortName>TRA</BitsShortName>
+							<BitsName>Turn Radius Availability</BitsName>
+							<BitsValue val="0">TTR not available</BitsValue>
+							<BitsValue val="1">TTR available</BitsValue>
+						</Bits>
+						<Bits bit="41">
+							<BitsShortName>TOA</BitsShortName>
+							<BitsValue val="0">TOV available</BitsValue>
+							<BitsValue val="1">TOV not available</BitsValue>
+						</Bits>
+						<Bits from="40" to="17">
+							<BitsShortName>TOV</BitsShortName>
+							<BitsName>Time Over Point</BitsName>
+							<BitsUnit scale="1">s</BitsUnit>
+						</Bits>
+						<Bits from="16" to="1">
+							<BitsShortName>TTR</BitsShortName>
+							<BitsUnit scale="0.01" max="665.36">Nm</BitsUnit>
+						</Bits>
+					</Fixed>
+				</Repetitive>
 				<Fixed length="2">
 					<Bits from="16" to="14">
 						<BitsShortName>COM</BitsShortName>
@@ -1940,270 +1941,270 @@
 						<BitsShortName>B1B</BitsShortName>
 					</Bits>
 				</Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="15">
-                        <BitsShortName>AC</BitsShortName>
-                        <BitsValue val="0">unknown</BitsValue>
-                        <BitsValue val="1">ACAS not operational</BitsValue>
-                        <BitsValue val="2">ACAS operational</BitsValue>
-                        <BitsValue val="3">invalid</BitsValue>
-                    </Bits>
-                    <Bits from="14" to="13">
-                        <BitsShortName>MN</BitsShortName>
-                        <BitsValue val="0">unknown</BitsValue>
-                        <BitsValue val="1">Multiple navigational aids not operating</BitsValue>
-                        <BitsValue val="2">Multiple navigational aids operating</BitsValue>
-                        <BitsValue val="3">invalid</BitsValue>
-                    </Bits>
-                    <Bits from="12" to="11">
-                        <BitsShortName>DC</BitsShortName>
-                        <BitsValue val="0">unknown</BitsValue>
-                        <BitsValue val="1">Differential correction</BitsValue>
-                        <BitsValue val="2">No differential correction</BitsValue>
-                        <BitsValue val="3">invalid</BitsValue>
-                    </Bits>
-                    <Bits bit="10">
-                        <BitsShortName>GBS</BitsShortName>
-                        <BitsValue val="0">Transponder Ground Bit not set or unknown</BitsValue>
-                        <BitsValue val="1">Transponder Ground Bit set</BitsValue>
-                    </Bits>
-                    <Bits from="9" to="4">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bits set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="3" to="1">
-                        <BitsShortName>STAT</BitsShortName>
-                        <BitsName>Flight Status</BitsName>
-                        <BitsValue val="0">No emergency</BitsValue>
-                        <BitsValue val="1">General emergency</BitsValue>
-                        <BitsValue val="2">Lifeguard / medical</BitsValue>
-                        <BitsValue val="3">Minimum fuel</BitsValue>
-                        <BitsValue val="4">No communications</BitsValue>
-                        <BitsValue val="5">Unlawful interference</BitsValue>
-                        <BitsValue val="7">Unknown</BitsValue>
-                    </Bits>
-                </Fixed>
-                <Fixed length="7">
-                    <Bits from="56" to="1">
-                        <BitsShortName>MB_data</BitsShortName>
-                        <BitsName>ACAS Resolution Advisory Report</BitsName>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1" encode="signed">
-                        <BitsShortName>BVR</BitsShortName>
-                        <BitsName>Barometric Vertical Rate</BitsName>
-                        <BitsUnit scale="6.25">ft/mn</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1" encode="signed">
-                        <BitsShortName>GVR</BitsShortName>
-                        <BitsName>Geometric Vertical Rate</BitsName>
-                        <BitsUnit scale="6.25">ft/mn</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1" encode="signed">
-                        <BitsShortName>RAN</BitsShortName>
-                        <BitsName>Roll Angle</BitsName>
-                        <BitsUnit scale="0.01">deg</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="15">
-                        <BitsShortName>TI</BitsShortName>
-                        <BitsName>Turn Indicator</BitsName>
-                        <BitsValue val="0">Not available</BitsValue>
-                        <BitsValue val="1">Left</BitsValue>
-                        <BitsValue val="2">Right</BitsValue>
-                        <BitsValue val="3">Straight</BitsValue>
-                    </Bits>
-                    <Bits from="14" to="9">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bits set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="8" to="2" encode="signed">
-                        <BitsShortName>rate_of_turn</BitsShortName>
-                        <BitsName>Rate of Turn</BitsName>
-                        <BitsUnit scale="0.25">deg/s</BitsUnit>
-                    </Bits>
-                    <Bits bit="1">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1">
-                        <BitsShortName>track_angle</BitsShortName>
-                        <BitsName>Track Angle</BitsName>
-                        <BitsUnit scale="0.0054931640625">deg</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1" encode="signed">
-                        <BitsShortName>ground_speed</BitsShortName>
-                        <BitsName>Ground Speed</BitsName>
-                        <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1">
-                        <BitsShortName>VUN</BitsShortName>
-                        <BitsName>Velocity uncertainty category</BitsName>
-                    </Bits>
-                </Fixed>
-                <Fixed length="8">
-                    <Bits bit="64">
-                        <BitsShortName>WS</BitsShortName>
-                        <BitsValue val="0">Not valid Wind Speed</BitsValue>
-                        <BitsValue val="1">Valid Wind Speed</BitsValue>
-                    </Bits>
-                    <Bits bit="63">
-                        <BitsShortName>WD</BitsShortName>
-                        <BitsValue val="0">Not valid Wind Direction</BitsValue>
-                        <BitsValue val="1">Valid Wind Direction</BitsValue>
-                    </Bits>
-                    <Bits bit="62">
-                        <BitsShortName>TMP</BitsShortName>
-                        <BitsValue val="0">Not valid Temperature</BitsValue>
-                        <BitsValue val="1">Valid Temperature</BitsValue>
-                    </Bits>
-                    <Bits bit="61">
-                        <BitsShortName>TRB</BitsShortName>
-                        <BitsValue val="0">Not valid Turbulence</BitsValue>
-                        <BitsValue val="1">Valid Turbulence</BitsValue>
-                    </Bits>
-                    <Bits from="60" to="57">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bits set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="56" to="41">
-                        <BitsShortName>wind_speed</BitsShortName>
-                        <BitsName>Wind Speed</BitsName>
-                        <BitsUnit scale="1" max="300">knot</BitsUnit>
-                    </Bits>
-                    <Bits from="40" to="25">
-                        <BitsShortName>wind_dir</BitsShortName>
-                        <BitsName>Wind Direction</BitsName>
-                        <BitsUnit scale="1" min="1" max="360">deg</BitsUnit>
-                    </Bits>
-                    <Bits from="24" to="9" encode="signed">
-                        <BitsShortName>temperature</BitsShortName>
-                        <BitsName>Temperature</BitsName>
-                        <BitsUnit scale="0.25" min="-100" max="100">C</BitsUnit>
-                    </Bits>
-                    <Bits from="8" to="1">
-                        <BitsShortName>turbulence</BitsShortName>
-                        <BitsName>turbulence</BitsName>
-                    </Bits>
-                </Fixed>
-                <Fixed length="1">
-                    <Bits from="8" to="1">
-                        <BitsShortName>ECAT</BitsShortName>
-                        <BitsName>Emitter Category</BitsName>
-                        <BitsValue val="1">light aircraft &lt;= 7000 kg</BitsValue>
-                        <BitsValue val="2">reserved</BitsValue>
-                        <BitsValue val="3">7000 kg &lt; medium aircraft &lt; 136000 kg</BitsValue>
-                        <BitsValue val="4">reserved</BitsValue>
-                        <BitsValue val="5">136000 kg &lt;= heavy aircraft</BitsValue>
-                        <BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&gt; 400 knots cruise)</BitsValue>
-                        <BitsValue val="7">reserved</BitsValue>
-                        <BitsValue val="8">reserved</BitsValue>
-                        <BitsValue val="9">reserved</BitsValue>
-                        <BitsValue val="10">rotocraft</BitsValue>
-                        <BitsValue val="11">glider / sailplane</BitsValue>
-                        <BitsValue val="12">lighter-than-air</BitsValue>
-                        <BitsValue val="13">unmanned aerial vehicle</BitsValue>
-                        <BitsValue val="14">space / transatmospheric vehicle</BitsValue>
-                        <BitsValue val="15">ultralight / handglider / paraglider</BitsValue>
-                        <BitsValue val="16">parachutist / skydiver</BitsValue>
-                        <BitsValue val="17">reserved</BitsValue>
-                        <BitsValue val="18">reserved</BitsValue>
-                        <BitsValue val="19">reserved</BitsValue>
-                        <BitsValue val="20">surface emergency vehicle</BitsValue>
-                        <BitsValue val="21">surface service vehicle</BitsValue>
-                        <BitsValue val="22">fixed ground or tethered obstruction</BitsValue>
-                        <BitsValue val="23">reserved</BitsValue>
-                        <BitsValue val="24">reserved</BitsValue>
-                    </Bits>
-                </Fixed>
-                <Fixed length="6">
-                    <Bits from="25" to="48" encode="signed">
-                        <BitsShortName>Latitude</BitsShortName>
-                        <BitsName>In WGS.84 in two’s complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
-                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
-                    </Bits>
-                    <Bits from="1" to="24" encode="signed">
-                        <BitsShortName>Longitude</BitsShortName>
-                        <BitsName>In WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
-                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="1" to="16" encode="signed">
-                        <BitsShortName>geometric_altitude</BitsShortName>
-                        <BitsName>Geometric Altitude</BitsName>
-                        <BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
-                    </Bits> 
-                </Fixed> 
-                <Fixed length="1">
-                    <Bits from="8" to="5">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="4" to="1">
-                        <BitsShortName>PUN</BitsShortName>
-                        <BitsName>Position Uncertainty</BitsName>
-                    </Bits> 
-                </Fixed>
-                <Repetitive>
-                    <Fixed length="8">
-                        <Bits from="64" to="9">
-                            <BitsShortName>MB_data</BitsShortName>
-                            <BitsName>Mode S B message data</BitsName>
-                        </Bits>
-                        <Bits from="8" to="5">
-                            <BitsShortName>BDS1</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 1 Address</BitsName>
-                        </Bits>
-                        <Bits from="4" to="1">
-                            <BitsShortName>BDS2</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 2 Address</BitsName>
-                        </Bits>
-                    </Fixed>
-                </Repetitive>
-                <Fixed length="2">
-                    <Bits from="1" to="16">
-                        <BitsShortName>IAS</BitsShortName>
-                        <BitsName>Indicated Airspeed</BitsName>
-                        <BitsUnit scale="1" max="1100">Kt</BitsUnit>
-                    </Bits> 
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="1" to="16">
-                        <BitsShortName>mach_nb</BitsShortName>
-                        <BitsName>Mach Number</BitsName>
-                        <BitsUnit scale="0.008" max="4.096"></BitsUnit>
-                    </Bits> 
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="13">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="12" to="1">
-                        <BitsShortName>BPS</BitsShortName>
-                        <BitsName>Barometric Pressure Setting</BitsName>
-                        <BitsUnit scale="0.1" max="409.5">mb</BitsUnit>
-                    </Bits> 
-                </Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="15">
+						<BitsShortName>AC</BitsShortName>
+						<BitsValue val="0">unknown</BitsValue>
+						<BitsValue val="1">ACAS not operational</BitsValue>
+						<BitsValue val="2">ACAS operational</BitsValue>
+						<BitsValue val="3">invalid</BitsValue>
+					</Bits>
+					<Bits from="14" to="13">
+						<BitsShortName>MN</BitsShortName>
+						<BitsValue val="0">unknown</BitsValue>
+						<BitsValue val="1">Multiple navigational aids not operating</BitsValue>
+						<BitsValue val="2">Multiple navigational aids operating</BitsValue>
+						<BitsValue val="3">invalid</BitsValue>
+					</Bits>
+					<Bits from="12" to="11">
+						<BitsShortName>DC</BitsShortName>
+						<BitsValue val="0">unknown</BitsValue>
+						<BitsValue val="1">Differential correction</BitsValue>
+						<BitsValue val="2">No differential correction</BitsValue>
+						<BitsValue val="3">invalid</BitsValue>
+					</Bits>
+					<Bits bit="10">
+						<BitsShortName>GBS</BitsShortName>
+						<BitsValue val="0">Transponder Ground Bit not set or unknown</BitsValue>
+						<BitsValue val="1">Transponder Ground Bit set</BitsValue>
+					</Bits>
+					<Bits from="9" to="4">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bits set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="3" to="1">
+						<BitsShortName>STAT</BitsShortName>
+						<BitsName>Flight Status</BitsName>
+						<BitsValue val="0">No emergency</BitsValue>
+						<BitsValue val="1">General emergency</BitsValue>
+						<BitsValue val="2">Lifeguard / medical</BitsValue>
+						<BitsValue val="3">Minimum fuel</BitsValue>
+						<BitsValue val="4">No communications</BitsValue>
+						<BitsValue val="5">Unlawful interference</BitsValue>
+						<BitsValue val="7">Unknown</BitsValue>
+					</Bits>
+				</Fixed>
+				<Fixed length="7">
+					<Bits from="56" to="1">
+						<BitsShortName>MB_data</BitsShortName>
+						<BitsName>ACAS Resolution Advisory Report</BitsName>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>BVR</BitsShortName>
+						<BitsName>Barometric Vertical Rate</BitsName>
+						<BitsUnit scale="6.25">ft/mn</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>GVR</BitsShortName>
+						<BitsName>Geometric Vertical Rate</BitsName>
+						<BitsUnit scale="6.25">ft/mn</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>RAN</BitsShortName>
+						<BitsName>Roll Angle</BitsName>
+						<BitsUnit scale="0.01">deg</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="15">
+						<BitsShortName>TI</BitsShortName>
+						<BitsName>Turn Indicator</BitsName>
+						<BitsValue val="0">Not available</BitsValue>
+						<BitsValue val="1">Left</BitsValue>
+						<BitsValue val="2">Right</BitsValue>
+						<BitsValue val="3">Straight</BitsValue>
+					</Bits>
+					<Bits from="14" to="9">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bits set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="8" to="2" encode="signed">
+						<BitsShortName>rate_of_turn</BitsShortName>
+						<BitsName>RoT</BitsName>
+						<BitsUnit scale="0.25">deg/s</BitsUnit>
+					</Bits>
+					<Bits bit="1">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bit set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1">
+						<BitsShortName>TA</BitsShortName>
+						<BitsName>Track Angle</BitsName>
+						<BitsUnit scale="0.0054931640625">deg</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>GS</BitsShortName>
+						<BitsName>Ground Speed</BitsName>
+						<BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1">
+						<BitsShortName>VUN</BitsShortName>
+						<BitsName>Velocity uncertainty category</BitsName>
+					</Bits>
+				</Fixed>
+				<Fixed length="8">
+					<Bits bit="64">
+						<BitsShortName>WS</BitsShortName>
+						<BitsValue val="0">Not valid Wind Speed</BitsValue>
+						<BitsValue val="1">Valid Wind Speed</BitsValue>
+					</Bits>
+					<Bits bit="63">
+						<BitsShortName>WD</BitsShortName>
+						<BitsValue val="0">Not valid Wind Direction</BitsValue>
+						<BitsValue val="1">Valid Wind Direction</BitsValue>
+					</Bits>
+					<Bits bit="62">
+						<BitsShortName>TMP</BitsShortName>
+						<BitsValue val="0">Not valid Temperature</BitsValue>
+						<BitsValue val="1">Valid Temperature</BitsValue>
+					</Bits>
+					<Bits bit="61">
+						<BitsShortName>TRB</BitsShortName>
+						<BitsValue val="0">Not valid Turbulence</BitsValue>
+						<BitsValue val="1">Valid Turbulence</BitsValue>
+					</Bits>
+					<Bits from="60" to="57">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bits set to 0</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="56" to="41">
+						<BitsShortName>WindS</BitsShortName>
+						<BitsName>Wind Speed</BitsName>
+						<BitsUnit scale="1" max="300">knot</BitsUnit>
+					</Bits>
+					<Bits from="40" to="25">
+						<BitsShortName>WindD</BitsShortName>
+						<BitsName>Wind Direction</BitsName>
+						<BitsUnit scale="1" min="1" max="360">deg</BitsUnit>
+					</Bits>
+					<Bits from="24" to="9" encode="signed">
+						<BitsShortName>Temp</BitsShortName>
+						<BitsName>Temperature</BitsName>
+						<BitsUnit scale="0.25" min="-100" max="100">C</BitsUnit>
+					</Bits>
+					<Bits from="8" to="1">
+						<BitsShortName>Turb</BitsShortName>
+						<BitsName>Turbulence</BitsName>
+					</Bits>
+				</Fixed>
+				<Fixed length="1">
+					<Bits from="8" to="1">
+						<BitsShortName>ECAT</BitsShortName>
+						<BitsName>Emitter Category</BitsName>
+						<BitsValue val="1">light aircraft &lt;= 7000 kg</BitsValue>
+						<BitsValue val="2">reserved</BitsValue>
+						<BitsValue val="3">7000 kg &lt; medium aircraft &lt; 136000 kg</BitsValue>
+						<BitsValue val="4">reserved</BitsValue>
+						<BitsValue val="5">136000 kg &lt;= heavy aircraft</BitsValue>
+						<BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&gt; 400 knots cruise)</BitsValue>
+						<BitsValue val="7">reserved</BitsValue>
+						<BitsValue val="8">reserved</BitsValue>
+						<BitsValue val="9">reserved</BitsValue>
+						<BitsValue val="10">rotocraft</BitsValue>
+						<BitsValue val="11">glider / sailplane</BitsValue>
+						<BitsValue val="12">lighter-than-air</BitsValue>
+						<BitsValue val="13">unmanned aerial vehicle</BitsValue>
+						<BitsValue val="14">space / transatmospheric vehicle</BitsValue>
+						<BitsValue val="15">ultralight / handglider / paraglider</BitsValue>
+						<BitsValue val="16">parachutist / skydiver</BitsValue>
+						<BitsValue val="17">reserved</BitsValue>
+						<BitsValue val="18">reserved</BitsValue>
+						<BitsValue val="19">reserved</BitsValue>
+						<BitsValue val="20">surface emergency vehicle</BitsValue>
+						<BitsValue val="21">surface service vehicle</BitsValue>
+						<BitsValue val="22">fixed ground or tethered obstruction</BitsValue>
+						<BitsValue val="23">reserved</BitsValue>
+						<BitsValue val="24">reserved</BitsValue>
+					</Bits>
+				</Fixed>
+				<Fixed length="6">
+					<Bits from="25" to="48" encode="signed">
+						<BitsShortName>Lat</BitsShortName>
+						<BitsName>Latitude in WGS.84 in two’s complement. Range -90 &lt;= Lat &lt;= 90 deg.</BitsName>
+						<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+					</Bits>
+					<Bits from="1" to="24" encode="signed">
+						<BitsShortName>Lon</BitsShortName>
+						<BitsName>Longitude in WGS.84 in two’s complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+						<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="1" to="16" encode="signed">
+						<BitsShortName>GeoAlt</BitsShortName>
+						<BitsName>Geometric Altitude</BitsName>
+						<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
+					</Bits> 
+				</Fixed> 
+				<Fixed length="1">
+					<Bits from="8" to="5">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bit set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="4" to="1">
+						<BitsShortName>PUN</BitsShortName>
+						<BitsName>Position Uncertainty</BitsName>
+					</Bits> 
+				</Fixed>
+				<Repetitive>
+					<Fixed length="8">
+						<Bits from="64" to="9">
+							<BitsShortName>MB_data</BitsShortName>
+							<BitsName>Mode S B message data</BitsName>
+						</Bits>
+						<Bits from="8" to="5">
+							<BitsShortName>BDS1</BitsShortName>
+							<BitsName>Comm B data Buffer Store 1 Address</BitsName>
+						</Bits>
+						<Bits from="4" to="1">
+							<BitsShortName>BDS2</BitsShortName>
+							<BitsName>Comm B data Buffer Store 2 Address</BitsName>
+						</Bits>
+					</Fixed>
+				</Repetitive>
+				<Fixed length="2">
+					<Bits from="1" to="16">
+						<BitsShortName>IAS</BitsShortName>
+						<BitsName>Indicated Airspeed</BitsName>
+						<BitsUnit scale="1" max="1100">Kt</BitsUnit>
+					</Bits> 
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="1" to="16">
+						<BitsShortName>mach_nb</BitsShortName>
+						<BitsName>Mach Number</BitsName>
+						<BitsUnit scale="0.008" max="4.096"/>
+					</Bits> 
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="13">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>Spare bit set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="12" to="1">
+						<BitsShortName>BPS</BitsShortName>
+						<BitsName>Barometric Pressure Setting</BitsName>
+						<BitsUnit scale="0.1" max="409.5">mb</BitsUnit>
+					</Bits> 
+				</Fixed>
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
@@ -2300,39 +2301,39 @@
 							<BitsValue val="1">extension</BitsValue>
 						</Bits>
 					</Fixed>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>STD_presence</BitsShortName>
-                            <BitsName>Standard Instrument Departure</BitsName>
-                            <BitsPresence>15</BitsPresence>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>STA_presence</BitsShortName>
-                            <BitsName>Standard Instrument Arrival</BitsName>
-                            <BitsPresence>16</BitsPresence>
-                        </Bits>
-                        <Bits bit="6">
-                            <BitsShortName>PEM_presence</BitsShortName>
-                            <BitsName>Pre-emergency Mode 3/A code</BitsName>
-                            <BitsPresence>17</BitsPresence>
-                        </Bits>
-                        <Bits bit="5">
-                            <BitsShortName>PEC_presence</BitsShortName>
-                            <BitsName>Pre-emergency Callsign</BitsName>
-                            <BitsPresence>18</BitsPresence>
-                        </Bits>
-                        <Bits from="4" to="2">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to zero</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
+					<Fixed length="1">
+						<Bits bit="8">
+							<BitsShortName>STD_presence</BitsShortName>
+							<BitsName>Standard Instrument Departure</BitsName>
+							<BitsPresence>15</BitsPresence>
+						</Bits>
+						<Bits bit="7">
+							<BitsShortName>STA_presence</BitsShortName>
+							<BitsName>Standard Instrument Arrival</BitsName>
+							<BitsPresence>16</BitsPresence>
+						</Bits>
+						<Bits bit="6">
+							<BitsShortName>PEM_presence</BitsShortName>
+							<BitsName>Pre-emergency Mode 3/A code</BitsName>
+							<BitsPresence>17</BitsPresence>
+						</Bits>
+						<Bits bit="5">
+							<BitsShortName>PEC_presence</BitsShortName>
+							<BitsName>Pre-emergency Callsign</BitsName>
+							<BitsPresence>18</BitsPresence>
+						</Bits>
+						<Bits from="4" to="2">
+							<BitsShortName>spare</BitsShortName>
+							<BitsName>Spare bits set to zero</BitsName>
+							<BitsConst>0</BitsConst>
+						</Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>Extension indicator</BitsName>
+							<BitsValue val="0">no extension</BitsValue>
+							<BitsValue val="1">extension</BitsValue>
+						</Bits>
+					</Fixed>
 				</Variable>
 				<Fixed length="2">
 					<Bits from="9" to="16">
@@ -2346,9 +2347,8 @@
 				</Fixed>				
 				<Fixed length="7">
 					<Bits from="1" to="56" encode="ascii">
-						<BitsShortName>Callsign</BitsShortName>
+						<BitsShortName>CS</BitsShortName>
 						<BitsName>Callsign</BitsName>
-                        <XIDEF>Callsign</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
@@ -2371,20 +2371,18 @@
 				</Fixed>				
 				<Fixed length="1">
 					<Bits from="7" to="8">
-						<BitsShortName>GAT/OAT</BitsShortName>
+						<BitsShortName>GATOAT</BitsShortName>
 						<BitsValue val="0">Unknown</BitsValue>
 						<BitsValue val="1">General Air Traffic</BitsValue>
 						<BitsValue val="2">Operational Air Traffic</BitsValue>
 						<BitsValue val="3">Not applicable</BitsValue>
-                        <XIDEF>GATOAT</XIDEF>
 					</Bits>
 					<Bits from="5" to="6">
-						<BitsShortName>FR1/FR2</BitsShortName>
+						<BitsShortName>FR1FR2</BitsShortName>
 						<BitsValue val="0">Instrument Flight Rules</BitsValue>
 						<BitsValue val="1">Visual Flight rules</BitsValue>
 						<BitsValue val="2">Not applicable</BitsValue>
 						<BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
-                        <XIDEF>FRule</XIDEF>
 					</Bits>
 					<Bits from="3" to="4">
 						<BitsShortName>RVSM</BitsShortName>
@@ -2408,28 +2406,24 @@
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>TYPE</BitsShortName>
 						<BitsName>Type of Aircraft</BitsName>
-                        <XIDEF>Type</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="1">
 					<Bits from="1" to="8" encode="ascii">
 						<BitsShortName>WTC</BitsShortName>
 						<BitsName>Wake Turbulence Category</BitsName>
-                        <XIDEF>QTC</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>ADEP</BitsShortName>
 						<BitsName>Departure Airport</BitsName>
-                        <XIDEF>ADEP</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>ADES</BitsShortName>
 						<BitsName>Destination Airport</BitsName>
-                        <XIDEF>ADES</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="3">
@@ -2451,7 +2445,6 @@
 						<BitsShortName>CFL</BitsShortName>
 						<BitsName>Current Cleared Flight Level</BitsName>
 						<BitsUnit scale="0.25">FL</BitsUnit>
-                        <XIDEF>CFL</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="2">
@@ -2482,7 +2475,6 @@
 							<BitsValue val="11">Actual time off runway</BitsValue>
 							<BitsValue val="12">Predicted time to gate</BitsValue>
 							<BitsValue val="13">Actual on-block time</BitsValue>
-                            <XIDEF>TimeType</XIDEF>
 						</Bits>
 						<Bits from="26" to="27">
 							<BitsShortName>DAY</BitsShortName>
@@ -2490,7 +2482,6 @@
 							<BitsValue val="1">Yesterday</BitsValue>
 							<BitsValue val="2">Tomorrow</BitsValue>
 							<BitsValue val="3">Invalid</BitsValue>
-                            <XIDEF>TimeDay</XIDEF>
 						</Bits>
 						<Bits from="22" to="25">
 							<BitsShortName>spare</BitsShortName>
@@ -2500,7 +2491,6 @@
 						<Bits from="17" to="21">
 							<BitsShortName>HOR</BitsShortName>
 							<BitsName>Hours, from 0 to 23</BitsName>
-                            <XIDEF>TimeHour</XIDEF>
 						</Bits>
 						<Bits from="15" to="16">
 							<BitsShortName>spare</BitsShortName>
@@ -2510,7 +2500,6 @@
 						<Bits from="9" to="14">
 							<BitsShortName>MIN</BitsShortName>
 							<BitsName>Minutes, from 0 to 59</BitsName>
-                            <XIDEF>TimeMin</XIDEF>
 						</Bits>
 						<Bits bit="8">
 							<BitsShortName>AVS</BitsShortName>
@@ -2525,13 +2514,12 @@
 						<Bits from="1" to="6">
 							<BitsShortName>SEC</BitsShortName>
 							<BitsName>Seconds, from 0 to 59</BitsName>
-                            <XIDEF>TimeSec</XIDEF>
 						</Bits>
 					</Fixed>
 				</Repetitive>
 				<Fixed length="6">
 					<Bits from="1" to="48" encode="ascii">
-						<BitsShortName>Aircraft_stand</BitsShortName>
+						<BitsShortName>AS</BitsShortName>
 						<BitsName>Aircraft Stand</BitsName>
 					</Bits>
 				</Fixed>	
@@ -2556,45 +2544,45 @@
 						<BitsConst>0</BitsConst>
 					</Bits>
 				</Fixed>	
-                <Fixed length="7">
-                    <Bits from="56" to="1" encode="ascii">
-                        <BitsShortName>SID</BitsShortName>
-                        <BitsName>Standard Instrument Departure</BitsName>
-                    </Bits>
-                </Fixed> 
-                <Fixed length="7">
-                    <Bits from="56" to="1" encode="ascii">
-                        <BitsShortName>STAR</BitsShortName>
-                        <BitsName>Standard Instrument Arrival</BitsName>
-                    </Bits>
-                </Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="14">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>spare bit set to zero</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="13">
-                        <BitsShortName>VA</BitsShortName>
-                        <BitsName>Validity</BitsName>
-                        <BitsValue val="0">No valid Mode 3/A available</BitsValue>
-                        <BitsValue val="1">Valid Mode 3/A available</BitsValue>
-                    </Bits>
-                    <Bits from="12" to="1" encode="octal">
-                        <BitsShortName>mode_3a</BitsShortName>
-                        <BitsName>Mode-3/A reply in octal representation</BitsName>
-                    </Bits>
-                </Fixed> 
-                <Fixed length="7">
-                    <Bits from="56" to="1" encode="ascii">
-                        <BitsShortName>PEC</BitsShortName>
-                        <BitsName>Pre-Emergency Callsign</BitsName>
-                    </Bits>
-                </Fixed>
+				<Fixed length="7">
+					<Bits from="56" to="1" encode="ascii">
+						<BitsShortName>SID</BitsShortName>
+						<BitsName>Standard Instrument Departure</BitsName>
+					</Bits>
+				</Fixed> 
+				<Fixed length="7">
+					<Bits from="56" to="1" encode="ascii">
+						<BitsShortName>STAR</BitsShortName>
+						<BitsName>Standard Instrument Arrival</BitsName>
+					</Bits>
+				</Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="14">
+						<BitsShortName>spare</BitsShortName>
+						<BitsName>spare bit set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits bit="13">
+						<BitsShortName>VA</BitsShortName>
+						<BitsName>Validity</BitsName>
+						<BitsValue val="0">No valid Mode 3/A available</BitsValue>
+						<BitsValue val="1">Valid Mode 3/A available</BitsValue>
+					</Bits>
+					<Bits from="12" to="1" encode="octal">
+						<BitsShortName>Mode3A</BitsShortName>
+						<BitsName>Mode-3/A reply in octal representation</BitsName>
+					</Bits>
+				</Fixed> 
+				<Fixed length="7">
+					<Bits from="56" to="1" encode="ascii">
+						<BitsShortName>PEC</BitsShortName>
+						<BitsName>Pre-Emergency Callsign</BitsName>
+					</Bits>
+				</Fixed>
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
-		
+
 	<DataItem id="500">
 		<DataItemName>Estimated Accuracies</DataItemName>
 		<DataItemDefinition>Overview of all important accuracies</DataItemDefinition>
@@ -2607,36 +2595,36 @@
 							<BitsName>Estimated Accuracy Of Track Position (Cartesian)</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
-                        <Bits bit="7">
-                            <BitsShortName>COV_presence</BitsShortName>
-                            <BitsName>XY Covariance</BitsName>
-                            <BitsPresence>2</BitsPresence>
-                        </Bits>
+						<Bits bit="7">
+							<BitsShortName>COV_presence</BitsShortName>
+							<BitsName>XY Covariance</BitsName>
+							<BitsPresence>2</BitsPresence>
+						</Bits>
 						<Bits bit="6">
 							<BitsShortName>APW_presence</BitsShortName>
 							<BitsName>Estimated Accuracy Of Track Position (WGS-84)</BitsName>
 							<BitsPresence>3</BitsPresence>
 						</Bits>
-                        <Bits bit="5">
-                            <BitsShortName>AGA_presence</BitsShortName>
-                            <BitsName>Estimated Accuracy Of Calculated Track Geometric Altitude</BitsName>
-                            <BitsPresence>4</BitsPresence>
-                        </Bits>
-                        <Bits bit="4">
-                            <BitsShortName>ABA_presence</BitsShortName>
-                            <BitsName>Estimated Accuracy Of Calculated Track Barometric Altitude</BitsName>
-                            <BitsPresence>5</BitsPresence>
-                        </Bits>
+						<Bits bit="5">
+							<BitsShortName>AGA_presence</BitsShortName>
+							<BitsName>Estimated Accuracy Of Calculated Track Geometric Altitude</BitsName>
+							<BitsPresence>4</BitsPresence>
+						</Bits>
+						<Bits bit="4">
+							<BitsShortName>ABA_presence</BitsShortName>
+							<BitsName>Estimated Accuracy Of Calculated Track Barometric Altitude</BitsName>
+							<BitsPresence>5</BitsPresence>
+						</Bits>
 						<Bits bit="3">
 							<BitsShortName>ATV_presence</BitsShortName>
 							<BitsName>Estimated Accuracy Of Track Velocity (Cartesian)</BitsName>
 							<BitsPresence>6</BitsPresence>
 						</Bits>
-                        <Bits bit="2">
-                            <BitsShortName>AA_presence</BitsShortName>
-                            <BitsName>Estimated Accuracy Of Acceleration (Cartesian)</BitsName>
-                            <BitsPresence>7</BitsPresence>
-                        </Bits>
+						<Bits bit="2">
+							<BitsShortName>AA_presence</BitsShortName>
+							<BitsName>Estimated Accuracy Of Acceleration (Cartesian)</BitsName>
+							<BitsPresence>7</BitsPresence>
+						</Bits>
 						<Bits bit="1" fx="1">
 							<BitsShortName>FX</BitsShortName>
 							<BitsName>Extension indicator</BitsName>
@@ -2675,13 +2663,13 @@
 						<BitsUnit scale="0.5">m</BitsUnit>
 					</Bits>
 				</Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="1" encode="signed">
-                        <BitsShortName>COV</BitsShortName>
-                        <BitsName>XY Covariance Component</BitsName>
-                        <BitsUnit scale="0.5">m</BitsUnit>
-                    </Bits>
-                </Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="1" encode="signed">
+						<BitsShortName>COV</BitsShortName>
+						<BitsName>XY Covariance Component</BitsName>
+						<BitsUnit scale="0.5">m</BitsUnit>
+					</Bits>
+				</Fixed>
 				<Fixed length="4">
 					<Bits from="17" to="32">
 						<BitsShortName>APW_Lat</BitsShortName>
@@ -2720,18 +2708,18 @@
 						<BitsUnit scale="0.25">m/s</BitsUnit>
 					</Bits>
 				</Fixed>
-                <Fixed length="2">
-                    <Bits from="16" to="9">
-                        <BitsShortName>AA_X</BitsShortName>
-                        <BitsName>Estimated Accuracy Of Acceleration (X Component)</BitsName>
-                        <BitsUnit scale="0.25">m/s2</BitsUnit>
-                    </Bits>
-                    <Bits from="8" to="1">
-                        <BitsShortName>AA_Y</BitsShortName>
-                        <BitsName>Estimated Accuracy Of Acceleration (Y Component)</BitsName>
-                        <BitsUnit scale="0.25">m/s2</BitsUnit>
-                    </Bits>
-                </Fixed>
+				<Fixed length="2">
+					<Bits from="16" to="9">
+						<BitsShortName>AA_X</BitsShortName>
+						<BitsName>Estimated Accuracy Of Acceleration (X Component)</BitsName>
+						<BitsUnit scale="0.25">m/s2</BitsUnit>
+					</Bits>
+					<Bits from="8" to="1">
+						<BitsShortName>AA_Y</BitsShortName>
+						<BitsName>Estimated Accuracy Of Acceleration (Y Component)</BitsName>
+						<BitsUnit scale="0.25">m/s2</BitsUnit>
+					</Bits>
+				</Fixed>
 				<Fixed length="1">
 					<Bits from="1" to="8">
 						<BitsShortName>ARC</BitsShortName>
@@ -2742,43 +2730,43 @@
 			</Compound>
 		</DataItemFormat>
 	</DataItem>
-	
+
 	<DataItem id="510">
 		<DataItemName>Composed Track Number</DataItemName>
 		<DataItemDefinition>Identification of a system track</DataItemDefinition>
 		<DataItemFormat desc="Extendible data item, comprising a first part of three octets (Master Track Number), followed by three-octet extents (Slave Tracks Numbers).">
-		<Variable>
-			<Fixed length="3">
-				<Bits from="17" to="24">
-					<BitsShortName>SUID</BitsShortName>
-					<BitsName>SYSTEM UNIT IDENTIFICATION</BitsName>
-				</Bits>
-				<Bits from="2" to="16">
-					<BitsShortName>STN</BitsShortName>
-					<BitsName>SYSTEM TRACK NUMBER</BitsName>
-				</Bits>
-				<Bits bit="1" fx="1">
-					<BitsShortName>FX</BitsShortName>
-					<BitsValue val="0">end of data item</BitsValue>
-					<BitsValue val="1">extension into next extent</BitsValue>
-				</Bits>
-			</Fixed>
-			<Fixed length="3">
-				<Bits from="17" to="24">
-					<BitsShortName>SUID</BitsShortName>
-					<BitsName>SYSTEM UNIT IDENTIFICATION</BitsName>
-				</Bits>
-				<Bits from="2" to="16">
-					<BitsShortName>STN</BitsShortName>
-					<BitsName>SYSTEM TRACK NUMBER</BitsName>
-				</Bits>
-				<Bits bit="1" fx="1">
-					<BitsShortName>FX</BitsShortName>
-					<BitsValue val="0">end of data item</BitsValue>
-					<BitsValue val="1">extension into next extent</BitsValue>
-				</Bits>
-			</Fixed>
-		</Variable>
+			<Variable>
+				<Fixed length="3">
+					<Bits from="17" to="24">
+						<BitsShortName>SUID</BitsShortName>
+						<BitsName>SYSTEM UNIT IDENTIFICATION</BitsName>
+					</Bits>
+					<Bits from="2" to="16">
+						<BitsShortName>STN</BitsShortName>
+						<BitsName>SYSTEM TRACK NUMBER</BitsName>
+					</Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+				</Fixed>
+				<Fixed length="3">
+					<Bits from="17" to="24">
+						<BitsShortName>SUID</BitsShortName>
+						<BitsName>SYSTEM UNIT IDENTIFICATION</BitsName>
+					</Bits>
+					<Bits from="2" to="16">
+						<BitsShortName>STN</BitsShortName>
+						<BitsName>SYSTEM TRACK NUMBER</BitsName>
+					</Bits>
+					<Bits bit="1" fx="1">
+						<BitsShortName>FX</BitsShortName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+					</Bits>
+				</Fixed>
+			</Variable>
 		</DataItemFormat>
 	</DataItem>
 

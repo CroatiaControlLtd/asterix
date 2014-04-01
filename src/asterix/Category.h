@@ -48,6 +48,9 @@ public:
   DataItemDescription* getDataItemDescription(int id); //!< returns requested data item or creates new if not existing
   UAP* newUAP(); //!< creates and returns new UAP
   UAP* getUAP(const unsigned char* data, unsigned long len); // get UAP that matches condition
+  std::string printDescriptors(); // print item descriptors
+  bool filterOutItem(int item, const char* name);
+  bool isFiltered(int item, const char* name);
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions(); //!< returns linked list of Wireshark definitions

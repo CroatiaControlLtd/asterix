@@ -39,7 +39,7 @@ public:
   ~DataItemFormat();
 
   std::string m_strDescription; //!< <!ATTLIST DataItemFormat desc CDATA "" >
-  std::string m_strXIDEF; //!< name of XML item in XIDEF output format
+  std::string m_strXIDEF; //!< name of item in XML or JSON output format
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   static int m_nLastPID; //!< static used for allocation of m_nPID
@@ -51,6 +51,10 @@ public:
   virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
+  virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors
+  virtual bool filterOutItem(const char* name) = 0; // mark item for filtering
+  virtual bool isFiltered(const char* name) = 0; // is item filtered
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   virtual fulliautomatix_definitions* getWiresharkDefinitions() = 0;
   virtual fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset) = 0;

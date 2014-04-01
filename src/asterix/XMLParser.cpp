@@ -510,11 +510,12 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
   else if (p->GetAttribute(el, "BitsPresence", p->m_pBits ? &p->m_pBits->m_nPresenceOfField : NULL))
   { // <!ELEMENT CPBitsPresence (#PCDATA)>
   }
-  else if (p->GetAttribute(el, "XIDEF", p->m_pBits ? &p->m_pBits->m_strXIDEF :
+  else if (p->GetAttribute(el, "BitsID", p->m_pBits ? &p->m_pBits->m_strXIDEF :
                                         p->m_pFormatFixed ? &p->m_pFormatFixed->m_strXIDEF :
                                         p->m_pFormat ? &p->m_pFormat->m_strXIDEF :
                                         NULL))
   { // <!ELEMENT XIDIF (#PCDATA)>
+	  // TODO remove
   }
   else if (!strcmp(el, "BitsValue"))
   { // <!ELEMENT BitsValue (#PCDATA)>

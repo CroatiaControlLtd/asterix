@@ -121,6 +121,10 @@ public:
     ePcapNetworkType m_ePcapNetworkType;
     bool m_bInvertByteOrder;
 
+    std::string printDescriptor() { return m_InputParser.printDefinition(); }
+    bool filterOutItem(int cat, int item, const char* name) { return m_InputParser.filterOutItem(cat,item,name); }
+    bool isFiltered(int cat, int item, const char* name) { return m_InputParser.isFiltered(cat,item,name); }
+
 private:
     const unsigned char* m_pBuffer; // input buffer
     unsigned int m_nBufferSize; // input buffer size

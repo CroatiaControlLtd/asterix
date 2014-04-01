@@ -6,7 +6,8 @@
 	
 	Author:   dsalantic
 	Created:  24.12.2008.
-				
+	Modified:  28.4.2014. (dsalantic)Removed XIDEF
+		
 -->
 
 <!ELEMENT Category (DataItem*,UAP*)>
@@ -14,7 +15,7 @@
 	<!ATTLIST Category name CDATA #REQUIRED>
 	<!ATTLIST Category ver CDATA #REQUIRED>
 
-	<!ELEMENT Bits (BitsShortName?,BitsName?,(BitsConst|BitsValue*|BitsUnit|BitsPresence),XIDEF?)>
+	<!ELEMENT Bits (BitsShortName?,BitsName?,(BitsConst|BitsValue*|BitsUnit|BitsPresence))>
 		<!ATTLIST Bits bit CDATA "0">
 		<!ATTLIST Bits from CDATA "0">
 		<!ATTLIST Bits to CDATA "0">
@@ -23,7 +24,6 @@
 		<!ATTLIST Bits rep CDATA "0">
 		<!ELEMENT BitsShortName (#PCDATA)>
 		<!ELEMENT BitsName (#PCDATA)>
-		<!ELEMENT XIDEF (#PCDATA)>
 		<!ELEMENT BitsValue (#PCDATA)>
 			<!ATTLIST BitsValue val CDATA "0" >
 			<!-- TODO <!ATTLIST BitsValue from CDATA "0" > -->
@@ -45,7 +45,7 @@
 			<!ATTLIST DataItemFormat desc CDATA "" >
 
 			<!-- Fixed length data fields -->
-			<!ELEMENT Fixed (XIDEF?,Bits+)>
+			<!ELEMENT Fixed (Bits+)>
 				<!ATTLIST Fixed length CDATA "1" >
 
 			<!-- Explicit length data fields -->

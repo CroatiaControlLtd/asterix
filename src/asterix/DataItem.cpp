@@ -41,40 +41,45 @@ DataItem::~DataItem()
 bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
   std::string newHeader;
+  std::string strNewResult;
 
   switch(formatType)
   {
 	  case CAsterixFormat::EJSON:
-		  strResult += format("\"I%03d\":", m_pDescription->m_nID);
+		  strNewResult = format("\"I%03d\":", m_pDescription->m_nID);
 		  break;
 	  case CAsterixFormat::EJSONH:
-		  strResult += format("\t\"I%03d\":", m_pDescription->m_nID);
+		  strNewResult = format("\t\"I%03d\":", m_pDescription->m_nID);
 		  break;
 	  case CAsterixFormat::ETxt:
-		  strResult += format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
-		  strResult += format("\n[ ");
+		  strNewResult = format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
+		  strNewResult += format("\n[ ");
 		  for (int i=0; i<m_nLength; i++)
 		  {
-			  strResult += format("%02X ", *(m_pData+i));
+			  strNewResult += format("%02X ", *(m_pData+i));
 		  }
-		  strResult += format("]");
+		  strNewResult += format("]");
 		  break;
 	  case CAsterixFormat::EOut:
 			newHeader = format("%s.%d", strHeader.c_str(), m_pDescription->m_nID);
 		  break;
   }
 
-  m_pDescription->get(strResult, newHeader, formatType, m_pData, m_nLength);
+  if (false == m_pDescription->get(strNewResult, newHeader, formatType, m_pData, m_nLength))
+  {
+	  return false;
+  }
+  strResult += strNewResult;
 
   switch(formatType)
   {
   	  case CAsterixFormat::EJSON:
   	  case CAsterixFormat::EJSONH:
-  		  // replace last ',' with '}'
-  		  if (strResult[strResult.length()-1] == ',')
-  		  {
-  			  strResult[strResult.length()-1] = '}';
-  		  }
+		  // replace last ',' with '}'
+		  if (strResult[strResult.length()-1] == ',')
+		  {
+			  strResult[strResult.length()-1] = '}';
+		  }
   		  break;
   }
 

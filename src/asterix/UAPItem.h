@@ -41,13 +41,17 @@ public:
   int m_nLen; // <!ATTLIST UAPItem len CDATA "-">
   int m_nItemID; // <!ELEMENT UAPItem (#PCDATA)>
 
-  virtual long getLength(const unsigned char* pData) { Tracer::Error("Function should not be called!"); return 0; }
-  virtual void addBits(DataItemBits* pBits) { Tracer::Error("Function should not be called!"); }
-  virtual bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+  long getLength(const unsigned char* pData) { Tracer::Error("Function should not be called!"); return 0; }
+  void addBits(DataItemBits* pBits) { Tracer::Error("Function should not be called!"); }
+  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
-  virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
-  virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
-  virtual bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
+  bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
+  bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
+  bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
+  std::string printDescriptors(std::string header) { Tracer::Error("Function should not be called!"); return false; }; // print items format descriptors
+  bool filterOutItem(const char* name) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
+  bool isFiltered(const char* name) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);

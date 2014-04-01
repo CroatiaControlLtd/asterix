@@ -48,6 +48,10 @@ public:
   bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
+  std::string printDescriptors(std::string header); // print items format descriptors
+  bool filterOutItem(const char* name); // mark item for filtering
+  bool isFiltered(const char* name);
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);

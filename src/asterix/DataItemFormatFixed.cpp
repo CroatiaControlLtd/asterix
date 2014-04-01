@@ -172,11 +172,12 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
   if (m_nLength != nLength)
   {
     Tracer::Error("Length doesn't match!!!");
-    return true;
+    return false;
   }
 
   switch(formatType)
   {
+  /* todo
 	  case CAsterixFormat::EXIDEF:
 	  {
 		  if (!m_strXIDEF.empty())
@@ -185,6 +186,7 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 		  }
 	  }
 	  break;
+*/
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
 	  {
@@ -193,16 +195,18 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 	  break;
   }
 
+  bool ret = false;
   std::list<DataItemBits*>::iterator it;
   DataItemBits* bv = NULL;
   for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    bv->get(strResult, strHeader, formatType, pData, m_nLength);
+    ret |= bv->get(strResult, strHeader, formatType, pData, m_nLength);
   }
 
   switch(formatType)
   {
+/* todo
 	  case CAsterixFormat::EXIDEF:
 	  {
 		  if (!m_strXIDEF.empty())
@@ -211,6 +215,7 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 		  }
 		  break;
 	  }
+*/
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
 	  {
@@ -222,7 +227,7 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
 	  break;
   }
 
-  return true;
+  return ret;
 }
 bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
 {
@@ -261,6 +266,46 @@ bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, std::stri
       return true;
   }
   return false;
+}
+
+std::string DataItemFormatFixed::printDescriptors(std::string header)
+{
+	std::string strDef = "";
+
+	std::list<DataItemBits*>::iterator it;
+	DataItemBits* bv = NULL;
+	for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+	{
+		bv = (DataItemBits*)(*it);
+		strDef += bv->printDescriptors(header);
+	}
+	return strDef;
+}
+
+bool DataItemFormatFixed::filterOutItem(const char* name)
+{
+	std::list<DataItemBits*>::iterator it;
+	DataItemBits* bv = NULL;
+	for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+	{
+		bv = (DataItemBits*)(*it);
+		if (true == bv->filterOutItem(name))
+			return true;
+	}
+	return false;
+}
+
+bool DataItemFormatFixed::isFiltered(const char* name)
+{
+	std::list<DataItemBits*>::iterator it;
+	DataItemBits* bv = NULL;
+	for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+	{
+		bv = (DataItemBits*)(*it);
+		if (true == bv->isFiltered(name))
+			return true;
+	}
+	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

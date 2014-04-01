@@ -116,7 +116,7 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
 
 			if (firstTime)
 			{
-			  strPacketDescription = "<XIDEFSTART>";
+			  strPacketDescription = "<ASTERIXSTART>";
 			  firstTime = false;
 			}
       }

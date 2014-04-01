@@ -130,6 +130,59 @@ UAP* Category::getUAP(const unsigned char* data, unsigned long len)
   return NULL;
 }
 
+std::string Category::printDescriptors()
+{
+	std::string strDef = "";
+	char header[32];
+
+	std::list<DataItemDescription*>::iterator it;
+	DataItemDescription* di = NULL;
+
+	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+	  {
+	    di = (DataItemDescription*)(*it);
+
+		sprintf(header, "CAT%03d:I%03d:", m_id, di->m_nID);
+
+	    strDef += di->m_pFormat->printDescriptors(header);
+	  }
+
+	return strDef;
+}
+
+bool Category::filterOutItem(int item, const char* name)
+{
+	std::list<DataItemDescription*>::iterator it;
+	DataItemDescription* di = NULL;
+
+	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+	{
+		di = (DataItemDescription*)(*it);
+		if (di->m_nID == item)
+		{
+			return di->m_pFormat->filterOutItem(name);
+		}
+	}
+	return false;
+}
+
+bool Category::isFiltered(int item, const char* name)
+{
+	std::list<DataItemDescription*>::iterator it;
+	DataItemDescription* di = NULL;
+
+	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+	{
+		di = (DataItemDescription*)(*it);
+		if (di->m_nID == item)
+		{
+			if (true == di->m_pFormat->isFiltered(name))
+				return true;
+		}
+	}
+	return false;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* Category::getWiresharkDefinitions()
 {

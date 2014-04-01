@@ -27,6 +27,8 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
 , m_nID(nID)
@@ -168,26 +170,29 @@ bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsig
     return true;
   }
 
+  std::string strNewResult;
+
   switch(formatType)
   {
 	  case CAsterixFormat::ETxt:
-		  strResult += format("\n-------------------------\nData Record %d", m_nID);
-		  strResult += format("\nLen: %ld", m_nLength);
+		  strNewResult = format("\n-------------------------\nData Record %d", m_nID);
+		  strNewResult += format("\nLen: %ld", m_nLength);
 		  break;
   	  case CAsterixFormat::EJSON:
-  		  strResult += format("{\"CAT%03d\":{", m_pCategory->m_id);
+  		  strNewResult = format("{\"CAT%03d\":{", m_pCategory->m_id);
   		  break;
   	  case CAsterixFormat::EJSONH:
-  		  strResult += format("{\"CAT%03d\":{\n", m_pCategory->m_id);
+  		  strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
   		  break;
   	  case CAsterixFormat::EXIDEF:
   		  const int nXIDEFv = 1;
-  		  strResult += format("\n<XIDEF ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
+  		  strNewResult = format("\n<ASTERIX ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
   		  break;
   }
 
   // go through all present data items in this block
   bool first = true;
+  bool ret = false;
 
   std::list<DataItem*>::iterator it;
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
@@ -195,35 +200,40 @@ bool DataRecord::get(std::string& strResult, std::string& strHeader, const unsig
     DataItem* di = (DataItem*)(*it);
     if (di != NULL)
     {
-    	if (!first)
+    	if (!first && ret)
     	{
     		  switch(formatType)
     		  {
     		  	  case CAsterixFormat::EJSON:
-    		  		  strResult += ",";
+    		  		  strNewResult += ",";
     		  		  break;
     		  	  case CAsterixFormat::EJSONH:
-    		  		  strResult += ",\n";
+    		  		  strNewResult += ",\n";
     		  		  break;
     		  }
     	}
 		first = false;
-        di->get(strResult, strHeader, formatType);
+        ret = di->get(strNewResult, strHeader, formatType);
     }
   }
 
-  switch(formatType)
+  if (ret)
   {
-  	  case CAsterixFormat::EJSON:
-  	  case CAsterixFormat::EJSONH:
-  		  strResult += "}},\n";
-  		  break;
-  	  case CAsterixFormat::EXIDEF:
-  		  strResult += "\n</XIDEF>";
-  		  break;
+	  strResult += strNewResult;
+
+	  switch(formatType)
+	  {
+		  case CAsterixFormat::EJSON:
+		  case CAsterixFormat::EJSONH:
+			  strResult += "}},\n";
+			  break;
+		  case CAsterixFormat::EXIDEF:
+			  strResult += "\n</ASTERIX>";
+			  break;
+	  }
   }
 
-  return true;
+  return ret;
 }
 
 DataItem* DataRecord::getItem(int itemid)

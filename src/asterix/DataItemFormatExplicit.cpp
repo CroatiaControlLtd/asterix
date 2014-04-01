@@ -136,6 +136,21 @@ bool DataItemFormatExplicit::getValue(unsigned char* pData, long nLength, std::s
 	  return false;
 }
 
+std::string DataItemFormatExplicit::printDescriptors(std::string header)
+{
+	return m_pFixed->printDescriptors(header);
+}
+
+bool DataItemFormatExplicit::filterOutItem(const char* name)
+{
+	return m_pFixed->filterOutItem(name);
+}
+
+bool DataItemFormatExplicit::isFiltered(const char* name)
+{
+	return m_pFixed->isFiltered(name);
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {

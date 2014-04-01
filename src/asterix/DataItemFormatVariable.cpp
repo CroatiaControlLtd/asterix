@@ -89,6 +89,8 @@ void DataItemFormatVariable::addBits(DataItemBits* pBits)
 
 bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+  bool ret = false;
+
   std::list<DataItemFormatFixed*>::iterator it;
   bool lastPart = false;
   it=m_lParts.begin();
@@ -116,14 +118,14 @@ bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader,
   	  case CAsterixFormat::EJSONH:
   	  {
   		  tmpResult = "";
-  		  dip->get(tmpResult, strHeader, formatType, pData, dip->getLength());
+  		  ret |= dip->get(tmpResult, strHeader, formatType, pData, dip->getLength());
   		  strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
   		 if (!lastPart)
   			strResult += ',';
   	  }
   	  break;
   	  default:
-  		  dip->get(strResult, strHeader, formatType, pData, dip->getLength());
+  		ret |= dip->get(strResult, strHeader, formatType, pData, dip->getLength());
   	  break;
     }
 
@@ -150,7 +152,7 @@ bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader,
    	  break;
      }
 
-  return true;
+  return ret;
 }
 
 bool DataItemFormatVariable::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
@@ -244,6 +246,42 @@ bool DataItemFormatVariable::getValue(unsigned char* pData, long nLength, std::s
   return false;
 }
 
+std::string DataItemFormatVariable::printDescriptors(std::string header)
+{
+	std::string strDef = "";
+
+	std::list<DataItemFormatFixed*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+		strDef += dip->printDescriptors(header);
+	}
+	return strDef;
+}
+
+bool DataItemFormatVariable::filterOutItem(const char* name)
+{
+	std::list<DataItemFormatFixed*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+		if (true == dip->filterOutItem(name))
+			return true;
+	}
+	return false;
+}
+
+bool DataItemFormatVariable::isFiltered(const char* name)
+{
+	std::list<DataItemFormatFixed*>::iterator it;
+	for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+	{
+		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+		if (true == dip->isFiltered(name))
+			return true;
+	}
+	return false;
+}
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatVariable::getWiresharkDefinitions()
 {

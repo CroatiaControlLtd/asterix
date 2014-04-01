@@ -10,6 +10,7 @@
 	
 	Modified: 3.11.2013 :  added items I048/55, I048/065 and I048/SP (FPS117-specific)
 	Modified: 22.11.2013 : I048/SP defined as Explicit
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
@@ -75,8 +76,8 @@
 						<BitsValue val="1">Plot or track from a fixed transponder</BitsValue>
 					</Bits>
 					<Bits bit="1" fx="1">
-						<BitsShortName>FX1</BitsShortName>
-						<BitsName>FX1</BitsName>
+						<BitsShortName>FX</BitsShortName>
+						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into first extent</BitsValue>
 					</Bits>
@@ -89,7 +90,7 @@
 						<BitsValue val="1">Test target report</BitsValue>
 					</Bits>
 					<Bits from="7" to="6">
-						<BitsShortName>sb1</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bits set to 0</BitsName>
 						<BitsConst>0</BitsConst>                       
 					</Bits>
@@ -114,8 +115,8 @@
 						<BitsValue val="3">No reply</BitsValue>
 					</Bits>
 					<Bits bit="1" fx="1">
-						<BitsShortName>FX2</BitsShortName>
-						<BitsName>FX2</BitsName>
+						<BitsShortName>FX</BitsShortName>
+						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into next extent</BitsValue>
 					</Bits>
@@ -198,7 +199,7 @@
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
-		<DataItemNote></DataItemNote>            
+		<DataItemNote/>            
 	</DataItem>
 
 	<DataItem id="50">
@@ -222,12 +223,12 @@
 					<BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker</BitsValue>
 				</Bits>
 				<Bits bit="13">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="12" to="1" encode="octal">
-					<BitsShortName>mode_2</BitsShortName>
+					<BitsShortName>Mode2</BitsShortName>
 					<BitsName>Mode-2 code</BitsName>
 				</Bits>
 			</Fixed>
@@ -256,7 +257,7 @@
 					<BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
 				</Bits>
 				<Bits from="5" to="1" encode="hex">
-					<BitsShortName>mode_1</BitsShortName>
+					<BitsShortName>Mode1</BitsShortName>
 					<BitsName>Mode-1 code</BitsName>
 				</Bits>
 			</Fixed>
@@ -270,7 +271,7 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
 			<Fixed length="2">
 				<Bits from="16" to="13">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spares bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
@@ -345,7 +346,7 @@
 		<DataItemFormat desc="One-octet fixed length Data Item.">
 			<Fixed length="1">
 				<Bits from="8" to="6">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spares bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
@@ -400,14 +401,13 @@
 					<BitsValue val="1">Smoothed Mode-3/A code as provided by a local tracker</BitsValue>
 				</Bits>
 				<Bits bit="13">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="12" to="1" encode="octal">
-					<BitsShortName>mode_3A</BitsShortName>
+					<BitsShortName>Mode3A</BitsShortName>
 					<BitsName>Mode-3/A reply code</BitsName>
-					<XIDEF>modeAcode</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -420,7 +420,7 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
 			<Fixed length="2">
 				<Bits from="16" to="13">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spares bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
@@ -508,7 +508,6 @@
 					<BitsShortName>FL</BitsShortName>
 					<BitsName>FlightLevel</BitsName>
 					<BitsUnit scale="0.25">FL</BitsUnit>
-					<XIDEF>FlightLevel</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -531,16 +530,17 @@
 					<BitsValue val="1">Garbled code</BitsValue>
 				</Bits>
 				<Bits from="30" to="29">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bits set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="28" to="17">
-					<BitsShortName>mode_C</BitsShortName>
-					<BitsName>Mode-C reply in Gray notation</BitsName> <!-- TODO gray notation -->
+					<BitsShortName>ModeC</BitsShortName>
+					<BitsName>Mode-C reply in Gray notation</BitsName>
+					<!-- TODO gray notation -->
 				</Bits>
 				<Bits from="16" to="13">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bits set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
@@ -615,18 +615,18 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
 			<Fixed length="2">
 				<Bits from="16" to="15">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bits set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="14" to="1">
-					<BitsShortName>3DHEIHGT</BitsShortName>
+					<BitsShortName>3D_Height</BitsShortName>
 					<BitsName>3D_Height</BitsName>
 					<BitsUnit scale="0.25">ft</BitsUnit>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
-		<DataItemNote></DataItemNote>
+		<DataItemNote/>
 	</DataItem> 	 
 
 	<DataItem id="120">
@@ -637,17 +637,17 @@
 				<Variable>   
 					<Fixed length="1">
 						<Bits bit="8">
-							<BitsShortName>CALP</BitsShortName>
+							<BitsShortName>CAL</BitsShortName>
 							<BitsName>CAL Presence</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
 						<Bits bit="7">
-							<BitsShortName>RDSP</BitsShortName>
+							<BitsShortName>RDS</BitsShortName>
 							<BitsName>RDS Presence</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>  
 						<Bits from="6" to="1">
-							<BitsShortName>sb1</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>spare bits set to 0</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
@@ -661,7 +661,7 @@
 						<BitsValue val="1">Doppler speed is doubtful</BitsValue>
 					</Bits>
 					<Bits from="15" to="11">
-						<BitsShortName>sb2</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bits set to 0</BitsName>
 						<BitsConst>0</BitsConst>                      
 					</Bits>  
@@ -692,7 +692,7 @@
 				</Repetitive>
 			</Compound>
 		</DataItemFormat>
-		<DataItemNote></DataItemNote>
+		<DataItemNote/>
 	</DataItem> 
 
 	<DataItem id="130">
@@ -738,8 +738,8 @@
 							<BitsPresence>7</BitsPresence>
 						</Bits>  
 						<Bits bit="1" fx="1">
-							<BitsShortName>FX1</BitsShortName>
-							<BitsName>FX1</BitsName>
+							<BitsShortName>FX</BitsShortName>
+							<BitsName>FX</BitsName>
 							<BitsValue val="0">End of Data Item</BitsValue>
 							<BitsValue val="1">Extension into next extent</BitsValue>                    
 						</Bits>  					
@@ -756,7 +756,7 @@
 					<Bits from="8" to="1" >
 						<BitsShortName>SRR</BitsShortName>
 						<BitsName>SSR-Number of received reply</BitsName>
-						<BitsUnit></BitsUnit>
+						<BitsUnit/>
 					</Bits>
 				</Fixed>
 				<Fixed length="1">					
@@ -808,7 +808,6 @@
 					<BitsShortName>ToD</BitsShortName>
 					<BitsName>Time Of Day</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
-					<XIDEF>ToD</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -823,11 +822,10 @@
 				<Bits from="12" to="1">
 					<BitsShortName>Tn</BitsShortName>
 					<BitsName>Track Number</BitsName>
-					<XIDEF>TrackNumber</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
-		<DataItemNote></DataItemNote>
+		<DataItemNote/>
 	</DataItem>	
 
 	<DataItem id="170">
@@ -871,8 +869,8 @@
 						<BitsValue val="3">Invalid</BitsValue>
 					</Bits>
 					<Bits bit="1" fx="1">
-						<BitsShortName>FX1</BitsShortName>
-						<BitsName>FX1</BitsName>
+						<BitsShortName>FX</BitsShortName>
+						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into first extent</BitsValue>
 					</Bits>
@@ -903,13 +901,13 @@
 						<BitsValue val="1">Slant range correction</BitsValue>
 					</Bits>
 					<Bits from="4" to="2">
-						<BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bits set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
 					<Bits bit="1" fx="1">
-						<BitsShortName>FX2</BitsShortName>
-						<BitsName>FX2</BitsName>
+						<BitsShortName>FX</BitsShortName>
+						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into second extent</BitsValue>
 					</Bits>
@@ -930,7 +928,7 @@
 					<BitsUnit scale="0.22">kt</BitsUnit>
 				</Bits>
 				<Bits from="16" to="1">
-					<BitsShortName>HEAD</BitsShortName>
+					<BitsShortName>CHdg</BitsShortName>
 					<BitsName>Calculated heading</BitsName>
 					<BitsUnit scale="0.0054931640625">deg</BitsUnit>
 				</Bits>
@@ -974,9 +972,8 @@
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1" encode="hex">
-					<BitsShortName>ACADDR</BitsShortName>
-					<BitsName>AircraftAddress</BitsName>
-					<XIDEF>24bitAddress</XIDEF>
+					<BitsShortName>ACAddr</BitsShortName>
+					<BitsName>Aircraft Address</BitsName>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -996,7 +993,7 @@
 					<BitsName>STAT</BitsName>
 				</Bits>
 				<Bits from="10" to="9">
-					<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
 				</Bits>
@@ -1036,9 +1033,8 @@
 		<DataItemFormat desc="Six-octet fixed length Data Item.">
 			<Fixed length="6">
 				<Bits from="1" to="48" encode="6bitschar">
-					<BitsShortName>targetID</BitsShortName>
+					<BitsShortName>TId</BitsShortName>
 					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
-					<XIDEF>CS</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -1081,18 +1077,24 @@
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
-		<DataItemNote>.</DataItemNote>
+		<DataItemNote/>
 	</DataItem>
 
 	<!--Special Purpose Field - content unknown --> 
 	<DataItem id="SP" >
-		<Explicit desc="SP Field">
-			<Fixed length="1">
-				<Bits from="8" to="1">
-					<BitsName>SP</BitsName>
-				</Bits>
-			</Fixed>
-		</Explicit>
+		<DataItemName>Special Purpose Field</DataItemName>
+		<DataItemDefinition>SP</DataItemDefinition>
+		<DataItemFormat desc="Explicit">
+			<Explicit>
+				<Fixed length="1">
+					<Bits from="8" to="1">
+						<BitsShortName>SP</BitsShortName>
+						<BitsName>SP</BitsName>
+					</Bits>
+				</Fixed>
+			</Explicit>
+		</DataItemFormat>
+		<DataItemNote/>
 	</DataItem>		
 
 	<!--Transmission of Track--> 
