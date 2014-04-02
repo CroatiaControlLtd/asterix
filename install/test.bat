@@ -1,1 +1,2 @@
 bash test.sh
+pause
