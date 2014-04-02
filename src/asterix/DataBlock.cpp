@@ -76,7 +76,7 @@ DataBlock::~DataBlock()
   }
 }
 
-bool DataBlock::get(std::string& strResult, const unsigned int formatType)
+bool DataBlock::getText(std::string& strResult, const unsigned int formatType)
 {
 	std::string strHeader;
 
@@ -106,7 +106,7 @@ bool DataBlock::get(std::string& strResult, const unsigned int formatType)
       DataRecord* dr = (DataRecord*)(*it);
       if (dr != NULL)
       {
-    	  dr->get(strResult, strHeader, formatType);
+    	  dr->getText(strResult, strHeader, formatType);
       }
     }
   }

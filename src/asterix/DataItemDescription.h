@@ -39,9 +39,9 @@ public:
   void setDefinition(char* definition) { m_strDefinition = definition; }
   void setFormat(char* format) { m_strFormat = format; }
 
-  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) // appends value to strResult
+  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) // appends value to strResult
   {
-    return m_pFormat->get(strResult, strHeader, formatType, pData, nLength);
+    return m_pFormat->getText(strResult, strHeader, formatType, pData, nLength);
   };
 
   std::string m_strName;

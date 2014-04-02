@@ -51,7 +51,7 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
   m_pFixed->m_lBits.push_back(pBits);
 }
 
-bool DataItemFormatExplicit::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   int fixedLength = m_pFixed->getLength(pData);
   unsigned char nFullLength = nLength - 1;
@@ -66,7 +66,7 @@ bool DataItemFormatExplicit::get(std::string& strResult, std::string& strHeader,
 
 		  for (int i=0; i<nFullLength; i+=fixedLength)
 		  {
-			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  m_pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
 			  strResult += format(",");
 		  }
@@ -82,7 +82,7 @@ bool DataItemFormatExplicit::get(std::string& strResult, std::string& strHeader,
 	  default:
 		  for (int i=0; i<nFullLength; i+=fixedLength)
 		  {
-			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  m_pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
 		  }
 		  break;

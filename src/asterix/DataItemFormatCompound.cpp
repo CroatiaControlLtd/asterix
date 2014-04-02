@@ -115,7 +115,7 @@ void DataItemFormatCompound::addBits(DataItemBits* pBits)
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   bool ret = false;
   std::string tmpStr;
@@ -169,10 +169,10 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
 			  tmpStr = "\n\t\t";
 			  /* no break */
 		  case CAsterixFormat::EJSON:
-			  tmpStr = "\"" + dip->getPartName(secondaryPart) + "\":";
+			  tmpStr += "\"" + dip->getPartName(secondaryPart) + "\":";
 
 		        skip = dip2->getLength(pSecData);
-		        bool r = dip2->get(tmpStr, strHeader, formatType, pSecData, skip);
+		        bool r = dip2->getText(tmpStr, strHeader, formatType, pSecData, skip);
 		        ret |= r;
 		        pSecData += skip;
 
@@ -189,7 +189,7 @@ bool DataItemFormatCompound::get(std::string& strResult, std::string& strHeader,
 			  break;
 		  default:
 		        skip = dip2->getLength(pSecData);
-		        ret |= dip2->get(strResult, strHeader, formatType, pSecData, skip);
+		        ret |= dip2->getText(strResult, strHeader, formatType, pSecData, skip);
 		        pSecData += skip;
 		        break;
 		}

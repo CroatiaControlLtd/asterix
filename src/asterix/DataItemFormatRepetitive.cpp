@@ -57,7 +57,7 @@ void DataItemFormatRepetitive::addBits(DataItemBits* pBits)
   m_pFixed->m_lBits.push_back(pBits);
 }
 
-bool DataItemFormatRepetitive::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   int fixedLength = m_pFixed->getLength(pData);
   unsigned char nRepetition = *pData;
@@ -78,7 +78,7 @@ bool DataItemFormatRepetitive::get(std::string& strResult, std::string& strHeade
 
 		  while(nRepetition--)
 		  {
-			  m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			  m_pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
 
 			  if (nRepetition > 0)
@@ -89,7 +89,7 @@ bool DataItemFormatRepetitive::get(std::string& strResult, std::string& strHeade
 	  default:
 		  while(nRepetition--)
 		  {
-			m_pFixed->get(strResult, strHeader, formatType, pData, fixedLength);
+			m_pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
 		    pData += fixedLength;
 		  }
 		  break;

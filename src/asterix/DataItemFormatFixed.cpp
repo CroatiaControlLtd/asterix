@@ -167,7 +167,7 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int
   return false;
 }
 
-bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatFixed::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   if (m_nLength != nLength)
   {
@@ -201,7 +201,7 @@ bool DataItemFormatFixed::get(std::string& strResult, std::string& strHeader, co
   for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    ret |= bv->get(strResult, strHeader, formatType, pData, m_nLength);
+    ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength);
   }
 
   switch(formatType)

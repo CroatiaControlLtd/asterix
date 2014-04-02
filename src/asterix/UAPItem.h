@@ -43,7 +43,7 @@ public:
 
   long getLength(const unsigned char* pData) { Tracer::Error("Function should not be called!"); return 0; }
   void addBits(DataItemBits* pBits) { Tracer::Error("Function should not be called!"); }
-  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
   bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
   bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }

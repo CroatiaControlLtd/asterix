@@ -40,7 +40,7 @@ public:
 
   std::list<DataRecord*> m_lDataRecords;
 
-  bool get(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
+  bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif

@@ -43,7 +43,7 @@ AsterixData::~AsterixData()
 /*
  * appends Asterix data description to strResult
  */
-bool AsterixData::get(std::string& strResult, const unsigned int formatType)
+bool AsterixData::getText(std::string& strResult, const unsigned int formatType)
 {
   static int i = 1;
 
@@ -59,7 +59,7 @@ bool AsterixData::get(std::string& strResult, const unsigned int formatType)
     			strResult += format("\n\n-------------------------\nData Block %d", i++);
     			break;
     	}
-    	db->get(strResult, formatType);
+    	db->getText(strResult, formatType);
     }
   }
   return true;

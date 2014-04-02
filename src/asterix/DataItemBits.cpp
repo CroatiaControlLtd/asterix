@@ -341,7 +341,7 @@ unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int fromb
 	return str;
 }
 
-bool DataItemBits::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
 	if (gFiltering && !m_bFiltered)
 		return false;

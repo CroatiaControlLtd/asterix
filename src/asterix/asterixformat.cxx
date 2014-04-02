@@ -134,7 +134,7 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
     	    return true;
     	  }
 
-    	  if (!Descriptor.m_pAsterixData->get(strPacketDescription, formatType))
+    	  if (!Descriptor.m_pAsterixData->getText(strPacketDescription, formatType))
     	  {
     	    LOGERROR(1, "Failed to get data packet description\n");
     	    return false;

@@ -87,7 +87,7 @@ void DataItemFormatVariable::addBits(DataItemBits* pBits)
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   bool ret = false;
 
@@ -118,14 +118,14 @@ bool DataItemFormatVariable::get(std::string& strResult, std::string& strHeader,
   	  case CAsterixFormat::EJSONH:
   	  {
   		  tmpResult = "";
-  		  ret |= dip->get(tmpResult, strHeader, formatType, pData, dip->getLength());
+  		  ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
   		  strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
   		 if (!lastPart)
   			strResult += ',';
   	  }
   	  break;
   	  default:
-  		ret |= dip->get(strResult, strHeader, formatType, pData, dip->getLength());
+  		ret |= dip->getText(strResult, strHeader, formatType, pData, dip->getLength());
   	  break;
     }
 

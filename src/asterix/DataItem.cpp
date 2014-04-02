@@ -38,7 +38,7 @@ DataItem::~DataItem()
     delete[] m_pData;
 }
 
-bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigned int formatType)
+bool DataItem::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
   std::string newHeader;
   std::string strNewResult;
@@ -65,7 +65,7 @@ bool DataItem::get(std::string& strResult, std::string& strHeader, const unsigne
 		  break;
   }
 
-  if (false == m_pDescription->get(strNewResult, newHeader, formatType, m_pData, m_nLength))
+  if (false == m_pDescription->getText(strNewResult, newHeader, formatType, m_pData, m_nLength))
   {
 	  return false;
   }

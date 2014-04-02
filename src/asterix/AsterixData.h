@@ -42,7 +42,7 @@ public:
   fulliautomatix_data* getData();
 #endif
 
-  bool get(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
+  bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
   bool printOutKMLTimePlots(); // Print out data KML file with plots with timestamp
   bool printOutFiltered(); // Print out filtered data
 };

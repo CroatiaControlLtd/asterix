@@ -36,7 +36,7 @@ public:
 
   DataItemDescription* m_pDescription;
 
-  bool get(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
+  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
 
   long parse(const unsigned char* pData, long len);
   bool getValue(unsigned long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
