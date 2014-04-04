@@ -27,7 +27,8 @@ Fixed bug that prevented parsing of multiple Data Records in one Data Block
 Optional source address in multicast definition implemented: format is "-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address]"
   
 1.1.0
-07.03.2014.
+02.04.2014.
 JSON output format added
 Code optimization 
- 
+Output data filtering added 
+Asterix format definitions updated (mainly short names)
