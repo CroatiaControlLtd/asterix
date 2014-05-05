@@ -392,15 +392,15 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = value*m_dScale;
-				strResult += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
 				if (m_bMaxValueSet && scaled > m_dMaxValue)
 				{
-					strResult += format("\n\tWarning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format("\n\tWarning: Value larger than max (%.7lf)", m_dMaxValue);
 				}
 				if (m_bMinValueSet && scaled < m_dMinValue)
 				{
-					strResult += format("\n\tWarning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format("\n\tWarning: Value smaller than min (%.7lf)", m_dMinValue);
 				}
 			}
 			else if (m_bIsConst)
@@ -436,15 +436,15 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = value*m_dScale;
-				strResult += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
 				if (m_bMaxValueSet && scaled > m_dMaxValue)
 				{
-					strResult += format(" tWarning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format(" tWarning: Value larger than max (%.7lf)", m_dMaxValue);
 				}
 				if (m_bMinValueSet && scaled < m_dMinValue)
 				{
-					strResult += format(" Warning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format(" Warning: Value smaller than min (%.7lf)", m_dMinValue);
 				}
 			}
 			else if (m_bIsConst)
@@ -478,7 +478,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = value*m_dScale;
-				strResult += format("%.3lf", scaled);
+				strResult += format("%.7lf", scaled);
 			}
 			else
 			{
@@ -502,15 +502,15 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = (double)value*m_dScale;
-				strResult += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
 				if (m_bMaxValueSet && scaled > m_dMaxValue)
 				{
-					strResult += format("\n\tWarning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format("\n\tWarning: Value larger than max (%.7lf)", m_dMaxValue);
 				}
 				if (m_bMinValueSet && scaled < m_dMinValue)
 				{
-					strResult += format("\n\tWarning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format("\n\tWarning: Value smaller than min (%.7lf)", m_dMinValue);
 				}
 			}
 		}
@@ -522,15 +522,15 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = (double)value*m_dScale;
-				strResult += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
 				if (m_bMaxValueSet && scaled > m_dMaxValue)
 				{
-					strResult += format(" Warning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format(" Warning: Value larger than max (%.7lf)", m_dMaxValue);
 				}
 				if (m_bMinValueSet && scaled < m_dMinValue)
 				{
-					strResult += format(" Warning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format(" Warning: Value smaller than min (%.7lf)", m_dMinValue);
 				}
 			}
 		}
@@ -540,7 +540,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 			if (m_dScale != 0)
 			{
 				double scaled = (double)value*m_dScale;
-				strResult += format("%.3lf", scaled);
+				strResult += format("%.7lf", scaled);
 			}
 			else
 			{

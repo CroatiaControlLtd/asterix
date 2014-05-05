@@ -46,6 +46,7 @@ bool CAsterixKmlSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, 
 
   std::string strPacketDescription;
 
+
   std::map<long,std::string> m_mapTracks;
   std::map<long,std::string> m_mapPlots;
   std::map<long,long> m_mapTrackFirstTimes;
@@ -87,10 +88,10 @@ bool CAsterixKmlSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, 
             std::string strAircraftIdentification;
             long nTimestamp = 0;
 
-            if (dr->getValue(40, lTrackNumber, "track_number") &&
-                dr->getValue(105, nLatitude, "Latitude") &&
-                dr->getValue(105, nLongitude, "Longitude") &&
-                dr->getValue(70, nTimestamp, "time_of_track"))
+            if (dr->getValue(40, lTrackNumber, "TrkN") &&
+                dr->getValue(105, nLatitude, "Lat") &&
+                dr->getValue(105, nLongitude, "Lon") &&
+                dr->getValue(70, nTimestamp, "ToT"))
             {
               double dLongitude = nLongitude * 0.000021457672119140625;
               double dLatitude = nLatitude * 0.000021457672119140625;
@@ -109,7 +110,7 @@ bool CAsterixKmlSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, 
               nTimestamp /= 128; //seconds since midnight
 
               long nFlightLevel = 0;
-              dr->getValue(136, nFlightLevel, "FL");
+              dr->getValue(136, nFlightLevel, "MFL");
 
               // coordinates
               std::string strTmp(format("%.6lf,%.6lf,%.0f\n",dLongitude, dLatitude, (nFlightLevel*25)/3.28));
@@ -117,13 +118,13 @@ bool CAsterixKmlSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, 
 
               // get heading
               long nHeading = 0;
-              dr->getValue(180, nHeading, "Heading");
+              dr->getValue(380, nHeading, "MAH");
               // get speed
               long nSpeed = 0;
-              dr->getValue(180, nSpeed, "Speed");
+              dr->getValue(380, nSpeed, "TAS");
 
               std::string strCallSign;
-              dr->getValue(390, strCallSign, "Callsign");
+              dr->getValue(390, strCallSign, "CS");
 
               std::string strDeparture;
               dr->getValue(390, strDeparture, "DEP");

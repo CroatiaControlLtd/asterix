@@ -10,7 +10,8 @@
 	
 	Modified: 3.11.2013 :  added items I048/55, I048/065 and I048/SP (FPS117-specific)
 	Modified: 22.11.2013 : I048/SP defined as Explicit
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	Modified:  05.05.2014. (dsalantic) Mode-1 displayed as decimal (and not hex)
 
 --> 
 
@@ -256,7 +257,7 @@
 					<BitsValue val="0">Mode-1 code as derived from the reply of the transponder</BitsValue>
 					<BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
 				</Bits>
-				<Bits from="5" to="1" encode="hex">
+				<Bits from="5" to="1">
 					<BitsShortName>Mode1</BitsShortName>
 					<BitsName>Mode-1 code</BitsName>
 				</Bits>

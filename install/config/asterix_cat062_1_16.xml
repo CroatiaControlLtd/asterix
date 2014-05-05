@@ -15,8 +15,8 @@
                                        Add definition of repetitive field of DataItem I062/380
                                        Fix length of B1B field (DataItem I062/380)
                                        Add missing fields to DataItem I062/390
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-
+	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	Modified:  05.05.2014. (dsalantic) Item 110 format fixed
 -->
 
 <Category id="62" name="SDPS Track Messages" ver="1.16">
@@ -433,6 +433,7 @@
 							<BitsValue val="1">Extension into first extent</BitsValue>
 						</Bits>
 					</Fixed>
+				</Variable>
 					<Fixed length="1">
 						<Bits bit="8">
 							<BitsShortName>M5</BitsShortName>
@@ -589,7 +590,6 @@
 							<BitsValue val="1">X-pulse set to one (present)</BitsValue>
 						</Bits>
 					</Fixed>
-				</Variable>
 			</Compound>
 		</DataItemFormat>
 	</DataItem>

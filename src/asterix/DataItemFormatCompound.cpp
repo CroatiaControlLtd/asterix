@@ -118,7 +118,6 @@ void DataItemFormatCompound::addBits(DataItemBits* pBits)
 bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   bool ret = false;
-  std::string tmpStr;
 
   if (m_pCompoundPrimary == NULL)
   {
@@ -162,11 +161,12 @@ bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHea
       {
         DataItemFormat* dip2 = (DataItemFormat*)(*it2);
         int skip = 0;
+        std::string tmpStr = "";
 
 		switch(formatType)
 		{
 		  case CAsterixFormat::EJSONH:
-			  tmpStr = "\n\t\t";
+			  tmpStr += "\n\t\t";
 			  /* no break */
 		  case CAsterixFormat::EJSON:
 			  tmpStr += "\"" + dip->getPartName(secondaryPart) + "\":";
