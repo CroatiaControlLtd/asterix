@@ -297,7 +297,7 @@ CBaseFormatDescriptor* CAsterixFormat::CreateFormatDescriptor
 
 		// parse format file
 		XMLParser Parser;
-		if (!Parser.Parse(fp, pDefinition))
+		if (!Parser.Parse(fp, pDefinition, inputFile))
 		{
 		  LOGERROR(1, "Failed to parse definitions file: %s\n", strInputFile.c_str());
 		}

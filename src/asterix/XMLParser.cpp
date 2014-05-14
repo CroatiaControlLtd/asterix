@@ -97,8 +97,8 @@ void XMLParser::Error(const char* errstr, const char* param1)
 
 void XMLParser::Error(const char* errstr)
 {
-  char strLine[32];
-  sprintf(strLine," line: %d", (int)XML_GetCurrentLineNumber(m_Parser));
+  char strLine[1024];
+  sprintf(strLine," in file: %s line: %d", m_pFileName, (int)XML_GetCurrentLineNumber(m_Parser));
   std::string tmpstr(errstr);
   tmpstr += strLine;
   tmpstr += "\n";
@@ -242,38 +242,38 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
     p->m_pFormatFixed = new DataItemFormatFixed();
     if (p->m_pFormatVariable != NULL)
     {
-      p->m_pFormatVariable->m_lParts.push_back(p->m_pFormatFixed);
+      p->m_pFormatVariable->m_lSubItems.push_back(p->m_pFormatFixed);
     }
     else if (p->m_pFormatRepetitive != NULL)
     {
-	  if (p->m_pFormatRepetitive->m_pFixed)
+	  if (p->m_pFormatRepetitive->m_lSubItems.size() != 0)
 	  {
-		Tracer::Error("XMLParser : Duplicate item");
+		p->Error("XMLParser : Duplicate Fixed item in Repetitive");
 	  }
-      p->m_pFormatRepetitive->m_pFixed = p->m_pFormatFixed;
+      p->m_pFormatRepetitive->m_lSubItems.push_back(p->m_pFormatFixed);
     }
     else if (p->m_pFormatExplicit != NULL)
     {
-      if (p->m_pFormatExplicit->m_pFixed)
+  	  if (p->m_pFormatExplicit->m_lSubItems.size() != 0)
       {
-      	Tracer::Error("XMLParser : Duplicate item");
+      	p->Error("XMLParser : Duplicate Fixed item in Explicit");
       }
-      p->m_pFormatExplicit->m_pFixed = p->m_pFormatFixed;
+      p->m_pFormatExplicit->m_lSubItems.push_back(p->m_pFormatFixed);
     }
     else if (p->m_pFormatCompound != NULL)
     {
-      if (p->m_pFormatCompound->m_pCompoundPrimary == NULL)
+      if (p->m_pFormatCompound->m_lSubItems.size() == 0)
       {
         p->Error("XMLParser : First part of <Compound> must be <Variable> and not <Fixed>");
         return;
       }
-      p->m_pFormatCompound->m_lParts.push_back(p->m_pFormatFixed);
+      p->m_pFormatCompound->m_lSubItems.push_back(p->m_pFormatFixed);
     }
     else
     {
       if (p->m_pDataItem->m_pFormat)
       {
-    	Tracer::Error("XMLParser : Duplicate item");
+    	p->Error("XMLParser : Duplicate item");
       }
       p->m_pDataItem->m_pFormat = p->m_pFormatFixed;
       p->m_pFormat = p->m_pFormatFixed;
@@ -311,12 +311,12 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
     p->m_pFormatExplicit = new DataItemFormatExplicit();
     if (p->m_pFormatCompound != NULL)
     {
-      if (p->m_pFormatCompound->m_pCompoundPrimary == NULL)
+      if (p->m_pFormatCompound->m_lSubItems.size() == 0)
       {
         p->Error("XMLParser : First part of <Compound> must be <Variable> and not <Explicit>");
         return;
       }
-      p->m_pFormatCompound->m_lParts.push_back(p->m_pFormatExplicit);
+      p->m_pFormatCompound->m_lSubItems.push_back(p->m_pFormatExplicit);
     }
     else
     {
@@ -335,12 +335,12 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
     p->m_pFormatRepetitive = new DataItemFormatRepetitive();
     if (p->m_pFormatCompound != NULL)
     {
-      if (p->m_pFormatCompound->m_pCompoundPrimary == NULL)
+      if (p->m_pFormatCompound->m_lSubItems.size() == 0)
       {
         p->Error("XMLParser : First part of <Compound> must be <Variable> and not <Repetitive>");
         return;
       }
-      p->m_pFormatCompound->m_lParts.push_back(p->m_pFormatRepetitive);
+      p->m_pFormatCompound->m_lSubItems.push_back(p->m_pFormatRepetitive);
     }
     else
     {
@@ -359,14 +359,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
     p->m_pFormatVariable = new DataItemFormatVariable();
     if (p->m_pFormatCompound != NULL)
     {
-      if (p->m_pFormatCompound->m_pCompoundPrimary == NULL)
-      {
-        p->m_pFormatCompound->m_pCompoundPrimary = p->m_pFormatVariable;
-      }
-      else
-      {
-        p->m_pFormatCompound->m_lParts.push_back(p->m_pFormatVariable);
-      }
+        p->m_pFormatCompound->m_lSubItems.push_back(p->m_pFormatVariable);
     }
     else
     {
@@ -382,9 +375,21 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
       return;
     }
 
-    p->m_pFormatCompound = new DataItemFormatCompound();
-    p->m_pDataItem->m_pFormat = p->m_pFormatCompound;
-    p->m_pFormat = p->m_pFormatCompound;
+    if (p->m_pFormatCompound != NULL)
+    {
+      if (p->m_pFormatCompound->m_lSubItems.size() == 0)
+      {
+        p->Error("XMLParser : First part of <Compound> must be <Variable> and not <Compund>");
+        return;
+      }
+      p->m_pFormatCompound->m_lSubItems.push_back(p->m_pFormatExplicit);
+    }
+    else
+    {
+		p->m_pFormatCompound = new DataItemFormatCompound();
+		p->m_pDataItem->m_pFormat = p->m_pFormatCompound;
+		p->m_pFormat = p->m_pFormatCompound;
+    }
   }
   else if (!strcmp(el, "Bits"))
   {
@@ -826,6 +831,7 @@ XMLParser::XMLParser()
 , m_pUAPItem(NULL)
 , m_pstrCData(NULL)
 , m_pintCData(NULL)
+, m_pFileName(NULL)
 {
   m_Parser = XML_ParserCreate(NULL);
   if (!m_Parser)
@@ -852,9 +858,10 @@ XMLParser::~XMLParser()
 /*!
  * Parse XML file and fill definition object
  */
-bool XMLParser::Parse(FILE* pFile, AsterixDefinition* pDefinition)
+bool XMLParser::Parse(FILE* pFile, AsterixDefinition* pDefinition, const char* filename)
 {
   m_pDef = pDefinition;
+  m_pFileName = filename;
 
   for (;;)
   {

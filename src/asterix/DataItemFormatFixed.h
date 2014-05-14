@@ -35,7 +35,6 @@ public:
   ~DataItemFormatFixed();
 
   int m_nLength;
-  std::list<DataItemBits*> m_lBits;
 
   long getLength();
   bool isLastPart(const unsigned char* pData);
@@ -51,6 +50,7 @@ public:
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
+  bool isFixed() 		{ return true; }; // true if this is Fixed format
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

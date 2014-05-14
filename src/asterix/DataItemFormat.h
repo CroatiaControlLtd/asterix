@@ -40,6 +40,7 @@ public:
 
   std::string m_strDescription; //!< <!ATTLIST DataItemFormat desc CDATA "" >
   std::string m_strXIDEF; //!< name of item in XML or JSON output format
+  std::list<DataItemFormat*> m_lSubItems; //!< List of subitem formats in this item
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   static int m_nLastPID; //!< static used for allocation of m_nPID
@@ -54,6 +55,13 @@ public:
   virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors
   virtual bool filterOutItem(const char* name) = 0; // mark item for filtering
   virtual bool isFiltered(const char* name) = 0; // is item filtered
+
+  virtual bool isFixed() 		{ return false; }; // true if this is Fixed format
+  virtual bool isRepetitive() 	{ return false; }; // true if this is Repetitive format
+  virtual bool isVariable() 	{ return false; }; // true if this is Variable format
+  virtual bool isExplicit() 	{ return false; }; // true if this is Explicit format
+  virtual bool isCompound() 	{ return false; }; // true if this is Compound format
+  virtual bool isBits() 		{ return false; }; // true if this is Bits description format
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   virtual fulliautomatix_definitions* getWiresharkDefinitions() = 0;

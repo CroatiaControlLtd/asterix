@@ -213,7 +213,7 @@
 						<BitsName>Spare bit set to zero</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
-					<Bits bit="1">
+					<Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of Data Item</BitsValue>
 						<BitsValue val="1">Extension into first extent</BitsValue>

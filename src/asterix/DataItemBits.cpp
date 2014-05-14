@@ -142,7 +142,7 @@ unsigned long DataItemBits::getUnsigned(unsigned char* pData, int bytes, int fro
 
 	if (numberOfBits<1 || numberOfBits>32)
 	{
-		Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.");
+		Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.m Number of bits = %d, and must be between 1 and 32.", numberOfBits);
 	}
 	else
 	{
@@ -1135,17 +1135,17 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
 			char tmp[128];
 			if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
 			{
-				sprintf(tmp, " (%.3lf %s) Warning! Value out of range (%.3lf to %.3lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+				sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
 				pOutData->err = 1;
 			}
 			else if (m_bIsConst && (int)value != m_nConst)
 			{
-				sprintf(tmp, " (%.3lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+				sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
 				pOutData->err = 1;
 			}
 			else
 			{
-				sprintf(tmp, " (%.3lf %s)", scaled, m_strUnit.c_str());
+				sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
 			}
 			pOutData->value_description = strdup(tmp);
 		}
@@ -1165,17 +1165,17 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
 			char tmp[128];
 			if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
 			{
-				sprintf(tmp, " (%.3lf %s) Warning! Value out of range (%.3lf to %.3lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+				sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
 				pOutData->err = 1;
 			}
 			else if (m_bIsConst && (int)value != m_nConst)
 			{
-				sprintf(tmp, " (%.3lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+				sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
 				pOutData->err = 1;
 			}
 			else
 			{
-				sprintf(tmp, " (%.3lf %s)", scaled, m_strUnit.c_str());
+				sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
 			}
 			pOutData->value_description = strdup(tmp);
 		}

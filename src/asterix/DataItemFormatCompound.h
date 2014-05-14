@@ -34,8 +34,7 @@ public:
   virtual
   ~DataItemFormatCompound();
 
-  DataItemFormatVariable* m_pCompoundPrimary;
-  std::list<DataItemFormat*> m_lParts;
+//  DataItemFormatVariable* m_pCompoundPrimary;
 
   long getLength(const unsigned char* pData);
   void addBits(DataItemBits* pBits);
@@ -46,6 +45,7 @@ public:
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
+  bool isCompound() 	{ return true; }; // true if this is Compound format
 
   #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

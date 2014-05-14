@@ -34,8 +34,6 @@ public:
   virtual
   ~DataItemFormatVariable();
 
-  std::list<DataItemFormatFixed*> m_lParts;
-
   long getLength(const unsigned char* pData);
   void addBits(DataItemBits* pBits);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
@@ -45,6 +43,7 @@ public:
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
+  bool isVariable() 	{ return true; }; // true if this is Variable format
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

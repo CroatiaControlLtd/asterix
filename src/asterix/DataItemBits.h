@@ -83,6 +83,7 @@ public:
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char*) {return m_bFiltered; } // true if item is in filter (shall be printed)
+  bool isBits() 		{ return true; }; // true if this is Bits description format
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

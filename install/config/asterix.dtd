@@ -49,7 +49,7 @@
 				<!ATTLIST Fixed length CDATA "1" >
 
 			<!-- Explicit length data fields -->
-			<!ELEMENT Explicit (Fixed+)>
+			<!ELEMENT Explicit (Fixed|Explicit|Repetitive|Variable|Compound)>
 
 			<!-- Repetitive length data fields -->
 			<!ELEMENT Repetitive (Fixed+)>
@@ -58,7 +58,7 @@
 			<!ELEMENT Variable (Fixed+)>
 
 			<!-- Compund data fields -->
-			<!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable)*)>
+			<!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable|Compound)*)>
 
 	<!-- User Application Profile -->
 	<!ELEMENT UAP (UAPItem*)>

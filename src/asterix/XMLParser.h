@@ -41,7 +41,7 @@ public:
   XMLParser();
   virtual
   ~XMLParser();
-  bool Parse(FILE* pFile, AsterixDefinition* pDefinition);
+  bool Parse(FILE* pFile, AsterixDefinition* pDefinition, const char* filename);
 
   bool m_bErrorDetectedStopParsing; //!< Flag to stop parsing if error detected
 
@@ -64,6 +64,9 @@ public:
 
   // pointer to int to which to assign next CDATA
   int* m_pintCData;
+
+  // current parsed file name
+  const char* m_pFileName;
 
   void GetCData(std::string *pstr) { m_pstrCData = pstr; }
   void GetCData(int *pint) { m_pintCData = pint; m_pstrCData = NULL; }

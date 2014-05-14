@@ -252,6 +252,129 @@ CAT010:I550:DIV                                              Diversity indicator
 CAT010:I550:TTF                                              Test Target indicator
 CAT010:I550:spare                                            Spare bits set to zero
 CAT010:I000:SPval                                            
+CAT019:I000:MsgTyp                                           Message Type
+CAT019:I010:SAC                                              System Area Code
+CAT019:I010:SIC                                              System Identification Code
+CAT019:I140:ToD                                              Time Of Day
+CAT019:I550:NOGO                                             Operational Release Status of the System
+CAT019:I550:OVL                                              Overload indicator
+CAT019:I550:TSV                                              Time Source Validity
+CAT019:I550:TTF                                              Test Target Failure
+CAT019:I550:spare                                            Spare bits set to zero
+CAT019:I551:TP1_mode                                         TP 1
+CAT019:I551:TP1_status                                       TP 1
+CAT019:I551:TP2_mode                                         TP 2
+CAT019:I551:TP2_status                                       TP 2
+CAT019:I551:TP3_mode                                         TP 3
+CAT019:I551:TP3_status                                       TP 3
+CAT019:I551:TP4_mode                                         TP 4
+CAT019:I551:TP4_status                                       TP 4
+CAT019:I552:RS_id                                            RS Identification 8-bit Identification number of RS
+CAT019:I552:RS_type                                          RS Type 4-bit Type of RS
+CAT019:I552:Stat                                             Status
+CAT019:I553:ref_trans_1                                      Ref Trans 1 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:ref_trans_2                                      Ref Trans 2 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I600:Lat                                              Latitude in WGS-84 in two's complement.
+CAT019:I600:Lon                                              Longitude in WGS-84 in two's complement.
+CAT019:I610:height                                           Height (WGS-84) above MSL
+CAT019:I620:undulation                                       WGS-84 Undulation value (MSL)
+CAT020:I000:bit                                              Bit
+CAT020:I010:SAC                                              System Area Code
+CAT020:I010:SIC                                              System Identification Code
+CAT020:I020:SSR                                              
+CAT020:I020:MS                                               
+CAT020:I020:HF                                               
+CAT020:I020:VDL4                                             
+CAT020:I020:UAT                                              
+CAT020:I020:DME                                              
+CAT020:I020:OT                                               
+CAT020:I020:FX                                               
+CAT020:I020:RAB                                              
+CAT020:I020:SPI                                              
+CAT020:I020:CHN                                              
+CAT020:I020:GBS                                              
+CAT020:I020:CRT                                              
+CAT020:I020:SIM                                              
+CAT020:I020:TST                                              
+CAT020:I020:FX                                               
+CAT020:I030:W_E                                              (W/E Value) Warning/error condition value
+CAT020:I030:FX                                               
+CAT020:I041:Lat                                              Latitude in WGS-84 in two’s complement.
+CAT020:I041:Lon                                              Longitude in WGS-84 in two’s complement.
+CAT020:I042:X                                                X
+CAT020:I042:Y                                                Y
+CAT020:I050:V                                                V
+CAT020:I050:G                                                G
+CAT020:I050:L                                                L
+CAT020:I050:spare                                            Spare bit set to 0
+CAT020:I050:Mode2                                            Mode-2 reply in octal representation
+CAT020:I055:V                                                
+CAT020:I055:G                                                
+CAT020:I055:L                                                
+CAT020:I055:Mode1                                            Mode-1 Code in octal representation
+CAT020:I070:V                                                
+CAT020:I070:G                                                
+CAT020:I070:L                                                
+CAT020:I070:spare                                            Spare bit set to 0
+CAT020:I070:Mod3A                                            Mode-3/A reply in octal representation
+CAT020:I090:V                                                
+CAT020:I090:G                                                
+CAT020:I090:FL                                               Flight Level
+CAT020:I100:V                                                
+CAT020:I100:G                                                
+CAT020:I100:spare                                            Spare bits set to 0
+CAT020:I100:ModeC                                            Mode-C reply in Gray notation
+CAT020:I100:spare                                            Spare bits set to 0
+CAT020:I100:QXi                                              
+CAT020:I105:geometric_height                                 Geometric Height (WGS-84)
+CAT020:I110:MHeight                                          Measured Height
+CAT020:I140:ToD                                              Time of Day
+CAT020:I161:spare                                            Spare bits set to zero
+CAT020:I161:TrkNb                                            Track number
+CAT020:I170:CNF                                              
+CAT020:I170:TRE                                              
+CAT020:I170:CST                                              
+CAT020:I170:CDM                                              
+CAT020:I170:MAH                                              
+CAT020:I170:STH                                              
+CAT020:I170:FX                                               
+CAT020:I170:GHO                                              
+CAT020:I170:spare                                            Spare bits set to zero
+CAT020:I170:FX                                               
+CAT020:I202:Vx                                               Vx
+CAT020:I202:Vy                                               Vy
+CAT020:I210:Ax                                               Ax
+CAT020:I210:Ay                                               Ay
+CAT020:I220:TAddr                                            24-bits Target Address
+CAT020:I230:COM                                              Communications capability of the transponder
+CAT020:I230:STAT                                             Flight Status
+CAT020:I230:spare                                            spare bits set to zero
+CAT020:I230:MSSC                                             Mode-S Specific Service Capability
+CAT020:I230:ARC                                              Altitude reporting capability
+CAT020:I230:AIC                                              Aircraft identification capability
+CAT020:I230:B1A                                              BDS 1,0 bit 16
+CAT020:I230:B1B                                              BDS 1,0 bits 37/40
+CAT020:I245:STI                                              
+CAT020:I245:spare                                            Spare bits set to zero
+CAT020:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT020:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
+CAT020:I250:BDS1                                             Comm B Data Buffer Store 1 Address
+CAT020:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT020:I260:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data of BDS Register 3,0.
+CAT020:I300:VFI                                              Vehicle Fleet Identification
+CAT020:I310:TRB                                              
+CAT020:I310:MSG                                              
+CAT020:I400:RUx                                              RUx Contribution
+CAT020:I500:DOPx                                             DOP along x axis
+CAT020:I500:DOPy                                             DOP along y axis
+CAT020:I500:DOPxy                                            p(X,Y)
+CAT020:I500:SDPx                                             Standard Deviation of X component
+CAT020:I500:SDPy                                             Standard Deviation of Y component
+CAT020:I500:SDPxy                                            Correlation coefficient in two’s complement
+CAT020:I500:STD_GH                                           Standard Deviation of Geometric Height
 CAT021:I010:SAC                                              System Area Code
 CAT021:I010:SIC                                              System Identification Code
 CAT021:I020:ECAT                                             Emitter Category
@@ -800,6 +923,34 @@ CAT062:I100:X                                                X
 CAT062:I100:Y                                                Y
 CAT062:I105:Lat                                              Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
 CAT062:I105:Lon                                              Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT062:I110:M5                                               
+CAT062:I110:ID                                               
+CAT062:I110:DA                                               
+CAT062:I110:M1                                               
+CAT062:I110:M2                                               
+CAT062:I110:M3                                               
+CAT062:I110:MC                                               
+CAT062:I110:X                                                X-pulse from Mode 5 Data reply or Report.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:PIN                                              PIN Code
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:NAT                                              National Origin
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:MIS                                              Mission Code
+CAT062:I110:Lat                                              Latitude in WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.
+CAT062:I110:Lon                                              Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude < 180 deg.
+CAT062:I110:spare                                            spare bit set to 0
+CAT062:I110:RES                                              Resolution with which the GNSS-derived Altitude (GA) is reported.
+CAT062:I110:GA                                               GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:EM1                                              Extended Mode 1 Code in octal representation
+CAT062:I110:TOS                                              Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:X5                                               X-pulse from Mode 5 Data reply or Report.
+CAT062:I110:XC                                               X-pulse from Mode C reply
+CAT062:I110:X3                                               X-pulse from Mode 3/A reply
+CAT062:I110:X2                                               X-pulse from Mode 2 reply
+CAT062:I110:X1                                               X-pulse from Mode 1 reply
 CAT062:I120:spare                                            Spare bits set to zero
 CAT062:I120:Mode2                                            Mode-2 code in octal representation
 CAT062:I130:Alt                                              Altitude

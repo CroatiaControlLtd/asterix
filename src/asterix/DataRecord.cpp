@@ -21,6 +21,7 @@
  *
  */
 
+#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"
 #include "Tracer.h"
@@ -164,7 +165,7 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 {
 	if (!m_bFormatOK)
 	{
-		Tracer::Error("Record not parsed properly.");
+		Tracer::Error("Record not parsed properly. CAT%03d len=%ld", m_pCategory->m_id, m_nLength);
 		return false;
 	}
 
