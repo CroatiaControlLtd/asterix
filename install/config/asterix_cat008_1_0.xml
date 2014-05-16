@@ -13,7 +13,7 @@
 
 <Category id="8" name="Monoroadar Derived Weather Information" ver="1.0">
 
-	<DataItem id="0">
+	<DataItem id="000">
 		<DataItemName>Message Type</DataItemName>
 		<DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -32,7 +32,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
 		<DataItemFormat desc="Two-octets fixed length data item.">
@@ -49,7 +49,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Vector Qualifier</DataItemName>
 		<DataItemDefinition>Precipitation intensity level, shading orientation of the vectors representing the precipitation area and coordinate system used.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -107,7 +107,7 @@
 		<DataItemNote>For polar vectors bits-4/2 (1'st octet) are meaningless and are set to zero.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="34">
+	<DataItem id="034">
 		<DataItemName>Sequence of Polar Vectors in SPF Notation</DataItemName>
 		<DataItemDefinition>Sequence of weather vectors in local polar coordinates.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of four-octets (vector components) as necessary. ">
@@ -134,7 +134,7 @@
 		<DataItemNote>f is a parameter of the SOP message.</DataItemNote>     
 	</DataItem>	
 
-	<DataItem id="36">
+	<DataItem id="036">
 		<DataItemName>Sequence of Cartesian Vectors in SPF Notation</DataItemName>
 		<DataItemDefinition>Sequence of weather vectors, in the representation start point/ length, in local or in system cartesian coordinates.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of three-octets (vector components) as necessary.">
@@ -161,7 +161,7 @@
 		<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-24 and bit-16 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
 	</DataItem>			
 
-	<DataItem id="38">
+	<DataItem id="038">
 		<DataItemName>Sequence of Weather Vectors in SPF Notation</DataItemName>
 		<DataItemDefinition>Sequence of weather vectors, in the representation start point/ end point, in local or in system cartesian coordinates.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of four-octets (vector components) as necessary.">
@@ -193,7 +193,7 @@
 		<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bits-32, 24, 16  and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
 	</DataItem>	
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Contour Identifier</DataItemName>
 		<DataItemDefinition>Contour serial number together with the precipitation intensity levels and the coordinates system used.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">
@@ -230,7 +230,7 @@
 		<DataItemNote>The Contour Serial Number provides an unambiguous identification for each contour record. Within one update cycle, a serial number shall never be assigned twice.</DataItemNote>     
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Sequence of Contour Points in SPF Notation</DataItemName>
 		<DataItemDefinition>Cartesian coordinates of a variable number of points defining a contour.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of consecutive points followed by X and Y coordinates of each point.">
@@ -252,7 +252,7 @@
 		<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
 	</DataItem>		
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Time of Day</DataItemName>
 		<DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
 		<DataItemFormat desc="Three-octet fixed length Data Item.">

@@ -30,8 +30,6 @@
 #include "asterixformat.hxx"
 #include "asterixrawsubformat.hxx"
 #include "asterixpcapsubformat.hxx"
-#include "asterixkmlsubformat.hxx"
-#include "asterixtrackssubformat.hxx"
 #include "asterixfinalsubformat.hxx"
 #include "asterixformatdescriptor.hxx"
 #include "asterixhdlcsubformat.hxx"
@@ -45,8 +43,6 @@ const char* CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
   "ASTERIX_RAW",
   "ASTERIX_PCAP",
   "ASTERIX_TXT",
-  "ASTERIX_KML",
-  "ASTERIX_TRACKS",
   "ASTERIX_FINAL",
   "ASTERIX_XIDEF",
   "ASTERIX_JSON",
@@ -102,10 +98,6 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
           return CAsterixRawSubformat::WritePacket(formatDescriptor, device, discard, true); //TODO
       case EOradisPcap:
           return CAsterixPcapSubformat::WritePacket(formatDescriptor, device, discard, true);//TODO
-      case EKml:
-        return CAsterixKmlSubformat::WritePacket(formatDescriptor, device, discard);
-      case ETracks:
-       return CAsterixTracksSubformat::WritePacket(formatDescriptor, device, discard);
       case EFinal:
         return CAsterixFinalSubformat::WritePacket(formatDescriptor, device, discard); // TODO
        case EHDLC:
@@ -171,8 +163,6 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBas
       case EHDLC:
         return CAsterixHDLCSubformat::ProcessPacket(formatDescriptor, device, discard);
       case ETxt:
-      case EKml:
-      case ETracks:
       case EXIDEF:
       case EJSON:
       case EJSONH:
@@ -200,14 +190,11 @@ bool CAsterixFormat::HeartbeatProcessing(
         return CAsterixRawSubformat::Heartbeat(formatDescriptor, device, true);
     case EOradisPcap:
         return CAsterixPcapSubformat::Heartbeat(formatDescriptor, device, true);
-    case ETracks:
-        return CAsterixTracksSubformat::Heartbeat(formatDescriptor, device);
     case EFinal:
         return CAsterixFinalSubformat::Heartbeat(formatDescriptor, device);
     case EHDLC:
         return CAsterixHDLCSubformat::Heartbeat(formatDescriptor, device);
     case ETxt:
-    case EKml:
     case EXIDEF:
     case EJSON:
     case EJSONH:

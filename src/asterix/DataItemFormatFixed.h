@@ -44,9 +44,6 @@ public:
   long getLength(const unsigned char* pData);
   void addBits(DataItemBits* pBits);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
-  bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);

@@ -230,44 +230,6 @@ bool DataItemFormatFixed::getText(std::string& strResult, std::string& strHeader
 
   return ret;
 }
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  std::list<DataItemFormat*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-  }
-  return false;
-}
-
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  std::list<DataItemFormat*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-  }
-  return false;
-}
-
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  std::list<DataItemFormat*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-  }
-  return false;
-}
 
 std::string DataItemFormatFixed::printDescriptors(std::string header)
 {

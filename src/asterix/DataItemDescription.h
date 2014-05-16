@@ -29,11 +29,11 @@
 class DataItemDescription
 {
 public:
-  DataItemDescription(int id);
+  DataItemDescription(std::string id);
   virtual
   ~DataItemDescription();
 
-  int m_nID;
+  std::string m_strID;
 
   void setName(char* name) { m_strName = name; }
   void setDefinition(char* definition) { m_strDefinition = definition; }

@@ -30,7 +30,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
 		<DataItemFormat desc="Two-octets fixed length data item.">
@@ -47,7 +47,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Sector Number</DataItemName>
 		<DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -62,7 +62,7 @@
 		<DataItemNote>.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Time of Day</DataItemName>
 		<DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
 		<DataItemFormat desc="Three-octet fixed length Data Item.">
@@ -77,7 +77,7 @@
 		<DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed since last midnight. </DataItemNote>
 	</DataItem>
 
-	<DataItem id="41">
+	<DataItem id="041">
 		<DataItemName>Antenna Rotation Speed</DataItemName>
 		<DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">
@@ -91,7 +91,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>System Configuration and Status</DataItemName>
 		<DataItemDefinition>Information concerning the configuration and status of a System..</DataItemDefinition>
 		<DataItemFormat desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
@@ -329,7 +329,7 @@
 		<DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
 	</DataItem>    
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>System Processing Mode</DataItemName>
 		<DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -455,7 +455,7 @@
 		<DataItemNote>.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Plot Count Values</DataItemName>
 		<DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna scan or for the last sector processed.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
@@ -474,7 +474,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Collimation Error</DataItemName>
 		<DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">
@@ -564,19 +564,19 @@
 	</DataItem>
 
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
 		<UAPItem bit="1" frn="2" len="1">444</UAPItem>
-		<UAPItem bit="2" frn="3" len="3">30</UAPItem>
-		<UAPItem bit="3" frn="4" len="1">20</UAPItem>
-		<UAPItem bit="4" frn="5" len="2">41</UAPItem>
-		<UAPItem bit="5" frn="6" len="1+">50</UAPItem>
-		<UAPItem bit="6" frn="7" len="1+">60</UAPItem>
+		<UAPItem bit="2" frn="3" len="3">030</UAPItem>
+		<UAPItem bit="3" frn="4" len="1">020</UAPItem>
+		<UAPItem bit="4" frn="5" len="2">041</UAPItem>
+		<UAPItem bit="5" frn="6" len="1+">050</UAPItem>
+		<UAPItem bit="6" frn="7" len="1+">060</UAPItem>
 		<UAPItem bit="7" frn="FX">-</UAPItem>
-		<UAPItem bit="8" frn="8" len="1+">70</UAPItem>
+		<UAPItem bit="8" frn="8" len="1+">070</UAPItem>
 		<UAPItem bit="9" frn="9" len="8">100</UAPItem>
 		<UAPItem bit="10" frn="10" len="1">110</UAPItem>
 		<UAPItem bit="11" frn="11" len="8">120</UAPItem>
-		<UAPItem bit="12" frn="12" len="2">90</UAPItem>
+		<UAPItem bit="12" frn="12" len="2">090</UAPItem>
 		<UAPItem bit="13" frn="13" len="1+1+">RE</UAPItem>
 		<UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
 		<UAPItem bit="15" frn="FX">-</UAPItem>        

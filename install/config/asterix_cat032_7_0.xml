@@ -13,7 +13,7 @@
 
 <Category id="32" name="Messages Provided by Users to ARTAS" ver="6.2">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Server Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -31,7 +31,7 @@
 		<DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to the sender of the miniplan.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>User Number</DataItemName>
 		<DataItemDefinition>Identification of the User of track information</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -45,7 +45,7 @@
 		<DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to the receiver of the miniplan.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="18">
+	<DataItem id="018">
 		<DataItemName>Data Source Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the data source (system) from which the information contained in the message was originated.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -63,7 +63,7 @@
 		<DataItemNote>This item will be used if the system sending the minipln information (i.e. the system which is identified in I032/015 : USER NUMBER) is another system than the FPPS from which the minipln information has been received. This will be the case of e.g. an ARTAS unit forwarding minipln information to an adjacent unit.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
@@ -78,7 +78,7 @@
 		<DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="35">
+	<DataItem id="035">
 		<DataItemName>Type Of Message</DataItemName>
 		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-byte fixed length data item.">
@@ -100,7 +100,7 @@
 		<DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of an ARTAS track (track number)</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
@@ -123,7 +123,7 @@
 		<DataItemNote>Unlike the ARTAS track number I032/050, the track number does not change when a track enters or leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Artas Track Number</DataItemName>
 		<DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
 		<DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
@@ -256,7 +256,7 @@
 		<DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Track Mode 3/A</DataItemName>
 		<DataItemDefinition>Mode 3/A identity associated to the track</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length Data Item.">
@@ -678,15 +678,15 @@
 
 
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
-		<UAPItem bit="1" frn="2" len="2">15</UAPItem>
-		<UAPItem bit="2" frn="3" len="2">18</UAPItem>
-		<UAPItem bit="3" frn="4" len="1">35</UAPItem>
-		<UAPItem bit="4" frn="5" len="3">20</UAPItem>
-		<UAPItem bit="5" frn="6" len="2">40</UAPItem>
-		<UAPItem bit="6" frn="7" len="3+">50</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="2">015</UAPItem>
+		<UAPItem bit="2" frn="3" len="2">018</UAPItem>
+		<UAPItem bit="3" frn="4" len="1">035</UAPItem>
+		<UAPItem bit="4" frn="5" len="3">020</UAPItem>
+		<UAPItem bit="5" frn="6" len="2">040</UAPItem>
+		<UAPItem bit="6" frn="7" len="3+">050</UAPItem>
 		<UAPItem bit="7" frn="FX">-</UAPItem>
-		<UAPItem bit="8" frn="8" len="2">60</UAPItem>
+		<UAPItem bit="8" frn="8" len="2">060</UAPItem>
 		<UAPItem bit="9" frn="9" len="7">400</UAPItem>
 		<UAPItem bit="10" frn="10" len="2">410</UAPItem>
 		<UAPItem bit="11" frn="11" len="1">420</UAPItem>

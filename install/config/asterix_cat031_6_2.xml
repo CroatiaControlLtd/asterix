@@ -13,7 +13,7 @@
 
 <Category id="31" name="Sensor Information Messages" ver="6.2">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Server Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Server of Sensor information.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -30,7 +30,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>User Number</DataItemName>
 		<DataItemDefinition>Identification of the User of Sensor information</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -44,7 +44,7 @@
 		<DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
@@ -59,7 +59,7 @@
 		<DataItemNote>This is the time at which a message is filled and not the time at which the data-block containing the tracks is sent. The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Sensor Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Sensor to which the provided information are related.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -76,7 +76,7 @@
 		</DataItemFormat>
 	</DataItem>	
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Sensor Status</DataItemName>
 		<DataItemDefinition>Functioning status of the Sensor as monitored by ARTAS.</DataItemDefinition>
 		<DataItemFormat desc="One-byte fixed length data item.">
@@ -99,7 +99,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Time Stamping Bias</DataItemName>
 		<DataItemDefinition>Plot Time stamping bias</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -118,7 +118,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>SSR Range Gain and Bias</DataItemName>
 		<DataItemDefinition>SSR range gain and bias</DataItemDefinition>
 		<DataItemFormat desc="Four-byte fixed length data item.">
@@ -143,7 +143,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>SSR Azimuth Bias</DataItemName>
 		<DataItemDefinition>SSR azimuth bias</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -157,7 +157,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>PR Range Gain and Bias</DataItemName>
 		<DataItemDefinition>PR range gain and bias</DataItemDefinition>
 		<DataItemFormat desc="Four-byte fixed length data item.">
@@ -182,7 +182,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>PR Azimuth Bias</DataItemName>
 		<DataItemDefinition>PR azimuth bias</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -197,17 +197,17 @@
 	</DataItem>
 
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
-		<UAPItem bit="1" frn="2" len="2">15</UAPItem>
-		<UAPItem bit="2" frn="3" len="3">20</UAPItem>
-		<UAPItem bit="3" frn="4" len="2">30</UAPItem>
-		<UAPItem bit="4" frn="5" len="1">40</UAPItem>
-		<UAPItem bit="5" frn="6" len="2">50</UAPItem>
-		<UAPItem bit="6" frn="7" len="4">60</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="2">015</UAPItem>
+		<UAPItem bit="2" frn="3" len="3">020</UAPItem>
+		<UAPItem bit="3" frn="4" len="2">030</UAPItem>
+		<UAPItem bit="4" frn="5" len="1">040</UAPItem>
+		<UAPItem bit="5" frn="6" len="2">050</UAPItem>
+		<UAPItem bit="6" frn="7" len="4">060</UAPItem>
 		<UAPItem bit="7" frn="FX" len="-">-</UAPItem>
-		<UAPItem bit="8" frn="8" len="2">70</UAPItem>
-		<UAPItem bit="9" frn="9" len="4">80</UAPItem>
-		<UAPItem bit="10" frn="10" len="2">90</UAPItem>
+		<UAPItem bit="8" frn="8" len="2">070</UAPItem>
+		<UAPItem bit="9" frn="9" len="4">080</UAPItem>
+		<UAPItem bit="10" frn="10" len="2">090</UAPItem>
 		<UAPItem bit="15" frn="FX" len="-">-</UAPItem>
 	</UAP>
 

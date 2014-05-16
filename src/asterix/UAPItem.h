@@ -39,16 +39,13 @@ public:
   int m_nFRN; // <!ATTLIST UAPItem frn CDATA #REQUIRED>
   bool m_bFX; // <!ATTLIST UAPItem fx CDATA "0">
   int m_nLen; // <!ATTLIST UAPItem len CDATA "-">
-  int m_nItemID; // <!ELEMENT UAPItem (#PCDATA)>
+  std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
 
   long getLength(const unsigned char* pData) { Tracer::Error("Function should not be called!"); return 0; }
   void addBits(DataItemBits* pBits) { Tracer::Error("Function should not be called!"); }
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
-  bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
-  bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
-  bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) { Tracer::Error("Function should not be called!"); return false; }
-  std::string printDescriptors(std::string header) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors
+ std::string printDescriptors(std::string header) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors
   bool filterOutItem(const char* name) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
   bool isFiltered(const char* name) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
 

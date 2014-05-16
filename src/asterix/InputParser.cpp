@@ -98,12 +98,12 @@ std::string InputParser::printDefinition()
 	return m_pDefinition->printDescriptors();
 }
 
-bool InputParser::filterOutItem(int cat, int item, const char* name)
+bool InputParser::filterOutItem(int cat, std::string item, const char* name)
 {
 	return m_pDefinition->filterOutItem(cat,item,name);
 }
 
-bool InputParser::isFiltered(int cat, int item, const char* name)
+bool InputParser::isFiltered(int cat, std::string item, const char* name)
 {
 	return m_pDefinition->isFiltered(cat,item,name);
 }

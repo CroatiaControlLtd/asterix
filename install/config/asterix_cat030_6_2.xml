@@ -13,7 +13,7 @@
 
 <Category id="30" name="Exchange of Air Situation Pictures" ver="6.2">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Server Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -30,7 +30,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>User Number</DataItemName>
 		<DataItemDefinition>Identification of the User of track information</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -44,7 +44,7 @@
 		<DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
@@ -59,7 +59,7 @@
 		<DataItemNote>This is the time at which a message is filled and not the time at which the data-block containing the tracks is sent. The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service(s) to which a track message belongs.</DataItemDefinition>
 		<DataItemFormat desc="Variable length data item comprising a first part of one byte followed by a 1-byte extent as necessary.">
@@ -124,7 +124,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="35">
+	<DataItem id="035">
 		<DataItemName>Type Of Message</DataItemName>
 		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-byte fixed length data item.">
@@ -144,7 +144,7 @@
 		<DataItemNote>the Slave Track Promotion Messages are related to the inter-ARTAS cooperation and cannot be served to the normal track information Users.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of an ARTAS track (track number)</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
@@ -167,7 +167,7 @@
 		<DataItemNote>Unlike the ARTAS track number I030/050, the track number does not change when a track enters or leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Artas Track Number</DataItemName>
 		<DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
 		<DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
@@ -296,7 +296,7 @@
 		<DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Track Mode 3/A</DataItemName>
 		<DataItemDefinition>Mode 3/A identity associated to the track</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length Data Item.">
@@ -333,7 +333,7 @@
 		<DataItemNote>A change of track Mode 3/A (C = 1) is indicated during 30 seconds after the code has changed. (V) and (G) are extracted from the last Mode 3/A that was used to update the track.</DataItemNote>
 	</DataItem>	
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Time Of Last Update</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-Byte fixed length data item.">
@@ -348,7 +348,7 @@
 		<DataItemNote>In ARTAS, this is the time at which the track is extrapolated by the Server in case of periodical service. Otherwise, this is the update time of the track state vector by the Tracker. The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>ARTAS Track Status</DataItemName>
 		<DataItemDefinition>Status of an ARTAS track.</DataItemDefinition>
 		<DataItemFormat desc="Variable length data item comprising a first part of one byte, followed by 1-byte extents as necessary.">
@@ -488,7 +488,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>ARTAS Track Quality</DataItemName>
 		<DataItemDefinition>ARTAS Track Quality</DataItemDefinition>
 		<DataItemFormat desc="One byte fixed length data item.">
@@ -1316,24 +1316,24 @@
 	</DataItem>
 
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
-		<UAPItem bit="1" frn="2" len="2">15</UAPItem>
-		<UAPItem bit="2" frn="3" len="1+">30</UAPItem>
-		<UAPItem bit="3" frn="4" len="1">35</UAPItem>
-		<UAPItem bit="4" frn="5" len="2">40</UAPItem>
-		<UAPItem bit="5" frn="6" len="3">70</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="2">015</UAPItem>
+		<UAPItem bit="2" frn="3" len="1+">030</UAPItem>
+		<UAPItem bit="3" frn="4" len="1">035</UAPItem>
+		<UAPItem bit="4" frn="5" len="2">040</UAPItem>
+		<UAPItem bit="5" frn="6" len="3">070</UAPItem>
 		<UAPItem bit="6" frn="7" len="4">170</UAPItem>
 		<UAPItem bit="7" frn="FX" len="-">FX</UAPItem>
 		<UAPItem bit="8" frn="8" len="4">100</UAPItem>
 		<UAPItem bit="9" frn="9" len="4">180</UAPItem>
 		<UAPItem bit="10" frn="10" len="4">181</UAPItem>
-		<UAPItem bit="11" frn="11" len="2">60</UAPItem>
+		<UAPItem bit="11" frn="11" len="2">060</UAPItem>
 		<UAPItem bit="12" frn="12" len="2">150</UAPItem>
 		<UAPItem bit="13" frn="13" len="2">130</UAPItem>
 		<UAPItem bit="14" frn="14" len="2">160</UAPItem>
 		<UAPItem bit="15" frn="FX" len="-">FX</UAPItem>
-		<UAPItem bit="16" frn="15" len="1+">80</UAPItem>
-		<UAPItem bit="17" frn="16" len="1">90</UAPItem>
+		<UAPItem bit="16" frn="15" len="1+">080</UAPItem>
+		<UAPItem bit="17" frn="16" len="1">090</UAPItem>
 		<UAPItem bit="18" frn="17" len="1">200</UAPItem>
 		<UAPItem bit="19" frn="18" len="2">220</UAPItem>
 		<UAPItem bit="20" frn="19" len="1">240</UAPItem>
@@ -1357,7 +1357,7 @@
 		<UAPItem bit="38" frn="35" len="1">420</UAPItem>
 		<UAPItem bit="39" frn="FX" len="-">FX</UAPItem>
 		<UAPItem bit="40" frn="36" len="2">490</UAPItem>
-		<UAPItem bit="41" frn="37" len="3">20</UAPItem>
+		<UAPItem bit="41" frn="37" len="3">020</UAPItem>
 		<UAPItem bit="42" frn="38" len="3">382</UAPItem>
 		<UAPItem bit="43" frn="39" len="6">384</UAPItem>
 		<UAPItem bit="44" frn="40" len="1">386</UAPItem>

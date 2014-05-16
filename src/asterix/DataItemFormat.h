@@ -42,6 +42,8 @@ public:
   std::string m_strXIDEF; //!< name of item in XML or JSON output format
   std::list<DataItemFormat*> m_lSubItems; //!< List of subitem formats in this item
 
+  DataItemFormat* m_pParentFormat; //! Pointer to parent format (used only in XML parsing)
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   static int m_nLastPID; //!< static used for allocation of m_nPID
 #endif
@@ -49,9 +51,6 @@ public:
   virtual long getLength(const unsigned char* pData) = 0;
   virtual void addBits(DataItemBits* pBits) = 0;
   virtual bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) = 0; // appends value to strResult
-  virtual bool getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
-  virtual bool getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
-  virtual bool getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL) = 0;
   virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors
   virtual bool filterOutItem(const char* name) = 0; // mark item for filtering
   virtual bool isFiltered(const char* name) = 0; // is item filtered

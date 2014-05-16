@@ -13,7 +13,7 @@
 
 <Category id="2" name="Transmission of Monoroadar Service Messages" ver="1.0">
 
-	<DataItem id="0">
+	<DataItem id="000">
 		<DataItemName>Message Type</DataItemName>
 		<DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -33,7 +33,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
 		<DataItemFormat desc="Two-octets fixed length data item.">
@@ -50,7 +50,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Sector Number</DataItemName>
 		<DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -65,7 +65,7 @@
 		<DataItemNote>The use of the antenna azimuth as sector number has the advantage of being independent of the number of sectors implemented.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Time of Day</DataItemName>
 		<DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
 		<DataItemFormat desc="Three-octet fixed length Data Item.">
@@ -80,7 +80,7 @@
 		<DataItemNote>1. The time of day value is reset to zero each day at midnight. 2. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 [ Ref.2]. 3. Data Item I002/030 can have various logical meanings. In a particular message, the logical meaning is implicit from its context (e.g. in a North marker message it represents the antenna North crossing time; in a sector message it represents the antenna sector crossing time).</DataItemNote>
 	</DataItem>
 
-	<DataItem id="41">
+	<DataItem id="041">
 		<DataItemName>Antenna Rotation Speed</DataItemName>
 		<DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">
@@ -94,7 +94,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Station Configuration Status</DataItemName>
 		<DataItemDefinition>Information concerning the use and status of some vital hardware components of the radar system.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -116,7 +116,7 @@
 		<DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
 	</DataItem>    
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Station Processing Mode</DataItemName>
 		<DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -138,7 +138,7 @@
 		<DataItemNote>Typical information conveyed within this Data Item includes inter alia type of polarisation in use, Moving Target Indicator (MTI) in use and/or definition of the range to which MTI is applied, presence of overload conditions and the type of load reduction measures in use. 2. Only the structure of this Data Item is defined, no attempt is made to standardise its contents, in order not to hamper any application or future development.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Plot Count Values</DataItemName>
 		<DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna scan or for the last sector processed.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
@@ -166,7 +166,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>Warning/Error Conditions</DataItemName>
 		<DataItemDefinition>Warning/error conditions affecting the functioning of the radar system itself.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary">
@@ -188,7 +188,7 @@
 		<DataItemNote>Warning/error condition values 1-63 are reserved for common Standard use, whereas the values 64-127 are application dependent.</DataItemNote>            
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Collimation Error</DataItemName>
 		<DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">

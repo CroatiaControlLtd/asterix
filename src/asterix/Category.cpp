@@ -47,7 +47,7 @@ Category::~Category()
   }
 }
 
-DataItemDescription* Category::getDataItemDescription(int id)
+DataItemDescription* Category::getDataItemDescription(std::string id)
 {
   std::list<DataItemDescription*>::iterator it;
   DataItemDescription* di = NULL;
@@ -55,7 +55,7 @@ DataItemDescription* Category::getDataItemDescription(int id)
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
   {
     di = (DataItemDescription*)(*it);
-    if (di->m_nID == id)
+    if (di->m_strID == id)
     {
       return di;
     }
@@ -142,7 +142,7 @@ std::string Category::printDescriptors()
 	  {
 	    di = (DataItemDescription*)(*it);
 
-		sprintf(header, "CAT%03d:I%03d:", m_id, di->m_nID);
+		sprintf(header, "CAT%03d:I%s:", m_id, di->m_strID.c_str());
 
 	    strDef += di->m_pFormat->printDescriptors(header);
 	  }
@@ -150,7 +150,7 @@ std::string Category::printDescriptors()
 	return strDef;
 }
 
-bool Category::filterOutItem(int item, const char* name)
+bool Category::filterOutItem(std::string item, const char* name)
 {
 	std::list<DataItemDescription*>::iterator it;
 	DataItemDescription* di = NULL;
@@ -158,7 +158,7 @@ bool Category::filterOutItem(int item, const char* name)
 	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
 	{
 		di = (DataItemDescription*)(*it);
-		if (di->m_nID == item)
+		if (di->m_strID == item)
 		{
 			return di->m_pFormat->filterOutItem(name);
 		}
@@ -166,7 +166,7 @@ bool Category::filterOutItem(int item, const char* name)
 	return false;
 }
 
-bool Category::isFiltered(int item, const char* name)
+bool Category::isFiltered(std::string item, const char* name)
 {
 	std::list<DataItemDescription*>::iterator it;
 	DataItemDescription* di = NULL;
@@ -174,7 +174,7 @@ bool Category::isFiltered(int item, const char* name)
 	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
 	{
 		di = (DataItemDescription*)(*it);
-		if (di->m_nID == item)
+		if (di->m_strID == item)
 		{
 			if (true == di->m_pFormat->isFiltered(name))
 				return true;

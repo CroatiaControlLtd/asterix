@@ -13,7 +13,7 @@
 
 <Category id="252" name="Connection and Service Messages" ver="6.2">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Server Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -30,7 +30,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>User Number</DataItemName>
 		<DataItemDefinition>Identification of the User of track/sensor information</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -44,7 +44,7 @@
 		<DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
@@ -59,7 +59,7 @@
 		<DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="35">
+	<DataItem id="035">
 		<DataItemName>Type Of Message</DataItemName>
 		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-byte fixed length data item.">
@@ -95,7 +95,7 @@
 		<DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY</DataItemNote>
 	</DataItem>
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Access Key</DataItemName>
 		<DataItemDefinition>User password to be sent in the Connection Request.</DataItemDefinition>
 		<DataItemFormat desc="Eight-byte fixed length data item.">
@@ -108,7 +108,7 @@
 		</DataItemFormat>
 	</DataItem>        
 
-	<DataItem id="45">
+	<DataItem id="045">
 		<DataItemName>Role and Version</DataItemName>
 		<DataItemDefinition>Identification of the ROLE of a system and of the VERSION of interface.</DataItemDefinition>
 		<DataItemFormat desc="One-byte fixed length data item.">
@@ -128,7 +128,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Default connection options</DataItemName>
 		<DataItemDefinition>This item is used to indicate that the default values of parameters required to set a connection are selected.</DataItemDefinition>
 		<DataItemFormat desc="1-byte fixed length data item.">
@@ -163,7 +163,7 @@
 		</DataItemFormat>        
 	</DataItem>
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Geographical Area</DataItemName>
 		<DataItemDefinition>Definition of geographical area in the form of a sequence of geographical points.</DataItemDefinition>
 		<DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of points, followed by series of 6-bytes (geographical points) as necessary.">
@@ -237,7 +237,7 @@
 		<DataItemNote>Latitude and Longitude accuracy = 1 second @ 30 m.</DataItemNote>
 	</DataItem>    
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Lower Limit</DataItemName>
 		<DataItemDefinition>Definition of the Lower limit of a Domain of Interest</DataItemDefinition>
 		<DataItemFormat desc="Two-bytes fixed length data item.">
@@ -256,7 +256,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>Upper Limit</DataItemName>
 		<DataItemDefinition>Definition of the Upper limit of a Domain of Interest</DataItemDefinition>
 		<DataItemFormat desc="Two-bytes fixed length data item.">
@@ -275,7 +275,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Preferred FPPS Identification tag</DataItemName>
 		<DataItemDefinition>Identification of the Flight Plan Data Processing System from which Flight-Plan related information shall preferably be sent to the User.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">

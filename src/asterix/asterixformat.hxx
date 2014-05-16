@@ -46,8 +46,6 @@ public:
   ERaw=0,         // Raw Asterix format
   EPcap,          // PCAP file format
   ETxt,           // textual output (human readable)
-  EKml,           // KML
-  ETracks,        // Number of tracks
   EFinal,         // Final format
   EXIDEF,         // XML based Internal Data Exchange Format
   EJSON,          // JSON (JavaScript Object Notation) format, compact form

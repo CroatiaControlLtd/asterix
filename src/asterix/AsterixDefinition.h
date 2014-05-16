@@ -38,8 +38,8 @@ public:
   Category* getCategory(int i);
   bool CategoryDefined(int i);
   std::string printDescriptors();
-  bool filterOutItem(int cat, int item, const char* name);
-  bool isFiltered(int cat, int item, const char* name);
+  bool filterOutItem(int cat, std::string item, const char* name);
+  bool isFiltered(int cat, std::string item, const char* name);
 
 private:
   Category *m_pCategory[MAX_CATEGORIES];

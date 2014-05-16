@@ -12,7 +12,7 @@
 -->
 
 <Category id="62" name="SDPS Track Messages" ver="1.9">
-	<DataItem id="10" rule="mandatory">
+	<DataItem id="010" rule="mandatory">
 		<DataItemName>Data Source Identifier</DataItemName>	
 		<DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
 		<DataItemFormat>
@@ -30,7 +30,7 @@
 		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
 	</DataItem>
 
-	<DataItem id="15" rule="optional">
+	<DataItem id="015" rule="optional">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
 		<DataItemFormat>
@@ -43,7 +43,7 @@
 		<DataItemNote>the service identification is allocated by the system</DataItemNote>
 	</DataItem>
 
-	<DataItem id="40" rule="mandatory">
+	<DataItem id="040" rule="mandatory">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of a track</DataItemDefinition>
 		<DataItemFormat>
@@ -55,7 +55,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="60" rule="optional">
+	<DataItem id="060" rule="optional">
 		<DataItemName>Track Mode 3/A Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
 		<DataItemFormat>
@@ -81,7 +81,7 @@
 		</DataItemFormat>
 	</DataItem>	
 
-	<DataItem id="70" rule="mandatory">
+	<DataItem id="070" rule="mandatory">
 		<DataItemName>Time Of Track Information</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
 		<DataItemFormat>
@@ -96,7 +96,7 @@
 		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="80" rule="mandatory">
+	<DataItem id="080" rule="mandatory">
 		<DataItemName>Track Status</DataItemName>
 		<DataItemDefinition>Status of a track.</DataItemDefinition>
 		<DataItemFormat>
@@ -290,12 +290,12 @@
 			<Fixed length="8">
 				<Bits from="33" to="64">
 					<BitsShortName>Lat</BitsShortName>
-					<BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ Latitude ≤ 90 deg.</BitsName>
+					<BitsName>Latitude in WGS.84 in twos complement. Range -90 ≤ Latitude ≤ 90 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 				<Bits from="1" to="32">
 					<BitsShortName>Lon</BitsShortName>
-					<BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+					<BitsName>Longitude in WGS.84 in twos complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 			</Fixed>
@@ -425,12 +425,12 @@
 					<Fixed length="6">
 						<Bits from="25" to="48">
 							<BitsShortName>Lat</BitsShortName>
-							<BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
+							<BitsName>Latitude in WGS.84 in twos complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
 							<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
 						</Bits>
 						<Bits from="1" to="24">
 							<BitsShortName>Lon</BitsShortName>
-							<BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+							<BitsName>Longitude in WGS.84 in twos complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
 							<BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
 						</Bits>
 					</Fixed>
@@ -730,7 +730,7 @@
 	</DataItem>	
 
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
 		<!-- TODO -->
 	</UAP>			
 

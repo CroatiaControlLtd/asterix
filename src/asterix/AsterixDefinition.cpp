@@ -73,7 +73,7 @@ std::string AsterixDefinition::printDescriptors()
 	return strDef;
 }
 
-bool AsterixDefinition::filterOutItem(int cat, int item, const char* name)
+bool AsterixDefinition::filterOutItem(int cat, std::string item, const char* name)
 {
 	if (CategoryDefined(cat))
 	{
@@ -82,7 +82,7 @@ bool AsterixDefinition::filterOutItem(int cat, int item, const char* name)
 	return false;
 }
 
-bool AsterixDefinition::isFiltered(int cat, int item, const char* name)
+bool AsterixDefinition::isFiltered(int cat, std::string item, const char* name)
 {
 	if (CategoryDefined(cat))
 	{

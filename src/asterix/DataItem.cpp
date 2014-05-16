@@ -46,13 +46,13 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
   switch(formatType)
   {
 	  case CAsterixFormat::EJSON:
-		  strNewResult = format("\"I%03d\":", m_pDescription->m_nID);
+		  strNewResult = format("\"I%s\":", m_pDescription->m_strID.c_str());
 		  break;
 	  case CAsterixFormat::EJSONH:
-		  strNewResult = format("\t\"I%03d\":", m_pDescription->m_nID);
+		  strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
 		  break;
 	  case CAsterixFormat::ETxt:
-		  strNewResult = format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
+		  strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(), m_pDescription->m_strName.c_str());
 		  strNewResult += format("\n[ ");
 		  for (int i=0; i<m_nLength; i++)
 		  {
@@ -61,7 +61,7 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
 		  strNewResult += format("]");
 		  break;
 	  case CAsterixFormat::EOut:
-			newHeader = format("%s.%d", strHeader.c_str(), m_pDescription->m_nID);
+			newHeader = format("%s.%s", strHeader.c_str(), m_pDescription->m_strID.c_str());
 		  break;
   }
 
@@ -110,21 +110,6 @@ long DataItem::parse(const unsigned char* pData, long len)
     Tracer::Error("DataItem::parse length=0");
   }
   return m_nLength;
-}
-
-bool DataItem::getValue(unsigned long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
-}
-
-bool DataItem::getValue(long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
-}
-
-bool DataItem::getValue(std::string& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

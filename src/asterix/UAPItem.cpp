@@ -28,7 +28,6 @@ UAPItem::UAPItem()
 , m_nFRN(0)
 , m_bFX(false)
 , m_nLen(0)
-, m_nItemID(0)
 {
 }
 

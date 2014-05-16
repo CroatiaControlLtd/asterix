@@ -34,8 +34,8 @@ public:
   AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize);
 
   std::string printDefinition();
-  bool filterOutItem(int cat, int item, const char* name);
-  bool isFiltered(int cat, int item, const char* name);
+  bool filterOutItem(int cat, std::string item, const char* name);
+  bool isFiltered(int cat, std::string item, const char* name);
 private:
   AsterixDefinition* m_pDefinition; // Asterix definitions
 

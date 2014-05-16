@@ -49,12 +49,6 @@ public:
   Category* m_pCategory; //<! Currently parsed <Category>
   DataItemDescription* m_pDataItem; //!< Currently parsed <DataItemDescription>
   DataItemFormat* m_pFormat; //!< Currently parsed <Format>
-  DataItemFormatFixed* m_pFormatFixed; //!< Currently parsed <Fixed>
-  DataItemFormatExplicit* m_pFormatExplicit; //!< Currently parsed <Explicit>
-  DataItemFormatRepetitive* m_pFormatRepetitive; //!< Currently parsed <Repetitive>
-  DataItemFormatVariable* m_pFormatVariable; //!< Currently parsed <Variable>
-  DataItemFormatCompound* m_pFormatCompound; //!< Currently parsed <Compound>
-  DataItemBits* m_pBits; //<! Currently parsed <Bits>
   BitsValue* m_pBitsValue; //!< Currently parsed <BitsValue>
   UAPItem* m_pUAPItem; //!< Currently parsed UAPItem
   UAP* m_pUAP; //!< Currently parsed UAP

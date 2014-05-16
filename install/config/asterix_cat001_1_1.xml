@@ -9,13 +9,13 @@
 	Created:  13.2.2009.
 	
 	Modified: 3.11.2013. (dmarkus) added items I001/055 and I001/065, small corrections 
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned, XIDEF removed
 
 --> 
 
 <Category id="1" name="Transmission of Monoroadar Data" ver="1.1">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
 		<DataItemFormat desc="Two-octets fixed length data item.">
@@ -32,7 +32,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Target Report Descriptor</DataItemName>
 		<DataItemDefinition>Type and characteristics of the radar data as transmitted by a radar station.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -114,7 +114,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Warning/Error Conditions</DataItemName>
 		<DataItemDefinition>Warning/error conditions detected by a radar station for the target report involved.</DataItemDefinition>
 		<DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -148,7 +148,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Measured Position in Polar Coordinates</DataItemName>
 		<DataItemDefinition>Measured position of an aircraft in local polar coordinates.</DataItemDefinition>
 		<DataItemFormat desc="Four-octet fixed length Data Item.">
@@ -165,7 +165,7 @@
 		</DataItemFormat>            
 	</DataItem>
 
-	<DataItem id="42">
+	<DataItem id="042">
 		<DataItemName>Calculated Position in Cartesian Coordinates</DataItemName>
 		<DataItemDefinition>Calculated position of an aircraft in cartesian coordinates</DataItemDefinition>
 		<DataItemFormat desc="Four-octet fixed length Data Item.">
@@ -185,7 +185,7 @@
 		<DataItemNote>Scaling is 2^(-6+f) where f is scalling factor</DataItemNote>            
 	</DataItem>
 
-	<DataItem id="50">
+	<DataItem id="050">
 		<DataItemName>Mode-2 Code</DataItemName>
 		<DataItemDefinition>Reply to Mode-2 interrogation</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -219,7 +219,7 @@
 		<DataItemNote>Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="55">
+	<DataItem id="055">
 		<DataItemName>Mode-1 Code</DataItemName>
 		<DataItemDefinition>Reply to Mode-1 interrogation</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -248,7 +248,7 @@
 		<DataItemNote>This item is optional. When used, it shall be sent when: 1) Mode 1 is present. Then, it represents the Mode 1 code for the plot, even  if associated with a track. 2) Mode 1 is absent and local tracking is performed. It shall then be sent with  the bit-6 (L) set to one..... Bit 7 has no meaning in the case of a smoothed Mode 1 and is set to 0 for a calculated track.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Mode-2 Code Confidence Indicator</DataItemName>
 		<DataItemDefinition>Confidence level for each bit of a Mode-2 reply as provided by a monopulse SSR station.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -323,7 +323,7 @@
 		<DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="65">
+	<DataItem id="065">
 		<DataItemName>Mode-1 Code Confidence Indicator</DataItemName>
 		<DataItemDefinition>Confidence level for each bit of a Mode-1 reply as provided by a monopulse SSR station.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
@@ -363,7 +363,7 @@
 		<DataItemNote>This data item is optional. When used, it shall be transmitted only when at least one pulse is of low quality.  It represents the confidence level for each reply bit of the Mode 1 code of the  plot. </DataItemNote>
 	</DataItem>	
 
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Mode-3/a Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -397,7 +397,7 @@
 		<DataItemNote>The detector signals a garbled code when at least two replies are overlapping. Smoothed Mode-3/A data (bit-14 set to a one) are used in the case of the absence of Mode-3/A code information in the plot, or in the case of a difference between the plot and track Mode-3/A code information. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-3/A and are set to 0 for a calculated track.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>Mode-3/A Code Confidence Indicator</DataItemName>
 		<DataItemDefinition>Confidence level for each bit of a Mode-3/A reply as provided by a monopulse SSR station.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -472,7 +472,7 @@
 		<DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality.</DataItemNote>
 	</DataItem>
 
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Mode-C Code</DataItemName>
 		<DataItemDefinition>Mode-C height converted into binary representation</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">

@@ -104,7 +104,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
 
 		if (di->m_pDescription == NULL || di->m_pDescription->m_pFormat == NULL)
 		{
-			Tracer::Error("DataItem format not defined for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+			Tracer::Error("DataItem format not defined for CAT%03d/I%s", cat->m_id, di->m_pDescription->m_strID.c_str());
 			errorReported = true;
 			break;
 		}
@@ -112,7 +112,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
 		long usedbytes = di->parse(m_pItemDataStart, nUnparsed);
 		if (usedbytes <= 0 || usedbytes > nUnparsed)
 		{
-			Tracer::Error("Wrong length in DataItem format for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+			Tracer::Error("Wrong length in DataItem format for CAT%03d/I%s", cat->m_id, di->m_pDescription->m_strID.c_str());
 			errorReported = true;
 			break;
 		}
@@ -239,49 +239,19 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	return ret;
 }
 
-DataItem* DataRecord::getItem(int itemid)
+DataItem* DataRecord::getItem(std::string itemid)
 {
 	// go through all present data items in this block
 	std::list<DataItem*>::iterator it;
 	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
 	{
 		DataItem* di = (DataItem*)(*it);
-		if (di && di->m_pDescription && di->m_pDescription->m_nID == itemid)
+		if (di && di->m_pDescription && di->m_pDescription->m_strID == itemid)
 		{
 			return di;
 		}
 	}
 	return NULL;
-}
-
-bool DataRecord::getValue(int itemid, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-	DataItem* di = getItem(itemid);
-	if (di)
-	{
-		return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-	}
-	return false;
-}
-
-bool DataRecord::getValue(int itemid, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-	DataItem* di = getItem(itemid);
-	if (di)
-	{
-		return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-	}
-	return false;
-}
-
-bool DataRecord::getValue(int itemid, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-	DataItem* di = getItem(itemid);
-	if (di)
-	{
-		return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-	}
-	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

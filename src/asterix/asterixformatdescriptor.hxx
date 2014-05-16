@@ -122,8 +122,8 @@ public:
     bool m_bInvertByteOrder;
 
     std::string printDescriptor() { return m_InputParser.printDefinition(); }
-    bool filterOutItem(int cat, int item, const char* name) { return m_InputParser.filterOutItem(cat,item,name); }
-    bool isFiltered(int cat, int item, const char* name) { return m_InputParser.isFiltered(cat,item,name); }
+    bool filterOutItem(int cat, std::string item, const char* name) { return m_InputParser.filterOutItem(cat,item,name); }
+    bool isFiltered(int cat, std::string item, const char* name) { return m_InputParser.isFiltered(cat,item,name); }
 
 private:
     const unsigned char* m_pBuffer; // input buffer

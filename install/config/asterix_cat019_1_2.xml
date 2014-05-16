@@ -230,12 +230,12 @@
 			<Fixed length="8">
 				<Bits from="64" to="33" encode="signed">
 					<BitsShortName>Lat</BitsShortName>
-					<BitsName>Latitude in WGS-84 in two's complement.</BitsName>
+					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
 					<BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
 				</Bits>
 				<Bits from="32" to="1" encode="signed">
 					<BitsShortName>Lon</BitsShortName>
-					<BitsName>Longitude in WGS-84 in two's complement.</BitsName>
+					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
 					<BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
 				</Bits>
 			</Fixed>
