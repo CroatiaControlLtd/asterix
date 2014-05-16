@@ -36,14 +36,9 @@ public:
 
   DataItemDescription* m_pDescription;
 
-  bool getDescription(std::string& strDescription); // appends description to strDescription
-  bool getText(std::string& strDescription, std::string& strHeader); // appends description to strDescription
-  bool getXIDEF(std::string& strXIDEF); // appends XIDEF descriptin to strXIDEF
+  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
 
   long parse(const unsigned char* pData, long len);
-  bool getValue(unsigned long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(std::string& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
 
   long getLength() { return m_nLength; }
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

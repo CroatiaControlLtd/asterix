@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 62 v1.16 definition 
+	
+	Author:   unknown
+	Created:  
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+-->
+
 <Category id="62" name="SDPS Track Messages" ver="1.9">
-	<DataItem id="10" rule="mandatory">
+	<DataItem id="010" rule="mandatory">
 		<DataItemName>Data Source Identifier</DataItemName>	
 		<DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
 		<DataItemFormat>
@@ -19,7 +30,7 @@
 		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="15" rule="optional">
+	<DataItem id="015" rule="optional">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
 		<DataItemFormat>
@@ -32,7 +43,7 @@
 		<DataItemNote>the service identification is allocated by the system</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="40" rule="mandatory">
+	<DataItem id="040" rule="mandatory">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of a track</DataItemDefinition>
 		<DataItemFormat>
@@ -44,7 +55,7 @@
 		</DataItemFormat>
 	</DataItem>
 	
-	<DataItem id="60" rule="optional">
+	<DataItem id="060" rule="optional">
 		<DataItemName>Track Mode 3/A Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
 		<DataItemFormat>
@@ -70,12 +81,13 @@
 		</DataItemFormat>
 	</DataItem>	
 				
-	<DataItem id="70" rule="mandatory">
+	<DataItem id="070" rule="mandatory">
 		<DataItemName>Time Of Track Information</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
+					<BitsShortName>ToT</BitsShortName>
 					<BitsName>Time Of Track Information</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -84,7 +96,7 @@
 		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
 				
-	<DataItem id="80" rule="mandatory">
+	<DataItem id="080" rule="mandatory">
 		<DataItemName>Track Status</DataItemName>
 		<DataItemDefinition>Status of a track.</DataItemDefinition>
 		<DataItemFormat>
@@ -277,13 +289,13 @@
 		<DataItemFormat>
 			<Fixed length="8">
 				<Bits from="33" to="64">
-					<BitsShortName>Latitude</BitsShortName>
-					<BitsName>In WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.</BitsName>
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude in WGS.84 in twos complement. Range -90 ≤ Latitude ≤ 90 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 				<Bits from="1" to="32">
-					<BitsShortName>Longitude</BitsShortName>
-					<BitsName>In WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+					<BitsShortName>Lon</BitsShortName>
+					<BitsName>Longitude in WGS.84 in twos complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
 					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
 				</Bits>
 			</Fixed>
@@ -401,6 +413,7 @@
                             <BitsName>National Origin</BitsName>
                         </Bits>
                         <Bits from="7" to="8">
+							<BitsShortName>spare</BitsShortName>
                             <BitsName>spare bits set to 0</BitsName>
                             <BitsConst>0</BitsConst>
                         </Bits>
@@ -411,13 +424,13 @@
                     </Fixed>
                     <Fixed length="6">
                         <Bits from="25" to="48">
-                            <BitsShortName>Latitude</BitsShortName>
-                            <BitsName>In WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.</BitsName>
+							<BitsShortName>Lat</BitsShortName>
+							<BitsName>Latitude in WGS.84 in twos complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
                             <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                         </Bits>
                         <Bits from="1" to="24">
-                            <BitsShortName>Longitude</BitsShortName>
-                            <BitsName>In WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+							<BitsShortName>Lon</BitsShortName>
+							<BitsName>Longitude in WGS.84 in twos complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
                             <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                         </Bits>
                     </Fixed>
@@ -518,7 +531,7 @@
 		<DataItemFormat desc="Two-Octet fixed length data item">
 			<Fixed length="2">
 				<Bits from="1" to="16">
-					<BitsName>Altitude</BitsName>
+					<BitsName>Alt</BitsName>
 					<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
 				</Bits>
 			</Fixed>
@@ -562,10 +575,12 @@
 		<DataItemFormat desc="Four-octet fixed length Data Item .">
 			<Fixed length="4">
 				<Bits from="17" to="32">
+					<BitsShortName>Vx</BitsShortName>
 					<BitsName>Vx</BitsName>
 					<BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
 				</Bits>
 				<Bits from="1" to="16">
+					<BitsShortName>Vy</BitsShortName>
 					<BitsName>Vy</BitsName>
 					<BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
 				</Bits>
@@ -623,10 +638,12 @@
 		<DataItemFormat desc="Two-octet fixed length Data Item .">
 			<Fixed length="2">
 				<Bits from="9" to="16">
+					<BitsShortName>Ax</BitsShortName>
 					<BitsName>Ax</BitsName>
 					<BitsUnit scale="0.25">m/s2</BitsUnit>
 				</Bits>
 				<Bits from="1" to="16">
+					<BitsShortName>Ay</BitsShortName>
 					<BitsName>Ay</BitsName>
 					<BitsUnit scale="0.25">m/s2</BitsUnit>
 				</Bits>
@@ -653,6 +670,7 @@
 		<DataItemFormat desc="Seven-octet fixed length Data Item.">
 			<Fixed length="7">
 				<Bits from="55" to="56">
+					<BitsShortName>STI</BitsShortName>
 					<BitsName>STI</BitsName>
 					<BitsValue val="0">Callsign or registration downlinked from target</BitsValue>
 					<BitsValue val="1">Callsign not downlinked from target</BitsValue>
@@ -664,6 +682,7 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="1" to="48" encode="6bitschar">
+					<BitsShortName>TId</BitsShortName>
 					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
 				</Bits>
 			</Fixed>
@@ -711,7 +730,7 @@
 	</DataItem>	
 	
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <!-- TODO -->
 	</UAP>			
 							

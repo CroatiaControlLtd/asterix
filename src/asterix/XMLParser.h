@@ -41,7 +41,7 @@ public:
   XMLParser();
   virtual
   ~XMLParser();
-  bool Parse(FILE* pFile, AsterixDefinition* pDefinition);
+  bool Parse(FILE* pFile, AsterixDefinition* pDefinition, const char* filename);
 
   bool m_bErrorDetectedStopParsing; //!< Flag to stop parsing if error detected
 
@@ -49,12 +49,6 @@ public:
   Category* m_pCategory; //<! Currently parsed <Category>
   DataItemDescription* m_pDataItem; //!< Currently parsed <DataItemDescription>
   DataItemFormat* m_pFormat; //!< Currently parsed <Format>
-  DataItemFormatFixed* m_pFormatFixed; //!< Currently parsed <Fixed>
-  DataItemFormatExplicit* m_pFormatExplicit; //!< Currently parsed <Explicit>
-  DataItemFormatRepetitive* m_pFormatRepetitive; //!< Currently parsed <Repetitive>
-  DataItemFormatVariable* m_pFormatVariable; //!< Currently parsed <Variable>
-  DataItemFormatCompound* m_pFormatCompound; //!< Currently parsed <Compound>
-  DataItemBits* m_pBits; //<! Currently parsed <Bits>
   BitsValue* m_pBitsValue; //!< Currently parsed <BitsValue>
   UAPItem* m_pUAPItem; //!< Currently parsed UAPItem
   UAP* m_pUAP; //!< Currently parsed UAP
@@ -64,6 +58,9 @@ public:
 
   // pointer to int to which to assign next CDATA
   int* m_pintCData;
+
+  // current parsed file name
+  const char* m_pFileName;
 
   void GetCData(std::string *pstr) { m_pstrCData = pstr; }
   void GetCData(int *pint) { m_pintCData = pint; m_pstrCData = NULL; }

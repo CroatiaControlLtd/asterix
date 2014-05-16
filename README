@@ -63,29 +63,33 @@ asterix.exe will be created in asterix/install
 USAGE
 =====
 
-asterix.exe [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x] [-d filename] -f filename|-i mcastaddress:ipaddress:port
+asterix [-h] [-v] [-L] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
 
 Options:
 	-h,--help	Show this help message
 	-v,--verbose	Show more information during program execution
+   -d,--def		XML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini
+   -L,--list	List all configured ASTERIX items. Mark which items are filtered.
+   -LF,--filter	Printout only items listed in configured file
+
+Input format:
 	-P,--pcap	Input is from PCAP file
+   -R,--oradispcap	Input is from PCAP file and Asterix packet is encapsulated in ORADIS packet
 	-O,--oradis	Asterix packet is encapsulated in ORADIS packet
-	-R,--oradispcap	Input is from PCAP file and
-			Asterix packet is encapsulated in ORADIS packet
 	-F,--final	Asterix packet is encapsulated in FINAL packet.
 	-H,--hdlc	Asterix packet is encapsulated in HDLC packet.
+
+Output format:
 	-l,--line	Output will be printed as one line per item. This format is suitable for parsing.
 	-x,--xml	Output will be printed in XML format.
-			Fields that are printed are defined in input
-			definition file as XIDEF.
-	-d,--def	XML protocol definitions filenames are listed in
-			specified filename.
-			By default are listed in config/asterix.ini
-	-f filename	File generated from libpcap (tcpdump or Wireshark)
-			or file in FINAL or HDLC format.
+   -j,--json		Output will be printed in compact JSON format (one object per line).
+   -jh,--jsonh		Output will be printed in human readable JSON format (one item per line).
+
+Data source:
+   -f filename		File generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.
 			For example: -f filename.pcap
-	-i m:i:p	Multicast IP address:Interface address:Port.
-			For example: 232.1.1.12:10.17.58.37:21112
+   -i m:i:p[:s]		Multicast IP address:Interface address:Port[:Source address].
+   					For example: 232.1.1.12:10.17.58.37:21112:10.17.22.23
 
 WIRESHARK PLUGIN
 =================

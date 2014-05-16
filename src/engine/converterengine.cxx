@@ -196,7 +196,7 @@ void CConverterEngine::Start()
                 while(ch < nChannels)
                 {
                     // try writing to the active channel
-                    LOGDEBUG(1, "Trying to write to output channel %d...\n", (int)ch);
+                    // LOGDEBUG(1, "Trying to write to output channel %d...\n", (int)ch);
 
                     if (CChannelFactory::Instance()->WritePacket(ch))
                         break; // successfull!

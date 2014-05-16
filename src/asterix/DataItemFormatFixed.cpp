@@ -23,6 +23,7 @@
 
 #include "DataItemFormatFixed.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatFixed::DataItemFormatFixed()
 : m_nLength(0)
@@ -32,11 +33,11 @@ DataItemFormatFixed::DataItemFormatFixed()
 DataItemFormatFixed::~DataItemFormatFixed()
 {
   // destroy list items
-  std::list<DataItemBits*>::iterator it = m_lBits.begin();
-  while(it != m_lBits.end())
+  std::list<DataItemFormat*>::iterator it = m_lSubItems.begin();
+  while(it != m_lSubItems.end())
   {
     delete (DataItemBits*)(*it);
-    it = m_lBits.erase(it);
+    it = m_lSubItems.erase(it);
   }
 }
 
@@ -52,7 +53,7 @@ long DataItemFormatFixed::getLength(const unsigned char*)
 
 void DataItemFormatFixed::addBits(DataItemBits* pBits)
 {
-  m_lBits.push_back(pBits);
+  m_lSubItems.push_back(pBits);
 }
 
 /*
@@ -61,8 +62,8 @@ void DataItemFormatFixed::addBits(DataItemBits* pBits)
 bool DataItemFormatFixed::isLastPart(const unsigned char* pData)
 {
   // go through all bits and find which is FX
-  std::list<DataItemBits*>::iterator bitit;
-  for ( bitit=m_lBits.begin() ; bitit != m_lBits.end(); bitit++ )
+  std::list<DataItemFormat*>::iterator bitit;
+  for ( bitit=m_lSubItems.begin() ; bitit != m_lSubItems.end(); bitit++ )
   {
     DataItemBits* bit = (DataItemBits*)(*bitit);
     if (bit == NULL)
@@ -100,14 +101,35 @@ bool DataItemFormatFixed::isLastPart(const unsigned char* pData)
       return true;
     }
   }
+  Tracer::Error("Missing fx bit in variable item!");
   return true;
+}
+
+std::string& DataItemFormatFixed::getPartName(int part)
+{
+	  static std::string unknown = "unknown";
+
+	  // go through all bits and find which has BitsPresence set to part
+	  std::list<DataItemFormat*>::iterator bitit;
+	  for ( bitit=m_lSubItems.begin() ; bitit != m_lSubItems.end(); bitit++ )
+	  {
+	    DataItemBits* bit = (DataItemBits*)(*bitit);
+	    if (bit != NULL && bit->m_nPresenceOfField == part)
+	    { // found
+			  if (bit->m_strShortName.empty())
+			 	 return bit->m_strName;
+			  return bit->m_strShortName;
+	    }
+	  }
+	  Tracer::Error("Compound part not found!");
+	  return unknown;
 }
 
 bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int part)
 {
   // go through all bits and find which has BitsPresence set to part
-  std::list<DataItemBits*>::iterator bitit;
-  for ( bitit=m_lBits.begin() ; bitit != m_lBits.end(); bitit++ )
+  std::list<DataItemFormat*>::iterator bitit;
+  for ( bitit=m_lSubItems.begin() ; bitit != m_lSubItems.end(); bitit++ )
   {
     DataItemBits* bit = (DataItemBits*)(*bitit);
     if (bit == NULL)
@@ -146,105 +168,104 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int
   return false;
 }
 
-bool DataItemFormatFixed::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatFixed::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
   if (m_nLength != nLength)
   {
     Tracer::Error("Length doesn't match!!!");
-    return true;
+    return false;
   }
 
-  std::list<DataItemBits*>::iterator it;
+  switch(formatType)
+  {
+  /* todo
+	  case CAsterixFormat::EXIDEF:
+	  {
+		  if (!m_strXIDEF.empty())
+		  {
+			  strResult += format("\n<%s>", m_strXIDEF.c_str());
+  }
+}
+	  break;
+*/
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+  {
+		  strResult += '{';
+	  }
+	  break;
+  }
+
+  bool ret = false;
+  std::list<DataItemFormat*>::iterator it;
   DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    bv->getDescription(strDescription, pData, m_nLength);
-  }
-  return true;
+    ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength);
 }
 
-bool DataItemFormatFixed::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
+  switch(formatType)
 {
-  if (m_nLength != nLength)
+/* todo
+	  case CAsterixFormat::EXIDEF:
   {
-    Tracer::Error("Length doesn't match!!!");
-    return true;
-  }
-
-  std::list<DataItemBits*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    bv->getText(strDescription, strHeader, pData, m_nLength);
-  }
-  return true;
-}
-
-bool DataItemFormatFixed::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  if (m_nLength != nLength)
-  {
-    Tracer::Error("Length doesn't match!!!");
-    return true;
-  }
-
   if (!m_strXIDEF.empty())
   {
-    strXIDEF += format("\n<%s>", m_strXIDEF.c_str());
+			  strResult += format("\n</%s>", m_strXIDEF.c_str());
   }
-
-  std::list<DataItemBits*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+		  break;
+  }
+*/
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
   {
-    bv = (DataItemBits*)(*it);
-    bv->getXIDEF(strXIDEF, pData, m_nLength);
+		  if (strResult[strResult.length()-1] == ',')
+			  strResult[strResult.length()-1] = '}';
+		  else
+			  strResult += '}';
+	  }
+	  break;
   }
 
-  if (!m_strXIDEF.empty())
-  {
-    strXIDEF += format("\n</%s>", m_strXIDEF.c_str());
-  }
-
-  return true;
+  return ret;
 }
 
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
+std::string DataItemFormatFixed::printDescriptors(std::string header)
 {
-  std::list<DataItemBits*>::iterator it;
+	std::string strDef = "";
+
+	std::list<DataItemFormat*>::iterator it;
   DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
+		strDef += bv->printDescriptors(header);
+  }
+	return strDef;
+}
+
+bool DataItemFormatFixed::filterOutItem(const char* name)
+{
+	std::list<DataItemFormat*>::iterator it;
+  DataItemBits* bv = NULL;
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    bv = (DataItemBits*)(*it);
+		if (true == bv->filterOutItem(name))
       return true;
   }
   return false;
 }
 
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
+bool DataItemFormatFixed::isFiltered(const char* name)
 {
-  std::list<DataItemBits*>::iterator it;
+	std::list<DataItemFormat*>::iterator it;
   DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-  }
-  return false;
-}
-
-bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  std::list<DataItemBits*>::iterator it;
-  DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
-  {
-    bv = (DataItemBits*)(*it);
-    if (bv->getValue(pData, nLength, value, pstrBitsShortName, pstrBitsName))
+		if (true == bv->isFiltered(name))
       return true;
   }
   return false;
@@ -254,9 +275,9 @@ bool DataItemFormatFixed::getValue(unsigned char* pData, long nLength, std::stri
 fulliautomatix_definitions* DataItemFormatFixed::getWiresharkDefinitions()
 {
   fulliautomatix_definitions *def = NULL, *startDef = NULL;
-  std::list<DataItemBits*>::iterator it;
+  std::list<DataItemFormat*>::iterator it;
   DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
     if (def)
@@ -275,9 +296,9 @@ fulliautomatix_definitions* DataItemFormatFixed::getWiresharkDefinitions()
 fulliautomatix_data* DataItemFormatFixed::getData(unsigned char* pData, long len, int byteoffset)
 {
   fulliautomatix_data *lastData = NULL, *firstData = NULL;
-  std::list<DataItemBits*>::iterator it;
+  std::list<DataItemFormat*>::iterator it;
   DataItemBits* bv = NULL;
-  for ( it=m_lBits.begin() ; it != m_lBits.end(); it++ )
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
   {
     bv = (DataItemBits*)(*it);
     if (lastData)

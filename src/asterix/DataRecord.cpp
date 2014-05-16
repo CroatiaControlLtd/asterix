@@ -21,10 +21,12 @@
  *
  */
 
+#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"
 #include "Tracer.h"
 #include "Utils.h"
+#include "asterixformat.hxx"
 
 DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
@@ -102,7 +104,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
 
     if (di->m_pDescription == NULL || di->m_pDescription->m_pFormat == NULL)
     {
-        Tracer::Error("DataItem format not defined for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+			Tracer::Error("DataItem format not defined for CAT%03d/I%s", cat->m_id, di->m_pDescription->m_strID.c_str());
         errorReported = true;
         break;
     }
@@ -110,7 +112,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
     long usedbytes = di->parse(m_pItemDataStart, nUnparsed);
     if (usedbytes <= 0 || usedbytes > nUnparsed)
     {
-      Tracer::Error("Wrong length in DataItem format for CAT%03d/I%03d", cat->m_id, di->m_pDescription->m_nID);
+			Tracer::Error("Wrong length in DataItem format for CAT%03d/I%s", cat->m_id, di->m_pDescription->m_strID.c_str());
       errorReported = true;
       break;
     }
@@ -159,122 +161,97 @@ DataRecord::~DataRecord()
     free(m_pFSPECData);
 }
 
-bool DataRecord::getDescription(std::string& strDescription)
+bool DataRecord::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
-  strDescription += format("\n-------------------------\nData Record %d", m_nID);
-  strDescription += format("\nLen: %ld", m_nLength);
   if (!m_bFormatOK)
   {
-    strDescription += format("\nCould not be parsed");
-    return true;
+		Tracer::Error("Record not parsed properly. CAT%03d len=%ld", m_pCategory->m_id, m_nLength);
+		return false;
+	}
+
+	std::string strNewResult;
+
+	switch(formatType)
+	{
+	case CAsterixFormat::ETxt:
+		strNewResult = format("\n-------------------------\nData Record %d", m_nID);
+		strNewResult += format("\nLen: %ld", m_nLength);
+		break;
+	case CAsterixFormat::EJSON:
+		strNewResult = format("{\"CAT%03d\":{", m_pCategory->m_id);
+		break;
+	case CAsterixFormat::EJSONH:
+		strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
+		break;
+	case CAsterixFormat::EXIDEF:
+		const int nXIDEFv = 1;
+		strNewResult = format("\n<ASTERIX ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
+		break;
   }
 
   // go through all present data items in this block
+	bool ret = false;
+
   std::list<DataItem*>::iterator it;
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
   {
     DataItem* di = (DataItem*)(*it);
     if (di != NULL)
     {
-      di->getDescription(strDescription);
-    }
-  }
-  return true;
-}
-
-bool DataRecord::getText(std::string& strDescription, std::string& strHeader)
+			if (di->getText(strNewResult, strHeader, formatType))
 {
-  if (!m_bFormatOK)
+				if (!ret)
   {
-    strDescription += format("\nCould not be parsed");
-    return true;
+					ret = true;
   }
-
-  // go through all present data items in this block
-  std::list<DataItem*>::iterator it;
-  for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+				else
   {
-    DataItem* di = (DataItem*)(*it);
-    if (di != NULL)
+					switch(formatType)
     {
-      di->getText(strDescription, strHeader);
+					case CAsterixFormat::EJSON:
+						strResult += ",";
+						break;
+					case CAsterixFormat::EJSONH:
+						strResult += ",\n";
+						break;
     }
   }
-  return true;
+				strResult += strNewResult;
+				strNewResult = "";
+			}
 }
-
-
-bool DataRecord::getXIDEF(std::string& strXIDEF)
-{
-  if (!m_bFormatOK)
-  {
-    Tracer::Error("Record not parsed properly.");
-    return true;
   }
 
-  const int nXIDEFv = 1;
-
-  strXIDEF += format("\n<XIDEF ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
-
-  // go through all present data items in this block
-  std::list<DataItem*>::iterator it;
-  for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+	if (ret)
   {
-    DataItem* di = (DataItem*)(*it);
-    if (di != NULL)
+		switch(formatType)
     {
-      di->getXIDEF(strXIDEF);
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+			strResult += "}},\n";
+			break;
+		case CAsterixFormat::EXIDEF:
+			strResult += "\n</ASTERIX>";
+			break;
     }
   }
 
-  strXIDEF += format("\n</XIDEF>");
-  return true;
+	return ret;
 }
 
-
-DataItem* DataRecord::getItem(int itemid)
+DataItem* DataRecord::getItem(std::string itemid)
 {
   // go through all present data items in this block
   std::list<DataItem*>::iterator it;
   for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
   {
     DataItem* di = (DataItem*)(*it);
-    if (di && di->m_pDescription && di->m_pDescription->m_nID == itemid)
+		if (di && di->m_pDescription && di->m_pDescription->m_strID == itemid)
     {
       return di;
     }
   }
   return NULL;
-}
-
-bool DataRecord::getValue(int itemid, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  DataItem* di = getItem(itemid);
-  if (di)
-  {
-    return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-  }
-  return false;
-}
-
-bool DataRecord::getValue(int itemid, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  DataItem* di = getItem(itemid);
-  if (di)
-  {
-    return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-  }
-  return false;
-}
-
-bool DataRecord::getValue(int itemid, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  DataItem* di = getItem(itemid);
-  if (di)
-  {
-    return di->getValue(value, di->getLength(), pstrBitsShortName, pstrBitsName);
-  }
-  return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

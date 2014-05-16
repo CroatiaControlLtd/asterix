@@ -28,6 +28,7 @@ int DataItemFormat::m_nLastPID = PID_LAST;
 #endif
 
 DataItemFormat::DataItemFormat()
+: m_pParentFormat(NULL)
 {
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   m_nPID = m_nLastPID++;
@@ -36,4 +37,11 @@ DataItemFormat::DataItemFormat()
 
 DataItemFormat::~DataItemFormat()
 {
+	// destroy list items
+	std::list<DataItemFormat*>::iterator it = m_lSubItems.begin();
+	while(it != m_lSubItems.end())
+	{
+		delete (DataItemFormat*)(*it);
+		it = m_lSubItems.erase(it);
+	}
 }

@@ -7,7 +7,7 @@
 
     Author:   B.Bertrand
     Created:  2012-12-17
-    Version:  1.0
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 -->
 
@@ -305,7 +305,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-                    <BitsShortName>mode_3a</BitsShortName>
+					<BitsShortName>Mode3A</BitsShortName>
                     <BitsName>Mode-3/A reply in octal</BitsName>
                 </Bits>
             </Fixed>
@@ -437,7 +437,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>target_address</BitsShortName>
+					<BitsShortName>TAddr</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
@@ -557,26 +557,26 @@
                             <BitsValue val="1">TCP non-compliance</BitsValue>
                         </Bits>
                         <Bits from="118" to="113">
-                            <BitsShortName>tcp_number</BitsShortName>
+							<BitsShortName>TcpN</BitsShortName>
                             <BitsName>Trajectory Change Point Number</BitsName>
                         </Bits>
                         <Bits from="112" to="97" encode="signed">
-                            <BitsShortName>altitude</BitsShortName>
+							<BitsShortName>Alt</BitsShortName>
                             <BitsName>Altitude</BitsName>
                             <BitsUnit scale="10" min="-1500" max="150000">ft</BitsUnit>
                         </Bits>
                         <Bits from="96" to="73" encode="signed">
-                            <BitsShortName>latitude</BitsShortName>
+							<BitsShortName>Lat</BitsShortName>
                             <BitsName>Latitude</BitsName>
                             <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
                         </Bits>
                         <Bits from="72" to="49" encode="signed">
-                            <BitsShortName>longitude</BitsShortName>
+							<BitsShortName>Lon</BitsShortName>
                             <BitsName>Longitude</BitsName>
                             <BitsUnit scale="0.000021457672119140625" min="-180" max="180">deg</BitsUnit>
                         </Bits>
                         <Bits from="48" to="45">
-                            <BitsShortName>point_type</BitsShortName>
+							<BitsShortName>PType</BitsShortName>
                             <BitsName>Point Type</BitsName>
                             <BitsValue val="0">Unknown</BitsValue>
                             <BitsValue val="1">Fly by waypoint (LT)</BitsValue>
@@ -631,13 +631,13 @@
         <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="25" to="48" encode="signed">
-                    <BitsShortName>Latitude</BitsShortName>
-                    <BitsName>In WGS.84 in two's complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt;= Lat &lt;= 90 deg.</BitsName>
                     <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                 </Bits>
                 <Bits from="1" to="24" encode="signed">
-                    <BitsShortName>Longitude</BitsShortName>
-                    <BitsName>In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
+					<BitsShortName>Lon</BitsShortName>
+					<BitsName>Longitude in WGS.84 in twos complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -650,12 +650,12 @@
         <DataItemFormat desc="Eight-octet fixed length Data Item.">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
-                    <BitsShortName>Latitude</BitsShortName>
-                    <BitsName>Latitude In WGS.84 in two's complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude In WGS.84 in twos complement. Range -90 &lt;= Lat &lt;= 90 deg.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
-                    <BitsShortName>Longitude</BitsShortName>
+					<BitsShortName>Lon</BitsShortName>
                     <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
@@ -697,7 +697,7 @@
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>flight_level</BitsShortName>
+					<BitsShortName>FL</BitsShortName>
                     <BitsName>Flight Level</BitsName>
                     <BitsUnit scale="0.25" min="-15" max="1500">FL</BitsUnit>
                 </Bits>
@@ -725,7 +725,7 @@
                     <BitsValue val="3">FMS Selected Altitude</BitsValue>
                 </Bits>
                 <Bits from="13" to="1" encode="signed">
-                    <BitsShortName>altitude</BitsShortName>
+					<BitsShortName>Alt</BitsShortName>
                     <BitsName>Altitude</BitsName>
                     <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
                 </Bits>
@@ -757,7 +757,7 @@
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
                 <Bits from="13" to="1" encode="signed">
-                    <BitsShortName>altitude</BitsShortName>
+					<BitsShortName>Alt</BitsShortName>
                     <BitsName>Altitude</BitsName>
                     <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
                 </Bits>
@@ -777,7 +777,7 @@
                     <BitsValue val="1">Air Speed = Mach</BitsValue>
                 </Bits>
                 <Bits from="15" to="1">
-                    <BitsShortName>air_speed</BitsShortName>
+					<BitsShortName>ASpeed</BitsShortName>
                     <BitsName>Air Speed (IAS or Mach)</BitsName>
                 </Bits>
             </Fixed>
@@ -796,7 +796,7 @@
                     <BitsValue val="1">Value exceeds defined range</BitsValue>
                 </Bits>
                 <Bits from="15" to="1">
-                    <BitsShortName>true_air_speed</BitsShortName>
+					<BitsShortName>TAS</BitsShortName>
                     <BitsName>True Air Speed</BitsName>
                     <BitsUnit scale="1">knot</BitsUnit>
                 </Bits>
@@ -811,7 +811,7 @@
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>magnetic_heading</BitsShortName>
+					<BitsShortName>MHdg</BitsShortName>
                     <BitsName>Magnetic Heading</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>
@@ -831,7 +831,7 @@
                     <BitsValue val="1">Value exceeds defined range</BitsValue>
                 </Bits>
                 <Bits from="15" to="1" encode="signed">
-                    <BitsShortName>barometric_vertical_rate</BitsShortName>
+					<BitsShortName>BVR</BitsShortName>
                     <BitsName>Barometric Vertical Rate</BitsName>
                     <BitsUnit scale="6.25">feet/minute</BitsUnit>
                 </Bits>
@@ -852,7 +852,7 @@
                     <BitsValue val="1">Value exceeds defined range</BitsValue>
                 </Bits>
                 <Bits from="15" to="1" encode="signed">
-                    <BitsShortName>geometric_vertical_rate</BitsShortName>
+					<BitsShortName>GVR</BitsShortName>
                     <BitsName>Geometric Vertical Rate</BitsName>
                     <BitsUnit scale="6.25">feet/minute</BitsUnit>
                 </Bits>
@@ -873,12 +873,12 @@
                     <BitsValue val="1">Value exceeds defined range</BitsValue>
                 </Bits>
                 <Bits from="31" to="17">
-                    <BitsShortName>ground_speed</BitsShortName>
+					<BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed referenced to WGS-84</BitsName>
                     <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
-                    <BitsShortName>track_angle</BitsShortName>
+					<BitsShortName>TA</BitsShortName>
                     <BitsName>Track Angle clockwise reference to True North</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>
@@ -898,7 +898,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1">
-                    <BitsShortName>track_number</BitsShortName>
+					<BitsShortName>TrackN</BitsShortName>
                     <BitsName>Track number</BitsName>
                 </Bits>
             </Fixed>
@@ -916,7 +916,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="10" to="1">
-                    <BitsShortName>track_angle_rate</BitsShortName>
+					<BitsShortName>TA_rate</BitsShortName>
                     <BitsName>Track Angle Rate</BitsName>
                     <BitsUnit scale="0.03125">deg/s</BitsUnit>
                 </Bits>
@@ -930,7 +930,7 @@
         <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="48" to="1" encode="6bitschar">
-                    <BitsShortName>target_id</BitsShortName>
+					<BitsShortName>TId</BitsShortName>
                     <BitsName>Characters 1-8 (coded on 6 Bits each) defining target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in [6] Section 3.1.2.9.1.2 and Table 3-9.</BitsName>
                 </Bits>
             </Fixed>
@@ -1052,29 +1052,29 @@
                 </Variable>
                     <Fixed length="2">
                         <Bits from="16" to="1">
-                            <BitsShortName>wind_speed</BitsShortName>
+						<BitsShortName>WindS</BitsShortName>
                             <BitsName>Wind Speed</BitsName>
                             <BitsUnit scale="1" max="300">knot</BitsUnit>
                         </Bits>
                     </Fixed>
                     <Fixed length="2">
                         <Bits from="16" to="1">
-                            <BitsShortName>wind_dir</BitsShortName>
+						<BitsShortName>WindD</BitsShortName>
                             <BitsName>Wind Direction</BitsName>
                             <BitsUnit scale="1" min="1" max="360">deg</BitsUnit>
                         </Bits>
                     </Fixed>
                     <Fixed length="2">
                         <Bits from="16" to="1" encode="signed">
-                            <BitsShortName>temperature</BitsShortName>
+						<BitsShortName>Temp</BitsShortName>
                             <BitsName>Temperature</BitsName>
                             <BitsUnit scale="0.25" min="-100" max="100">C</BitsUnit>
                         </Bits>
                     </Fixed>
                     <Fixed length="1">
                         <Bits from="8" to="1">
-                            <BitsShortName>turbulence</BitsShortName>
-                            <BitsName>turbulence</BitsName>
+						<BitsShortName>Turb</BitsShortName>
+						<BitsName>Turbulence</BitsName>
                         </Bits>
                     </Fixed>
             </Compound>
@@ -1087,7 +1087,7 @@
         <DataItemFormat desc="A two byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>roll_angle</BitsShortName>
+					<BitsShortName>RollA</BitsShortName>
                     <BitsName>Roll Angle</BitsName>
                     <BitsUnit scale="0.01" min="-180" max="180">deg</BitsUnit>
                 </Bits>

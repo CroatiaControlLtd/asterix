@@ -23,6 +23,7 @@
 #include "DataItem.h"
 #include "Tracer.h"
 #include "Utils.h"
+#include "asterixformat.hxx"
 
 DataItem::DataItem(DataItemDescription* pDesc)
 : m_pDescription(pDesc)
@@ -37,30 +38,51 @@ DataItem::~DataItem()
     delete[] m_pData;
 }
 
-bool DataItem::getDescription(std::string& strDescription)
+bool DataItem::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType)
 {
-  strDescription += format("\n\nItem %d : %s", m_pDescription->m_nID, m_pDescription->m_strName.c_str());
-  strDescription += format("\n[ ");
+  std::string newHeader;
+  std::string strNewResult;
+
+  switch(formatType)
+  {
+	  case CAsterixFormat::EJSON:
+		  strNewResult = format("\"I%s\":", m_pDescription->m_strID.c_str());
+		  break;
+	  case CAsterixFormat::EJSONH:
+		  strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
+		  break;
+	  case CAsterixFormat::ETxt:
+		  strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(), m_pDescription->m_strName.c_str());
+		  strNewResult += format("\n[ ");
   for (int i=0; i<m_nLength; i++)
   {
-    strDescription += format("%02X ", *(m_pData+i));
+			  strNewResult += format("%02X ", *(m_pData+i));
   }
-  strDescription += format("]");
-
-  m_pDescription->getDescription(strDescription, m_pData, m_nLength);
-  return true;
+		  strNewResult += format("]");
+		  break;
+	  case CAsterixFormat::EOut:
+			newHeader = format("%s.%s", strHeader.c_str(), m_pDescription->m_strID.c_str());
+		  break;
 }
 
-bool DataItem::getText(std::string& strDescription, std::string& strHeader)
+  if (false == m_pDescription->getText(strNewResult, newHeader, formatType, m_pData, m_nLength))
 {
-	std::string newHeader = format("%s.%d", strHeader.c_str(), m_pDescription->m_nID);
-	m_pDescription->getText(strDescription, newHeader, m_pData, m_nLength);
-	return true;
+	  return false;
 }
+  strResult += strNewResult;
 
-bool DataItem::getXIDEF(std::string& strXIDEF)
+  switch(formatType)
 {
-  m_pDescription->getXIDEF(strXIDEF, m_pData, m_nLength);
+  	  case CAsterixFormat::EJSON:
+  	  case CAsterixFormat::EJSONH:
+		  // replace last ',' with '}'
+		  if (strResult[strResult.length()-1] == ',')
+		  {
+			  strResult[strResult.length()-1] = '}';
+		  }
+  		  break;
+  }
+
   return true;
 }
 
@@ -88,21 +110,6 @@ long DataItem::parse(const unsigned char* pData, long len)
     Tracer::Error("DataItem::parse length=0");
   }
   return m_nLength;
-}
-
-bool DataItem::getValue(unsigned long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
-}
-
-bool DataItem::getValue(long& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
-}
-
-bool DataItem::getValue(std::string& value, long nLength, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  return m_pDescription->m_pFormat->getValue(m_pData, nLength, value, pstrBitsShortName, pstrBitsName);
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

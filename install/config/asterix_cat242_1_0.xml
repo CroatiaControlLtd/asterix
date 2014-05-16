@@ -7,12 +7,13 @@
 	
 	Author:   dmarkus
 	Created:  31.12.2010.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
 <Category id="242" name="Reply Report Data" ver="1.0">
 	
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
 		<DataItemFormat desc="Two-octets fixed length data item.">
@@ -29,7 +30,7 @@
 		</DataItemFormat>
 	</DataItem>
 
-    <DataItem id="20">
+	<DataItem id="020">
         <DataItemName>Reply Report Descriptor</DataItemName>
         <DataItemDefinition>Type and characteristics of reply report</DataItemDefinition>
         <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
@@ -42,7 +43,7 @@
 						<BitsValue val="5">Roll-Call reply report</BitsValue>
                     </Bits>
                     <Bits from="5" to="2">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spares bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
                     </Bits>                 
@@ -54,7 +55,7 @@
                 </Fixed>
                 <Fixed length="1">
                     <Bits from="8" to="6">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 						<BitsName>spares bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
                     </Bits>
@@ -69,7 +70,7 @@
                         <BitsValue val="1">Military identification</BitsValue>
                     </Bits>
                     <Bits from="3" to="1">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>                   
@@ -78,7 +79,7 @@
         </DataItemFormat>
     </DataItem>
     
-    <DataItem id="40">
+	<DataItem id="040">
         <DataItemName>Measured Position in Polar Coordinates</DataItemName>
         <DataItemDefinition>Measured position of an aircraft in local polar coordinates.</DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item.">
@@ -95,7 +96,7 @@
         </DataItemFormat>            
     </DataItem>
 
-   <DataItem id="50">
+	<DataItem id="050">
         <DataItemName>Mode-2 Code</DataItemName>
         <DataItemDefinition>Reply to Mode-2 interrogation</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -116,12 +117,12 @@
                     <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker</BitsValue>
                 </Bits>
                 <Bits bit="13">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-                    <BitsShortName>mode_2</BitsShortName>
+					<BitsShortName>Mode2</BitsShortName>
                     <BitsName>Mode-2 code</BitsName>
                 </Bits>
             </Fixed>
@@ -129,7 +130,7 @@
         <DataItemNote>Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track.</DataItemNote>
     </DataItem>	
 	
-   <DataItem id="55">
+	<DataItem id="055">
         <DataItemName>Mode-1 Code</DataItemName>
         <DataItemDefinition>Reply to Mode-1 interrogation</DataItemDefinition>
         <DataItemFormat desc="One octet fixed length Data Item.">
@@ -150,14 +151,14 @@
                     <BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
                 </Bits>
                 <Bits from="5" to="1">
-                    <BitsShortName>mode_1</BitsShortName>
+					<BitsShortName>Mode1</BitsShortName>
                     <BitsName>Mode-1 code</BitsName>                   
                 </Bits>               
             </Fixed>
         </DataItemFormat>
     </DataItem>	 
 
-    <DataItem id="70">
+	<DataItem id="070">
         <DataItemName>Mode-3/a Code</DataItemName>
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -178,12 +179,12 @@
                     <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker</BitsValue>
                 </Bits>
                 <Bits bit="13">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-                    <BitsShortName>mode_3A</BitsShortName>
+					<BitsShortName>Mode3A</BitsShortName>
                     <BitsName>Mode-3/A reply code</BitsName>
                 </Bits>
             </Fixed>
@@ -191,7 +192,7 @@
         <DataItemNote>The detector signals a garbled code when at least two replies are overlapping. Smoothed Mode-3/A data (bit-14 set to a one) are used in the case of the absence of Mode-3/A code information in the plot, or in the case of a difference between the plot and track Mode-3/A code information. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-3/A and are set to 0 for a calculated track.</DataItemNote>
     </DataItem>
                   
-    <DataItem id="90">
+	<DataItem id="090">
         <DataItemName>Mode-C Code</DataItemName>
         <DataItemDefinition>Mode-C height converted into binary representation</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -207,7 +208,7 @@
                     <BitsValue val="1">Garbled code</BitsValue>
                 </Bits>
                 <Bits from="14" to="1">
-                    <BitsShortName>mode_C</BitsShortName>
+					<BitsShortName>ModeC</BitsShortName>
                     <BitsName>Mode-C reply code</BitsName>
                     <BitsUnit scale="0.25">FL</BitsUnit>
                 </Bits>
@@ -224,7 +225,7 @@
             <Variable>
                 <Fixed length="1">
                   <Bits from="8" to="7">
-                        <BitsShortName>sb</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
                      <BitsName>spare bit set to 0</BitsName>
                      <BitsConst>0</BitsConst>
                   </Bits>
@@ -234,7 +235,7 @@
                       <BitsPresence>1</BitsPresence>
                     </Bits>
                   <Bits from="5" to="2">
-                     <BitsShortName>sb</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
                      <BitsName>spare bit set to 0</BitsName>
                      <BitsConst>0</BitsConst>
                   </Bits>
@@ -246,7 +247,7 @@
                 </Fixed>
                 <Fixed length="1">
                   <Bits from="8" to="7">
-                        <BitsShortName>sb</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
                      <BitsName>spare bit set to 0</BitsName>
                      <BitsConst>0</BitsConst>
                   </Bits>
@@ -256,7 +257,7 @@
                       <BitsPresence>1</BitsPresence>
                     </Bits>
                   <Bits from="5" to="1">
-                     <BitsShortName>sb</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
                      <BitsName>spare bit set to 0</BitsName>
                      <BitsConst>0</BitsConst>
                   </Bits>
@@ -278,6 +279,7 @@
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
+					<BitsShortName>ToT</BitsShortName>
 					<BitsName>Time Of Track Information</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -291,6 +293,7 @@
 		<DataItemFormat>
 			<Fixed length="3">
 				<Bits from="24" to="1">
+					<BitsShortName>ACAddr</BitsShortName>
 					<BitsName>AircraftAddress</BitsName>
 				</Bits>
 			</Fixed>
@@ -303,13 +306,15 @@
 		<DataItemFormat>
 			<Fixed length="2">
 				<Bits from="16" to="14">
+					<BitsShortName>COM</BitsShortName>
 					<BitsName>COM</BitsName>
 				</Bits>
 				<Bits from="13" to="11">
+					<BitsShortName>STAT</BitsShortName>
 					<BitsName>STAT</BitsName>
 				</Bits>
 				<Bits from="10" to="1">
-                        <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bit set to 0</BitsName>
 						<BitsConst>0</BitsConst>
                 </Bits>
@@ -323,6 +328,7 @@
 		<DataItemFormat desc="Six-octet fixed length Data Item.">
 			<Fixed length="6">
 				<Bits from="1" to="48" encode="6bitschar">
+					<BitsShortName>TId</BitsShortName>
 					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
 				</Bits>
 			</Fixed>
@@ -433,7 +439,7 @@
                             <BitsPresence>11</BitsPresence>
                         </Bits>  
 						<Bits from="5" to="2">
-							<BitsShortName>sb</BitsShortName>
+							<BitsShortName>spare</BitsShortName>
 							<BitsName>spare bit set to 0</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
@@ -489,7 +495,7 @@
 							<BitsName>ACRR</BitsName>
 						</Bits>
 						<Bits from="24" to="21">
-								<BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
 								<BitsName>spare bit set to 0</BitsName>
 								<BitsConst>0</BitsConst>
 						</Bits>
@@ -595,12 +601,12 @@
 	
 <!--Transmission of Reply Reports --> 
     <UAP>
-      <UAPItem bit="0" frn="1" len="2">10</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
       <UAPItem bit="1" frn="2" len="3">140</UAPItem>
-      <UAPItem bit="2" frn="3" len="1+">20</UAPItem>
-      <UAPItem bit="3" frn="4" len="4">40</UAPItem>
-      <UAPItem bit="4" frn="5" len="2">70</UAPItem>
-      <UAPItem bit="5" frn="6" len="2">90</UAPItem>
+		<UAPItem bit="2" frn="3" len="1+">020</UAPItem>
+		<UAPItem bit="3" frn="4" len="4">040</UAPItem>
+		<UAPItem bit="4" frn="5" len="2">070</UAPItem>
+		<UAPItem bit="5" frn="6" len="2">090</UAPItem>
       <UAPItem bit="6" frn="7" len="1+1+">130</UAPItem>
       <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
       <UAPItem bit="8" frn="8" len="3">220</UAPItem>
@@ -620,8 +626,8 @@
       <UAPItem bit="22" frn="21" len="2">230</UAPItem>
       <UAPItem bit="23" frn="FX" len="-">-</UAPItem>
       <UAPItem bit="24" frn="22" len="-">-</UAPItem>
-      <UAPItem bit="25" frn="23" len="1">55</UAPItem>
-      <UAPItem bit="26" frn="24" len="2">50</UAPItem>
+		<UAPItem bit="25" frn="23" len="1">055</UAPItem>
+		<UAPItem bit="26" frn="24" len="2">050</UAPItem>
       <UAPItem bit="27" frn="25" len="-">-</UAPItem>
       <UAPItem bit="28" frn="26" len="-">-</UAPItem>
 	   <UAPItem bit="29" frn="27" len="1+1+">SP</UAPItem>

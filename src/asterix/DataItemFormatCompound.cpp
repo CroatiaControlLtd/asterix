@@ -23,46 +23,39 @@
 
 #include "DataItemFormatCompound.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatCompound::DataItemFormatCompound()
-: m_pCompoundPrimary(NULL)
 {
 }
 
 DataItemFormatCompound::~DataItemFormatCompound()
 {
-  // destroy list items
-  std::list<DataItemFormat*>::iterator it = m_lParts.begin();
-  while(it != m_lParts.end())
-  {
-    delete (DataItemFormat*)(*it);
-    it = m_lParts.erase(it);
-  }
 }
 
 long DataItemFormatCompound::getLength(const unsigned char* pData)
 {
   long totalLength = 0;
-
-  if (m_pCompoundPrimary == NULL)
+  std::list<DataItemFormat*>::iterator it;
+  std::list<DataItemFormat*>::iterator it2;
+  it2 = m_lSubItems.begin();
+  DataItemFormatVariable* pCompoundPrimary = (DataItemFormatVariable*)(*it2);
+  it2++;
+  if (pCompoundPrimary == NULL)
   {
     Tracer::Error("Missing primary subfield of Compound");
     return 0;
   }
 
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
+  int primaryPartLength = pCompoundPrimary->getLength(pData);
   const unsigned char* pSecData = pData + primaryPartLength;
   totalLength += primaryPartLength;
 
   int secondaryPart = 1;
 
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
+  for ( it=pCompoundPrimary->m_lSubItems.begin() ; it != pCompoundPrimary->m_lSubItems.end(); it++ )
   {
-    if (it2 == m_lParts.end())
+    if (it2 == m_lSubItems.end())
     {
       Tracer::Error("Error in compound format");
       return 0;
@@ -71,7 +64,7 @@ long DataItemFormatCompound::getLength(const unsigned char* pData)
     DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
     bool lastPart = dip->isLastPart(pData);
 
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
+    for (int i=0;i<7 && it2 != m_lSubItems.end(); i++)
     { // parse up to 8 secondary parts
       if (dip->isSecondaryPartPresent(pData, secondaryPart))
       {
@@ -96,8 +89,8 @@ long DataItemFormatCompound::getLength(const unsigned char* pData)
 void DataItemFormatCompound::addBits(DataItemBits* pBits)
 {
   std::list<DataItemFormat*>::reverse_iterator rit;
-  rit = m_lParts.rbegin();
-  if (rit != m_lParts.rend())
+  rit = m_lSubItems.rbegin();
+  if (rit != m_lSubItems.rend())
   {
     DataItemFormat* dip = (DataItemFormat*)(*rit);
     if (dip)
@@ -106,182 +99,41 @@ void DataItemFormatCompound::addBits(DataItemBits* pBits)
       return;
     }
   }
-  else if (m_pCompoundPrimary != NULL)
-  {
-    m_pCompoundPrimary->addBits(pBits);
-    return;
-  }
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatCompound::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-  if (m_pCompoundPrimary == NULL)
-  {
-    Tracer::Error("Missing primary subfield of Compound");
-    return true;
-  }
-
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
-  unsigned char* pSecData = pData + primaryPartLength;
-
-  int secondaryPart = 1;
-
-  std::list<DataItemFormatFixed*>::iterator it;
+  bool ret = false;
+  std::list<DataItemFormat*>::iterator it;
   std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
-  {
-    if (it2 == m_lParts.end())
-    {
-      Tracer::Error("Error in compound format");
-      return true;
-    }
-
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    bool lastPart = dip->isLastPart(pData);
-
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
-    { // parse up to 8 secondary parts
-      if (dip->isSecondaryPartPresent(pData, secondaryPart))
-      {
-        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
-        dip2->getDescription(strDescription, pSecData, skip);
-        pSecData += skip;
-      }
-      it2++;
-      secondaryPart++;
-    }
-
-    pData += dip->getLength();
-
-    if (lastPart)
-      break;
-  }
-  return true;
-}
-
-bool DataItemFormatCompound::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
-  if (m_pCompoundPrimary == NULL)
-  {
-    Tracer::Error("Missing primary subfield of Compound");
-    return true;
-  }
-
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
-  unsigned char* pSecData = pData + primaryPartLength;
-
-  int secondaryPart = 1;
-
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
-  {
-    if (it2 == m_lParts.end())
-    {
-      Tracer::Error("Error in compound format");
-      return true;
-    }
-
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    bool lastPart = dip->isLastPart(pData);
-
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
-    { // parse up to 8 secondary parts
-      if (dip->isSecondaryPartPresent(pData, secondaryPart))
-      {
-        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
-        dip2->getText(strDescription, strHeader, pSecData, skip);
-        pSecData += skip;
-      }
-      it2++;
-      secondaryPart++;
-    }
-
-    pData += dip->getLength();
-
-    if (lastPart)
-      break;
-  }
-  return true;
-}
-
-bool DataItemFormatCompound::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
-{
-  if (m_pCompoundPrimary == NULL)
-  {
-    Tracer::Error("Missing primary subfield of Compound");
-    return true;
-  }
-
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
-  unsigned char* pSecData = pData + primaryPartLength;
-
-  int secondaryPart = 1;
-
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
-  {
-    if (it2 == m_lParts.end())
-    {
-      Tracer::Error("Error in compound format");
-      return true;
-    }
-
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    bool lastPart = dip->isLastPart(pData);
-
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
-    { // parse up to 8 secondary parts
-      if (dip->isSecondaryPartPresent(pData, secondaryPart))
-      {
-        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
-        dip2->getXIDEF(strXIDEF, pSecData, skip);
-        pSecData += skip;
-      }
-      it2++;
-      secondaryPart++;
-    }
-
-    pData += dip->getLength();
-
-    if (lastPart)
-      break;
-  }
-  return true;
-}
-
-
-bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  if (m_pCompoundPrimary == NULL)
+  it2 = m_lSubItems.begin();
+  DataItemFormatVariable* pCompoundPrimary = (DataItemFormatVariable*)(*it2);
+  it2++;
+  if (pCompoundPrimary == NULL)
   {
     Tracer::Error("Missing primary subfield of Compound");
     return false;
   }
 
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
+  switch(formatType)
+    {
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+      {
+		  strResult += '{';
+    }
+      break;
+  }
+
+  int primaryPartLength = pCompoundPrimary->getLength(pData);
   unsigned char* pSecData = pData + primaryPartLength;
 
   int secondaryPart = 1;
 
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
+  for ( it=pCompoundPrimary->m_lSubItems.begin() ; it != pCompoundPrimary->m_lSubItems.end(); it++ )
   {
-    if (it2 == m_lParts.end())
+    if (it2 == m_lSubItems.end())
     {
       Tracer::Error("Error in compound format");
       return false;
@@ -290,17 +142,50 @@ bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, unsign
     DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
     bool lastPart = dip->isLastPart(pData);
 
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
+    for (int i=0;i<7 && it2 != m_lSubItems.end(); i++)
     { // parse up to 8 secondary parts
       if (dip->isSecondaryPartPresent(pData, secondaryPart))
       {
         DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
+        int skip = 0;
+        std::string tmpStr = "";
 
-        if (dip2->getValue(pSecData, skip, value, pstrBitsShortName, pstrBitsName))
-          return true;
+		switch(formatType)
+{
+		  case CAsterixFormat::EJSONH:
+  {
+			  tmpStr += "\n\t\t";
+  }
+			  /* no break */
+		  case CAsterixFormat::EJSON:
+		  {
+			  tmpStr += "\"" + dip->getPartName(secondaryPart) + "\":";
 
-        pSecData += skip;
+		        skip = dip2->getLength(pSecData);
+		        bool r = dip2->getText(tmpStr, strHeader, formatType, pSecData, skip);
+		        ret |= r;
+		        pSecData += skip;
+
+		        if (r)
+  {
+		          strResult += tmpStr;
+				  // replace last ',' with '}'
+				  if (strResult[strResult.length()-1] == ',')
+    {
+					  strResult[strResult.length()-1] = '}';
+    }
+				  strResult += ",";
+      }
+    }
+      break;
+		  default:
+  {
+		        skip = dip2->getLength(pSecData);
+		        ret |= dip2->getText(strResult, strHeader, formatType, pSecData, skip);
+		        pSecData += skip;
+  }
+		        break;
+    }
       }
       it2++;
       secondaryPart++;
@@ -311,109 +196,59 @@ bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, unsign
     if (lastPart)
       break;
   }
-  return false;
+
+  switch(formatType)
+{
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+  {
+		  if (strResult[strResult.length()-1] == ',')
+    {
+			  strResult[strResult.length()-1] = '}';
+    }
+		  else
+			  strResult += '}';
+      }
+	  break;
+    }
+
+
+  return ret;
 }
 
-bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
+std::string DataItemFormatCompound::printDescriptors(std::string header)
 {
-  if (m_pCompoundPrimary == NULL)
+	std::string strDef = "";
+
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(), it++ ; it != m_lSubItems.end(); it++ )
   {
-    Tracer::Error("Missing primary subfield of Compound");
-    return false;
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		strDef += dip->printDescriptors(header);
+	}
+	return strDef;
   }
 
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
-  unsigned char* pSecData = pData + primaryPartLength;
-
-  int secondaryPart = 1;
-
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
+bool DataItemFormatCompound::filterOutItem(const char* name)
   {
-    if (it2 == m_lParts.end())
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(), it++ ; it != m_lSubItems.end(); it++ )
     {
-      Tracer::Error("Error in compound format");
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->filterOutItem(name))
+			return true;
+	}
       return false;
     }
 
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    bool lastPart = dip->isLastPart(pData);
-
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
-    { // parse up to 8 secondary parts
-      if (dip->isSecondaryPartPresent(pData, secondaryPart))
+bool DataItemFormatCompound::isFiltered(const char* name)
       {
-        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
-
-        if (dip2->getValue(pSecData, skip, value, pstrBitsShortName, pstrBitsName))
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(), it++ ; it != m_lSubItems.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->isFiltered(name))
           return true;
-
-        pSecData += skip;
-      }
-      it2++;
-      secondaryPart++;
-    }
-
-    pData += dip->getLength();
-
-    if (lastPart)
-      break;
-  }
-  return false;
-}
-
-bool DataItemFormatCompound::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  if (m_pCompoundPrimary == NULL)
-  {
-    Tracer::Error("Missing primary subfield of Compound");
-    return false;
-  }
-
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
-  unsigned char* pSecData = pData + primaryPartLength;
-
-  int secondaryPart = 1;
-
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
-  {
-    if (it2 == m_lParts.end())
-    {
-      Tracer::Error("Error in compound format");
-      return false;
-    }
-
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    bool lastPart = dip->isLastPart(pData);
-
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
-    { // parse up to 8 secondary parts
-      if (dip->isSecondaryPartPresent(pData, secondaryPart))
-      {
-        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-        int skip = dip2->getLength(pSecData);
-
-        if (dip2->getValue(pSecData, skip, value, pstrBitsShortName, pstrBitsName))
-          return true;
-
-        pSecData += skip;
-      }
-      it2++;
-      secondaryPart++;
-    }
-
-    pData += dip->getLength();
-
-    if (lastPart)
-      break;
   }
   return false;
 }
@@ -423,19 +258,21 @@ fulliautomatix_definitions* DataItemFormatCompound::getWiresharkDefinitions()
 {
   fulliautomatix_definitions *def = NULL, *startDef = NULL;
 
-  if (m_pCompoundPrimary == NULL)
+  std::list<DataItemFormat*>::iterator it;
+  it = m_lSubItems.begin();
+  DataItemFormatVariable* pCompoundPrimary = (DataItemFormatVariable*)(*it);
+  it++;
+  if (pCompoundPrimary == NULL)
   {
     Tracer::Error("Missing primary subfield of Compound");
     return NULL;
   }
 
-  startDef = def = m_pCompoundPrimary->getWiresharkDefinitions();
+  startDef = def = pCompoundPrimary->getWiresharkDefinitions();
   while(def->next)
     def = def->next;
 
-  std::list<DataItemFormat*>::iterator it;
-  it = m_lParts.begin();
-  for ( it=m_lParts.begin() ; it != m_lParts.end(); it++ )
+  for ( ; it != m_lSubItems.end(); it++ )
   {
     DataItemFormat* dip = (DataItemFormat*)(*it);
     def->next = dip->getWiresharkDefinitions();
@@ -449,13 +286,18 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long 
 {
   fulliautomatix_data *lastData = NULL, *firstData = NULL;
 
-  if (m_pCompoundPrimary == NULL)
+  std::list<DataItemFormat*>::iterator it;
+  std::list<DataItemFormat*>::iterator it2;
+  it2 = m_lSubItems.begin();
+  DataItemFormatVariable* pCompoundPrimary = (DataItemFormatVariable*)(*it2);
+  it2++;
+  if (pCompoundPrimary == NULL)
   {
     Tracer::Error("Missing primary subfield of Compound");
-    return NULL;
+	return false;
   }
 
-  int primaryPartLength = m_pCompoundPrimary->getLength(pData);
+  int primaryPartLength = pCompoundPrimary->getLength(pData);
   unsigned char* pSecData = pData + primaryPartLength;
 
   lastData = firstData = newDataTree(NULL, byteoffset, primaryPartLength, "Compound item header");
@@ -470,13 +312,9 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long 
 
   int secondaryPart = 1;
 
-  std::list<DataItemFormatFixed*>::iterator it;
-  std::list<DataItemFormat*>::iterator it2;
-  it2 = m_lParts.begin();
-
-  for ( it=m_pCompoundPrimary->m_lParts.begin() ; it != m_pCompoundPrimary->m_lParts.end(); it++ )
+  for ( it=pCompoundPrimary->m_lSubItems.begin() ; it != pCompoundPrimary->m_lSubItems.end(); it++ )
   {
-    if (it2 == m_lParts.end())
+    if (it2 == m_lSubItems.end())
     {
       Tracer::Error("Error in compound format");
       return firstData;
@@ -485,7 +323,7 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long 
     DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
     bool lastPart = dip->isLastPart(pData);
 
-    for (int i=0;i<7 && it2 != m_lParts.end(); i++)
+    for (int i=0;i<7 && it2 != m_lSubItems.end(); i++)
     { // parse up to 8 secondary parts
       if (dip->isSecondaryPartPresent(pData, secondaryPart))
       {

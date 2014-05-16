@@ -23,6 +23,8 @@
 #ifndef BASEFORMATDESCRIPTOR_HXX__
 #define BASEFORMATDESCRIPTOR_HXX__
  
+#include <string>
+
 /**
  * @class CBaseFormatDescriptor
  * 
@@ -48,6 +50,12 @@ public:
      * Pure virtual destructor.
      */
     virtual ~CBaseFormatDescriptor() {}
+
+    /**
+     * Print format description
+     */
+    virtual std::string printDescriptor() { return "Not available"; }
+    virtual bool filterOutItem(int cat, int item, const char* name) { return false; }
     
 };
 

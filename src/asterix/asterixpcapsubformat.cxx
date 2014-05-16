@@ -245,8 +245,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
       }
       else
       {
-        // merge Asterix packet
-        Descriptor.m_pAsterixData->m_lDataBlocks.merge(m_ptmpAsterixData->m_lDataBlocks);
+        Descriptor.m_pAsterixData->m_lDataBlocks.splice(Descriptor.m_pAsterixData->m_lDataBlocks.end(), m_ptmpAsterixData->m_lDataBlocks);
       }
 
       pPacketPtr += (byteCount-6);

@@ -95,6 +95,9 @@ public:
         const char* sFormatName, const char* sFormatDescriptor,
         const bool bFailover, const char* sHeartbeat);
 
+    CChannel*  GetInputChannel() { return _inputChannel; };
+
+
     unsigned int GetNOutputChannels() { return _nOutputChannels; }
     unsigned int GetActiveFailoverOutputChannel() { return _activeFailoverOutputChannel; };
     unsigned int GetNextFailoverOutputChannel();

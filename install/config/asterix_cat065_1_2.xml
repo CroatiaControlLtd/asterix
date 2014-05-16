@@ -7,6 +7,7 @@
 	
 	Author:   B.Bertrand
 	Created:  07.08.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
@@ -77,7 +78,7 @@
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>time_of_message</BitsShortName>
+					<BitsShortName>ToM</BitsShortName>
                     <BitsName>Time Of Message</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -116,7 +117,7 @@
                     <BitsValue val="3">SDPS-3 selected</BitsValue>
                 </Bits>
                 <Bits from="2" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>

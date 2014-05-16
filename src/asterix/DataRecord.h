@@ -45,14 +45,9 @@ public:
 
   int getCategory() { return (m_pCategory) ? m_pCategory->m_id : 0; }
 
-  bool getDescription(std::string& strDescription); // appends description to strDescription
-  bool getText(std::string& strDescription, std::string& strHeader);
-  bool getXIDEF(std::string& strXIDEF); // appends XIDEF descriptin to strXIDEF
+  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
 
-  DataItem* getItem(int itemid);
-  bool getValue(int itemid, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(int itemid, long& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
-  bool getValue(int itemid, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName = NULL);
+  DataItem* getItem(std::string itemid);
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);

@@ -7,18 +7,19 @@
 	
 	Author:   dmarkus
 	Created:  29.10.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
 <Category id="65" name="SDPS Service Status Messages" ver="1.3">
 
-	<DataItem id="0">
+	<DataItem id="000">
 		<DataItemName>Message Type</DataItemName>
 		<DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
 		<DataItemFormat desc="One-octet fixed length Data Item.">
 			<Fixed length="1">
 				<Bits from="8" to="1">
-					<BitsShortName>MessageType</BitsShortName>
+					<BitsShortName>Typ</BitsShortName>
 					<BitsName>Message Type</BitsName>
                     				<BitsValue val="1">SDPS Status</BitsValue>
                     				<BitsValue val="2">End of Batch</BitsValue>
@@ -28,7 +29,7 @@
 		</DataItemFormat>
 	</DataItem>
 	
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
 		<DataItemDefinition>Identification of the SDPS sending the data.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -45,13 +46,13 @@
 		</DataItemFormat>
 	</DataItem>
     
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
         	<DataItemFormat desc="One-Octet fixed length data item.">
 		            <Fixed length="1">
 		                <Bits from="8" to="1">
-		                    <BitsShortName>ServiceIdentification</BitsShortName>
+					<BitsShortName>SID</BitsShortName>
 		                    <BitsName>Service Identification</BitsName>
 		                </Bits> 
 		            </Fixed>
@@ -59,7 +60,7 @@
         	<DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
     	</DataItem>
  
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Batch Number</DataItemName>
 		<DataItemDefinition>A number indicating the completion of a service for that batch of track data, from 0 to N-1, N being the number of batches used to make one complete processing cycle.</DataItemDefinition>
 		<DataItemFormat desc="One-Octet fixed length data item.">
@@ -72,7 +73,7 @@
 		</DataItemFormat>
 	</DataItem>		  
   
-	<DataItem id="30">
+	<DataItem id="030">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
@@ -87,7 +88,7 @@
 		<DataItemNote>The time of the day value is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>SDPS Configuration and Status</DataItemName>
 		<DataItemDefinition>Status of an SDPS.</DataItemDefinition>
 		<DataItemFormat desc="One-Octet fixed length data item.">
@@ -121,7 +122,7 @@
                     			<BitsValue val="3">SDPS-3 selected</BitsValue>
 				</Bits>
                 <Bits from="2" to="1">
-                    			<BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     			<BitsName>Spare bits se to 0</BitsName>
                     			<BitsConst>0</BitsConst>
 				</Bits>
@@ -129,7 +130,7 @@
 		</DataItemFormat>
 	</DataItem>	
 	
-    <DataItem id="50">
+	<DataItem id="050">
         <DataItemName>Service Status Report</DataItemName>
         <DataItemDefinition>Report sent by the SDPS related to a service</DataItemDefinition>
         <DataItemFormat desc="One-byte fixed 1ength data item.">
@@ -160,13 +161,13 @@
 
 
     <UAP>
-        <UAPItem bit="0" frn="1" len="2">10</UAPItem>
-        <UAPItem bit="1" frn="2" len="1">0</UAPItem>
-        <UAPItem bit="2" frn="3" len="1">15</UAPItem>
-        <UAPItem bit="3" frn="4" len="3">30</UAPItem>
-        <UAPItem bit="4" frn="5" len="1">20</UAPItem>
-        <UAPItem bit="5" frn="6" len="1">40</UAPItem>
-        <UAPItem bit="6" frn="7" len="1">50</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="1">000</UAPItem>
+		<UAPItem bit="2" frn="3" len="1">015</UAPItem>
+		<UAPItem bit="3" frn="4" len="3">030</UAPItem>
+		<UAPItem bit="4" frn="5" len="1">020</UAPItem>
+		<UAPItem bit="5" frn="6" len="1">040</UAPItem>
+		<UAPItem bit="6" frn="7" len="1">050</UAPItem>
         <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
         <UAPItem bit="8" frn="8" len="-">-</UAPItem>
         <UAPItem bit="9" frn="9" len="-">-</UAPItem>

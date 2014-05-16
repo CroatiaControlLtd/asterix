@@ -42,7 +42,7 @@ public:
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
 #endif
-  unsigned long getDataItemIDByUAPfrn(int uapfrn);
+  std::string getDataItemIDByUAPfrn(int uapfrn);
 };
 
 #endif /* UAP_H_ */

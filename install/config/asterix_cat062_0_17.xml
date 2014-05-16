@@ -7,12 +7,13 @@
 	
 	Author:   dsalantic
 	Created:  24.12.2008.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
 <Category id="62" name="System Track Data" ver="0.17">
 	
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>	
 		<DataItemDefinition>Identification of the SDPS sending the data</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item">
@@ -20,19 +21,17 @@
 				<Bits from="16" to="9">
 					<BitsShortName>SAC</BitsShortName>
 					<BitsName>System Area Code</BitsName>
-                    <XIDEF>SAC</XIDEF>
 				</Bits>
 				<Bits from="8" to="1">
 					<BitsShortName>SIC</BitsShortName>
 					<BitsName>System Identification Code</BitsName>
-                    <XIDEF>SIC</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>The defined SACs are listed in Part 1, Table 2 [Ref. 2]</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>Service Identification</DataItemName>
 		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
 		<DataItemFormat desc="One-Octet fixed length data item.">
@@ -40,14 +39,13 @@
 				<Bits from="8" to="1">
 					<BitsShortName>SID</BitsShortName>
 					<BitsName>Service Identification</BitsName>
-                    <XIDEF>SID</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="40">
+	<DataItem id="040">
 		<DataItemName>Track Number</DataItemName>
 		<DataItemDefinition>Identification of a SDPS track</DataItemDefinition>
 		<DataItemFormat desc="Two-Octet fixed length data item">
@@ -58,16 +56,15 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="15" to="1">
-					<BitsShortName>track_number</BitsShortName>
+					<BitsShortName>TrackN</BitsShortName>
 					<BitsName>Track number</BitsName>
-                    <XIDEF>TrackNumber</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>The track number remains unchanged as long as the track is provided by the same SDPS.</DataItemNote>
 	</DataItem>
 	
-	<DataItem id="60">
+	<DataItem id="060">
 		<DataItemName>Track Mode 3/A Code</DataItemName>
 		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
 		<DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -78,15 +75,14 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="12" to="1" encode="octal">
-					<BitsShortName>mode_3_a</BitsShortName>
+					<BitsShortName>Mod3A</BitsShortName>
 					<BitsName>Mode-3/A reply in octal representation</BitsName>
-                    <XIDEF>Mode3A</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 	</DataItem>	
 				
-	<DataItem id="70">
+	<DataItem id="070">
 		<DataItemName>Time Of Track</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
 		<DataItemFormat desc="Three-Octet fixed length data item.">
@@ -95,14 +91,13 @@
 					<BitsShortName>time_of_track</BitsShortName>
 					<BitsName>Time Of Track</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
-                    <XIDEF>TimeOfTrack</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
 	</DataItem>		
 				
-	<DataItem id="80">
+	<DataItem id="080">
 		<DataItemName>Track Status</DataItemName>
 		<DataItemDefinition>Status of a SDPS track</DataItemDefinition>
 		<DataItemFormat desc="Variable length data item comprising a first part of one Octet, followed by 1-Octet extents as necessary.">
@@ -269,13 +264,11 @@
 					<BitsShortName>X</BitsShortName>
 					<BitsName>X-Component</BitsName>
 					<BitsUnit scale="0.015625">NM</BitsUnit>
-                    <XIDEF>CartesianX</XIDEF>
 				</Bits>
 				<Bits from="1" to="16">
 					<BitsShortName>Y</BitsShortName>
 					<BitsName>Y-Component</BitsName>
 					<BitsUnit scale="0.015625">NM</BitsUnit>
-                    <XIDEF>CartesianY</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -287,16 +280,14 @@
 		<DataItemFormat desc="Six-octet fixed length Data Item">
 			<Fixed length="6">
 				<Bits from="25" to="48" encode="signed">
-					<BitsShortName>Latitude</BitsShortName>
+					<BitsShortName>Lat</BitsShortName>
 					<BitsName>Latitude</BitsName>
 					<BitsUnit min="-90" max="90" scale="0.000021457672119140625">deg</BitsUnit>
-                    <XIDEF>Latitude</XIDEF>
 				</Bits>
 				<Bits from="1" to="24" encode="signed">
-					<BitsShortName>Longitude</BitsShortName>
+					<BitsShortName>Lon</BitsShortName>
 					<BitsName>Longitude</BitsName>
 					<BitsUnit min="-180" max="180" scale="0.000021457672119140625">deg</BitsUnit>
-                    <XIDEF>Longitude</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -314,9 +305,8 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="1" to="5">
-					<BitsShortName>mode_1</BitsShortName>
+					<BitsShortName>Mode1</BitsShortName>
 					<BitsName>Mode 1 reply</BitsName>
-                    <XIDEF>Mode1</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -333,9 +323,8 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits from="1" to="12">
-					<BitsShortName>mode_2</BitsShortName>
+					<BitsShortName>Mode2</BitsShortName>
 					<BitsName>Mode-2 code in octal representation</BitsName>
-                    <XIDEF>Mode2</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -347,10 +336,9 @@
 		<DataItemFormat desc="Two-Octet fixed length data item">
 			<Fixed length="2">
 				<Bits from="1" to="16">
-					<BitsShortName>Altitude</BitsShortName>
-					<BitsName>Calculated Track Altitude.</BitsName>
+					<BitsShortName>Alt</BitsShortName>
+					<BitsName>Calculated Track Altitude</BitsName>
 					<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
-                    <XIDEF>Altitude</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -368,10 +356,9 @@
 					<BitsValue val="1">QNH correction applied</BitsValue>
 				</Bits>
 				<Bits from="1" to="15">
-					<BitsShortName>Altitude</BitsShortName>
+					<BitsShortName>Alt</BitsShortName>
 					<BitsName>Calculated Track Barometric Altitude</BitsName>
 					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
-                    <XIDEF>Altitude</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -386,7 +373,6 @@
 					<BitsShortName>FL</BitsShortName>
 					<BitsName>Measured Flight Level</BitsName>
 					<BitsUnit scale=".25" min="-12" max="1270">FL</BitsUnit>
-                    <XIDEF>MFL</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -402,13 +388,11 @@
 					<BitsShortName>Speed</BitsShortName>
 					<BitsName>Speed</BitsName>
 					<BitsUnit scale=".22" max="7200">kt</BitsUnit>
-                    <XIDEF>SpeedKt</XIDEF>
 				</Bits>
 				<Bits from="1" to="16">
-					<BitsShortName>Heading</BitsShortName>
+					<BitsShortName>Hdg</BitsShortName>
 					<BitsName>Heading</BitsName>
 					<BitsUnit scale="0.0055">deg</BitsUnit>
-                    <XIDEF>HDG</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -461,7 +445,6 @@
 					<BitsShortName>CLA</BitsShortName>
 					<BitsName>Calculated Longitudinal Acceleration</BitsName>
 					<BitsUnit scale="0.00044155" max="14.4683">m/s2</BitsUnit>
-                    <XIDEF>CLA</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -476,7 +459,6 @@
 					<BitsShortName>ROC</BitsShortName>
 					<BitsName>Rate of Climb/Descent</BitsName>
 					<BitsUnit scale="6.25">ft/min</BitsUnit>
-                    <XIDEF>ROC</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -490,9 +472,8 @@
 			<Fixed length="1">
 				<Bits from="1" to="8">
 					<BitsShortName>ROT</BitsShortName>
-					<BitsName>Rate of Turn</BitsName>
+					<BitsName>RoT</BitsName>
 					<BitsUnit scale="0.25" max="32">deg/sec</BitsUnit>
-                    <XIDEF>ROT</XIDEF>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -727,7 +708,7 @@
 						<BitsValue val="1">Garbled code</BitsValue>
 					</Bits>
 					<Bits from="1" to="14">
-						<BitsShortName>mode_C</BitsShortName>
+						<BitsShortName>ModeC</BitsShortName>
 						<BitsName>Last Measured Mode C Code</BitsName>
 						<BitsUnit scale="0.25" min="-12" max="1270">FL</BitsUnit>
 					</Bits>
@@ -754,7 +735,7 @@
 						<BitsConst>0</BitsConst>
 					</Bits>
 					<Bits from="1" to="12" encode="octal"> 
-						<BitsShortName>mode_3a</BitsShortName>
+						<BitsShortName>Mode3A</BitsShortName>
 						<BitsName>Mode 3/A reply under the form of 4 digits in octal representation</BitsName>
 					</Bits>
 				</Fixed>
@@ -1041,9 +1022,8 @@
 				</Fixed>				
 				<Fixed length="7">
 					<Bits from="1" to="56" encode="ascii">
-						<BitsShortName>Callsign</BitsShortName>
+						<BitsShortName>CS</BitsShortName>
 						<BitsName>Callsign</BitsName>
-                        <XIDEF>Callsign</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
@@ -1065,20 +1045,18 @@
 				</Fixed>				
 				<Fixed length="1">
 					<Bits from="7" to="8">
-						<BitsShortName>GAT/OAT</BitsShortName>
+						<BitsShortName>GATOAT</BitsShortName>
 						<BitsValue val="0">Unknown</BitsValue>
 						<BitsValue val="1">General Air Traffic</BitsValue>
 						<BitsValue val="2">Operational Air Traffic</BitsValue>
 						<BitsValue val="3">Not applicable</BitsValue>
-                        <XIDEF>GATOAT</XIDEF>
 					</Bits>
 					<Bits from="5" to="6">
-						<BitsShortName>FR1/FR2</BitsShortName>
+						<BitsShortName>FR1FR2</BitsShortName>
 						<BitsValue val="0">Instrument Flight Rules</BitsValue>
 						<BitsValue val="1">Visual Flight rules</BitsValue>
 						<BitsValue val="2">Not applicable</BitsValue>
 						<BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
-                        <XIDEF>FRule</XIDEF>
 					</Bits>
 					<Bits from="3" to="4">
 						<BitsShortName>RVSM</BitsShortName>
@@ -1102,28 +1080,24 @@
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>TYPE</BitsShortName>
 						<BitsName>Type of Aircraft</BitsName>
-                        <XIDEF>Type</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="1">
 					<Bits from="1" to="8" encode="ascii">
 						<BitsShortName>WTC</BitsShortName>
 						<BitsName>Wake Turbulence Category</BitsName>
-                        <XIDEF>QTC</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>DEP</BitsShortName>
 						<BitsName>Departure Airport</BitsName>
-                        <XIDEF>ADEP</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="4">
 					<Bits from="1" to="32" encode="ascii">
 						<BitsShortName>DES</BitsShortName>
 						<BitsName>Destination Airport</BitsName>
-                        <XIDEF>ADES</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="3">
@@ -1145,7 +1119,6 @@
 						<BitsShortName>CFL</BitsShortName>
 						<BitsName>Current Cleared Flight Level</BitsName>
 						<BitsUnit scale=".25">FL</BitsUnit>
-                        <XIDEF>CFL</XIDEF>
 					</Bits>
 				</Fixed>				
 				<Fixed length="2">
@@ -1176,7 +1149,6 @@
 							<BitsValue val="11">Actual time off runway</BitsValue>
 							<BitsValue val="12">Predicted time to gate</BitsValue>
 							<BitsValue val="13">Actual on-block time</BitsValue>
-                            <XIDEF>TimeType</XIDEF>
 						</Bits>
 						<Bits from="26" to="27">
 							<BitsShortName>DAY</BitsShortName>
@@ -1184,7 +1156,6 @@
 							<BitsValue val="1">Yesterday</BitsValue>
 							<BitsValue val="2">Tomorrow</BitsValue>
 							<BitsValue val="3">Not defined</BitsValue>
-                            <XIDEF>TimeDay</XIDEF>
 						</Bits>
 						<Bits from="22" to="25">
 							<BitsShortName>spare</BitsShortName>
@@ -1194,7 +1165,6 @@
 						<Bits from="17" to="21">
 							<BitsShortName>HOR</BitsShortName>
 							<BitsName>Hours, from 0 to 23</BitsName>
-                            <XIDEF>TimeHour</XIDEF>
 						</Bits>
 						<Bits from="15" to="16">
 							<BitsShortName>spare</BitsShortName>
@@ -1204,7 +1174,6 @@
 						<Bits from="9" to="14">
 							<BitsShortName>MIN</BitsShortName>
 							<BitsName>Minutes, from 0 to 59</BitsName>
-                            <XIDEF>TimeMin</XIDEF>
 						</Bits>
 						<Bits bit="8">
 							<BitsShortName>AVS</BitsShortName>
@@ -1219,13 +1188,12 @@
 						<Bits from="1" to="6">
 							<BitsShortName>SEC</BitsShortName>
 							<BitsName>Seconds, from 0 to 59</BitsName>
-                            <XIDEF>TimeSec</XIDEF>
 						</Bits>
 					</Fixed>
 				</Repetitive>
 				<Fixed length="6">
 					<Bits from="1" to="48" encode="ascii">
-						<BitsShortName>Aircraft_stand</BitsShortName>
+						<BitsShortName>AS</BitsShortName>
 						<BitsName>Aircraft Stand</BitsName>
 					</Bits>
 				</Fixed>	
@@ -1437,13 +1405,13 @@
 	</DataItem>
 			
 	<UAP>
-		<UAPItem bit="0" frn="1" len="2">10</UAPItem>
-		<UAPItem bit="1" frn="2" len="1">15</UAPItem>
-		<UAPItem bit="2" frn="3" len="3">70</UAPItem>
-		<UAPItem bit="3" frn="4" len="2">40</UAPItem>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="1">015</UAPItem>
+		<UAPItem bit="2" frn="3" len="3">070</UAPItem>
+		<UAPItem bit="3" frn="4" len="2">040</UAPItem>
 		<UAPItem bit="4" frn="5" len="6">105</UAPItem>
 		<UAPItem bit="5" frn="6" len="4">100</UAPItem>
-		<UAPItem bit="6" frn="7" len="2">60</UAPItem>
+		<UAPItem bit="6" frn="7" len="2">060</UAPItem>
 		<UAPItem bit="7" frn="FX" len="-">-</UAPItem>
 		<UAPItem bit="8" frn="8" len="2">130</UAPItem>
 		<UAPItem bit="9" frn="9" len="2">135</UAPItem>
@@ -1454,11 +1422,11 @@
 		<UAPItem bit="14" frn="14" len="1">240</UAPItem>
 		<UAPItem bit="15" frn="FX" len="-">-</UAPItem>
 		<UAPItem bit="16" frn="15" len="2">210</UAPItem>
-		<UAPItem bit="17" frn="16" len="1+">80</UAPItem>
+		<UAPItem bit="17" frn="16" len="1+">080</UAPItem>
 		<UAPItem bit="18" frn="17" len="1+1+">290</UAPItem>
 		<UAPItem bit="19" frn="18" len="1+1+">340</UAPItem>
 		<UAPItem bit="20" frn="19" len="1+1+">380</UAPItem>
-		<UAPItem bit="21" frn="20" len="1+1">50</UAPItem>
+		<UAPItem bit="21" frn="20" len="1+1">050</UAPItem>
 		<UAPItem bit="22" frn="21" len="1+1">390</UAPItem>
 		<UAPItem bit="23" frn="FX" len="-">-</UAPItem>
 		<UAPItem bit="24" frn="22" len="1">110</UAPItem>

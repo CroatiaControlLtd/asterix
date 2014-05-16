@@ -39,6 +39,7 @@ bool gVerbose = false;
 bool gForceRouting = false;
 int gHeartbeat = 0;
 const char* gAsterixDefinitionsFile = NULL;
+bool gFiltering = false;
 
 static void DisplayCopyright()
 {
@@ -55,19 +56,29 @@ static void show_usage(std::string name)
 
 	std::cerr << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
 			  << "Usage:\n"
-			  <<  name << " [-h] [-v] [-P|-O|-R|-F|-H] [-l|-x] [-d filename] -f filename|-i mcastaddress:ipaddress:port"
+			  <<  name << " [-h] [-v] [-L] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]"
 			  << "\n\nOptions:"
 			  << "\n\t-h,--help\tShow this help message"
 			  << "\n\t-v,--verbose\tShow more information during program execution"
+			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini"
+			  << "\n\t-L,--list\tList all configured ASTERIX items. Mark which items are filtered."
+			  << "\n\t-LF,--filter\tPrintout only items listed in configured file"
+			  << "\n\nInput format"
+			  << "\n------------"
 			  << "\n\t-P,--pcap\tInput is from PCAP file"
+			  << "\n\t-R,--oradispcap\tInput is from PCAP file and Asterix packet is encapsulated in ORADIS packet"
 			  << "\n\t-O,--oradis\tAsterix packet is encapsulated in ORADIS packet"
-			  << "\n\t-R,--oradispcap\tInput is from PCAP file and\n\t\t\tAsterix packet is encapsulated in ORADIS packet"
 			  << "\n\t-F,--final\tAsterix packet is encapsulated in FINAL packet."
 			  << "\n\t-H,--hdlc\tAsterix packet is encapsulated in HDLC packet."
+			  << "\n\nOutput format"
+			  << "\n------------"
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
-			  << "\n\t-x,--xml\tOutput will be printed in XML format.\n\t\t\tFields that are printed are defined in input\n\t\t\tdefinition file as XIDEF."
-			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in\n\t\t\tspecified filename.\n\t\t\tBy default are listed in config/asterix.ini"
-			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark)\n\t\t\tor file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
+			  << "\n\t-x,--xml\tOutput will be printed in XML format."
+			  << "\n\t-j,--json\tOutput will be printed in compact JSON format (one object per line)."
+			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (one item per line)."
+			  << "\n\nData source"
+			  << "\n------------"
+			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
 			  << "\n\t-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address].\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112:10.17.22.23"
 			  << std::endl;
 }
@@ -83,8 +94,11 @@ int main(int argc, const char *argv[])
 	std::string strDefinitions = "config/asterix.ini";
 	std::string strFileInput;
 	std::string strIPInput;
+	std::string strFilterFile;
 	std::string strInputFormat = "ASTERIX_RAW";
 	std::string strOutputFormat = "ASTERIX_TXT";
+
+	bool bListDefinitions = false;
 
 	for (int i = 1; i < argc; ++i)
 	{
@@ -98,36 +112,108 @@ int main(int argc, const char *argv[])
 		{
 			gVerbose = true;
 		}
+		else if ((arg == "-L") || (arg == "--list"))
+		{
+			bListDefinitions = true;
+		}
+		else if ((arg == "-LF") || (arg == "--filter"))
+		{
+			if (i >= argc-1)
+			{
+				std::cerr << "Error: " + arg + " option requires one argument." << std::endl;
+				return 1;
+			}
+			strFilterFile = argv[++i];
+			gFiltering = true;
+		}
 		else if ((arg == "-P") || (arg == "--pcap"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -P not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_PCAP";
 		}
 		else if ((arg == "-O") || (arg == "--oradis"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -O not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_ORADIS_RAW";
 		}
 		else if ((arg == "-R") || (arg == "--oradispcap"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -R not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_ORADIS_PCAP";
 		}
 		else if ((arg == "-F") || (arg == "--final"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -F not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_FINAL";
 		}
 		else if ((arg == "-H") || (arg == "--hdlc"))
 		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -H not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
 			strInputFormat = "ASTERIX_HDLC";
 		}
 		else if ((arg == "-l") || (arg == "--line"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -l not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_OUT";
 		}
 		else if ((arg == "-x") || (arg == "--xml"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -x not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_XIDEF";
+		}
+		else if ((arg == "-j") || (arg == "--json"))
+		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -j not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
+			strOutputFormat = "ASTERIX_JSON";
+		}
+		else if ((arg == "-jh") || (arg == "--jsonh"))
+		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -jh not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
+			strOutputFormat = "ASTERIX_JSONH";
 		}
 		else if ((arg == "-k") || (arg == "--kml"))
 		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -k not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
 			strOutputFormat = "ASTERIX_KML";
 		}
 		else if ((arg == "-d") || (arg == "--definitions"))
@@ -184,7 +270,22 @@ int main(int argc, const char *argv[])
 	}
 	else if (!strIPInput.empty())
 	{
+		// count ':'
+		int cntr=0;
+		int indx=0;
+		while((indx=strIPInput.find(':', indx+1)) >= 0)
+		{
+			cntr++;
+		}
+
+		if (cntr == 2)
+			strInput = "udp " + strIPInput + "::S ";
+		else if (cntr == 3)
 		strInput = "udp " + strIPInput + ":S ";
+		else {
+			std::cerr << "Error: Wrong input address format  (shall be: mcastaddress:ipaddress:port[:srcaddress]" << std::endl;
+			exit (3);
+		}
 	}
 
 	strInput += strInputFormat;
@@ -214,7 +315,61 @@ int main(int argc, const char *argv[])
     // Finally execute converter engine
     if (CConverterEngine::Instance()->Initialize(inputChannel, outputChannel, nOutput, chFailover))
     {
+    	if (strFilterFile.empty() == false)
+    	{ // read filter file and configure items
+			CBaseFormatDescriptor* desc = CChannelFactory::Instance()->GetInputChannel()->GetFormatDescriptor();
+			if (desc == NULL)
+			{
+    			std::cerr << "Error: Format description not found." << std::endl;
+    			exit (2);
+			}
+
+    		FILE *ff = fopen(strFilterFile.c_str(), "r");
+    		if (ff == NULL)
+    		{
+    			std::cerr << "Error: Filter file " +strFilterFile+ " not found." << std::endl;
+    			exit (2);
+    		}
+    		char line[1024];
+    		while( fgets(line,1024,ff) )
+    		{
+
+				int cat = 0;
+				int item = 0;
+				char name[1024];
+
+				// skip commented lines
+				if (line[0] == '#')
+					continue;
+
+				if (sscanf(line, "CAT%03d:I%d:%s", &cat, &item, name) != 3)
+				{
+					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line)  << std::endl;
+					exit(3);
+				}
+
+				if (!desc->filterOutItem(cat, item, name))
+				{
+					std::cerr << "Warning: Filtering item not found: "+std::string(line)  << std::endl;
+				}
+    		}
+    		fclose(ff);
+    	}
+
+    	if (bListDefinitions)
+    	{ // Parse definitions file and print all items
+			CBaseFormatDescriptor* desc = CChannelFactory::Instance()->GetInputChannel()->GetFormatDescriptor();
+			if (desc == NULL)
+			{
+    			std::cerr << "Error: Format description not found." << std::endl;
+    			exit (2);
+			}
+			std::cout << desc->printDescriptor();
+    	}
+    	else
+    	{
         CConverterEngine::Instance()->Start();
+    	}
     }
     else
     {

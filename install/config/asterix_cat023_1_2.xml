@@ -7,7 +7,8 @@
 
     Author:   unknown
     Created:  2013-01-28
-    Version:  1.0
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	
 
 -->
 
@@ -79,7 +80,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>time_of_day</BitsShortName>
+					<BitsShortName>ToD</BitsShortName>
                     <BitsName>Time Of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>

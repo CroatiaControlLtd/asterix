@@ -23,8 +23,8 @@
 
 #include "DataItemDescription.h"
 
-DataItemDescription::DataItemDescription(int id)
-: m_nID(id)
+DataItemDescription::DataItemDescription(std::string id)
+: m_strID(id)
 , m_pFormat(NULL)
 , m_eRule(DATAITEM_UNKNOWN)
 {

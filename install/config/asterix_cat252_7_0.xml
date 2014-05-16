@@ -7,12 +7,13 @@
 	
 	Author:   dmarkus
 	Created:  30.10.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 --> 
 
 <Category id="252" name="Connection and Service Messages" ver="7.0">
 
-	<DataItem id="10">
+	<DataItem id="010">
 		<DataItemName>Server Identification Tag</DataItemName>
 		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -29,13 +30,13 @@
 		</DataItemFormat>
 	</DataItem>
     
-	<DataItem id="15">
+	<DataItem id="015">
 		<DataItemName>User Number</DataItemName>
 		<DataItemDefinition>Identification of the User of track/sensor information</DataItemDefinition>
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="1" to="16">
-                    <BitsShortName>user_number</BitsShortName>
+					<BitsShortName>UserN</BitsShortName>
                     <BitsName>User number</BitsName>
                 </Bits> 
             </Fixed>
@@ -43,13 +44,13 @@
         <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
     </DataItem>
     
-	<DataItem id="20">
+	<DataItem id="020">
 		<DataItemName>Time Of Message</DataItemName>
 		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
 		<DataItemFormat desc="Three-byte fixed length data item.">
 			<Fixed length="3">
 				<Bits from="24" to="1" encode="unsigned">
-					<BitsShortName>time_of_messagee</BitsShortName>
+					<BitsShortName>ToM</BitsShortName>
 					<BitsName>Time Of Message</BitsName>
 					<BitsUnit scale="0.0078125">s</BitsUnit>
 				</Bits>
@@ -58,7 +59,7 @@
 		<DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
 	</DataItem>		
 
-	<DataItem id="35">
+	<DataItem id="035">
 		<DataItemName>Type Of Message</DataItemName>
 		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-byte fixed length data item.">
@@ -94,7 +95,7 @@
         <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY</DataItemNote>
     </DataItem>
         
-    <DataItem id="40">
+	<DataItem id="040">
         <DataItemName>Access Key</DataItemName>
         <DataItemDefinition>User password to be sent in the Connection Request.</DataItemDefinition>
         <DataItemFormat desc="Eight-byte fixed length data item.">
@@ -107,7 +108,7 @@
         </DataItemFormat>
     </DataItem>        
 
-    <DataItem id="45">
+	<DataItem id="045">
         <DataItemName>Role and Version</DataItemName>
         <DataItemDefinition>Identification of the ROLE of a system and of the VERSION of interface.</DataItemDefinition>
         <DataItemFormat desc="One-byte fixed length data item.">
@@ -127,7 +128,7 @@
         </DataItemFormat>
     </DataItem>
     
-    <DataItem id="50">
+	<DataItem id="050">
         <DataItemName>Default connection options</DataItemName>
         <DataItemDefinition>This item is used to indicate that the default values of parameters required to set a connection are selected.</DataItemDefinition>
         <DataItemFormat desc="1-byte fixed length data item.">
@@ -154,7 +155,7 @@
                     <BitsValue val="1">A preferred FPPS is specified in the connection request.</BitsValue>
                 </Bits>
                 <Bits from="3" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -162,7 +163,7 @@
         </DataItemFormat>        
     </DataItem>
     
-   <DataItem id="60">
+	<DataItem id="060">
        <DataItemName>Geographical Area</DataItemName>
        <DataItemDefinition>Definition of geographical area in the form of a sequence of geographical points.</DataItemDefinition>
        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of points, followed by series of 6-bytes (geographical points) as necessary.">
@@ -180,7 +181,7 @@
                        <BitsUnit min="0" max="90">deg</BitsUnit>
                    </Bits>
                    <Bits from="40" to="39">
-                       <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                        <BitsName>spare bits set to 0</BitsName>
                        <BitsConst>0</BitsConst>
                    </Bits>
@@ -190,7 +191,7 @@
                        <BitsUnit min="0" max="59">min</BitsUnit>
                    </Bits>
                    <Bits from="32" to="31">
-                       <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                        <BitsName>spare bits set to 0</BitsName>
                        <BitsConst>0</BitsConst>
                    </Bits>
@@ -211,7 +212,7 @@
                        <BitsValue val="1">West Longitude</BitsValue>
                    </Bits>
                    <Bits bit="15">
-                       <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                        <BitsName>spare bit set to 0</BitsName>
                        <BitsConst>0</BitsConst>
                    </Bits>
@@ -221,7 +222,7 @@
                        <BitsUnit min="0" max="59">min</BitsUnit>
                    </Bits>
                    <Bits from="8" to="7">
-                       <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                        <BitsName>spare bits set to 0</BitsName>
                        <BitsConst>0</BitsConst>
                    </Bits>
@@ -236,45 +237,45 @@
        <DataItemNote>Latitude and Longitude accuracy = 1 second @ 30 m.</DataItemNote>
    </DataItem>    
     
-    <DataItem id="70">
+	<DataItem id="070">
         <DataItemName>Lower Limit</DataItemName>
         <DataItemDefinition>Definition of the Lower limit of a Domain of Interest</DataItemDefinition>
         <DataItemFormat desc="Two-bytes fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="15">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="14" to="1" encode="signed">
                     <BitsShortName>LDL</BitsShortName>
                     <BitsName>Lower domain limit</BitsName>
-                    <BitsUnit scale="25" min="-1500" max="150000"></BitsUnit>
+					<BitsUnit scale="25" min="-1500" max="150000"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="80">
+	<DataItem id="080">
         <DataItemName>Upper Limit</DataItemName>
         <DataItemDefinition>Definition of the Upper limit of a Domain of Interest</DataItemDefinition>
         <DataItemFormat desc="Two-bytes fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="15">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="14" to="1" encode="signed">
                     <BitsShortName>UDL</BitsShortName>
                     <BitsName>Upper domain limit</BitsName>
-                    <BitsUnit scale="25" min="-1500" max="150000"></BitsUnit>
+					<BitsUnit scale="25" min="-1500" max="150000"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
     
-	<DataItem id="90">
+	<DataItem id="090">
 		<DataItemName>Preferred FPPS Identification tag</DataItemName>
 		<DataItemDefinition>Identification of the Flight Plan Data Processing System from which Flight-Plan related information shall preferably be sent to the User.</DataItemDefinition>
 		<DataItemFormat desc="Two-byte fixed length data item.">
@@ -352,7 +353,7 @@
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="4">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
@@ -401,7 +402,7 @@
                         <BitsValue val="1">Yes</BitsValue>
                     </Bits>
                     <Bits from="4" to="1">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
@@ -418,7 +419,7 @@
             <Repetitive>
                 <Fixed length="7">
                     <Bits from="56" to="1" encode="ascii">
-                        <BitsShortName>callsign</BitsShortName>
+						<BitsShortName>CS</BitsShortName>
                         <BitsName>Callsign</BitsName>
                     </Bits>
                 </Fixed>
@@ -433,12 +434,12 @@
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="13">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
                     <Bits from="12" to="1">
-                        <BitsShortName>track_number</BitsShortName>
+						<BitsShortName>TrackN</BitsShortName>
                         <BitsName>Track Number</BitsName>
                     </Bits>
                 </Fixed>
@@ -454,7 +455,7 @@
             <Repetitive>
                 <Fixed length="3">
                     <Bits from="24" to="1">
-                        <BitsShortName>mode_s_addr</BitsShortName>
+						<BitsShortName>ModeS</BitsShortName>
                         <BitsName>Mode-S address</BitsName>
                     </Bits>
                 </Fixed>
@@ -508,7 +509,7 @@
                         <BitsValue val="1">Set</BitsValue>
                     </Bits>
                     <Bits from="12" to="1" encode="octal">
-                        <BitsShortName>mode_3a_code</BitsShortName>
+						<BitsShortName>Mode3A</BitsShortName>
                         <BitsName>Mode 3/A code</BitsName>
                     </Bits>
                 </Fixed>
@@ -523,7 +524,7 @@
             <Repetitive>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
-                        <BitsShortName>dep_air</BitsShortName>
+						<BitsShortName>ADEP</BitsShortName>
                         <BitsName>Departure Airport</BitsName>
                     </Bits>
                 </Fixed>
@@ -539,7 +540,7 @@
             <Repetitive>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
-                        <BitsShortName>dest_air</BitsShortName>
+						<BitsShortName>ADES</BitsShortName>
                         <BitsName>Destination Airport</BitsName>
                     </Bits>
                 </Fixed>
@@ -555,7 +556,7 @@
             <Repetitive>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
-                        <BitsShortName>air_type</BitsShortName>
+						<BitsShortName>ACTyp</BitsShortName>
                         <BitsName>Aircraft type</BitsName>
                     </Bits>
                 </Fixed>
@@ -643,7 +644,7 @@
                     <BitsValue val="6">CVFR selected</BitsValue>
                 </Bits>
                 <Bits from="13" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spar bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -994,7 +995,7 @@
                         <BitsValue val="1">Selected</BitsValue>
                     </Bits> 
                     <Bits from="9" to="2">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>                    
@@ -1015,7 +1016,7 @@
         <DataItemFormat desc="Five-byte fixed length data item.">
             <Fixed length="5">
                 <Bits bit="40">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1026,22 +1027,22 @@
                     <BitsValue val="1">scanning by row</BitsValue>
                 </Bits>
                 <Bits from="38" to="33">
-                    <BitsShortName>scan_period</BitsShortName>
+					<BitsShortName>ScanPer</BitsShortName>
                     <BitsName>Time for scanning the mosaic</BitsName>
                     <BitsUnit>s</BitsUnit>
                 </Bits>
                 <Bits from="32" to="29">
-                    <BitsShortName>batch_period</BitsShortName>
+					<BitsShortName>BatPer</BitsShortName>
                     <BitsName>Time period between two consecutive batches</BitsName>
                     <BitsUnit scale="0.1">s</BitsUnit>
                 </Bits>
                 <Bits from="28" to="17">
-                    <BitsShortName>update_period</BitsShortName>
+					<BitsShortName>UpdPer</BitsShortName>
                     <BitsName>Time period between the same batch of two consecutive scans</BitsName>
                     <BitsUnit>s</BitsUnit>
                 </Bits>
                 <Bits from="16" to="15">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>                    
@@ -1051,7 +1052,7 @@
                     <BitsUnit scale="0.1">s</BitsUnit>
                 </Bits>
                 <Bits bit="8">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>                
@@ -1084,7 +1085,7 @@
                     <BitsValue val="1">a track update shall be sent after the time-window for the plot-to-track association is passed without a plot has been associated.</BitsValue>
                 </Bits>
                 <Bits from="7" to="2">
-                    <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1105,7 +1106,7 @@
                     <BitsName>Spare radar Souurce identitiy code</BitsName>
                 </Bits>
                 <Bits from="8" to="2">
-                    <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1181,7 +1182,7 @@
                         <BitsValue val="1">Set</BitsValue>
                     </Bits>
                     <Bits from="7" to="2">
-                        <BitsShortName>sb</BitsShortName>
+						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
@@ -1302,7 +1303,7 @@
                 <Bits from="8" to="1">
                     <BitsShortName>factork</BitsShortName>
                     <BitsName>Factor K</BitsName>
-                    <BitsUnit scale="0.125" max="32"></BitsUnit>
+					<BitsUnit scale="0.125" max="32"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>        
@@ -1314,7 +1315,7 @@
         <DataItemFormat desc="One-byte fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>refreshment_period</BitsShortName>
+					<BitsShortName>RefPer</BitsShortName>
                     <BitsName>Refreshment Period</BitsName>
                     <BitsUnit>s</BitsUnit>
                 </Bits>
@@ -1328,7 +1329,7 @@
         <DataItemFormat desc="One-byte fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>minimal_period</BitsShortName>
+					<BitsShortName>MinPer</BitsShortName>
                     <BitsName>Minimal period</BitsName>
                     <BitsUnit>s</BitsUnit>
                 </Bits>
@@ -1472,7 +1473,7 @@
                     <BitsValue val="1">1/32 NM</BitsValue>
                 </Bits>
                 <Bits from="7" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1565,7 +1566,7 @@
                     <BitsValue val="1">Selected</BitsValue>
                 </Bits>
                 <Bits from="6" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>Spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1579,7 +1580,7 @@
         <DataItemFormat desc="Two-byte fixed length data item">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>update_period</BitsShortName>
+					<BitsShortName>UpdPer</BitsShortName>
                     <BitsName>Update period</BitsName>
                     <BitsUnit min="4" max="3600">s</BitsUnit>
                 </Bits>
@@ -1593,7 +1594,7 @@
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>refresh_period</BitsShortName>
+					<BitsShortName>RefPer</BitsShortName>
                     <BitsName>Period of refresh when no change is detected.</BitsName>
                     <BitsUnit min="4" max="3600">s</BitsUnit>
                 </Bits>
@@ -1611,7 +1612,7 @@
                     <BitsName>Sensor Status Change</BitsName>
                 </Bits>
                 <Bits from="7" to="1">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1625,7 +1626,7 @@
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="15">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1644,7 +1645,7 @@
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="12">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1663,14 +1664,14 @@
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="21">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="20" to="1">
                     <BitsShortName>ssrrg</BitsShortName>
                     <BitsName>Variation threshold of the SSR range gain</BitsName>
-                    <BitsUnit min="0" max="1" scale="0.000001"></BitsUnit>
+					<BitsUnit min="0" max="1" scale="0.000001"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -1696,7 +1697,7 @@
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="12">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -1715,14 +1716,14 @@
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="21">
-                    <BitsShortName>sb</BitsShortName>
+					<BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="20" to="1">
                     <BitsShortName>prrg</BitsShortName>
                     <BitsName>Variation threshold of the PR range gain</BitsName>
-                    <BitsUnit min="0" max="1" scale="0.000001"></BitsUnit>
+					<BitsUnit min="0" max="1" scale="0.000001"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>

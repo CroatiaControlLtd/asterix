@@ -56,12 +56,7 @@ OBJS = AsterixData.o \
 	asterixformat.o \
 	asterixrawsubformat.o \
 	asterixpcapsubformat.o \
-	asterixtxtsubformat.o \
-	asterixoutsubformat.o \
-	asterixkmlsubformat.o \
-	asterixtrackssubformat.o \
 	asterixfinalsubformat.o \
-	asterixxidefsubformat.o \
 	asterixhdlcsubformat.o \
 	asterixhdlcparsing.o
 	

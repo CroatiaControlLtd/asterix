@@ -122,7 +122,7 @@ bool CDiskDevice::Read(void *data, size_t len)
         return false;
     }
 
-    LOGDEBUG(ZONE_DISKDEVICE, "Read message from file.\n");
+//    LOGDEBUG(ZONE_DISKDEVICE, "Read message from file.\n");
 
     if(BytesLeftToRead() == 0)
     {

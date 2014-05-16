@@ -7,7 +7,7 @@
 
     Author:   B.Bertrand
     Created:  2013-01-24
-    Version:  1.0
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 -->
 
@@ -20,7 +20,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>message_type</BitsShortName>
+					<BitsShortName>MsgTyp</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">Start of Update Cycle</BitsValue>
                     <BitsValue val="2">Periodic Status Message</BitsValue>
@@ -53,7 +53,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>time_of_day</BitsShortName>
+					<BitsShortName>ToD</BitsShortName>
                     <BitsName>Time Of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -173,7 +173,7 @@
                         <BitsName>RS Type 4-bit Type of RS</BitsName>
                     </Bits>
                     <Bits from="4" to="1">
-                        <BitsShortName>status</BitsShortName>
+						<BitsShortName>Stat</BitsShortName>
                         <BitsName>Status</BitsName>
                     </Bits>
                 </Fixed>
@@ -213,7 +213,7 @@
                         <BitsName>Spare bit set to zero</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                    <Bits bit="1">
+					<Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
@@ -229,13 +229,13 @@
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
-                    <BitsShortName>Latitude</BitsShortName>
-                    <BitsName>In WGS-84 in two's complement.</BitsName>
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
-                    <BitsShortName>Longitude</BitsShortName>
-                    <BitsName>In WGS-84 in two's complement.</BitsName>
+					<BitsShortName>Lon</BitsShortName>
+					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
             </Fixed>

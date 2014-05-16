@@ -23,42 +23,49 @@
 
 #include "DataItemFormatRepetitive.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
 
 DataItemFormatRepetitive::DataItemFormatRepetitive()
-: m_pFixed(NULL)
 {
 }
 
 DataItemFormatRepetitive::~DataItemFormatRepetitive()
 {
-  if (m_pFixed)
-    delete m_pFixed;
 }
 
 long DataItemFormatRepetitive::getLength(const unsigned char* pData)
 {
-  if (m_pFixed == NULL)
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (pFixed == NULL)
   {
     Tracer::Error("Wrong data in Repetitive");
     return 0;
   }
   unsigned char nRepetition = *pData;
-  return (1+nRepetition*m_pFixed->getLength(pData+1));
+  return (1+nRepetition*pFixed->getLength(pData+1));
 }
 
 void DataItemFormatRepetitive::addBits(DataItemBits* pBits)
 {
-  if (m_pFixed == NULL)
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (pFixed == NULL)
   {
     Tracer::Error("Wrong data in Repetitive");
     return;
   }
-  m_pFixed->m_lBits.push_back(pBits);
+  pFixed->m_lSubItems.push_back(pBits);
 }
 
-bool DataItemFormatRepetitive::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-  int fixedLength = m_pFixed->getLength(pData);
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+  {
+		Tracer::Error("Wrong data in Repetitive");
+  return true;
+}
+
+  int fixedLength = pFixed->getLength(pData);
   unsigned char nRepetition = *pData;
 
   if (1+nRepetition*fixedLength != nLength)
@@ -69,141 +76,92 @@ bool DataItemFormatRepetitive::getDescription(std::string& strDescription, unsig
 
   pData++;
 
+  switch(formatType)
+  {
+	  case CAsterixFormat::EJSON:
+	  case CAsterixFormat::EJSONH:
+		  strResult += format("[");
+
+		  while(nRepetition--)
+{
+			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			  pData += fixedLength;
+
+			  if (nRepetition > 0)
+				  strResult += format(",");
+  }
+		  strResult += format("]");
+		  break;
+	  default:
   while(nRepetition--)
   {
-    m_pFixed->getDescription(strDescription, pData, fixedLength);
+			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
     pData += fixedLength;
   }
+		  break;
+  	  }
   return true;
 }
 
-bool DataItemFormatRepetitive::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
+std::string DataItemFormatRepetitive::printDescriptors(std::string header)
 {
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
   {
-    Tracer::Error("Wrong length in Repetitive");
-    return true;
+		Tracer::Error("Wrong data in Repetitive");
+		return "Wrong data in Repetitive";
   }
 
-  pData++;
-
-  while(nRepetition--)
-  {
-    m_pFixed->getText(strDescription, strHeader, pData, fixedLength);
-    pData += fixedLength;
-  }
-  return true;
+	return pFixed->printDescriptors(header);
 }
 
-bool DataItemFormatRepetitive::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
+bool DataItemFormatRepetitive::filterOutItem(const char* name)
 {
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
   {
-    Tracer::Error("Wrong length in Repetitive");
-    return true;
-  }
-
-  pData++;
-
-  while(nRepetition--)
-  {
-    m_pFixed->getXIDEF(strXIDEF, pData, fixedLength);
-    pData += fixedLength;
-  }
-  return true;
-}
-
-bool DataItemFormatRepetitive::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
-  {
-    Tracer::Error("Wrong length in Repetitive");
+		Tracer::Error("Wrong data in Repetitive");
     return false;
   }
 
-  pData++;
-
-  while(nRepetition--)
-  {
-    if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-
-    pData += fixedLength;
-  }
-  return false;
+	return pFixed->filterOutItem(name);
 }
 
-bool DataItemFormatRepetitive::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
+bool DataItemFormatRepetitive::isFiltered(const char* name)
 {
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
   {
-    Tracer::Error("Wrong length in Repetitive");
+		Tracer::Error("Wrong data in Repetitive");
     return false;
   }
 
-  pData++;
-
-  while(nRepetition--)
-  {
-    if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-
-    pData += fixedLength;
-  }
-  return false;
-}
-
-bool DataItemFormatRepetitive::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  int fixedLength = m_pFixed->getLength(pData);
-  unsigned char nRepetition = *pData;
-
-  if (1+nRepetition*fixedLength != nLength)
-  {
-    Tracer::Error("Wrong length in Repetitive");
-    return false;
-  }
-
-  pData++;
-
-  while(nRepetition--)
-  {
-    if (m_pFixed->getValue(pData, fixedLength, value, pstrBitsShortName, pstrBitsName))
-      return true;
-
-    pData += fixedLength;
-  }
-  return false;
+	return pFixed->isFiltered(name);
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatRepetitive::getWiresharkDefinitions()
 {
-  if (!m_pFixed)
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (!pFixed)
   {
     Tracer::Error("Wring format of repetitive item");
     return NULL;
   }
-  return m_pFixed->getWiresharkDefinitions();
+  return pFixed->getWiresharkDefinitions();
 }
 
 fulliautomatix_data* DataItemFormatRepetitive::getData(unsigned char* pData, long len, int byteoffset)
 {
   fulliautomatix_data *lastData = NULL, *firstData = NULL;
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (!pFixed)
+  {
+    Tracer::Error("Wrong format of repetitive item");
+    return NULL;
+  }
 
-  int fixedLength = m_pFixed->getLength(pData);
+  int fixedLength = pFixed->getLength(pData);
   unsigned char nRepetition = *pData;
 
   firstData = lastData = newDataUL(NULL, PID_REP, byteoffset, 1, nRepetition);
@@ -219,7 +177,7 @@ fulliautomatix_data* DataItemFormatRepetitive::getData(unsigned char* pData, lon
 
   while(nRepetition--)
   {
-    lastData->next = m_pFixed->getData(pData, fixedLength, byteoffset);
+    lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
     while(lastData->next)
       lastData = lastData->next;
 

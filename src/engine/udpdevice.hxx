@@ -39,7 +39,7 @@
 #define MSG_NOSIGNAL SO_NOSIGPIPE
 #endif
 
-#define MAX_UDP_PACKET_SIZE     1500
+#define MAX_UDP_PACKET_SIZE     3000
 
 /**
  * @class CUdpDevice

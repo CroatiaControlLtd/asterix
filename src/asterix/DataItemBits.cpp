@@ -24,6 +24,9 @@
 #include "DataItemFormat.h"
 #include "DataItemBits.h"
 #include "Tracer.h"
+#include "asterixformat.hxx"
+
+extern bool gFiltering;
 
 static const char SIXBITCODE[] = {' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
                         'P','Q','R','S','T','U','V','W','X','Y','Z',' ',' ',' ',' ',' ',
@@ -43,6 +46,7 @@ DataItemBits::DataItemBits()
 , m_dMinValue(0.0)
 , m_bExtension(false)
 , m_nPresenceOfField(0)
+, m_bFiltered(false)
 {
 
 }
@@ -138,7 +142,7 @@ unsigned long DataItemBits::getUnsigned(unsigned char* pData, int bytes, int fro
 
   if (numberOfBits<1 || numberOfBits>32)
   {
-    Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.");
+		Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.m Number of bits = %d, and must be between 1 and 32.", numberOfBits);
   }
   else
   {
@@ -337,9 +341,11 @@ unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int fromb
   return str;
 }
 
-
-bool DataItemBits::getDescription(std::string& strDescription, unsigned char* pData, long nLength)
+bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+	if (gFiltering && !m_bFiltered)
+		return false;
+
  if (m_nFrom > m_nTo)
  { // just in case
    int tmp = m_nFrom;
@@ -355,6 +361,21 @@ bool DataItemBits::getDescription(std::string& strDescription, unsigned char* pD
 
  if (m_strName.empty())
    m_strName = m_strShortName;
+	else if (m_strShortName.empty())
+		m_strShortName = m_strName;
+
+	switch(formatType)
+	{
+	case CAsterixFormat::EJSON:
+		strResult += format("\"%s\":", m_strShortName.c_str());
+		break;
+	case CAsterixFormat::EJSONH:
+			strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
+		break;
+	case CAsterixFormat::EXIDEF:
+			strResult += format("\n<%s>", m_strShortName.c_str());
+		break;
+	}
 
  switch(m_eEncoding)
  {
@@ -362,26 +383,31 @@ bool DataItemBits::getDescription(std::string& strDescription, unsigned char* pD
  {
    unsigned long value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
 
-   strDescription += format("\n\t%s: %ld", m_strName.c_str() ,value);
+		switch(formatType)
+		{
+		case CAsterixFormat::ETxt:
+		{
+			strResult += format("\n\t%s: %ld", m_strName.c_str() ,value);
+
    if (m_dScale != 0)
    {
      double scaled = value*m_dScale;
-     strDescription += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
      if (m_bMaxValueSet && scaled > m_dMaxValue)
      {
-       strDescription += format("\n\tWarning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format("\n\tWarning: Value larger than max (%.7lf)", m_dMaxValue);
      }
      if (m_bMinValueSet && scaled < m_dMinValue)
      {
-       strDescription += format("\n\tWarning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format("\n\tWarning: Value smaller than min (%.7lf)", m_dMinValue);
      }
    }
    else if (m_bIsConst)
    {
      if ((int)value != m_nConst)
      {
-       strDescription += format("\n\tWarning: Value should be set to %d", m_nConst);
+					strResult += format("\n\tWarning: Value should be set to %d", m_nConst);
      }
    }
    else if (!m_lValue.empty())
@@ -392,121 +418,40 @@ bool DataItemBits::getDescription(std::string& strDescription, unsigned char* pD
        BitsValue* bv = (BitsValue*)(*it);
        if (bv->m_nVal == (int)value)
        {
-         strDescription += format(" (%s)", bv->m_strDescription.c_str());
+						strResult += format(" (%s)", bv->m_strDescription.c_str());
          break;
        }
      }
      if (it == m_lValue.end())
      {
-       strDescription += format(" ( ?????? )");
+					strResult += format(" ( ?????? )");
      }
    }
  }
  break;
-
- case DATAITEM_ENCODING_SIGNED:
+		case CAsterixFormat::EOut:
  {
-   signed long value = getSigned(pData, nLength, m_nFrom, m_nTo);
+			strResult += format("\n%s.%s %ld", strHeader.c_str(), m_strShortName.c_str() ,value);
 
-   strDescription += format("\n\t%s: %ld", m_strName.c_str() ,value);
-   if (m_dScale != 0)
-   {
-     double scaled = (double)value*m_dScale;
-     strDescription += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
-
-     if (m_bMaxValueSet && scaled > m_dMaxValue)
-     {
-       strDescription += format("\n\tWarning: Value larger than max (%.3lf)", m_dMaxValue);
-     }
-     if (m_bMinValueSet && scaled < m_dMinValue)
-     {
-       strDescription += format("\n\tWarning: Value smaller than min (%.3lf)", m_dMinValue);
-     }
-   }
- }
- break;
-
- case DATAITEM_ENCODING_SIX_BIT_CHAR:
- {
-   unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n\t%s: %s", m_strName.c_str() ,str);
-   delete[] str;
- }
-   break;
- case DATAITEM_ENCODING_HEX_BIT_CHAR:
- {
-   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n\t%s: %s", m_strName.c_str() ,str);
-   delete[] str;
- }
-   break;   
- case DATAITEM_ENCODING_OCTAL:
- {
-   unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n\t%s: %s", m_strName.c_str() ,str);
-   delete[] str;
- }
- break;
- case DATAITEM_ENCODING_ASCII:
- {
-   char* pStr = new char[nLength+1];
-   memset(pStr, 0, nLength+1);
-   strncpy(pStr, (const char*)pData, nLength);
-   strDescription += format("\n\t%s: %s", m_strName.c_str() ,pStr);
-   delete pStr;
- }
-   break;
- default:
-   Tracer::Error("Unknown encoding");
-   break;
- }
- return true;
-}
-
-bool DataItemBits::getText(std::string& strDescription, std::string& strHeader, unsigned char* pData, long nLength)
-{
- if (m_nFrom > m_nTo)
- { // just in case
-   int tmp = m_nFrom;
-   m_nFrom = m_nTo;
-   m_nTo = tmp;
- }
-
- if (m_nFrom < 1 || m_nTo > nLength*8)
- {
-   Tracer::Error("Wrong bit format!");
-   return true;
- }
-
- if (m_strShortName.empty())
-	 m_strShortName = m_strName;
-
- switch(m_eEncoding)
- {
- case DATAITEM_ENCODING_UNSIGNED:
- {
-   unsigned long value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
-
-   strDescription += format("\n%s.%s %ld", strHeader.c_str(), m_strShortName.c_str() ,value);
    if (m_dScale != 0)
    {
      double scaled = value*m_dScale;
-     strDescription += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
      if (m_bMaxValueSet && scaled > m_dMaxValue)
      {
-       strDescription += format(" Warning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format(" tWarning: Value larger than max (%.7lf)", m_dMaxValue);
      }
      if (m_bMinValueSet && scaled < m_dMinValue)
      {
-       strDescription += format(" Warning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format(" Warning: Value smaller than min (%.7lf)", m_dMinValue);
      }
    }
    else if (m_bIsConst)
    {
      if ((int)value != m_nConst)
      {
-       strDescription += format(" Warning: Value should be set to %d", m_nConst);
+					strResult += format(" Warning: Value should be set to %d", m_nConst);
      }
    }
    else if (!m_lValue.empty())
@@ -517,13 +462,28 @@ bool DataItemBits::getText(std::string& strDescription, std::string& strHeader, 
        BitsValue* bv = (BitsValue*)(*it);
        if (bv->m_nVal == (int)value)
        {
-         strDescription += format(" (%s)", bv->m_strDescription.c_str());
+						strResult += format(" (%s)", bv->m_strDescription.c_str());
          break;
        }
      }
      if (it == m_lValue.end())
      {
-       strDescription += format(" ( ?????? )");
+					strResult += format(" ( ?????? )");
+				}
+			}
+		}
+		break;
+		default:
+		{
+			if (m_dScale != 0)
+			{
+				double scaled = value*m_dScale;
+				strResult += format("%.7lf", scaled);
+			}
+			else
+			{
+				strResult += format("%ld", value);
+			}
      }
    }
  }
@@ -533,114 +493,60 @@ bool DataItemBits::getText(std::string& strDescription, std::string& strHeader, 
  {
    signed long value = getSigned(pData, nLength, m_nFrom, m_nTo);
 
-   strDescription += format("\n%s.%s %ld", strHeader.c_str(), m_strName.c_str() ,value);
+		switch(formatType)
+		{
+		case CAsterixFormat::ETxt:
+		{
+			strResult += format("\n\t%s: %ld", m_strName.c_str() ,value);
+
    if (m_dScale != 0)
    {
      double scaled = (double)value*m_dScale;
-     strDescription += format(" (%.3lf %s)", scaled, m_strUnit.c_str());
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
      if (m_bMaxValueSet && scaled > m_dMaxValue)
      {
-       strDescription += format(" Warning: Value larger than max (%.3lf)", m_dMaxValue);
+					strResult += format("\n\tWarning: Value larger than max (%.7lf)", m_dMaxValue);
      }
      if (m_bMinValueSet && scaled < m_dMinValue)
      {
-       strDescription += format(" Warning: Value smaller than min (%.3lf)", m_dMinValue);
+					strResult += format("\n\tWarning: Value smaller than min (%.7lf)", m_dMinValue);
      }
    }
  }
  break;
+		case CAsterixFormat::EOut:
+ {
+			strResult += format("\n%s.%s %ld", strHeader.c_str(), m_strName.c_str() ,value);
 
- case DATAITEM_ENCODING_SIX_BIT_CHAR:
- {
-   unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
-   delete[] str;
- }
-   break;
- case DATAITEM_ENCODING_HEX_BIT_CHAR:
- {
-   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
-   delete[] str;
- }
-   break;   
- case DATAITEM_ENCODING_OCTAL:
- {
-   unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-   strDescription += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
-   delete[] str;
- }
- break;
- case DATAITEM_ENCODING_ASCII:
- {
-   char* pStr = new char[nLength+1];
-   memset(pStr, 0, nLength+1);
-   strncpy(pStr, (const char*)pData, nLength);
-   strDescription += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,pStr);
-   delete pStr;
- }
-   break;
- default:
-   Tracer::Error("Unknown encoding");
-   break;
- }
- return true;
-}
-
-bool DataItemBits::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nLength)
+			if (m_dScale != 0)
 {
-  if (m_strXIDEF.empty())
-    return true; // nothing to do
+				double scaled = (double)value*m_dScale;
+				strResult += format(" (%.7lf %s)", scaled, m_strUnit.c_str());
 
- if (m_nFrom > m_nTo)
- { // just in case
-   int tmp = m_nFrom;
-   m_nFrom = m_nTo;
-   m_nTo = tmp;
+				if (m_bMaxValueSet && scaled > m_dMaxValue)
+ {
+					strResult += format(" Warning: Value larger than max (%.7lf)", m_dMaxValue);
  }
-
- strXIDEF += format("\n<%s>", m_strXIDEF.c_str());
-
- if (m_nFrom < 1 || m_nTo > nLength*8)
- {
-   Tracer::Error("Wrong bit format!");
-   return true;
- }
-
- if (m_strName.empty())
-   m_strName = m_strShortName;
-
- switch(m_eEncoding)
- {
- case DATAITEM_ENCODING_UNSIGNED:
- {
-   unsigned long value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
-
-   if (m_dScale != 0)
+				if (m_bMinValueSet && scaled < m_dMinValue)
    {
-     double scaled = value*m_dScale;
-     strXIDEF += format("%.3lf", scaled);
+					strResult += format(" Warning: Value smaller than min (%.7lf)", m_dMinValue);
    }
-   else
-   {
-     strXIDEF += format("%ld", value);
    }
  }
  break;
-
- case DATAITEM_ENCODING_SIGNED:
+		default:
  {
-   signed long value = getSigned(pData, nLength, m_nFrom, m_nTo);
-
    if (m_dScale != 0)
    {
      double scaled = (double)value*m_dScale;
-     strXIDEF += format("%.3lf", scaled);
+				strResult += format("%.7lf", scaled);
    }
    else
    {
-     strXIDEF += format("%ld", value);
+				strResult += format("%ld", value);
+			}
+		}
    }
  }
  break;
@@ -648,79 +554,23 @@ bool DataItemBits::getXIDEF(std::string& strXIDEF, unsigned char* pData, long nL
  case DATAITEM_ENCODING_SIX_BIT_CHAR:
  {
    unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-   strXIDEF += format("%s", str);
-   delete[] str;
- }
-   break;
- case DATAITEM_ENCODING_HEX_BIT_CHAR:
+
+		switch(formatType)
  {
-   unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-   strXIDEF += format("%s", str);
-   delete[] str;
- }
+		case CAsterixFormat::ETxt:
+			strResult += format("\n\t%s: %s", m_strName.c_str() ,str);
    break;   
- case DATAITEM_ENCODING_OCTAL:
- {
-   unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-   strXIDEF += format("%s", str);
-   delete[] str;
- }
+		case CAsterixFormat::EOut:
+			strResult += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
    break;
- case DATAITEM_ENCODING_ASCII:
- {
-   char* pStr = new char[nLength+1];
-   memset(pStr, 0, nLength+1);
-   strncpy(pStr, (const char*)pData, nLength);
-   strXIDEF += format("%s", pStr);
-   delete pStr;
- }
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+			strResult += format("\"%s\"", str);
    break;
  default:
-   Tracer::Error("Unknown encoding");
+			strResult += format("%s", str);
    break;
  }
-
- strXIDEF += format("</%s>", m_strXIDEF.c_str());
-
- return true;
-}
-
-
-bool DataItemBits::getValue(unsigned char* pData, long nLength, unsigned long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  if (pstrBitsShortName && strcmp(pstrBitsShortName, m_strShortName.c_str()))
-    return false;
-
-  if (pstrBitsName && strcmp(pstrBitsName, m_strName.c_str()))
-    return false;
-
-  if (m_nFrom > m_nTo)
-  { // just in case
-    int tmp = m_nFrom;
-    m_nFrom = m_nTo;
-    m_nTo = tmp;
-  }
-
-  switch(m_eEncoding)
-  {
-  case DATAITEM_ENCODING_UNSIGNED:
-  {
-    value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIGNED:
-  {
-    value = getSigned(pData, nLength, m_nFrom, m_nTo);
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIX_BIT_CHAR:
-  {
-    unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
     delete[] str;
   }
     break;
@@ -728,15 +578,46 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, unsigned long& v
   case DATAITEM_ENCODING_HEX_BIT_CHAR:
   {
     unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
-    delete[] str;
-  }
-    break;	
 	
-  case DATAITEM_ENCODING_OCTAL:
+		switch(formatType)
   {
-    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
+		case CAsterixFormat::ETxt:
+			strResult += format("\n\t%s: %s", m_strName.c_str() ,str);
+    break;
+		case CAsterixFormat::EOut:
+			strResult += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
+			break;
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+			strResult += format("\"%s\"", str);
+    break;
+  default:
+			strResult += format("%s", str);
+    break;
+  }
+		delete[] str;
+  }
+	break;
+
+	case DATAITEM_ENCODING_OCTAL:
+  {
+		unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
+		switch(formatType)
+  {
+		case CAsterixFormat::ETxt:
+			strResult += format("\n\t%s: %s", m_strName.c_str() ,str);
+  break;
+		case CAsterixFormat::EOut:
+			strResult += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,str);
+  break;
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+			strResult += format("\"%s\"", str);
+    break;
+		default:
+			strResult += format("%s", str);
+    break;	
+		}
     delete[] str;
   }
     break;
@@ -745,174 +626,74 @@ bool DataItemBits::getValue(unsigned char* pData, long nLength, unsigned long& v
     char* pStr = new char[nLength+1];
     memset(pStr, 0, nLength+1);
     strncpy(pStr, (const char*)pData, nLength);
-    value = atol(pStr);
+		switch(formatType)
+		{
+		case CAsterixFormat::ETxt:
+			strResult += format("\n\t%s: %s", m_strName.c_str() ,pStr);
+			break;
+		case CAsterixFormat::EOut:
+			strResult += format("\n%s.%s %s", strHeader.c_str(), m_strName.c_str() ,pStr);
+			break;
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+			strResult += format("\"%s\"", pStr);
+			break;
+		default:
+			break;
+		}
     delete pStr;
   }
     break;
   default:
-    value = 0;
     Tracer::Error("Unknown encoding");
     break;
   }
 
+	switch(formatType)
+{
+	case CAsterixFormat::EJSON:
+	case CAsterixFormat::EJSONH:
+		strResult += format(",");
+		break;
+	case CAsterixFormat::EXIDEF:
+		strResult += format("</%s>", m_strShortName.c_str());
+		break;
+  }
+
+    return true;
+  }
+
+std::string DataItemBits::printDescriptors(std::string header)
+  {
+	std::string strDes;
+
+	if (gFiltering && !m_bFiltered)
+  {
+		strDes = "#";
+  }
+
+	strDes += header + m_strShortName;
+
+	int fill = 60 - strDes.length();
+	if (fill>0)
+  {
+		std::string strFill(fill, ' ');
+		strDes += strFill;
+  }
+
+	strDes += " "+m_strName+"\n";
+
+	return strDes;
+  }
+
+bool DataItemBits::filterOutItem(const char* name)
+{
+	if (0 == strncmp(name, m_strShortName.c_str(), m_strShortName.length()))
+	{
+		m_bFiltered = true;
   return true;
 }
-
-bool DataItemBits::getValue(unsigned char* pData, long nLength, long& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  if (m_strName.empty() && !m_strShortName.empty())
-    m_strName = m_strShortName;
-  else if (!m_strName.empty() && m_strShortName.empty())
-    m_strShortName = m_strName;
-
-  if (pstrBitsShortName && strcmp(pstrBitsShortName, m_strShortName.c_str()))
-    return false;
-
-  if (pstrBitsName && strcmp(pstrBitsName, m_strName.c_str()))
-    return false;
-
-
-
-  if (m_nFrom > m_nTo)
-  { // just in case
-    int tmp = m_nFrom;
-    m_nFrom = m_nTo;
-    m_nTo = tmp;
-  }
-
-  switch(m_eEncoding)
-  {
-  case DATAITEM_ENCODING_UNSIGNED:
-  {
-    value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIGNED:
-  {
-    value = getSigned(pData, nLength, m_nFrom, m_nTo);
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIX_BIT_CHAR:
-  {
-    unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
-    delete[] str;
-  }
-    break;
-  case DATAITEM_ENCODING_HEX_BIT_CHAR:
-  {
-    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
-    delete[] str;
-  }
-    break;	
-  case DATAITEM_ENCODING_OCTAL:
-  {
-    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-    value = atol((const char*)str);
-    delete[] str;
-  }
-    break;
-  case DATAITEM_ENCODING_ASCII:
-  {
-    char* pStr = new char[nLength+1];
-    memset(pStr, 0, nLength+1);
-    strncpy(pStr, (const char*)pData, nLength);
-    value = atol(pStr);
-    delete pStr;
-  }
-    break;
-  default:
-    value = 0;
-    Tracer::Error("Unknown encoding");
-    break;
-  }
-
-  return true;
-}
-
-
-bool DataItemBits::getValue(unsigned char* pData, long nLength, std::string& value, const char* pstrBitsShortName, const char* pstrBitsName)
-{
-  if (m_strName.empty() && !m_strShortName.empty())
-    m_strName = m_strShortName;
-  else if (!m_strName.empty() && m_strShortName.empty())
-    m_strShortName = m_strName;
-
-  if (pstrBitsShortName && strcmp(pstrBitsShortName, m_strShortName.c_str()))
-    return false;
-
-  if (pstrBitsName && strcmp(pstrBitsName, m_strName.c_str()))
-    return false;
-
-  if (m_nFrom > m_nTo)
-  { // just in case
-    int tmp = m_nFrom;
-    m_nFrom = m_nTo;
-    m_nTo = tmp;
-  }
-
-  switch(m_eEncoding)
-  {
-  case DATAITEM_ENCODING_UNSIGNED:
-  {
-    char tmp[16];
-    sprintf(tmp, "%ld", getUnsigned(pData, nLength, m_nFrom, m_nTo));
-    value = tmp;
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIGNED:
-  {
-    char tmp[16];
-    sprintf(tmp, "%ld", getSigned(pData, nLength, m_nFrom, m_nTo));
-    value = tmp;
-    return true;
-  }
-  break;
-
-  case DATAITEM_ENCODING_SIX_BIT_CHAR:
-  {
-    unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-    value = (char*)str;
-    delete[] str;
-  }
-    break;
-  case DATAITEM_ENCODING_HEX_BIT_CHAR:
-  {
-    unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-    value = (char*)str;
-    delete[] str;
-  }
-    break;	
-
-  case DATAITEM_ENCODING_OCTAL:
-  {
-    unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-    value = (char*)str;
-    delete[] str;
-  }
-    break;
-  case DATAITEM_ENCODING_ASCII:
-  {
-    char* pStr = new char[nLength+1];
-    memset(pStr, 0, nLength+1);
-    strncpy(pStr, (const char*)pData, nLength);
-    value = pStr;
-    delete pStr;
-  }
-    break;
-  default:
-    Tracer::Error("Unknown encoding");
-    break;
-  }
-
-  return true;
+	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
@@ -1124,17 +905,17 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
       char tmp[128];
       if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
       {
-        sprintf(tmp, " (%.3lf %s) Warning! Value out of range (%.3lf to %.3lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+				sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
         pOutData->err = 1;
       }
       else if (m_bIsConst && (int)value != m_nConst)
       {
-        sprintf(tmp, " (%.3lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+				sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
         pOutData->err = 1;
       }
       else
       {
-        sprintf(tmp, " (%.3lf %s)", scaled, m_strUnit.c_str());
+				sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
       }
       pOutData->value_description = strdup(tmp);
     }
@@ -1154,17 +935,17 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
       char tmp[128];
       if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
       {
-        sprintf(tmp, " (%.3lf %s) Warning! Value out of range (%.3lf to %.3lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+				sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
         pOutData->err = 1;
       }
       else if (m_bIsConst && (int)value != m_nConst)
       {
-        sprintf(tmp, " (%.3lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+				sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
         pOutData->err = 1;
       }
       else
       {
-        sprintf(tmp, " (%.3lf %s)", scaled, m_strUnit.c_str());
+				sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
       }
       pOutData->value_description = strdup(tmp);
     }
