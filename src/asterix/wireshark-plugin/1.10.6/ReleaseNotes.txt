@@ -1,0 +1,43 @@
+This is Wireshark plugin for ASTERIX protocol.
+Copyright by HKZP d.o.o.
+Author: dsalantic
+
+Installation procedure for Windows:
+-----------------------------------
+
+1. Install Wireshark (Use only version for which Asterix plugin is supported. See history.)
+2. Copy plugins directory in root directory of Wireshark installation (by default: C:\Program Files\Wireshark)
+3. Start Wireshark
+4. If Wireshark was installed in directory other then deafult do the following:
+  - go to Edit/Preferences...
+  - Open Protocols/Asterix
+  - Adjust "Asterix ini file path" to point to position of ini file (by default: C:\Program Files\Wireshark\plugins\)
+  - Click "OK"
+  - In same dialog you can set which UDP ports to scan for Asterix data
+
+
+Installation procedure for Linux:
+---------------------------------
+1. Install Wireshark rpm
+   rpm -i wireshark-X.X.X.rpm
+   ili 
+   rpm -U wireshark-X.X.X.rpm
+
+   ldconfig
+2. copy configurartion files to /usr/local/lib/wireshark/plugins/asterix
+
+Usage:
+-------
+Open saved pcap file or live capture.
+If UDP port is not in default range, righ click on captured frame and choose "Decode as"
+and choose "Transport/Asterix".
+  
+History:
+---------
+2.0		21.5.2014.	Using Wireshark 1.10.6
+1.4		2.12.2012.  Using Wireshark 1.8.4
+1.3		16.1.2012.	Using Wireshark 1.6.5	
+1.2		3.2.2011.	Using Wireshark 1.4.4
+1.1		2.10.2009.	Fixed bug in Compound format (CAT 62)
+1.0		14.8.2009.	Memory leak fixed. Using Wireshark 1.2.1 (only Windows version for now)
+0.1		23.3.2009.	First version. Using Wireshark 1.0.5
