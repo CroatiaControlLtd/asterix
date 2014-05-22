@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "devicefactory.hxx"
 #include "basedevice.hxx"
 #include "tcpdevice.hxx"

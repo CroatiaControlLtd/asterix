@@ -372,7 +372,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	case CAsterixFormat::EJSONH:
 			strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
 		break;
-	case CAsterixFormat::EXIDEF:
+	case CAsterixFormat::EXML:
 			strResult += format("\n<%s>", m_strShortName.c_str());
 		break;
 	}
@@ -655,7 +655,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	case CAsterixFormat::EJSONH:
 		strResult += format(",");
 		break;
-	case CAsterixFormat::EXIDEF:
+	case CAsterixFormat::EXML:
 		strResult += format("</%s>", m_strShortName.c_str());
 		break;
   }

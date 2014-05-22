@@ -21,7 +21,7 @@
  *
  */
 
-#include "../main/asterix.h"
+//#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"
 #include "Tracer.h"
@@ -183,7 +183,7 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	case CAsterixFormat::EJSONH:
 		strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
 		break;
-	case CAsterixFormat::EXIDEF:
+	case CAsterixFormat::EXML:
 		const int nXIDEFv = 1;
 		strNewResult = format("\n<ASTERIX ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
 		break;
@@ -230,7 +230,7 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 		case CAsterixFormat::EJSONH:
 			strResult += "}},\n";
 			break;
-		case CAsterixFormat::EXIDEF:
+		case CAsterixFormat::EXML:
 			strResult += "\n</ASTERIX>";
 			break;
     }

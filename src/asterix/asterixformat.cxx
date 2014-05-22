@@ -26,7 +26,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "asterixformat.hxx"
 #include "asterixrawsubformat.hxx"
 #include "asterixpcapsubformat.hxx"
@@ -44,7 +44,7 @@ const char* CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
   "ASTERIX_PCAP",
   "ASTERIX_TXT",
   "ASTERIX_FINAL",
-  "ASTERIX_XIDEF",
+  "ASTERIX_XML",
   "ASTERIX_JSON",
   "ASTERIX_JSONH",
   "ASTERIX_HDLC",
@@ -72,7 +72,7 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
           return CAsterixFinalSubformat::ReadPacket(formatDescriptor, device, discard);
       case EHDLC:
           return CAsterixHDLCSubformat::ReadPacket(formatDescriptor, device, discard);
-      case EXIDEF:
+      case EXML:
       case EJSON:
       case EJSONH:
           //todo not supported
@@ -102,7 +102,7 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
         return CAsterixFinalSubformat::WritePacket(formatDescriptor, device, discard); // TODO
       case EHDLC:
           return CAsterixHDLCSubformat::WritePacket(formatDescriptor, device, discard);//TODO
-      case EXIDEF:
+      case EXML:
       {
 			static bool firstTime = true;
 
@@ -163,7 +163,7 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBas
       case EHDLC:
         return CAsterixHDLCSubformat::ProcessPacket(formatDescriptor, device, discard);
       case ETxt:
-      case EXIDEF:
+      case EXML:
       case EJSON:
       case EJSONH:
       case EOut:
@@ -195,7 +195,7 @@ bool CAsterixFormat::HeartbeatProcessing(
     case EHDLC:
         return CAsterixHDLCSubformat::Heartbeat(formatDescriptor, device);
     case ETxt:
-    case EXIDEF:
+    case EXML:
     case EJSON:
     case EJSONH:
     case EOut:

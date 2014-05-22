@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "converterengine.hxx"
 #include "channelfactory.hxx"
 #include "descriptor.hxx"

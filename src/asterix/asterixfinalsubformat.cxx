@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "asterixformat.hxx"
 #include "asterixformatdescriptor.hxx"
 #include "asterixfinalsubformat.hxx"

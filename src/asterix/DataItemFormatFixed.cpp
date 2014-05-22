@@ -178,19 +178,9 @@ bool DataItemFormatFixed::getText(std::string& strResult, std::string& strHeader
 
   switch(formatType)
   {
-  /* todo
-	  case CAsterixFormat::EXIDEF:
-	  {
-		  if (!m_strXIDEF.empty())
-		  {
-			  strResult += format("\n<%s>", m_strXIDEF.c_str());
-  }
-}
-	  break;
-*/
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
-  {
+	  {
 		  strResult += '{';
 	  }
 	  break;
@@ -206,17 +196,7 @@ bool DataItemFormatFixed::getText(std::string& strResult, std::string& strHeader
 }
 
   switch(formatType)
-{
-/* todo
-	  case CAsterixFormat::EXIDEF:
   {
-  if (!m_strXIDEF.empty())
-  {
-			  strResult += format("\n</%s>", m_strXIDEF.c_str());
-  }
-		  break;
-  }
-*/
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
   {

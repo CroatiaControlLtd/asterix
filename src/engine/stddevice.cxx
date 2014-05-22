@@ -28,7 +28,7 @@
 #include <unistd.h>
 
 // Local includes
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "stddevice.hxx"
 
 

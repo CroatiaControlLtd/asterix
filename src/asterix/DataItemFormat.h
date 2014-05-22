@@ -38,8 +38,6 @@ public:
   virtual
   ~DataItemFormat();
 
-  std::string m_strDescription; //!< <!ATTLIST DataItemFormat desc CDATA "" >
-  std::string m_strXIDEF; //!< name of item in XML or JSON output format
   std::list<DataItemFormat*> m_lSubItems; //!< List of subitem formats in this item
 
   DataItemFormat* m_pParentFormat; //! Pointer to parent format (used only in XML parsing)

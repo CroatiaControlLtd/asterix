@@ -40,7 +40,7 @@
 #include <fcntl.h>
 
 // Local includes
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "tcpdevice.hxx"
 
 
