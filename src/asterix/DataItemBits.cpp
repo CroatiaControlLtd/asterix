@@ -68,7 +68,7 @@ long DataItemBits::getLength(const unsigned char*)
   return 0;
 }
 
-void DataItemBits::addBits(DataItemBits* pBits)
+void DataItemBits::addBits(DataItemBits*)
 {
   Tracer::Error("DataItemBits::addBits Should not be called!");
 }
@@ -993,7 +993,7 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
     break;
   }
 
-  fulliautomatix_data* data = newDataMessage(NULL, byteoffset+firstByte, numberOfBytes, 2, "Error: Unknown encoding.");
+  fulliautomatix_data* data = newDataMessage(NULL, byteoffset+firstByte, numberOfBytes, 2, (char*)"Error: Unknown encoding.");
   return data;
 }
 #endif

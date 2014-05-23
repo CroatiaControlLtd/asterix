@@ -273,7 +273,7 @@ fulliautomatix_data* DataRecord::getData(int byteoffset)
   }
   else
   {
-    lastData = newDataTree(lastData, byteoffset, m_nFSPECLength, "FSPEC");
+    lastData = newDataTree(lastData, byteoffset, m_nFSPECLength, (char*)"FSPEC");
 
     // go through all UAPitems items in this record
     std::list<UAPItem*>::iterator uapit;

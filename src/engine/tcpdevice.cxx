@@ -489,8 +489,8 @@ bool CTcpDevice::Disconnect(bool bLinger)
     {
         // set 60 second linger time, if requested by bLinger argument
         struct linger sl = {
-            bLinger ? 1 : 0,
-            bLinger ? 60*100 : 0
+            (short unsigned int) (bLinger ? 1 : 0),
+            (short unsigned int) (bLinger ? 60*100 : 0)
         };
         
         if(bLinger)

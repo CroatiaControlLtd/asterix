@@ -140,7 +140,7 @@ fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
   return pFixed->getWiresharkDefinitions();
 }
 
-fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long len, int byteoffset)
+fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long, int byteoffset)
 {
   fulliautomatix_data *lastData = NULL, *firstData = NULL;
   DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;

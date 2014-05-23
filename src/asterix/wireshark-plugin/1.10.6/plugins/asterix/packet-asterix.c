@@ -83,13 +83,13 @@ static void logTraceFunc(char const* format, ...)
     vfprintf (fp, format, args);
     va_end (args);
     fclose(fp);
-    g_print("Opened asterix.log file");
+    g_print("Opened asterix.log file\n");
   }
   else
   {
-    g_print("Unable to open asterix.log file");
+    g_print("Unable to open asterix.log file\n");
   }
-  g_print(format);
+  g_print("%s\n", format);
 }
 
 static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
@@ -129,7 +129,7 @@ static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
   strcat(tmpstr, tmp2);
 
   if (check_col(pinfo->cinfo, COL_PROTOCOL))
-          col_set_str(pinfo->cinfo, COL_PROTOCOL, "Asterix");
+          col_set_str(pinfo->cinfo, COL_PROTOCOL, "ASTERIX");
 
   if (check_col(pinfo->cinfo, COL_INFO))
           col_add_fstr(pinfo->cinfo, COL_INFO, tmpstr);
@@ -137,7 +137,7 @@ static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
           return;
 
    t_head_item = proto_tree_add_protocol_format(tree, proto_asterix, tvb, 0, -1,
-          "All Purpose Structured EUROCONTROL Surveillance Information Exchange (Asterix) Protocol");
+          "All Purpose STructured Eurocontrol SuRveillance Information EXchange (ASTERIX)");
 
   asterix_tree[tree_depth] = proto_item_add_subtree(t_head_item, ett_asterix[tree_depth]);
 
@@ -166,7 +166,7 @@ static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
     {
       if (pData->pid < 0 || pData->pid > maxpid)
       {
-        logTraceFunc("Wrong PID.\n");
+        logTraceFunc("Wrong PID.");
       }
       else if (pData->type == FT_STRINGZ)
       {
@@ -197,14 +197,14 @@ static void dissect_asterix_pdu(tvbuff_t *tvb, packet_info *pinfo,
     if (pData->err == 1)
     {
       proto_item_set_expert_flags(t_item, PI_GROUP_MASK, PI_WARN);
-      expert_add_info_format(pinfo, t_item, PI_UNDECODED, PI_WARN, "Warning in Asterix message");
+      expert_add_info_format(pinfo, t_item, PI_UNDECODED, PI_WARN, "Warning in ASTERIX message");
       if (error==0)
         error=1;
     }
     else if (pData->err == 2)
     {
       proto_item_set_expert_flags(t_item, PI_REASSEMBLE, PI_ERROR);
-      expert_add_info_format(pinfo, t_item, PI_MALFORMED, PI_ERROR, "Error in Asterix message");
+      expert_add_info_format(pinfo, t_item, PI_MALFORMED, PI_ERROR, "Error in ASTERIX message");
       if (error<2)
         error=2;
     }
@@ -234,12 +234,12 @@ static void dissect_asterix(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
   tcp_dissect_pdus(tvb, pinfo, tree, TRUE, 3, get_asterix_pdu_len, dissect_asterix_pdu);
 }
 
-void
+extern void
 proto_register_asterix(void)
 {
   module_t *asterix_module;
 
-  proto_asterix = proto_register_protocol("Asterix", "Asterix", "asterix");
+  proto_asterix = proto_register_protocol("ASTERIX decoding", "ASTERIX", "asterix");
 
   asterix_module = prefs_register_protocol(proto_asterix, proto_reg_handoff_asterix);
 
@@ -262,35 +262,35 @@ proto_register_asterix(void)
   range_convert_str(&global_asterix_udp_port_range, ASTERIX_DEFAULT_UDP_RANGE, 65535);
   range_convert_str(&global_asterix_tcp_port_range, ASTERIX_DEFAULT_TCP_RANGE, 65535);
 
-  prefs_register_range_preference(asterix_module, "udp.asterix_ports", "Asterix listener UDP Ports",
+  prefs_register_range_preference(asterix_module, "udp.asterix_ports", "ASTERIX listener UDP Ports",
                             "Set the UDP ports for Asterix",
                             &global_asterix_udp_port_range, MAX_UDP_PORT);
 
-  prefs_register_range_preference(asterix_module, "tcp.asterix_ports", "Asterix listener TCP Ports",
+  prefs_register_range_preference(asterix_module, "tcp.asterix_ports", "ASTERIX listener TCP Ports",
                             "Set the TCP ports for Asterix",
                             &global_asterix_tcp_port_range, MAX_TCP_PORT);
 
   prefs_register_bool_preference(asterix_module, "udp.log_to_file",
                                  "Log to file",
-                                 "Enable logs from Asterix plugin",
+                                 "Enable logs from ASTERIX plugin",
                                  &global_asterix_enable_log);
 
   prefs_register_string_preference(asterix_module, "udp.asterix_ini",
-      "Asterix ini file path", "Asterix ini file path", &global_asterix_ini_file_path);
+      "ASTERIX ini file path", "ASTERIX ini file path", &global_asterix_ini_file_path);
 }
 
 static void
 range_add_callback(guint32 port)
 {
-  dissector_add("udp.port", port, asterix_handle);
-  dissector_add("tcp.port", port, asterix_handle);
+  dissector_add_uint("udp.port", port, asterix_handle);
+  dissector_add_uint("tcp.port", port, asterix_handle);
 }
 
 static void
 range_delete_callback(guint32 port)
 {
-  dissector_delete("udp.port", port, asterix_handle);
-  dissector_delete("tcp.port", port, asterix_handle);
+  dissector_delete_uint("udp.port", port, asterix_handle);
+  dissector_delete_uint("tcp.port", port, asterix_handle);
 }
 
 
@@ -329,7 +329,7 @@ proto_reg_handoff_asterix(void)
     }
     if (ret != 0)
     {
-      logTraceFunc("Failed to initialize Asterix plugin (%d)\n", ret);
+      logTraceFunc("Failed to initialize ASTERIX plugin");
     }
 
     if (deflist)

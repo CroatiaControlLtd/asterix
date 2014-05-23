@@ -136,7 +136,7 @@ extern "C" {
 
   int fulliautomatix_start(ptExtVoidPrintf pPrintFunc, const char* ini_file_path);
   void fulliautomatix_set_tracer(ptExtVoidPrintf pPrintFunc);
-  fulliautomatix_definitions* fulliautomatix_get_definitions();
+  fulliautomatix_definitions* fulliautomatix_get_definitions(void);
   void fulliautomatix_destroy_definitions(fulliautomatix_definitions* pDef);
   fulliautomatix_data* fulliautomatix_parse(const unsigned char* pBuf, unsigned int len);
   void fulliautomatix_data_destroy(fulliautomatix_data* pData);

@@ -43,6 +43,10 @@ asterix_la_SOURCES = \
 	$(SRC_FILES)	\
 	$(HEADER_FILES)
 
+nodist_asterix_la_SOURCES = \
+	$(NODIST_SRC_FILES) \
+	$(NODIST_HEADER_FILES)
+
 asterix_la_LDFLAGS = -module -avoid-version
 asterix_la_LIBADD = @PLUGIN_LIBS@
 
@@ -95,7 +99,6 @@ plugin.c: $(REGISTER_SRC_FILES) Makefile.common $(top_srcdir)/tools/make-dissect
 		$(top_srcdir)/tools/make-dissector-reg $(srcdir) \
 		    $(plugin_src) plugin $(REGISTER_SRC_FILES) ; \
 	fi
-
 
 #
 # Currently plugin.c can be included in the distribution because

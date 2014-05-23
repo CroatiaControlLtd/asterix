@@ -30,6 +30,10 @@ PLUGIN_NAME = asterix
 NONGENERATED_REGISTER_C_FILES = \
 	packet-asterix.c
 
+# Non-generated sources
+NONGENERATED_C_FILES = \
+	$(NONGENERATED_REGISTER_C_FILES)
+
 NONGENERATED_CPP_FILES = \
 	AsterixDefinition.cpp \
 	AsterixData.cpp \

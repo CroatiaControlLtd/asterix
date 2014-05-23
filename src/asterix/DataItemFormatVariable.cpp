@@ -87,7 +87,7 @@ void DataItemFormatVariable::addBits(DataItemBits* pBits)
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long)
 {
   bool ret = false;
 
