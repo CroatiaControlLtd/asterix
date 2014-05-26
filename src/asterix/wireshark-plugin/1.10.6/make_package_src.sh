@@ -19,6 +19,8 @@ cp -rp packaging wireshark
 cp -rp plugins wireshark
 cp -p plugins/asterix/*.* wireshark/plugins/asterix
 cp -p ../../* wireshark/plugins/asterix/
+cp -p ../../../engine/basedevice.hxx wireshark/plugins/asterix/
+cp -p ../../../engine/baseformat.hxx wireshark/plugins/asterix/
 mkdir -p wireshark/usr/local/lib/wireshark/plugins/asterix
 cp -p ../../../../install/config/asterix.ini wireshark/usr/local/lib/wireshark/plugins/asterix
 cp -p ../../../../install/config/*.xml wireshark/usr/local/lib/wireshark/plugins/asterix
