@@ -8,12 +8,12 @@ Len: 69
 Data Record 1
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ A0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -27,7 +27,7 @@ Item 161 : Track Plot Number
 [ 0E B2 ]
 	Track Plot Number: 3762
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 76 7F 18 94 ]
 	RHO: 30335 (236.9921875 NM)
 	THETA: 6292 (34.5629883 deg)
@@ -37,7 +37,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 2218 (487.9600000 kt)
 	Calculated heading: 17112 (93.9990234 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 03 34 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -45,7 +45,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 1464
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 05 C8 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -74,12 +74,12 @@ Item 210 : Track Quality
 Data Record 2
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ B0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -93,7 +93,7 @@ Item 161 : Track Plot Number
 [ 0F 75 ]
 	Track Plot Number: 3957
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 61 EC 1A 14 ]
 	RHO: 25068 (195.8437500 NM)
 	THETA: 6676 (36.6723633 deg)
@@ -103,7 +103,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 1918 (421.9600000 kt)
 	Calculated heading: 46421 (254.9981689 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 0E 52 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -111,7 +111,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 7122
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 05 50 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -140,12 +140,12 @@ Item 210 : Track Quality
 Data Record 3
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ B0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -159,7 +159,7 @@ Item 161 : Track Plot Number
 [ 0D CA ]
 	Track Plot Number: 3530
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 69 DE 1A 7C ]
 	RHO: 27102 (211.7343750 NM)
 	THETA: 6780 (37.2436523 deg)
@@ -169,7 +169,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 2032 (447.0400000 kt)
 	Calculated heading: 4369 (23.9996338 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 0E 30 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -177,7 +177,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 7060
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 06 18 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -211,12 +211,12 @@ Len: 23
 Data Record 1
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ B0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -230,7 +230,7 @@ Item 161 : Track Plot Number
 [ 0D 68 ]
 	Track Plot Number: 3432
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 5C 88 1C E0 ]
 	RHO: 23688 (185.0625000 NM)
 	THETA: 7392 (40.6054688 deg)
@@ -240,7 +240,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 2114 (465.0800000 kt)
 	Calculated heading: 20388 (111.9946289 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 00 4A ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -248,7 +248,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 0112
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 04 D8 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -282,20 +282,20 @@ Len: 8
 Data Record 1
 Len: 8
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 0 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
-Item 20 : Sector Number
+Item 020 : Sector Number
 [ 50 ]
 	Antenna azimuth: 80 (112.5000000 deg)
 
-Item 30 : Time of Day
+Item 030 : Time of Day
 [ 59 81 17 ]
 	Time of day: 5865751 (45826.1796875 s)
 
@@ -307,12 +307,12 @@ Len: 23
 Data Record 1
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ B0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -326,7 +326,7 @@ Item 161 : Track Plot Number
 [ 0C E1 ]
 	Track Plot Number: 3297
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 73 57 1E 28 ]
 	RHO: 29527 (230.6796875 NM)
 	THETA: 7720 (42.4072266 deg)
@@ -336,7 +336,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 2077 (456.9400000 kt)
 	Calculated heading: 53520 (293.9941406 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 0A C4 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -344,7 +344,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 5304
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 05 A0 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -378,12 +378,12 @@ Len: 23
 Data Record 1
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ A0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -397,7 +397,7 @@ Item 161 : Track Plot Number
 [ 0C 10 ]
 	Track Plot Number: 3088
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 51 4C 21 2C ]
 	RHO: 20812 (162.5937500 NM)
 	THETA: 8492 (46.6479492 deg)
@@ -407,7 +407,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 1500 (330.0000000 kt)
 	Calculated heading: 58071 (318.9935303 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 05 9E ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -415,7 +415,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 2636
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 02 5A ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -449,12 +449,12 @@ Len: 23
 Data Record 1
 Len: 23
 
-Item 10 : Data Source Identifier
+Item 010 : Data Source Identifier
 [ 19 C9 ]
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 20 : Target Report Descriptor
+Item 020 : Target Report Descriptor
 [ B0 ]
 	TYP: 1 (Track)
 	SIM: 0 (Actual plot or track)
@@ -468,7 +468,7 @@ Item 161 : Track Plot Number
 [ 0F 0D ]
 	Track Plot Number: 3853
 
-Item 40 : Measured Position in Polar Coordinates
+Item 040 : Measured Position in Polar Coordinates
 [ 37 FE 21 C8 ]
 	RHO: 14334 (111.9843750 NM)
 	THETA: 8648 (47.5048828 deg)
@@ -478,7 +478,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 	Calculated groundspeed: 1877 (412.9400000 kt)
 	Calculated heading: 53702 (294.9938965 deg)
 
-Item 70 : Mode-3/a Code
+Item 070 : Mode-3/a Code
 [ 05 A5 ]
 	V: 0 (Code validated)
 	G: 0 (Default)
@@ -486,7 +486,7 @@ Item 70 : Mode-3/a Code
 	spare bit set to 0: 0
 	Mode-3/A reply code: 2645
 
-Item 90 : Mode-C Code
+Item 090 : Mode-C Code
 [ 05 A0 ]
 	V: 0 (Code validated)
 	G: 0 (Default)

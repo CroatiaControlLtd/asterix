@@ -26,14 +26,14 @@
 #include <stdlib.h> //atoi
 #include <string.h>
 
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "channelfactory.hxx"
 #include "devicefactory.hxx"
 #include "basedevice.hxx"
 #include "descriptor.hxx"
 
 #include "baseformat.hxx"
-#include "../asterix/asterixformat.hxx"
+#include "asterixformat.hxx"
 
 
 CSingleton< CChannelFactory > CChannelFactory::_Instance;

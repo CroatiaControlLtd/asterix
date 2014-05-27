@@ -34,7 +34,7 @@
 
 
 // Local includes
-#include "../main/asterix.h"
+#include "asterix.h"
 #include "serialdevice.hxx"
 
 

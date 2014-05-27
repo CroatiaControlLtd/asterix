@@ -24,7 +24,7 @@
 #ifndef ASTERIXFORMAT_HXX__
 #define ASTERIXFORMAT_HXX__
 
-#include "../engine/baseformat.hxx"
+#include "baseformat.hxx"
 
 class CBaseDevice;
 class CBaseFormatDescriptor;
@@ -47,7 +47,7 @@ public:
   EPcap,          // PCAP file format
   ETxt,           // textual output (human readable)
   EFinal,         // Final format
-  EXIDEF,         // XML based Internal Data Exchange Format
+  EXML,           // XML
   EJSON,          // JSON (JavaScript Object Notation) format, compact form
   EJSONH,         // JSON (JavaScript Object Notation) format, human readable form
   EHDLC,          // HDLC format

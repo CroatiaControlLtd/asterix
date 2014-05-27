@@ -23,7 +23,7 @@
 #ifndef ASTERIXPCAPFORMATDESCRIPTOR_HXX__
 #define ASTERIXPCAPFORMATDESCRIPTOR_HXX__
 
-#include "../engine/baseformatdescriptor.hxx"
+#include "baseformatdescriptor.hxx"
 #include "InputParser.h"
 
 class AsterixDefinition;

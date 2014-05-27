@@ -155,7 +155,7 @@
 						<BitsValue val="17">Mode S error correction applied</BitsValue>
 						<BitsValue val="18">Undecodable Mode C code / Mode S altitude code</BitsValue>                                
 					</Bits>
-					<Bits bit="1" fx="0">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
@@ -647,11 +647,15 @@
 							<BitsName>RDS Presence</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>  
-						<Bits from="6" to="1">
+					<Bits from="6" to="2">
 							<BitsShortName>spare</BitsShortName>
 							<BitsName>spare bits set to 0</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
+					<Bits bit="1" fx="1">
+                       <BitsShortName>FX</BitsShortName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
 					</Fixed>
 				</Variable>
 				<Fixed length="2">

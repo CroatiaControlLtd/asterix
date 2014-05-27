@@ -189,8 +189,8 @@ CAT010:I020:spare                                            Spare bit set to 0
 CAT010:I020:FX                                               
 CAT010:I040:RHO                                              RHO
 CAT010:I040:Theta                                            Theta
-CAT010:I041:Lat                                              Latitude in WGS-84 in two’s complement.
-CAT010:I041:Lon                                              Longitude in WGS-84 in two’s complement.
+CAT010:I041:Lat                                              Latitude in WGS-84 in twos complement.
+CAT010:I041:Lon                                              Longitude in WGS-84 in twos complement.
 CAT010:I042:X                                                X
 CAT010:I042:Y                                                Y
 CAT010:I060:V                                                V
@@ -251,7 +251,7 @@ CAT010:I550:TSV                                              Time Source Validit
 CAT010:I550:DIV                                              Diversity indicator
 CAT010:I550:TTF                                              Test Target indicator
 CAT010:I550:spare                                            Spare bits set to zero
-CAT010:I000:SPval                                            
+CAT010:ISP:SPval                                             
 CAT019:I000:MsgTyp                                           Message Type
 CAT019:I010:SAC                                              System Area Code
 CAT019:I010:SIC                                              System Identification Code
@@ -277,11 +277,10 @@ CAT019:I553:spare                                            Spare bit set to ze
 CAT019:I553:ref_trans_2                                      Ref Trans 2 Status
 CAT019:I553:spare                                            Spare bit set to zero
 CAT019:I553:FX                                               
-CAT019:I600:Lat                                              Latitude in WGS-84 in two's complement.
-CAT019:I600:Lon                                              Longitude in WGS-84 in two's complement.
+CAT019:I600:Lat                                              Latitude in WGS-84 in twos complement.
+CAT019:I600:Lon                                              Longitude in WGS-84 in twos complement.
 CAT019:I610:height                                           Height (WGS-84) above MSL
 CAT019:I620:undulation                                       WGS-84 Undulation value (MSL)
-CAT020:I000:bit                                              Bit
 CAT020:I010:SAC                                              System Area Code
 CAT020:I010:SIC                                              System Identification Code
 CAT020:I020:SSR                                              
@@ -302,8 +301,8 @@ CAT020:I020:TST
 CAT020:I020:FX                                               
 CAT020:I030:W_E                                              (W/E Value) Warning/error condition value
 CAT020:I030:FX                                               
-CAT020:I041:Lat                                              Latitude in WGS-84 in two’s complement.
-CAT020:I041:Lon                                              Longitude in WGS-84 in two’s complement.
+CAT020:I041:Lat                                              Latitude in WGS-84 in twos complement.
+CAT020:I041:Lon                                              Longitude in WGS-84 in twos complement.
 CAT020:I042:X                                                X
 CAT020:I042:Y                                                Y
 CAT020:I050:V                                                V
@@ -375,6 +374,42 @@ CAT020:I500:SDPx                                             Standard Deviation 
 CAT020:I500:SDPy                                             Standard Deviation of Y component
 CAT020:I500:SDPxy                                            Correlation coefficient in two’s complement
 CAT020:I500:STD_GH                                           Standard Deviation of Geometric Height
+CAT020:IRE:DOPx                                              DOP along x axis
+CAT020:IRE:DOPy                                              DOP along y axis
+CAT020:IRE:DOPxy                                             DOP Covariance Component in two’s complement form
+CAT020:IRE:SDCx                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (X component)
+CAT020:IRE:SDCy                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (Y component)
+CAT020:IRE:COVxy                                             XY Covariance Component in two’s complement form
+CAT020:IRE:SDH                                               Standard Deviation of Geometric Height of the target expressed in WGS-84
+CAT020:IRE:SDWlat                                            Standard Deviation of Position of the target expressed in WGS-84 (Latitude component)
+CAT020:IRE:SDWlong                                           Standard Deviation of Position of the target expressed in WGS-84 (Longitude component)
+CAT020:IRE:COV_WGS                                           Lat/Long Covariance Component in two’s complement form
+CAT020:IRE:RE                                                Range Exceeded Indicator
+CAT020:IRE:GS                                                Ground Speed referenced to WGS-84
+CAT020:IRE:TA                                                Track Angle clockwise reference to “True North”
+CAT020:IRE:GSSD                                              Standard deviation of the Ground Speed
+CAT020:IRE:TASD                                              Standard deviation of the Track Angle
+CAT020:IRE:TRT                                               Time of ASTERIX Report Transmission
+CAT020:IRE:SPI                                               Special Position Identification Age
+CAT020:IRE:TI                                                Target Identification Age
+CAT020:IRE:BDS1                                              Comm B Data Buffer Store 1 Address
+CAT020:IRE:BDS2                                              Comm B Data Buffer Store 2 Address
+CAT020:IRE:MBA                                               Age of the information in the BDS report indicated in bits 16/9
+CAT020:IRE:M3A                                               Mode-3/A Code Age
+CAT020:IRE:FL                                                Flight Level Age
+CAT020:IRE:STAT                                              Flight Status Age
+CAT020:IRE:GH                                                Geometric / Measured Height Age
+CAT020:IRE:TA                                                Target Address Age
+CAT020:IRE:MC                                                Mode C Code Age
+CAT020:IRE:MSSC                                              Mode-S Specific Service Capability Age
+CAT020:IRE:ARC                                               Altitude Reporting Capability Age
+CAT020:IRE:AIC                                               Aircraft Identification Capability age
+CAT020:IRE:M2                                                Mode-2 Code Age
+CAT020:IRE:M1                                                Mode-1 Code Age
+CAT020:IRE:ARA                                               ACAS Resolution Advisory Age
+CAT020:IRE:VI                                                Vehicle Fleet Identification Age
+CAT020:IRE:MSG                                               Pre-programmed Message Age
+CAT020:ISP:SP                                                SP
 CAT021:I010:SAC                                              System Area Code
 CAT021:I010:SIC                                              System Identification Code
 CAT021:I020:ECAT                                             Emitter Category
@@ -419,8 +454,8 @@ CAT021:I110:TRA                                              Turn Radius Availab
 CAT021:I110:TOA                                              
 CAT021:I110:TOV                                              Time Over Point
 CAT021:I110:TTR                                              TCP Turn radius
-CAT021:I130:Lat                                              Latitude in WGS.84 in two's complement. Range -90 <= latitude <= 90 deg.
-CAT021:I130:Lon                                              Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.
+CAT021:I130:Lat                                              Latitude in WGS.84 in twos complement. Range -90 <= latitude <= 90 deg.
+CAT021:I130:Lon                                              Longitude in WGS.84 in twos complement. Range -180 <= longitude < 180 deg.
 CAT021:I131:SAM                                              Message Amplitude
 CAT021:I140:GAlt                                             Geometric Altitude
 CAT021:I145:FL                                               Flight Level
@@ -454,7 +489,7 @@ CAT021:I220:WindD                                            Wind Direction
 CAT021:I220:Temp                                             Temperature
 CAT021:I220:Turb                                             Turbulence
 CAT021:I230:RollA                                            Roll Angle
-CAT021:I000:SPval                                            
+CAT021:ISP:SPval                                             
 CAT030:I010:SAC                                              System Area Code
 CAT030:I010:SIC                                              System Identification Code
 CAT030:I015:UserN                                            User number
@@ -605,8 +640,8 @@ CAT030:I460:Mode3A                                           Mode 3/A Code
 CAT030:I480:CCFL                                             Current cleared flight level
 CAT030:I490:CENTRE                                           Group identification code
 CAT030:I490:POSITION                                         Control Position identification code
-CAT030:I000:MSA                                              Age of the last Mode S Address used to update the track.
-CAT030:I000:MAI                                              Age of the last Mode S Aircraft Identification used to update the track.
+CAT030:IRE:MSA                                               Age of the last Mode S Address used to update the track.
+CAT030:IRE:MAI                                               Age of the last Mode S Aircraft Identification used to update the track.
 CAT031:I010:SAC                                              Source Area Code
 CAT031:I010:SIC                                              Source Identification Code
 CAT031:I015:UserN                                            User number
@@ -871,7 +906,7 @@ CAT048:I250:MBdata                                           MBdata
 CAT048:I250:DSB1                                             Comm B Data Buffer Store 1
 CAT048:I250:DSB2                                             Comm B Data Buffer Store 2
 CAT048:I260:MBdata                                           BDS 3,0
-CAT048:I000:SP                                               SP
+CAT048:ISP:SP                                                SP
 CAT062:I010:SAC                                              System Area Code
 CAT062:I010:SIC                                              System Identification Code
 CAT062:I015:SID                                              Service Identification
@@ -1170,7 +1205,7 @@ CAT062:I510:FX
 CAT062:I510:SDPSUID                                          SDPS UNIT IDENTIFICATION
 CAT062:I510:STN                                              SYSTEM TRACK NUMBER
 CAT062:I510:FX                                               
-CAT062:I000:TRI                                              TargetReportIdentifier
+CAT062:ISP:TRI                                               TargetReportIdentifier
 CAT063:I010:SAC                                              Source Area Code
 CAT063:I010:SIC                                              Source Identification Code
 CAT063:I015:ServiceID                                        Service Identification
@@ -1247,30 +1282,30 @@ CAT242:I230:COM                                              COM
 CAT242:I230:STAT                                             STAT
 CAT242:I230:spare                                            spare bit set to 0
 CAT242:I240:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
-CAT242:I000:Range                                            
-CAT242:I000:REPMODE1                                         
-CAT242:I000:REPMODE2                                         
-CAT242:I000:REPMODE3A                                        
-CAT242:I000:REPMODEC                                         
-CAT242:I000:SSRAZ                                            SSRAZ
-CAT242:I000:SSRAM                                            SSRAM
-CAT242:I000:SSROBA                                           SSROBA
-CAT242:I000:ACRR                                             ACRR
-CAT242:I000:spare                                            spare bit set to 0
-CAT242:I000:RANGE                                            RANGE
-CAT242:I000:ACAM                                             ACAM
-CAT242:I000:ACAZ                                             ACAZ
-CAT242:I000:ACOBA                                            ACOBA
-CAT242:I000:RCRR                                             RCRR
-CAT242:I000:RCRANGE                                          RCRANGE
-CAT242:I000:RCOBA1                                           RCOBA1
-CAT242:I000:RCOBA2                                           RCOBA2
-CAT242:I000:Alert                                            Alert
-CAT242:I000:CommA                                            Comm A indication
-CAT242:I000:CommB                                            Comm B indication
-CAT242:I000:CommC                                            Comm C indication
-CAT242:I000:CommD                                            Comm D indication
-CAT242:I000:NBGICB                                           NBGCIB
+CAT242:ISP:Range                                             
+CAT242:ISP:REPMODE1                                          
+CAT242:ISP:REPMODE2                                          
+CAT242:ISP:REPMODE3A                                         
+CAT242:ISP:REPMODEC                                          
+CAT242:ISP:SSRAZ                                             SSRAZ
+CAT242:ISP:SSRAM                                             SSRAM
+CAT242:ISP:SSROBA                                            SSROBA
+CAT242:ISP:ACRR                                              ACRR
+CAT242:ISP:spare                                             spare bit set to 0
+CAT242:ISP:RANGE                                             RANGE
+CAT242:ISP:ACAM                                              ACAM
+CAT242:ISP:ACAZ                                              ACAZ
+CAT242:ISP:ACOBA                                             ACOBA
+CAT242:ISP:RCRR                                              RCRR
+CAT242:ISP:RCRANGE                                           RCRANGE
+CAT242:ISP:RCOBA1                                            RCOBA1
+CAT242:ISP:RCOBA2                                            RCOBA2
+CAT242:ISP:Alert                                             Alert
+CAT242:ISP:Comm A                                            Comm A indication
+CAT242:ISP:Comm B                                            Comm B indication
+CAT242:ISP:Comm C                                            Comm C indication
+CAT242:ISP:Comm D                                            Comm D indication
+CAT242:ISP:NBGICB                                            NBGCIB
 CAT252:I010:SAC                                              System Area Code
 CAT252:I010:SIC                                              System Identity Code
 CAT252:I015:UserN                                            User number

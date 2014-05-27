@@ -187,7 +187,7 @@ int main(int argc, const char *argv[])
 				std::cerr << "Error: Option -x not allowed because output format already defined as "+strOutputFormat << std::endl;
 				return 1;
 			}
-			strOutputFormat = "ASTERIX_XIDEF";
+			strOutputFormat = "ASTERIX_XML";
 		}
 		else if ((arg == "-j") || (arg == "--json"))
 		{

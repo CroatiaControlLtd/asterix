@@ -118,7 +118,7 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
   fulliautomatix_data *firstData, *lastData;
   std::string strDesc;
   char tmp[20];
-  sprintf(tmp, "Data item %03d - ", m_pDescription->m_nID);
+  sprintf(tmp, "Data item %s - ", m_pDescription->m_strID.c_str());
   strDesc = tmp;
   strDesc += m_pDescription->m_strName;
   lastData = firstData = newDataTree(NULL, byteoffset, m_nLength, (char*)strDesc.c_str());
@@ -128,7 +128,7 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
   }
   else
   {
-    lastData->next = newDataMessage(NULL, byteoffset, m_nLength, 2, "Error: Unknown item format.");
+    lastData->next = newDataMessage(NULL, byteoffset, m_nLength, 2, (char*)"Error: Unknown item format.");
   }
   while (lastData->next)
   {

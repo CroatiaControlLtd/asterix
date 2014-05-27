@@ -401,11 +401,15 @@
 						<BitsValue val="0">No</BitsValue>
 						<BitsValue val="1">Yes</BitsValue>
 					</Bits>
-					<Bits from="4" to="1">
+                    <Bits from="4" to="2">
 						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bits set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
+					<Bits bit="1" fx="1">
+                       <BitsShortName>FX</BitsShortName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
 				</Fixed>
 			</Variable>            
 		</DataItemFormat>

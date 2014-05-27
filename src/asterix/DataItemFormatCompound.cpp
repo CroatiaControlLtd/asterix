@@ -102,7 +102,7 @@ void DataItemFormatCompound::addBits(DataItemBits* pBits)
   Tracer::Error("Adding bits to Variable failed");
 }
 
-bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
+bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long)
 {
   bool ret = false;
   std::list<DataItemFormat*>::iterator it;
@@ -281,7 +281,7 @@ fulliautomatix_definitions* DataItemFormatCompound::getWiresharkDefinitions()
   return startDef;
 }
 
-fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long len, int byteoffset)
+fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long, int byteoffset)
 {
   fulliautomatix_data *lastData = NULL, *firstData = NULL;
 
@@ -299,9 +299,9 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long 
   int primaryPartLength = pCompoundPrimary->getLength(pData);
   unsigned char* pSecData = pData + primaryPartLength;
 
-  lastData = firstData = newDataTree(NULL, byteoffset, primaryPartLength, "Compound item header");
+  lastData = firstData = newDataTree(NULL, byteoffset, primaryPartLength, (char*)"Compound item header");
 
-  lastData->next = m_pCompoundPrimary->getData(pData, primaryPartLength, byteoffset);
+  lastData->next = pCompoundPrimary->getData(pData, primaryPartLength, byteoffset);
   while(lastData->next)
     lastData = lastData->next;
 

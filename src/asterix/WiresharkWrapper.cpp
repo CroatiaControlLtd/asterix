@@ -35,6 +35,7 @@
 
 
 static AsterixDefinition* pDefinition = NULL;
+bool gFiltering = false;
 
 /*
  * Initialize Asterix Wireshark wrapper
@@ -92,7 +93,7 @@ int fulliautomatix_start(ptExtVoidPrintf pPrintFunc, const char* ini_file_path)
 
     // parse format file
     XMLParser Parser;
-    if (!Parser.Parse(fp, pDefinition))
+    if (!Parser.Parse(fp, pDefinition, strInputFile.c_str()))
     {
       Tracer::Error("Failed to parse definitions file: %s\n", strInputFile.c_str());
       ret = 1;
@@ -129,11 +130,11 @@ fulliautomatix_definitions* fulliautomatix_get_definitions()
   fulliautomatix_definitions* first_def = NULL;
   fulliautomatix_definitions* def = NULL;
 
-  first_def = def = newDefinition(NULL, PID_CATEGORY, "Category       ","asterix.category", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, "category");
-  def = newDefinition(def, PID_LENGTH, "Payload length ", "asterix.payload_len", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, "Payload length");
-  def = newDefinition(def, PID_FSPEC, "FSPEC ", "asterix.fspec", FA_FT_BYTES, FA_FT_NONE, NULL, 0, "FSPEC");
-  def = newDefinition(def, PID_REP, "Repetition factor ", "asterix.rep", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, "REP");
-  def = newDefinition(def, PID_LEN, "Data Item Length ", "asterix.len", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, "LEN");
+  first_def = def = newDefinition(NULL, PID_CATEGORY, (char*)"Category       ",(char*)"asterix.category", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, (char*)"category");
+  def = newDefinition(def, PID_LENGTH, (char*)"Payload length ", (char*)"asterix.payload_len", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, (char*)"Payload length");
+  def = newDefinition(def, PID_FSPEC, (char*)"FSPEC ", (char*)"asterix.fspec", FA_FT_BYTES, FA_FT_NONE, NULL, 0, (char*)"FSPEC");
+  def = newDefinition(def, PID_REP, (char*)"Repetition factor ", (char*)"asterix.rep", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, (char*)"REP");
+  def = newDefinition(def, PID_LEN, (char*)"Data Item Length ", (char*)"asterix.len", FA_FT_UINT32, FA_BASE_DEC, NULL, 0, (char*)"LEN");
 
   for (int i=0; i<MAX_CATEGORIES; i++)
   {
@@ -338,5 +339,4 @@ void fulliautomatix_data_destroy(fulliautomatix_data* pData)
   }
 }
 
-#endif WIRESHARK_WRAPPER
-
+#endif

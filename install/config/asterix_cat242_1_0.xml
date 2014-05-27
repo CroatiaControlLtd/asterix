@@ -69,11 +69,15 @@
 						<BitsValue val="0">Default</BitsValue>
 						<BitsValue val="1">Military identification</BitsValue>
 					</Bits>
-					<Bits from="3" to="1">
+                    <Bits from="3" to="2">
 						<BitsShortName>spare</BitsShortName>
 						<BitsName>spare bits set to 0</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>                   
+					<Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
 				</Fixed>
 			</Variable>
 		</DataItemFormat>
@@ -256,11 +260,15 @@
 							<BitsName>Amplitude of plot reply</BitsName>
 							<BitsPresence>1</BitsPresence>
 						</Bits>
-						<Bits from="5" to="1">
+                  <Bits from="5" to="2">
 							<BitsShortName>spare</BitsShortName>
 							<BitsName>spare bit set to 0</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
+				  <Bits bit="1" fx="1">
+                       <BitsShortName>FX</BitsShortName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
 					</Fixed>
 				</Variable>   
 				<Fixed length="1">

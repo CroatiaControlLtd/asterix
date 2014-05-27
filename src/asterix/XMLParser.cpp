@@ -797,6 +797,24 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
   {
 	  if (p->m_pFormat != NULL && p->m_pFormat->isFixed())
 	  {
+			if (p->m_pFormat->m_pParentFormat && p->m_pFormat->m_pParentFormat->isVariable())
+			{ // check if fx bit is set
+				std::list<DataItemFormat*>::iterator it;
+				bool fxFound = false;
+				for ( it=p->m_pFormat->m_lSubItems.begin() ; it != p->m_pFormat->m_lSubItems.end(); it++ )
+				{
+					DataItemBits* dip = (DataItemBits*)(*it);
+					if (dip->m_bExtension == true)
+					{
+						fxFound = true;
+						break;
+					}
+				}
+				if (!fxFound)
+				{
+					p->Error("Missing fx=1 in primary part of Variable item.");
+				}
+			}
 		  p->m_pFormat = p->m_pFormat->m_pParentFormat;
 	  }
 	else

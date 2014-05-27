@@ -186,7 +186,7 @@
 						<BitsValue val="0">Report from target transponder</BitsValue>
 						<BitsValue val="1">Report from field monitor (fixed transponder)</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>Field Extension</BitsName>
 						<BitsValue val="0">End of item</BitsValue>
@@ -232,7 +232,7 @@
 						<BitsValue val="2">No information</BitsValue>
 						<BitsValue val="3">Reserved for future use</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>Field Extension</BitsName>
 						<BitsValue val="0">End of item</BitsValue>
@@ -282,7 +282,7 @@
 						<BitsValue val="0">default</BitsValue>
 						<BitsValue val="1">Range Check failed</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>Field Extension</BitsName>
 						<BitsValue val="0">End of data item</BitsValue>
@@ -1173,7 +1173,7 @@
 						<BitsValue val="0">IDENT switch not active</BitsValue>
 						<BitsValue val="1">IDENT switch active</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>FX Extension indicator</BitsName>
 						<BitsValue val="0">no extension</BitsValue>

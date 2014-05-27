@@ -136,7 +136,7 @@
 						<BitsValue val="0">default</BitsValue>
 						<BitsValue val="1">track numbering has restarted</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">No extension</BitsValue>
 						<BitsValue val="1">Extension</BitsValue>
@@ -148,7 +148,7 @@
 						<BitsName>Ground Station Status Reporting</BitsName>
 						<BitsUnit scale="1" min="1" max="127">s</BitsUnit>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of item</BitsValue>
 						<BitsValue val="1">Extension into Second Extension</BitsValue>
@@ -186,7 +186,7 @@
 						<BitsName>Spare bit set to zero</BitsName>
 						<BitsConst>0</BitsConst>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of item</BitsValue>
 						<BitsValue val="1">Extension into next octet</BitsValue>
@@ -198,7 +198,7 @@
 						<BitsName>Service Status Reporting Period</BitsName>
 						<BitsUnit scale="1" min="1" max="127">s</BitsUnit>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">End of item</BitsValue>
 						<BitsValue val="1">Extension into Second Extension</BitsValue>
@@ -229,7 +229,7 @@
 						<BitsValue val="4">Normal</BitsValue>
 						<BitsValue val="5">Initialisation</BitsValue>
 					</Bits>
-					<Bits bit="1">
+                    <Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsValue val="0">No extension</BitsValue>
 						<BitsValue val="1">Extension</BitsValue>

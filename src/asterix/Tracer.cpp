@@ -69,7 +69,6 @@ void Tracer::Error(const char* format, ...)
   va_start (args, format);
   vsprintf (buffer,format, args);
   va_end (args);
-  strcat(buffer, "\n");
   Tracer& instance = Tracer::instance();
   if (instance.pPrintFunc)
   {
@@ -81,6 +80,6 @@ void Tracer::Error(const char* format, ...)
   }
   else
   {
-    printf(buffer);
+    puts(buffer);
   }
 }

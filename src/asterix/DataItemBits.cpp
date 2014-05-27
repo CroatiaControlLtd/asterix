@@ -68,7 +68,7 @@ long DataItemBits::getLength(const unsigned char*)
 	return 0;
 }
 
-void DataItemBits::addBits(DataItemBits* pBits)
+void DataItemBits::addBits(DataItemBits*)
 {
 	Tracer::Error("DataItemBits::addBits Should not be called!");
 }
@@ -372,7 +372,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	case CAsterixFormat::EJSONH:
 			strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
 		break;
-	case CAsterixFormat::EXIDEF:
+	case CAsterixFormat::EXML:
 			strResult += format("\n<%s>", m_strShortName.c_str());
 		break;
 	}
@@ -656,7 +656,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	case CAsterixFormat::EJSONH:
 		strResult += format(",");
 		break;
-	case CAsterixFormat::EXIDEF:
+	case CAsterixFormat::EXML:
 		strResult += format("</%s>", m_strShortName.c_str());
 		break;
 	}
@@ -994,7 +994,7 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
 		break;
 	}
 
-	fulliautomatix_data* data = newDataMessage(NULL, byteoffset+firstByte, numberOfBytes, 2, "Error: Unknown encoding.");
+  fulliautomatix_data* data = newDataMessage(NULL, byteoffset+firstByte, numberOfBytes, 2, (char*)"Error: Unknown encoding.");
 	return data;
 }
 #endif
