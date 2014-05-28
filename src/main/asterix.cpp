@@ -36,6 +36,7 @@
 #include "../engine/channelfactory.hxx"
 
 bool gVerbose = false;
+bool gSynchronous = false;
 bool gForceRouting = false;
 int gHeartbeat = 0;
 const char* gAsterixDefinitionsFile = NULL;
@@ -56,13 +57,15 @@ static void show_usage(std::string name)
 
 	std::cerr << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
 			  << "Usage:\n"
-			  <<  name << " [-h] [-v] [-L] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]"
+			  <<  name << " [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]"
 			  << "\n\nOptions:"
 			  << "\n\t-h,--help\tShow this help message"
 			  << "\n\t-v,--verbose\tShow more information during program execution"
 			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini"
 			  << "\n\t-L,--list\tList all configured ASTERIX items. Mark which items are filtered."
 			  << "\n\t-LF,--filter\tPrintout only items listed in configured file"
+			  << "\n\t-o,--loop\tLoop the input file. Only relevant when file is data source."
+			  << "\n\t-s,--sync\tOutput will be printed synchronously with input file (with time delays between packets). This parameter is used only if input is from file."
 			  << "\n\nInput format"
 			  << "\n------------"
 			  << "\n\t-P,--pcap\tInput is from PCAP file"
@@ -99,6 +102,7 @@ int main(int argc, const char *argv[])
 	std::string strOutputFormat = "ASTERIX_TXT";
 
 	bool bListDefinitions = false;
+	bool bLoopFile = false;
 
 	for (int i = 1; i < argc; ++i)
 	{
@@ -108,9 +112,17 @@ int main(int argc, const char *argv[])
 				show_usage(argv[0]);
 				return 0;
 		}
-		else if ((arg == "-v") || (arg == "--verbose"))
+		else if ((arg == "-v") || (arg == "--sync"))
 		{
 			gVerbose = true;
+		}
+		else if ((arg == "-s") || (arg == "--verbose"))
+		{
+			gSynchronous = true;
+		}
+		else if ((arg == "-o") || (arg == "--loop"))
+		{
+			bLoopFile = true;
 		}
 		else if ((arg == "-L") || (arg == "--list"))
 		{
@@ -266,7 +278,16 @@ int main(int argc, const char *argv[])
 	}
 	if (!strFileInput.empty())
 	{
-		strInput = "disk " + strFileInput + ":0:1 ";
+		strInput = "disk " + strFileInput + ":0:";
+
+		if (bLoopFile)
+		{
+			strInput += "65 ";
+		}
+		else
+		{
+			strInput += "1 ";
+		}
 	}
 	else if (!strIPInput.empty())
 	{
@@ -281,7 +302,7 @@ int main(int argc, const char *argv[])
 		if (cntr == 2)
 			strInput = "udp " + strIPInput + "::S ";
 		else if (cntr == 3)
-		strInput = "udp " + strIPInput + ":S ";
+			strInput = "udp " + strIPInput + ":S ";
 		else {
 			std::cerr << "Error: Wrong input address format  (shall be: mcastaddress:ipaddress:port[:srcaddress]" << std::endl;
 			exit (3);
@@ -293,24 +314,24 @@ int main(int argc, const char *argv[])
 	// Create output string
 	std::string strOutput = "std 0 " + strOutputFormat;
 
-    const char         *inputChannel=NULL;
-    const char         *outputChannel[CChannelFactory::MAX_OUTPUT_CHANNELS];
-    unsigned int 		chFailover = 0;
-    unsigned int        nOutput = 1; // Total number of output channels
+	const char         *inputChannel=NULL;
+	const char         *outputChannel[CChannelFactory::MAX_OUTPUT_CHANNELS];
+	unsigned int 		chFailover = 0;
+	unsigned int        nOutput = 1; // Total number of output channels
 
 	inputChannel = strInput.c_str();
 	outputChannel[0] = strOutput.c_str();
 
-    // Print out options
-    LOGDEBUG(inputChannel, "Input channel description: %s\n", inputChannel);
+	// Print out options
+	LOGDEBUG(inputChannel, "Input channel description: %s\n", inputChannel);
 
-    for (unsigned int i=0; i<nOutput; i++)
-    {
-        LOGDEBUG(outputChannel[i], "Output channel %d description: %s\n", i+1, outputChannel[i]);
-    }
+	for (unsigned int i=0; i<nOutput; i++)
+	{
+		LOGDEBUG(outputChannel[i], "Output channel %d description: %s\n", i+1, outputChannel[i]);
+	}
 
-    gHeartbeat = abs(gHeartbeat); // ignore negative values
-//    LOGDEBUG(1, "Heart-beat: %d\n", gHeartbeat);
+	gHeartbeat = abs(gHeartbeat); // ignore negative values
+	//    LOGDEBUG(1, "Heart-beat: %d\n", gHeartbeat);
 
     // Finally execute converter engine
     if (CConverterEngine::Instance()->Initialize(inputChannel, outputChannel, nOutput, chFailover))
@@ -368,7 +389,7 @@ int main(int argc, const char *argv[])
     	}
     	else
     	{
-        CConverterEngine::Instance()->Start();
+    		CConverterEngine::Instance()->Start();
     	}
     }
     else

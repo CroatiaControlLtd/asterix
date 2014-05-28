@@ -36,6 +36,7 @@
 
 static AsterixDefinition* pDefinition = NULL;
 bool gFiltering = false;
+bool gSynchronous = false;
 
 /*
  * Initialize Asterix Wireshark wrapper

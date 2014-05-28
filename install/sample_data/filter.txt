@@ -503,6 +503,7 @@ CAT030:I030:C3                                               Track selected by t
 CAT030:I030:C4                                               Track selected by the Complementary service 4
 CAT030:I030:C5                                               Track selected by the Complementary service 5
 CAT030:I030:spare                                            spare bits set to 0
+CAT030:I030:FX                                               Field extension
 CAT030:I035:family                                           Family to which the message belongs
 CAT030:I035:nature                                           Nature of the message (within its family)
 CAT030:I040:spare                                            Spare bits set to zero
@@ -1256,6 +1257,7 @@ CAT242:I020:spare                                            spares bit set to 0
 CAT242:I020:ME                                               
 CAT242:I020:MI                                               
 CAT242:I020:spare                                            spare bits set to 0
+CAT242:I020:FX                                               
 CAT242:I040:RHO                                              
 CAT242:I040:THETA                                            
 CAT242:I050:V                                                
@@ -1348,6 +1350,7 @@ CAT252:I110:C3                                               Complementary servi
 CAT252:I110:C4                                               Complementary service 4
 CAT252:I110:C5                                               Complementary service 5
 CAT252:I110:spare                                            spare bits set to 0
+CAT252:I110:FX                                               
 CAT252:I120:CS                                               Callsign
 CAT252:I130:spare                                            spare bits set to 0
 CAT252:I130:TrackN                                           Track Number
