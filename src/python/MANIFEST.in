@@ -1,0 +1,6 @@
+include README.rst
+include MANIFEST.in
+include setup.py
+include tests/test.py
+include *.c
+include *.h
