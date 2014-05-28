@@ -63,7 +63,7 @@ asterix.exe will be created in asterix/install
 USAGE
 =====
 
-asterix [-h] [-v] [-L] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
+asterix [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
 
 Options:
    -h,--help	Show this help message
@@ -71,6 +71,8 @@ Options:
    -d,--def		XML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini
    -L,--list	List all configured ASTERIX items. Mark which items are filtered.
    -LF,--filter	Printout only items listed in configured file
+   -o,--loop   		Loop the input file. Only relevant when file is data source."
+   -s,--sync		Output will be printed synchronously with input file (with time delays between packets). This parameter is used only if input is from file."
 
 Input format:
    -P,--pcap		Input is from PCAP file
@@ -84,6 +86,7 @@ Output format:
    -x,--xml			Output will be printed in XML format.
    -j,--json		Output will be printed in compact JSON format (one object per line).
    -jh,--jsonh		Output will be printed in human readable JSON format (one item per line).
+	
 
 Data source:
    -f filename		File generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.

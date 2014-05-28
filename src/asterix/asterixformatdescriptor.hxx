@@ -46,7 +46,6 @@ public:
      */
     CAsterixFormatDescriptor(AsterixDefinition* pDefinition) :
       m_InputParser(pDefinition),
-      m_bFileInitialized(false),
       m_pAsterixData(NULL),
       m_ePcapNetworkType(CAsterixFormatDescriptor::ePcapNetworkType(0)),
       m_bInvertByteOrder(true),
@@ -68,7 +67,6 @@ public:
     }
 
     InputParser m_InputParser;
-    bool m_bFileInitialized;
     AsterixData* m_pAsterixData;
 
     const unsigned char* GetNewBuffer(unsigned int len)

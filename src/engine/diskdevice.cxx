@@ -122,6 +122,8 @@ bool CDiskDevice::Read(void *data, size_t len)
         return false;
     }
 
+    _onstart = false;
+
 //    LOGDEBUG(ZONE_DISKDEVICE, "Read message from file.\n");
 
     if(BytesLeftToRead() == 0)
@@ -129,7 +131,7 @@ bool CDiskDevice::Read(void *data, size_t len)
         if(_mode & DD_MODE_READLOOP)
         {
             // restart reading from the beginning of the same file
-            fseek(_fileStream, 0, SEEK_SET);
+        	_onstart = (fseek(_fileStream, 0, SEEK_SET) == 0);
         }
         else
         {
@@ -188,6 +190,8 @@ bool CDiskDevice::Write(const void *data, size_t len)
         CountWriteError();
         return false;
     }
+
+    _onstart = false;
 
     if(_mode & DD_MODE_FLUSHWRITE)
         fflush(_fileStream);
@@ -287,6 +291,7 @@ bool CDiskDevice::Init(const char *path)
 //         ASSERT( !(_mode & DD_MODE_TEMPNAME) ); // not supported for input
 
         _fileStream = fopen(fname, "r");
+        _onstart = true;
     }
     else
     {
@@ -381,6 +386,7 @@ bool CDiskDevice::OpenOutputFile(const char* path, bool openNow)
                 strcpy(_fileName, fname);
             LOGDEBUG(ZONE_DISKDEVICE, "Opened output file '%s'\n", _fileName);
             _opened = true;
+            _onstart = true;
             return true;
         }
     }
@@ -648,7 +654,9 @@ bool CDiskDevice::IoCtrl(const unsigned int command, const void *data, size_t le
             if(_opened && _fileStream)
             {
                 if(_input) // seek to the beginning of the input file
-                    result = (fseek(_fileStream, 0, SEEK_SET) == 0);
+                {
+                	_onstart = result = (fseek(_fileStream, 0, SEEK_SET) == 0);
+                }
             }
             ResetAllErrors();
             break;

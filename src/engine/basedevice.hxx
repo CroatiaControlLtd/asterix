@@ -35,6 +35,7 @@ class CBaseDevice
 {
 protected:
     bool _opened;
+    bool _onstart; // if true device is on start (e.g. beginning of file)
     unsigned int _nReadErrors;
     unsigned int _nWriteErrors;
     unsigned int _nSeqReadErrors;
@@ -55,7 +56,7 @@ public:
     /**
      * Empty constructor
      */
-    CBaseDevice() : _opened(false),
+    CBaseDevice() : _opened(false), _onstart(true),
                     _nReadErrors(0), _nWriteErrors(0),
                     _nSeqReadErrors(0), _nSeqWriteErrors(0) {}
 
@@ -72,6 +73,7 @@ public:
     virtual bool IsPacketDevice() = 0;
     virtual unsigned int MaxPacketSize() { return 0; } // return maximal packet size (only for packet devices)
     virtual bool IsOpened() { return _opened; }
+    virtual bool IsOnStart() { return _onstart; } // if true device is on start (e.g. beginning of file)
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
     virtual unsigned int GetNReadErrors(bool bSeq = false) { return bSeq ? _nSeqReadErrors : _nReadErrors; }
     virtual unsigned int GetNWriteErrors(bool bSeq = false) { return bSeq ? _nSeqWriteErrors: _nWriteErrors; }
