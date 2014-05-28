@@ -30,8 +30,15 @@ TOP_SED 		:= ..\/..
 CUR_DIR         := main
 include $(TOP)/src/makefile.include
 
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+TARGET_EXE = $(OBJ_DIR)/asterix
+TARGET_INSTALL = asterix
+else
 TARGET_EXE = $(OBJ_DIR)/asterix.exe
 TARGET_INSTALL = asterix.exe
+endif
 
 # Libraries
 
