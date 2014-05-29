@@ -26,12 +26,15 @@
 
 
 PyObject* say_hello(PyObject* self, PyObject *args, PyObject *kwargs);
-void initAsterix(void);
+PyObject* init(PyObject* self, PyObject *args, PyObject *kwargs);
+PyObject* parse(PyObject* self, PyObject *args, PyObject *kwargs);
 
 #define ENCODER_HELP_TEXT "Use ensure_ascii=false to output UTF-8. Pass in double_precision to alter the maximum digit precision of doubles. Set encode_html_chars=True to encode < > & as unicode escape sequences."
 
 static PyMethodDef asterixMethods[] = {
-  {"init", (PyCFunction) say_hello, METH_VARARGS | METH_KEYWORDS, "Initializes asterix converter" ENCODER_HELP_TEXT},
+  {"hello", (PyCFunction) say_hello, METH_VARARGS | METH_KEYWORDS, "Say hello" ENCODER_HELP_TEXT},
+  {"init", (PyCFunction) init, METH_VARARGS | METH_KEYWORDS, "Initializes asterix converter" ENCODER_HELP_TEXT},
+  {"parse", (PyCFunction) parse, METH_VARARGS | METH_KEYWORDS, "Parse ASTERIX data" ENCODER_HELP_TEXT},
   {NULL, NULL, 0, NULL}       /* Sentinel */
 };
 
@@ -65,8 +68,6 @@ PYMODINITFUNC
 {
   PyObject *module;
   PyObject *version_string;
-
-  initAsterix();
 
   module = PYMODULE_CREATE();
 

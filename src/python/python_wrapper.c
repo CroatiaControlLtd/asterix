@@ -25,12 +25,9 @@
 #include <Python.h>
 #include <WiresharkWrapper.h>
 
-void initAsterix(void)
-{
-	int ret = fulliautomatix_start(printf, "/home/damir/workspace/asterix/install/config");
-}
-
-
+static int bInitialized = 0;
+static fulliautomatix_definitions** pDefinitions = NULL;
+static fulliautomatix_definitions* pListOfDefinitions = NULL;
 
 PyObject*
 say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
@@ -45,6 +42,86 @@ say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
     Py_RETURN_NONE;
 }
 
+PyObject*
+init(PyObject* self, PyObject* args, PyObject *kwargs)
+{
+    const char* filename;
 
+    if (!PyArg_ParseTuple(args, "s", &filename))
+        return NULL;
+
+	int ret = fulliautomatix_start(printf, filename);
+	if (ret == 0)
+		bInitialized = 1;
+
+	pListOfDefinitions = fulliautomatix_get_definitions();
+
+	// find maximal pid
+	int maxpid = 0;
+	fulliautomatix_definitions* d = pListOfDefinitions;
+	while(d != NULL )
+	{
+		if (d->pid > maxpid)
+			maxpid = d->pid;
+		d = d->next;
+	}
+
+	// create array of definitions
+	pDefinitions = (fulliautomatix_definitions**) malloc((maxpid+1)*sizeof(fulliautomatix_definitions*));
+	memset(pDefinitions, (maxpid+1)*sizeof(fulliautomatix_definitions*), 0);
+
+	// sort definitions in array
+	d = pListOfDefinitions;
+	while(d != NULL)
+	{
+		pDefinitions[d->pid] = d;
+		d = d->next;
+	}
+
+	printf("Total definitions = %d", maxpid);
+
+    Py_RETURN_NONE;
+}
+
+PyObject*
+parse(PyObject* self, PyObject* args, PyObject *kwargs)
+{
+    const char* data;
+    int len;
+
+    if (!PyArg_ParseTuple(args, "s#", &data, &len))
+        return NULL;
+
+	if (!bInitialized)
+	{
+	    printf("Not initialized!");
+	    return NULL;
+	}
+
+	fulliautomatix_data* parsed = fulliautomatix_parse((const unsigned char*) data, len);
+	fulliautomatix_data* p = parsed;
+	while(p != NULL)
+	{
+		if (p->description != NULL)
+		{
+			printf("\n%s", p->description);
+		}
+		else
+		{
+			char* name = pDefinitions[p->pid]->name;
+			char* abbrev = pDefinitions[p->pid]->abbrev;
+
+			if (p->type == FA_FT_UINT_STRING)
+				printf("\n\t%s\t\t%s\t%s", abbrev, p->val.str, name);
+			else
+				printf("\n\t%s\t\t%ld\t%s", abbrev, p->val.ul, name);
+		}
+		p = p->next;
+	}
+
+	fulliautomatix_data_destroy(parsed);
+
+    Py_RETURN_NONE;
+}
 
 
