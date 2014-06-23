@@ -356,20 +356,36 @@ int main(int argc, const char *argv[])
     		{
 
 				int cat = 0;
-				int item = 0;
-				char name[1024];
+				char item[128];
+				char name[128];
 
 				// skip commented lines
-				if (line[0] == '#')
+				if (line[0] == '#' || strlen(line)<=0)
 					continue;
 
-				if (sscanf(line, "CAT%03d:I%d:%s", &cat, &item, name) != 3)
+				char *p = strtok(line, ":");
+				int ret = 0;
+				while(p)
+				{
+					if (sscanf(p, "CAT%03d", &cat) != 1)
+						break;
+					p = strtok(NULL, ":");
+					if (sscanf(p, "I%128s", item) != 1)
+						break;
+					p = strtok(NULL, ":");
+					if (sscanf(p, "%128s", name) != 1)
+						break;
+					ret = 1;
+					break;
+				}
+
+				if (ret == 0)
 				{
 					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line)  << std::endl;
 					exit(3);
 				}
 
-				if (!desc->filterOutItem(cat, item, name))
+				if (!desc->filterOutItem(cat, std::string(item), name))
 				{
 					std::cerr << "Warning: Filtering item not found: "+std::string(line)  << std::endl;
 				}
