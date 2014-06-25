@@ -27,7 +27,7 @@ Fixed bug that prevented parsing of multiple Data Records in one Data Block
 Optional source address in multicast definition implemented: format is "-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address]"
 
 2.0.0
-16.5.2014.
+25.6.2014.
 JSON output format added
 Code optimization 
 Compound format in JSON output fixed  
@@ -47,5 +47,6 @@ Bug in writing of large strings to stdout fixed
 Max UDP packet size increased
 Synchronous output with input file (option -s)
 Looping the input file (option -o)
-
+Timestamp from final format printed
+FIltering items fixed
 
