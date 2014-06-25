@@ -35,74 +35,83 @@ DataItemFormatExplicit::~DataItemFormatExplicit()
 
 long DataItemFormatExplicit::getLength(const unsigned char* pData)
 {
-  return (long)(*pData);
+	return (long)(*pData);
 }
 
 void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong data in Explicit");
-    return;
-  }
-  pFixed->addBits(pBits);
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong data in Explicit");
+		return;
+	}
+	pFixed->addBits(pBits);
 }
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-	Tracer::Error("Wrong data in Explicit");
-	return false;
-}
+	bool ret = false;
 
-  int fixedLength = pFixed->getLength(pData);
-  unsigned char nFullLength = nLength - 1;
-  pData++;
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong data in Explicit");
+		return false;
+	}
 
-  switch(formatType)
-  {
-	  case CAsterixFormat::EJSON:
-	  case CAsterixFormat::EJSONH:
-		  strResult += format("[");
+	int fixedLength = pFixed->getLength(pData);
+	unsigned char nFullLength = nLength - 1;
+	pData++;
 
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
-	  pData += fixedLength;
-			  strResult += format(",");
-  }
-		  if (strResult[strResult.length()-1] == ',')
-		  {
-			  strResult[strResult.length()-1] = ']';
-}
-		  else
-{
-			  strResult += ']';
-		  }
-		  break;
-	  default:
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
-	  pData += fixedLength;
-  }
-		  break;
-  	  }
+	switch(formatType)
+	{
+	case CAsterixFormat::EJSON:
+	case CAsterixFormat::EJSONH:
+	{
+		std::string tmpStr = format("[");
 
-  return true;
+		for (int i=0; i<nFullLength; i+=fixedLength)
+		{
+			pFixed->getText(tmpStr, strHeader, formatType, pData, fixedLength);
+			pData += fixedLength;
+			tmpStr += format(",");
+		}
+		if (tmpStr[tmpStr.length()-1] == ',')
+		{
+			tmpStr[tmpStr.length()-1] = ']';
+		}
+		else
+		{
+			tmpStr += ']';
+		}
+
+		if (ret)
+			strResult += tmpStr;
+		break;
+	}
+	default:
+	{
+		for (int i=0; i<nFullLength; i+=fixedLength)
+		{
+			pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			pData += fixedLength;
+		}
+		break;
+	}
+	}
+
+	return ret;
 }
 
 std::string DataItemFormatExplicit::printDescriptors(std::string header)
 {
-    DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
 	if (pFixed == NULL)
-  {
+	{
 		Tracer::Error("Wrong data in Explicit");
 		return "Wrong data in Explicit";
-  }
+	}
 	return pFixed->printDescriptors(header);
 }
 
@@ -110,60 +119,60 @@ bool DataItemFormatExplicit::filterOutItem(const char* name)
 {
 	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
 	if (pFixed == NULL)
-  {
+	{
 		Tracer::Error("Wrong data in Explicit");
-  return false;
-}
+		return false;
+	}
 	return pFixed->filterOutItem(name);
 }
 
 bool DataItemFormatExplicit::isFiltered(const char* name)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
 	if (pFixed == NULL)
-	  {
+	{
 		Tracer::Error("Wrong data in Explicit");
-	  return false;
-}
+		return false;
+	}
 	return pFixed->isFiltered(name);
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong format of explicit item");
-    return NULL;
-  }
-  return pFixed->getWiresharkDefinitions();
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong format of explicit item");
+		return NULL;
+	}
+	return pFixed->getWiresharkDefinitions();
 }
 
 fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long, int byteoffset)
 {
-  fulliautomatix_data *lastData = NULL, *firstData = NULL;
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong format of explicit item");
-    return NULL;
-  }
+	fulliautomatix_data *lastData = NULL, *firstData = NULL;
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong format of explicit item");
+		return NULL;
+	}
 
-  int fixedLength = pFixed->getLength(pData);
-  unsigned char nFullLength = *pData;
+	int fixedLength = pFixed->getLength(pData);
+	unsigned char nFullLength = *pData;
 
-  firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
-  byteoffset+=1;
+	firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
+	byteoffset+=1;
 
-  pData++;
+	pData++;
 
-  lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
-  while(lastData->next)
-    lastData = lastData->next;
+	lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
+	while(lastData->next)
+		lastData = lastData->next;
 
-  byteoffset += nFullLength;
+	byteoffset += nFullLength;
 
-  return firstData;
+	return firstData;
 }
 #endif
