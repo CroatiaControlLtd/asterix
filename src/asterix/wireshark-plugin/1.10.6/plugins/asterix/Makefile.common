@@ -1,0 +1,97 @@
+# Makefile.common for Asterix plugin
+#     Contains the stuff from Makefile.am and Makefile.nmake that is
+#     a) common to both files and
+#     b) portable between both files
+#
+# $Id$
+#
+# Wireshark - Network traffic analyzer
+# By Gerald Combs <gerald@wireshark.org>
+# Copyright 1998 Gerald Combs
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+# the name of the plugin
+PLUGIN_NAME = asterix
+
+# Non-generated sources to be scanned for registration routines
+NONGENERATED_REGISTER_C_FILES = \
+	packet-asterix.c
+
+# Non-generated sources
+NONGENERATED_C_FILES = \
+	$(NONGENERATED_REGISTER_C_FILES)
+
+NONGENERATED_CPP_FILES = \
+	AsterixDefinition.cpp \
+	AsterixData.cpp \
+	Category.cpp \
+	DataBlock.cpp \
+	DataRecord.cpp \
+	DataItem.cpp \
+	DataItemBits.cpp \
+	DataItemDescription.cpp \
+	DataItemFormat.cpp \
+	DataItemFormatCompound.cpp \
+	DataItemFormatExplicit.cpp \
+	DataItemFormatFixed.cpp \
+	DataItemFormatRepetitive.cpp \
+	DataItemFormatVariable.cpp \
+	InputParser.cpp \
+	Tracer.cpp \
+	UAP.cpp \
+	UAPItem.cpp \
+	Utils.cpp \
+	XMLParser.cpp \
+	WiresharkWrapper.cpp
+
+# Headers.
+HEADER_FILES = \
+	Category.h \
+	DataItemFormatExplicit.h \
+	DataItem.h \
+	Utils.h  \
+	DataBlock.h \
+	DataItemFormatFixed.h \
+	DataRecord.h \
+	InputParser.h \
+	Tracer.h \
+	WiresharkWrapper.h \
+	AsterixData.h \
+	DataItemBits.h \
+	DataItemFormat.h \
+	UAP.h \
+	XMLParser.h \
+	AsterixDefinition.h \
+	DataItemDescription.h \
+	DataItemFormatRepetitive.h \
+	UAPItem.h \
+	asterixhdlcparsing.h \
+	DataItemFormatCompound.h \
+	DataItemFormatVariable.h \
+	moduleinfo.h \
+	asterixfinalsubformat.hxx \
+	asterixformat.hxx \
+	asterixkmlsubformat.hxx \
+	asterixtxtsubformat.hxx \
+	asterixformatdescriptor.hxx \
+	asterixhdlcsubformat.hxx \
+	asterixpcapsubformat.hxx \
+	asterixtrackssubformat.hxx \
+	asterixxidefsubformat.hxx
+
+
+
+include ../Makefile.common.inc

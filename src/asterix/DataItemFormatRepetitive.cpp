@@ -58,6 +58,7 @@ void DataItemFormatRepetitive::addBits(DataItemBits* pBits)
 
 bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+	bool ret = false;
 	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
 	if (pFixed == NULL)
 	{
@@ -80,27 +81,35 @@ bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strH
   {
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
-		  strResult += format("[");
+	{
+		std::string tmpStr = format("[");
 
 		  while(nRepetition--)
 		  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			ret |= pFixed->getText(tmpStr, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
 
 			  if (nRepetition > 0)
-				  strResult += format(",");
+				tmpStr += format(",");
 		  }
-		  strResult += format("]");
+		tmpStr += format("]");
+
+		if (ret)
+			strResult += tmpStr;
+
 		  break;
+	}
 	  default:
+	{
 		  while(nRepetition--)
 		  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			ret |= pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
 		    pData += fixedLength;
 		  }
 		  break;
   	  }
-  return true;
+	}
+	return ret;
 }
 
 std::string DataItemFormatRepetitive::printDescriptors(std::string header)

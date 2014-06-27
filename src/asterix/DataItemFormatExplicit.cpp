@@ -51,6 +51,8 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
+	bool ret = false;
+
   DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
   if (pFixed == NULL)
   {
@@ -66,24 +68,30 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
   {
 	  case CAsterixFormat::EJSON:
 	  case CAsterixFormat::EJSONH:
-		  strResult += format("[");
+	{
+		std::string tmpStr = format("[");
 
 		  for (int i=0; i<nFullLength; i+=fixedLength)
 		  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			pFixed->getText(tmpStr, strHeader, formatType, pData, fixedLength);
 			  pData += fixedLength;
-			  strResult += format(",");
+			tmpStr += format(",");
 		  }
-		  if (strResult[strResult.length()-1] == ',')
+		if (tmpStr[tmpStr.length()-1] == ',')
 		  {
-			  strResult[strResult.length()-1] = ']';
+			tmpStr[tmpStr.length()-1] = ']';
 		  }
 		  else
 		  {
-			  strResult += ']';
+			tmpStr += ']';
 		  }
+
+		if (ret)
+			strResult += tmpStr;
 		  break;
+	}
 	  default:
+	{
 		  for (int i=0; i<nFullLength; i+=fixedLength)
 		  {
 			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
@@ -91,8 +99,9 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 		  }
 		  break;
   	  }
+	}
 
-  return true;
+	return ret;
 }
 
 std::string DataItemFormatExplicit::printDescriptors(std::string header)

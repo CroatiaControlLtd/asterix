@@ -1,2 +1,0 @@
-bash updatetests.sh
-pause

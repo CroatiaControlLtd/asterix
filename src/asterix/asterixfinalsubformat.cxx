@@ -46,6 +46,10 @@ bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor,
       return false;
   }
 
+  unsigned long nTimestamp = (unsigned long) finalRecordHeader.m_nTimeMMSB << 16;
+  nTimestamp |= (unsigned long) finalRecordHeader.m_nTimeMSB << 8;
+  nTimestamp |= (unsigned long) finalRecordHeader.m_nTimeLSB;
+
   unsigned int neededLen = finalRecordHeader.m_nByteCountMSB;
   neededLen <<= 8;
   neededLen |= finalRecordHeader.m_nByteCountLSB;
@@ -79,7 +83,7 @@ bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor,
   if (Descriptor.m_pAsterixData)
     delete Descriptor.m_pAsterixData;
 
-  Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(pBuffer, neededLen);
+  Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(pBuffer, neededLen, nTimestamp);
 
   return true;
 }

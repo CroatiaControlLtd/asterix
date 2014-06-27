@@ -25,6 +25,7 @@
 
 Category::Category(int id)
 : m_id(id)
+, m_bFiltered(false)
 {
 }
 
@@ -154,6 +155,9 @@ bool Category::filterOutItem(std::string item, const char* name)
 {
 	std::list<DataItemDescription*>::iterator it;
 	DataItemDescription* di = NULL;
+
+	// At least one item of category shall be printed when filter is applied
+	m_bFiltered = true;
 
 	for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
 	{

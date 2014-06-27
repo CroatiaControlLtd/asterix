@@ -31,7 +31,7 @@ class InputParser
 {
 public:
   InputParser(AsterixDefinition* pDefinition);
-  AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize);
+  AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp = 0);
 
   std::string printDefinition();
   bool filterOutItem(int cat, std::string item, const char* name);
