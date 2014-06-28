@@ -29,6 +29,8 @@ static int bInitialized = 0;
 static fulliautomatix_definitions** pDefinitions = NULL;
 static fulliautomatix_definitions* pListOfDefinitions = NULL;
 
+static fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* head);
+
 PyObject*
 say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
 {
@@ -88,6 +90,7 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 {
     const char* data;
     int len;
+    int i;
 
     if (!PyArg_ParseTuple(args, "s#", &data, &len))
         return NULL;
@@ -99,29 +102,144 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 	}
 
 	fulliautomatix_data* parsed = fulliautomatix_parse((const unsigned char*) data, len);
-	fulliautomatix_data* p = parsed;
+
+
+	PyObject *lstBlocks = PyList_New(0);
+	getList(parsed, lstBlocks);
+	fulliautomatix_data_destroy(parsed);
+
+	return lstBlocks;
+
+}
+
+fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
+{
+	// create holder for record category
+	char* name = NULL;
+
+	int dataBlock = 0;
+	PyObject* dataRecord = NULL;
+	PyObject* lstItems = NULL;
+	PyObject* dataItem = NULL;
+	PyObject* lstValues = NULL;
+
 	while(p != NULL)
 	{
-		if (p->description != NULL)
+		if (p->tree == 1)
 		{
-			printf("\n%s", p->description);
+			PyObject* item = PyDict_New();
+			PyObject *sublist = PyList_New(0);
+			if (name != NULL)
+				PyDict_SetItemString(item, name, sublist);
+			else
+				PyDict_SetItemString(item, p->description, sublist);
+			PyList_Append(lst, item);
+			p = p->next;
+			p = getList(p, sublist);
+
+
+/*
+			if (!dataBlock)
+			{
+				dataBlock = 1;
+			}
+			else if (dataRecord == NULL)
+			{
+				dataRecord = PyDict_New();
+				lstItems = PyList_New(0);
+				PyDict_SetItemString(dataRecord, recordCat, lstItems);
+
+				if (PyList_Append(lst, dataRecord))
+				{
+					printf("Error in list append");
+					Py_DECREF(lst);
+					Py_RETURN_NONE;
+				}
+			}
+			else if (dataItem == NULL)
+			{
+				dataItem = PyDict_New();
+				lstValues = PyList_New(0);
+				PyDict_SetItemString(dataItem, "Ixxx", lstValues);
+
+				if (PyList_Append(lstItems, dataItem))
+				{
+					printf("Error in list append");
+					Py_DECREF(lstItems);
+					Py_RETURN_NONE;
+				}
+			}
+*/
+		}
+		else if (p->tree == -1)
+		{
+			if (name)
+				free(name);
+			return p;
+/*
+			if (dataItem != NULL)
+			{
+				dataItem = NULL;
+			}
+			else if (dataRecord != NULL)
+			{
+				dataRecord = NULL;
+			}
+			else if (dataBlock)
+			{
+				dataBlock = 0;
+			}
+*/
+		}
+		else if (p->description != NULL)
+		{
+			printf("Description: %s\n", p->description);
+		}
+		else if (p->pid == 0)
+		{
+			// create record category
+			PyObject* block = PyDict_New();
+			char tmp[7];
+			sprintf(tmp, "CAT%03d", p->val.ul);
+			if (name)
+				free(name);
+			name = strdup(tmp);
+/*
+			// create list of record in block
+			lstRecords = PyList_New(0);
+			PyDict_SetItemString(block, name, lstBlocks);
+
+//			    PyObject *num = PyLong_FromLong(p->val.ul);
+			if (PyList_Append(lstBlocks, record))
+			{
+				printf("Error in list append");
+				Py_DECREF(lstBlocks);
+				Py_RETURN_NONE;
+			}
+*/
 		}
 		else
 		{
 			char* name = pDefinitions[p->pid]->name;
 			char* abbrev = pDefinitions[p->pid]->abbrev;
 
+			PyObject* item = PyDict_New();
 			if (p->type == FA_FT_UINT_STRING)
-				printf("\n\t%s\t\t%s\t%s", abbrev, p->val.str, name);
+			{
+				PyDict_SetItemString(item, abbrev, PyString_FromString(p->val.str));
+				printf("\t%s\t\t%s\t%s\n", abbrev, p->val.str, name);
+			}
 			else
-				printf("\n\t%s\t\t%ld\t%s", abbrev, p->val.ul, name);
+			{
+				PyDict_SetItemString(item, abbrev, PyLong_FromLong(p->val.ul));
+				printf("\t%s\t\t%ld\t%s\n", abbrev, p->val.ul, name);
+			}
+			PyList_Append(lst, item);
 		}
 		p = p->next;
 	}
 
-	fulliautomatix_data_destroy(parsed);
-
-    Py_RETURN_NONE;
+	if (name)
+		free(name);
+	return p;
 }
-
-

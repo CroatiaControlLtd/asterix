@@ -68,7 +68,9 @@ def print_packet(pktlen, data, timestamp):
 #        print '    header checksum: %d' % decoded['checksum']
 #        print '    data:'
         dumphex(decoded['data'])
-        asterix.parse(decoded['data'])
+        lst = asterix.parse(decoded['data'])
+        for l in lst:
+            print l
 
 if __name__=='__main__':
 
