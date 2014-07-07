@@ -12,6 +12,7 @@
 	Modified: 22.11.2013 : I048/SP defined as Explicit
 	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 	Modified:  05.05.2014. (dsalantic) Mode-1 displayed as decimal (and not hex)
+	Modified:  07.07.2014. (dsalantic) SAM and PAM are signed
 
 --> 
 
@@ -765,7 +766,7 @@
 					</Bits>
 				</Fixed>
 				<Fixed length="1">					
-					<Bits from="8" to="1" >
+					<Bits from="8" to="1" encode="signed">
 						<BitsShortName>SAM</BitsShortName>
 						<BitsName>SSR-Reply amplitude</BitsName>
 						<BitsUnit scale="1">dBm</BitsUnit>
@@ -779,7 +780,7 @@
 					</Bits>
 				</Fixed>
 				<Fixed length="1">					
-					<Bits from="8" to="1" >
+					<Bits from="8" to="1" encode="signed">
 						<BitsShortName>PAM</BitsShortName>
 						<BitsName>Amplitude of Primary plot</BitsName>
 						<BitsUnit scale="1">dBm</BitsUnit>
