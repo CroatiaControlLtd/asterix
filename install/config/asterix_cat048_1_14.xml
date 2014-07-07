@@ -12,6 +12,7 @@
 	Modified: 22.11.2013 : I048/SP defined as Explicit
 	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 	Modified:  05.05.2014. (dsalantic) Mode-1 displayed as decimal (and not hex)
+	Modified:  07.07.2014. (dsalantic) SAM and PAM are signed
 
 --> 
 
@@ -155,7 +156,7 @@
 						<BitsValue val="17">Mode S error correction applied</BitsValue>
 						<BitsValue val="18">Undecodable Mode C code / Mode S altitude code</BitsValue>                                
 					</Bits>
-                    <Bits bit="1" fx="1">
+					<Bits bit="1" fx="1">
 						<BitsShortName>FX</BitsShortName>
 						<BitsName>FX</BitsName>
 						<BitsValue val="0">End of Data Item</BitsValue>
@@ -647,15 +648,15 @@
 							<BitsName>RDS Presence</BitsName>
 							<BitsPresence>2</BitsPresence>
 						</Bits>  
-					<Bits from="6" to="2">
+						<Bits from="6" to="2">
 							<BitsShortName>spare</BitsShortName>
 							<BitsName>spare bits set to 0</BitsName>
 							<BitsConst>0</BitsConst>
 						</Bits>
-					<Bits bit="1" fx="1">
-                       <BitsShortName>FX</BitsShortName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
+						<Bits bit="1" fx="1">
+							<BitsShortName>FX</BitsShortName>
+							<BitsConst>0</BitsConst>
+						</Bits>
 					</Fixed>
 				</Variable>
 				<Fixed length="2">
@@ -747,52 +748,52 @@
 							<BitsName>FX</BitsName>
 							<BitsValue val="0">End of Data Item</BitsValue>
 							<BitsValue val="1">Extension into next extent</BitsValue>                    
-						</Bits>  					
+						</Bits>
 					</Fixed>
 				</Variable>
-				<Fixed length="1">					
+				<Fixed length="1">
 					<Bits from="8" to="1" >
 						<BitsShortName>SRL</BitsShortName>
 						<BitsName>SSR Plot Runlength</BitsName>
 						<BitsUnit scale="0.0439453125">deg</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
+				<Fixed length="1">
 					<Bits from="8" to="1" >
 						<BitsShortName>SRR</BitsShortName>
 						<BitsName>SSR-Number of received reply</BitsName>
 						<BitsUnit/>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
-					<Bits from="8" to="1" >
+				<Fixed length="1">
+					<Bits from="8" to="1" encode="signed">
 						<BitsShortName>SAM</BitsShortName>
 						<BitsName>SSR-Reply amplitude</BitsName>
 						<BitsUnit scale="1">dBm</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
+				<Fixed length="1">
 					<Bits from="8" to="1" >
 						<BitsShortName>PRL</BitsShortName>
 						<BitsName>Primary Plot Runlength</BitsName>
 						<BitsUnit scale="0.0439453125">deg</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
-					<Bits from="8" to="1" >
+				<Fixed length="1">
+					<Bits from="8" to="1" encode="signed">
 						<BitsShortName>PAM</BitsShortName>
 						<BitsName>Amplitude of Primary plot</BitsName>
 						<BitsUnit scale="1">dBm</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
+				<Fixed length="1">
 					<Bits from="8" to="1" encode="signed" >
 						<BitsShortName>RPD</BitsShortName>
 						<BitsName>Difference in Range between PSR and SSR plot</BitsName>
 						<BitsUnit scale="0.00390625">NM</BitsUnit>
 					</Bits>
 				</Fixed>
-				<Fixed length="1">					
+				<Fixed length="1">
 					<Bits from="8" to="1" encode="signed" >
 						<BitsShortName>APD</BitsShortName>
 						<BitsName>Difference in Azimuth between PSR and SSR plot</BitsName>
@@ -954,18 +955,18 @@
 				<Bits from="24" to="17">
 					<BitsShortName>SigmaY</BitsShortName>
 					<BitsName>SigmaY</BitsName>
-					<BitsUnit scale="0.0078125">NM</BitsUnit>		
+					<BitsUnit scale="0.0078125">NM</BitsUnit>
 				</Bits>
 				<Bits from="16" to="9">
 					<BitsShortName>SigmaV</BitsShortName>
 					<BitsName>Sigma Groundspeed</BitsName>
-					<BitsUnit scale="0.22">Kt</BitsUnit>		
+					<BitsUnit scale="0.22">Kt</BitsUnit>
 				</Bits>
 				<Bits from="8" to="1">
 					<BitsShortName>SigmaH</BitsShortName>
 					<BitsName>Sigma Heading</BitsName>
-					<BitsUnit scale="0.087890625">deg</BitsUnit>		
-				</Bits>					
+					<BitsUnit scale="0.087890625">deg</BitsUnit>
+				</Bits>
 			</Fixed>
 		</DataItemFormat>
 		<DataItemNote>.</DataItemNote>
@@ -1003,30 +1004,30 @@
 					<BitsConst>0</BitsConst>
 				</Bits>
 				<Bits bit="8">
-					<BitsShortName>ModeSSSC</BitsShortName>	
-					<BitsName>ModeS Specific Service Capability</BitsName>	
+					<BitsShortName>ModeSSSC</BitsShortName>
+					<BitsName>ModeS Specific Service Capability</BitsName>
 					<BitsValue val="0">No</BitsValue>
-					<BitsValue val="1">Yes</BitsValue>					
+					<BitsValue val="1">Yes</BitsValue>
 				</Bits>
 				<Bits bit="7">
-					<BitsShortName>ARC</BitsShortName>	
+					<BitsShortName>ARC</BitsShortName>
 					<BitsName>Altitude reporting capability</BitsName>
 					<BitsValue val="0">100ft resolution</BitsValue>
-					<BitsValue val="1">25ft resolution</BitsValue>						
+					<BitsValue val="1">25ft resolution</BitsValue>
 				</Bits>
 				<Bits bit="6">
-					<BitsShortName>AIC</BitsShortName>	
+					<BitsShortName>AIC</BitsShortName>
 					<BitsName>Aircraft identification capability</BitsName>	
 					<BitsValue val="0">No</BitsValue>
-					<BitsValue val="1">Yes</BitsValue>						
+					<BitsValue val="1">Yes</BitsValue>
 				</Bits>
 				<Bits bit="5">
-					<BitsShortName>BDS16</BitsShortName>	
-					<BitsName>BDS 1,0 bit 16</BitsName>					
+					<BitsShortName>BDS16</BitsShortName>
+					<BitsName>BDS 1,0 bit 16</BitsName>
 				</Bits>
 				<Bits from="4" to="1">
-					<BitsShortName>BDS37</BitsShortName>	
-					<BitsName>BDS 1,0 bits 37/40</BitsName>					
+					<BitsShortName>BDS37</BitsShortName>
+					<BitsName>BDS 1,0 bits 37/40</BitsName>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
@@ -1054,7 +1055,7 @@
 				<Fixed length="8">
 					<Bits from="64" to="9" encode="hex">
 						<BitsShortName>MBdata</BitsShortName>
-						<BitsName>MBdata</BitsName>						
+						<BitsName>MBdata</BitsName>
 					</Bits>
 
 					<Bits from="8" to="5">

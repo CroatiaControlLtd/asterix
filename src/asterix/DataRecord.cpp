@@ -176,13 +176,20 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	case CAsterixFormat::ETxt:
 		strNewResult = format("\n-------------------------\nData Record %d", m_nID);
 		strNewResult += format("\nLen: %ld", m_nLength);
-		strNewResult += format("\nTimestamp: %ld", m_nTimestamp);
+		if (m_nTimestamp != 0)
+			strNewResult += format("\nTimestamp: %ld", m_nTimestamp);
 		break;
 	case CAsterixFormat::EJSON:
-		strNewResult = format("{\"timestamp\":%ld,\"CAT%03d\":{", m_nTimestamp, m_pCategory->m_id);
+		if (m_nTimestamp != 0)
+			strNewResult = format("{\"timestamp\":%ld,\"CAT%03d\":{", m_nTimestamp, m_pCategory->m_id);
+		else
+			strNewResult = format("{\"CAT%03d\":{", m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EJSONH:
-		strNewResult = format("{\"timestamp\":%ld,\n\"CAT%03d\":{\n", m_nTimestamp, m_pCategory->m_id);
+		if (m_nTimestamp != 0)
+			strNewResult = format("{\"timestamp\":%ld,\n\"CAT%03d\":{\n", m_nTimestamp, m_pCategory->m_id);
+		else
+			strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EXML:
 		const int nXIDEFv = 1;
