@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sys/time.h>
 
 #include "asterix.h"
 #include "asterixformat.hxx"
@@ -186,6 +187,11 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 		Descriptor.m_pAsterixData = NULL;
 	}
 
+	// get current timstamp in ms since midnight
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	unsigned long nTimestamp = (tp.tv_sec % 86400) * 1000 + tp.tv_usec / 1000;
+
 	// parse packet
 	if (oradis)
 	{
@@ -215,7 +221,7 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 				break;
 
 			// Parse ASTERIX data
-			AsterixData* m_ptmpAsterixData = Descriptor.m_InputParser.parsePacket(pPacketPtr, byteCount-6);
+			AsterixData* m_ptmpAsterixData = Descriptor.m_InputParser.parsePacket(pPacketPtr, byteCount-6, nTimestamp);
 
 			if (Descriptor.m_pAsterixData == NULL)
 			{
@@ -232,7 +238,7 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 	}
 	else
 	{
-		Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetBufferLen());
+		Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetBufferLen(), nTimestamp);
 	}
 
 	return true;

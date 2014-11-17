@@ -49,6 +49,8 @@ bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor,
   unsigned long nTimestamp = (unsigned long) finalRecordHeader.m_nTimeMMSB << 16;
   nTimestamp |= (unsigned long) finalRecordHeader.m_nTimeMSB << 8;
   nTimestamp |= (unsigned long) finalRecordHeader.m_nTimeLSB;
+  // convert timestamp to milliseconds (resolution is 10ms in final format)
+  nTimestamp = nTimestamp * 10;
 
   unsigned int neededLen = finalRecordHeader.m_nByteCountMSB;
   neededLen <<= 8;

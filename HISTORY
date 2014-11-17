@@ -48,5 +48,8 @@ Max UDP packet size increased
 Synchronous output with input file (option -s)
 Looping the input file (option -o)
 Timestamp from final format printed
-FIltering items fixed
+Filtering items fixed
 
+2.1.0
+17.11.2014.
+Timestamp (seconds since midnight) is printed for raw packets
