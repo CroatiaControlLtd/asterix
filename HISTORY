@@ -53,3 +53,6 @@ Filtering items fixed
 2.1.0
 17.11.2014.
 Timestamp (seconds since midnight) is printed for raw packets
+2.1.1
+11.12.2014.
+Synchronous mode implemented for final format (same as for pcap)

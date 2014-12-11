@@ -23,7 +23,7 @@
 
 #include <stdio.h>
 #include <string.h>
-
+#include <sys/time.h>
 #include "asterix.h"
 #include "asterixformat.hxx"
 #include "asterixformatdescriptor.hxx"
@@ -32,10 +32,14 @@
 #include "AsterixDefinition.h"
 #include "InputParser.h"
 
+extern bool gSynchronous;
+
 bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard)
 {
   struct sFinalRecordHeader finalRecordHeader;
   char padding[4];
+  static unsigned long lastFileTimeMSec = 0;
+  static unsigned long lastMyTimeMSec = 0;
 
   CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
 
@@ -64,6 +68,28 @@ bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor,
     LOGERROR(1, "Wrong final record header.\n");
     return false;
   }
+
+	if (gSynchronous)
+	{ // In synchronous mode make delays between packets to simulate real tempo
+		struct timeval currTime;
+		if (gettimeofday(&currTime, NULL) == 0)
+		{
+			unsigned int currTimeMsec = currTime.tv_sec*1000+currTime.tv_usec/1000;
+			if (lastMyTimeMSec != 0 && lastFileTimeMSec != 0)
+			{
+				unsigned int diffFile = nTimestamp - lastFileTimeMSec;
+				unsigned int diffMy = currTimeMsec - lastMyTimeMSec;
+
+				if (diffFile > diffMy)
+				{ // sleep for a time difference
+					usleep((diffFile-diffMy)*1000);
+				}
+			}
+
+			lastFileTimeMSec = nTimestamp;
+			lastMyTimeMSec = currTimeMsec;
+		}
+	}
 
   const unsigned char* pBuffer = Descriptor.GetNewBuffer(neededLen);
 
