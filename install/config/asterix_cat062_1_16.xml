@@ -2148,7 +2148,7 @@
 				</Fixed>
 				
 				<Fixed length="7">
-					<Bits from="56" to="1">
+					<Bits from="56" to="1" encode="hex">
 						<BitsShortName>ACASAD</BitsShortName>
 						<BitsName>ACAS Resolution Advisory Report - BDS 3,0</BitsName>
 					</Bits>
