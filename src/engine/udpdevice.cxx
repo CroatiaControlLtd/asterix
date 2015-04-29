@@ -225,7 +225,8 @@ bool CUdpDevice::InitServer()
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
     {
-       serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+       //serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+       serverAddr.sin_addr.s_addr = _mcastAddr.sin_addr.s_addr;
     }
     else
     {
