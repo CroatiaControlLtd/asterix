@@ -56,3 +56,8 @@ Timestamp (seconds since midnight) is printed for raw packets
 2.1.1
 11.12.2014.
 Synchronous mode implemented for final format (same as for pcap)
+
+2.1.2
+29.04.2015.
+Fixed listening on different multicast addresses with same UDP port
+CAT062 fixed format of ACASAD
