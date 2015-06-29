@@ -61,3 +61,7 @@ Synchronous mode implemented for final format (same as for pcap)
 29.04.2015.
 Fixed listening on different multicast addresses with same UDP port
 CAT062 fixed format of ACASAD
+
+2.1.3
+29.6.2015.
+Explicit format fixed

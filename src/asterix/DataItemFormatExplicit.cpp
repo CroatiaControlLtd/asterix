@@ -51,8 +51,6 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-	bool ret = false;
-
 	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
 	if (pFixed == NULL)
 	{
@@ -86,8 +84,7 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 			tmpStr += ']';
 		}
 
-		if (ret)
-			strResult += tmpStr;
+		strResult += tmpStr;
 		break;
 	}
 	default:
@@ -101,7 +98,7 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 	}
 	}
 
-	return ret;
+	return true;
 }
 
 std::string DataItemFormatExplicit::printDescriptors(std::string header)
