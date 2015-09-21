@@ -1181,7 +1181,13 @@
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
-                    <Bits from="8" to="5">
+                    <Bits bit="8" fx="1">
+                    	<!-- This data item is a variant of the “Extended length data field” as described in ASTERIX part1. The LSB in the first extent is not used as FX-bit. -->
+						<BitsShortName>FX</BitsShortName>
+						<BitsName>Spare bits set to zero</BitsName>
+						<BitsConst>0</BitsConst>
+					</Bits>
+					<Bits from="7" to="5">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to zero</BitsName>
                         <BitsConst>0</BitsConst>
