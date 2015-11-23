@@ -8,6 +8,7 @@
     Author:   S.Nastasyak
     Created:  2013-06-21
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+			   23.11.2015. (dsalantic) Fixed scale factor for item 041. Shall be 180/2^31.
 
 -->
 
@@ -179,12 +180,12 @@
                 <Bits from="64" to="33" encode="signed">
 					<BitsShortName>Lat</BitsShortName>
 					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
-                    <BitsUnit scale="0.000005364418029785156" min="-90" max="90">deg</BitsUnit>
+                    <BitsUnit scale="0.00000008381903171539306640625" min="-90" max="90">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
 					<BitsShortName>Lon</BitsShortName>
 					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
-                    <BitsUnit scale="0.000005364418029785156" min="-180" max="180">deg</BitsUnit>
+                    <BitsUnit scale="0.00000008381903171539306640625" min="-180" max="180">deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
