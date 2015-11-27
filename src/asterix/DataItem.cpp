@@ -98,7 +98,13 @@ long DataItem::parse(const unsigned char* pData, long len)
 
   if (m_nLength > len)
   {
-    Tracer::Error("DataItem::parse needed length=%d , and there is only %d", m_nLength, len);
+    // Print unparsed bytes
+	std::string strNewResult;
+	for (int i=0; i<len; i++)
+	{
+	  strNewResult += format("%02X ", *(pData+i));
+	}
+    Tracer::Error("DataItem::parse needed length=%d , and there is only %d : [ %s ]", m_nLength, len, strNewResult.c_str());
   }
   else if (m_nLength>0)
   {
