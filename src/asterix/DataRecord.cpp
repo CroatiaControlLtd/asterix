@@ -145,6 +145,18 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
 	{
 		m_bFormatOK = true;
 	}
+	
+	if (!m_bFormatOK)
+	{
+		// Print whole record in case of error
+		std::string strNewResult = format("Data Record bytes: [ ");
+		for (unsigned int i=0; i<len; i++)
+		{
+		  strNewResult += format("%02X ", *(data+i));
+		}
+		strNewResult += format("]");
+		Tracer::Error(strNewResult.c_str());
+	}
 }
 
 DataRecord::~DataRecord()

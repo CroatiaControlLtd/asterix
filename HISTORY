@@ -70,3 +70,8 @@ Explicit format fixed
 2.1.4
 16.9.2015.
 Fixed github issue #15: Skip block with invalid length
+
+2.1.5
+26.11.2015.
+Some extra error information to help debugging wrong format definition
+Definition of CAT004 added
