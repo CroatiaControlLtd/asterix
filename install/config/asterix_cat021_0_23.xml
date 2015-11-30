@@ -3,14 +3,15 @@
 
 <!--
 
-    Asterix Category 021 v0.26 definition
-    Author:   S.Nastasyak
+    Asterix Category 021 v0.23 definition
+    Author:   Planevision Systems LLC
     Created:  2013-06-19
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-	
+    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, 
+    some BitsShortName renamed, tabs aligned
+    Modified: 2015-10-11 (kr) converted to V0.23 - I130 changed from 8 to 6 bytes	
 -->
 
-<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="0.26">
+<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="0.23">
   
   
     <DataItem id="010" rule="mandatory">
@@ -421,17 +422,17 @@
     <DataItem id="130" rule="optional">
         <DataItemName>Position in WGS-84 Co-ordinates</DataItemName>
         <DataItemDefinition>Position in WGS-84 Co-ordinates.</DataItemDefinition>
-        <DataItemFormat desc="Eight-octet fixed length Data Item.">
-            <Fixed length="8">
-                <Bits from="64" to="33" encode="signed">
+        <DataItemFormat desc="Six-octet fixed length Data Item.">
+            <Fixed length="6">
+                <Bits from="48" to="25" encode="signed">
 					<BitsShortName>Lat</BitsShortName>
 					<BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt;= latitude &lt;= 90 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    <BitsUnit scale="0.00002145767212">deg</BitsUnit>
                 </Bits>
-                <Bits from="32" to="1" encode="signed">
+                <Bits from="24" to="1" encode="signed">
 					<BitsShortName>Lon</BitsShortName>
 					<BitsName>Longitude in WGS.84 in twos complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    <BitsUnit scale="0.00002145767212">deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -622,7 +623,7 @@
                 <Bits from="32" to="17">
 					<BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed referenced to WGS-84</BitsName>
-                    <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
+                    <BitsUnit scale="0.219726">kts</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
 					<BitsShortName>TA</BitsShortName>
@@ -860,7 +861,7 @@
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="2">040</UAPItem>
         <UAPItem bit="2" frn="3" len="3">030</UAPItem>
-        <UAPItem bit="3" frn="4" len="8">130</UAPItem>
+        <UAPItem bit="3" frn="4" len="6">130</UAPItem>
         <UAPItem bit="4" frn="5" len="3">080</UAPItem>
         <UAPItem bit="5" frn="6" len="2">140</UAPItem>
         <UAPItem bit="6" frn="7" len="2">090</UAPItem>
