@@ -99,7 +99,7 @@ bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDesc
     }
     else 
     {
-        LOGERROR("Unknown device '%s'\n", deviceName);
+        LOGERROR(1, "Unknown device '%s'\n", deviceName);
         _Device[_nDevices] = NULL; // redundant since it already must have that value
     }
     
