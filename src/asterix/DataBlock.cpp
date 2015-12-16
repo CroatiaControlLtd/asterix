@@ -147,3 +147,20 @@ fulliautomatix_data* DataBlock::getData(int byteoffset)
   return firstData;
 }
 #endif
+
+#if defined(PYTHON_WRAPPER)
+void DataBlock::getData(PyObject* plist)
+{
+	// go through all present data items in this block and insert them to list
+	std::list<DataRecord*>::iterator it;
+	for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
+	{
+		DataRecord* dr = (DataRecord*)(*it);
+		if (dr != NULL)
+		{
+			PyObject* p = dr->getData();
+			PyList_Append(plist, p);
+		}
+	}
+}
+#endif

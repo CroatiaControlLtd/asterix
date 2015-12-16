@@ -53,6 +53,10 @@ public:
   fulliautomatix_definitions* getWiresharkDefinitions();
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
+#if defined(PYTHON_WRAPPER)
+  PyObject* getObject(unsigned char* pData, long nLength);
+  void insertToDict(PyObject* p, unsigned char* pData, long nLength);
+#endif
 };
 
 #endif /* DATAITEMFORMATFIXED_H_ */

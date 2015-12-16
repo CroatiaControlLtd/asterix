@@ -27,9 +27,15 @@
 #include <string>
 #include <list>
 #include "Utils.h"
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 #include "WiresharkWrapper.h"
 #endif
+
+#if defined(PYTHON_WRAPPER)
+#include "../python/python_parser.h"
+#endif
+
 class DataItemBits;
 
 class DataItemFormat
@@ -68,6 +74,11 @@ public:
 
 private:
   int m_nPID; //!< Unique identifier of this format description
+#endif
+
+#if defined(PYTHON_WRAPPER)
+  virtual PyObject* getObject(unsigned char* pData, long nLength) = 0;
+  virtual void insertToDict(PyObject* p, unsigned char* pData, long nLength) = 0;
 #endif
 
 };

@@ -167,3 +167,29 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
   return firstData;
 }
 #endif
+
+#if defined(PYTHON_WRAPPER)
+
+PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (pFixed == NULL)
+  {
+    //TODO Tracer::Error("Wrong format of explicit item");
+    return;
+  }
+
+  int fixedLength = pFixed->getLength(pData);
+  unsigned char nFullLength = *pData;
+  pData++;
+
+  pFixed->insertToDict(p, pData, fixedLength);
+}
+#endif

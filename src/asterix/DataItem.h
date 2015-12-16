@@ -44,6 +44,9 @@ public:
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_data* getData(int byteoffset);
 #endif
+#if defined(PYTHON_WRAPPER)
+  PyObject* getData();
+#endif
 
 private:
   unsigned char* m_pData;
