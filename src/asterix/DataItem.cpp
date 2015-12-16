@@ -141,3 +141,14 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
   return firstData;
 }
 #endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItem::getData()
+{
+  if (m_pDescription && m_pDescription->m_pFormat && m_pData)
+  {
+    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength);
+  }
+  return Py_BuildValue("s", "Error");
+}
+#endif

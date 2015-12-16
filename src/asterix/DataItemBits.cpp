@@ -997,3 +997,151 @@ fulliautomatix_data* DataItemBits::getData(unsigned char* pData, long nLength, i
   return data;
 }
 #endif
+
+#if defined(PYTHON_WRAPPER)
+
+PyObject* DataItemBits::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+	PyObject* val = NULL;
+	PyObject* pValue = PyDict_New();
+	PyDict_SetItem(pValue, Py_BuildValue("s", "desc"), Py_BuildValue("s", m_strName.c_str()));
+	PyDict_SetItem(p, Py_BuildValue("s", m_strShortName.c_str()), pValue);
+
+	if (m_nFrom > m_nTo)
+	{ // just in case
+		int tmp = m_nFrom;
+		m_nFrom = m_nTo;
+		m_nTo = tmp;
+	}
+
+	int firstByte = nLength - (m_nTo-1)/8 - 1;
+	int numberOfBits = (m_nTo-m_nFrom+1);
+	int numberOfBytes = (numberOfBits+7)/8;
+
+	switch(m_eEncoding)
+	{
+		case DATAITEM_ENCODING_UNSIGNED:
+		{
+			unsigned long value = getUnsigned(pData, nLength, m_nFrom, m_nTo);
+
+			if (m_dScale != 0) {
+				double scaled = value * m_dScale;
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", scaled));
+
+				if (m_bMaxValueSet) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "max"), Py_BuildValue("d", m_dMaxValue));
+				}
+				if (m_bMinValueSet) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "min"), Py_BuildValue("d", m_dMinValue));
+				}
+			} else if (m_bIsConst) {
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
+				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("d", m_nConst));
+			} else if (!m_lValue.empty()) { // check values
+				std::list<BitsValue*>::iterator it;
+				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
+					BitsValue* bv = (BitsValue*) (*it);
+					if (bv->m_nVal == (int) value) {
+						PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
+						PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", bv->m_strDescription.c_str()));
+						break;
+					}
+				}
+				if (it == m_lValue.end()) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
+					PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", "???"));
+				}
+			}
+			else
+			{
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
+			}
+		}
+		break;
+
+		case DATAITEM_ENCODING_SIGNED:
+		{
+			signed long value = getSigned(pData, nLength, m_nFrom, m_nTo);
+
+			if (m_dScale != 0) {
+				double scaled = value * m_dScale;
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", scaled));
+
+				if (m_bMaxValueSet) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "max"), Py_BuildValue("d", m_dMaxValue));
+				}
+				if (m_bMinValueSet) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "min"), Py_BuildValue("d", m_dMinValue));
+				}
+			} else if (m_bIsConst) {
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
+				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("d", m_nConst));
+			} else if (!m_lValue.empty()) { // check values
+				std::list<BitsValue*>::iterator it;
+				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
+					BitsValue* bv = (BitsValue*) (*it);
+					if (bv->m_nVal == (int) value) {
+						PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
+						PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", bv->m_strDescription.c_str()));
+						break;
+					}
+				}
+				if (it == m_lValue.end()) {
+					PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
+					PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", "???"));
+				}
+			}
+			else
+			{
+				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("l", value));
+			}
+		}
+		break;
+
+		case DATAITEM_ENCODING_SIX_BIT_CHAR:
+		{
+			unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
+			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+			delete[] str;
+		}
+		break;
+
+		case DATAITEM_ENCODING_HEX_BIT_CHAR:
+		{
+			unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
+			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+			delete[] str;
+		}
+		break;
+
+		case DATAITEM_ENCODING_OCTAL:
+		{
+			unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
+			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+			delete[] str;
+		}
+		break;
+
+		case DATAITEM_ENCODING_ASCII:
+		{
+			char* pStr = new char[nLength+1];
+			memset(pStr, 0, nLength+1);
+			strncpy(pStr, (const char*)pData, nLength);
+			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", pStr));
+			delete pStr;
+		}
+		break;
+		default:
+			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", "???"));
+		break;
+	}
+
+}
+#endif
