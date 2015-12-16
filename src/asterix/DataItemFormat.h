@@ -27,8 +27,9 @@
 #include <string>
 #include <list>
 #include "Utils.h"
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 #include "WiresharkWrapper.h"
-
+#endif
 class DataItemBits;
 
 class DataItemFormat
