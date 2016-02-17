@@ -101,7 +101,8 @@ bool DataItemFormatFixed::isLastPart(const unsigned char* pData)
       return true;
     }
   }
-  Tracer::Error("Missing fx bit in variable item!");
+  // If the fx bit is not found it means that this is last part.
+  // Tracer::Error("Missing fx bit in variable item!");
   return true;
 }
 

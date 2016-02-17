@@ -79,3 +79,4 @@ Definition of CAT004 added
 17.2.2016.
 Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
 Issue #19 Problem found in DataItemBits::getBits(.....)
+Issue #16 Issue with enforcement of fx=1
