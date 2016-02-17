@@ -74,3 +74,8 @@ Fixed github issue #15: Skip block with invalid length
 26.11.2015.
 Some extra error information to help debugging wrong format definition
 Definition of CAT004 added
+
+2.1.6
+17.2.2016.
+Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
+Issue #19 Problem found in DataItemBits::getBits(.....)

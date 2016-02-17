@@ -131,7 +131,9 @@ unsigned char* DataItemBits::getBits(unsigned char* pData, int bytes, int frombi
     }
   }
 
-  *pTmp <<= 8-outbits;
+  if (pVal+numberOfBytes-1 >= pTmp)
+    *pTmp <<= 8-outbits;
+    
   return pVal;
 }
 
