@@ -624,7 +624,7 @@
                 <Bits from="14" to="1">
                     <BitsShortName>3D_Height</BitsShortName>
                     <BitsName>3D_Height</BitsName>
-                    <BitsUnit scale="0.25">ft</BitsUnit>
+                    <BitsUnit scale="25">ft</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
