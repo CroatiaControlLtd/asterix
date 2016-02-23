@@ -58,7 +58,7 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 		return false;
 	}
 
-	int fixedLength = pFixed->getLength(pData);
+	int fixedLength = *pData - 1;
 	unsigned char nFullLength = nLength - 1;
 	pData++;
 
