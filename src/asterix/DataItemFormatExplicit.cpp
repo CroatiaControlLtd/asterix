@@ -51,30 +51,62 @@ void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	std::list<DataItemFormat*>::iterator it;
+	int bodyLength = 0;
+
+	pData++; // skip explicit length byte (it is already in nLength)
+
+	// calculate the size of all sub items
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
 	{
-		Tracer::Error("Wrong data in Explicit");
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		bodyLength += di->getLength(pData+bodyLength); // calculate length of body
+	}
+
+	int nFullLength = nLength - 1; // calculate full length
+
+	// full length must be multiple of body length
+	if (bodyLength == 0 || nFullLength % bodyLength != 0)
+	{
+		Tracer::Error("Wrong data length in Explicit");
 		return false;
 	}
 
-	int fixedLength = *pData - 1;
-	unsigned char nFullLength = nLength - 1;
-	pData++;
+	std::string tmpStr = "";
 
 	switch(formatType)
 	{
 	case CAsterixFormat::EJSON:
 	case CAsterixFormat::EJSONH:
 	{
-		std::string tmpStr = format("[");
+			tmpStr += format("[");
+		}
+	}
 
-		for (int i=0; i<nFullLength; i+=fixedLength)
+	for (int i=0; i<nFullLength; i+=bodyLength)
+	{
+		for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
 		{
-			pFixed->getText(tmpStr, strHeader, formatType, pData, fixedLength);
-			pData += fixedLength;
+			DataItemFormat* di = (DataItemFormat*)(*it);
+			di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
+			pData += bodyLength;
+
+			switch(formatType)
+			{
+				case CAsterixFormat::EJSON:
+				case CAsterixFormat::EJSONH:
+		{
 			tmpStr += format(",");
 		}
+			}
+		}
+	}
+
+	switch(formatType)
+	{
+		case CAsterixFormat::EJSON:
+		case CAsterixFormat::EJSONH:
+		{
 		if (tmpStr[tmpStr.length()-1] == ',')
 		{
 			tmpStr[tmpStr.length()-1] = ']';
@@ -83,20 +115,11 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 		{
 			tmpStr += ']';
 		}
+	}
+	}
 
-		strResult += tmpStr;
-		break;
-	}
-	default:
-	{
-		for (int i=0; i<nFullLength; i+=fixedLength)
-		{
-			pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
-			pData += fixedLength;
-		}
-		break;
-	}
-	}
+
+	strResult += tmpStr;
 
 	return true;
 }
@@ -156,6 +179,7 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
 		return NULL;
 	}
 
+	// TODO : fix this as it is in DataItemFormatExplicit::getText
 	int fixedLength = pFixed->getLength(pData);
 	unsigned char nFullLength = *pData;
 
