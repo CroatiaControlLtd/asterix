@@ -80,3 +80,8 @@ Definition of CAT004 added
 Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
 Issue #19 Problem found in DataItemBits::getBits(.....)
 Issue #16 Issue with enforcement of fx=1
+
+2.1.7
+24.2.2016.
+Issue #23 creation of cat021/RE (asterix coding rules for reserved expansion field)
+Added definition for RE field in CAT021_1_8 (by ifsnop)
