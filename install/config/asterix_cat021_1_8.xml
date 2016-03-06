@@ -1678,7 +1678,7 @@
                                 <BitsValue val="1">Ground Track provided.</BitsValue>
                             </Bits>
                             <Bits bit="13">
-                                <BitsShortName>HRD</BitsShortName>
+                                <BitsShortName>North</BitsShortName>
                                 <BitsName>North</BitsName>
                                 <BitsValue val="0">True North.</BitsValue>
                                 <BitsValue val="1">Magnetic North.</BitsValue>

@@ -53,6 +53,7 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 {
 	std::list<DataItemFormat*>::iterator it;
 	int bodyLength = 0;
+	bool ret = false;
 
 	pData++; // skip explicit length byte (it is already in nLength)
 
@@ -79,8 +80,8 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 	case CAsterixFormat::EJSON:
 	case CAsterixFormat::EJSONH:
 	{
-			tmpStr += format("[");
-		}
+		tmpStr += format("[");
+	}
 	}
 
 	for (int i=0; i<nFullLength; i+=bodyLength)
@@ -88,25 +89,25 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 		for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
 		{
 			DataItemFormat* di = (DataItemFormat*)(*it);
-			di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
+			ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
 			pData += bodyLength;
 
 			switch(formatType)
 			{
-				case CAsterixFormat::EJSON:
-				case CAsterixFormat::EJSONH:
-		{
-			tmpStr += format(",");
-		}
+			case CAsterixFormat::EJSON:
+			case CAsterixFormat::EJSONH:
+			{
+				tmpStr += format(",");
+			}
 			}
 		}
 	}
 
 	switch(formatType)
 	{
-		case CAsterixFormat::EJSON:
-		case CAsterixFormat::EJSONH:
-		{
+	case CAsterixFormat::EJSON:
+	case CAsterixFormat::EJSONH:
+	{
 		if (tmpStr[tmpStr.length()-1] == ',')
 		{
 			tmpStr[tmpStr.length()-1] = ']';
@@ -118,43 +119,46 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 	}
 	}
 
-
 	strResult += tmpStr;
 
-	return true;
+	return ret;
 }
 
 std::string DataItemFormatExplicit::printDescriptors(std::string header)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	std::string strDef = "";
+
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
 	{
-		Tracer::Error("Wrong data in Explicit");
-		return "Wrong data in Explicit";
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		strDef += dip->printDescriptors(header);
 	}
-	return pFixed->printDescriptors(header);
+	return strDef;
 }
 
 bool DataItemFormatExplicit::filterOutItem(const char* name)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
 	{
-		Tracer::Error("Wrong data in Explicit");
-		return false;
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->filterOutItem(name))
+			return true;
 	}
-	return pFixed->filterOutItem(name);
+	return false;
 }
 
 bool DataItemFormatExplicit::isFiltered(const char* name)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
 	{
-		Tracer::Error("Wrong data in Explicit");
-		return false;
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->isFiltered(name))
+			return true;
 	}
-	return pFixed->isFiltered(name);
+	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
