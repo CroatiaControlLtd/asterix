@@ -85,3 +85,7 @@ Issue #16 Issue with enforcement of fx=1
 24.2.2016.
 Issue #23 creation of cat021/RE (asterix coding rules for reserved expansion field)
 Added definition for RE field in CAT021_1_8 (by ifsnop)
+
+2.1.8
+6.3.2016.
+Issue #27 option --def doesn't work 

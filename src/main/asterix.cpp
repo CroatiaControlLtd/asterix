@@ -228,7 +228,7 @@ int main(int argc, const char *argv[])
 			}
 			strOutputFormat = "ASTERIX_KML";
 		}
-		else if ((arg == "-d") || (arg == "--definitions"))
+		else if ((arg == "-d")  || (arg == "--def") || (arg == "--definitions"))
 		{
 			if (i >= argc-1)
 			{
