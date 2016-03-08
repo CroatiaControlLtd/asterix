@@ -90,3 +90,7 @@ Added definition for RE field in CAT021_1_8 (by ifsnop)
 6.3.2016.
 Issue #27 option --def doesn't work 
 Issue #28 filter doesn't work on explicit dataitems 
+
+2.1.9
+8.3.2016.
+Issue #30 Can not bind to multicast address on Windows 

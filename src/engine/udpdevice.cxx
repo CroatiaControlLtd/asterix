@@ -225,7 +225,6 @@ bool CUdpDevice::InitServer()
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
     {
-       //serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
        serverAddr.sin_addr.s_addr = _mcastAddr.sin_addr.s_addr;
     }
     else
@@ -236,8 +235,21 @@ bool CUdpDevice::InitServer()
 
     if (bind(_socketDesc, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0)
     {
+        if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
+        { // If failed to bind multicast address (note that it will always fail on Windows) then try with ANY port
+            serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+            if (bind(_socketDesc, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0)
+            {
+                LOGERROR(1, "Cannot bind multicast address and port number %d\n", _port);
+                return false;
+            }
+        }
+        else
+        {
         LOGERROR(1, "Cannot bind port number %d\n", _port);
         return false;
+        }
     }
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
