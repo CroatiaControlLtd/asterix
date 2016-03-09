@@ -1845,7 +1845,7 @@
 				</Variable>
 				
 				<Fixed length="3">
-					<Bits from="24" to="1">
+					<Bits from="24" to="1" encode="hex">
 						<BitsShortName>ADR</BitsShortName>
 						<BitsName>Target Address</BitsName>
 					</Bits>
