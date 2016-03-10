@@ -8,7 +8,7 @@
     Author:   B.Bertrand
     Created:  2012-12-17
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-    Modified:  23.2.2016. (ifsnop) Added RE dataitem from "ASTERIX Part 12 Category 021 Appendix A Coding rules for Reserved Expansion Field"
+    Modified:  23.2.2016. (ifsnop) Added RE dataitem from "ASTERIX Part 12 Category 021 Appendix A Coding rules for Reserved Expansion Field v1.1"
 
 -->
 
@@ -437,8 +437,8 @@
         <DataItemDefinition>Target address (emitter identifier) assigned uniquely to each target.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
-                <Bits from="24" to="1">
-					<BitsShortName>TAddr</BitsShortName>
+                <Bits from="24" to="1" encode="hex">
+                    <BitsShortName>TAddr</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
