@@ -218,8 +218,8 @@
         <DataItemDefinition>Target address (emitter identifier) assigned uniquely to each target.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
-                <Bits from="24" to="1">
-					<BitsShortName>TAddr</BitsShortName>
+                <Bits from="24" to="1" encode="hex">
+                    <BitsShortName>TAddr</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
