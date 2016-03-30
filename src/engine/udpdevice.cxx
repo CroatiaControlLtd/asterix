@@ -184,7 +184,7 @@ bool CUdpDevice::Read(void *data, size_t* len)
     struct sockaddr_in clientAddr;
     socklen_t clientLen = sizeof(clientAddr);
 
-    for(unsigned int i; i<_socketDesc.size() || _countToRead>0; i++)
+    for(unsigned int i=0; i<_socketDesc.size() && _countToRead>0; i++)
     {
 	if ( FD_ISSET(_socketDesc[i], &_descToRead) )
 	{
