@@ -13,6 +13,7 @@
 	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 	Modified:  05.05.2014. (dsalantic) Mode-1 displayed as decimal (and not hex)
 	Modified:  07.07.2014. (dsalantic) SAM and PAM are signed
+	Modified:  30.03.2016. (dsalantic) DataItem 110 "Height Measured by a 3D Radar" is signed not unsigned: 
 
 --> 
 
@@ -621,7 +622,7 @@
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="14" to="1">
+                <Bits from="14" to="1" encode="signed">
                     <BitsShortName>3D_Height</BitsShortName>
                     <BitsName>3D_Height</BitsName>
                     <BitsUnit scale="25">ft</BitsUnit>
