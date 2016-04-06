@@ -172,10 +172,11 @@ bool CUdpDevice::Read(void *data, size_t len)
 
 bool CUdpDevice::Read(void *data, size_t* len)
 {
+
     // Check if interface was set-up correctly (server)
     if ((!_opened) || (!_server))
     {
-        LOGERROR(1, "Cannot write due to not properly initialized interface.\n");
+        LOGERROR(1, "Cannot read due to not properly initialized interface.\n");
         CountReadError();
         return false;
     }
@@ -184,12 +185,12 @@ bool CUdpDevice::Read(void *data, size_t* len)
     struct sockaddr_in clientAddr;
     socklen_t clientLen = sizeof(clientAddr);
 
-    for(unsigned int i; i<_socketDesc.size() || _countToRead>0; i++)
+    for(unsigned int i=0; i<_socketDesc.size() && _countToRead>0; i++)
     {
 	if ( FD_ISSET(_socketDesc[i], &_descToRead) )
 	{
-	    // _socketDesc is going to be read, clear bits
 	    _countToRead--;
+	    // _socketDesc is going to be read, clear bits
 	    FD_CLR(_socketDesc[i], &_descToRead);
 	    ssize_t lenread = recvfrom(_socketDesc[i], data, *len, MSG_NOSIGNAL, (struct sockaddr *) &clientAddr, &clientLen);
 	    if (lenread < 0)
@@ -207,10 +208,11 @@ bool CUdpDevice::Read(void *data, size_t* len)
 		inet_ntoa(clientAddr.sin_addr),
 		inet_ntoa(_mcastAddr.sin_addr));
 
+
 	    ResetReadErrors(true);
+	    return true;
 	}
     }
-
     return true;
 }
 
