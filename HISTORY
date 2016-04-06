@@ -93,4 +93,9 @@ Issue #28 filter doesn't work on explicit dataitems
 
 2.1.9
 8.3.2016.
-Issue #30 Can not bind to multicast address on Windows 
+Issue #30 Can not bind to multicast address on Windows
+
+2.2.0
+6.4.2016.
+Issue #36 cat010: Add hex encode to 24-bits target address
+Issue #33 Subscribe to more than one multicast group for input 
