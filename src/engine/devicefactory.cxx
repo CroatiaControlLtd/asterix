@@ -74,7 +74,7 @@ bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDesc
     }
     
     // Initialize descriptor
-    CDescriptor descriptor(deviceDescriptor, ":");
+    CDescriptor descriptor(deviceDescriptor, "@");
     
     // Search for specified device and create it
     if (strcasecmp(deviceName, "tcp") == 0)

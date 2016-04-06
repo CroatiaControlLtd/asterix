@@ -27,6 +27,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <vector>
 
 #include "basedevice.hxx"
 #include "descriptor.hxx"
@@ -58,11 +59,14 @@ private:
     struct in_addr     _interfaceAddr;
     struct in_addr     _sourceAddr;
     int                _port;
-    int                _socketDesc;
+    std::vector<int>   _socketDesc;
+    fd_set             _descToRead;
+    int                _countToRead;
+    int                _maxValSocketDesc;
 
 private:
-    bool InitServer();
-    bool InitClient();
+    bool InitServer(int socketDesc);
+    bool InitClient(int socketDesc);
 
 public:
 
