@@ -73,16 +73,15 @@ bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDesc
         return false;
     }
     
-    // Initialize descriptor
-    CDescriptor descriptor(deviceDescriptor, "@");
-    
     // Search for specified device and create it
     if (strcasecmp(deviceName, "tcp") == 0)
     {
+        CDescriptor descriptor(deviceDescriptor, ":");
         _Device[_nDevices] = new CTcpDevice(descriptor);
     }
     else if (strcasecmp(deviceName, "udp") == 0)
     {
+        CDescriptor descriptor(deviceDescriptor, "@");
         _Device[_nDevices] = new CUdpDevice(descriptor);
     }
     else if (strcasecmp(deviceName, "std") == 0)
@@ -91,10 +90,12 @@ bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDesc
     }
     else if (strcasecmp(deviceName, "disk") == 0)
     {
+        CDescriptor descriptor(deviceDescriptor, ":");
         _Device[_nDevices] = new CDiskDevice(descriptor);
     }
     else if (strcasecmp(deviceName, "serial") == 0)
     {
+        CDescriptor descriptor(deviceDescriptor, ":");
         _Device[_nDevices] = new CSerialDevice(descriptor);
     }
     else 
