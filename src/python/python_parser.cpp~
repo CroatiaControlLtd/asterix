@@ -122,7 +122,7 @@ int python_start(const char* ini_file_path)
   return ret;
 }
 
-
+extern PyObject *my_callback;
 PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
 {
   InputParser inputParser(pDefinition);

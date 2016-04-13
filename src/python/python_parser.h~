@@ -141,7 +141,7 @@ extern "C" {
 //  python_definitions* python_get_definitions(void);
 //  void python_destroy_definitions(python_definitions* pDef);
   PyObject* python_parse(const unsigned char* pBuf, unsigned int len);
-  void asterix_start(const char* ini_filename, const char* filename);
+  void asterix_start(void);
   //void python_data_destroy(python_data* pData);
 /*
   python_data* newDataTree(python_data* prev, int bytenr, int length, char* description);

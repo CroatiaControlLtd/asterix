@@ -84,14 +84,9 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
   return false;
 }
 
-#if defined(PYTHON_WRAPPER)
-extern PyObject *my_callback;
-#endif
-
 bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device, const unsigned int formatType, bool &discard)
 {
 #if defined(PYTHON_WRAPPER)
-    	  CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
 	PyObject *lst = Descriptor.m_pAsterixData->getData();
 
 	/* Time to call the callback */

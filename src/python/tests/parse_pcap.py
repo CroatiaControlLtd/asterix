@@ -5,7 +5,7 @@ Example to parse pcap file
 """
 
 import sys
-from pcapfile import savefile
+#from pcapfile import savefile
 import string
 import time
 import socket

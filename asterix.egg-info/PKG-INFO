@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: asterix
+Version: 1.00
+Summary: ASTERIX decoder in Python
+Home-page: https://github.com/CroatiaControlLtd/asterix
+Author: Damir Salantic
+Author-email: damir.salantic@crocontrol.hr
+License: GPL
+Download-URL: https://github.com/CroatiaControlLtd/asterix
+Description: asterix
+        =======
+        
+        Asterix is utility used for reading and parsing of EUROCONTROL ASTERIX protocol data from stdin, file or network multicast stream.
+        
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GPL License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2

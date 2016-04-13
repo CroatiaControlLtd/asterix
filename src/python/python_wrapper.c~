@@ -33,7 +33,7 @@ static int bInitialized = 0;
 //static python_data* getList(python_data* p, PyObject* head);
 
 static char* ini_filename;
-PyObject *my_callback = NULL;
+static PyObject *my_callback = NULL;
 
 PyObject*
 say_hello(PyObject* self, PyObject* args, PyObject *kwargs)

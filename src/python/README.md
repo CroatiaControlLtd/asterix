@@ -1,2 +1,0 @@
-# pyasterix
-Asterix in Python
