@@ -86,5 +86,5 @@ std::string UAP::getDataItemIDByUAPfrn(int uapfrn)
       return ui->m_strItemID;
     }
   }
-  return 0;
+  return "";
 }

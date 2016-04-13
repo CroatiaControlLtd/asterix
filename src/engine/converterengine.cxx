@@ -43,6 +43,10 @@ bool CConverterEngine::Initialize(const char *inputChannel, const char *outputCh
     const char *inputFormat           = inputDescriptor.GetNext();
     const char *inputFormatDescriptor = inputDescriptor.GetNext();
 
+    LOGDEBUG(1, "inputDevice(%s)", inputDevice);
+    LOGDEBUG(1, "inputDeviceDescriptor(%s)", inputDeviceDescriptor);
+    LOGDEBUG(1, "inputFormatDescriptor(%s)", inputFormatDescriptor);
+
     // Check input channel parameters consistency
     if ((inputDevice == NULL) || (inputDeviceDescriptor == NULL) || (inputFormat == NULL))
     {

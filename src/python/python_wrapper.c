@@ -23,13 +23,14 @@
 
 
 #include <Python.h>
-#include <WiresharkWrapper.h>
+
+#include "python_parser.h"
 
 static int bInitialized = 0;
-static fulliautomatix_definitions** pDefinitions = NULL;
-static fulliautomatix_definitions* pListOfDefinitions = NULL;
 
-static fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* head);
+//static python_definitions* pListOfDefinitions = NULL;
+
+//static python_data* getList(python_data* p, PyObject* head);
 
 PyObject*
 say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
@@ -52,15 +53,18 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
     if (!PyArg_ParseTuple(args, "s", &filename))
         return NULL;
 
-	int ret = fulliautomatix_start(printf, filename);
+	int ret = python_start(filename);
 	if (ret == 0)
 		bInitialized = 1;
+		
+	asterix_start(); // TODO
 
-	pListOfDefinitions = fulliautomatix_get_definitions();
+/*
+	pListOfDefinitions = python_get_definitions();
 
 	// find maximal pid
 	int maxpid = 0;
-	fulliautomatix_definitions* d = pListOfDefinitions;
+	python_definitions* d = pListOfDefinitions;
 	while(d != NULL )
 	{
 		if (d->pid > maxpid)
@@ -69,8 +73,8 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
 	}
 
 	// create array of definitions
-	pDefinitions = (fulliautomatix_definitions**) malloc((maxpid+1)*sizeof(fulliautomatix_definitions*));
-	memset(pDefinitions, (maxpid+1)*sizeof(fulliautomatix_definitions*), 0);
+	pDefinitions = (python_definitions**) malloc((maxpid+1)*sizeof(python_definitions*));
+	memset(pDefinitions, (maxpid+1)*sizeof(python_definitions*), 0);
 
 	// sort definitions in array
 	d = pListOfDefinitions;
@@ -81,6 +85,7 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
 	}
 
 	printf("Total definitions = %d", maxpid);
+*/
 
     Py_RETURN_NONE;
 }
@@ -90,7 +95,6 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 {
     const char* data;
     int len;
-    int i;
 
     if (!PyArg_ParseTuple(args, "s#", &data, &len))
         return NULL;
@@ -101,18 +105,15 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 	    return NULL;
 	}
 
-	fulliautomatix_data* parsed = fulliautomatix_parse((const unsigned char*) data, len);
-
-
-	PyObject *lstBlocks = PyList_New(0);
-	getList(parsed, lstBlocks);
-	fulliautomatix_data_destroy(parsed);
-
+	PyObject *lstBlocks = python_parse((const unsigned char*) data, len);
+	if (lstBlocks == NULL)
+		return PyList_New(0);
 	return lstBlocks;
 
 }
 
-fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
+#if 0
+python_data* getList(python_data* p, PyObject* lst)
 {
 	// create holder for record category
 	char* name = NULL;
@@ -126,7 +127,7 @@ fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
 	while(p != NULL)
 	{
 		if (p->tree == 1)
-		{
+		{ // entering the tree
 			PyObject* item = PyDict_New();
 			PyObject *sublist = PyList_New(0);
 			if (name != NULL)
@@ -136,67 +137,19 @@ fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
 			PyList_Append(lst, item);
 			p = p->next;
 			p = getList(p, sublist);
-
-
-/*
-			if (!dataBlock)
-			{
-				dataBlock = 1;
-			}
-			else if (dataRecord == NULL)
-			{
-				dataRecord = PyDict_New();
-				lstItems = PyList_New(0);
-				PyDict_SetItemString(dataRecord, recordCat, lstItems);
-
-				if (PyList_Append(lst, dataRecord))
-				{
-					printf("Error in list append");
-					Py_DECREF(lst);
-					Py_RETURN_NONE;
-				}
-			}
-			else if (dataItem == NULL)
-			{
-				dataItem = PyDict_New();
-				lstValues = PyList_New(0);
-				PyDict_SetItemString(dataItem, "Ixxx", lstValues);
-
-				if (PyList_Append(lstItems, dataItem))
-				{
-					printf("Error in list append");
-					Py_DECREF(lstItems);
-					Py_RETURN_NONE;
-				}
-			}
-*/
 		}
 		else if (p->tree == -1)
-		{
+		{ // exiting the tree
 			if (name)
 				free(name);
 			return p;
-/*
-			if (dataItem != NULL)
-			{
-				dataItem = NULL;
-			}
-			else if (dataRecord != NULL)
-			{
-				dataRecord = NULL;
-			}
-			else if (dataBlock)
-			{
-				dataBlock = 0;
-			}
-*/
 		}
 		else if (p->description != NULL)
-		{
+		{ // just a description
 			printf("Description: %s\n", p->description);
 		}
 		else if (p->pid == 0)
-		{
+		{ // record
 			// create record category
 			PyObject* block = PyDict_New();
 			char tmp[7];
@@ -219,9 +172,9 @@ fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
 */
 		}
 		else
-		{
-			char* name = pDefinitions[p->pid]->name;
-			char* abbrev = pDefinitions[p->pid]->abbrev;
+		{ // item
+			char* name = NULL; //todo pDefinitions[p->pid]->name;
+			char* abbrev = NULL; //todopDefinitions[p->pid]->abbrev;
 
 			PyObject* item = PyDict_New();
 			if (p->type == FA_FT_UINT_STRING)
@@ -243,3 +196,4 @@ fulliautomatix_data* getList(fulliautomatix_data* p, PyObject* lst)
 		free(name);
 	return p;
 }
+#endif

@@ -36,74 +36,131 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <errno.h>
+#include <iostream>
 
 // Local includes
 #include "asterix.h"
 #include "udpdevice.hxx"
+#include "descriptor.hxx"
 
 
 
 CUdpDevice::CUdpDevice(CDescriptor &descriptor)
 {
-    const char *mcastAddress     = descriptor.GetFirst();
-    const char *interfaceAddress = descriptor.GetNext();
-    const char *port             = descriptor.GetNext();
-    const char *sourceAddress 	 = descriptor.GetNext();
-    const char *server           = descriptor.GetNext();
     int portNo = 0;
     bool isServer = false;
+    const char *element;
+    const char *mcastAddress;
+    const char *interfaceAddress;
+    const char *port;
+    const char *sourceAddress;
+    const char *server;
+    _countToRead = 0;
+    _maxValSocketDesc = 0;
 
-    ASSERT(mcastAddress && interfaceAddress && port && server);
+    element = descriptor.GetFirst();
 
-    // Mcast address argument
-    if (strlen(mcastAddress) == 0)
-    {
-        LOGINFO(gVerbose, "Mcast address not specified\n");
+    while (true) {
+	if (NULL == element)
+	{
+	    for(unsigned int i=0; i<_socketDesc.size(); i++)
+	    {
+		if (_socketDesc[i] > _maxValSocketDesc)
+		{
+		    _maxValSocketDesc = _socketDesc[i];
+		}
+	    }
+	    _maxValSocketDesc++;
+	    return;
+	}
+	int cntr=0;
+	int indx=0;
+	std::string str = element;
+	while((indx=str.find(':', indx+1)) >= 0)
+	{
+	    cntr++;
+	}
+	if (cntr < 2 || cntr > 3)
+	{
+	    LOGERROR(1, "Error: Wrong input address format (shall be: mcastaddress:ipaddress:port[:srcaddress]\n");
+	    LOGERROR(1, "mcast description(%s)\n", element);
+	    exit (3);
+	}
+
+	CDescriptor flow(element, ":");
+	mcastAddress = flow.GetFirst();
+	interfaceAddress = flow.GetNext();
+	port             = flow.GetNext();
+	sourceAddress    = flow.GetNext();
+	server           = "S"; //flow.GetNext();
+
+	LOGINFO(gVerbose, "mcastAddress(%s)\n", mcastAddress);
+	LOGINFO(gVerbose, "interfaceAddress(%s)\n", interfaceAddress);
+	LOGINFO(gVerbose, "port(%s)\n", port);
+	LOGINFO(gVerbose, "sourceAddress(%s)\n", sourceAddress);
+	LOGINFO(gVerbose, "server(%s)\n", server);
+
+	/*
+	if ((0 == strlen(mcastAddress)) || (0 == strlen(port)) || (0 == strlen(interfaceAddress))) {
+	    std::cerr << "Error: Wrong input address format  (shall be: mcastaddress:ipaddress:port[:srcaddress]" << std::endl;
+	    exit (3);
+	}
+	*/
+
+	ASSERT(mcastAddress && interfaceAddress && port && server);
+	element = descriptor.GetNext();
+
+	// Mcast address argument
+	if (strlen(mcastAddress) == 0)
+	{
+	    LOGINFO(gVerbose, "Mcast address not specified\n");
+	}
+
+	// Interface address argument may be null.
+	// In that case INADDR_ANY will be used.
+	if (strlen(interfaceAddress) == 0)
+	{
+	    LOGINFO(gVerbose, "INADDR_ANY used as interface\n");
+	}
+
+	// Mcast port argument
+	if (port == NULL)
+	{
+	    LOGWARNING(gVerbose, "Mcast port not specified (%d by default)\n", portNo);
+	}
+	else
+	{
+	    portNo = atoi(port);
+	}
+
+	// Server argument
+	if (strlen(server) == 0)
+	{
+	    LOGWARNING(1, "Server flag not specified (%d by default)\n", isServer);
+	}
+	else
+	{
+	    if (toupper(*server) == 'S')
+	    {
+		isServer = true;
+	    }
+	}
+
+	// Call default initialization
+	Init(mcastAddress, interfaceAddress, sourceAddress, portNo, isServer);
     }
 
-    // Interface address argument may be null.
-    // In that case INADDR_ANY will be used.
-    if (strlen(interfaceAddress) == 0)
-    {
-        LOGINFO(gVerbose, "INADDR_ANY used as interface\n");
-    }
-
-    // Mcast port argument
-    if (port == NULL)
-    {
-        LOGWARNING(gVerbose, "Mcast port not specified (%d by default)\n", portNo);
-    }
-    else
-    {
-        portNo = atoi(port);
-    }
-
-    // Server argument
-    if (strlen(server) == 0)
-    {
-        LOGWARNING(1, "Server flag not specified (%d by default)\n", isServer);
-    }
-    else
-    {
-        if (toupper(*server) == 'S')
-        {
-            isServer = true;
-        }
-    }
-
-
-    // Call default initialization
-    Init(mcastAddress, interfaceAddress, sourceAddress, portNo, isServer);
 }
 
 
 
 CUdpDevice::~CUdpDevice()
 {
-    if (_socketDesc >= 0)
+    for(unsigned int i=0; i<_socketDesc.size(); i++)
     {
-        close(_socketDesc);
+        close(_socketDesc[i]);
     }
+    _countToRead = 0;
 }
 
 
@@ -118,7 +175,7 @@ bool CUdpDevice::Read(void *data, size_t* len)
     // Check if interface was set-up correctly (server)
     if ((!_opened) || (!_server))
     {
-        LOGERROR(1, "Cannot write due to not properly initialized interface.\n");
+        LOGERROR(1, "Cannot read due to not properly initialized interface.\n");
         CountReadError();
         return false;
     }
@@ -126,24 +183,35 @@ bool CUdpDevice::Read(void *data, size_t* len)
     // Get the message (blocking)
     struct sockaddr_in clientAddr;
     socklen_t clientLen = sizeof(clientAddr);
-    ssize_t lenread = recvfrom(_socketDesc, data, *len, MSG_NOSIGNAL, (struct sockaddr *) &clientAddr, &clientLen);
-    if (lenread < 0)
+
+    for(unsigned int i=0; i<_socketDesc.size() && _countToRead>0; i++)
     {
-        LOGERROR(1, "Error reading from %s on address %s.\n",
-           inet_ntoa(clientAddr.sin_addr),
-           inet_ntoa(_mcastAddr.sin_addr));
+	if ( FD_ISSET(_socketDesc[i], &_descToRead) )
+	{
+	    _countToRead--;
+	    // _socketDesc is going to be read, clear bits
+	    FD_CLR(_socketDesc[i], &_descToRead);
+	    ssize_t lenread = recvfrom(_socketDesc[i], data, *len, MSG_NOSIGNAL, (struct sockaddr *) &clientAddr, &clientLen);
+	    if (lenread < 0)
+	    {
+		LOGERROR(1, "Error reading from %s on address %s.\n",
+		     inet_ntoa(clientAddr.sin_addr),
+		    inet_ntoa(_mcastAddr.sin_addr));
+		    CountReadError();
+		return false;
+	    }
 
-        CountReadError();
-        return false;
+	    *len = lenread;
+
+	    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s.\n",
+		inet_ntoa(clientAddr.sin_addr),
+		inet_ntoa(_mcastAddr.sin_addr));
+
+
+	    ResetReadErrors(true);
+	    return true;
+	}
     }
-
-    *len = lenread;
-
-    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s.\n",
-           inet_ntoa(clientAddr.sin_addr),
-           inet_ntoa(_mcastAddr.sin_addr));
-
-    ResetReadErrors(true);
     return true;
 }
 
@@ -162,7 +230,7 @@ bool CUdpDevice::Write(const void *data, size_t len)
     // Set the server address
 
     // Write the message (blocking)
-    if (sendto(_socketDesc, data, len, MSG_NOSIGNAL, (struct sockaddr*) &_mcastAddr, sizeof(_mcastAddr)) < 0)
+    if (sendto(_socketDesc[0], data, len, MSG_NOSIGNAL, (struct sockaddr*) &_mcastAddr, sizeof(_mcastAddr)) < 0)
     {
         LOGERROR(1, "Error %d writing to %s.\n",
             errno, inet_ntoa(_mcastAddr.sin_addr));
@@ -189,11 +257,19 @@ bool CUdpDevice::Select(const unsigned int secondsToWait)
         return false;
     }
 
+    // check if there is some data waiting to be read
+    if (_countToRead>0)
+    {
+	return (_countToRead > 0);
+    }
+
     // Configure 'set' of single class file descriptor
-    fd_set descToRead;
     int selectVal;
-    FD_ZERO(&descToRead);
-    FD_SET(_socketDesc, &descToRead);
+    FD_ZERO(&_descToRead);
+    for(unsigned int i=0; i<_socketDesc.size(); i++)
+    {
+	FD_SET(_socketDesc[i], &_descToRead);
+    }
 
     if (secondsToWait)
     {
@@ -202,20 +278,22 @@ bool CUdpDevice::Select(const unsigned int secondsToWait)
         timeout.tv_sec  = secondsToWait;
         timeout.tv_usec = 0;
 
-        selectVal = select(_socketDesc + 1, &descToRead,  NULL, NULL, &timeout);
+        selectVal = select(_maxValSocketDesc, &_descToRead,  NULL, NULL, &timeout);
     }
     else
     {
         // secondsToWait is zero => Wait indefinitely
-        selectVal = select(_socketDesc + 1, &descToRead,  NULL, NULL, NULL);
+        selectVal = select(_maxValSocketDesc, &_descToRead,  NULL, NULL, NULL);
     }
 
-    return (selectVal == 1);
+    _countToRead = selectVal;
+
+    return (selectVal > 0);
 }
 
 
 
-bool CUdpDevice::InitServer()
+bool CUdpDevice::InitServer(int socketDesc)
 {
     struct sockaddr_in serverAddr;
 
@@ -225,7 +303,7 @@ bool CUdpDevice::InitServer()
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
     {
-       serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+       serverAddr.sin_addr.s_addr = _mcastAddr.sin_addr.s_addr;
     }
     else
     {
@@ -233,10 +311,23 @@ bool CUdpDevice::InitServer()
     }
     serverAddr.sin_port = htons(_port);
 
-    if (bind(_socketDesc, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0)
+    if (bind(socketDesc, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0)
     {
+        if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
+        { // If failed to bind multicast address (note that it will always fail on Windows) then try with ANY port
+            serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+            if (bind(socketDesc, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0)
+            {
+		LOGERROR(1, "Cannot bind multicast address %s and port number %d\n", inet_ntoa(_mcastAddr.sin_addr), _port);
+                return false;
+            }
+        }
+        else
+        {
         LOGERROR(1, "Cannot bind port number %d\n", _port);
         return false;
+        }
     }
 
     if (IN_MULTICAST(ntohl(_mcastAddr.sin_addr.s_addr)))
@@ -249,7 +340,7 @@ bool CUdpDevice::InitServer()
  	       mreq.imr_interface.s_addr = _interfaceAddr.s_addr;
  	       mreq.imr_sourceaddr.s_addr = _sourceAddr.s_addr;// source address
 
- 	       if (setsockopt(_socketDesc, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
+		if (setsockopt(socketDesc, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
  	       {
  	          LOGERROR(1, "Cannot join multicast address %s src: %s\n", inet_ntoa(_mcastAddr.sin_addr), inet_ntoa(_sourceAddr));
  	          return false;
@@ -266,7 +357,7 @@ bool CUdpDevice::InitServer()
 			mreq.imr_multiaddr.s_addr = _mcastAddr.sin_addr.s_addr;
 			mreq.imr_interface.s_addr = _interfaceAddr.s_addr;
 
-			if (setsockopt(_socketDesc, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
+			if (setsockopt(socketDesc, IPPROTO_IP, IP_ADD_MEMBERSHIP, (void*) &mreq, sizeof(mreq)) < 0)
 			{
 			  LOGERROR(1, "Cannot join multicast address %s\n", inet_ntoa(_mcastAddr.sin_addr));
 			  return false;
@@ -282,7 +373,7 @@ bool CUdpDevice::InitServer()
 
 
 
-bool CUdpDevice::InitClient()
+bool CUdpDevice::InitClient(int socketDesc)
 {
     struct sockaddr_in clientAddr;
 
@@ -291,7 +382,7 @@ bool CUdpDevice::InitClient()
     clientAddr.sin_addr.s_addr = htonl(INADDR_ANY);
     clientAddr.sin_port = htons(0);
 
-    if (bind(_socketDesc, (struct sockaddr*) &clientAddr, sizeof(clientAddr)) < 0)
+    if (bind(socketDesc, (struct sockaddr*) &clientAddr, sizeof(clientAddr)) < 0)
     {
         LOGERROR(1, "Cannot bind \n");
         return false;
@@ -301,7 +392,7 @@ bool CUdpDevice::InitClient()
     {
         unsigned char ttl = 1;  // send multicast on subnet only (ttl = 1)
         // Set ttl on the socket
-        if (setsockopt(_socketDesc, IPPROTO_IP, IP_MULTICAST_TTL, &ttl, sizeof(ttl)) < 0)
+        if (setsockopt(socketDesc, IPPROTO_IP, IP_MULTICAST_TTL, &ttl, sizeof(ttl)) < 0)
         {
            LOGERROR(1, "Cannot set ttl = %d\n", ttl);
            return false;
@@ -316,11 +407,14 @@ void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, co
 {
     struct hostent *host;
     u_int yes=1;
+    int socketDesc;
 
     _opened = false;
-    _socketDesc = -1;
+    //_socketDesc = -1;
     _server = server;
     _port   = port;
+    //_countToRead = 0;
+
 
     // 1. Global initialization
 
@@ -382,15 +476,15 @@ void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, co
     }
 
     // 1.3 Socket
-    _socketDesc = socket(AF_INET, SOCK_DGRAM, 0);
-    if (_socketDesc < 0)
+    socketDesc = socket(AF_INET, SOCK_DGRAM, 0);
+    if (socketDesc < 0)
     {
         LOGERROR(1, "Cannot open socket\n");
         return;
     }
 
     // Allow multiple sockets to use the same PORT number
-    if (setsockopt(_socketDesc, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) < 0)
+    if (setsockopt(socketDesc, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) < 0)
     {
         LOGERROR(1, "Cannot reuse socket address\n");
         return;
@@ -399,7 +493,7 @@ void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, co
     // 2. Client/server dependant initialization
     if (_server)
     {
-        if (!InitServer())
+        if (!InitServer(socketDesc))
         {
             LOGERROR(1, "Server not initialized\n");
             return;
@@ -407,13 +501,14 @@ void CUdpDevice::Init(const char *mcastAddress, const char *interfaceAddress, co
     }
     else
     {
-        if (!InitClient())
+        if (!InitClient(socketDesc))
         {
             LOGERROR(1, "Client not initialized\n");
             return;
         }
     }
 
+    _socketDesc.push_back(socketDesc);
     _opened = true;
 
 }

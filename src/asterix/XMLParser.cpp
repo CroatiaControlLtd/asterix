@@ -797,6 +797,10 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 	{
 		if (p->m_pFormat != NULL && p->m_pFormat->isFixed())
 		{
+			/* We do not check for fx bit any more because there are some formats that
+			   do not have fx bit in primary part of variable item (e.g. I021/271).
+			   Now if the fx is not defined it means that this is the last primary field.
+
 			if (p->m_pFormat->m_pParentFormat && p->m_pFormat->m_pParentFormat->isVariable())
 			{ // check if fx bit is set
 				std::list<DataItemFormat*>::iterator it;
@@ -815,6 +819,7 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 					p->Error("Missing fx=1 in primary part of Variable item.");
 				}
 			}
+			*/
 			p->m_pFormat = p->m_pFormat->m_pParentFormat;
 		}
 		else

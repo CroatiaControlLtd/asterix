@@ -8,6 +8,7 @@
     Author:   B.Bertrand
     Created:  2012-12-17
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  23.2.2016. (ifsnop) Added RE dataitem from "ASTERIX Part 12 Category 021 Appendix A Coding rules for Reserved Expansion Field v1.1"
 
 -->
 
@@ -436,8 +437,8 @@
         <DataItemDefinition>Target address (emitter identifier) assigned uniquely to each target.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
-                <Bits from="24" to="1">
-					<BitsShortName>TAddr</BitsShortName>
+                <Bits from="24" to="1" encode="hex">
+                    <BitsShortName>TAddr</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
@@ -1181,7 +1182,7 @@
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
-                    <Bits from="8" to="5">
+					<Bits from="8" to="5">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to zero</BitsName>
                         <BitsConst>0</BitsConst>
@@ -1531,6 +1532,232 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="RE">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 021 (ADS-B Reports)</DataItemDefinition>
+        <DataItemFormat desc="One byte length field, followed by a one byte items indicator and the encoded items.">
+            <Explicit>
+                <Compound>
+                    <Variable>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>BPS</BitsShortName>
+                                <BitsName>Barometric Pressure Setting</BitsName>
+                                <BitsPresence>1</BitsPresence>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>SelH</BitsShortName>
+                                <BitsName>Selected Heading</BitsName>
+                                <BitsPresence>2</BitsPresence>
+                            </Bits>
+                            <Bits bit="6">
+                                <BitsShortName>NAV</BitsShortName>
+                                <BitsName>Navigation Mode</BitsName>
+                                <BitsPresence>3</BitsPresence>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>GAO</BitsShortName>
+                                <BitsName>GPS Antenna Offset</BitsName>
+                                <BitsPresence>4</BitsPresence>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>SGV</BitsShortName>
+                                <BitsName>Surface Ground Vector</BitsName>
+                                <BitsPresence>5</BitsPresence>
+                            </Bits>
+                            <Bits bit="3">
+                                <BitsShortName>STA</BitsShortName>
+                                <BitsName>Aircraft Status Information</BitsName>
+                                <BitsPresence>6</BitsPresence>
+                            </Bits>
+                            <Bits bit="2">
+                                <BitsShortName>TNH</BitsShortName>
+                                <BitsName>True North Heading</BitsName>
+                                <BitsPresence>7</BitsPresence>
+                            </Bits>
+                            <Bits bit="1">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>Spare bits set to zero</BitsName>
+                                <BitsConst>0</BitsConst>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
+                    <Fixed length="2">
+                        <Bits from="16" to="13">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to zero</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="12" to="1">
+                            <BitsShortName>BPS</BitsShortName>
+                            <BitsName>Barometric Pressure Setting</BitsName>
+                            <BitsUnit scale="0.1" max="409.5">mb</BitsUnit>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="2">
+                        <Bits from="16" to="13">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to zero</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="12">
+                            <BitsShortName>HRD</BitsShortName>
+                            <BitsName>Horizontal Reference Direction</BitsName>
+                            <BitsValue val="0">True North.</BitsValue>
+                            <BitsValue val="1">Magnetic North.</BitsValue>
+                        </Bits>
+                        <Bits bit="11">
+                            <BitsShortName>Stat</BitsShortName>
+                            <BitsName>Selected Heading Status</BitsName>
+                            <BitsValue val="0">Data is either unavailable or invalid.</BitsValue>
+                            <BitsValue val="1">Data is available and valid.</BitsValue>
+                        </Bits>
+                        <Bits from="10" to="1">
+                            <BitsShortName>SelH</BitsShortName>
+                            <BitsName>Selected Heading</BitsName>
+                            <BitsUnit scale="0.703125">deg</BitsUnit>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>AP</BitsShortName>
+                            <BitsName>Autopilot engaged</BitsName>
+                            <BitsValue val="0">Not Autopilot engaged.</BitsValue>
+                            <BitsValue val="1">Autopilot engaged.</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>VN</BitsShortName>
+                            <BitsName>VNAV Active (Vertical Navigation)</BitsName>
+                            <BitsValue val="0">Not VNAV Active.</BitsValue>
+                            <BitsValue val="1">VNAV Active.</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>AH</BitsShortName>
+                            <BitsName>Altitude Hold engaged</BitsName>
+                            <BitsValue val="0">Not Altitude Hold.</BitsValue>
+                            <BitsValue val="1">Altitude Hold.</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>AM</BitsShortName>
+                            <BitsName>Approach Mode active</BitsName>
+                            <BitsValue val="0">Not Approach Mode.</BitsValue>
+                            <BitsValue val="1">Approach Mode.</BitsValue>
+                        </Bits>
+                        <Bits from="4" to="1">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to zero</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits from="8" to="1">
+                            <BitsShortName>GAO</BitsShortName>
+                            <BitsName>GPS Antenna Offset</BitsName>
+                        </Bits>
+                    </Fixed>
+                    <Variable>
+                        <Fixed length="2">
+                            <Bits bit="16">
+                                <BitsShortName>STP</BitsShortName>
+                                <BitsName>Aircraft stopped</BitsName>
+                                <BitsValue val="0">Aircraft has not stopped.</BitsValue>
+                                <BitsValue val="1">Aircraft has stopped.</BitsValue>
+                            </Bits>
+                            <Bits bit="15">
+                                <BitsShortName>HTS</BitsShortName>
+                                <BitsName>Heading/Ground Track</BitsName>
+                                <BitsValue val="0">Heading/Ground Track is not valid.</BitsValue>
+                                <BitsValue val="1">Heading/Ground Track is valid.</BitsValue>
+                            </Bits>
+                            <Bits bit="14">
+                                <BitsShortName>HTT</BitsShortName>
+                                <BitsName>Heading/Ground data</BitsName>
+                                <BitsValue val="0">Heading data provided.</BitsValue>
+                                <BitsValue val="1">Ground Track provided.</BitsValue>
+                            </Bits>
+                            <Bits bit="13">
+                                <BitsShortName>North</BitsShortName>
+                                <BitsName>North</BitsName>
+                                <BitsValue val="0">True North.</BitsValue>
+                                <BitsValue val="1">Magnetic North.</BitsValue>
+                            </Bits>
+                            <Bits from="12" to="2">
+                                <BitsShortName>GSS</BitsShortName>
+                                <BitsName>Ground Speed</BitsName>
+                                <BitsUnit scale="0.125">kts</BitsUnit>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits from="8" to="2">
+                                <BitsShortName>HGT</BitsShortName>
+                                <BitsName>Heading/Ground Track information</BitsName>
+                                <BitsUnit scale="2.8125">deg</BitsUnit>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>ES</BitsShortName>
+                            <BitsName>1090 ES IN capability</BitsName>
+                            <BitsValue val="0">Target is not 1090 ES IN capable.</BitsValue>
+                            <BitsValue val="1">Target is 1090 ES IN capable.</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>UAT</BitsShortName>
+                            <BitsName>UAT capability</BitsName>
+                            <BitsValue val="0">Target is not UAT IN capable.</BitsValue>
+                            <BitsValue val="1">Target is UAT IN capable.</BitsValue>
+                        </Bits>
+                        <Bits from="6" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to zero</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="2">
+                        <Bits from="16" to="1">
+                            <BitsShortName>TNH</BitsShortName>
+                            <BitsName>Magnetic Heading</BitsName>
+                            <BitsUnit scale="0.0054931640625">deg</BitsUnit>
+                        </Bits>
+                    </Fixed>
+                </Compound>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote>
+BPS
+1. BPS is the barometric pressure setting of the aircraft minus 800 mb.
+2. A value of "0" indicates that in the aircraft a value of 800mb or less has been selected.
+3. A value of "409.5" indicates that in the aircraft a value of 1209.5mb or more has been selected.
+SelH
+1. On many aircraft, the ADS-B Transmitting Subsystem receives Selected Heading from a Mode Control Panel / Flight Control Unit (MCP / FCU). Users of this data are cautioned that the Selected Heading value transmitted by the ADS-B Transmitting Subsystem does not necessarily reflect the true intention of the airplane during certain flight modes (e.g., during LNAV mode).
+NAV
+1. This data-item should only be transmitted if an ADS-B indication has been received that the mode bits have been "actively populated" by the avionics (1090 ES version 2 (as defined in I021/210) BDS 6,2, subtype 1, bit 47: "Status of MCP / FCU Mode Bits")
+GAO
+1. The value of this field is copied from the respective bits 33-40 of version 2 (as defined in I021/210) of 1090 ES BDS register 6,5 (Aircraft Operational Status)
+TNH
+1. Magnetic Heading is defined in I021/152.
+        </DataItemNote>
     </DataItem>
 
 

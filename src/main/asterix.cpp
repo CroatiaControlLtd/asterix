@@ -57,20 +57,20 @@ static void show_usage(std::string name)
 
 	std::cerr << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
 			  << "Usage:\n"
-			  <<  name << " [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]"
+			  <<  name << " [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i (mcastaddress:ipaddress:port[:srcaddress]@)+"
 			  << "\n\nOptions:"
-			  << "\n\t-h,--help\tShow this help message"
-			  << "\n\t-v,--verbose\tShow more information during program execution"
+			  << "\n\t-h,--help\tShow this help message."
+			  << "\n\t-v,--verbose\tShow more information during program execution."
 			  << "\n\t-d,--def\tXML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini"
 			  << "\n\t-L,--list\tList all configured ASTERIX items. Mark which items are filtered."
-			  << "\n\t-LF,--filter\tPrintout only items listed in configured file"
+			  << "\n\t-LF,--filter\tPrintout only items listed in configured file."
 			  << "\n\t-o,--loop\tLoop the input file. Only relevant when file is data source."
 			  << "\n\t-s,--sync\tOutput will be printed synchronously with input file (with time delays between packets). This parameter is used only if input is from file."
 			  << "\n\nInput format"
 			  << "\n------------"
-			  << "\n\t-P,--pcap\tInput is from PCAP file"
-			  << "\n\t-R,--oradispcap\tInput is from PCAP file and Asterix packet is encapsulated in ORADIS packet"
-			  << "\n\t-O,--oradis\tAsterix packet is encapsulated in ORADIS packet"
+			  << "\n\t-P,--pcap\tInput is from PCAP file."
+			  << "\n\t-R,--oradispcap\tInput is from PCAP file and Asterix packet is encapsulated in ORADIS packet."
+			  << "\n\t-O,--oradis\tAsterix packet is encapsulated in ORADIS packet."
 			  << "\n\t-F,--final\tAsterix packet is encapsulated in FINAL packet."
 			  << "\n\t-H,--hdlc\tAsterix packet is encapsulated in HDLC packet."
 			  << "\n\nOutput format"
@@ -82,7 +82,7 @@ static void show_usage(std::string name)
 			  << "\n\nData source"
 			  << "\n------------"
 			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
-			  << "\n\t-i m:i:p[:s]\tMulticast IP address:Interface address:Port[:Source address].\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112:10.17.22.23"
+			  << "\n\t-i m:i:p[:s]\tMulticast UDP/IP address:Interface address:Port[:Source address].\n\t\t\tFor example: 232.1.1.12:10.17.58.37:21112:10.17.22.23\n\t\t\tMore than one multicast group could be defined, use @ as separator.\n\t\t\tFor example: 232.1.1.13:10.17.58.37:21112:10.17.22.23@232.1.1.14:10.17.58.37:21112:10.17.22.23"
 			  << std::endl;
 }
 
@@ -228,7 +228,7 @@ int main(int argc, const char *argv[])
 			}
 			strOutputFormat = "ASTERIX_KML";
 		}
-		else if ((arg == "-d") || (arg == "--definitions"))
+		else if ((arg == "-d")  || (arg == "--def") || (arg == "--definitions"))
 		{
 			if (i >= argc-1)
 			{
@@ -272,6 +272,7 @@ int main(int argc, const char *argv[])
 
 	// Create input string
 	std::string strInput = "std 0 ";
+	std::string strInputFixed = "";
 	if (!strFileInput.empty() && !strIPInput.empty())
 	{
 		strInput = "std 0 ASTERIX_RAW";
@@ -291,6 +292,7 @@ int main(int argc, const char *argv[])
 	}
 	else if (!strIPInput.empty())
 	{
+/*
 		// count ':'
 		int cntr=0;
 		int indx=0;
@@ -307,6 +309,8 @@ int main(int argc, const char *argv[])
 			std::cerr << "Error: Wrong input address format  (shall be: mcastaddress:ipaddress:port[:srcaddress]" << std::endl;
 			exit (3);
 		}
+*/
+		strInput = "udp " + strIPInput + " "; // + ":S ";
 	}
 
 	strInput += strInputFormat;
@@ -355,27 +359,53 @@ int main(int argc, const char *argv[])
     		while( fgets(line,1024,ff) )
     		{
 
-				int cat = 0;
-				int item = 0;
-				char name[1024];
+			int cat = 0;
+			char item[128] = "";
+			char name[128] = "";
 
-				// skip commented lines
-				if (line[0] == '#')
-					continue;
+			// skip commented lines
+			if (line[0] == '#' || strlen(line)<=0)
+				continue;
 
-				if (sscanf(line, "CAT%03d:I%d:%s", &cat, &item, name) != 3)
+			char *p = strtok(line, ":");
+			int ret = 0;
+			while(p)
+			{
+				if (sscanf(p, "CAT%03d", &cat) != 1)
+					break;
+				p = strtok(NULL, ":");
+				if ( NULL == p )
 				{
-					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line)  << std::endl;
+					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line) << std::endl;
 					exit(3);
 				}
-
-				if (!desc->filterOutItem(cat, item, name))
+				if (sscanf(p, "I%128s", item) != 1)
+					break;
+				p = strtok(NULL, ":");
+				if ( NULL == p )
 				{
-					std::cerr << "Warning: Filtering item not found: "+std::string(line)  << std::endl;
+					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line) << std::endl;
+					exit(3);
 				}
-    		}
-    		fclose(ff);
-    	}
+				if (sscanf(p, "%128s", name) != 1)
+					break;
+				ret = 1;
+				break;
+			}
+
+			if (ret == 0)
+			{
+				std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line) << std::endl;
+				exit(3);
+			}
+
+			if (!desc->filterOutItem(cat, std::string(item), name))
+			{
+				std::cerr << "Warning: Filtering item not found: "+std::string(line)+":"+std::string(item)+":"+std::string(name)  << std::endl;
+			}
+		}
+		fclose(ff);
+	}
 
     	if (bListDefinitions)
     	{ // Parse definitions file and print all items

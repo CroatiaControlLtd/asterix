@@ -8,6 +8,7 @@
 	Author:   dmarkus
 	Created:  5.1.2011.
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	           17.2.2016. (dsalantic, reported by hubbiedihub) Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
 
 --> 
 
@@ -212,12 +213,6 @@
                         <BitsName>OVL</BitsName>
 						<BitsValue val="0">No overload</BitsValue>
                         <BitsValue val="1">Overload</BitsValue>	
-                    </Bits>
-					<Bits bit="4">
-						<BitsShortName>OVL RDP</BitsShortName>
-                        <BitsName>OVL RDP</BitsName>
-						<BitsValue val="1">Overload in RDP</BitsValue>
-                        <BitsValue val="0">No overload</BitsValue>	
                     </Bits>
 					<Bits bit="4">
 						<BitsShortName>MSC</BitsShortName>

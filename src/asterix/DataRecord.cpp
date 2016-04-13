@@ -145,6 +145,18 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
   {
     m_bFormatOK = true;
   }
+	
+	if (!m_bFormatOK)
+	{
+		// Print whole record in case of error
+		std::string strNewResult = format("Data Record bytes: [ ");
+		for (unsigned int i=0; i<len; i++)
+		{
+		  strNewResult += format("%02X ", *(data+i));
+		}
+		strNewResult += format("]");
+		Tracer::Error(strNewResult.c_str());
+	}
 }
 
 DataRecord::~DataRecord()
@@ -176,12 +188,20 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	case CAsterixFormat::ETxt:
 		strNewResult = format("\n-------------------------\nData Record %d", m_nID);
 		strNewResult += format("\nLen: %ld", m_nLength);
+		if (m_nTimestamp != 0)
+		strNewResult += format("\nTimestamp: %ld", m_nTimestamp);
 		break;
 	case CAsterixFormat::EJSON:
-		strNewResult = format("{\"CAT%03d\":{", m_pCategory->m_id);
+		if (m_nTimestamp != 0)
+		strNewResult = format("{\"timestamp\":%ld,\"CAT%03d\":{", m_nTimestamp, m_pCategory->m_id);
+		else
+			strNewResult = format("{\"CAT%03d\":{", m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EJSONH:
-		strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
+		if (m_nTimestamp != 0)
+		strNewResult = format("{\"timestamp\":%ld,\n\"CAT%03d\":{\n", m_nTimestamp, m_pCategory->m_id);
+		else
+			strNewResult = format("{\"CAT%03d\":{\n", m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EXML:
 		const int nXIDEFv = 1;

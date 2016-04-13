@@ -41,6 +41,7 @@ public:
   ~Category();
 
   unsigned int m_id;
+  bool m_bFiltered; //! at least one item of category shall be printed when filter is applied
 
   std::string m_strName;
   std::string m_strVer;

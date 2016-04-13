@@ -3,21 +3,16 @@
 
 <!--  
 
-	Asterix Category 048 v1.14 definition 
+	Asterix Category 048 v1.21 definition 
 	
-	Author:   dmarkus
-	Created:  13.2.2009.
+	Author:   dhubbiedihub
+	Created:  30.03.2016.
 	
-	Modified: 3.11.2013 :  added items I048/55, I048/065 and I048/SP (FPS117-specific)
-	Modified: 22.11.2013 : I048/SP defined as Explicit
-	Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-	Modified:  05.05.2014. (dsalantic) Mode-1 displayed as decimal (and not hex)
-	Modified:  07.07.2014. (dsalantic) SAM and PAM are signed
-	Modified:  30.03.2016. (dsalantic) DataItem 110 "Height Measured by a 3D Radar" is signed not unsigned: 
+	Modified:  30.03.2016. (hubbiedihub) Copied 1.14 version and adapted to 1.21 (XPP field added)
 
 --> 
 
-<Category id="48" name="Transmission of Monoroadar Data" ver="1.14">
+<Category id="48" name="Transmission of Monoroadar Data" ver="1.21">
 	
 	<DataItem id="010">
 		<DataItemName>Data Source Identifier</DataItemName>
@@ -92,10 +87,16 @@
                         <BitsValue val="0">Real target report</BitsValue>
                         <BitsValue val="1">Test target report</BitsValue>
                     </Bits>
-                    <Bits from="7" to="6">
-						<BitsShortName>spare</BitsShortName>
-                        <BitsName>spare bits set to 0</BitsName>
+                    <Bits bit="7">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>                       
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>XPP</BitsShortName>
+                        <BitsName>XPP</BitsName>
+                        <BitsValue val="0">No X-Pulse present</BitsValue>
+                        <BitsValue val="1">X-Pulse present</BitsValue>
                     </Bits>
                     <Bits bit="5">
                         <BitsShortName>ME</BitsShortName>

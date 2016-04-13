@@ -22,7 +22,6 @@
  */
 
 #include "InputParser.h"
-#include <time.h>
 
 InputParser::InputParser(AsterixDefinition* pDefinition)
 : m_pDefinition(pDefinition)
@@ -32,23 +31,17 @@ InputParser::InputParser(AsterixDefinition* pDefinition)
 /*
  * Parse data
  */
-AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize)
+AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp)
 {
   AsterixData* pAsterixData = new AsterixData();
   unsigned int m_nPos = 0;
   unsigned int m_nDataLength = 0;
   const unsigned char* m_pData = m_pBuffer; // internally used pointer to parsed data
-  time_t nTimestamp = 0;
 
   while(m_nPos < m_nBufferSize)
   {
     bool bOK = true;
     m_nDataLength = m_nBufferSize;
-
-    if (!nTimestamp)
-    {
-      time(&nTimestamp);
-    }
 
     while(bOK && m_nDataLength > 0)
     {
@@ -78,7 +71,7 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
       m_nDataLength -= 3;
       dataLen -= 3;
 
-      DataBlock* db = new DataBlock(m_pDefinition->getCategory(nCategory), dataLen, m_pData, (unsigned long)nTimestamp);
+      DataBlock* db = new DataBlock(m_pDefinition->getCategory(nCategory), dataLen, m_pData, nTimestamp);
       m_pData += dataLen;
       m_nPos += dataLen;
       pAsterixData->m_lDataBlocks.push_back(db);

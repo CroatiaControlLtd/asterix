@@ -1,0 +1,36 @@
+Metadata-Version: 1.0
+Name: asterix
+Version: 1.00
+Summary: ASTERIX parser
+Home-page: http://github.com/CroatiaControlLtd/asterix
+Author: Damir Salantic
+Author-email: damir.salantic@crocontrol.hr
+License: GPL License
+Download-URL: http://github.com/CroatiaControlLtd/asterix
+Description: asterix
+        =============
+        Asterix is....
+        
+        To install it just run Pip as usual::
+        
+            $ pip install asterix
+        
+        ============
+        Usage
+        ============
+        May be used as a drop in replacement for most other JSON parsers for Python::
+        
+            >>> import asterix
+            >>> TODO
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GPL License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2

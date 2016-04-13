@@ -25,6 +25,8 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
 , m_nLength(len)
@@ -34,6 +36,12 @@ DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data
   const unsigned char* m_pItemDataStart = data;
   long nUnparsed = len;
   int counter=1;
+
+  if (gFiltering && !m_pCategory->m_bFiltered)
+  {
+    m_bFormatOK = true;
+    return;
+  }
 
   while(nUnparsed > 0)
   {
@@ -79,6 +87,11 @@ DataBlock::~DataBlock()
 bool DataBlock::getText(std::string& strResult, const unsigned int formatType)
 {
 	std::string strHeader;
+
+	if (gFiltering && !m_pCategory->m_bFiltered)
+	{
+		return false;
+	}
 
 	switch(formatType)
 {

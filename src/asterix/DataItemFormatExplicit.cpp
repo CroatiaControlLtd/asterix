@@ -35,136 +35,170 @@ DataItemFormatExplicit::~DataItemFormatExplicit()
 
 long DataItemFormatExplicit::getLength(const unsigned char* pData)
 {
-  return (long)(*pData);
+	return (long)(*pData);
 }
 
 void DataItemFormatExplicit::addBits(DataItemBits* pBits)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong data in Explicit");
-    return;
-  }
-  pFixed->addBits(pBits);
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong data in Explicit");
+		return;
+	}
+	pFixed->addBits(pBits);
 }
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-	Tracer::Error("Wrong data in Explicit");
-	return false;
-}
+	std::list<DataItemFormat*>::iterator it;
+	int bodyLength = 0;
+	bool ret = false;
 
-  int fixedLength = pFixed->getLength(pData);
-  unsigned char nFullLength = nLength - 1;
-  pData++;
+	pData++; // skip explicit length byte (it is already in nLength)
 
-  switch(formatType)
-  {
-	  case CAsterixFormat::EJSON:
-	  case CAsterixFormat::EJSONH:
-		  strResult += format("[");
+	// calculate the size of all sub items
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		bodyLength += di->getLength(pData+bodyLength); // calculate length of body
+	}
 
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
-	  pData += fixedLength;
-			  strResult += format(",");
-  }
-		  if (strResult[strResult.length()-1] == ',')
-		  {
-			  strResult[strResult.length()-1] = ']';
-}
-		  else
-{
-			  strResult += ']';
-		  }
-		  break;
-	  default:
-  for (int i=0; i<nFullLength; i+=fixedLength)
-  {
-			  pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
-	  pData += fixedLength;
-  }
-		  break;
-  	  }
+	int nFullLength = nLength - 1; // calculate full length
 
-  return true;
+	// full length must be multiple of body length
+	if (bodyLength == 0 || nFullLength % bodyLength != 0)
+	{
+		Tracer::Error("Wrong data length in Explicit");
+		return false;
+	}
+
+	std::string tmpStr = "";
+
+	switch(formatType)
+	{
+	case CAsterixFormat::EJSON:
+	case CAsterixFormat::EJSONH:
+	{
+		tmpStr += format("[");
+	}
+	}
+
+	for (int i=0; i<nFullLength; i+=bodyLength)
+	{
+		for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+		{
+			DataItemFormat* di = (DataItemFormat*)(*it);
+			ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
+			pData += bodyLength;
+
+			switch(formatType)
+			{
+			case CAsterixFormat::EJSON:
+			case CAsterixFormat::EJSONH:
+			{
+				tmpStr += format(",");
+			}
+			}
+		}
+	}
+
+	switch(formatType)
+	{
+	case CAsterixFormat::EJSON:
+	case CAsterixFormat::EJSONH:
+	{
+		if (tmpStr[tmpStr.length()-1] == ',')
+		{
+			tmpStr[tmpStr.length()-1] = ']';
+		}
+		else
+		{
+			tmpStr += ']';
+		}
+	}
+	}
+
+	strResult += tmpStr;
+
+	return ret;
 }
 
 std::string DataItemFormatExplicit::printDescriptors(std::string header)
 {
-    DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-  {
-		Tracer::Error("Wrong data in Explicit");
-		return "Wrong data in Explicit";
-  }
-	return pFixed->printDescriptors(header);
+	std::string strDef = "";
+
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		strDef += dip->printDescriptors(header);
+	}
+	return strDef;
 }
 
 bool DataItemFormatExplicit::filterOutItem(const char* name)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-  {
-		Tracer::Error("Wrong data in Explicit");
-  return false;
-}
-	return pFixed->filterOutItem(name);
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->filterOutItem(name))
+			return true;
+	}
+	return false;
 }
 
 bool DataItemFormatExplicit::isFiltered(const char* name)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-	  {
-		Tracer::Error("Wrong data in Explicit");
-	  return false;
-}
-	return pFixed->isFiltered(name);
+	std::list<DataItemFormat*>::iterator it;
+	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
+	{
+		DataItemFormat* dip = (DataItemFormat*)(*it);
+		if (true == dip->isFiltered(name))
+			return true;
+	}
+	return false;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong format of explicit item");
-    return NULL;
-  }
-  return pFixed->getWiresharkDefinitions();
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong format of explicit item");
+		return NULL;
+	}
+	return pFixed->getWiresharkDefinitions();
 }
 
 fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long, int byteoffset)
 {
-  fulliautomatix_data *lastData = NULL, *firstData = NULL;
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    Tracer::Error("Wrong format of explicit item");
-    return NULL;
-  }
+	fulliautomatix_data *lastData = NULL, *firstData = NULL;
+	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pFixed == NULL)
+	{
+		Tracer::Error("Wrong format of explicit item");
+		return NULL;
+	}
 
-  int fixedLength = pFixed->getLength(pData);
-  unsigned char nFullLength = *pData;
+	// TODO : fix this as it is in DataItemFormatExplicit::getText
+	int fixedLength = pFixed->getLength(pData);
+	unsigned char nFullLength = *pData;
 
-  firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
-  byteoffset+=1;
+	firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
+	byteoffset+=1;
 
-  pData++;
+	pData++;
 
-  lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
-  while(lastData->next)
-    lastData = lastData->next;
+	lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
+	while(lastData->next)
+		lastData = lastData->next;
 
-  byteoffset += nFullLength;
+	byteoffset += nFullLength;
 
-  return firstData;
+	return firstData;
 }
 #endif
 

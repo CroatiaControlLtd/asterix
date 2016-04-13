@@ -147,8 +147,11 @@ bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHea
    	  case CAsterixFormat::EJSON:
    	  case CAsterixFormat::EJSONH:
       {
-   		strResult += '}';
-    }
+		  if (strResult[strResult.length()-1] == ',')
+			  strResult[strResult.length()-1] = '}';
+		  else
+			  strResult += '}';
+      }
    	  break;
   }
 

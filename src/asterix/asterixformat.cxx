@@ -215,7 +215,7 @@ static void debug_trace(char const*format, ...)
   vsprintf (buffer,format, args);
   va_end (args);
   strcat(buffer, "\n");
-  LOGERROR(1, buffer);
+  LOGERROR(1, "%s", buffer);
 }
 
 CBaseFormatDescriptor* CAsterixFormat::CreateFormatDescriptor
