@@ -60,7 +60,7 @@ public:
 #endif
 
 #if defined(PYTHON_WRAPPER)
-  python_definitions* getWiresharkDefinitions(); //!< returns linked list of Python definitions
+//  python_definitions* getWiresharkDefinitions(); //!< returns linked list of Python definitions
 #endif
 
 };

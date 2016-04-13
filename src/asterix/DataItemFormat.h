@@ -33,7 +33,8 @@
 #endif
 
 #if defined(PYTHON_WRAPPER)
-#include "../python/python_parser.h"
+#include <Python.h>
+//#include "../python/python_parser.h"
 #endif
 
 class DataItemBits;
