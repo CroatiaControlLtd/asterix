@@ -24,17 +24,17 @@
 #ifndef DATAITEMFORMAT_H_
 #define DATAITEMFORMAT_H_
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include <string>
 #include <list>
+
 #include "Utils.h"
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 #include "WiresharkWrapper.h"
-#endif
-
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-//#include "../python/python_parser.h"
 #endif
 
 class DataItemBits;

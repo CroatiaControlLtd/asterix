@@ -93,15 +93,21 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
 #if defined(PYTHON_WRAPPER)
     	  CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
 	PyObject *lst = Descriptor.m_pAsterixData->getData();
+	PyObject *arg = NULL;
+	if (lst == NULL || my_callback == NULL)
+		arg = Py_BuildValue("(s)", "List is NULL!!!");
+	else
+		arg = Py_BuildValue("(O)", lst);
 
-	/* Time to call the callback */
+	if (arg == NULL)
+		arg = Py_BuildValue("(s)", "Arg is NULL!!!");
+	// Time to call the callback
 	PyObject *result;
-	result = PyObject_CallObject(my_callback, lst);
+	result = PyObject_CallObject(my_callback, arg);
 	Py_DECREF(lst);
-	if (result == NULL)
-	    return false; /* Pass error back */
-	/// use result...
-	Py_DECREF(result);
+	if (result != NULL)
+		/// use result...
+		Py_DECREF(result);
 	return true;
 #else
   std::string strPacketDescription;
