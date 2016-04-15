@@ -40,6 +40,7 @@ setup.py
 ./src/engine/stddevice.cxx
 ./src/engine/tcpdevice.cxx
 ./src/engine/udpdevice.cxx
+./src/python/_asterix.c
 ./src/python/asterix.c
 ./src/python/python_parser.cpp
 ./src/python/python_wrapper.c

@@ -30,7 +30,7 @@ except(OSError):
     pass
 
 asterix_module = Extension('_asterix',
-                    sources = ['./src/python/asterix.c', 
+                    sources = ['./src/python/_asterix.c', 
                                 './src/python/python_wrapper.c', 
                                 './src/python/python_parser.cpp', 
                                 './src/asterix/AsterixDefinition.cpp',
