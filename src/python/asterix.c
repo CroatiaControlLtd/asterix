@@ -44,7 +44,7 @@ static PyMethodDef asterixMethods[] = {
 
 static struct PyModuleDef moduledef = {
   PyModuleDef_HEAD_INIT,
-  "asterix",
+  "_asterix",
   0,              /* m_doc */
   -1,             /* m_size */
   asterixMethods,   /* m_methods */
@@ -54,13 +54,13 @@ static struct PyModuleDef moduledef = {
   NULL            /* m_free */
 };
 
-#define PYMODINITFUNC       PyObject *PyInit_asterix(void)
+#define PYMODINITFUNC       PyObject *PyInit__asterix(void)
 #define PYMODULE_CREATE()   PyModule_Create(&moduledef)
 #define MODINITERROR        return NULL
 
 #else
 
-#define PYMODINITFUNC       PyMODINIT_FUNC initasterix(void)
+#define PYMODINITFUNC       PyMODINIT_FUNC init_asterix(void)
 #define PYMODULE_CREATE()   Py_InitModule("asterix", asterixMethods)
 #define MODINITERROR        return
 

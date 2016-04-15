@@ -5,8 +5,10 @@ except ImportError:
 import distutils.sysconfig
 import shutil
 import os.path
+from os import listdir
 import re
 import sys
+
 
 CLASSIFIERS = filter(None, map(str.strip,
 """
@@ -27,7 +29,7 @@ try:
 except(OSError):
     pass
 
-module1 = Extension('asterix',
+asterix_module = Extension('_asterix',
                     sources = ['./src/python/asterix.c', 
                                 './src/python/python_wrapper.c', 
                                 './src/python/python_parser.cpp', 
@@ -67,7 +69,10 @@ module1 = Extension('asterix',
                                 './src/engine/stddevice.cxx',
                                 './src/engine/descriptor.cxx'
                                ],
-                    
+
+                    headers = ['./src/python/version.h'
+                               ],
+
                     include_dirs = ['./asterix/python', './src/asterix', './src/engine', './src/main'],
                     extra_compile_args=['-D_GNU_SOURCE', '-DPYTHON_WRAPPER', '-DLINUX'],
                     extra_link_args=['-lexpat'])
@@ -91,11 +96,18 @@ try:
 finally:
     f.close()    
     
+data_files = [os.path.join('./install/config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
+eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
+
 setup (name = 'asterix',
+       packages = ['asterix'],
        version = get_version(),
        description = "ASTERIX decoder in Python",
+       keywords = "asterix, eurocontrol, radar, track, croatiacontrol",
        long_description = README,
-       ext_modules = [module1],
+       ext_modules = [asterix_module],
+       data_files = [('config', data_files)],
+       eager_resources = eager_files,
        author="Damir Salantic",
        author_email="damir.salantic@crocontrol.hr",
        download_url="https://github.com/CroatiaControlLtd/asterix",

@@ -12,6 +12,7 @@ Description: asterix
         
         Asterix is utility used for reading and parsing of EUROCONTROL ASTERIX protocol data from stdin, file or network multicast stream.
         
+Keywords: asterix,eurocontrol,radar,track,croatiacontrol
 Platform: any
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers

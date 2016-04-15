@@ -1,6 +1,9 @@
 include README.rst
 include MANIFEST.in
+include LICENSE
+include HISTORY
 include setup.py
 include tests/test.py
 include *.c
 include *.h
+recursive-include install/config *.xml *.ini *.dtd
