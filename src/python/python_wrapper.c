@@ -26,7 +26,7 @@
 
 #include "python_parser.h"
 
-static int bInitialized = 0;
+//static int bInitialized = 0;
 
 //static python_definitions* pListOfDefinitions = NULL;
 
@@ -44,7 +44,6 @@ say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
         return NULL;
 
 	/* Time to call the callback */
-	int arg;
 	PyObject *arglist;
 	PyObject *result;
 	arglist = Py_BuildValue("(s)", "Hello world!!!");
@@ -109,7 +108,7 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 	        return NULL;
 
 	asterix_start(ini_filename, filename);
-
+	return NULL;
 /*
     const char* data;
     int len;

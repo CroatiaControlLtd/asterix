@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include <memory.h>
 #include "AsterixDefinition.h"
 

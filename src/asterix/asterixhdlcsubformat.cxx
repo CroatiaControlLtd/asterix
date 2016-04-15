@@ -34,6 +34,9 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
 
 #include <stdio.h>
 #include <string.h>

@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "DataItemFormatExplicit.h"
 #include "Tracer.h"
 #include "asterixformat.hxx"
@@ -221,7 +225,7 @@ void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, lon
   }
 
   int fixedLength = pFixed->getLength(pData);
-  unsigned char nFullLength = *pData;
+  //unsigned char nFullLength = *pData;
   pData++;
 
   pFixed->insertToDict(p, pData, fixedLength);

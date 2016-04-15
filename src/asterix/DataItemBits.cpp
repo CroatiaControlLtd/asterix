@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "DataItemFormat.h"
 #include "DataItemBits.h"
 #include "Tracer.h"
@@ -1011,7 +1015,7 @@ PyObject* DataItemBits::getObject(unsigned char* pData, long nLength)
 
 void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 {
-	PyObject* val = NULL;
+	//PyObject* val = NULL;
 	PyObject* pValue = PyDict_New();
 	PyDict_SetItem(pValue, Py_BuildValue("s", "desc"), Py_BuildValue("s", m_strName.c_str()));
 	PyDict_SetItem(p, Py_BuildValue("s", m_strShortName.c_str()), pValue);
@@ -1023,9 +1027,9 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 		m_nTo = tmp;
 	}
 
-	int firstByte = nLength - (m_nTo-1)/8 - 1;
-	int numberOfBits = (m_nTo-m_nFrom+1);
-	int numberOfBytes = (numberOfBits+7)/8;
+	//int firstByte = nLength - (m_nTo-1)/8 - 1;
+	//int numberOfBits = (m_nTo-m_nFrom+1);
+	//int numberOfBytes = (numberOfBits+7)/8;
 
 	switch(m_eEncoding)
 	{

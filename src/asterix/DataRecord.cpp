@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 //#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"

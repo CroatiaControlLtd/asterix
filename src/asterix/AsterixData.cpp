@@ -20,6 +20,11 @@
  * AUTHORS: Damir Salantic, Croatia Control Ltd.
  *
  */
+
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "AsterixData.h"
 #include "Utils.h"
 #include <time.h>

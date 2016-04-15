@@ -20,6 +20,11 @@
  * AUTHORS: Damir Salantic, Croatia Control Ltd.
  *
  */
+
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "DataBlock.h"
 #include "Tracer.h"
 #include "Utils.h"

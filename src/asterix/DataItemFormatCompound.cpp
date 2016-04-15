@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "DataItemFormatCompound.h"
 #include "Tracer.h"
 #include "asterixformat.hxx"

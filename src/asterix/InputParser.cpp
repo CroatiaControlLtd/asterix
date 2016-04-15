@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "InputParser.h"
 
 InputParser::InputParser(AsterixDefinition* pDefinition)

@@ -21,6 +21,10 @@
  *
  */
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include "DataItemDescription.h"
 
 DataItemDescription::DataItemDescription(std::string id)
