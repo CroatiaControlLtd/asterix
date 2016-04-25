@@ -5,10 +5,12 @@
 
 	Asterix Category 048 v1.21 definition 
 	
-	Author:   dhubbiedihub
+	Author:   hubbiedihub
 	Created:  30.03.2016.
 	
 	Modified:  30.03.2016. (hubbiedihub) Copied 1.14 version and adapted to 1.21 (XPP field added)
+	Modified:  31.03.2016. (hubbiedihub) Added SI bit in data item 230 and codes 19-23 in data item 030.
+                                         Fixed typo in data item 030 code 14 (space was missing)
 
 --> 
 
@@ -157,6 +159,11 @@
                         <BitsValue val="16">Duplicated or Illegal Mode S Aircraft Address</BitsValue>                                              
                         <BitsValue val="17">Mode S error correction applied</BitsValue>
                         <BitsValue val="18">Undecodable Mode C code / Mode S altitude code</BitsValue>                                
+                        <BitsValue val="19">Birds</BitsValue>
+                        <BitsValue val="20">Flock of Birds</BitsValue>
+                        <BitsValue val="21">Mode 1 was present in original reply</BitsValue>
+                        <BitsValue val="22">Mode 2 was present in original reply</BitsValue>
+                        <BitsValue val="23">Plot potentially caused by Wind Turbine</BitsValue>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -1000,7 +1007,13 @@
 					<BitsShortName>STAT</BitsShortName>
 					<BitsName>STAT</BitsName>
 				</Bits>
-				<Bits from="10" to="9">
+				<Bits bit="10">
+					<BitsShortName>SI</BitsShortName>	
+					<BitsName>SI/II Transponder Capability</BitsName>	
+                    <BitsValue val="0">SI-Code Capable</BitsValue>
+                    <BitsValue val="1">II-Code Capable</BitsValue>					
+				</Bits>
+				<Bits bit="9">
 					<BitsShortName>spare</BitsShortName>
 					<BitsName>spare bit set to 0</BitsName>
 					<BitsConst>0</BitsConst>
