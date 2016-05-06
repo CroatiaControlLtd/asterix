@@ -27,8 +27,6 @@
 #include "XMLParser.h"
 #include "Tracer.h"
 
-#include "DataItemFormatFixed.h"
-
 /*!
  * Handling of CDATA
  */
@@ -130,9 +128,14 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 		{
 			if (!strcmp(attr[i], "id"))
 			{ // <!ATTLIST id CDATA #REQUIRED>
-				int id = atoi(attr[i+1]);
+				int id = 0;
 
-				if (id >= 0 && id <= 255)
+				if (!strcmp(attr[i+1], "BDS"))
+					id = BDS_CAT_ID;
+				else
+					id = atoi(attr[i+1]);
+
+				if (id >= 0 && id <= MAX_CATEGORIES)
 				{
 					p->m_pCategory = p->m_pDef->getCategory(id);
 				}
@@ -220,6 +223,24 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			{
 				p->Error("XMLParser : Unknown attribute for <DataItemFormat>: ", attr[i]);
 			}
+		}
+	}
+	else if (!strcmp(el, "BDS"))
+	{ // <!ELEMENT BDS (Bits+)>
+		Category* m_pBDSCategory = p->m_pDef->getCategory(BDS_CAT_ID);
+
+		std::list<DataItemDescription*>::iterator it =  m_pBDSCategory->m_lDataItems.begin();
+		if (it == m_pBDSCategory->m_lDataItems.end())
+		{
+			p->Error("XMLParser : Missing BDS definition file.");
+			return;
+		}
+
+		while(it != m_pBDSCategory->m_lDataItems.end())
+		{
+			DataItemDescription* dip = (DataItemDescription*)(*it);
+			p->m_pFormat->m_lSubItems.push_back(dip->m_pFormat);
+			it++;
 		}
 	}
 	else if (!strcmp(el, "Fixed"))

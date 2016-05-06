@@ -26,7 +26,10 @@
 
 #include "Category.h"
 
-#define MAX_CATEGORIES  256
+#define MAX_CATEGORIES  256+1
+
+// Special category ID for BDS register
+#define BDS_CAT_ID	256
 
 class AsterixDefinition
 {

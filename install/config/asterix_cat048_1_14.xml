@@ -1051,23 +1051,9 @@
 	<DataItem id="250" >
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-		<DataItemFormat desc="Repetetive">
+		<DataItemFormat desc="Repetitive">
 			<Repetitive>
-					<Fixed length="8">
-						<Bits from="64" to="9" encode="hex">
-							<BitsShortName>MBdata</BitsShortName>
-							<BitsName>MBdata</BitsName>						
-						</Bits>
-
-						<Bits from="8" to="5">
-							<BitsShortName>DSB1</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 1</BitsName>
-						</Bits>
-						<Bits from="4" to="1">
-							<BitsShortName>DSB2</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 2</BitsName>                       
-						</Bits>
-					</Fixed>
+				<BDS></BDS>
 			</Repetitive>	
 		</DataItemFormat>
 		<DataItemNote>.</DataItemNote>
