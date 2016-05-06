@@ -54,14 +54,14 @@
 			<!ELEMENT Explicit (Fixed|Explicit|Repetitive|Variable|Compound)>
 
 			<!-- Repetitive length data fields -->
-			<!ELEMENT Repetitive (Fixed+)>
+			<!ELEMENT Repetitive (Fixed+|BDS)>
 
 			<!-- Variable (extended) length data fields -->
 			<!ELEMENT Variable (Fixed+)>
 
 			<!-- Compund data fields -->
 			<!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable|Compound)*)>
-
+            
 	<!-- User Application Profile -->
 	<!ELEMENT UAP (UAPItem*)>
 	<!ATTLIST UAP use_if_bit_set CDATA "0">
