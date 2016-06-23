@@ -23,7 +23,11 @@
 
 #ifndef INPUTPARSER_H_
 #define INPUTPARSER_H_
-
+#include <ios>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include "asterix.h"
 #include "AsterixDefinition.h"
 #include "AsterixData.h"
 

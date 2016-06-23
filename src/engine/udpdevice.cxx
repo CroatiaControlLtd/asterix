@@ -204,9 +204,10 @@ bool CUdpDevice::Read(void *data, size_t* len)
 
 	    *len = lenread;
 
-	    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s.\n",
+	    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s with length %zu.\n",
 		inet_ntoa(clientAddr.sin_addr),
-		inet_ntoa(_mcastAddr.sin_addr));
+		inet_ntoa(_mcastAddr.sin_addr),
+		lenread);
 
 
 	    ResetReadErrors(true);
