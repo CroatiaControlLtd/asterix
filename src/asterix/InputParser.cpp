@@ -43,7 +43,7 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
     bool bOK = true;
     m_nDataLength = m_nBufferSize;
 
-    while(bOK && m_nDataLength > 0)
+    while(bOK && m_nDataLength > 3)
     {
       unsigned char nCategory = *m_pData;
       m_pData ++; m_nPos ++;
