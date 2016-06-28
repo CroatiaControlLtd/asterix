@@ -119,9 +119,12 @@ bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHea
       {
   		  tmpResult = "";
   		  ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
-  		  strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
-  		 if (!lastPart)
-  			strResult += ',';
+  		  if (tmpResult.length() > 2)
+  		  { // if result != {}
+			 strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
+			 if (!lastPart)
+				strResult += ',';
+  		  }
   }
   	  break;
   	  default:
