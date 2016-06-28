@@ -260,7 +260,7 @@
                     <BitsName>Spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="4" to="1" encode="signed">
+                <Bits from="4" to="1">
                      <BitsShortName>PA</BitsShortName>
                      <BitsName>Position Accuracy</BitsName>
                 </Bits>
