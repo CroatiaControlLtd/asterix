@@ -620,8 +620,8 @@
         <DataItemDefinition>Ground Speed and Track Angle elements of Ground Vector.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
-                <Bits from="32" to="17">
-					<BitsShortName>GS</BitsShortName>
+                <Bits from="32" to="17" encode="signed">
+		    <BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed referenced to WGS-84</BitsName>
                     <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
                 </Bits>
