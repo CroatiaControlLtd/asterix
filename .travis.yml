@@ -1,6 +1,6 @@
 language: cpp
 
-install:
+before_install:
   - sudo apt-get install valgrind
   
 compiler:
