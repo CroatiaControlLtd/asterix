@@ -134,7 +134,6 @@ void CConverterEngine::Start()
         noMoreData = rps & STS_NO_DATA;
         if(noMoreData)
         {
-            LOGINFO(1, "No more data available on input channel.\n");
             break;
         }
 

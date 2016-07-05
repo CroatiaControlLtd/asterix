@@ -1526,10 +1526,10 @@ CAT242:ISP:RCRANGE                                           RCRANGE
 CAT242:ISP:RCOBA1                                            RCOBA1
 CAT242:ISP:RCOBA2                                            RCOBA2
 CAT242:ISP:Alert                                             Alert
-CAT242:ISP:Comm A                                            Comm A indication
-CAT242:ISP:Comm B                                            Comm B indication
-CAT242:ISP:Comm C                                            Comm C indication
-CAT242:ISP:Comm D                                            Comm D indication
+CAT242:ISP:Comm_A                                            Comm A indication
+CAT242:ISP:Comm_B                                            Comm B indication
+CAT242:ISP:Comm_C                                            Comm C indication
+CAT242:ISP:Comm_D                                            Comm D indication
 CAT242:ISP:NBGICB                                            NBGCIB
 CAT252:I010:SAC                                              System Area Code
 CAT252:I010:SIC                                              System Identity Code

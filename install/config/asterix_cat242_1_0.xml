@@ -563,7 +563,7 @@
 					<Repetitive>
 					<Fixed length="2">
 						<Bits from="8" to="1">
-							<BitsShortName>Comm A</BitsShortName>
+							<BitsShortName>Comm_A</BitsShortName>
 							<BitsName>Comm A indication</BitsName>							
 						</Bits>
 					</Fixed>
@@ -572,7 +572,7 @@
 					<Repetitive>
 					<Fixed length="3">
 						<Bits from="24" to="1">
-							<BitsShortName>Comm B</BitsShortName>
+							<BitsShortName>Comm_B</BitsShortName>
 							<BitsName>Comm B indication</BitsName>							
 						</Bits>
 					</Fixed>
@@ -581,7 +581,7 @@
 					<Repetitive>
 					<Fixed length="3">
 						<Bits from="24" to="1">
-							<BitsShortName>Comm C</BitsShortName>
+							<BitsShortName>Comm_C</BitsShortName>
 							<BitsName>Comm C indication</BitsName>							
 						</Bits>
 					</Fixed>
@@ -590,7 +590,7 @@
 					<Repetitive>
 					<Fixed length="3">
 						<Bits from="24" to="1">
-							<BitsShortName>Comm D</BitsShortName>
+							<BitsShortName>Comm_D</BitsShortName>
 							<BitsName>Comm D indication</BitsName>							
 						</Bits>
 					</Fixed>
