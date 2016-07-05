@@ -25,9 +25,10 @@
 #define ASTERIXFORMAT_HXX__
 
 #include "baseformat.hxx"
+#include "baseformatdescriptor.hxx"
 
 class CBaseDevice;
-class CBaseFormatDescriptor;
+//class CBaseFormatDescriptor;
 
 /**
  * @class CAsterixFormat
@@ -74,7 +75,7 @@ public:
     /**
      * Default class destructor.
      */
-    virtual ~CAsterixFormat() {}
+    virtual ~CAsterixFormat() { if (m_pFormatDescriptor) delete m_pFormatDescriptor; }
 
     virtual bool ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
         const unsigned int formatType, bool &discard);
