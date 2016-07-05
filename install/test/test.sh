@@ -18,7 +18,7 @@ test_compare () {
 }
 
 test_output () {
-  $2 # > valgrind.result 2>&1
+  $2 > valgrind.result 2>&1
 	result=$?
 	expected=$3
 
