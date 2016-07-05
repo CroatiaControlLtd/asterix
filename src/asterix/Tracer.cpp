@@ -55,11 +55,11 @@ void Tracer::Configure(ptExtVoidPrintf pFunc)
   Tracer::instance().pPrintFunc2 = pFunc;
 }
 
-Tracer::~Tracer()
+void Tracer::Delete()
 {
-  if (Tracer::g_TracerInstance)
-    delete Tracer::g_TracerInstance;
-  Tracer::g_TracerInstance = NULL;
+	if (Tracer::g_TracerInstance)
+		delete Tracer::g_TracerInstance;
+	Tracer::g_TracerInstance = NULL;
 }
 
 void Tracer::Error(const char* format, ...)
