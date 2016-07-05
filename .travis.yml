@@ -1,5 +1,8 @@
 language: cpp
 
+install:
+  - sudo apt-get install valgrind
+  
 compiler:
   - gcc
 
