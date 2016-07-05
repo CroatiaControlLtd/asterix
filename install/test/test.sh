@@ -43,6 +43,8 @@ test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --show
 
 if [ "$failedtests" == "0" ]; then
   echo "All tests OK"
+  exit 0
 else
   echo $failedtests " tests failed."
+  exit 1
 fi

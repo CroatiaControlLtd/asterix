@@ -6,4 +6,7 @@ compiler:
 before_script:
   - cd src
 
-script: make
+script: 
+  - make
+  - make MODE=DEBUG
+  - make test

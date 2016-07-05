@@ -53,4 +53,6 @@ clean:
                 if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
 	done
 
+test:
+	cd ../install/test;./test.sh
 
