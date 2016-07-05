@@ -252,7 +252,6 @@ bool CDiskDevice::Select(const unsigned int secondsToWait)
         {
             LOGNOTIFY(gVerbose, "Done with file. Exiting application.\n");
             return true;
-            //exit(0); // TODO - we should exit on some better way
         }
 
         return false;
