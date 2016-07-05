@@ -431,6 +431,7 @@ int main(int argc, const char *argv[])
 
     CChannelFactory::DeleteInstance();
     CConverterEngine::DeleteInstance();
+    CDeviceFactory::DeleteInstance();
     Tracer::Delete();
 }
 
