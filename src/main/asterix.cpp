@@ -428,6 +428,7 @@ int main(int argc, const char *argv[])
         exit(1);
     }
 
+    CChannelFactory::DeleteInstance();
     CConverterEngine::DeleteInstance();
 
     exit(0);
