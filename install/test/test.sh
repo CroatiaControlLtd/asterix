@@ -38,7 +38,8 @@ test_compare "Test jsonh CAT_001_002" "$exec -d $config -R -jh -f ../sample_data
 test_compare "Test xml CAT_001_002" "$exec -d $config -R -x -f ../sample_data/cat_001_002.pcap -LF ../sample_data/filter.txt" "../sample_data/cat_001_002.xml"
 test_compare "Test txt CAT_001_002" "$exec -d $config -R -f ../sample_data/cat_001_002.pcap -LF ../sample_data/filter.txt" "../sample_data/cat_001_002.txt"
 test_compare "Test line CAT_001_002" "$exec -d $config -R -l -f ../sample_data/cat_001_002.pcap -LF ../sample_data/filter.txt" "../sample_data/cat_001_002_line.txt"
-test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
+#test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
+test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
 
 
 if [ "$failedtests" == "0" ]; then
