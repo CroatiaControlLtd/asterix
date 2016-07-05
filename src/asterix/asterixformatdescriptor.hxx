@@ -62,7 +62,11 @@ public:
     {
       if (m_pBuffer)
       {
-        delete m_pBuffer;
+        delete[] m_pBuffer;
+      }
+      if (m_pAsterixData)
+      {
+        delete m_pAsterixData;
       }
     }
 

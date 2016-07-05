@@ -33,10 +33,10 @@ class Tracer
 {
 public:
   Tracer();
-  virtual  ~Tracer();
   static void Error(const char* format, ...);
   static void Configure(ptExtPrintf pFunc);
   static void Configure(ptExtVoidPrintf pFunc);
+  static void Delete();
 
   static Tracer *g_TracerInstance;
   static Tracer& instance();

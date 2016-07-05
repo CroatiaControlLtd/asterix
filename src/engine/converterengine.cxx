@@ -129,7 +129,13 @@ void CConverterEngine::Start()
         }
         while (!packetReceived);
 
-        noMoreData = false;
+        // 1a Check if there is more data
+        int rps = ProcessStatus();
+        noMoreData = rps & STS_NO_DATA;
+        if(noMoreData)
+        {
+            break;
+        }
 
         // 2. Read the incoming packet
         if (!(packetOk = CChannelFactory::Instance()->ReadPacket()))
@@ -139,7 +145,6 @@ void CConverterEngine::Start()
             if(noMoreData)
             {
                 LOGINFO(1, "No more data available on input channel.\n");
-                // Exit from application
                 break;
             }
             else

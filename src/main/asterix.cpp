@@ -32,6 +32,7 @@
 #include <string.h>
 #include "asterix.h"
 #include "version.h"
+#include "Tracer.h"
 #include "../engine/converterengine.hxx"
 #include "../engine/channelfactory.hxx"
 
@@ -428,9 +429,10 @@ int main(int argc, const char *argv[])
         exit(1);
     }
 
+    CChannelFactory::DeleteInstance();
     CConverterEngine::DeleteInstance();
-
-    exit(0);
+    CDeviceFactory::DeleteInstance();
+    Tracer::Delete();
 }
 
 
