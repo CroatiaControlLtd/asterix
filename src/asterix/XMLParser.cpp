@@ -236,11 +236,35 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
+		if (!p->m_pDataItem)
+		{
+			p->Error("XMLParser : <BDS> without <DataItem>");
+			return;
+		}
+
+		DataItemFormat* pFormatBDS = new DataItemFormatBDS(p->m_pDataItem->m_nID);
+
 		while(it != m_pBDSCategory->m_lDataItems.end())
 		{
 			DataItemDescription* dip = (DataItemDescription*)(*it);
-			p->m_pFormat->m_lSubItems.push_back(dip->m_pFormat);
+			pFormatBDS->m_lSubItems.push_back(dip->m_pFormat);
 			it++;
+		}
+
+		if (p->m_pFormat != NULL)
+		{
+			delete pFormatBDS;
+			p->Error("XMLParser : <BDS> must be in <DataItem>");
+			return;
+		}
+		else
+		{
+			if (p->m_pDataItem->m_pFormat)
+			{
+				p->Error("XMLParser : Duplicate format in item ", p->m_pDataItem->m_strName.c_str());
+			}
+			p->m_pDataItem->m_pFormat = pFormatBDS;
+			p->m_pFormat = pFormatBDS;
 		}
 	}
 	else if (!strcmp(el, "Fixed"))
@@ -251,7 +275,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatFixed = new DataItemFormatFixed();
+		DataItemFormat* pFormatFixed = new DataItemFormatFixed(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -331,7 +355,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatExplicit = new DataItemFormatExplicit();
+		DataItemFormat* pFormatExplicit = new DataItemFormatExplicit(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -370,7 +394,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatRepetitive = new DataItemFormatRepetitive();
+		DataItemFormat* pFormatRepetitive = new DataItemFormatRepetitive(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -417,7 +441,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatVariable = new DataItemFormatVariable();
+		DataItemFormat* pFormatVariable = new DataItemFormatVariable(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -459,7 +483,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatCompound = new DataItemFormatCompound();
+		DataItemFormat* pFormatCompound = new DataItemFormatCompound(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -512,7 +536,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 		}
 
 		DataItemBits* pBits = new DataItemBits();
-		p->m_pFormat->addBits(pBits);
+		p->m_pFormat->m_lSubItems.push_back(pBits);
 
 		pBits->m_pParentFormat = p->m_pFormat;
 		p->m_pFormat = pBits;
@@ -873,6 +897,17 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 	else if (!strcmp(el, "Repetitive"))
 	{
 		if (p->m_pFormat != NULL && p->m_pFormat->isRepetitive())
+		{
+			p->m_pFormat = p->m_pFormat->m_pParentFormat;
+		}
+		else
+		{
+			p->Error("Closing unopened tag: ", el);
+		}
+	}
+	else if (!strcmp(el, "BDS"))
+	{
+		if (p->m_pFormat != NULL && p->m_pFormat->isBDS())
 		{
 			p->m_pFormat = p->m_pFormat->m_pParentFormat;
 		}

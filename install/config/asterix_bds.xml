@@ -165,5 +165,17 @@
 		</DataItemFormat>
 	</DataItem>
 
+	<DataItem id="00"> <!-- This must be last item  -->
+		<DataItemName>BDS register</DataItemName>
+		<DataItemDefinition>BDS register</DataItemDefinition>
+		<DataItemFormat desc="Seven-octets fixed length data item.">
+			<Fixed length="7">
+				<Bits from="56" to="1" encode="hex">
+					<BitsShortName>BDS</BitsShortName>
+					<BitsName>BDS value</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
     
  </Category>				    

@@ -39,7 +39,7 @@ public:
 class DataItemBits : public DataItemFormat
 {
 public:
-  DataItemBits();
+  DataItemBits(int id=0);
   virtual
   ~DataItemBits();
 
@@ -88,7 +88,6 @@ public:
 #endif
 
   long getLength(const unsigned char* pData);
-  void addBits(DataItemBits* pBits);
 
 private:
   unsigned char* getBits(unsigned char* pData, int bytes, int frombit, int tobit);

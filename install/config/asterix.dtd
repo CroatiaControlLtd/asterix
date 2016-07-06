@@ -9,6 +9,7 @@
 	Modified:  28.4.2014. (dsalantic) Removed XIDEF
 	Modified:  16.5.2014. (dsalantic) Nested compound enabled
 									  Explicit can contain all types
+			   6.7.2016.  (dsalantic) BDS format added
 				
 -->
 
@@ -43,7 +44,7 @@
 		<!ELEMENT DataItemName (#PCDATA)>
 		<!ELEMENT DataItemDefinition (#PCDATA)>
 		<!ELEMENT DataItemNote (#PCDATA)>
-		<!ELEMENT DataItemFormat (Fixed|Explicit|Repetitive|Variable|Compound)>
+		<!ELEMENT DataItemFormat (Fixed|Explicit|Repetitive|Variable|Compound|BDS)>
 			<!ATTLIST DataItemFormat desc CDATA "" >
 
 			<!-- Fixed length data fields -->
@@ -54,7 +55,7 @@
 			<!ELEMENT Explicit (Fixed|Explicit|Repetitive|Variable|Compound)>
 
 			<!-- Repetitive length data fields -->
-			<!ELEMENT Repetitive (Fixed+|BDS)>
+			<!ELEMENT Repetitive (Fixed+)>
 
 			<!-- Variable (extended) length data fields -->
 			<!ELEMENT Variable (Fixed+)>

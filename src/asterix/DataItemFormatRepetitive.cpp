@@ -25,7 +25,8 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
-DataItemFormatRepetitive::DataItemFormatRepetitive()
+DataItemFormatRepetitive::DataItemFormatRepetitive(int id)
+: DataItemFormat(id)
 {
 }
 
@@ -43,17 +44,6 @@ long DataItemFormatRepetitive::getLength(const unsigned char* pData)
 	}
 	unsigned char nRepetition = *pData;
 	return (1+nRepetition*pFixed->getLength(pData+1));
-}
-
-void DataItemFormatRepetitive::addBits(DataItemBits* pBits)
-{
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-	{
-		Tracer::Error("Wrong data in Repetitive");
-		return;
-	}
-	pFixed->m_lSubItems.push_back(pBits);
 }
 
 bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)

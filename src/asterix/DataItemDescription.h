@@ -34,6 +34,7 @@ public:
   ~DataItemDescription();
 
   std::string m_strID;
+  int m_nID; //! Data item ID in hexadecimal (this is used for BDS registers deconding)
 
   void setName(char* name) { m_strName = name; }
   void setDefinition(char* definition) { m_strDefinition = definition; }

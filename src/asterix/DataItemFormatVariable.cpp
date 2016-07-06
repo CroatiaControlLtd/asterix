@@ -25,7 +25,8 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
-DataItemFormatVariable::DataItemFormatVariable()
+DataItemFormatVariable::DataItemFormatVariable(int id)
+: DataItemFormat(id)
 {
 }
 
@@ -69,22 +70,6 @@ long DataItemFormatVariable::getLength(const unsigned char* pData)
   while(!lastPart);
 
   return length;
-}
-
-void DataItemFormatVariable::addBits(DataItemBits* pBits)
-{
-  std::list<DataItemFormat*>::reverse_iterator rit;
-  rit = m_lSubItems.rbegin();
-  if (rit != m_lSubItems.rend())
-  {
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*rit);
-    if (dip)
-    {
-      dip->addBits(pBits);
-      return;
-    }
-  }
-  Tracer::Error("Adding bits to Variable failed");
 }
 
 bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long)

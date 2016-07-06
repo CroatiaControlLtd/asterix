@@ -25,8 +25,9 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
-DataItemFormatFixed::DataItemFormatFixed()
-: m_nLength(0)
+DataItemFormatFixed::DataItemFormatFixed(int id)
+: DataItemFormat(id)
+, m_nLength(0)
 {
 }
 
@@ -49,11 +50,6 @@ long DataItemFormatFixed::getLength()
 long DataItemFormatFixed::getLength(const unsigned char*)
 {
   return m_nLength;
-}
-
-void DataItemFormatFixed::addBits(DataItemBits* pBits)
-{
-  m_lSubItems.push_back(pBits);
 }
 
 /*

@@ -34,20 +34,20 @@ class DataItemBits;
 class DataItemFormat
 {
 public:
-  DataItemFormat();
+  DataItemFormat(int id=0);
   virtual
   ~DataItemFormat();
 
   std::list<DataItemFormat*> m_lSubItems; //!< List of subitem formats in this item
 
   DataItemFormat* m_pParentFormat; //! Pointer to parent format (used only in XML parsing)
+  int m_nID; //! ID of the item
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   static int m_nLastPID; //!< static used for allocation of m_nPID
 #endif
 
   virtual long getLength(const unsigned char* pData) = 0;
-  virtual void addBits(DataItemBits* pBits) = 0;
   virtual bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) = 0; // appends value to strResult
   virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors
   virtual bool filterOutItem(const char* name) = 0; // mark item for filtering
@@ -55,6 +55,7 @@ public:
 
   virtual bool isFixed() 		{ return false; }; // true if this is Fixed format
   virtual bool isRepetitive() 	{ return false; }; // true if this is Repetitive format
+  virtual bool isBDS() 			{ return false; }; // true if this is BDS format
   virtual bool isVariable() 	{ return false; }; // true if this is Variable format
   virtual bool isExplicit() 	{ return false; }; // true if this is Explicit format
   virtual bool isCompound() 	{ return false; }; // true if this is Compound format

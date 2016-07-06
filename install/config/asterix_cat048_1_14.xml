@@ -1051,12 +1051,10 @@
 	<DataItem id="250" >
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-		<DataItemFormat desc="Repetitive">
-			<Repetitive>
-				<BDS></BDS>
-			</Repetitive>	
+		<DataItemFormat desc="BDS">
+			<BDS></BDS>
 		</DataItemFormat>
-		<DataItemNote>.</DataItemNote>
+		<DataItemNote/>
 	</DataItem>	
 	
 	<DataItem id="260" >

@@ -42,7 +42,6 @@ public:
   std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
 
   long getLength(const unsigned char*) { Tracer::Error("Function should not be called!"); return 0; }
-  void addBits(DataItemBits*) { Tracer::Error("Function should not be called!"); }
   bool getText(std::string&, std::string&, const unsigned int, unsigned char*, long)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
  	std::string printDescriptors(std::string) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors

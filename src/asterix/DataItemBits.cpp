@@ -33,8 +33,9 @@ static const char SIXBITCODE[] = {' ','A','B','C','D','E','F','G','H','I','J','K
                         ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
                         '0','1','2','3','4','5','6','7','8','9',' ',' ',' ',' ',' ',' '};
 						
-DataItemBits::DataItemBits()
-: m_nFrom(0)
+DataItemBits::DataItemBits(int id)
+: DataItemFormat(id)
+, m_nFrom(0)
 , m_nTo(0)
 , m_eEncoding(DATAITEM_ENCODING_UNSIGNED)
 , m_bIsConst(false)
@@ -66,11 +67,6 @@ long DataItemBits::getLength(const unsigned char*)
 {
   Tracer::Error("DataItemBits::getLength Should not be called!");
   return 0;
-}
-
-void DataItemBits::addBits(DataItemBits*)
-{
-  Tracer::Error("DataItemBits::addBits Should not be called!");
 }
 
 unsigned char* DataItemBits::getBits(unsigned char* pData, int bytes, int frombit, int tobit)

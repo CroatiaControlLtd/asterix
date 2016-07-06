@@ -46,6 +46,7 @@ OBJS = AsterixData.o \
 	DataItemFormatFixed.o \
 	DataItemFormatRepetitive.o \
 	DataItemFormatVariable.o \
+	DataItemFormatBDS.o \
 	DataRecord.o \
 	InputParser.o \
 	Tracer.o \
