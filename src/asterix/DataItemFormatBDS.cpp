@@ -91,7 +91,6 @@ bool DataItemFormatBDS::getText(std::string& strResult, std::string& strHeader, 
 					}
 					else if (formatType == CAsterixFormat::ETxt)
 					{
-						tmpStr += format("\n\tBDS register: %x", BDSid);
 						tmpStr += item_str;
 
 					}
