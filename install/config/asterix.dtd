@@ -55,7 +55,7 @@
 			<!ELEMENT Explicit (Fixed|Explicit|Repetitive|Variable|Compound)>
 
 			<!-- Repetitive length data fields -->
-			<!ELEMENT Repetitive (Fixed+)>
+			<!ELEMENT Repetitive (Fixed+|BDS)>
 
 			<!-- Variable (extended) length data fields -->
 			<!ELEMENT Variable (Fixed+)>
