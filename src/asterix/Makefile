@@ -46,6 +46,7 @@ OBJS = AsterixData.o \
 	DataItemFormatFixed.o \
 	DataItemFormatRepetitive.o \
 	DataItemFormatVariable.o \
+	DataItemFormatBDS.o \
 	DataRecord.o \
 	InputParser.o \
 	Tracer.o \
@@ -66,6 +67,9 @@ OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 # Standard targets
 all: $(TARGET_LIB)
 	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
+
+debug: $(TARGET_LIB)
+        $(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
 
 install: all
 	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)

@@ -30,14 +30,13 @@
 class DataItemFormatCompound : public DataItemFormat
 {
 public:
-  DataItemFormatCompound();
+  DataItemFormatCompound(int id=0);
+  DataItemFormatCompound(const DataItemFormatCompound& obj);
   virtual
   ~DataItemFormatCompound();
 
-//  DataItemFormatVariable* m_pCompoundPrimary;
-
+  DataItemFormatCompound* clone() const { return new DataItemFormatCompound(*this); } // Return clone of object
   long getLength(const unsigned char* pData);
-  void addBits(DataItemBits* pBits);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering

@@ -25,8 +25,24 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
-DataItemFormatCompound::DataItemFormatCompound()
+DataItemFormatCompound::DataItemFormatCompound(int id)
+: DataItemFormat(id)
 {
+}
+
+DataItemFormatCompound::DataItemFormatCompound(const DataItemFormatCompound& obj)
+: DataItemFormat(obj.m_nID)
+{
+	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+
+	while(it != obj.m_lSubItems.end())
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		m_lSubItems.push_back(di->clone());
+		it++;
+	}
+
+	m_pParentFormat = obj.m_pParentFormat;
 }
 
 DataItemFormatCompound::~DataItemFormatCompound()
@@ -84,22 +100,6 @@ long DataItemFormatCompound::getLength(const unsigned char* pData)
 	}
 
 	return totalLength;
-}
-
-void DataItemFormatCompound::addBits(DataItemBits* pBits)
-{
-	std::list<DataItemFormat*>::reverse_iterator rit;
-	rit = m_lSubItems.rbegin();
-	if (rit != m_lSubItems.rend())
-	{
-		DataItemFormat* dip = (DataItemFormat*)(*rit);
-		if (dip)
-		{
-			dip->addBits(pBits);
-			return;
-		}
-	}
-	Tracer::Error("Adding bits to Variable failed");
 }
 
 bool DataItemFormatCompound::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long)

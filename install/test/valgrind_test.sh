@@ -2,6 +2,8 @@ valgrind -v --leak-check=full --show-leak-kinds=all --error-exitcode=1 ../../obj
 
 if [ $? = 1 ]; then
         echo "Memory leak test failed"
+	exit 1
 else
         echo "Memory leak test OK"
+	exit 1
 fi

@@ -382,7 +382,7 @@ int main(int argc, const char *argv[])
 				}
 				if (sscanf(p, "I%128s", item) != 1)
 					break;
-				p = strtok(NULL, ":");
+				p = strtok(NULL, "");
 				if ( NULL == p )
 				{
 					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line) << std::endl;

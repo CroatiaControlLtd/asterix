@@ -54,6 +54,9 @@ DEPEND_LIBS += $(TOP)/lib/$(OBJ_DIR_SHORT)/libasterix.a
 all: $(TARGET_EXE)
 	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 
+debug: $(TARGET_EXE)
+        $(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+
 install: all $(TARGET_INSTALL)
 	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 

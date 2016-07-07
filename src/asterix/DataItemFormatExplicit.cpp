@@ -25,8 +25,24 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
-DataItemFormatExplicit::DataItemFormatExplicit()
+DataItemFormatExplicit::DataItemFormatExplicit(int id)
+: DataItemFormat(id)
 {
+}
+
+DataItemFormatExplicit::DataItemFormatExplicit(const DataItemFormatExplicit& obj)
+: DataItemFormat(obj.m_nID)
+{
+	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+
+	while(it != obj.m_lSubItems.end())
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		m_lSubItems.push_back(di->clone());
+		it++;
+	}
+
+	m_pParentFormat = obj.m_pParentFormat;
 }
 
 DataItemFormatExplicit::~DataItemFormatExplicit()
@@ -36,17 +52,6 @@ DataItemFormatExplicit::~DataItemFormatExplicit()
 long DataItemFormatExplicit::getLength(const unsigned char* pData)
 {
 	return (long)(*pData);
-}
-
-void DataItemFormatExplicit::addBits(DataItemBits* pBits)
-{
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-	{
-		Tracer::Error("Wrong data in Explicit");
-		return;
-	}
-	pFixed->addBits(pBits);
 }
 
 bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
