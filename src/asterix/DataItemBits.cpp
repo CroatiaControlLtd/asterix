@@ -66,11 +66,10 @@ DataItemBits::DataItemBits(const DataItemBits& obj)
 	m_pParentFormat = obj.m_pParentFormat;
 
 	m_strShortName = obj.m_strShortName;
-	std::string m_strName = obj.m_strName;
+	m_strName = obj.m_strName;
 	m_nFrom = obj.m_nFrom;
 	m_nTo = obj.m_nTo;
 	m_eEncoding = obj.m_eEncoding;
-
 	m_bIsConst = obj.m_bIsConst;
 	m_nConst = obj.m_nConst;
 	m_strUnit = obj.m_strUnit;
