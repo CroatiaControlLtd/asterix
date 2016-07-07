@@ -1126,9 +1126,34 @@ CAT048:I230:AIC                                              Aircraft identifica
 CAT048:I230:BDS16                                            BDS 1,0 bit 16
 CAT048:I230:BDS37                                            BDS 1,0 bits 37/40
 CAT048:I240:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
-CAT048:I250:MBdata                                           MBdata
-CAT048:I250:DSB1                                             Comm B Data Buffer Store 1
-CAT048:I250:DSB2                                             Comm B Data Buffer Store 2
+CAT048:I250:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT048:I250:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT048:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT048:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT048:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT048:I250:BDS40:BP                                         Barometric Pressure
+CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT048:I250:BDS40:VNAV                                       VNAV Mode
+CAT048:I250:BDS40:ALTHOLD                                    ALT HOLD Mode
+CAT048:I250:BDS40:APPMODE                                    APPROACH Mode
+CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:TARGETALTSTAT                              Status of Target ALT source bits
+CAT048:I250:BDS40:TARGETALTSRC                               Target ALT source
+CAT048:I250:BDS50:ROLL_STATUS                                Roll Angle Status
+CAT048:I250:BDS50:ROLL_SIGN_DIR                              Roll Angle Direction
+CAT048:I250:BDS50:ROLL_ANGLE                                 Roll angle
+CAT048:I250:BDS50:TRUE_TRACK_STATUS                          True Track Angle Status
+CAT048:I250:BDS50:TRUE_TRACK_ANGLE_DIR                       True Track Angle Direction
+CAT048:I250:BDS50:TRU_TRACK_ANGLE                            True track angle
+CAT048:I250:BDS50:GS_STATUS                                  round Speed Status
+CAT048:I250:BDS50:GS                                         Ground Speed
+CAT048:I250:BDS50:TRACK_ANGLE_RATE_STATUS                    Track Angle Rate Status
+CAT048:I250:BDS50:TRACK_ANGLE_RATE_SIGN                      Track Angle Rate Sign
+CAT048:I250:BDS50:TRACK_ANGLE_RATE                           Track angle rate
+CAT048:I250:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT048:I250:BDS50:TAS                                        True Airspeed
+CAT048:I250:BDS0:BDS                                         BDS value
 CAT048:I260:MBdata                                           BDS 3,0
 CAT048:ISP:SP                                                SP
 CAT062:I010:SAC                                              System Area Code
@@ -1711,20 +1736,4 @@ CAT252:I360:SRB                                              SSR Range gain and 
 CAT252:I360:SAB                                              SSR Azimuth Bias (I031/070)
 CAT252:I360:PRB                                              PR Range gain and Bias (I031/080)
 CAT252:I360:PAB                                              PR Azimuth Bias (I031/090)
-CAT252:I360:spare                                            Spare bits set to 0
-CAT252:I370:UpdPer                                           Update period
-CAT252:I400:RefPer                                           Period of refresh when no change is detected.
-CAT252:I410:SSC                                              Sensor Status Change
-CAT252:I410:spare                                            spare bits set to 0
-CAT252:I420:spare                                            spare bits set to 0
-CAT252:I420:tsb                                              Variation threshold of the time stamping bias
-CAT252:I430:spare                                            spare bits set to 0
-CAT252:I430:ssrrb                                            Variation threshold of the SSR range bias
-CAT252:I440:spare                                            spare bits set to 0
-CAT252:I440:ssrrg                                            Variation threshold of the SSR range gain
-CAT252:I450:ssrab                                            Variation threshold of the SSR azimuth bias
-CAT252:I460:spare                                            spare bits set to 0
-CAT252:I460:prrb                                             Variation threshold of the PR range bias
-CAT252:I470:spare                                            spare bits set to 0
-CAT252:I470:prrg                                             Variation threshold of the PR range gain
-CAT252:I480:prab                                             Variation threshold of the PR azimuth bias
+CAT252:I360:spare                               

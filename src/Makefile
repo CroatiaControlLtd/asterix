@@ -42,6 +42,12 @@ install: makefile.include makefile.rules
                 if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
 	done
 
+debug: makefile.include makefile.rules
+	@for dir in $(DIRS); do\
+                echo "=== making $$dir ===";\
+                if $(MAKE) MODE=DEBUG -r -C $$dir $@; then true; else exit 1; fi;\
+        done
+
 #depend: $(DEPEND_FILES)
 #        find .. -name "*.d" | xargs cat > .depend
 
