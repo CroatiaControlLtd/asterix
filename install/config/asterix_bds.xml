@@ -123,7 +123,7 @@
                     <BitsValue val="0">East</BitsValue>
                     <BitsValue val="1">West</BitsValue>
 				</Bits>
-				<Bits from="54" to="34" encode="signed">
+				<Bits from="43" to="34" encode="signed">
 					<BitsShortName>TRU_TRACK_ANGLE</BitsShortName>
 					<BitsName>True track angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
@@ -132,7 +132,7 @@
 					<BitsShortName>GS_STATUS</BitsShortName>
 					<BitsName>round Speed Status</BitsName>
 				</Bits>
-				<Bits from="54" to="23" encode="unsigned">
+				<Bits from="32" to="23" encode="unsigned">
 					<BitsShortName>GS</BitsShortName>
 					<BitsName>Ground Speed</BitsName>
                     <BitsUnit scale="2">kt</BitsUnit>
@@ -160,6 +160,72 @@
 					<BitsShortName>TAS</BitsShortName>
 					<BitsName>True Airspeed</BitsName>
                     <BitsUnit scale="2">kt</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+
+	<DataItem id="60">
+		<DataItemName>Heading and Speed Report</DataItemName>
+		<DataItemDefinition>Heading and Speed Report</DataItemDefinition>
+		<DataItemFormat desc="Seven-octets fixed length data item.">
+			<Fixed length="7">
+				<Bits bit="56">
+					<BitsShortName>HDG_STAT</BitsShortName>
+					<BitsName>Heading Status</BitsName>
+				</Bits>
+				<Bits bit="55">
+					<BitsShortName>HDG_DIR</BitsShortName>
+					<BitsName>Head Direction</BitsName>
+                    <BitsValue val="0">East</BitsValue>
+                    <BitsValue val="1">West</BitsValue>
+				</Bits>
+				<Bits from="54" to="45" encode="unsigned">
+					<BitsShortName>HDG</BitsShortName>
+					<BitsName>Magnetic Heading</BitsName>
+                    <BitsUnit scale="0.17578125">deg</BitsUnit>
+				</Bits>
+				<Bits bit="44">
+					<BitsShortName>IAS_STAT</BitsShortName>
+					<BitsName>Indicated Airspeed Status</BitsName>
+				</Bits>
+				<Bits from="43" to="34">
+					<BitsShortName>IAS</BitsShortName>
+					<BitsName>Indicated Airspeed</BitsName>
+                    <BitsUnit scale="1">kt</BitsUnit>
+				</Bits>
+				<Bits bit="33">
+					<BitsShortName>MACH_STAT</BitsShortName>
+					<BitsName>Mach Speed Status</BitsName>
+				</Bits>
+				<Bits from="32" to="23">
+					<BitsShortName>MACH</BitsShortName>
+					<BitsName>Mach Speed</BitsName>
+                    <BitsUnit scale=".004">MACH</BitsUnit>
+				</Bits>
+				<Bits bit="22">
+					<BitsShortName>BAR_STAT</BitsShortName>
+					<BitsName>Barometric Altitude Rate Status</BitsName>
+				</Bits>
+				<Bits bit="21">
+					<BitsShortName>BAR_DIR</BitsShortName>
+					<BitsName>Barometric Altitude Rate Direction</BitsName>
+                    <BitsValue val="0">Above</BitsValue>
+                    <BitsValue val="1">Below</BitsValue>
+				</Bits>
+				<Bits from="20" to="12" encode="unsigned">
+					<BitsShortName>BAR</BitsShortName>
+					<BitsName>Barometric Altitude Rate</BitsName>
+                    <BitsUnit scale="32">ft/min</BitsUnit>
+				</Bits>
+				<Bits bit="11">
+					<BitsShortName>IVV_STAT</BitsShortName>
+					<BitsName>Inertial Vertical Velocity Status</BitsName>
+				</Bits>
+				<Bits from="10" to="1" encode="unsigned">
+					<BitsShortName>IVV</BitsShortName>
+					<BitsName>Inertial Vertical Velocity </BitsName>
+                    <BitsUnit scale="32">ft/min</BitsUnit>
 				</Bits>
 			</Fixed>
 		</DataItemFormat>
