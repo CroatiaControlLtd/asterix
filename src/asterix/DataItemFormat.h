@@ -47,6 +47,7 @@ public:
   static int m_nLastPID; //!< static used for allocation of m_nPID
 #endif
 
+  virtual DataItemFormat* clone() const = 0; // Copy constructor
   virtual long getLength(const unsigned char* pData) = 0;
   virtual bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) = 0; // appends value to strResult
   virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors

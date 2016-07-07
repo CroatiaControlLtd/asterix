@@ -31,11 +31,13 @@ class DataItemFormatFixed : public DataItemFormat
 {
 public:
   DataItemFormatFixed(int id=0);
+  DataItemFormatFixed(const DataItemFormatFixed& obj);
   virtual
   ~DataItemFormatFixed();
 
   int m_nLength;
 
+  DataItemFormatFixed* clone() const { return new DataItemFormatFixed(*this); } // Return clone of object
   long getLength();
   bool isLastPart(const unsigned char* pData);
   bool isSecondaryPartPresent(const unsigned char* pData, int part);

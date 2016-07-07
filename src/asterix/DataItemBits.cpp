@@ -52,6 +52,47 @@ DataItemBits::DataItemBits(int id)
 
 }
 
+DataItemBits::DataItemBits(const DataItemBits& obj)
+: DataItemFormat(obj.m_nID)
+{
+	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+	while(it != obj.m_lSubItems.end())
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		m_lSubItems.push_back(di->clone());
+		it++;
+	}
+
+	m_pParentFormat = obj.m_pParentFormat;
+
+	m_strShortName = obj.m_strShortName;
+	std::string m_strName = obj.m_strName;
+	m_nFrom = obj.m_nFrom;
+	m_nTo = obj.m_nTo;
+	m_eEncoding = obj.m_eEncoding;
+
+	m_bIsConst = obj.m_bIsConst;
+	m_nConst = obj.m_nConst;
+	m_strUnit = obj.m_strUnit;
+	m_dScale = obj.m_dScale;
+	m_bMaxValueSet = obj.m_bMaxValueSet;
+	m_dMaxValue = obj.m_dMaxValue;
+	m_bMinValueSet = obj.m_bMinValueSet;
+	m_dMinValue = obj.m_dMinValue;
+	m_bExtension = obj.m_bExtension;
+	m_nPresenceOfField = obj.m_nPresenceOfField;
+
+	std::list<BitsValue*>::const_iterator bit = obj.m_lValue.begin();
+	while(bit != obj.m_lValue.end())
+	{
+		BitsValue* bv = (BitsValue*)(*bit);
+		m_lValue.push_back(new BitsValue(bv->m_nVal, bv->m_strDescription));
+		bit++;
+	}
+	m_bFiltered = obj.m_bFiltered;
+}
+
+
 DataItemBits::~DataItemBits()
 {
   // destroy bits value items

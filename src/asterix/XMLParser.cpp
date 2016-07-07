@@ -247,7 +247,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 		while(it != m_pBDSCategory->m_lDataItems.end())
 		{
 			DataItemDescription* dip = (DataItemDescription*)(*it);
-			pFormatBDS->m_lSubItems.push_back(dip->m_pFormat);
+			pFormatBDS->m_lSubItems.push_back(dip->m_pFormat->clone());
 			it++;
 		}
 

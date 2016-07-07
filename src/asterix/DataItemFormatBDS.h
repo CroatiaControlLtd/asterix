@@ -30,9 +30,11 @@ class DataItemFormatBDS : public DataItemFormat
 {
 public:
   DataItemFormatBDS(int id=0);
+  DataItemFormatBDS(const DataItemFormatBDS& obj);
   virtual
   ~DataItemFormatBDS();
 
+  DataItemFormatBDS* clone() const { return new DataItemFormatBDS(*this); } // Return clone of object
   long getLength(const unsigned char* pData);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors

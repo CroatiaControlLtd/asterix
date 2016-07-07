@@ -32,6 +32,7 @@ class UAPItem : public DataItemFormat
 {
 public:
   UAPItem();
+  UAPItem(const UAPItem& obj);
   virtual
   ~UAPItem();
 
@@ -41,6 +42,7 @@ public:
   int m_nLen; // <!ATTLIST UAPItem len CDATA "-">
   std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
 
+  UAPItem* clone() const { return new UAPItem(*this); } // Return clone of object
   long getLength(const unsigned char*) { Tracer::Error("Function should not be called!"); return 0; }
   bool getText(std::string&, std::string&, const unsigned int, unsigned char*, long)
   { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription

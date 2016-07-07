@@ -34,6 +34,22 @@ DataItemFormatBDS::~DataItemFormatBDS()
 {
 }
 
+DataItemFormatBDS::DataItemFormatBDS(const DataItemFormatBDS& obj)
+: DataItemFormat(obj.m_nID)
+{
+	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+
+	while(it != obj.m_lSubItems.end())
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		m_lSubItems.push_back(di->clone());
+		it++;
+	}
+
+	m_pParentFormat = obj.m_pParentFormat;
+}
+
+
 long DataItemFormatBDS::getLength(const unsigned char* pData)
 {
 	unsigned char nRepetition = *pData;

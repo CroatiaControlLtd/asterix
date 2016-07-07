@@ -31,9 +31,11 @@ class DataItemFormatExplicit : public DataItemFormat
 {
 public:
   DataItemFormatExplicit(int id=0);
+  DataItemFormatExplicit(const DataItemFormatExplicit& obj);
   virtual
   ~DataItemFormatExplicit();
 
+  DataItemFormatExplicit* clone() const { return new DataItemFormatExplicit(*this); } // Return clone of object
   long getLength(const unsigned char* pData);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors

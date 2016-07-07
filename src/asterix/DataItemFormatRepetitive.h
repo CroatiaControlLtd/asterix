@@ -30,9 +30,11 @@ class DataItemFormatRepetitive : public DataItemFormat
 {
 public:
   DataItemFormatRepetitive(int id=0);
+  DataItemFormatRepetitive(const DataItemFormatRepetitive& obj);
   virtual
   ~DataItemFormatRepetitive();
 
+  DataItemFormatRepetitive* clone() const { return new DataItemFormatRepetitive(*this); } // Return clone of object
   long getLength(const unsigned char* pData);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors
