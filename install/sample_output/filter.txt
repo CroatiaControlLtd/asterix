@@ -1736,4 +1736,20 @@ CAT252:I360:SRB                                              SSR Range gain and 
 CAT252:I360:SAB                                              SSR Azimuth Bias (I031/070)
 CAT252:I360:PRB                                              PR Range gain and Bias (I031/080)
 CAT252:I360:PAB                                              PR Azimuth Bias (I031/090)
-CAT252:I360:spare                               
+CAT252:I360:spare                                            Spare bits set to 0
+CAT252:I370:UpdPer                                           Update period
+CAT252:I400:RefPer                                           Period of refresh when no change is detected.
+CAT252:I410:SSC                                              Sensor Status Change
+CAT252:I410:spare                                            spare bits set to 0
+CAT252:I420:spare                                            spare bits set to 0
+CAT252:I420:tsb                                              Variation threshold of the time stamping bias
+CAT252:I430:spare                                            spare bits set to 0
+CAT252:I430:ssrrb                                            Variation threshold of the SSR range bias
+CAT252:I440:spare                                            spare bits set to 0
+CAT252:I440:ssrrg                                            Variation threshold of the SSR range gain
+CAT252:I450:ssrab                                            Variation threshold of the SSR azimuth bias
+CAT252:I460:spare                                            spare bits set to 0
+CAT252:I460:prrb                                             Variation threshold of the PR range bias
+CAT252:I470:spare                                            spare bits set to 0
+CAT252:I470:prrg                                             Variation threshold of the PR range gain
+CAT252:I480:prab                                             Variation threshold of the PR azimuth bias
