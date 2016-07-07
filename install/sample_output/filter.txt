@@ -1146,7 +1146,7 @@ CAT048:I250:BDS50:ROLL_ANGLE                                 Roll angle
 CAT048:I250:BDS50:TRUE_TRACK_STATUS                          True Track Angle Status
 CAT048:I250:BDS50:TRUE_TRACK_ANGLE_DIR                       True Track Angle Direction
 CAT048:I250:BDS50:TRU_TRACK_ANGLE                            True track angle
-CAT048:I250:BDS50:GS_STATUS                                  round Speed Status
+CAT048:I250:BDS50:GS_STATUS                                  Ground Speed Status
 CAT048:I250:BDS50:GS                                         Ground Speed
 CAT048:I250:BDS50:TRACK_ANGLE_RATE_STATUS                    Track Angle Rate Status
 CAT048:I250:BDS50:TRACK_ANGLE_RATE_SIGN                      Track Angle Rate Sign

@@ -6435,7 +6435,7 @@ Item 250 : Mode S Comm B data
 	True Track Angle Status: 1
 	True Track Angle Direction: 1 (West)
 	True track angle: 380 (66.7968750 deg)
-	round Speed Status: 1
+	Ground Speed Status: 1
 	Ground Speed: 220 (440.0000000 kt)
 	Track Angle Rate Status: 1
 	Track Angle Rate Sign: 1 (Minus)
@@ -6573,7 +6573,7 @@ Item 250 : Mode S Comm B data
 	True Track Angle Status: 1
 	True Track Angle Direction: 1 (West)
 	True track angle: 380 (66.7968750 deg)
-	round Speed Status: 1
+	Ground Speed Status: 1
 	Ground Speed: 220 (440.0000000 kt)
 	Track Angle Rate Status: 1
 	Track Angle Rate Sign: 1 (Minus)
@@ -6875,7 +6875,7 @@ Item 250 : Mode S Comm B data
 	True Track Angle Status: 1
 	True Track Angle Direction: 1 (West)
 	True track angle: -290 (-50.9765625 deg)
-	round Speed Status: 1
+	Ground Speed Status: 1
 	Ground Speed: 216 (432.0000000 kt)
 	Track Angle Rate Status: 1
 	Track Angle Rate Sign: 1 (Minus)
@@ -7013,7 +7013,7 @@ Item 250 : Mode S Comm B data
 	True Track Angle Status: 1
 	True Track Angle Direction: 1 (West)
 	True track angle: -290 (-50.9765625 deg)
-	round Speed Status: 1
+	Ground Speed Status: 1
 	Ground Speed: 216 (432.0000000 kt)
 	Track Angle Rate Status: 1
 	Track Angle Rate Sign: 1 (Minus)
