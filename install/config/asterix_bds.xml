@@ -130,7 +130,7 @@
 				</Bits>
 				<Bits bit="33">
 					<BitsShortName>GS_STATUS</BitsShortName>
-					<BitsName>round Speed Status</BitsName>
+					<BitsName>Ground Speed Status</BitsName>
 				</Bits>
 				<Bits from="32" to="23" encode="unsigned">
 					<BitsShortName>GS</BitsShortName>
