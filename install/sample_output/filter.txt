@@ -1153,6 +1153,18 @@ CAT048:I250:BDS50:TRACK_ANGLE_RATE_SIGN                      Track Angle Rate Si
 CAT048:I250:BDS50:TRACK_ANGLE_RATE                           Track angle rate
 CAT048:I250:BDS50:TAS_STATUS                                 True Airspeed Status
 CAT048:I250:BDS50:TAS                                        True Airspeed
+CAT048:I250:BDS60:HDG_STAT                                   Heading Status
+CAT048:I250:BDS60:HDG_DIR                                    Head Direction
+CAT048:I250:BDS60:HDG                                        Magnetic Heading
+CAT048:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT048:I250:BDS60:IAS                                        Indicated Airspeed
+CAT048:I250:BDS60:MACH_STAT                                  Mach Speed Status
+CAT048:I250:BDS60:MACH                                       Mach Speed
+CAT048:I250:BDS60:BAR_STAT                                   Barometric Altitude Rate Status
+CAT048:I250:BDS60:BAR_DIR                                    Barometric Altitude Rate Direction
+CAT048:I250:BDS60:BAR                                        Barometric Altitude Rate
+CAT048:I250:BDS60:IVV_STAT                                   Inertial Vertical Velocity Status
+CAT048:I250:BDS60:IVV                                        Inertial Vertical Velocity 
 CAT048:I250:BDS0:BDS                                         BDS value
 CAT048:I260:MBdata                                           BDS 3,0
 CAT048:ISP:SP                                                SP
