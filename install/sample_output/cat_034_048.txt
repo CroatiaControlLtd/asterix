@@ -83,7 +83,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -190,7 +190,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -308,7 +308,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -446,7 +446,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -527,7 +527,7 @@ Item 161 : Track Number
 
 Item 170 : Track Status
 [ 41 80 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -625,17 +625,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 768 (135.0000000 deg)
+	Magnetic Heading: -256 (-45.0000000 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 190 (0.7600000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 12 (384.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 2 (64.0000000 ft/min)
+	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
 
 Item 161 : Track Number
 [ 02 F9 ]
@@ -653,7 +651,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -760,7 +758,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -837,17 +835,15 @@ Item 250 : Mode S Comm B data
 [ 01 F1 19 E9 32 60 04 00 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 785 (137.9882812 deg)
+	Magnetic Heading: -239 (-42.0117188 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 244 (244.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 201 (0.8040000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 05 90 ]
@@ -865,7 +861,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -946,7 +942,7 @@ Item 161 : Track Number
 
 Item 170 : Track Status
 [ 41 80 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1044,17 +1040,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 768 (135.0000000 deg)
+	Magnetic Heading: -256 (-45.0000000 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 190 (0.7600000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 12 (384.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 2 (64.0000000 ft/min)
+	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
 
 Item 161 : Track Number
 [ 02 F9 ]
@@ -1072,7 +1066,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1179,7 +1173,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1256,17 +1250,15 @@ Item 250 : Mode S Comm B data
 [ 01 F1 19 E9 32 60 04 00 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 785 (137.9882812 deg)
+	Magnetic Heading: -239 (-42.0117188 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 244 (244.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 201 (0.8040000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 05 90 ]
@@ -1284,7 +1276,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1386,17 +1378,15 @@ Item 250 : Mode S Comm B data
 [ 02 E6 B9 FF 34 BF FC 00 60 CE 20 00 00 00 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 619 (108.8085938 deg)
+	Magnetic Heading: -405 (-71.1914062 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 255 (255.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 210 (0.8400000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 511 (16352.0000000 ft/min)
+	Barometric Altitude Rate: -1 (-32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2500 (40000.0000000 ft)
@@ -1424,7 +1414,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1511,17 +1501,15 @@ Item 250 : Mode S Comm B data
 [ 02 E6 B9 FF 34 BF FC 00 60 CE 20 00 00 00 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 619 (108.8085938 deg)
+	Magnetic Heading: -405 (-71.1914062 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 255 (255.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 210 (0.8400000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 511 (16352.0000000 ft/min)
+	Barometric Altitude Rate: -1 (-32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2500 (40000.0000000 ft)
@@ -1549,7 +1537,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1661,7 +1649,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1773,7 +1761,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1867,7 +1855,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -1956,7 +1944,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2056,7 +2044,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2133,17 +2121,15 @@ Item 250 : Mode S Comm B data
 [ 01 AC 5A 09 30 20 0C 00 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 709 (124.6289062 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 260 (260.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 03 63 ]
@@ -2161,7 +2147,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2268,7 +2254,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2356,7 +2342,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2445,7 +2431,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2552,7 +2538,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2641,7 +2627,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2730,7 +2716,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2819,7 +2805,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -2939,7 +2925,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3016,17 +3002,15 @@ Item 250 : Mode S Comm B data
 [ 01 AC 5A 09 30 20 0C 00 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 709 (124.6289062 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 260 (260.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 03 63 ]
@@ -3044,7 +3028,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3151,7 +3135,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3239,7 +3223,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3328,7 +3312,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3435,7 +3419,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3524,7 +3508,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3613,7 +3597,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3702,7 +3686,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3825,17 +3809,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 631 (110.9179688 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 272 (272.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1021 (32672.0000000 ft/min)
+	Inertial Vertical Velocity: -3 (-96.0000000 ft/min)
 
 Item 161 : Track Number
 [ 02 84 ]
@@ -3853,7 +3835,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -3976,17 +3958,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 631 (110.9179688 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 272 (272.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1021 (32672.0000000 ft/min)
+	Inertial Vertical Velocity: -3 (-96.0000000 ft/min)
 
 Item 161 : Track Number
 [ 02 84 ]
@@ -4004,7 +3984,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4307,7 +4287,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4419,7 +4399,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4531,7 +4511,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4638,7 +4618,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4745,7 +4725,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4857,7 +4837,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -4969,7 +4949,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5081,7 +5061,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5168,17 +5148,15 @@ Item 250 : Mode S Comm B data
 [ 02 BE B9 F5 30 60 04 01 60 C8 4E 42 70 A8 00 04 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 1003 (176.3085938 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 250 (250.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 193 (0.7720000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1 (32.0000000 ft/min)
+	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -5206,7 +5184,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5293,17 +5271,15 @@ Item 250 : Mode S Comm B data
 [ 02 BE B9 F5 30 60 04 01 60 C8 4E 42 70 A8 00 04 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 1003 (176.3085938 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 250 (250.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 193 (0.7720000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1 (32.0000000 ft/min)
+	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -5331,7 +5307,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5541,7 +5517,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5630,7 +5606,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5776,7 +5752,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5865,7 +5841,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -5998,17 +5974,15 @@ Item 250 : Mode S Comm B data
 [ 01 AF 39 F9 26 FE 4F C9 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 755 (132.7148438 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 252 (252.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 155 (0.6200000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 457 (14624.0000000 ft/min)
+	Barometric Altitude Rate: -55 (-1760.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 969 (31008.0000000 ft/min)
+	Inertial Vertical Velocity: -55 (-1760.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 1B ]
@@ -6026,7 +6000,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -6133,7 +6107,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -6266,17 +6240,15 @@ Item 250 : Mode S Comm B data
 [ 01 AF 39 F9 26 FE 4F C9 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 755 (132.7148438 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 252 (252.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 155 (0.6200000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 457 (14624.0000000 ft/min)
+	Barometric Altitude Rate: -55 (-1760.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 969 (31008.0000000 ft/min)
+	Inertial Vertical Velocity: -55 (-1760.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 1B ]
@@ -6294,7 +6266,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -6401,7 +6373,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -6549,31 +6521,26 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 50
 	Roll Angle Status: 1
-	Roll Angle Direction: 1 (Left wing down)
-	Roll angle: -4 (-0.7031250 deg)
+	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
-	True Track Angle Direction: 1 (West)
-	True track angle: 380 (66.7968750 deg)
+	True Track Angle: -644 (-113.2031250 deg)
 	Ground Speed Status: 1
 	Ground Speed: 220 (440.0000000 kt)
 	Track Angle Rate Status: 1
-	Track Angle Rate Sign: 1 (Minus)
-	Track angle rate: -1 (-0.0312500 deg/sec)
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 227 (454.0000000 kt)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 377 (66.2695312 deg)
+	Magnetic Heading: -647 (-113.7304688 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 250 (250.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 197 (0.7880000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 507 (16224.0000000 ft/min)
+	Barometric Altitude Rate: -5 (-160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 7A ]
@@ -6591,7 +6558,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 46 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -6688,31 +6655,26 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 50
 	Roll Angle Status: 1
-	Roll Angle Direction: 1 (Left wing down)
-	Roll angle: -4 (-0.7031250 deg)
+	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
-	True Track Angle Direction: 1 (West)
-	True track angle: 380 (66.7968750 deg)
+	True Track Angle: -644 (-113.2031250 deg)
 	Ground Speed Status: 1
 	Ground Speed: 220 (440.0000000 kt)
 	Track Angle Rate Status: 1
-	Track Angle Rate Sign: 1 (Minus)
-	Track angle rate: -1 (-0.0312500 deg/sec)
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 227 (454.0000000 kt)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 377 (66.2695312 deg)
+	Magnetic Heading: -647 (-113.7304688 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 250 (250.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 197 (0.7880000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 507 (16224.0000000 ft/min)
+	Barometric Altitude Rate: -5 (-160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 7A ]
@@ -6730,7 +6692,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 46 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7023,31 +6985,26 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 50
 	Roll Angle Status: 1
-	Roll Angle Direction: 1 (Left wing down)
-	Roll angle: -4 (-0.7031250 deg)
+	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
-	True Track Angle Direction: 1 (West)
-	True track angle: -290 (-50.9765625 deg)
+	True Track Angle: -290 (-50.9765625 deg)
 	Ground Speed Status: 1
 	Ground Speed: 216 (432.0000000 kt)
 	Track Angle Rate Status: 1
-	Track Angle Rate Sign: 1 (Minus)
-	Track angle rate: -1 (-0.0312500 deg/sec)
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 218 (436.0000000 kt)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 723 (127.0898438 deg)
+	Magnetic Heading: -301 (-52.9101562 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 284 (284.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 184 (0.7360000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 50 (1600.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 54 (1728.0000000 ft/min)
+	Inertial Vertical Velocity: 54 (1728.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 7F ]
@@ -7065,7 +7022,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 46 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7162,31 +7119,26 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 50
 	Roll Angle Status: 1
-	Roll Angle Direction: 1 (Left wing down)
-	Roll angle: -4 (-0.7031250 deg)
+	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
-	True Track Angle Direction: 1 (West)
-	True track angle: -290 (-50.9765625 deg)
+	True Track Angle: -290 (-50.9765625 deg)
 	Ground Speed Status: 1
 	Ground Speed: 216 (432.0000000 kt)
 	Track Angle Rate Status: 1
-	Track Angle Rate Sign: 1 (Minus)
-	Track angle rate: -1 (-0.0312500 deg/sec)
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 218 (436.0000000 kt)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 723 (127.0898438 deg)
+	Magnetic Heading: -301 (-52.9101562 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 284 (284.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 184 (0.7360000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 50 (1600.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 54 (1728.0000000 ft/min)
+	Inertial Vertical Velocity: 54 (1728.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 7F ]
@@ -7204,7 +7156,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 46 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7280,17 +7232,15 @@ Item 250 : Mode S Comm B data
 [ 02 B3 89 F1 2E 20 07 FF 60 C4 60 00 30 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 824 (144.8437500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 248 (248.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 184 (0.7360000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
@@ -7318,7 +7268,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7405,17 +7355,15 @@ Item 250 : Mode S Comm B data
 [ 02 B3 89 F1 2E 20 07 FF 60 C4 60 00 30 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 824 (144.8437500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 248 (248.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 184 (0.7360000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
@@ -7443,7 +7391,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7555,7 +7503,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7667,7 +7615,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7754,17 +7702,15 @@ Item 250 : Mode S Comm B data
 [ 02 E5 89 F1 31 20 0C 01 60 CA 38 00 30 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 600 (105.4687500 deg)
+	Magnetic Heading: -424 (-74.5312500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 248 (248.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 196 (0.7840000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1 (32.0000000 ft/min)
+	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -7792,7 +7738,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -7879,17 +7825,15 @@ Item 250 : Mode S Comm B data
 [ 02 E5 89 F1 31 20 0C 01 60 CA 38 00 30 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 600 (105.4687500 deg)
+	Magnetic Heading: -424 (-74.5312500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 248 (248.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 196 (0.7840000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1 (32.0000000 ft/min)
+	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -7917,7 +7861,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8011,7 +7955,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8105,7 +8049,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8192,17 +8136,15 @@ Item 250 : Mode S Comm B data
 [ 02 EA 1A 01 32 BF F4 00 60 CA 38 00 30 9E 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 673 (118.3007812 deg)
+	Magnetic Heading: -351 (-61.6992188 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 256 (256.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 202 (0.8080000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 510 (16320.0000000 ft/min)
+	Barometric Altitude Rate: -2 (-64.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -8230,7 +8172,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8317,17 +8259,15 @@ Item 250 : Mode S Comm B data
 [ 02 EA 1A 01 32 BF F4 00 60 CA 38 00 30 9E 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 673 (118.3007812 deg)
+	Magnetic Heading: -351 (-61.6992188 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 256 (256.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 202 (0.8080000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 510 (16320.0000000 ft/min)
+	Barometric Altitude Rate: -2 (-64.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -8355,7 +8295,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8442,17 +8382,15 @@ Item 250 : Mode S Comm B data
 [ 02 F3 AA 01 31 A0 34 02 60 C8 48 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 826 (145.1953125 deg)
+	Magnetic Heading: -198 (-34.8046875 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 256 (256.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 198 (0.7920000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 6 (192.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 2 (64.0000000 ft/min)
+	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -8480,7 +8418,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8567,17 +8505,15 @@ Item 250 : Mode S Comm B data
 [ 02 F3 AA 01 31 A0 34 02 60 C8 48 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 826 (145.1953125 deg)
+	Magnetic Heading: -198 (-34.8046875 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 256 (256.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 198 (0.7920000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 6 (192.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 2 (64.0000000 ft/min)
+	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -8605,7 +8541,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8719,7 +8655,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8828,7 +8764,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -8935,7 +8871,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9047,7 +8983,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9159,7 +9095,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9271,7 +9207,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9364,17 +9300,15 @@ Item 250 : Mode S Comm B data
 [ 01 B2 B9 E7 30 3F C7 FF 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 811 (142.5585938 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 243 (243.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 
 Item 161 : Track Number
 [ 01 DF ]
@@ -9392,7 +9326,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9500,17 +9434,15 @@ Item 250 : Mode S Comm B data
 [ 01 B2 B9 E7 30 3F C7 FF 60 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 811 (142.5585938 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 243 (243.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 
 Item 161 : Track Number
 [ 01 DF ]
@@ -9528,7 +9460,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9630,17 +9562,15 @@ Item 250 : Mode S Comm B data
 [ 02 EE 89 F3 31 7F C7 FE 60 CA 38 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 744 (130.7812500 deg)
+	Magnetic Heading: -280 (-49.2187500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 249 (249.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 197 (0.7880000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1022 (32704.0000000 ft/min)
+	Inertial Vertical Velocity: -2 (-64.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -9668,7 +9598,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9755,17 +9685,15 @@ Item 250 : Mode S Comm B data
 [ 02 EE 89 F3 31 7F C7 FE 60 CA 38 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 744 (130.7812500 deg)
+	Magnetic Heading: -280 (-49.2187500 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 249 (249.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 197 (0.7880000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 1 (Below)
-	Barometric Altitude Rate: 504 (16128.0000000 ft/min)
+	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1022 (32704.0000000 ft/min)
+	Inertial Vertical Velocity: -2 (-64.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -9793,7 +9721,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -9898,7 +9826,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10005,7 +9933,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10125,7 +10053,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10232,7 +10160,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10334,17 +10262,15 @@ Item 250 : Mode S Comm B data
 [ 02 E8 29 F7 31 A0 24 00 60 CA 38 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 642 (112.8515625 deg)
+	Magnetic Heading: -382 (-67.1484375 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 198 (0.7920000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 4 (128.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -10372,7 +10298,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10459,17 +10385,15 @@ Item 250 : Mode S Comm B data
 [ 02 E8 29 F7 31 A0 24 00 60 CA 38 00 30 A4 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 642 (112.8515625 deg)
+	Magnetic Heading: -382 (-67.1484375 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 198 (0.7920000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 4 (128.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
@@ -10497,7 +10421,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10609,7 +10533,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10703,7 +10627,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10810,7 +10734,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -10922,7 +10846,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11016,7 +10940,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11123,7 +11047,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11231,17 +11155,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 252 (44.2968750 deg)
+	Magnetic Heading: -772 (-135.7031250 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 261 (261.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 8B ]
@@ -11259,7 +11181,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11348,7 +11270,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11455,7 +11377,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11544,7 +11466,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11651,7 +11573,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11778,7 +11700,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11890,7 +11812,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -11998,17 +11920,15 @@ Item 250 : Mode S Comm B data
 	Target ALT source: 0 (Unknown)
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 1 (West)
-	Magnetic Heading: 252 (44.2968750 deg)
+	Magnetic Heading: -772 (-135.7031250 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 261 (261.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 192 (0.7680000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 0 (0.0000000 ft/min)
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
 
 Item 161 : Track Number
 [ 00 8B ]
@@ -12026,7 +11946,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12115,7 +12035,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12222,7 +12142,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12311,7 +12231,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12418,7 +12338,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12556,7 +12476,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12663,7 +12583,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12752,7 +12672,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12841,7 +12761,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -12979,7 +12899,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 42 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13086,7 +13006,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13175,7 +13095,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13264,7 +13184,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 40 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13443,7 +13363,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13550,7 +13470,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13657,7 +13577,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13769,7 +13689,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13856,17 +13776,15 @@ Item 250 : Mode S Comm B data
 [ 02 B9 69 F7 30 A0 2F FF 60 C8 4E 42 70 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 918 (161.3671875 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 194 (0.7760000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 5 (160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -13894,7 +13812,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -13981,17 +13899,15 @@ Item 250 : Mode S Comm B data
 [ 02 B9 69 F7 30 A0 2F FF 60 C8 4E 42 70 A8 00 00 40 ]
 	BDS register: 60
 	Heading Status: 1
-	Head Direction: 0 (East)
 	Magnetic Heading: 918 (161.3671875 deg)
 	Indicated Airspeed Status: 1
 	Indicated Airspeed: 251 (251.0000000 kt)
 	Mach Speed Status: 1
 	Mach Speed: 194 (0.7760000 MACH)
 	Barometric Altitude Rate Status: 1
-	Barometric Altitude Rate Direction: 0 (Above)
 	Barometric Altitude Rate: 5 (160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
-	Inertial Vertical Velocity : 1023 (32736.0000000 ft/min)
+	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
 	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
@@ -14019,7 +13935,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14105,7 +14021,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14180,7 +14096,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14263,7 +14179,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14352,7 +14268,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 41 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 2 (SSR/ModeS Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14459,7 +14375,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14571,7 +14487,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14683,7 +14599,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)
@@ -14795,7 +14711,7 @@ Item 200 : Calculated Track Velocity in Polar Coordinates
 
 Item 170 : Track Status
 [ 01 00 ]
-	CBF: 0 (Confirmed Track)
+	CNF: 0 (Confirmed Track)
 	RAD: 0 (Combined Track)
 	DOU: 0 (Normal confidence)
 	MAH: 0 (No horizontal man. sensed)

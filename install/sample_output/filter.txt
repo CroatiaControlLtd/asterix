@@ -1098,7 +1098,7 @@ CAT048:I130:RPD                                              Difference in Range
 CAT048:I130:APD                                              Difference in Azimuth between PSR and SSR plot
 CAT048:I140:ToD                                              Time Of Day
 CAT048:I161:Tn                                               Track Number
-CAT048:I170:CNF                                              CBF
+CAT048:I170:CNF                                              CNF
 CAT048:I170:RAD                                              RAD
 CAT048:I170:DOU                                              DOU
 CAT048:I170:MAH                                              MAH
@@ -1135,36 +1135,31 @@ CAT048:I250:BDS40:BP                                         Barometric Pressure
 CAT048:I250:BDS40:res                                        Reserved
 CAT048:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT048:I250:BDS40:VNAV                                       VNAV Mode
-CAT048:I250:BDS40:ALTHOLD                                    ALT HOLD Mode
-CAT048:I250:BDS40:APPMODE                                    APPROACH Mode
+CAT048:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT048:I250:BDS40:APP                                        APPROACH Mode
 CAT048:I250:BDS40:res                                        Reserved
-CAT048:I250:BDS40:TARGETALTSTAT                              Status of Target ALT source bits
-CAT048:I250:BDS40:TARGETALTSRC                               Target ALT source
-CAT048:I250:BDS50:ROLL_STATUS                                Roll Angle Status
-CAT048:I250:BDS50:ROLL_SIGN_DIR                              Roll Angle Direction
-CAT048:I250:BDS50:ROLL_ANGLE                                 Roll angle
-CAT048:I250:BDS50:TRUE_TRACK_STATUS                          True Track Angle Status
-CAT048:I250:BDS50:TRUE_TRACK_ANGLE_DIR                       True Track Angle Direction
-CAT048:I250:BDS50:TRU_TRACK_ANGLE                            True track angle
+CAT048:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT048:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT048:I250:BDS50:RA_STATUS                                  Roll Angle Status
+CAT048:I250:BDS50:RA                                         Roll Angle
+CAT048:I250:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT048:I250:BDS50:TTA                                        True Track Angle
 CAT048:I250:BDS50:GS_STATUS                                  Ground Speed Status
 CAT048:I250:BDS50:GS                                         Ground Speed
-CAT048:I250:BDS50:TRACK_ANGLE_RATE_STATUS                    Track Angle Rate Status
-CAT048:I250:BDS50:TRACK_ANGLE_RATE_SIGN                      Track Angle Rate Sign
-CAT048:I250:BDS50:TRACK_ANGLE_RATE                           Track angle rate
+CAT048:I250:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT048:I250:BDS50:TAR                                        Track Angle Rate
 CAT048:I250:BDS50:TAS_STATUS                                 True Airspeed Status
 CAT048:I250:BDS50:TAS                                        True Airspeed
-CAT048:I250:BDS60:HDG_STAT                                   Heading Status
-CAT048:I250:BDS60:HDG_DIR                                    Head Direction
+CAT048:I250:BDS60:HDG_STATUS                                 Heading Status
 CAT048:I250:BDS60:HDG                                        Magnetic Heading
 CAT048:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
 CAT048:I250:BDS60:IAS                                        Indicated Airspeed
-CAT048:I250:BDS60:MACH_STAT                                  Mach Speed Status
+CAT048:I250:BDS60:MACH_STATUS                                Mach Speed Status
 CAT048:I250:BDS60:MACH                                       Mach Speed
-CAT048:I250:BDS60:BAR_STAT                                   Barometric Altitude Rate Status
-CAT048:I250:BDS60:BAR_DIR                                    Barometric Altitude Rate Direction
+CAT048:I250:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
 CAT048:I250:BDS60:BAR                                        Barometric Altitude Rate
-CAT048:I250:BDS60:IVV_STAT                                   Inertial Vertical Velocity Status
-CAT048:I250:BDS60:IVV                                        Inertial Vertical Velocity 
+CAT048:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT048:I250:BDS60:IVV                                        Inertial Vertical Velocity
 CAT048:I250:BDS0:BDS                                         BDS value
 CAT048:I260:MBdata                                           BDS 3,0
 CAT048:ISP:SP                                                SP
