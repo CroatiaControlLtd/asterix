@@ -174,13 +174,7 @@
 					<BitsShortName>HDG_STAT</BitsShortName>
 					<BitsName>Heading Status</BitsName>
 				</Bits>
-				<Bits bit="55">
-					<BitsShortName>HDG_DIR</BitsShortName>
-					<BitsName>Head Direction</BitsName>
-                    <BitsValue val="0">East</BitsValue>
-                    <BitsValue val="1">West</BitsValue>
-				</Bits>
-				<Bits from="54" to="45" encode="unsigned">
+				<Bits from="55" to="45" encode="signed">
 					<BitsShortName>HDG</BitsShortName>
 					<BitsName>Magnetic Heading</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
@@ -207,13 +201,7 @@
 					<BitsShortName>BAR_STAT</BitsShortName>
 					<BitsName>Barometric Altitude Rate Status</BitsName>
 				</Bits>
-				<Bits bit="21">
-					<BitsShortName>BAR_DIR</BitsShortName>
-					<BitsName>Barometric Altitude Rate Direction</BitsName>
-                    <BitsValue val="0">Above</BitsValue>
-                    <BitsValue val="1">Below</BitsValue>
-				</Bits>
-				<Bits from="20" to="12" encode="unsigned">
+				<Bits from="21" to="12" encode="signed">
 					<BitsShortName>BAR</BitsShortName>
 					<BitsName>Barometric Altitude Rate</BitsName>
                     <BitsUnit scale="32">ft/min</BitsUnit>
@@ -222,9 +210,9 @@
 					<BitsShortName>IVV_STAT</BitsShortName>
 					<BitsName>Inertial Vertical Velocity Status</BitsName>
 				</Bits>
-				<Bits from="10" to="1" encode="unsigned">
+				<Bits from="10" to="1" encode="signed">
 					<BitsShortName>IVV</BitsShortName>
-					<BitsName>Inertial Vertical Velocity </BitsName>
+					<BitsName>Inertial Vertical Velocity</BitsName>
                     <BitsUnit scale="32">ft/min</BitsUnit>
 				</Bits>
 			</Fixed>
