@@ -102,30 +102,18 @@
 					<BitsShortName>ROLL_STATUS</BitsShortName>
 					<BitsName>Roll Angle Status</BitsName>
 				</Bits>
-				<Bits bit="55">
-					<BitsShortName>ROLL_SIGN_DIR</BitsShortName>
-					<BitsName>Roll Angle Direction</BitsName>
-                    <BitsValue val="0">Right wing down</BitsValue>
-                    <BitsValue val="1">Left wing down</BitsValue>
-				</Bits>
-				<Bits from="54" to="46" encode="signed">
+				<Bits from="55" to="46" encode="signed">
 					<BitsShortName>ROLL_ANGLE</BitsShortName>
-					<BitsName>Roll angle</BitsName>
+					<BitsName>Roll Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
 				</Bits>
 				<Bits bit="45">
 					<BitsShortName>TRUE_TRACK_STATUS</BitsShortName>
 					<BitsName>True Track Angle Status</BitsName>
 				</Bits>
-				<Bits bit="44">
-					<BitsShortName>TRUE_TRACK_ANGLE_DIR</BitsShortName>
-					<BitsName>True Track Angle Direction</BitsName>
-                    <BitsValue val="0">East</BitsValue>
-                    <BitsValue val="1">West</BitsValue>
-				</Bits>
-				<Bits from="43" to="34" encode="signed">
+				<Bits from="44" to="34" encode="signed">
 					<BitsShortName>TRU_TRACK_ANGLE</BitsShortName>
-					<BitsName>True track angle</BitsName>
+					<BitsName>True Track Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
 				</Bits>
 				<Bits bit="33">
@@ -141,15 +129,9 @@
 					<BitsShortName>TRACK_ANGLE_RATE_STATUS</BitsShortName>
 					<BitsName>Track Angle Rate Status</BitsName>
 				</Bits>
-				<Bits bit="21">
-					<BitsShortName>TRACK_ANGLE_RATE_SIGN</BitsShortName>
-					<BitsName>Track Angle Rate Sign</BitsName>
-                    <BitsValue val="0">Plus</BitsValue>
-                    <BitsValue val="1">Minus</BitsValue>
-				</Bits>
-				<Bits from="20" to="12" encode="signed">
+				<Bits from="21" to="12" encode="signed">
 					<BitsShortName>TRACK_ANGLE_RATE</BitsShortName>
-					<BitsName>Track angle rate</BitsName>
+					<BitsName>Track Angle Rate</BitsName>
                     <BitsUnit scale="0.03125">deg/sec</BitsUnit>
 				</Bits>
 				<Bits bit="11">
