@@ -60,13 +60,13 @@
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
                 <Bits bit="7">
-                    <BitsShortName>ALTHOLD</BitsShortName>
+                    <BitsShortName>ALT_HOLD</BitsShortName>
 					<BitsName>ALT HOLD Mode</BitsName>
                     <BitsValue val="0">Not active</BitsValue>
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
                 <Bits bit="6">
-                    <BitsShortName>APPMODE</BitsShortName>
+                    <BitsShortName>APP</BitsShortName>
 					<BitsName>APPROACH Mode</BitsName>
                     <BitsValue val="0">Not active</BitsValue>
                     <BitsValue val="1">Active</BitsValue>
@@ -76,13 +76,13 @@
 					<BitsName>Reserved</BitsName>
 				</Bits>
                 <Bits bit="3">
-                    <BitsShortName>TARGETALTSTAT</BitsShortName>
+                    <BitsShortName>TARGET_ALT_STATUS</BitsShortName>
 					<BitsName>Status of Target ALT source bits</BitsName>
                     <BitsValue val="0">No source information provided</BitsValue>
                     <BitsValue val="1">Source information deliberately provided</BitsValue>
                 </Bits>
                 <Bits from="2" to="1">
-                    <BitsShortName>TARGETALTSRC</BitsShortName>
+                    <BitsShortName>TARGET_ALT_SOURCE</BitsShortName>
 					<BitsName>Target ALT source</BitsName>
                     <BitsValue val="0">Unknown</BitsValue>
                     <BitsValue val="1">Aircraft Altitude</BitsValue>
@@ -99,20 +99,20 @@
 		<DataItemFormat desc="Seven-octets fixed length data item.">
 			<Fixed length="7">
 				<Bits bit="56">
-					<BitsShortName>ROLL_STATUS</BitsShortName>
+					<BitsShortName>RA_STATUS</BitsShortName>
 					<BitsName>Roll Angle Status</BitsName>
 				</Bits>
 				<Bits from="55" to="46" encode="signed">
-					<BitsShortName>ROLL_ANGLE</BitsShortName>
+					<BitsShortName>RA</BitsShortName>
 					<BitsName>Roll Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
 				</Bits>
 				<Bits bit="45">
-					<BitsShortName>TRUE_TRACK_STATUS</BitsShortName>
+					<BitsShortName>TTA_STATUS</BitsShortName>
 					<BitsName>True Track Angle Status</BitsName>
 				</Bits>
 				<Bits from="44" to="34" encode="signed">
-					<BitsShortName>TRU_TRACK_ANGLE</BitsShortName>
+					<BitsShortName>TTA</BitsShortName>
 					<BitsName>True Track Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
 				</Bits>
@@ -126,11 +126,11 @@
                     <BitsUnit scale="2">kt</BitsUnit>
 				</Bits>
 				<Bits bit="22">
-					<BitsShortName>TRACK_ANGLE_RATE_STATUS</BitsShortName>
+					<BitsShortName>TAR_STATUS</BitsShortName>
 					<BitsName>Track Angle Rate Status</BitsName>
 				</Bits>
 				<Bits from="21" to="12" encode="signed">
-					<BitsShortName>TRACK_ANGLE_RATE</BitsShortName>
+					<BitsShortName>TAR</BitsShortName>
 					<BitsName>Track Angle Rate</BitsName>
                     <BitsUnit scale="0.03125">deg/sec</BitsUnit>
 				</Bits>
@@ -153,7 +153,7 @@
 		<DataItemFormat desc="Seven-octets fixed length data item.">
 			<Fixed length="7">
 				<Bits bit="56">
-					<BitsShortName>HDG_STAT</BitsShortName>
+					<BitsShortName>HDG_STATUS</BitsShortName>
 					<BitsName>Heading Status</BitsName>
 				</Bits>
 				<Bits from="55" to="45" encode="signed">
@@ -171,7 +171,7 @@
                     <BitsUnit scale="1">kt</BitsUnit>
 				</Bits>
 				<Bits bit="33">
-					<BitsShortName>MACH_STAT</BitsShortName>
+					<BitsShortName>MACH_STATUS</BitsShortName>
 					<BitsName>Mach Speed Status</BitsName>
 				</Bits>
 				<Bits from="32" to="23">
@@ -180,7 +180,7 @@
                     <BitsUnit scale=".004">MACH</BitsUnit>
 				</Bits>
 				<Bits bit="22">
-					<BitsShortName>BAR_STAT</BitsShortName>
+					<BitsShortName>BAR_STATUS</BitsShortName>
 					<BitsName>Barometric Altitude Rate Status</BitsName>
 				</Bits>
 				<Bits from="21" to="12" encode="signed">
@@ -189,7 +189,7 @@
                     <BitsUnit scale="32">ft/min</BitsUnit>
 				</Bits>
 				<Bits bit="11">
-					<BitsShortName>IVV_STAT</BitsShortName>
+					<BitsShortName>IVV_STATUS</BitsShortName>
 					<BitsName>Inertial Vertical Velocity Status</BitsName>
 				</Bits>
 				<Bits from="10" to="1" encode="signed">
