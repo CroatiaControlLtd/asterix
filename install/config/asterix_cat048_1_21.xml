@@ -851,7 +851,7 @@
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>CNF</BitsShortName>
-                        <BitsName>CBF</BitsName>
+                        <BitsName>CNF</BitsName>
                         <BitsValue val="0">Confirmed Track</BitsValue>
                         <BitsValue val="1">Tentative Track</BitsValue>
                     </Bits>
