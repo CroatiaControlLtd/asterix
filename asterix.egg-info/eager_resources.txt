@@ -1,7 +1,5 @@
 config/asterix_cat021_1_8.xml
 config/asterix_cat034_1_26.xml
-config/asterix_cat048_1_14.xml
-config/asterix_cat048_1_21.xml
 config/asterix.dtd
 config/asterix.ini
 config/asterix_cat001_1_1.xml
@@ -18,6 +16,8 @@ config/asterix_cat030_6_2.xml
 config/asterix_cat031_6_2.xml
 config/asterix_cat032_6_2.xml
 config/asterix_cat032_7_0.xml
+config/asterix_cat048_1_14.xml
+config/asterix_cat048_1_21.xml
 config/asterix_cat062_0_17.xml
 config/asterix_cat062_1_16.xml
 config/asterix_cat062_1_7.xml

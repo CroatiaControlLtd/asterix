@@ -30,7 +30,7 @@ except(OSError):
     pass
 
 asterix_module = Extension('_asterix',
-                    sources = ['./src/python/_asterix.c', 
+                    sources = ['./src/python/asterix.c',
                                 './src/python/python_wrapper.c', 
                                 './src/python/python_parser.cpp', 
                                 './src/asterix/AsterixDefinition.cpp',
@@ -96,8 +96,9 @@ try:
 finally:
     f.close()    
     
-data_files = [os.path.join('./install/config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
+config_files = [os.path.join('./install/config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
 eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
+sample_files = [os.path.join('./install/sample_data/', f) for f in listdir('./install/sample_data/') if os.path.isfile(os.path.join('./install/sample_data/', f))]
 
 setup (name = 'asterix',
        packages = ['asterix'],
@@ -106,13 +107,13 @@ setup (name = 'asterix',
        keywords = "asterix, eurocontrol, radar, track, croatiacontrol",
        long_description = README,
        ext_modules = [asterix_module],
-       data_files = [('config', data_files)],
+       data_files = [('config', config_files), ('sample_data', sample_files)],
        eager_resources = eager_files,
        author="Damir Salantic",
        author_email="damir.salantic@crocontrol.hr",
        download_url="https://github.com/CroatiaControlLtd/asterix",
        license="GPL",
-       platforms=['any'],      
+       platforms=['any'],
        url="https://github.com/CroatiaControlLtd/asterix",
        classifiers=CLASSIFIERS,
        )
