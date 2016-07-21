@@ -83,3 +83,4 @@ install/config/asterix_cat252_6_1.xml
 install/config/asterix_cat252_6_2.xml
 install/config/asterix_cat252_7_0.xml
 src/python/version.h
+test/test_parse.py

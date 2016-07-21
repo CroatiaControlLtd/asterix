@@ -10,8 +10,11 @@ def hello(world):
 def init(filename):
 	return _asterix.init(filename)
 
-def load(filename):
-	_asterix.parse(filename)
+#def load(filename):
+#	_asterix.parse(filename)
+
+def parse(data):
+	return _asterix.parse(data)
 
 # default callback function
 def callback(arg):
@@ -20,7 +23,7 @@ def callback(arg):
 
 # initialize asterix with default configuration
 from pkg_resources import Requirement, resource_filename
-filename = resource_filename(Requirement.parse("asterix"),"config/asterix.ini")
+filename = resource_filename(Requirement.parse("asterix"),"install/config")
 _asterix.init(filename)
 
 # set default callback

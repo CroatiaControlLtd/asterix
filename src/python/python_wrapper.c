@@ -26,7 +26,7 @@
 
 #include "python_parser.h"
 
-//static int bInitialized = 0;
+static int bInitialized = 0;
 
 //static python_definitions* pListOfDefinitions = NULL;
 
@@ -63,10 +63,10 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
     if (!PyArg_ParseTuple(args, "s", &ini_filename))
         return NULL;
 
-	//int ret = python_start(filename);
-	//if (ret == 0)
-	//	bInitialized = 1;
-		
+	int ret = python_start(ini_filename);
+	if (ret == 0)
+		bInitialized = 1;
+
 	//asterix_start(); // TODO
 
 /*
@@ -103,16 +103,17 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
 PyObject*
 parse(PyObject* self, PyObject* args, PyObject *kwargs)
 {
+/*
 	const char* filename;
 	if (!PyArg_ParseTuple(args, "s", &filename))
 	        return NULL;
 
 	asterix_start(ini_filename, filename);
 	return NULL;
-/*
+*/
     const char* data;
-    int len;
-
+    Py_ssize_t len;
+    //int len;
 
     if (!PyArg_ParseTuple(args, "s#", &data, &len))
         return NULL;
@@ -127,7 +128,6 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 	if (lstBlocks == NULL)
 		return PyList_New(0);
 	return lstBlocks;
-*/
 }
 
 
