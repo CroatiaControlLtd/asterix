@@ -33,7 +33,7 @@
 #include "UAP.h"
 
 //! parsing buffer size
-#define BUFFSIZE        8192
+#define BUFFSIZE        2*8192
 
 class XMLParser
 {

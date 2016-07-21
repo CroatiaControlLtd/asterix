@@ -137,6 +137,7 @@ extern "C" {
   typedef struct _python_data python_data;
 #endif
   int python_start(const char* ini_file_path);
+  int python_init(const char* ini_file_path);
   void python_set_tracer(ptExtVoidPrintf pPrintFunc);
 //  python_definitions* python_get_definitions(void);
 //  void python_destroy_definitions(python_definitions* pDef);

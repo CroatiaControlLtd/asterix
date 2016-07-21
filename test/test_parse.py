@@ -1,16 +1,16 @@
 # !/usr/bin/python
 __author__ = 'dsalanti'
 
-import unittest
 import asterix
+import unittest
 from pkg_resources import Requirement, resource_filename
 
 
 class AsterixParseTest(unittest.TestCase):
-    def setUp(self):
-        from pkg_resources import Requirement, resource_filename
-        filename = resource_filename(Requirement.parse("asterix"), "install/config")
-        asterix.init(filename)
+    #def setUp(self):
+        #from pkg_resources import Requirement, resource_filename
+        #filename = resource_filename(Requirement.parse("asterix"), "install/config")
+        #asterix.init(filename)
 
     def test_ParseCAT048(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat048.raw")

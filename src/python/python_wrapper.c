@@ -61,43 +61,16 @@ PyObject*
 init(PyObject* self, PyObject* args, PyObject *kwargs)
 {
     if (!PyArg_ParseTuple(args, "s", &ini_filename))
-        return NULL;
+        return Py_BuildValue("i", -1);
 
-	int ret = python_start(ini_filename);
+	int ret = python_init(ini_filename);
 	if (ret == 0)
+	{
 		bInitialized = 1;
-
-	//asterix_start(); // TODO
-
-/*
-	pListOfDefinitions = python_get_definitions();
-
-	// find maximal pid
-	int maxpid = 0;
-	python_definitions* d = pListOfDefinitions;
-	while(d != NULL )
-	{
-		if (d->pid > maxpid)
-			maxpid = d->pid;
-		d = d->next;
+        return Py_BuildValue("i", 0);
 	}
 
-	// create array of definitions
-	pDefinitions = (python_definitions**) malloc((maxpid+1)*sizeof(python_definitions*));
-	memset(pDefinitions, (maxpid+1)*sizeof(python_definitions*), 0);
-
-	// sort definitions in array
-	d = pListOfDefinitions;
-	while(d != NULL)
-	{
-		pDefinitions[d->pid] = d;
-		d = d->next;
-	}
-
-	printf("Total definitions = %d", maxpid);
-*/
-
-    Py_RETURN_NONE;
+    return Py_BuildValue("i", -2);
 }
 
 PyObject*
