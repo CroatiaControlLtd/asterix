@@ -16,11 +16,7 @@ Keywords: asterix,eurocontrol,radar,track,croatiacontrol
 Platform: any
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: GPL License
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
 Classifier: Programming Language :: C
-Classifier: Programming Language :: Python :: 2.4
-Classifier: Programming Language :: Python :: 2.5
-Classifier: Programming Language :: Python :: 2.6
-Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: C++
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.2

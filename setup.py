@@ -10,19 +10,14 @@ import re
 import sys
 
 
-CLASSIFIERS = filter(None, map(str.strip,
-"""
-Development Status :: 2 - Pre-Alpha
-Intended Audience :: Developers
-License :: OSI Approved :: GPL License
-Programming Language :: C
-Programming Language :: Python :: 2.4
-Programming Language :: Python :: 2.5
-Programming Language :: Python :: 2.6
-Programming Language :: Python :: 2.7
-Programming Language :: Python :: 3
-Programming Language :: Python :: 3.2
-""".splitlines()))
+CLASSIFIERS = [
+'Development Status :: 2 - Pre-Alpha',
+'Intended Audience :: Developers',
+'License :: OSI Approved :: GNU General Public License (GPL)',
+'Programming Language :: C',
+'Programming Language :: C++',
+'Programming Language :: Python :: 3',
+]
 
 try:
     shutil.rmtree("./build")
