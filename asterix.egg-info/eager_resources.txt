@@ -12,9 +12,8 @@
 ./install/config/asterix_cat032_7_0.xml
 ./install/config/asterix_cat034_1_26.xml
 ./install/config/asterix_cat048_1_21.xml
-./install/config/asterix_cat062_1_9.xml
+./install/config/asterix_cat062_1_16.xml
 ./install/config/asterix_cat063_1_3.xml
 ./install/config/asterix_cat065_1_3.xml
 ./install/config/asterix_cat247_1_2.xml
-./install/config/asterix_cat252_6_2.xml
 ./install/config/asterix_cat252_7_0.xml

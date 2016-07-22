@@ -29,6 +29,7 @@ try:
 except(OSError):
     pass
 
+
 asterix_module = Extension('_asterix',
                     sources = ['./src/python/asterix.c',
                                 './src/python/python_wrapper.c', 
@@ -61,6 +62,7 @@ asterix_module = Extension('_asterix',
                     include_dirs = ['./asterix/python', './src/asterix', './src/engine', './src/main'],
                     extra_compile_args=['-D_GNU_SOURCE', '-DPYTHON_WRAPPER', '-DLINUX'],
                     extra_link_args=['-lexpat'])
+
 
 def get_version():
     filename = os.path.join(os.path.dirname(__file__), './src/python/version.h')
@@ -97,11 +99,10 @@ config_files = ['./install/config/asterix_cat001_1_1.xml',
                 './install/config/asterix_cat032_7_0.xml',
                 './install/config/asterix_cat034_1_26.xml',
                 './install/config/asterix_cat048_1_21.xml',
-                './install/config/asterix_cat062_1_9.xml',
+                './install/config/asterix_cat062_1_16.xml',
                 './install/config/asterix_cat063_1_3.xml',
                 './install/config/asterix_cat065_1_3.xml',
                 './install/config/asterix_cat247_1_2.xml',
-                './install/config/asterix_cat252_6_2.xml',
                 './install/config/asterix_cat252_7_0.xml'
                 ]
 
@@ -129,9 +130,9 @@ setup (name = 'asterix',
        classifiers=CLASSIFIERS,
        )
 
-if sys.version_info[0] >= 3:
-    print( "*" * 100)
-    print("If you want to run the tests be sure to run 2to3 on them first, "
-          "e.g. `2to3 -w tests/tests.py`.")
-    print("*" * 100)
+#if sys.version_info[0] >= 3:
+#    print( "*" * 100)
+#    print("If you want to run the tests be sure to run 2to3 on them first, "
+#          "e.g. `2to3 -w tests/tests.py`.")
+#    print("*" * 100)
 
