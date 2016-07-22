@@ -1,0 +1,18 @@
+language: cpp
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install valgrind
+  
+compiler:
+  - gcc
+
+before_script:
+  - cd src
+
+script: 
+  - make
+  - make MODE=DEBUG
+  - make test
+  - cd ..
+  - python setup.py install
