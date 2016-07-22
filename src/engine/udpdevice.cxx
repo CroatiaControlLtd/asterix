@@ -172,6 +172,7 @@ bool CUdpDevice::Read(void *data, size_t len)
 
 bool CUdpDevice::Read(void *data, size_t* len)
 {
+
     // Check if interface was set-up correctly (server)
     if ((!_opened) || (!_server))
     {
@@ -203,9 +204,10 @@ bool CUdpDevice::Read(void *data, size_t* len)
 
 	    *len = lenread;
 
-	    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s.\n",
+	    LOGDEBUG(ZONE_UDPDEVICE, "Read message from %s on address %s with length %zu.\n",
 		inet_ntoa(clientAddr.sin_addr),
-		inet_ntoa(_mcastAddr.sin_addr));
+		inet_ntoa(_mcastAddr.sin_addr),
+		lenread);
 
 
 	    ResetReadErrors(true);
@@ -368,6 +370,7 @@ bool CUdpDevice::InitServer(int socketDesc)
 			}
     	}
     }
+
     return true;
 }
 
@@ -398,6 +401,7 @@ bool CUdpDevice::InitClient(int socketDesc)
            return false;
         }
     }
+
     return true;
 }
 

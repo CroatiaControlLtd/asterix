@@ -72,7 +72,7 @@ public:
     
     ~CChannel()
     {
-        if (_FormatDescriptor != NULL) delete _FormatDescriptor;
+        // if (_FormatDescriptor != NULL) delete _FormatDescriptor;
     }
     
     unsigned int GetDeviceNo() { return _DeviceNo; }

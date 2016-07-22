@@ -35,6 +35,26 @@ UAPItem::UAPItem()
 {
 }
 
+UAPItem::UAPItem(const UAPItem& obj)
+: DataItemFormat(obj.m_nID)
+{
+	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+
+	while(it != obj.m_lSubItems.end())
+	{
+		DataItemFormat* di = (DataItemFormat*)(*it);
+		m_lSubItems.push_back(di->clone());
+		it++;
+	}
+
+	m_pParentFormat = obj.m_pParentFormat;
+	m_nBit = obj.m_nBit;
+	m_nFRN = obj.m_nFRN;
+	m_bFX = obj.m_bFX;
+	m_nLen = obj.m_nLen;
+	m_strItemID = obj.m_strItemID;
+}
+
 UAPItem::~UAPItem()
 {
 }

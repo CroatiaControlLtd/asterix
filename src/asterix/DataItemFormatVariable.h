@@ -30,12 +30,13 @@
 class DataItemFormatVariable : public DataItemFormat
 {
 public:
-  DataItemFormatVariable();
+  DataItemFormatVariable(int id=0);
+  DataItemFormatVariable(const DataItemFormatVariable& obj);
   virtual
   ~DataItemFormatVariable();
 
+  DataItemFormatVariable* clone() const { return new DataItemFormatVariable(*this); } // Return clone of object
   long getLength(const unsigned char* pData);
-  void addBits(DataItemBits* pBits);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering

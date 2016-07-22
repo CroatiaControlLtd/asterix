@@ -33,6 +33,7 @@
 
 
 static AsterixDefinition* pDefinition = NULL;
+static InputParser *inputParser = NULL;
 bool gFiltering = false;
 bool gSynchronous = false;
 const char* gAsterixDefinitionsFile = NULL;
@@ -47,6 +48,9 @@ int python_init(const char* xml_config_file)
 {
     if (!pDefinition)
         pDefinition = new AsterixDefinition();
+
+    if (!inputParser)
+        inputParser = new InputParser(pDefinition);
 
     FILE* fp = fopen(xml_config_file, "rt");
     if (!fp)
@@ -66,14 +70,16 @@ int python_init(const char* xml_config_file)
 
 PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
 {
-  InputParser inputParser(pDefinition);
-  AsterixData* pData = inputParser.parsePacket(pBuf, len);
-  if (pData)
-  { // convert to Python format
-	  PyObject *lst = pData->getData();
-	  delete pData;
-	  return lst;
-  }
-  return NULL;
+    if (inputParser)
+    {
+        AsterixData* pData = inputParser->parsePacket(pBuf, len);
+        if (pData)
+        { // convert to Python format
+          PyObject *lst = pData->getData();
+          delete pData;
+          return lst;
+        }
+    }
+    return NULL;
 }
 

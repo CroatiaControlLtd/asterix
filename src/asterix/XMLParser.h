@@ -30,6 +30,7 @@
 #include "DataItemFormatCompound.h"
 #include "DataItemFormatExplicit.h"
 #include "DataItemFormatRepetitive.h"
+#include "DataItemFormatBDS.h"
 #include "UAP.h"
 
 //! parsing buffer size

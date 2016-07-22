@@ -1,3 +1,4 @@
+./install/config/asterix_bds.xml
 ./install/config/asterix_cat001_1_1.xml
 ./install/config/asterix_cat002_1_0.xml
 ./install/config/asterix_cat004_1_8.xml

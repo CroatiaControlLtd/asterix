@@ -103,3 +103,20 @@ Issue #33 Subscribe to more than one multicast group for input
 2.2.1
 13.4.2016.
 Issue #38 filter appends extra characters in multibit dataitems
+
+2.3.0
+7.7.2016.
+Issue #39 Additional updates for category 48, version 1.21
+Issue #40 Example for reading Special Purpose field in CAT48
+Issue #41 Implementing BDS decoding using fixed length definitions
+Issue #42 Segmentation fault
+Issue #43 Added hex dump of packets before asterix decoding in DEBUG mode
+Issue #44 #45 CAT21v0.26 DI165 was defined as compound, changed to variable
+Issue #46 filtering fails to properly produce valid json outputfiltering fails to properly produce valid json output
+Issue #47 Fix: cat21v0.26/di090/PA is unsigned
+Issue #48 Fix: cat21v0.26/160/GS is signed 
+Issue #49 Memory leaks fixedIssue #49 Memory leaks fixed
+Issue #50 fixed spelling typo 
+Issue #51 BDS decoding implemented (for now registers 40,50,60)
+Feature: Added automatic tests and Travis CI integration
+

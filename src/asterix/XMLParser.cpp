@@ -31,8 +31,6 @@
 #include "XMLParser.h"
 #include "Tracer.h"
 
-#include "DataItemFormatFixed.h"
-
 /*!
  * Handling of CDATA
  */
@@ -134,9 +132,14 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 		{
 			if (!strcmp(attr[i], "id"))
 			{ // <!ATTLIST id CDATA #REQUIRED>
-				int id = atoi(attr[i+1]);
+				int id = 0;
 
-				if (id >= 0 && id <= 255)
+				if (!strcmp(attr[i+1], "BDS"))
+					id = BDS_CAT_ID;
+				else
+					id = atoi(attr[i+1]);
+
+				if (id >= 0 && id <= MAX_CATEGORIES)
 				{
 					p->m_pCategory = p->m_pDef->getCategory(id);
 				}
@@ -226,6 +229,48 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			}
 		}
 	}
+	else if (!strcmp(el, "BDS"))
+	{ // <!ELEMENT BDS (Bits+)>
+		Category* m_pBDSCategory = p->m_pDef->getCategory(BDS_CAT_ID);
+
+		std::list<DataItemDescription*>::iterator it =  m_pBDSCategory->m_lDataItems.begin();
+		if (it == m_pBDSCategory->m_lDataItems.end())
+		{
+			p->Error("XMLParser : Missing BDS definition file.");
+			return;
+		}
+
+		if (!p->m_pDataItem)
+		{
+			p->Error("XMLParser : <BDS> without <DataItem>");
+			return;
+		}
+
+		DataItemFormat* pFormatBDS = new DataItemFormatBDS(p->m_pDataItem->m_nID);
+
+		while(it != m_pBDSCategory->m_lDataItems.end())
+		{
+			DataItemDescription* dip = (DataItemDescription*)(*it);
+			pFormatBDS->m_lSubItems.push_back(dip->m_pFormat->clone());
+			it++;
+		}
+
+		if (p->m_pFormat != NULL)
+		{
+			delete pFormatBDS;
+			p->Error("XMLParser : <BDS> must be in <DataItem>");
+			return;
+		}
+		else
+		{
+			if (p->m_pDataItem->m_pFormat)
+			{
+				p->Error("XMLParser : Duplicate format in item ", p->m_pDataItem->m_strName.c_str());
+			}
+			p->m_pDataItem->m_pFormat = pFormatBDS;
+			p->m_pFormat = pFormatBDS;
+		}
+	}
 	else if (!strcmp(el, "Fixed"))
 	{ // <!ELEMENT Fixed (Bits+)>
 		if (!p->m_pDataItem)
@@ -234,7 +279,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatFixed = new DataItemFormatFixed();
+		DataItemFormat* pFormatFixed = new DataItemFormatFixed(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -314,7 +359,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatExplicit = new DataItemFormatExplicit();
+		DataItemFormat* pFormatExplicit = new DataItemFormatExplicit(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -353,7 +398,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatRepetitive = new DataItemFormatRepetitive();
+		DataItemFormat* pFormatRepetitive = new DataItemFormatRepetitive(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -400,7 +445,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatVariable = new DataItemFormatVariable();
+		DataItemFormat* pFormatVariable = new DataItemFormatVariable(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -442,7 +487,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 			return;
 		}
 
-		DataItemFormat* pFormatCompound = new DataItemFormatCompound();
+		DataItemFormat* pFormatCompound = new DataItemFormatCompound(p->m_pDataItem->m_nID);
 
 		if (p->m_pFormat != NULL)
 		{
@@ -495,7 +540,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 		}
 
 		DataItemBits* pBits = new DataItemBits();
-		p->m_pFormat->addBits(pBits);
+		p->m_pFormat->m_lSubItems.push_back(pBits);
 
 		pBits->m_pParentFormat = p->m_pFormat;
 		p->m_pFormat = pBits;
@@ -856,6 +901,17 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 	else if (!strcmp(el, "Repetitive"))
 	{
 		if (p->m_pFormat != NULL && p->m_pFormat->isRepetitive())
+		{
+			p->m_pFormat = p->m_pFormat->m_pParentFormat;
+		}
+		else
+		{
+			p->Error("Closing unopened tag: ", el);
+		}
+	}
+	else if (!strcmp(el, "BDS"))
+	{
+		if (p->m_pFormat != NULL && p->m_pFormat->isBDS())
 		{
 			p->m_pFormat = p->m_pFormat->m_pParentFormat;
 		}

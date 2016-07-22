@@ -232,7 +232,7 @@ static void debug_trace(char const*format, ...)
   char buffer[1024];
   va_list args;
   va_start (args, format);
-  vsprintf (buffer,format, args);
+  vsnprintf (buffer, 1024, format, args);
   va_end (args);
   strcat(buffer, "\n");
   LOGERROR(1, "%s", buffer);

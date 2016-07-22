@@ -31,8 +31,9 @@
 int DataItemFormat::m_nLastPID = PID_LAST;
 #endif
 
-DataItemFormat::DataItemFormat()
+DataItemFormat::DataItemFormat(int id)
 : m_pParentFormat(NULL)
+, m_nID(id)
 {
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   m_nPID = m_nLastPID++;

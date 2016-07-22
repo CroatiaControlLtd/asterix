@@ -31,6 +31,7 @@ class BitsValue
 {
 public:
   BitsValue(int val) { m_nVal = val; }
+  BitsValue(int val, std::string strDescription) { m_nVal = val; m_strDescription = strDescription; }
 
   int m_nVal;
   std::string m_strDescription;
@@ -39,7 +40,8 @@ public:
 class DataItemBits : public DataItemFormat
 {
 public:
-  DataItemBits();
+  DataItemBits(int id=0);
+  DataItemBits(const DataItemBits& obj);
   virtual
   ~DataItemBits();
 
@@ -76,6 +78,7 @@ public:
 
   bool m_bFiltered; //! item shall be printed when filter is applied
 
+  DataItemBits* clone() const { return new DataItemBits(*this); } // Return clone of object
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value to strResult
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
@@ -93,7 +96,6 @@ public:
 #endif
 
   long getLength(const unsigned char* pData);
-  void addBits(DataItemBits* pBits);
 
 private:
   unsigned char* getBits(unsigned char* pData, int bytes, int frombit, int tobit);

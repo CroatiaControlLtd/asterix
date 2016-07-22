@@ -23,7 +23,10 @@
 
 #ifndef INPUTPARSER_H_
 #define INPUTPARSER_H_
-
+#include <ios>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 #include "AsterixDefinition.h"
 #include "AsterixData.h"
 
@@ -31,6 +34,7 @@ class InputParser
 {
 public:
   InputParser(AsterixDefinition* pDefinition);
+  ~InputParser() { if (m_pDefinition) delete m_pDefinition; }
   AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp = 0);
 
   std::string printDefinition();

@@ -2,12 +2,12 @@ import _asterix
 import os
 from pkg_resources import Requirement, resource_filename
 
-def set_callback(callback):
-    return _asterix.set_callback(callback)
+#def set_callback(callback):
+#    return _asterix.set_callback(callback)
 
 
-def hello(world):
-    return _asterix.hello(world)
+#def hello(world):
+#    return _asterix.hello(world)
 
 
 def init(filename):
@@ -55,9 +55,9 @@ def parse(data, format=None):
 
 
 # default callback function
-def callback(arg):
-    for a in arg:
-        print(a)
+#def callback(arg):
+#    for a in arg:
+#        print(a)
 
 # initialize asterix with default configuration files
 filepath = resource_filename(Requirement.parse("asterix"), "install/config")
@@ -67,4 +67,4 @@ for fn in sorted(os.listdir(filepath)):
         _asterix.init(f)
 
 # set default callback
-_asterix.set_callback(callback)
+#_asterix.set_callback(callback)

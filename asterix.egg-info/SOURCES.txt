@@ -13,6 +13,7 @@ setup.py
 ./src/asterix/DataItemBits.cpp
 ./src/asterix/DataItemDescription.cpp
 ./src/asterix/DataItemFormat.cpp
+./src/asterix/DataItemFormatBDS.cpp
 ./src/asterix/DataItemFormatCompound.cpp
 ./src/asterix/DataItemFormatExplicit.cpp
 ./src/asterix/DataItemFormatFixed.cpp
@@ -52,6 +53,7 @@ asterix.egg-info/eager_resources.txt
 asterix.egg-info/top_level.txt
 install/config/asterix.dtd
 install/config/asterix.ini
+install/config/asterix_bds.xml
 install/config/asterix_cat001_1_1.xml
 install/config/asterix_cat002_1_0.xml
 install/config/asterix_cat004_1_8.xml

@@ -229,8 +229,9 @@ bool CTcpDevice::Read(void *data, size_t len)
 #endif
     
     
-    LOGDEBUG(ZONE_TCPDEVICE, "Read message from socket %d.\n", 
-           socketToRecv);
+    LOGDEBUG(ZONE_TCPDEVICE, "Read message from socket %d with length %d.\n",
+           socketToRecv,
+           bytesReceived);
 
     ResetReadErrors(true);   
     return true;

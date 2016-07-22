@@ -140,7 +140,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 	if (!device.Read((void*)pPacketBuffer, nPacketBufferSize))
 	{
 		LOGERROR(1, "Couldn't read PCAP packet.\n");
-		delete pPacketBuffer;
+		delete[] pPacketBuffer;
 		return false;
 	}
 
@@ -177,7 +177,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 	else if (protoType != 0x800)
 	{
 		LOGERROR(1, "Unknown protocol type (%x)\n", protoType);
-		delete pPacketBuffer;
+		delete[] pPacketBuffer;
 		return false;
 	}
 
@@ -207,7 +207,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 	{ // TODO only UDP supported for now
 		pPacketPtr += IPtotalLength-10;
 		LOGERROR(1, "Unsupported protocol type (%x)", protocol);
-		delete pPacketBuffer;
+		delete[] pPacketBuffer;
 		return false;
 	}
 
@@ -235,7 +235,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 		if (IPtotalLength != m_nDataLength)
 		{
 			LOGERROR(1, "Wrong UDP data length");
-			delete pPacketBuffer;
+			delete[] pPacketBuffer;
 			return false;
 		}
 		pPacketPtr += 2; // checksum
@@ -295,7 +295,7 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 		Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(pPacketPtr, m_nDataLength, nTimestamp);
 	}
 
-	delete pPacketBuffer;
+	delete[] pPacketBuffer;
 	return true; //TODO
 }
 

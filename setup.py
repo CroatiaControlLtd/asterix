@@ -48,6 +48,7 @@ asterix_module = Extension('_asterix',
                                 './src/asterix/DataItemFormatFixed.cpp',
                                 './src/asterix/DataItemFormatRepetitive.cpp',
                                 './src/asterix/DataItemFormatVariable.cpp',
+                                './src/asterix/DataItemFormatBDS.cpp',
                                 './src/asterix/InputParser.cpp',
                                 './src/asterix/Tracer.cpp',
                                 './src/asterix/UAP.cpp',
@@ -85,7 +86,8 @@ finally:
     
 #config_files = [os.path.join('./install/config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
 
-config_files = ['./install/config/asterix_cat001_1_1.xml',
+config_files = ['./install/config/asterix_bds.xml',
+                './install/config/asterix_cat001_1_1.xml',
                 './install/config/asterix_cat002_1_0.xml',
                 './install/config/asterix_cat004_1_8.xml',
                 './install/config/asterix_cat008_1_0.xml',

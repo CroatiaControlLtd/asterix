@@ -32,6 +32,7 @@
 #include <string.h>
 #include "asterix.h"
 #include "version.h"
+#include "Tracer.h"
 #include "../engine/converterengine.hxx"
 #include "../engine/channelfactory.hxx"
 
@@ -381,7 +382,7 @@ int main(int argc, const char *argv[])
 				}
 				if (sscanf(p, "I%128s", item) != 1)
 					break;
-				p = strtok(NULL, ":");
+				p = strtok(NULL, "");
 				if ( NULL == p )
 				{
 					std::cerr << "Warning: Wrong Filter format. Shall be: \"CATxxx:Ixxx:NAME  DESCRIPTION\" or start with \"#\" for comment . It is: "+std::string(line) << std::endl;
@@ -428,9 +429,10 @@ int main(int argc, const char *argv[])
         exit(1);
     }
 
+    CChannelFactory::DeleteInstance();
     CConverterEngine::DeleteInstance();
-
-    exit(0);
+    CDeviceFactory::DeleteInstance();
+    Tracer::Delete();
 }
 
 

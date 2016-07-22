@@ -30,19 +30,20 @@
 class DataItemFormatFixed : public DataItemFormat
 {
 public:
-  DataItemFormatFixed();
+  DataItemFormatFixed(int id=0);
+  DataItemFormatFixed(const DataItemFormatFixed& obj);
   virtual
   ~DataItemFormatFixed();
 
   int m_nLength;
 
+  DataItemFormatFixed* clone() const { return new DataItemFormatFixed(*this); } // Return clone of object
   long getLength();
   bool isLastPart(const unsigned char* pData);
   bool isSecondaryPartPresent(const unsigned char* pData, int part);
   std::string& getPartName(int part);
 
   long getLength(const unsigned char* pData);
-  void addBits(DataItemBits* pBits);
   bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
   std::string printDescriptors(std::string header); // print items format descriptors
   bool filterOutItem(const char* name); // mark item for filtering
