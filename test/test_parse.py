@@ -33,7 +33,7 @@ class AsterixParseTest(unittest.TestCase):
         with open(sample_filename, "rb") as f:
             data = f.read()
             packet = asterix.parse(data)
-
+            self.maxDiff=None
             self.assertIsNotNone(packet)
             self.assertIsNotNone(packet[0])
             self.assertIs(len(packet), 1)
