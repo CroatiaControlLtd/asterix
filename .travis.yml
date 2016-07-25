@@ -15,5 +15,4 @@ script:
   - make MODE=DEBUG
   - make test
   - cd ..
-  - mkdir dist-packages
-  - python setup.py install --install-base=./dist-packages
+  - python setup.py build
