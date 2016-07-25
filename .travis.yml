@@ -23,6 +23,7 @@ install:
   - make
   - make MODE=DEBUG
   - make test
+  - cd ..
 
 script: 
-  - python -m unittest discover
+  - python -m unittest
