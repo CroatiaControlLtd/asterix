@@ -1,33 +1,33 @@
-==54590== Memcheck, a memory error detector
-==54590== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==54590== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
-==54590== Command: ../../obj/main/debug/asterix -P -d ../config/asterix.ini -f ../sample_data/cat_062_065.pcap -jh
-==54590== 
+==59993== Memcheck, a memory error detector
+==59993== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==59993== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==59993== Command: ../../obj/main/debug/asterix -P -d ../config/asterix.ini -f ../sample_data/cat_062_065.pcap -jh
+==59993== 
 
-DEBUG:   Jul 25 01:48:16 2016 (asterix.cpp) Input channel description: disk ../sample_data/cat_062_065.pcap:0:1 ASTERIX_PCAP
+DEBUG:   Jul 25 03:22:59 2016 (asterix.cpp) Input channel description: disk ../sample_data/cat_062_065.pcap:0:1 ASTERIX_PCAP
 
-DEBUG:   Jul 25 01:48:16 2016 (asterix.cpp) Output channel 1 description: std 0 ASTERIX_JSONH
+DEBUG:   Jul 25 03:22:59 2016 (asterix.cpp) Output channel 1 description: std 0 ASTERIX_JSONH
 
-DEBUG:   Jul 25 01:48:16 2016 (converterengine.cxx) inputDevice(disk)
-DEBUG:   Jul 25 01:48:16 2016 (converterengine.cxx) inputDeviceDescriptor(../sample_data/cat_062_065.pcap:0:1)
-DEBUG:   Jul 25 01:48:16 2016 (converterengine.cxx) inputFormatDescriptor((null))
-DEBUG:   Jul 25 01:48:16 2016 (converterengine.cxx) Input format: ASTERIX_PCAP
+DEBUG:   Jul 25 03:22:59 2016 (converterengine.cxx) inputDevice(disk)
+DEBUG:   Jul 25 03:22:59 2016 (converterengine.cxx) inputDeviceDescriptor(../sample_data/cat_062_065.pcap:0:1)
+DEBUG:   Jul 25 03:22:59 2016 (converterengine.cxx) inputFormatDescriptor((null))
+DEBUG:   Jul 25 03:22:59 2016 (converterengine.cxx) Input format: ASTERIX_PCAP
 
-DEBUG:   Jul 25 01:48:16 2016 (channelfactory.cxx) CChannelFactory successfully initialized with CAsterixFormat.
+DEBUG:   Jul 25 03:22:59 2016 (channelfactory.cxx) CChannelFactory successfully initialized with CAsterixFormat.
 
-DEBUG:   Jul 25 01:48:16 2016 (diskdevice.cxx) Opened input file '../sample_data/cat_062_065.pcap'
+DEBUG:   Jul 25 03:22:59 2016 (diskdevice.cxx) Opened input file '../sample_data/cat_062_065.pcap'
 
-DEBUG:   Jul 25 01:48:16 2016 (channelfactory.cxx) AttachFormatter ASTERIX_PCAP
+DEBUG:   Jul 25 03:22:59 2016 (channelfactory.cxx) AttachFormatter ASTERIX_PCAP
 
-DEBUG:   Jul 25 01:48:17 2016 (converterengine.cxx) Output format: ASTERIX_JSONH
+DEBUG:   Jul 25 03:22:59 2016 (converterengine.cxx) Output format: ASTERIX_JSONH
 
-DEBUG:   Jul 25 01:48:17 2016 (channelfactory.cxx) AttachFormatter ASTERIX_JSONH
+DEBUG:   Jul 25 03:22:59 2016 (channelfactory.cxx) AttachFormatter ASTERIX_JSONH
 
-DEBUG:   Jul 25 01:48:17 2016 (diskdevice.cxx) Done reading file '../sample_data/cat_062_065.pcap'
+DEBUG:   Jul 25 03:22:59 2016 (diskdevice.cxx) Done reading file '../sample_data/cat_062_065.pcap'
 
-DEBUG:   Jul 25 01:48:17 2016 (InputParser.cpp) [3E 00 A1 BF DF FD 02 19 64 01 59 81 B3 00 75 18 FC 00 2C AE D9 FF 19 6B F0 86 60 03 93 FF 43 00 00 02 BD C1 20 4C A7 A8 49 94 B1 DF 40 E0 20 F6 12 69 19 03 01 08 70 17 0D 0D 00 90 0D 0D 06 18 16 CD 06 18 00 00 DC 19 0C 93 BA 88 E8 06 18 02 BD A0 BF DF FD 02 19 64 01 59 81 B3 00 75 CE E5 00 37 26 BD 08 81 3B F1 8A 9F FC BD FF F1 00 09 08 7D C1 20 4C AC 7F 25 34 F2 C3 0D E0 20 F6 1A AF 11 03 01 08 70 20 10 10 40 90 10 10 05 F0 1A 75 05 F0 00 00 DC 19 0C B9 8E 5E B5 05 F0 08 7D A0]
+DEBUG:   Jul 25 03:23:00 2016 (InputParser.cpp) [3E 00 A1 BF DF FD 02 19 64 01 59 81 B3 00 75 18 FC 00 2C AE D9 FF 19 6B F0 86 60 03 93 FF 43 00 00 02 BD C1 20 4C A7 A8 49 94 B1 DF 40 E0 20 F6 12 69 19 03 01 08 70 17 0D 0D 00 90 0D 0D 06 18 16 CD 06 18 00 00 DC 19 0C 93 BA 88 E8 06 18 02 BD A0 BF DF FD 02 19 64 01 59 81 B3 00 75 CE E5 00 37 26 BD 08 81 3B F1 8A 9F FC BD FF F1 00 09 08 7D C1 20 4C AC 7F 25 34 F2 C3 0D E0 20 F6 1A AF 11 03 01 08 70 20 10 10 40 90 10 10 05 F0 1A 75 05 F0 00 00 DC 19 0C B9 8E 5E B5 05 F0 08 7D A0]
 
-DEBUG:   Jul 25 01:48:17 2016 (InputParser.cpp) [41 00 0C F8 19 64 02 01 59 81 B3 01]
+DEBUG:   Jul 25 03:23:00 2016 (InputParser.cpp) [41 00 0C F8 19 64 02 01 59 81 B3 01]
 {"timestamp":45827401,
 "CAT062":{
 	"I010":{
@@ -283,12 +283,12 @@ DEBUG:   Jul 25 01:48:17 2016 (InputParser.cpp) [41 00 0C F8 19 64 02 01 59 81 B
 		"ToD":45827.3984375},
 	"I020":{
 		"BTN":1}}},
-==54590== 
-==54590== HEAP SUMMARY:
-==54590==     in use at exit: 0 bytes in 0 blocks
-==54590==   total heap usage: 24,486 allocs, 24,486 frees, 1,820,151 bytes allocated
-==54590== 
-==54590== All heap blocks were freed -- no leaks are possible
-==54590== 
-==54590== For counts of detected and suppressed errors, rerun with: -v
-==54590== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==59993== 
+==59993== HEAP SUMMARY:
+==59993==     in use at exit: 0 bytes in 0 blocks
+==59993==   total heap usage: 24,486 allocs, 24,486 frees, 1,820,151 bytes allocated
+==59993== 
+==59993== All heap blocks were freed -- no leaks are possible
+==59993== 
+==59993== For counts of detected and suppressed errors, rerun with: -v
+==59993== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

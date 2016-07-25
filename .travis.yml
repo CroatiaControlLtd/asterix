@@ -14,12 +14,10 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install valgrind
   - pip install -r requirements.txt
+  - cd src
 
 compiler:
   - gcc
-
-before_install:
-  - cd src
 
 install:
   - make
