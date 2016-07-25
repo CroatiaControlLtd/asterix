@@ -57,6 +57,16 @@ Category* AsterixDefinition::getCategory(int i)
   return m_pCategory[i];
 }
 
+Category* AsterixDefinition::newCategory(int i)
+{
+  if (m_pCategory[i] != NULL)
+  {
+    delete m_pCategory[i];
+    m_pCategory[i] = NULL;
+  }
+  return getCategory(i);
+}
+
 bool AsterixDefinition::CategoryDefined(int i)
 {
   return (m_pCategory[i] != NULL) ? true : false;

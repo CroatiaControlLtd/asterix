@@ -1,19 +1,30 @@
-language: cpp
+language: python
+
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.5-dev" # 3.5 development branch
+  - "nightly" # currently points to 3.6-dev
 
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install valgrind
-  
+  - pip install -r requirements.txt
+
 compiler:
   - gcc
 
-before_script:
+before_install:
   - cd src
 
-script: 
+install:
   - make
   - make MODE=DEBUG
   - make test
-  - cd ..
-  - python2.7 setup.py build
-  - python3.4 setup.py build
+
+script: 
+  - python -m unittest discover

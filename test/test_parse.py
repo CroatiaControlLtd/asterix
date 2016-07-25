@@ -7,7 +7,6 @@ from pkg_resources import Requirement, resource_filename
 
 
 class AsterixParseTest(unittest.TestCase):
-
     def test_ParseCAT048(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat048.raw")
         f = open(sample_filename, "rb")
@@ -21,55 +20,59 @@ class AsterixParseTest(unittest.TestCase):
         self.assertEqual(packet[0]['category'], 48)
         self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
         self.assertEqual(packet[0]['I220']['ACAddr']['desc'], 'AircraftAddress')
-        self.assertEqual(packet[0], {'I161': {'Tn': {'val': 3563, 'desc': 'Track Number'}},
-                                     'I010': {'SIC': {'val': 201, 'desc': 'System Identification Code'},
-                                              'SAC': {'val': 25, 'desc': 'System Area Code'}}, 'I230': {
-                'AIC': {'meaning': 'Yes', 'val': 1, 'desc': 'Aircraft identification capability'},
-                'ModeSSSC': {'meaning': 'Yes', 'val': 1, 'desc': 'ModeS Specific Service Capability'},
-                'spare': {'const': 1e-323, 'val': 0, 'desc': 'spare bit set to 0'}, 'COM': {'val': 1, 'desc': 'COM'},
-                'STAT': {'val': 0, 'desc': 'STAT'}, 'BDS37': {'val': 5, 'desc': 'BDS 1,0 bits 37/40'},
-                'BDS16': {'val': 1, 'desc': 'BDS 1,0 bit 16'},
-                'ARC': {'meaning': '25ft resolution', 'val': 1, 'desc': 'Altitude reporting capability'}},
-                                     'I020': {'SPI': {'meaning': 'Absence of SPI', 'val': 0, 'desc': 'SPI'},
-                                              'FX': {'meaning': 'End of Data Item', 'val': 0, 'desc': 'FX'},
-                                              'TYP': {'meaning': 'Single ModeS Roll-Call', 'val': 5, 'desc': 'TYP'},
-                                              'RAB': {'meaning': 'Report from aircraft transponder', 'val': 0,
-                                                      'desc': 'RAB'},
-                                              'SIM': {'meaning': 'Actual target report', 'val': 0, 'desc': 'SIM'},
-                                              'RDP': {'meaning': 'Report from RDP Chain 1', 'val': 0, 'desc': 'RDP'}},
-                                     'I250': [{'DSB1': {'val': 4, 'desc': 'Comm B Data Buffer Store 1'},
-                                               'MBdata': {'val': 'C0780031BC0000', 'desc': 'MBdata'},
-                                               'DSB2': {'val': 0, 'desc': 'Comm B Data Buffer Store 2'}}],
-                                     'I070': {'spare': {'const': 5e-324, 'val': 0, 'desc': 'spare bit set to 0'},
-                                              'Mode3A': {'val': '1000', 'desc': 'Mode-3/A reply code'},
-                                              'G': {'meaning': 'Default', 'val': 0, 'desc': ''}, 'L': {
+        self.assertEqual(packet[0], {'I161': {'Tn': {'desc': 'Track Number', 'val': 3563}},
+                                     'I090': {'G': {'meaning': 'Default', 'desc': '', 'val': 0},
+                                              'V': {'meaning': 'Code validated', 'desc': '', 'val': 0},
+                                              'FL': {'desc': 'FlightLevel', 'val': 330.0}}, 'I020': {
+                'RAB': {'meaning': 'Report from aircraft transponder', 'desc': 'RAB', 'val': 0},
+                'TYP': {'meaning': 'Single ModeS Roll-Call', 'desc': 'TYP', 'val': 5},
+                'FX': {'meaning': 'End of Data Item', 'desc': 'FX', 'val': 0},
+                'SIM': {'meaning': 'Actual target report', 'desc': 'SIM', 'val': 0},
+                'SPI': {'meaning': 'Absence of SPI', 'desc': 'SPI', 'val': 0},
+                'RDP': {'meaning': 'Report from RDP Chain 1', 'desc': 'RDP', 'val': 0}}, 'I250': [
+                {'DSB2': {'desc': 'Comm B Data Buffer Store 2', 'val': 0},
+                 'DSB1': {'desc': 'Comm B Data Buffer Store 1', 'val': 4},
+                 'MBdata': {'desc': 'MBdata', 'val': 'C0780031BC0000'}}],
+                                     'I230': {'spare': {'desc': 'spare bit set to 0', 'const': 5e-324, 'val': 0},
+                                              'BDS16': {'desc': 'BDS 1,0 bit 16', 'val': 1},
+                                              'AIC': {'meaning': 'Yes', 'desc': 'Aircraft identification capability',
+                                                      'val': 1}, 'STAT': {'desc': 'STAT', 'val': 0},
+                                              'COM': {'desc': 'COM', 'val': 1}, 'SI': {'meaning': 'SI-Code Capable',
+                                                                                       'desc': 'SI/II Transponder Capability',
+                                                                                       'val': 0},
+                                              'ARC': {'meaning': '25ft resolution',
+                                                      'desc': 'Altitude reporting capability', 'val': 1},
+                                              'BDS37': {'desc': 'BDS 1,0 bits 37/40', 'val': 5},
+                                              'ModeSSSC': {'meaning': 'Yes',
+                                                           'desc': 'ModeS Specific Service Capability', 'val': 1}},
+                                     'I070': {'G': {'meaning': 'Default', 'desc': '', 'val': 0},
+                                              'V': {'meaning': 'Code validated', 'desc': '', 'val': 0},
+                                              'spare': {'desc': 'spare bit set to 0', 'const': 5e-324, 'val': 0},
+                                              'Mode3A': {'desc': 'Mode-3/A reply code', 'val': '1000'}, 'L': {
                                              'meaning': 'Mode-3/A code as derived from the reply of the transponder',
-                                             'val': 0, 'desc': ''},
-                                              'V': {'meaning': 'Code validated', 'val': 0, 'desc': ''}},
-                                     'I040': {'RHO': {'max': 256.0, 'val': 197.68359375, 'desc': ''},
-                                              'THETA': {'val': 340.13671875, 'desc': ''}},
-                                     'I140': {'ToD': {'val': 27354.6015625, 'desc': 'Time Of Day'}}, 'I240': {
-                'TId': {'val': 'DLH65A  ',
-                        'desc': 'Characters 1-8 (coded on 6 bits each) defining target identification'}},
-                                     'I220': {'ACAddr': {'val': '3C660C', 'desc': 'AircraftAddress'}},
-                                     'I200': {'CGS': {'val': 434.94, 'desc': 'Calculated groundspeed'},
-                                              'CHdg': {'val': 124.002685546875, 'desc': 'Calculated heading'}},
-                                     'category': 48,
-                                     'I170': {'CNF': {'meaning': 'Confirmed Track', 'val': 0, 'desc': 'CBF'},
-                                              'DOU': {'meaning': 'Normal confidence', 'val': 0, 'desc': 'DOU'},
-                                              'SUP': {'meaning': 'Track from cluster network - NO', 'val': 0,
-                                                      'desc': 'SUP'},
-                                              'MAH': {'meaning': 'No horizontal man. sensed', 'val': 0, 'desc': 'MAH'},
-                                              'FX': {'meaning': 'End of Data Item', 'val': 0, 'desc': 'FX'},
-                                              'CDM': {'meaning': 'Maintaining', 'val': 0, 'desc': 'CDM'},
-                                              'TCC': {'meaning': 'Radar plane', 'val': 0, 'desc': 'TCC'},
-                                              'RAD': {'meaning': 'SSR/ModeS Track', 'val': 2, 'desc': 'RAD'},
-                                              'TRE': {'meaning': 'Track still alive', 'val': 0, 'desc': 'TRE'},
-                                              'GHO': {'meaning': 'True target track', 'val': 0, 'desc': 'GHO'},
-                                              'spare': {'const': 1.5e-323, 'val': 0, 'desc': 'spare bits set to 0'}},
-                                     'I090': {'FL': {'val': 330.0, 'desc': 'FlightLevel'},
-                                              'G': {'meaning': 'Default', 'val': 0, 'desc': ''},
-                                              'V': {'meaning': 'Code validated', 'val': 0, 'desc': ''}}})
+                                             'desc': '', 'val': 0}},
+                                     'I010': {'SAC': {'desc': 'System Area Code', 'val': 25},
+                                              'SIC': {'desc': 'System Identification Code', 'val': 201}},
+                                     'I220': {'ACAddr': {'desc': 'AircraftAddress', 'val': '3C660C'}},
+                                     'I200': {'CGS': {'desc': 'Calculated groundspeed', 'val': 434.94},
+                                              'CHdg': {'desc': 'Calculated heading', 'val': 124.002685546875}},
+                                     'category': 48, 'I140': {'ToD': {'desc': 'Time Of Day', 'val': 27354.6015625}},
+                                     'I170': {'DOU': {'meaning': 'Normal confidence', 'desc': 'DOU', 'val': 0},
+                                              'CDM': {'meaning': 'Maintaining', 'desc': 'CDM', 'val': 0},
+                                              'CNF': {'meaning': 'Confirmed Track', 'desc': 'CNF', 'val': 0},
+                                              'MAH': {'meaning': 'No horizontal man. sensed', 'desc': 'MAH', 'val': 0},
+                                              'FX': {'meaning': 'End of Data Item', 'desc': 'FX', 'val': 0},
+                                              'GHO': {'meaning': 'True target track', 'desc': 'GHO', 'val': 0},
+                                              'RAD': {'meaning': 'SSR/ModeS Track', 'desc': 'RAD', 'val': 2},
+                                              'SUP': {'meaning': 'Track from cluster network - NO', 'desc': 'SUP',
+                                                      'val': 0},
+                                              'spare': {'desc': 'spare bits set to 0', 'const': 1.5e-323, 'val': 0},
+                                              'TRE': {'meaning': 'Track still alive', 'desc': 'TRE', 'val': 0},
+                                              'TCC': {'meaning': 'Radar plane', 'desc': 'TCC', 'val': 0}},
+                                     'I040': {'THETA': {'desc': '', 'val': 340.13671875},
+                                              'RHO': {'desc': '', 'max': 256.0, 'val': 197.68359375}}, 'I240': {
+                'TId': {'desc': 'Characters 1-8 (coded on 6 bits each) defining target identification',
+                        'val': 'DLH65A  '}}})
 
     def test_ParseCAT062CAT065(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat062cat065.raw")

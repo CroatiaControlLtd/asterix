@@ -53,9 +53,6 @@ asterix_module = Extension('_asterix',
                                 './src/asterix/XMLParser.cpp',
                                ],
 
-                    headers = ['./src/python/version.h'
-                               ],
-
                     include_dirs = ['./asterix/python', './src/asterix', './src/engine', './src/main'],
                     extra_compile_args=['-D_GNU_SOURCE', '-DPYTHON_WRAPPER', '-DLINUX'],
                     extra_link_args=['-lexpat'])

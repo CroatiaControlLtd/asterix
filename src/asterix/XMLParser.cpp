@@ -141,7 +141,7 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 
 				if (id >= 0 && id <= MAX_CATEGORIES)
 				{
-					p->m_pCategory = p->m_pDef->getCategory(id);
+					p->m_pCategory = p->m_pDef->newCategory(id);
 				}
 				else
 				{
