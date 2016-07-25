@@ -24,7 +24,7 @@ install:
   - make MODE=DEBUG
   - make test
   - cd ..
-  - python setup.py build
+  - python setup.py -q install
 
 script: 
   - python -m unittest
