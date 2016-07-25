@@ -5,8 +5,29 @@ import asterix
 import unittest
 from pkg_resources import Requirement, resource_filename
 
+def deep_sort(obj):
+    """
+    Recursively sort list or dict nested lists
+    """
+
+    if isinstance(obj, dict):
+        _sorted = {}
+        for key in sorted(obj):
+            _sorted[key] = deep_sort(obj[key])
+
+    elif isinstance(obj, list):
+        new_list = []
+        for val in obj:
+            new_list.append(deep_sort(val))
+        _sorted = sorted(new_list)
+
+    else:
+        _sorted = obj
+
+    return _sorted
 
 class AsterixParseTest(unittest.TestCase):
+
     def test_ParseCAT048(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat048.raw")
         with open(sample_filename, "rb") as f:
@@ -20,7 +41,7 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['category'], 48)
             self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
             self.assertEqual(packet[0]['I220']['ACAddr']['desc'], 'AircraftAddress')
-            self.assertDictEqual(packet[0], {'I161': {'Tn': {'desc': 'Track Number', 'val': 3563}},
+            self.assertDictEqual(deep_sort(packet[0]), deep_sort({'I161': {'Tn': {'desc': 'Track Number', 'val': 3563}},
                                          'I090': {'G': {'meaning': 'Default', 'desc': '', 'val': 0},
                                                   'V': {'meaning': 'Code validated', 'desc': '', 'val': 0},
                                                   'FL': {'desc': 'FlightLevel', 'val': 330.0}}, 'I020': {
@@ -72,7 +93,7 @@ class AsterixParseTest(unittest.TestCase):
                                          'I040': {'THETA': {'desc': '', 'val': 340.13671875},
                                                   'RHO': {'desc': '', 'max': 256.0, 'val': 197.68359375}}, 'I240': {
                     'TId': {'desc': 'Characters 1-8 (coded on 6 bits each) defining target identification',
-                            'val': 'DLH65A  '}}})
+                            'val': 'DLH65A  '}}}))
 
     def test_ParseCAT062CAT065(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat062cat065.raw")
@@ -86,7 +107,7 @@ class AsterixParseTest(unittest.TestCase):
             self.assertIs(packet[0]['category'], 62)
             self.assertIs(packet[1]['category'], 62)
             self.assertIs(packet[2]['category'], 65)
-            self.assertListEqual(packet, [{'I340':
+            self.assertDictEqual(deep_sort(packet[0]), deep_sort({'I340':
                                            {'HEI': {'desc': 'Measured 3-D Height', 'val': 0},
                                             'Mode3A': {
                                                 'desc': 'Mode 3/A reply under the form of 4 digits in octal representation',
@@ -188,8 +209,9 @@ class AsterixParseTest(unittest.TestCase):
                                                 'FX': {'desc': 'Extension indicator', 'meaning': 'no extension', 'val': 0},
                                                 'ADS': {'desc': 'ADS-C age', 'val': 0}, 'SSR': {
                                                'desc': 'Age of the last secondary detection used to update the track',
-                                               'val': 0.0}, 'VDL': {'desc': 'ADS-B VDL Mode 4 age', 'val': 0}}},
-                                      {
+                                               'val': 0.0}, 'VDL': {'desc': 'ADS-B VDL Mode 4 age', 'val': 0}}}))
+
+            self.assertDictEqual(deep_sort(packet[1]), deep_sort({
                                           'I340': {'HEI': {'desc': 'Measured 3-D Height', 'val': 0}, 'Mode3A': {
                                               'desc': 'Mode 3/A reply under the form of 4 digits in octal representation',
                                               'val': '2535'}, 'ModeC': {'desc': 'Last Measured Mode C Code', 'min': -12.0,
@@ -361,13 +383,15 @@ class AsterixParseTest(unittest.TestCase):
                                                    'DEP': {'desc': 'Departure Airport', 'val': 'EDDL'},
                                                    'RVSM': {'desc': '', 'meaning': 'Approved', 'val': 1},
                                                    'FX': {'desc': 'Extension indicator', 'meaning': 'no extension',
-                                                          'val': 0}, 'TAC': {'desc': 'Type of Aircraft', 'val': 1}}},
+                                                          'val': 0}, 'TAC': {'desc': 'Type of Aircraft', 'val': 1}}}))
+
+            self.assertDictEqual(deep_sort(packet[2]), deep_sort(
                                       {'I000': {'Typ': {'desc': 'Message Type', 'meaning': 'End of Batch', 'val': 2}},
                                        'category': 65, 'I015': {'SID': {'desc': 'Service Identification', 'val': 4}},
                                        'I020': {'BTN': {'desc': 'Batch Number', 'val': 24}},
                                        'I030': {'ToD': {'desc': 'Time Of Message', 'val': 30913.0546875}},
                                        'I010': {'SIC': {'desc': 'Source Identification Code', 'val': 100},
-                                                'SAC': {'desc': 'Source Area Code', 'val': 25}}}])
+                                                'SAC': {'desc': 'Source Area Code', 'val': 25}}}))
 
 
 def main():
