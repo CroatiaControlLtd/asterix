@@ -13,13 +13,13 @@ python:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install valgrind
-  - pip install -r requirements.txt
-  - cd src
+#  - pip install -r requirements.txt
 
 compiler:
   - gcc
 
 install:
+  - cd src
   - make
   - make MODE=DEBUG
   - make test
