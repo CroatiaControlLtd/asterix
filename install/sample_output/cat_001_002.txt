@@ -1,0 +1,521 @@
+
+
+-------------------------
+Data Block 1
+Category: 1
+Len: 69
+-------------------------
+Data Record 1
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ A0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 2 (Sole secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0E B2 ]
+	Track Plot Number: 3762
+
+Item 040 : Measured Position in Polar Coordinates
+[ 76 7F 18 94 ]
+	RHO: 30335 (236.9921875 NM)
+	THETA: 6292 (34.5629883 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 08 AA 42 D8 ]
+	Calculated groundspeed: 2218 (487.9600000 kt)
+	Calculated heading: 17112 (93.9990234 deg)
+
+Item 070 : Mode-3/a Code
+[ 03 34 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 1464
+
+Item 090 : Mode-C Code
+[ 05 C8 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1480 (370.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 0D ]
+	Time: 32781 (256.1015625 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+-------------------------
+Data Record 2
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ B0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 3 (Combined primary and secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0F 75 ]
+	Track Plot Number: 3957
+
+Item 040 : Measured Position in Polar Coordinates
+[ 61 EC 1A 14 ]
+	RHO: 25068 (195.8437500 NM)
+	THETA: 6676 (36.6723633 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 07 7E B5 55 ]
+	Calculated groundspeed: 1918 (421.9600000 kt)
+	Calculated heading: 46421 (254.9981689 deg)
+
+Item 070 : Mode-3/a Code
+[ 0E 52 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 7122
+
+Item 090 : Mode-C Code
+[ 05 50 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1360 (340.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 14 ]
+	Time: 32788 (256.1562500 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+-------------------------
+Data Record 3
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ B0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 3 (Combined primary and secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0D CA ]
+	Track Plot Number: 3530
+
+Item 040 : Measured Position in Polar Coordinates
+[ 69 DE 1A 7C ]
+	RHO: 27102 (211.7343750 NM)
+	THETA: 6780 (37.2436523 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 07 F0 11 11 ]
+	Calculated groundspeed: 2032 (447.0400000 kt)
+	Calculated heading: 4369 (23.9996338 deg)
+
+Item 070 : Mode-3/a Code
+[ 0E 30 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 7060
+
+Item 090 : Mode-C Code
+[ 06 18 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1560 (390.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 16 ]
+	Time: 32790 (256.1718750 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 2
+Category: 1
+Len: 23
+-------------------------
+Data Record 1
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ B0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 3 (Combined primary and secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0D 68 ]
+	Track Plot Number: 3432
+
+Item 040 : Measured Position in Polar Coordinates
+[ 5C 88 1C E0 ]
+	RHO: 23688 (185.0625000 NM)
+	THETA: 7392 (40.6054688 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 08 42 4F A4 ]
+	Calculated groundspeed: 2114 (465.0800000 kt)
+	Calculated heading: 20388 (111.9946289 deg)
+
+Item 070 : Mode-3/a Code
+[ 00 4A ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 0112
+
+Item 090 : Mode-C Code
+[ 04 D8 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1240 (310.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 22 ]
+	Time: 32802 (256.2656250 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 3
+Category: 2
+Len: 8
+-------------------------
+Data Record 1
+Len: 8
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 000 : Message Type
+[ 02 ]
+	Message Type: 2 (Sector crossing message)
+
+Item 020 : Sector Number
+[ 50 ]
+	Antenna azimuth: 80 (112.5000000 deg)
+
+Item 030 : Time of Day
+[ 59 81 17 ]
+	Time of day: 5865751 (45826.1796875 s)
+
+-------------------------
+Data Block 4
+Category: 1
+Len: 23
+-------------------------
+Data Record 1
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ B0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 3 (Combined primary and secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0C E1 ]
+	Track Plot Number: 3297
+
+Item 040 : Measured Position in Polar Coordinates
+[ 73 57 1E 28 ]
+	RHO: 29527 (230.6796875 NM)
+	THETA: 7720 (42.4072266 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 08 1D D1 10 ]
+	Calculated groundspeed: 2077 (456.9400000 kt)
+	Calculated heading: 53520 (293.9941406 deg)
+
+Item 070 : Mode-3/a Code
+[ 0A C4 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 5304
+
+Item 090 : Mode-C Code
+[ 05 A0 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1440 (360.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 28 ]
+	Time: 32808 (256.3125000 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 5
+Category: 1
+Len: 23
+-------------------------
+Data Record 1
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ A0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 2 (Sole secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0C 10 ]
+	Track Plot Number: 3088
+
+Item 040 : Measured Position in Polar Coordinates
+[ 51 4C 21 2C ]
+	RHO: 20812 (162.5937500 NM)
+	THETA: 8492 (46.6479492 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 05 DC E2 D7 ]
+	Calculated groundspeed: 1500 (330.0000000 kt)
+	Calculated heading: 58071 (318.9935303 deg)
+
+Item 070 : Mode-3/a Code
+[ 05 9E ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 2636
+
+Item 090 : Mode-C Code
+[ 02 5A ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 602 (150.5000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 38 ]
+	Time: 32824 (256.4375000 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 6
+Category: 1
+Len: 23
+-------------------------
+Data Record 1
+Len: 23
+Timestamp: 45826414
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 020 : Target Report Descriptor
+[ B0 ]
+	TYP: 1 (Track)
+	SIM: 0 (Actual plot or track)
+	SSRPSR: 3 (Combined primary and secondary detection)
+	ANT: 0 (Target report from antenna 1)
+	SPI: 0 (Default)
+	RAB: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Plot Number
+[ 0F 0D ]
+	Track Plot Number: 3853
+
+Item 040 : Measured Position in Polar Coordinates
+[ 37 FE 21 C8 ]
+	RHO: 14334 (111.9843750 NM)
+	THETA: 8648 (47.5048828 deg)
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 07 55 D1 C6 ]
+	Calculated groundspeed: 1877 (412.9400000 kt)
+	Calculated heading: 53702 (294.9938965 deg)
+
+Item 070 : Mode-3/a Code
+[ 05 A5 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 2645
+
+Item 090 : Mode-C Code
+[ 05 A0 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	Mode-C reply code: 1440 (360.0000000 FL)
+
+Item 141 : Truncated Time of Day
+[ 80 3B ]
+	Time: 32827 (256.4609375 s)
+
+Item 170 : Track Status
+[ 40 ]
+	CON: 0 (Confirmed track)
+	RAD: 1 (SSR/Combined track)
+	MAN: 0 (Default)
+	DOU: 0 (Default)
+	RDPC: 0 (RDP Chain 1)
+	spare bits set to 0: 0
+	GHO: 0 (Default)
+	FX: 0 (End of Data Item)
+
+Item 210 : Track Quality
+[ 0E ]
+	Quality indicator: 7
+	FX: 0 (End of Data Item)

@@ -396,20 +396,16 @@
                         <BitsValue val="1">Yes</BitsValue>
                     </Bits>
                     <Bits bit="5">
-                        <BitsShortName>C5</BitsShortName>
+                        <BitsShortName>C4</BitsShortName>
                         <BitsName>Complementary service 5</BitsName>
                         <BitsValue val="0">No</BitsValue>
                         <BitsValue val="1">Yes</BitsValue>
                     </Bits>
-                    <Bits from="4" to="2">
+                    <Bits from="4" to="1">
 						<BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-					<Bits bit="1" fx="1">
-                       <BitsShortName>FX</BitsShortName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
                 </Fixed>
             </Variable>            
         </DataItemFormat>
@@ -1363,7 +1359,6 @@
                 <Bits from="11" to="1">
                     <BitsShortName>code</BitsShortName>
                     <BitsName>Report code</BitsName>
-                    <BitsValue val="0">batch or sector number</BitsValue>
                     <BitsValue val="1">service degradation</BitsValue>
                     <BitsValue val="2">service degradation ended</BitsValue>
                     <BitsValue val="3">main radar out of service</BitsValue>

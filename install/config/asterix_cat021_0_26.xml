@@ -6,7 +6,8 @@
     Asterix Category 021 v0.26 definition
     Author:   S.Nastasyak
     Created:  2013-06-19
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  24.6.2016. (ifsnop) Fixed DI165, defined as compound, now as Variable.
 	
 -->
 
@@ -259,7 +260,7 @@
                     <BitsName>Spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="4" to="1" encode="signed">
+                <Bits from="4" to="1">
                      <BitsShortName>PA</BitsShortName>
                      <BitsName>Position Accuracy</BitsName>
                 </Bits>
@@ -619,8 +620,8 @@
         <DataItemDefinition>Ground Speed and Track Angle elements of Ground Vector.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
-                <Bits from="32" to="17">
-					<BitsShortName>GS</BitsShortName>
+                <Bits from="32" to="17" encode="signed">
+		    <BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed referenced to WGS-84</BitsName>
                     <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
                 </Bits>
@@ -637,46 +638,42 @@
         <DataItemName>Rate Of Turn</DataItemName>
         <DataItemDefinition>Rate of Turn, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Variable length data item.">
-             <Compound>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits from="8" to="7">
-                            <BitsShortName>TI</BitsShortName>
-                            <BitsName>Turn Indicator</BitsName>
-                            <BitsValue val="0">Not available</BitsValue>
-                            <BitsValue val="1">Left</BitsValue>
-                            <BitsValue val="2">Right</BitsValue>
-                            <BitsValue val="3">Straight</BitsValue>
-                        </Bits>    
-                        <Bits from="6" to="2">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to zero</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>                        
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">End of Data Item</BitsValue>
-                            <BitsValue val="1">Extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits from="8" to="2">
-							<BitsShortName>RoT</BitsShortName>
-                            <BitsName>Rate of Turn</BitsName>
-                            <BitsUnit scale="0.25">deg/sec</BitsUnit>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">End of Data Item</BitsValue>
-                            <BitsValue val="1">Extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-                </Compound>
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="7">
+                        <BitsShortName>TI</BitsShortName>
+                        <BitsName>Turn Indicator</BitsName>
+                        <BitsValue val="0">Not available</BitsValue>
+                        <BitsValue val="1">Left</BitsValue>
+                        <BitsValue val="2">Right</BitsValue>
+                        <BitsValue val="3">Straight</BitsValue>
+                    </Bits>
+		    <Bits from="6" to="2">
+			<BitsShortName>spare</BitsShortName>
+			<BitsName>Spare bits set to zero</BitsName>
+			<BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+			<BitsName>Extension Indicator</BitsName>
+			<BitsValue val="0">End of Data Item</BitsValue>
+			<BitsValue val="1">Extension into next extent</BitsValue>
+		    </Bits>
+		</Fixed>
+		<Fixed length="1">
+                    <Bits from="8" to="2">
+			<BitsShortName>RoT</BitsShortName>
+                        <BitsName>Rate of Turn</BitsName>
+                        <BitsUnit scale="0.25">deg/sec</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension Indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+			<BitsValue val="1">Extension into next extent</BitsValue>
+		    </Bits>
+		</Fixed>
+            </Variable>
         </DataItemFormat>
     </DataItem>
 

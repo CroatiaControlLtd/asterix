@@ -843,7 +843,7 @@
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>CNF</BitsShortName>
-                        <BitsName>CBF</BitsName>
+                        <BitsName>CNF</BitsName>
                         <BitsValue val="0">Confirmed Track</BitsValue>
                         <BitsValue val="1">Tentative Track</BitsValue>
                     </Bits>
@@ -1051,26 +1051,10 @@
 	<DataItem id="250" >
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-		<DataItemFormat desc="Repetetive">
-			<Repetitive>
-					<Fixed length="8">
-						<Bits from="64" to="9" encode="hex">
-							<BitsShortName>MBdata</BitsShortName>
-							<BitsName>MBdata</BitsName>						
-						</Bits>
-
-						<Bits from="8" to="5">
-							<BitsShortName>DSB1</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 1</BitsName>
-						</Bits>
-						<Bits from="4" to="1">
-							<BitsShortName>DSB2</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 2</BitsName>                       
-						</Bits>
-					</Fixed>
-			</Repetitive>	
+		<DataItemFormat desc="BDS">
+			<BDS></BDS>
 		</DataItemFormat>
-		<DataItemNote>.</DataItemNote>
+		<DataItemNote/>
 	</DataItem>	
 	
 	<DataItem id="260" >

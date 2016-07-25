@@ -1,0 +1,294 @@
+==52029== Memcheck, a memory error detector
+==52029== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==52029== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==52029== Command: ../../obj/main/debug/asterix -P -d ../config/asterix.ini -f ../sample_data/cat_062_065.pcap -jh
+==52029== 
+
+DEBUG:   Jul 25 01:01:50 2016 (asterix.cpp) Input channel description: disk ../sample_data/cat_062_065.pcap:0:1 ASTERIX_PCAP
+
+DEBUG:   Jul 25 01:01:50 2016 (asterix.cpp) Output channel 1 description: std 0 ASTERIX_JSONH
+
+DEBUG:   Jul 25 01:01:50 2016 (converterengine.cxx) inputDevice(disk)
+DEBUG:   Jul 25 01:01:50 2016 (converterengine.cxx) inputDeviceDescriptor(../sample_data/cat_062_065.pcap:0:1)
+DEBUG:   Jul 25 01:01:50 2016 (converterengine.cxx) inputFormatDescriptor((null))
+DEBUG:   Jul 25 01:01:50 2016 (converterengine.cxx) Input format: ASTERIX_PCAP
+
+DEBUG:   Jul 25 01:01:50 2016 (channelfactory.cxx) CChannelFactory successfully initialized with CAsterixFormat.
+
+DEBUG:   Jul 25 01:01:50 2016 (diskdevice.cxx) Opened input file '../sample_data/cat_062_065.pcap'
+
+DEBUG:   Jul 25 01:01:50 2016 (channelfactory.cxx) AttachFormatter ASTERIX_PCAP
+
+DEBUG:   Jul 25 01:01:51 2016 (converterengine.cxx) Output format: ASTERIX_JSONH
+
+DEBUG:   Jul 25 01:01:51 2016 (channelfactory.cxx) AttachFormatter ASTERIX_JSONH
+
+DEBUG:   Jul 25 01:01:51 2016 (diskdevice.cxx) Done reading file '../sample_data/cat_062_065.pcap'
+
+DEBUG:   Jul 25 01:01:51 2016 (InputParser.cpp) [3E 00 A1 BF DF FD 02 19 64 01 59 81 B3 00 75 18 FC 00 2C AE D9 FF 19 6B F0 86 60 03 93 FF 43 00 00 02 BD C1 20 4C A7 A8 49 94 B1 DF 40 E0 20 F6 12 69 19 03 01 08 70 17 0D 0D 00 90 0D 0D 06 18 16 CD 06 18 00 00 DC 19 0C 93 BA 88 E8 06 18 02 BD A0 BF DF FD 02 19 64 01 59 81 B3 00 75 CE E5 00 37 26 BD 08 81 3B F1 8A 9F FC BD FF F1 00 09 08 7D C1 20 4C AC 7F 25 34 F2 C3 0D E0 20 F6 1A AF 11 03 01 08 70 20 10 10 40 90 10 10 05 F0 1A 75 05 F0 00 00 DC 19 0C B9 8E 5E B5 05 F0 08 7D A0]
+
+DEBUG:   Jul 25 01:01:51 2016 (InputParser.cpp) [41 00 0C F8 19 64 02 01 59 81 B3 01]
+{"timestamp":45827401,
+"CAT062":{
+	"I010":{
+		"SAC":25,
+		"SIC":100},
+	"I015":{
+		"SID":1},
+	"I070":{
+		"ToT":45827.3984375},
+	"I105":{
+		"Lat":41.1671233,
+		"Lon":15.7088667},
+	"I100":{
+		"X":-29514.5000000,
+		"Y":-507088.0000000},
+	"I185":{
+		"Vx":228.7500000,
+		"Vy":-47.2500000},
+	"I210":{
+		"Ax":0.0000000,
+		"Ay":0.0000000},
+	"I060":{
+		"spare":0,
+		"CH":0,
+		"spare":0,
+		"Mode3A":"1275"},
+	"I380":{
+		"ADR":{
+		"ADR":"4CA7A8"},
+		"ID":{
+		"ACID":"RYR174C "},
+		"COM":{
+		"COM":1,
+		"STAT":0,
+		"spare":0,
+		"SSC":1,
+		"ARC":1,
+		"AIC":1,
+		"B1A":1,
+		"B1B":6}},
+	"I040":{
+		"TrkN":4713},
+	"I080":{
+		"MON":0,
+		"SPI":0,
+		"MRH":0,
+		"SRC":6,
+		"CNF":0,
+		"FX":1,
+		"SIM":0,
+		"TSE":0,
+		"TSB":0,
+		"FPC":0,
+		"AFF":0,
+		"STP":0,
+		"KOS":1,
+		"FX":1,
+		"AMA":0,
+		"MD4":0,
+		"ME":0,
+		"MI":0,
+		"MD5":0,
+		"FX":1,
+		"CST":0,
+		"PSR":0,
+		"SSR":0,
+		"MDS":0,
+		"ADS":1,
+		"SUC":0,
+		"AAC":0,
+		"FX":0},
+	"I290":{
+		"PSR":{
+		"PSR":5.7500000},
+		"SSR":{
+		"SSR":3.2500000},
+		"MDS":{
+		"MDS":3.2500000}},
+	"I200":{
+		"TRANSA":0,
+		"LONGA":0,
+		"VERTA":0,
+		"ADF":0,
+		"spare":0},
+	"I295":{
+		"MFL":{
+		"MFL":3.2500000},
+		"MDA":{
+		"MDA":3.2500000}},
+	"I136":{
+		"MFL":39000.0000000},
+	"I130":{
+		"Alt":36481.2500000},
+	"I135":{
+		"QNH":0,
+		"CTBA":39000.0000000},
+	"I220":{
+		"RoC":0.0000000},
+	"I340":{
+		"SID":{
+		"SAC":25,
+		"SIC":12},
+		"POS":{
+		"RHO":147.7265625,
+		"THETA":192.5244141},
+		"MDC":{
+		"CV":0,
+		"CG":0,
+		"ModeC":390.0000000},
+		"MDA":{
+		"V":0,
+		"G":0,
+		"L":0,
+		"spare":0,
+		"Mode3A":"1275"},
+		"TYP":{
+		"TYP":5,
+		"SIM":0,
+		"RAB":0,
+		"TST":0,
+		"spare":0}}}},
+{"timestamp":45827401,
+"CAT062":{
+	"I010":{
+		"SAC":25,
+		"SIC":100},
+	"I015":{
+		"SID":1},
+	"I070":{
+		"ToT":45827.3984375},
+	"I105":{
+		"Lat":41.4169389,
+		"Lon":19.3891364},
+	"I100":{
+		"X":278685.5000000,
+		"Y":-473776.5000000},
+	"I185":{
+		"Vx":-208.7500000,
+		"Vy":-3.7500000},
+	"I210":{
+		"Ax":0.0000000,
+		"Ay":2.2500000},
+	"I060":{
+		"spare":0,
+		"CH":0,
+		"spare":0,
+		"Mode3A":"4175"},
+	"I380":{
+		"ADR":{
+		"ADR":"4CAC7F"},
+		"ID":{
+		"ACID":"ISS2007 "},
+		"COM":{
+		"COM":1,
+		"STAT":0,
+		"spare":0,
+		"SSC":1,
+		"ARC":1,
+		"AIC":1,
+		"B1A":1,
+		"B1B":6}},
+	"I040":{
+		"TrkN":6831},
+	"I080":{
+		"MON":0,
+		"SPI":0,
+		"MRH":0,
+		"SRC":4,
+		"CNF":0,
+		"FX":1,
+		"SIM":0,
+		"TSE":0,
+		"TSB":0,
+		"FPC":0,
+		"AFF":0,
+		"STP":0,
+		"KOS":1,
+		"FX":1,
+		"AMA":0,
+		"MD4":0,
+		"ME":0,
+		"MI":0,
+		"MD5":0,
+		"FX":1,
+		"CST":0,
+		"PSR":0,
+		"SSR":0,
+		"MDS":0,
+		"ADS":1,
+		"SUC":0,
+		"AAC":0,
+		"FX":0},
+	"I290":{
+		"PSR":{
+		"PSR":8.0000000},
+		"SSR":{
+		"SSR":4.0000000},
+		"MDS":{
+		"MDS":4.0000000}},
+	"I200":{
+		"TRANSA":1,
+		"LONGA":0,
+		"VERTA":0,
+		"ADF":0,
+		"spare":0},
+	"I295":{
+		"MFL":{
+		"MFL":4.0000000},
+		"MDA":{
+		"MDA":4.0000000}},
+	"I136":{
+		"MFL":38000.0000000},
+	"I130":{
+		"Alt":42331.2500000},
+	"I135":{
+		"QNH":0,
+		"CTBA":38000.0000000},
+	"I220":{
+		"RoC":0.0000000},
+	"I340":{
+		"SID":{
+		"SAC":25,
+		"SIC":12},
+		"POS":{
+		"RHO":185.5546875,
+		"THETA":133.1817627},
+		"MDC":{
+		"CV":0,
+		"CG":0,
+		"ModeC":380.0000000},
+		"MDA":{
+		"V":0,
+		"G":0,
+		"L":0,
+		"spare":0,
+		"Mode3A":"4175"},
+		"TYP":{
+		"TYP":5,
+		"SIM":0,
+		"RAB":0,
+		"TST":0,
+		"spare":0}}}},
+{"timestamp":45827401,
+"CAT065":{
+	"I010":{
+		"SAC":25,
+		"SIC":100},
+	"I000":{
+		"Typ":2},
+	"I015":{
+		"SID":1},
+	"I030":{
+		"ToD":45827.3984375},
+	"I020":{
+		"BTN":1}}},
+==52029== 
+==52029== HEAP SUMMARY:
+==52029==     in use at exit: 0 bytes in 0 blocks
+==52029==   total heap usage: 24,486 allocs, 24,486 frees, 1,820,151 bytes allocated
+==52029== 
+==52029== All heap blocks were freed -- no leaks are possible
+==52029== 
+==52029== For counts of detected and suppressed errors, rerun with: -v
+==52029== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,2 @@
+bash test.sh
+pause

@@ -1,0 +1,1762 @@
+CAT001:I010:SAC                                              System Area Code
+CAT001:I010:SIC                                              System Identification Code
+CAT001:I020:TYP                                              
+CAT001:I020:SIM                                              
+CAT001:I020:SSRPSR                                           
+CAT001:I020:ANT                                              
+CAT001:I020:SPI                                              
+CAT001:I020:RAB                                              
+CAT001:I020:FX                                               
+CAT001:I020:TST                                              
+CAT001:I020:DS1DS2                                           
+CAT001:I020:ME                                               
+CAT001:I020:MI                                               
+CAT001:I020:spare                                            spare bits set to 0
+CAT001:I020:FX                                               
+CAT001:I030:WE                                               First warning/error condition value
+CAT001:I030:FX                                               
+CAT001:I040:RHO                                              
+CAT001:I040:THETA                                            
+CAT001:I042:X                                                X component
+CAT001:I042:Y                                                Y component
+CAT001:I050:V                                                
+CAT001:I050:G                                                
+CAT001:I050:L                                                
+CAT001:I050:spare                                            spare bit set to 0
+CAT001:I050:Mode2                                            Mode-2 code
+CAT001:I055:V                                                
+CAT001:I055:G                                                
+CAT001:I055:L                                                
+CAT001:I055:Mode1                                            Mode-1 code
+CAT001:I060:spare                                            spares bit set to 0
+CAT001:I060:QA4                                              
+CAT001:I060:QA2                                              
+CAT001:I060:QA1                                              
+CAT001:I060:QB4                                              
+CAT001:I060:QB2                                              
+CAT001:I060:QB1                                              
+CAT001:I060:QC4                                              
+CAT001:I060:QC2                                              
+CAT001:I060:QC1                                              
+CAT001:I060:QD4                                              
+CAT001:I060:QD2                                              
+CAT001:I060:QD1                                              
+CAT001:I065:spare                                            spares bit set to 0
+CAT001:I065:QA4                                              
+CAT001:I065:QA2                                              
+CAT001:I065:QA1                                              
+CAT001:I065:QB2                                              
+CAT001:I065:QB1                                              
+CAT001:I070:V                                                
+CAT001:I070:G                                                
+CAT001:I070:L                                                
+CAT001:I070:spare                                            spare bit set to 0
+CAT001:I070:Mode3A                                           Mode-3/A reply code
+CAT001:I080:spare                                            spares bit set to 0
+CAT001:I080:QA4                                              
+CAT001:I080:QA2                                              
+CAT001:I080:QA1                                              
+CAT001:I080:QB4                                              
+CAT001:I080:QB2                                              
+CAT001:I080:QB1                                              
+CAT001:I080:QC4                                              
+CAT001:I080:QC2                                              
+CAT001:I080:QC1                                              
+CAT001:I080:QD4                                              
+CAT001:I080:QD2                                              
+CAT001:I080:QD1                                              
+CAT001:I090:V                                                
+CAT001:I090:G                                                
+CAT001:I090:ModeC                                            Mode-C reply code
+CAT001:I100:V                                                
+CAT001:I100:G                                                
+CAT001:I100:spare                                            spare bits set to 0
+CAT001:I100:ModeC                                            Mode-C reply in Gray notation
+CAT001:I100:spare                                            spare bits set to 0
+CAT001:I100:QC1                                              
+CAT001:I100:QA1                                              
+CAT001:I100:QC2                                              
+CAT001:I100:QA2                                              
+CAT001:I100:QC4                                              
+CAT001:I100:QA4                                              
+CAT001:I100:QB1                                              
+CAT001:I100:QD1                                              
+CAT001:I100:QB2                                              
+CAT001:I100:QD2                                              
+CAT001:I100:QB1                                              
+CAT001:I100:QD1                                              
+CAT001:I120:mrdp                                             Speed
+CAT001:I130:Ind                                              Indicator
+CAT001:I130:FX                                               extension into next extent
+CAT001:I131:Power                                            
+CAT001:I141:Time                                             
+CAT001:I150:XA                                               
+CAT001:I150:spare                                            spare bit set to 0
+CAT001:I150:XC                                               
+CAT001:I150:spare                                            spare bits set to 0
+CAT001:I150:X2                                               
+CAT001:I150:spare                                            spare bits set to 0
+CAT001:I161:tpn                                              Track Plot Number
+CAT001:I170:CON                                              
+CAT001:I170:RAD                                              
+CAT001:I170:MAN                                              
+CAT001:I170:DOU                                              
+CAT001:I170:RDPC                                             
+CAT001:I170:spare                                            spare bits set to 0
+CAT001:I170:GHO                                              
+CAT001:I170:FX                                               
+CAT001:I170:TRE                                              
+CAT001:I170:spare                                            spare bits set to 0
+CAT001:I170:FX                                               
+CAT001:I200:CalcGS                                           Calculated groundspeed
+CAT001:I200:CalcHdg                                          Calculated heading
+CAT001:I210:Qty                                              Quality indicator
+CAT001:I210:FX                                               
+CAT002:I000:type                                             Message Type
+CAT002:I010:SAC                                              System Area Code
+CAT002:I010:SIC                                              System Identification Code
+CAT002:I020:Azi                                              Antenna azimuth
+CAT002:I030:ToD                                              Time of day
+CAT002:I041:RotS                                             Antenna rotation speed
+CAT002:I050:Stat                                             Status
+CAT002:I050:fx                                               Field extension
+CAT002:I060:mode                                             Mode
+CAT002:I060:fx                                               Field extension
+CAT002:I070:A                                                Aerial identification
+CAT002:I070:ident                                            Plot category identification code
+CAT002:I070:counter                                          Counter value
+CAT002:I080:err_value                                        W/E Condition value
+CAT002:I080:fx                                               Field extension
+CAT002:I090:RngE                                             Range Error
+CAT002:I090:AziE                                             Azimuth Error
+CAT002:I100:rho_start                                        Rho start
+CAT002:I100:rho_end                                          Rho end
+CAT002:I100:theta_start                                      Theta start
+CAT002:I100:theta_end                                        Theta end
+CAT004:I000:MessageType                                      Message Type
+CAT004:I010:SAC                                              System Area Code
+CAT004:I010:SIC                                              System Identification Code
+CAT004:I015:SAC                                              System Area Code
+CAT004:I015:SIC                                              System Identification Code
+CAT004:I020:ToM                                              Time Of Message
+CAT004:I030:TrkN                                             Track number
+CAT004:I035:TrkN                                             Track number
+CAT004:I040:AlrtI                                            Alert Identifier
+CAT004:I045:spare                                            Spare bits set to 0
+CAT004:I045:STAT                                             Status of the alert
+CAT004:I045:spare                                            Spare bits set to 0
+CAT004:I060:MRVA                                             
+CAT004:I060:RAMLD                                            
+CAT004:I060:RAMHD                                            
+CAT004:I060:MSAW                                             
+CAT004:I060:APW                                              
+CAT004:I060:CLAM                                             
+CAT004:I060:STCA                                             
+CAT004:I060:FX                                               
+CAT004:I060:AFDA                                             
+CAT004:I060:RIMCA                                            
+CAT004:I060:ACASRA                                           
+CAT004:I060:NTCA                                             
+CAT004:I060:DG                                               
+CAT004:I060:OF                                               
+CAT004:I060:OL                                               
+CAT004:I060:FX                                               
+CAT004:I070:TC                                               Time to Conflict
+CAT004:I070:TCA                                              Time to Closest Approach
+CAT004:I070:CHS                                              Current Horizontal Separation
+CAT004:I070:MHS                                              Estimated Minimun Horizontal Separation
+CAT004:I070:CVS                                              Current Vertical Separation
+CAT004:I070:MVS                                              Estimated Minimun Vertical Separation
+CAT004:I074:LD                                               Longitudinal deviation
+CAT004:I075:CHS                                              Current horizontal separation)
+CAT004:I076:LD                                               Longitudinal deviation
+CAT004:I100:AN                                               Characters 1-8 (coded on 6 Bits each) defining the name of the area.
+CAT004:I100:CAN                                              Crossing area name.
+CAT004:I100:RT1                                              Runway/Taxiway Designator 1
+CAT004:I100:RT2                                              Runway/Taxiway Designator 2
+CAT004:I100:SB                                               Stop Bar Designator
+CAT004:I100:G                                                Gate Designator
+CAT004:I110:Centre                                           Centre identification code
+CAT004:I110:Position                                         Control position identification code
+CAT004:I120:MAS                                              Conflict location in military airspace
+CAT004:I120:CAS                                              Conflict location in civil airspace
+CAT004:I120:FLD                                              Fast lateral divergence
+CAT004:I120:FVD                                              Fast vertical divergence
+CAT004:I120:Type                                             Type of separation infringement
+CAT004:I120:Cross                                            Crossing test
+CAT004:I120:Div                                              Divergence test
+CAT004:I120:FX                                               Field extension indicator
+CAT004:I120:RRC                                              Runway/Runway crossing in RIMCAS
+CAT004:I120:RTC                                              Runway/Taxiway Crossing in RIMCAS
+CAT004:I120:MRVA                                             
+CAT004:I120:spare                                            Spare bits set to 0
+CAT004:I120:FX                                               
+CAT004:I120:TableId                                          Table Id
+CAT004:I120:SeverityClass                                    Conflict severity class
+CAT004:I120:CS                                               Conflict severity
+CAT004:I120:Probability                                      Probability of the conflict
+CAT004:I120:CD                                               Conflict duration
+CAT004:I170:AI1                                              Aircraft Identifier 1
+CAT004:I170:spare                                            Spare bits set to 0
+CAT004:I170:M31                                              Mode 3/A Code Aircraft 1
+CAT004:I170:Latitude                                         Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
+CAT004:I170:Longitude                                        Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT004:I170:Altitude                                         Altitude of predicted conflict
+CAT004:I170:X                                                Starting X-position of the conflict
+CAT004:I170:Y                                                Starting Y-position of the conflict
+CAT004:I170:Z                                                Starting Z-position of the conflict
+CAT004:I170:TTA1                                             Time to Threshold Aircraft 1
+CAT004:I170:DTA1                                             Distance to Threshold Aircraft 1
+CAT004:I170:GAT/OAT                                          
+CAT004:I170:FR1/FR2                                          
+CAT004:I170:RVSM                                             
+CAT004:I170:HPR                                              
+CAT004:I170:FX                                               
+CAT004:I170:CDM                                              
+CAT004:I170:PRI                                              
+CAT004:I170:GV                                               
+CAT004:I170:spare                                            Spare bits set to 0
+CAT004:I170:FX                                               
+CAT004:I170:MS1                                              Mode-S Identifier Aircraft 1
+CAT004:I170:spare                                            Spare bits set to 0
+CAT004:I170:NBR                                              Number of the Flight Plan Correlated to Aircraft 1 Involved in the Conflict
+CAT004:I170:CFL                                              Cleared Flight Level
+CAT004:I171:AI2                                              Aircraft Identifier 2
+CAT004:I171:spare                                            Spare bits set to 0
+CAT004:I171:M32                                              Mode 3/A Code Aircraft 2
+CAT004:I171:Latitude                                         Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
+CAT004:I171:Longitude                                        Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT004:I171:Altitude                                         Altitude of predicted conflict
+CAT004:I171:X                                                Starting X-position of the conflict
+CAT004:I171:Y                                                Starting Y-position of the conflict
+CAT004:I171:Z                                                Starting Z-position of the conflict
+CAT004:I171:TTA2                                             Time to Threshold Aircraft 2
+CAT004:I171:DTA2                                             Distance to Threshold Aircraft 2
+CAT004:I171:GAT/OAT                                          
+CAT004:I171:FR1/FR2                                          
+CAT004:I171:RVSM                                             
+CAT004:I171:HPR                                              
+CAT004:I171:FX                                               
+CAT004:I171:CDM                                              
+CAT004:I171:PRI                                              
+CAT004:I171:GV                                               
+CAT004:I171:spare                                            Spare bits set to 0
+CAT004:I171:FX                                               
+CAT004:I171:MS2                                              Mode-S Identifier Aircraft 2
+CAT004:I171:spare                                            Spare bits set to 0
+CAT004:I171:NBR                                              Number of the Flight Plan Correlated to Aircraft 2 Involved in the Conflict
+CAT004:I171:CFL                                              Cleared Flight Level
+CAT004:ISP:TRI                                               TargetReportIdentifier
+CAT004:IRE:Lat                                               Latitude
+CAT004:IRE:Lon                                               Longitude
+CAT004:IRE:X                                                 X-Coordinate
+CAT004:IRE:Y                                                 Y-Coordinate
+CAT004:IRE:V                                                 Validation
+CAT004:IRE:G                                                 Garbled
+CAT004:IRE:MC                                                Last measured Mode C
+CAT004:IRE:Vx                                                Velocity, x-component
+CAT004:IRE:Vy                                                Velocity, y-component
+CAT004:IRE:Lat                                               Latitude
+CAT004:IRE:Lon                                               Longitude
+CAT004:IRE:X                                                 X-Coordinate
+CAT004:IRE:Y                                                 Y-Coordinate
+CAT004:IRE:V                                                 Validation
+CAT004:IRE:G                                                 Garbled
+CAT004:IRE:MC                                                Last measured Mode C
+CAT004:IRE:Vx                                                Velocity, x-component
+CAT004:IRE:Vy                                                Velocity, y-component
+CAT008:I000:type                                             Message Type
+CAT008:I010:SAC                                              System Area Code
+CAT008:I010:SIC                                              System Identification Code
+CAT008:I020:org                                              ORG
+CAT008:I020:InteL                                            Intensity level
+CAT008:I020:ShadO                                            Shading orientation with respect to North
+CAT008:I020:fx                                               Field extension
+CAT008:I020:sp                                               Spare bits set to 0
+CAT008:I020:TST                                              Test
+CAT008:I020:ER                                               Error condition
+CAT008:I020:fx                                               Field extension
+CAT008:I034:StartR                                           Start Range
+CAT008:I034:end_range                                        End Range
+CAT008:I034:Azi                                              Azimuth
+CAT008:I036:x_component                                      X-Component
+CAT008:I036:Yc                                               Y-Component
+CAT008:I036:len                                              Length
+CAT008:I038:X1c                                              X1-Component
+CAT008:I038:Y1c                                              Y1-Component
+CAT008:I038:X2c                                              X2-Component
+CAT008:I038:Y2c                                              Y2-Component
+CAT008:I040:org                                              ORG
+CAT008:I040:IntL                                             Intensity level
+CAT008:I040:sp                                               Spare bits set to 0
+CAT008:I040:fst_lst                                          FST-LST
+CAT008:I040:CSN                                              Contour Serial Number
+CAT008:I050:X1c                                              X1-Component
+CAT008:I050:Y1c                                              Y1-Component
+CAT008:I090:ToD                                              Time of day
+CAT008:I100:f                                                Scaling factor f
+CAT008:I100:R                                                Current reduction stage
+CAT008:I100:Q                                                Processing parameters
+CAT008:I100:fx                                               Field extension
+CAT008:I110:Stat                                             Status
+CAT008:I110:fx                                               Field extension
+CAT008:I120:total_number                                     Total Number of Items
+CAT010:I001:MsgTyp                                           Type of msg.
+CAT010:I010:SAC                                              System Area Code fixed to zero
+CAT010:I010:SIC                                              System Identification Code
+CAT010:I020:TYP                                              TYP
+CAT010:I020:DCR                                              Differential Correction
+CAT010:I020:CHN                                              
+CAT010:I020:GBS                                              Ground Bit Setting
+CAT010:I020:CRT                                              
+CAT010:I020:FX                                               
+CAT010:I020:SIM                                              
+CAT010:I020:TST                                              
+CAT010:I020:RAB                                              
+CAT010:I020:LOP                                              LOP
+CAT010:I020:TOT                                              Type of target
+CAT010:I020:FX                                               
+CAT010:I020:SPI                                              
+CAT010:I020:spare                                            Spare bit set to 0
+CAT010:I020:FX                                               
+CAT010:I040:RHO                                              RHO
+CAT010:I040:Theta                                            Theta
+CAT010:I041:Lat                                              Latitude in WGS-84 in twos complement.
+CAT010:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT010:I042:X                                                X
+CAT010:I042:Y                                                Y
+CAT010:I060:V                                                V
+CAT010:I060:G                                                G
+CAT010:I060:L                                                L
+CAT010:I060:spare                                            Spare bit set to 0
+CAT010:I060:Mod3A                                            Mode-3/A reply in octal representation
+CAT010:I090:V                                                
+CAT010:I090:G                                                
+CAT010:I090:FL                                               Flight Level
+CAT010:I091:MHeight                                          Measured Height
+CAT010:I131:PAM                                              Primary Plot Amplitude
+CAT010:I140:ToD                                              Time of Day
+CAT010:I161:spare                                            Spare bits set to zero
+CAT010:I161:TrkNb                                            Track number
+CAT010:I170:CNF                                              
+CAT010:I170:TRE                                              
+CAT010:I170:CST                                              
+CAT010:I170:MAH                                              
+CAT010:I170:TCC                                              
+CAT010:I170:STH                                              
+CAT010:I170:FX                                               
+CAT010:I170:TOM                                              
+CAT010:I170:DOU                                              
+CAT010:I170:MRS                                              
+CAT010:I170:FX                                               
+CAT010:I170:GHO                                              
+CAT010:I170:spare                                            Spare bits set to zero
+CAT010:I170:FX                                               
+CAT010:I200:GS                                               Ground Speed
+CAT010:I200:TA                                               Track Angle clockwise reference to True North
+CAT010:I202:Vx                                               Vx
+CAT010:I202:Vy                                               Vy
+CAT010:I210:Ax                                               Ax
+CAT010:I210:Ay                                               Ay
+CAT010:I220:TAddr                                            24-bits Target Address
+CAT010:I245:STI                                              
+CAT010:I245:spare                                            Spare bits set to zero
+CAT010:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT010:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
+CAT010:I250:BDS1                                             Comm B Data Buffer Store 1 Address
+CAT010:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT010:I270:Ori                                              Orientation
+CAT010:I270:FX                                               Extension Indicator
+CAT010:I270:Width                                            Width
+CAT010:I270:FX                                               Extension Indicator
+CAT010:I280:DRHO                                             DRHO
+CAT010:I280:DTHETA                                           DTHETA
+CAT010:I300:VFI                                              Vehicle Fleet Identification
+CAT010:I310:TRB                                              
+CAT010:I310:MSG                                              
+CAT010:I500:Qx                                               Standard deviation X component
+CAT010:I500:Qy                                               Standard deviation Y component
+CAT010:I500:Qxy                                              Q(X,Y)
+CAT010:I550:NOGO                                             Operational Release Status of System
+CAT010:I550:OVL                                              Overload indicator
+CAT010:I550:TSV                                              Time Source Validity
+CAT010:I550:DIV                                              Diversity indicator
+CAT010:I550:TTF                                              Test Target indicator
+CAT010:I550:spare                                            Spare bits set to zero
+CAT010:ISP:SPval                                             
+CAT019:I000:MsgTyp                                           Message Type
+CAT019:I010:SAC                                              System Area Code
+CAT019:I010:SIC                                              System Identification Code
+CAT019:I140:ToD                                              Time Of Day
+CAT019:I550:NOGO                                             Operational Release Status of the System
+CAT019:I550:OVL                                              Overload indicator
+CAT019:I550:TSV                                              Time Source Validity
+CAT019:I550:TTF                                              Test Target Failure
+CAT019:I550:spare                                            Spare bits set to zero
+CAT019:I551:TP1_mode                                         TP 1
+CAT019:I551:TP1_status                                       TP 1
+CAT019:I551:TP2_mode                                         TP 2
+CAT019:I551:TP2_status                                       TP 2
+CAT019:I551:TP3_mode                                         TP 3
+CAT019:I551:TP3_status                                       TP 3
+CAT019:I551:TP4_mode                                         TP 4
+CAT019:I551:TP4_status                                       TP 4
+CAT019:I552:RS_id                                            RS Identification 8-bit Identification number of RS
+CAT019:I552:RS_type                                          RS Type 4-bit Type of RS
+CAT019:I552:Stat                                             Status
+CAT019:I553:ref_trans_1                                      Ref Trans 1 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:ref_trans_2                                      Ref Trans 2 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I600:Lat                                              Latitude in WGS-84 in twos complement.
+CAT019:I600:Lon                                              Longitude in WGS-84 in twos complement.
+CAT019:I610:height                                           Height (WGS-84) above MSL
+CAT019:I620:undulation                                       WGS-84 Undulation value (MSL)
+CAT020:I010:SAC                                              System Area Code
+CAT020:I010:SIC                                              System Identification Code
+CAT020:I020:SSR                                              
+CAT020:I020:MS                                               
+CAT020:I020:HF                                               
+CAT020:I020:VDL4                                             
+CAT020:I020:UAT                                              
+CAT020:I020:DME                                              
+CAT020:I020:OT                                               
+CAT020:I020:FX                                               
+CAT020:I020:RAB                                              
+CAT020:I020:SPI                                              
+CAT020:I020:CHN                                              
+CAT020:I020:GBS                                              
+CAT020:I020:CRT                                              
+CAT020:I020:SIM                                              
+CAT020:I020:TST                                              
+CAT020:I020:FX                                               
+CAT020:I030:W_E                                              (W/E Value) Warning/error condition value
+CAT020:I030:FX                                               
+CAT020:I041:Lat                                              Latitude in WGS-84 in twos complement.
+CAT020:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT020:I042:X                                                X
+CAT020:I042:Y                                                Y
+CAT020:I050:V                                                V
+CAT020:I050:G                                                G
+CAT020:I050:L                                                L
+CAT020:I050:spare                                            Spare bit set to 0
+CAT020:I050:Mode2                                            Mode-2 reply in octal representation
+CAT020:I055:V                                                
+CAT020:I055:G                                                
+CAT020:I055:L                                                
+CAT020:I055:Mode1                                            Mode-1 Code in octal representation
+CAT020:I070:V                                                
+CAT020:I070:G                                                
+CAT020:I070:L                                                
+CAT020:I070:spare                                            Spare bit set to 0
+CAT020:I070:Mod3A                                            Mode-3/A reply in octal representation
+CAT020:I090:V                                                
+CAT020:I090:G                                                
+CAT020:I090:FL                                               Flight Level
+CAT020:I100:V                                                
+CAT020:I100:G                                                
+CAT020:I100:spare                                            Spare bits set to 0
+CAT020:I100:ModeC                                            Mode-C reply in Gray notation
+CAT020:I100:spare                                            Spare bits set to 0
+CAT020:I100:QXi                                              
+CAT020:I105:geometric_height                                 Geometric Height (WGS-84)
+CAT020:I110:MHeight                                          Measured Height
+CAT020:I140:ToD                                              Time of Day
+CAT020:I161:spare                                            Spare bits set to zero
+CAT020:I161:TrkNb                                            Track number
+CAT020:I170:CNF                                              
+CAT020:I170:TRE                                              
+CAT020:I170:CST                                              
+CAT020:I170:CDM                                              
+CAT020:I170:MAH                                              
+CAT020:I170:STH                                              
+CAT020:I170:FX                                               
+CAT020:I170:GHO                                              
+CAT020:I170:spare                                            Spare bits set to zero
+CAT020:I170:FX                                               
+CAT020:I202:Vx                                               Vx
+CAT020:I202:Vy                                               Vy
+CAT020:I210:Ax                                               Ax
+CAT020:I210:Ay                                               Ay
+CAT020:I220:TAddr                                            24-bits Target Address
+CAT020:I230:COM                                              Communications capability of the transponder
+CAT020:I230:STAT                                             Flight Status
+CAT020:I230:spare                                            spare bits set to zero
+CAT020:I230:MSSC                                             Mode-S Specific Service Capability
+CAT020:I230:ARC                                              Altitude reporting capability
+CAT020:I230:AIC                                              Aircraft identification capability
+CAT020:I230:B1A                                              BDS 1,0 bit 16
+CAT020:I230:B1B                                              BDS 1,0 bits 37/40
+CAT020:I245:STI                                              
+CAT020:I245:spare                                            Spare bits set to zero
+CAT020:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT020:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
+CAT020:I250:BDS1                                             Comm B Data Buffer Store 1 Address
+CAT020:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT020:I260:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data of BDS Register 3,0.
+CAT020:I300:VFI                                              Vehicle Fleet Identification
+CAT020:I310:TRB                                              
+CAT020:I310:MSG                                              
+CAT020:I400:RUx                                              RUx Contribution
+CAT020:I500:DOPx                                             DOP along x axis
+CAT020:I500:DOPy                                             DOP along y axis
+CAT020:I500:DOPxy                                            p(X,Y)
+CAT020:I500:SDPx                                             Standard Deviation of X component
+CAT020:I500:SDPy                                             Standard Deviation of Y component
+CAT020:I500:SDPxy                                            Correlation coefficient in two’s complement
+CAT020:I500:STD_GH                                           Standard Deviation of Geometric Height
+CAT020:IRE:DOPx                                              DOP along x axis
+CAT020:IRE:DOPy                                              DOP along y axis
+CAT020:IRE:DOPxy                                             DOP Covariance Component in two’s complement form
+CAT020:IRE:SDCx                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (X component)
+CAT020:IRE:SDCy                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (Y component)
+CAT020:IRE:COVxy                                             XY Covariance Component in two’s complement form
+CAT020:IRE:SDH                                               Standard Deviation of Geometric Height of the target expressed in WGS-84
+CAT020:IRE:SDWlat                                            Standard Deviation of Position of the target expressed in WGS-84 (Latitude component)
+CAT020:IRE:SDWlong                                           Standard Deviation of Position of the target expressed in WGS-84 (Longitude component)
+CAT020:IRE:COV_WGS                                           Lat/Long Covariance Component in two’s complement form
+CAT020:IRE:RE                                                Range Exceeded Indicator
+CAT020:IRE:GS                                                Ground Speed referenced to WGS-84
+CAT020:IRE:TA                                                Track Angle clockwise reference to “True North”
+CAT020:IRE:GSSD                                              Standard deviation of the Ground Speed
+CAT020:IRE:TASD                                              Standard deviation of the Track Angle
+CAT020:IRE:TRT                                               Time of ASTERIX Report Transmission
+CAT020:IRE:SPI                                               Special Position Identification Age
+CAT020:IRE:TI                                                Target Identification Age
+CAT020:IRE:BDS1                                              Comm B Data Buffer Store 1 Address
+CAT020:IRE:BDS2                                              Comm B Data Buffer Store 2 Address
+CAT020:IRE:MBA                                               Age of the information in the BDS report indicated in bits 16/9
+CAT020:IRE:M3A                                               Mode-3/A Code Age
+CAT020:IRE:FL                                                Flight Level Age
+CAT020:IRE:STAT                                              Flight Status Age
+CAT020:IRE:GH                                                Geometric / Measured Height Age
+CAT020:IRE:TA                                                Target Address Age
+CAT020:IRE:MC                                                Mode C Code Age
+CAT020:IRE:MSSC                                              Mode-S Specific Service Capability Age
+CAT020:IRE:ARC                                               Altitude Reporting Capability Age
+CAT020:IRE:AIC                                               Aircraft Identification Capability age
+CAT020:IRE:M2                                                Mode-2 Code Age
+CAT020:IRE:M1                                                Mode-1 Code Age
+CAT020:IRE:ARA                                               ACAS Resolution Advisory Age
+CAT020:IRE:VI                                                Vehicle Fleet Identification Age
+CAT020:IRE:MSG                                               Pre-programmed Message Age
+CAT020:ISP:SP                                                SP
+CAT021:I008:RA                                               TCAS Resolution Advisory active
+CAT021:I008:TC                                               Target Change Report Capability
+CAT021:I008:TS                                               Target State Report Capability
+CAT021:I008:ARV                                              Air-Referenced Velocity Report Capability
+CAT021:I008:CDTI_A                                           Cockpit Display of Traffic Information airborne
+CAT021:I008:not_TCAS                                         TCAS System Status
+CAT021:I008:spare                                            spare bit, set to 0
+CAT021:I010:SAC                                              System Area Code
+CAT021:I010:SIC                                              System Identification Code
+CAT021:I015:id                                               Service Identification
+CAT021:I016:RP                                               Report Period
+CAT021:I020:ECAT                                             Emitter Category
+CAT021:I040:ATP                                              Address Type
+CAT021:I040:ARC                                              Altitude Reporting Capability
+CAT021:I040:RC                                               Range Check
+CAT021:I040:RAB                                              Report Type
+CAT021:I040:FX                                               Field Extension
+CAT021:I040:DCR                                              Differential Correction
+CAT021:I040:GBS                                              Ground Bit Setting
+CAT021:I040:SIM                                              Simulated Target
+CAT021:I040:TST                                              Test Target
+CAT021:I040:SAA                                              Selected Altitude Available
+CAT021:I040:CL                                               Confidence Level
+CAT021:I040:FX                                               Field Extension
+CAT021:I040:EC7                                              Error Condition 7
+CAT021:I040:EC6                                              Error Condition 6
+CAT021:I040:IPC                                              Independent Position Check
+CAT021:I040:NOGO                                             No-go Bit Status
+CAT021:I040:CPR                                              Compact Position Reporting
+CAT021:I040:LDPJ                                             Local Decoding Position Jump
+CAT021:I040:RCF                                              Range Check
+CAT021:I040:FX                                               Field Extension
+CAT021:I070:spare                                            Spare bits set to 0
+CAT021:I070:Mode3A                                           Mode-3/A reply in octal
+CAT021:I071:time_applicability_position                      Time of Applicability of Position
+CAT021:I072:time_applicability_velocity                      Time of Applicability of Velocity
+CAT021:I073:time_reception_position                          Time of Message Reception of Position
+CAT021:I074:FSI                                              Full Second Indication
+CAT021:I074:time_reception_position_highprecision            Fractional part of the time of message reception for position in the ground station.
+CAT021:I075:time_reception_velocity                          Time of Message Reception of Velocity
+CAT021:I076:FSI                                              Full Second Indication
+CAT021:I076:time_reception_velocity_highprecision            Fractional part of the time of message reception for velocity in the ground station.
+CAT021:I077:time_report_transmission                         Time of ASTERIX Report Transmission
+CAT021:I080:TAddr                                            Target Address
+CAT021:I090:NUCr_or_NACv                                     Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity
+CAT021:I090:NUCp_or_NIC                                      Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC.
+CAT021:I090:FX                                               
+CAT021:I090:NICbaro                                          Navigation Integrity Category for Barometric Altitude
+CAT021:I090:SIL                                              Surveillance Integrity Level
+CAT021:I090:NACp                                             Navigation Accuracy Category for Position
+CAT021:I090:FX                                               
+CAT021:I110:NAV                                              NAV
+CAT021:I110:NVB                                              NVB
+CAT021:I110:spare                                            Spare bits set to zero
+CAT021:I110:FX                                               Extension Indicator
+CAT021:I110:TCA                                              
+CAT021:I110:NC                                               
+CAT021:I110:TcpN                                             Trajectory Change Point Number
+CAT021:I110:Alt                                              Altitude
+CAT021:I110:Lat                                              Latitude
+CAT021:I110:Lon                                              Longitude
+CAT021:I110:PType                                            Point Type
+CAT021:I110:TD                                               
+CAT021:I110:TRA                                              Turn Radius Availability
+CAT021:I110:TOA                                              
+CAT021:I110:TOV                                              Time Over Point
+CAT021:I110:TTR                                              TCP Turn radius
+CAT021:I130:Lat                                              Latitude in WGS.84 in twos complement. Range -90 <= Lat <= 90 deg.
+CAT021:I130:Lon                                              Longitude in WGS.84 in twos complement. Range -180 <= longitude < 180 deg.
+CAT021:I131:Lat                                              Latitude In WGS.84 in twos complement. Range -90 <= Lat <= 90 deg.
+CAT021:I131:Lon                                              Longitude In WGS.84 in two's complement. Range -180 <= longitude < 180 deg.
+CAT021:I132:MAM                                              Message Amplitude
+CAT021:I140:geometric_height                                 Geometric Height
+CAT021:I145:FL                                               Flight Level
+CAT021:I146:SAS                                              Source Availability
+CAT021:I146:Source                                           Source
+CAT021:I146:Alt                                              Altitude
+CAT021:I148:MV                                               Manage Vertical Mode
+CAT021:I148:AH                                               Altitude Hold Mode
+CAT021:I148:AM                                               Approach Mode
+CAT021:I148:Alt                                              Altitude
+CAT021:I150:IM                                               Air Speed type
+CAT021:I150:ASpeed                                           Air Speed (IAS or Mach)
+CAT021:I151:RE                                               Range Exceeded Indicator
+CAT021:I151:TAS                                              True Air Speed
+CAT021:I152:MHdg                                             Magnetic Heading
+CAT021:I155:RE                                               Range Exceeded Indicator
+CAT021:I155:BVR                                              Barometric Vertical Rate
+CAT021:I157:RE                                               Range Exceeded Indicator
+CAT021:I157:GVR                                              Geometric Vertical Rate
+CAT021:I160:RE                                               Range Exceeded Indicator
+CAT021:I160:GS                                               Ground Speed referenced to WGS-84
+CAT021:I160:TA                                               Track Angle clockwise reference to True North
+CAT021:I161:spare                                            Spare bits set to zero
+CAT021:I161:TrackN                                           Track number
+CAT021:I165:spare                                            Spare bits set to zero
+CAT021:I165:TA_rate                                          Track Angle Rate
+CAT021:I170:TId                                              Characters 1-8 (coded on 6 Bits each) defining target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in [6] Section 3.1.2.9.1.2 and Table 3-9.
+CAT021:I200:spare                                            Spare bits set to zero
+CAT021:I200:PS                                               Priority Status
+CAT021:I200:SS                                               Surveillance Status
+CAT021:I210:spare                                            Spare bits set to zero
+CAT021:I210:VNS                                              Version Not Supported
+CAT021:I210:VN                                               Version Number
+CAT021:I210:LTT                                              Link Technology Type
+CAT021:I220:WindS                                            Wind Speed
+CAT021:I220:WindD                                            Wind Direction
+CAT021:I220:Temp                                             Temperature
+CAT021:I220:Turb                                             Turbulence
+CAT021:I230:RollA                                            Roll Angle
+CAT021:I250:MB                                               (MB Data) 56-bit message conveying Mode S Comm B message data
+CAT021:I250:BDS1                                             Comm B Data Buffer Store 1 Address
+CAT021:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT021:I260:ARA                                              Information conveyed in an active ACAS Resoulution Advisory.
+CAT021:I271:spare                                            Spare bits set to zero
+CAT021:I271:POA                                              Position Offset Applied
+CAT021:I271:CDTI_S                                           Cockpit Display of Traffic Information Surface
+CAT021:I271:B2_low                                           Class B2 transmit power less than 70 Watts
+CAT021:I271:RAS                                              Receiving ATC Services
+CAT021:I271:IDENT                                            Setting of “IDENT”-switch
+CAT021:I271:FX                                               FX Extension indicator
+CAT021:I271:spare                                            Spare bits set to zero
+CAT021:I271:length_width                                     Length and width of the aircraft
+CAT021:I295:AOS                                              Age of the latest received information transmitted in item I021/008.
+CAT021:I295:TRD                                              Age of the last update of the Target Report Descriptor, item I021/040
+CAT021:I295:M3A                                              Age of the last update of the Mode 3/A Code, item I021/070
+CAT021:I295:QI                                               Age of the latest information received to update the Quality Indicators, item I021/090
+CAT021:I295:TI                                               Age of the last update of the Trajectory Intent information updating item I021/110
+CAT021:I295:MAM                                              Age of the latest measurement of the message amplitude, item I021/132
+CAT021:I295:GH                                               Age of the information contained in item 021/140
+CAT021:I295:FL                                               Age of the Flight Level information in item I021/145
+CAT021:I295:ISA                                              Age of the Intermediate State Selected Altitude in item I021/146
+CAT021:I295:FSA                                              Age of the Final State Selected Altitude in item I021/148
+CAT021:I295:AS                                               Age of the Air Speed contained in item I021/150
+CAT021:I295:TAS                                              Age of the value for the True Air Speed in item I021/151
+CAT021:I295:MH                                               Age of the value for the Magnetic Heading in item I021/152
+CAT021:I295:BVR                                              Age of the Barometric Vertical Rate contained in I021/155
+CAT021:I295:GVR                                              Age of the Geometric Vertical Rate in item I021/157
+CAT021:I295:GV                                               Age of the Ground Vector in item I021/160
+CAT021:I295:TAR                                              Age of item I021/165 Track Angle Rate
+CAT021:I295:TI                                               Age of the Target Identification in item I021/170
+CAT021:I295:TS                                               Age of the Target Status as contained in item I021/200
+CAT021:I295:MET                                              Age of the Meteorological data contained in I021/220
+CAT021:I295:ROA                                              Age of the Roll Angle value as in item I021/230
+CAT021:I295:ARA                                              Age of the latest update of an active ACAS Resolution Advisory
+CAT021:I295:SCC                                              Age of the latest information received on the surface capabilities and characteristics of the respective target
+CAT021:I400:RID                                              Receiver ID
+CAT021:IRE:spare                                             Spare bits set to zero
+CAT021:IRE:BPS                                               Barometric Pressure Setting
+CAT021:IRE:spare                                             Spare bits set to zero
+CAT021:IRE:HRD                                               Horizontal Reference Direction
+CAT021:IRE:Stat                                              Selected Heading Status
+CAT021:IRE:SelH                                              Selected Heading
+CAT021:IRE:AP                                                Autopilot engaged
+CAT021:IRE:VN                                                VNAV Active (Vertical Navigation)
+CAT021:IRE:AH                                                Altitude Hold engaged
+CAT021:IRE:AM                                                Approach Mode active
+CAT021:IRE:spare                                             Spare bits set to zero
+CAT021:IRE:GAO                                               GPS Antenna Offset
+CAT021:IRE:STP                                               Aircraft stopped
+CAT021:IRE:HTS                                               Heading/Ground Track
+CAT021:IRE:HTT                                               Heading/Ground data
+CAT021:IRE:North                                             North
+CAT021:IRE:GSS                                               Ground Speed
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:HGT                                               Heading/Ground Track information
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:ES                                                1090 ES IN capability
+CAT021:IRE:UAT                                               UAT capability
+CAT021:IRE:spare                                             Spare bits set to zero
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:TNH                                               Magnetic Heading
+CAT030:I010:SAC                                              System Area Code
+CAT030:I010:SIC                                              System Identification Code
+CAT030:I015:UserN                                            User number
+CAT030:I020:ToM                                              Time Of Message
+CAT030:I030:spare                                            spare bits set to 0
+CAT030:I030:BS                                               Track selected by the Background service
+CAT030:I030:C1                                               Track selected by the Complementary service 1
+CAT030:I030:FX                                               Field extension
+CAT030:I030:C2                                               Track selected by the Complementary service 2
+CAT030:I030:C3                                               Track selected by the Complementary service 3
+CAT030:I030:C4                                               Track selected by the Complementary service 4
+CAT030:I030:C5                                               Track selected by the Complementary service 5
+CAT030:I030:spare                                            spare bits set to 0
+CAT030:I030:FX                                               Field extension
+CAT030:I035:family                                           Family to which the message belongs
+CAT030:I035:nature                                           Nature of the message (within its family)
+CAT030:I040:spare                                            Spare bits set to zero
+CAT030:I040:sttn                                             Track number indicator
+CAT030:I040:TrackN                                           Track number
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I050:AUI                                              Artas Unit Identification
+CAT030:I050:unused                                           unused bits
+CAT030:I050:STN                                              System Track Number
+CAT030:I050:FX                                               Field extension
+CAT030:I060:V                                                Code validated
+CAT030:I060:G                                                Garbled code
+CAT030:I060:C                                                Code changed
+CAT030:I060:spare                                            Spare bit set to 0
+CAT030:I060:Mod3A                                            Mode-3/A reply in octal representation
+CAT030:I070:ToLU                                             Time Of Last Update
+CAT030:I080:LIV                                              
+CAT030:I080:CNF                                              
+CAT030:I080:ADD                                              
+CAT030:I080:CST                                              
+CAT030:I080:TYPE                                             
+CAT030:I080:FX                                               Field extension
+CAT030:I080:TRM                                              
+CAT030:I080:CRE                                              
+CAT030:I080:SLR                                              
+CAT030:I080:COR                                              
+CAT030:I080:FX                                               Field extension
+CAT030:I080:spare                                            Spare bits set to 0
+CAT030:I080:FOR                                              
+CAT030:I080:AMA                                              
+CAT030:I080:SPI                                              
+CAT030:I080:ME                                               
+CAT030:I080:TDC                                              
+CAT030:I080:FX                                               Field extension
+CAT030:I080:SF                                               
+CAT030:I080:spare                                            spare bits set to 0
+CAT030:I080:FX                                               Field extension
+CAT030:I090:spare                                            spare bits set to 0
+CAT030:I090:Qty                                              ARTAS track quality = 0 (low quality) to 7 (high quality)
+CAT030:I100:X                                                X-Component
+CAT030:I100:Y                                                Y-Component
+CAT030:I110:X_acc                                            X-Component accuracy
+CAT030:I110:Y_acc                                            Y-Component accuracy
+CAT030:I120:V                                                Code validated
+CAT030:I120:G                                                Garbled code
+CAT030:I120:C                                                Code changed
+CAT030:I120:spare                                            Spare bit set to 0
+CAT030:I120:Mod2A                                            Mode-2 reply in octal representation
+CAT030:I130:SRC                                              
+CAT030:I130:CTA                                              Calculated Track Altitude
+CAT030:I135:AA                                               Altitude Accuracy
+CAT030:I140:VAL                                              Validity indicator of the Flight Level
+CAT030:I140:GC                                               
+CAT030:I140:ModeC                                            Mode C
+CAT030:I150:spare                                            spare bits set to 0
+CAT030:I150:ModeC                                            Mode C
+CAT030:I160:spare                                            spare bit set to 0
+CAT030:I160:QNC                                              
+CAT030:I160:TFL                                              Track Flight Level
+CAT030:I165:CTFL_acc                                         Calculated track Flight Level Accuracy
+CAT030:I170:PSR                                              Age of the last primary plot/local track used to update the track
+CAT030:I170:SSR                                              Age of the last secondary plot/local track used to update the track
+CAT030:I170:AMODE                                            Age of the last detection of the mode A contained in the track mode A item I030/060.
+CAT030:I170:CMODE                                            Age of the last valid and credible mode C used to update the track, contained in I030/150.
+CAT030:I180:SPEED                                            Speed
+CAT030:I180:Hdg                                              Heading
+CAT030:I181:X                                                X-Velocity component
+CAT030:I181:Y                                                Y-Velocity component
+CAT030:I190:speed_acc                                        Speed component accuracy
+CAT030:I190:Hdg_acc                                          Heading component accuracy
+CAT030:I191:X_acc                                            X-velocity component accuracy
+CAT030:I191:Y_acc                                            Y-velocity component accuracy
+CAT030:I200:TRANS                                            Transversal Acceleration
+CAT030:I200:LONGI                                            Longitudinal Acceleration
+CAT030:I200:VERTI                                            Vertical Acceleration
+CAT030:I200:spare                                            Spare bits set to zero
+CAT030:I210:TCPROB                                           probability associated to the assessment of the Transversal Acceleration Mode-of-Flight Component.
+CAT030:I210:LCPROB                                           probability associated to the assessment of the Longitudinal Acceleration Mode-of-Flight Component.
+CAT030:I210:VCPROB                                           probability associated to the assessment of the Vertical Acceleration Mode-of-Flight Component.
+CAT030:I220:ROC                                              Rate of Climb/Descent
+CAT030:I230:ROC_acc                                          Estimated accuracy of ROC
+CAT030:I240:ROT                                              RoT
+CAT030:I250:Turn_acc                                         Estimated accuracy of Turn
+CAT030:I260:SAC                                              Source Area Code
+CAT030:I260:SIC                                              Source Identification Code
+CAT030:I270:LTN                                              Local Track Number
+CAT030:I290:AMODE                                            Age of the last mode A used to update the track and contained in item I030/340.
+CAT030:I290:CMODE                                            Age of the last mode C used to update the track and contained in I030/140.
+CAT030:I340:V                                                
+CAT030:I340:G                                                
+CAT030:I340:L                                                
+CAT030:I340:spare                                            spare bits set to 0
+CAT030:I340:Mod3A                                            Mode 3/A reply under the form of 4 digits in octal representation
+CAT030:I360:RHO                                              Measured distance
+CAT030:I360:THETA                                            Measured azimuth
+CAT030:I370:3d_height                                        3D height
+CAT030:I382:address                                          24 bits Mode-S address
+CAT030:I384:id                                               Aircraft ID
+CAT030:I386:COM                                              Communications capability of the transponder
+CAT030:I386:STAT                                             Flight status
+CAT030:I386:spare                                            spare bits set to 0
+CAT030:I390:SAC                                              System Area Code
+CAT030:I390:SIC                                              System Identification Code
+CAT030:I400:CS                                               Callsign
+CAT030:I410:PLN                                              PLN Number
+CAT030:I420:GAT_OAT                                          GAT/OAT
+CAT030:I420:FR1_FR2                                          FR1/FR2
+CAT030:I420:SP                                               Sub-category within the main categories.
+CAT030:I420:spare                                            spare bit set to 0
+CAT030:I430:TYPE                                             Tape of Aircraft
+CAT030:I435:CAT                                              category of turbulence
+CAT030:I440:DEPA                                             Departure Airport
+CAT030:I450:DESA                                             Destination Airport
+CAT030:I460:spare                                            spare bits set to 0
+CAT030:I460:Mode3A                                           Mode 3/A Code
+CAT030:I480:CCFL                                             Current cleared flight level
+CAT030:I490:CENTRE                                           Group identification code
+CAT030:I490:POSITION                                         Control Position identification code
+CAT030:IRE:MSA                                               Age of the last Mode S Address used to update the track.
+CAT030:IRE:MAI                                               Age of the last Mode S Aircraft Identification used to update the track.
+CAT031:I010:SAC                                              Source Area Code
+CAT031:I010:SIC                                              Source Identification Code
+CAT031:I015:UserN                                            User number
+CAT031:I020:ToM                                              Time Of Message
+CAT031:I030:SAC                                              Source Area Code
+CAT031:I030:SIC                                              Source Identity Code
+CAT031:I040:ST                                               Status of the radar
+CAT031:I040:spare                                            Spare bits se to 0
+CAT031:I050:spare                                            Spare bits se to 0
+CAT031:I050:TSB                                              Time Stamping Bias Valus
+CAT031:I060:spare                                            Spare bits se to 0
+CAT031:I060:SSRRB                                            SSR range bias
+CAT031:I060:SSRRG                                            SSR range gain
+CAT031:I070:SSRAB                                            SSR azimuth bias
+CAT031:I080:spare                                            Spare bits se to 0
+CAT031:I080:PRRB                                             PR range bias
+CAT031:I080:PRRG                                             PR range gain
+CAT031:I090:PRAB                                             PR azimuth bias
+CAT032:I010:SAC                                              Source Area Code
+CAT032:I010:SIC                                              Source Identification Code
+CAT032:I015:UserN                                            User number
+CAT032:I018:SAC                                              Source Area Code
+CAT032:I018:SIC                                              Source Identity Code
+CAT032:I020:ToM                                              Time Of Message
+CAT032:I035:family                                           Familiy to which the message belongs
+CAT032:I035:nature                                           Nature of the message (within its family)
+CAT032:I040:spare                                            Spare bits set to zero
+CAT032:I040:sttn                                             Track number indicator
+CAT032:I040:TrackN                                           Track number
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I050:AUI                                              Artas Unit Identification
+CAT032:I050:unused                                           unused bits
+CAT032:I050:STN                                              System Track Number
+CAT032:I050:FX                                               Field extension
+CAT032:I060:spare                                            Spare bits set to 0
+CAT032:I060:Mod3A                                            Mode-3/A reply in octal representation
+CAT032:I400:CS                                               Callsign
+CAT032:I410:PLN                                              PLN Number
+CAT032:I420:GAT_OAT                                          GAT/OAT
+CAT032:I420:FR1_FR2                                          FR1/FR2
+CAT032:I420:SP                                               Sub-category within the main categories.
+CAT032:I420:spare                                            spare bit set to 0
+CAT032:I430:TYPE                                             Tape of Aircraft
+CAT032:I435:CAT                                              category of turbulence
+CAT032:I440:DEPA                                             Departure Airport
+CAT032:I450:DESA                                             Destination Airport
+CAT032:I460:spare                                            spare bits set to 0
+CAT032:I460:Mode3A                                           Mode 3/A Code
+CAT032:I480:CCFL                                             Current cleared flight level
+CAT032:I490:CENTRE                                           Group identification code
+CAT032:I490:POSITION                                         Control Position identification code
+CAT034:I444:MsgTyp                                           Message Type
+CAT034:I010:SAC                                              System Area Code
+CAT034:I010:SIC                                              System Identification Code
+CAT034:I020:Azi                                              Antenna azimuth
+CAT034:I030:ToD                                              Time of day
+CAT034:I041:RotS                                             Antenna rotation speed
+CAT034:I050:NOGO                                             NOGO
+CAT034:I050:RDPC                                             RDPC
+CAT034:I050:RDPR                                             RDPR
+CAT034:I050:OVL RDP                                          OVL RDP
+CAT034:I050:OVL XMT                                          OVL XMT
+CAT034:I050:MSC                                              MSC
+CAT034:I050:TSV                                              TSV
+CAT034:I050:spare                                            spare bit set to 0
+CAT034:I050:ANT                                              ANT
+CAT034:I050:CHAB                                             CH-A/B
+CAT034:I050:OVL                                              OVL
+CAT034:I050:MSC                                              MSC
+CAT034:I050:spare                                            spare bit set to 0
+CAT034:I050:ANT                                              ANT
+CAT034:I050:CHAB                                             CH-A/B
+CAT034:I050:OVL                                              OVL
+CAT034:I050:MSC                                              MSC
+CAT034:I050:spare                                            spare bit set to 0
+CAT034:I050:ANT                                              ANT
+CAT034:I050:CHAB                                             CH-A/B
+CAT034:I050:OVL SUR                                          OVL SUR
+CAT034:I050:MSC                                              MSC
+CAT034:I050:SCF                                              Channel A/B sellection for Surveillance Co-ordination Function
+CAT034:I050:DLF                                              Channel A/B sellection for Data Link Function
+CAT034:I050:OVL SCF                                          OVL SCF
+CAT034:I050:OVL DLF                                          OVL DLF
+CAT034:I050:spare                                            spare bit set to 0
+CAT034:I060:spare                                            spare bit set to 0
+CAT034:I060:REDRDP                                           RED-RDP
+CAT034:I060:REDXMT                                           RED-XMT
+CAT034:I060:spare                                            spare bit set to 0
+CAT034:I060:POL                                              Polarization in use
+CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:STC                                              Sensitivity Time Control Map in use
+CAT034:I060:spare                                            spare bit set to 0
+CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:spare                                            spare bit set to 0
+CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:CLU                                              Cluster State
+CAT034:I060:spare                                            spare bit set to 0
+CAT034:I070:TYP                                              Type of message counter
+CAT034:I070:counter                                          Counter value
+CAT034:I090:range_error                                      Range Error
+CAT034:I090:AziErr                                           Azimuth
+CAT034:I100:RhoS                                             Rho start
+CAT034:I100:RhoE                                             Rho end
+CAT034:I100:ThetaS                                           Theta start
+CAT034:I100:ThetaE                                           Theta end
+CAT034:I110:TYP                                              TYP
+CAT034:I120:Height                                           Height in WGS-84
+CAT034:I120:LAT                                              Latitude in WGS-84
+CAT034:I120:Lon                                              Longitude in WGS-84
+CAT048:I010:SAC                                              System Area Code
+CAT048:I010:SIC                                              System Identification Code
+CAT048:I020:TYP                                              TYP
+CAT048:I020:SIM                                              SIM
+CAT048:I020:RDP                                              RDP
+CAT048:I020:SPI                                              SPI
+CAT048:I020:RAB                                              RAB
+CAT048:I020:FX                                               FX
+CAT048:I020:TST                                              TST
+CAT048:I020:spare                                            spare bits set to 0
+CAT048:I020:ME                                               ME
+CAT048:I020:MI                                               MI
+CAT048:I020:FOEFRI                                           FOE/FRI
+CAT048:I020:FX                                               FX
+CAT048:I030:WE                                               First warning/error condition value
+CAT048:I030:FX                                               FX
+CAT048:I040:RHO                                              
+CAT048:I040:THETA                                            
+CAT048:I042:X                                                X component
+CAT048:I042:Y                                                Y component
+CAT048:I050:V                                                
+CAT048:I050:G                                                
+CAT048:I050:L                                                
+CAT048:I050:spare                                            spare bit set to 0
+CAT048:I050:Mode2                                            Mode-2 code
+CAT048:I055:V                                                
+CAT048:I055:G                                                
+CAT048:I055:L                                                
+CAT048:I055:Mode1                                            Mode-1 code
+CAT048:I060:spare                                            spares bit set to 0
+CAT048:I060:QA4                                              
+CAT048:I060:QA2                                              
+CAT048:I060:QA1                                              
+CAT048:I060:QB4                                              
+CAT048:I060:QB2                                              
+CAT048:I060:QB1                                              
+CAT048:I060:QC4                                              
+CAT048:I060:QC2                                              
+CAT048:I060:QC1                                              
+CAT048:I060:QD4                                              
+CAT048:I060:QD2                                              
+CAT048:I060:QD1                                              
+CAT048:I065:spare                                            spares bit set to 0
+CAT048:I065:QA4                                              
+CAT048:I065:QA2                                              
+CAT048:I065:QA1                                              
+CAT048:I065:QB2                                              
+CAT048:I065:QB1                                              
+CAT048:I070:V                                                
+CAT048:I070:G                                                
+CAT048:I070:L                                                
+CAT048:I070:spare                                            spare bit set to 0
+CAT048:I070:Mode3A                                           Mode-3/A reply code
+CAT048:I080:spare                                            spares bit set to 0
+CAT048:I080:QA4                                              
+CAT048:I080:QA2                                              
+CAT048:I080:QA1                                              
+CAT048:I080:QB4                                              
+CAT048:I080:QB2                                              
+CAT048:I080:QB1                                              
+CAT048:I080:QC4                                              
+CAT048:I080:QC2                                              
+CAT048:I080:QC1                                              
+CAT048:I080:QD4                                              
+CAT048:I080:QD2                                              
+CAT048:I080:QD1                                              
+CAT048:I090:V                                                
+CAT048:I090:G                                                
+CAT048:I090:FL                                               FlightLevel
+CAT048:I100:V                                                
+CAT048:I100:G                                                
+CAT048:I100:spare                                            spare bits set to 0
+CAT048:I100:ModeC                                            Mode-C reply in Gray notation
+CAT048:I100:spare                                            spare bits set to 0
+CAT048:I100:QC1                                              
+CAT048:I100:QA1                                              
+CAT048:I100:QC2                                              
+CAT048:I100:QA2                                              
+CAT048:I100:QC4                                              
+CAT048:I100:QA4                                              
+CAT048:I100:QB1                                              
+CAT048:I100:QD1                                              
+CAT048:I100:QB2                                              
+CAT048:I100:QD2                                              
+CAT048:I100:QB1                                              
+CAT048:I100:QD1                                              
+CAT048:I110:spare                                            spare bits set to 0
+CAT048:I110:3D_Height                                        3D_Height
+CAT048:I120:D                                                Doppler Speed Validation
+CAT048:I120:spare                                            spare bits set to 0
+CAT048:I120:CAL                                              Calculated Doppler Speed
+CAT048:I120:DOP                                              Doppler speed
+CAT048:I120:AMB                                              Ambiguity
+CAT048:I120:FRQ                                              Transmitted Frequency
+CAT048:I130:SRL                                              SSR Plot Runlength
+CAT048:I130:SRR                                              SSR-Number of received reply
+CAT048:I130:SAM                                              SSR-Reply amplitude
+CAT048:I130:PRL                                              Primary Plot Runlength
+CAT048:I130:PAM                                              Amplitude of Primary plot
+CAT048:I130:RPD                                              Difference in Range between PSR and SSR plot
+CAT048:I130:APD                                              Difference in Azimuth between PSR and SSR plot
+CAT048:I140:ToD                                              Time Of Day
+CAT048:I161:Tn                                               Track Number
+CAT048:I170:CNF                                              CNF
+CAT048:I170:RAD                                              RAD
+CAT048:I170:DOU                                              DOU
+CAT048:I170:MAH                                              MAH
+CAT048:I170:CDM                                              CDM
+CAT048:I170:FX                                               FX
+CAT048:I170:TRE                                              TRE
+CAT048:I170:GHO                                              GHO
+CAT048:I170:SUP                                              SUP
+CAT048:I170:TCC                                              TCC
+CAT048:I170:spare                                            spare bits set to 0
+CAT048:I170:FX                                               FX
+CAT048:I200:CGS                                              Calculated groundspeed
+CAT048:I200:CHdg                                             Calculated heading
+CAT048:I210:SigmaX                                           SigmaX
+CAT048:I210:SigmaY                                           SigmaY
+CAT048:I210:SigmaV                                           Sigma Groundspeed
+CAT048:I210:SigmaH                                           Sigma Heading
+CAT048:I220:ACAddr                                           AircraftAddress
+CAT048:I230:COM                                              COM
+CAT048:I230:STAT                                             STAT
+CAT048:I230:spare                                            spare bit set to 0
+CAT048:I230:ModeSSSC                                         ModeS Specific Service Capability
+CAT048:I230:ARC                                              Altitude reporting capability
+CAT048:I230:AIC                                              Aircraft identification capability
+CAT048:I230:BDS16                                            BDS 1,0 bit 16
+CAT048:I230:BDS37                                            BDS 1,0 bits 37/40
+CAT048:I240:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT048:I250:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT048:I250:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT048:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT048:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT048:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT048:I250:BDS40:BP                                         Barometric Pressure
+CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT048:I250:BDS40:VNAV                                       VNAV Mode
+CAT048:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT048:I250:BDS40:APP                                        APPROACH Mode
+CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT048:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT048:I250:BDS50:RA_STATUS                                  Roll Angle Status
+CAT048:I250:BDS50:RA                                         Roll Angle
+CAT048:I250:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT048:I250:BDS50:TTA                                        True Track Angle
+CAT048:I250:BDS50:GS_STATUS                                  Ground Speed Status
+CAT048:I250:BDS50:GS                                         Ground Speed
+CAT048:I250:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT048:I250:BDS50:TAR                                        Track Angle Rate
+CAT048:I250:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT048:I250:BDS50:TAS                                        True Airspeed
+CAT048:I250:BDS60:HDG_STATUS                                 Heading Status
+CAT048:I250:BDS60:HDG                                        Magnetic Heading
+CAT048:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT048:I250:BDS60:IAS                                        Indicated Airspeed
+CAT048:I250:BDS60:MACH_STATUS                                Mach Speed Status
+CAT048:I250:BDS60:MACH                                       Mach Speed
+CAT048:I250:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT048:I250:BDS60:BAR                                        Barometric Altitude Rate
+CAT048:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT048:I250:BDS60:IVV                                        Inertial Vertical Velocity
+CAT048:I250:BDS0:BDS                                         BDS value
+CAT048:I260:MBdata                                           BDS 3,0
+CAT048:ISP:SP                                                SP
+CAT062:I010:SAC                                              System Area Code
+CAT062:I010:SIC                                              System Identification Code
+CAT062:I015:SID                                              Service Identification
+CAT062:I040:TrkN                                             Track number
+CAT062:I060:spare                                            Spare bits set to 0
+CAT062:I060:CH                                               Change in Mode 3/A
+CAT062:I060:spare                                            Spare bits set to 0
+CAT062:I060:Mode3A                                           Mode-3/A reply in octal representation
+CAT062:I070:ToT                                              Time Of Track Information
+CAT062:I080:MON                                              
+CAT062:I080:SPI                                              
+CAT062:I080:MRH                                              Most Reliable Height
+CAT062:I080:SRC                                              Source of calculated track altitude for I062/130
+CAT062:I080:CNF                                              
+CAT062:I080:FX                                               
+CAT062:I080:SIM                                              
+CAT062:I080:TSE                                              
+CAT062:I080:TSB                                              
+CAT062:I080:FPC                                              
+CAT062:I080:AFF                                              
+CAT062:I080:STP                                              
+CAT062:I080:KOS                                              
+CAT062:I080:FX                                               
+CAT062:I080:AMA                                              
+CAT062:I080:MD4                                              
+CAT062:I080:ME                                               
+CAT062:I080:MI                                               
+CAT062:I080:MD5                                              
+CAT062:I080:FX                                               
+CAT062:I080:CST                                              
+CAT062:I080:PSR                                              
+CAT062:I080:SSR                                              
+CAT062:I080:MDS                                              
+CAT062:I080:ADS                                              
+CAT062:I080:SUC                                              
+CAT062:I080:AAC                                              
+CAT062:I080:FX                                               
+CAT062:I080:SDS                                              
+CAT062:I080:EMS                                              
+CAT062:I080:PFT                                              
+CAT062:I080:FPLT                                             
+CAT062:I080:FX                                               
+CAT062:I080:DUPT                                             
+CAT062:I080:DUPF                                             
+CAT062:I080:DUPM                                             
+CAT062:I080:spare                                            Spare bits set to 0
+CAT062:I080:FX                                               
+CAT062:I100:X                                                X
+CAT062:I100:Y                                                Y
+CAT062:I105:Lat                                              Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
+CAT062:I105:Lon                                              Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT062:I110:M5                                               
+CAT062:I110:ID                                               
+CAT062:I110:DA                                               
+CAT062:I110:M1                                               
+CAT062:I110:M2                                               
+CAT062:I110:M3                                               
+CAT062:I110:MC                                               
+CAT062:I110:X                                                X-pulse from Mode 5 Data reply or Report.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:PIN                                              PIN Code
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:NAT                                              National Origin
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:MIS                                              Mission Code
+CAT062:I110:Lat                                              Latitude in WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.
+CAT062:I110:Lon                                              Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude < 180 deg.
+CAT062:I110:spare                                            spare bit set to 0
+CAT062:I110:RES                                              Resolution with which the GNSS-derived Altitude (GA) is reported.
+CAT062:I110:GA                                               GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:EM1                                              Extended Mode 1 Code in octal representation
+CAT062:I110:TOS                                              Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.
+CAT062:I110:spare                                            spare bits set to 0
+CAT062:I110:X5                                               X-pulse from Mode 5 Data reply or Report.
+CAT062:I110:XC                                               X-pulse from Mode C reply
+CAT062:I110:X3                                               X-pulse from Mode 3/A reply
+CAT062:I110:X2                                               X-pulse from Mode 2 reply
+CAT062:I110:X1                                               X-pulse from Mode 1 reply
+CAT062:I120:spare                                            Spare bits set to zero
+CAT062:I120:Mode2                                            Mode-2 code in octal representation
+CAT062:I130:Alt                                              Altitude
+CAT062:I135:QNH                                              QNH
+CAT062:I135:CTBA                                             Calculated Track Barometric Alt
+CAT062:I136:MFL                                              Measured Flight Level
+CAT062:I185:Vx                                               Vx
+CAT062:I185:Vy                                               Vy
+CAT062:I200:TRANSA                                           Transversal Acceleration
+CAT062:I200:LONGA                                            Longitudinal Acceleration
+CAT062:I200:VERTA                                            Vertical Rate
+CAT062:I200:ADF                                              Altitude Discrepancy Flag
+CAT062:I200:spare                                            Spare bit set to zero
+CAT062:I210:Ax                                               Ax
+CAT062:I210:Ay                                               Ay
+CAT062:I220:RoC                                              Rate of Climb/Descent
+CAT062:I245:STI                                              STI
+CAT062:I245:spare                                            Spare bits set to zero
+CAT062:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT062:I270:Len                                              Length
+CAT062:I270:FX                                               Extension indicator
+CAT062:I270:ORI                                              ORIENTATION
+CAT062:I270:FX                                               Extension indicator
+CAT062:I270:WIDTH                                            WIDTH
+CAT062:I270:FX                                               Extension indicator
+CAT062:I290:TRK                                              Actual track age since first occurence
+CAT062:I290:PSR                                              Age of the last primary detection used to update the track
+CAT062:I290:SSR                                              Age of the last secondary detection used to update the track
+CAT062:I290:MDS                                              Age of the last Mode S detection used to update the track
+CAT062:I290:ADS                                              Age of the last ADS-C report used to update the track
+CAT062:I290:ES                                               Age of the last 1090 Extended Squitter ADS-B report used to update the track
+CAT062:I290:VDL                                              Age of the last VDL Mode 4 ADS-B report used to update the track
+CAT062:I290:UAT                                              Age of the last UAT ADS-B report used to update the track
+CAT062:I290:LOP                                              Age of the last magnetic loop detection
+CAT062:I290:MLT                                              Age of the last MLT detection 
+CAT062:I295:MFL                                              
+CAT062:I295:MD1                                              
+CAT062:I295:MD2                                              
+CAT062:I295:MDA                                              
+CAT062:I295:MD4                                              
+CAT062:I295:MD5                                              
+CAT062:I295:MHG                                              
+CAT062:I295:IAS                                              
+CAT062:I295:TAS                                              
+CAT062:I295:SAL                                              
+CAT062:I295:FSS                                              
+CAT062:I295:TID                                              
+CAT062:I295:COM                                              
+CAT062:I295:SAB                                              
+CAT062:I295:ACS                                              
+CAT062:I295:BVR                                              
+CAT062:I295:GVR                                              
+CAT062:I295:RAN                                              
+CAT062:I295:TAR                                              
+CAT062:I295:TAN                                              
+CAT062:I295:GSP                                              
+CAT062:I295:VUN                                              
+CAT062:I295:MET                                              
+CAT062:I295:EMC                                              
+CAT062:I295:POS                                              
+CAT062:I295:GAL                                              
+CAT062:I295:PUN                                              
+CAT062:I295:MB                                               
+CAT062:I295:IAR                                              
+CAT062:I295:MAC                                              
+CAT062:I295:BPS                                              
+CAT062:I300:VFI                                              VFI
+CAT062:I340:SAC                                              System Area Code
+CAT062:I340:SIC                                              System Identification Code
+CAT062:I340:RHO                                              Measured distance
+CAT062:I340:THETA                                            Measured azimuth
+CAT062:I340:HEIGHT                                           Measured 3-D Height
+CAT062:I340:CV                                               
+CAT062:I340:CG                                               
+CAT062:I340:ModeC                                            Last Measured Mode C Code
+CAT062:I340:V                                                
+CAT062:I340:G                                                
+CAT062:I340:L                                                
+CAT062:I340:spare                                            Spare bit set to zero
+CAT062:I340:Mode3A                                           Mode 3/A reply under the form of 4 digits in octal representation
+CAT062:I340:TYP                                              Report Type
+CAT062:I340:SIM                                              
+CAT062:I340:RAB                                              
+CAT062:I340:TST                                              
+CAT062:I340:spare                                            Spare bits set to zero
+CAT062:I380:ADR                                              Target Address
+CAT062:I380:ACID                                             Target Identification
+CAT062:I380:MAH                                              Magnetic Heading
+CAT062:I380:IM                                               IAS/Mach No
+CAT062:I380:AS                                               Air Speed
+CAT062:I380:TAS                                              True Air Speed
+CAT062:I380:SAS                                              SAS
+CAT062:I380:SRC                                              Source
+CAT062:I380:Alt                                              Altitude
+CAT062:I380:MV                                               Manage Vertical Mode
+CAT062:I380:AH                                               Altitude Hold
+CAT062:I380:AM                                               Approach Mode
+CAT062:I380:Alt                                              Altitude
+CAT062:I380:NAV                                              TID available
+CAT062:I380:NVB                                              TID valid
+CAT062:I380:spare                                            Spare Bits set to zero
+CAT062:I380:FX                                               Extension indicator
+CAT062:I380:TCA                                              TCP number availability
+CAT062:I380:NC                                               TCP compliance
+CAT062:I380:TCPnum                                           Trajectory Change Point number
+CAT062:I380:Alt                                              Altitude
+CAT062:I380:Lat                                              Latitude in WGS.84 in twos complement. Range -90 < Lat < 90 deg.
+CAT062:I380:Lon                                              Longitude In WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT062:I380:PT                                               Point type
+CAT062:I380:TD                                               Turn Direction
+CAT062:I380:TRA                                              Turn Radius Availability
+CAT062:I380:TOA                                              TOV available
+CAT062:I380:TOV                                              Time Over Point
+CAT062:I380:TTR                                              Turn radius
+CAT062:I380:COM                                              Communications capability of the transponder
+CAT062:I380:STAT                                             Flight Status
+CAT062:I380:spare                                            Spare bits set to zero
+CAT062:I380:SSC                                              Specific service capability
+CAT062:I380:ARC                                              Altitude reporting capability
+CAT062:I380:AIC                                              Aircraft identification capability
+CAT062:I380:B1A                                              BDS 1,0 bit 16
+CAT062:I380:B1B                                              BDS 1,0 bits 37/40
+CAT062:I380:AC                                               ACAS status
+CAT062:I380:MN                                               Multiple navigational aids status
+CAT062:I380:DC                                               Differential correction status
+CAT062:I380:GBS                                              Ground Bit Set
+CAT062:I380:spare                                            Spare bits set to zero
+CAT062:I380:STAT                                             Flight Status
+CAT062:I380:ACASAD                                           ACAS Resolution Advisory Report - BDS 3,0
+CAT062:I380:BVR                                              Barometric Vertical Rate
+CAT062:I380:GVR                                              Geometric Vertical Rate
+CAT062:I380:RAN                                              Roll Angle
+CAT062:I380:TI                                               Turn Indicator
+CAT062:I380:spare                                            spare bits set to zero
+CAT062:I380:RoT                                              Rate of Turn
+CAT062:I380:spare                                            spare bits set to zero
+CAT062:I380:TAN                                              Track Angle
+CAT062:I380:GS                                               Ground Speed
+CAT062:I380:VUN                                              Velocity Uncertainty Category
+CAT062:I380:WS                                               Wind Speed Valid
+CAT062:I380:WD                                               Wind Direction Valid
+CAT062:I380:TMP                                              Temperature Valid
+CAT062:I380:TRB                                              Turbulence Valid
+CAT062:I380:spare                                            Spare Bits set to zero
+CAT062:I380:WS_D                                             Wind Speed
+CAT062:I380:WD_D                                             Wind Direction
+CAT062:I380:TMP_D                                            Temperature
+CAT062:I380:TRB_D                                            Turbulence
+CAT062:I380:ECAT                                             Emitter Category
+CAT062:I380:Lat                                              Latitude in WGS.84 in two’s complement. Range -90 ≤ Lat ≤ 90 deg.
+CAT062:I380:Lon                                              Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude < 180 deg.
+CAT062:I380:GAL                                              Geometric Altitude
+CAT062:I380:spare                                            Spare bits set to zero
+CAT062:I380:PUN                                              Position Uncertainty
+CAT062:I380:MB                                               56 bit message conveying Mode S B message data
+CAT062:I380:BDS1                                             Comm B data Buffer Store 1 Address
+CAT062:I380:BDS2                                             Comm B data Buffer Store 2 Address
+CAT062:I380:IAS                                              Indicated Air Speed
+CAT062:I380:MNO                                              Mach Number
+CAT062:I380:spare                                            spare bits set to zero
+CAT062:I380:BPS                                              Barometric Pressure Setting
+CAT062:I390:SAC                                              System Area Code
+CAT062:I390:SIC                                              System Identification Code
+CAT062:I390:CS                                               Callsign
+CAT062:I390:TYP                                              
+CAT062:I390:spare                                            spare bits set to zero
+CAT062:I390:NBR                                              
+CAT062:I390:GATOAT                                           
+CAT062:I390:FR1FR2                                           
+CAT062:I390:RVSM                                             
+CAT062:I390:HPR                                              
+CAT062:I390:spare                                            spare bit set to zero
+CAT062:I390:TYPE                                             Type of Aircraft
+CAT062:I390:WTC                                              Wake Turbulence Category
+CAT062:I390:DEP                                              Departure Airport
+CAT062:I390:DES                                              Destination Airport
+CAT062:I390:NU1                                              First number
+CAT062:I390:NU2                                              Second number
+CAT062:I390:LTR                                              Letter
+CAT062:I390:CFL                                              Current Cleared Flight Level
+CAT062:I390:Centre                                           8-bit group Identification code
+CAT062:I390:Position                                         8-bit Control Position identification code
+CAT062:I390:TYP                                              
+CAT062:I390:DAY                                              
+CAT062:I390:spare                                            spare bits set to zero
+CAT062:I390:HOR                                              Hours, from 0 to 23
+CAT062:I390:spare                                            spare bits set to zero
+CAT062:I390:MIN                                              Minutes, from 0 to 59
+CAT062:I390:AVS                                              
+CAT062:I390:spare                                            spare bit set to zero
+CAT062:I390:SEC                                              Seconds, from 0 to 59
+CAT062:I390:AS                                               Aircraft Stand
+CAT062:I390:EMP                                              
+CAT062:I390:AVL                                              
+CAT062:I390:spare                                            spare bit set to zero
+CAT062:I390:SID                                              Standard Instrument Departure
+CAT062:I390:STAR                                             Standard Instrument Arrival
+CAT062:I390:spare                                            spare bit set to zero
+CAT062:I390:VAL                                              Validity
+CAT062:I390:PEM                                              Pre-emergency Mode 3A code
+CAT062:I390:PAC                                              Pre-emergency Callsign
+CAT062:I500:APC_X                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
+CAT062:I500:APC_Y                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
+CAT062:I500:COV_XY                                           XY covariance component
+CAT062:I500:APW_Lat                                          APW Latitude Component
+CAT062:I500:APW_Long                                         APW Longitude Component
+CAT062:I500:AGA_Acc                                          Calculated Track Geometric Altitude Estimated accuracy
+CAT062:I500:ABA_Acc                                          Calculated Track Barometric Altitude Estimated accuracy
+CAT062:I500:ATV_X                                            Estimated Accuracy Of Track Velocity X_Cartesian
+CAT062:I500:ATV_Y                                            Estimated Accuracy Of Track Velocity Y_Cartesian
+CAT062:I500:AA_X                                             Estimated Accuracy Of Acceleration X_Cartesian
+CAT062:I500:AA_Y                                             Estimated Accuracy Of Acceleration Y_Cartesian
+CAT062:I500:ARC_Acc                                          Rate Of Climb/Descent Estimated accuracy
+CAT062:I510:SDPSUID                                          SDPS UNIT IDENTIFICATION
+CAT062:I510:STN                                              SYSTEM TRACK NUMBER
+CAT062:I510:FX                                               
+CAT062:I510:SDPSUID                                          SDPS UNIT IDENTIFICATION
+CAT062:I510:STN                                              SYSTEM TRACK NUMBER
+CAT062:I510:FX                                               
+CAT062:ISP:TRI                                               TargetReportIdentifier
+CAT063:I010:SAC                                              Source Area Code
+CAT063:I010:SIC                                              Source Identification Code
+CAT063:I015:ServiceID                                        Service Identification
+CAT063:I030:ToD                                              Time Of Message
+CAT063:I050:SAC                                              System Area Code
+CAT063:I050:SIC                                              System Identification Code
+CAT063:I060:CON                                              Connection Status
+CAT063:I060:PSR                                              GO/NOGO
+CAT063:I060:SSR                                              GO/NOGO
+CAT063:I060:MDS                                              GO/NOGO
+CAT063:I060:ADS                                              GO/NOGO
+CAT063:I060:MLT                                              GO/NOGO
+CAT063:I060:FX                                               Extension indicator
+CAT063:I060:OPS                                              Operational Release Status of the System
+CAT063:I060:ODP                                              Data Processor Overload Indicator
+CAT063:I060:OXT                                              Transmission Subsystem Overload Status
+CAT063:I060:MSC                                              Monitoring System Connected Status
+CAT063:I060:TSV                                              Time Source Validity
+CAT063:I060:NPW                                              No Plot Warning
+CAT063:I060:spare                                            spare Bit set to zero
+CAT063:I060:FX                                               Extension indicator
+CAT063:I070:TSB                                              Time Stamping Bias Value
+CAT063:I080:SRG                                              SSR range gain
+CAT063:I080:SRB                                              SSR range bias
+CAT063:I081:SAB                                              SSR azimuth bias
+CAT063:I090:PRG                                              PR range gain
+CAT063:I090:PRB                                              PR range bias
+CAT063:I091:PAB                                              PSR azimuth bias
+CAT063:I092:PEB                                              PSR Elevation bias
+CAT065:I000:Typ                                              Message Type
+CAT065:I010:SAC                                              Source Area Code
+CAT065:I010:SIC                                              Source Identification Code
+CAT065:I015:SID                                              Service Identification
+CAT065:I020:BTN                                              Batch Number
+CAT065:I030:ToD                                              Time Of Message
+CAT065:I040:NOGO                                             NOGO
+CAT065:I040:OVL                                              Overload
+CAT065:I040:TSV                                              Time Source Status
+CAT065:I040:PSS                                              Processing System Status
+CAT065:I040:spare                                            Spare bits se to 0
+CAT065:I050:REPORT                                           Service Status Report
+CAT242:I010:SAC                                              System Area Code
+CAT242:I010:SIC                                              System Identification Code
+CAT242:I020:TYP                                              
+CAT242:I020:spare                                            spares bit set to 0
+CAT242:I020:FX                                               
+CAT242:I020:spare                                            spares bit set to 0
+CAT242:I020:ME                                               
+CAT242:I020:MI                                               
+CAT242:I020:spare                                            spare bits set to 0
+CAT242:I020:FX                                               
+CAT242:I040:RHO                                              
+CAT242:I040:THETA                                            
+CAT242:I050:V                                                
+CAT242:I050:G                                                
+CAT242:I050:L                                                
+CAT242:I050:spare                                            spare bit set to 0
+CAT242:I050:Mode2                                            Mode-2 code
+CAT242:I055:V                                                
+CAT242:I055:G                                                
+CAT242:I055:L                                                
+CAT242:I055:Mode1                                            Mode-1 code
+CAT242:I070:V                                                
+CAT242:I070:G                                                
+CAT242:I070:L                                                
+CAT242:I070:spare                                            spare bit set to 0
+CAT242:I070:Mode3A                                           Mode-3/A reply code
+CAT242:I090:V                                                
+CAT242:I090:G                                                
+CAT242:I090:ModeC                                            Mode-C reply code
+CAT242:I130:Power                                            
+CAT242:I140:ToT                                              Time Of Track Information
+CAT242:I220:ACAddr                                           AircraftAddress
+CAT242:I230:COM                                              COM
+CAT242:I230:STAT                                             STAT
+CAT242:I230:spare                                            spare bit set to 0
+CAT242:I240:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT242:ISP:Range                                             
+CAT242:ISP:REPMODE1                                          
+CAT242:ISP:REPMODE2                                          
+CAT242:ISP:REPMODE3A                                         
+CAT242:ISP:REPMODEC                                          
+CAT242:ISP:SSRAZ                                             SSRAZ
+CAT242:ISP:SSRAM                                             SSRAM
+CAT242:ISP:SSROBA                                            SSROBA
+CAT242:ISP:ACRR                                              ACRR
+CAT242:ISP:spare                                             spare bit set to 0
+CAT242:ISP:RANGE                                             RANGE
+CAT242:ISP:ACAM                                              ACAM
+CAT242:ISP:ACAZ                                              ACAZ
+CAT242:ISP:ACOBA                                             ACOBA
+CAT242:ISP:RCRR                                              RCRR
+CAT242:ISP:RCRANGE                                           RCRANGE
+CAT242:ISP:RCOBA1                                            RCOBA1
+CAT242:ISP:RCOBA2                                            RCOBA2
+CAT242:ISP:Alert                                             Alert
+CAT242:ISP:Comm_A                                            Comm A indication
+CAT242:ISP:Comm_B                                            Comm B indication
+CAT242:ISP:Comm_C                                            Comm C indication
+CAT242:ISP:Comm_D                                            Comm D indication
+CAT242:ISP:NBGICB                                            NBGCIB
+CAT252:I010:SAC                                              System Area Code
+CAT252:I010:SIC                                              System Identity Code
+CAT252:I015:UserN                                            User number
+CAT252:I020:ToM                                              Time Of Message
+CAT252:I035:typ                                              Type of Message
+CAT252:I040:pwd                                              User password
+CAT252:I045:ROLE                                             Role
+CAT252:I045:VER                                              Version
+CAT252:I050:UDI                                              
+CAT252:I050:UPP                                              
+CAT252:I050:LOW                                              
+CAT252:I050:FPP                                              
+CAT252:I050:spare                                            spare bits set to 0
+CAT252:I060:NS                                               Nort/South
+CAT252:I060:LAT_deg                                          Latitude (degrees)
+CAT252:I060:spare                                            spare bits set to 0
+CAT252:I060:LAT_min                                          Latitude (minutes)
+CAT252:I060:spare                                            spare bits set to 0
+CAT252:I060:LAT_sec                                          Latitude (seconds)
+CAT252:I060:LON_deg                                          Longitude (degrees)
+CAT252:I060:EW                                               East/West
+CAT252:I060:spare                                            spare bit set to 0
+CAT252:I060:LON_min                                          Longitude (minutes)
+CAT252:I060:spare                                            spare bits set to 0
+CAT252:I060:LON_sec                                          Longitude (seconds)
+CAT252:I070:spare                                            spare bits set to 0
+CAT252:I070:LDL                                              Lower domain limit
+CAT252:I080:spare                                            spare bits set to 0
+CAT252:I080:UDL                                              Upper domain limit
+CAT252:I090:SAC                                              Source Area Code
+CAT252:I090:SIC                                              Source Identity Code
+CAT252:I100:nature                                           Nature of the message
+CAT252:I100:code                                             Report code
+CAT252:I110:spare                                            spare bits set to 0
+CAT252:I110:BS                                               Background service
+CAT252:I110:C1                                               Complementary service 1
+CAT252:I110:FX                                               Field extension
+CAT252:I110:C2                                               Complementary service 2
+CAT252:I110:C3                                               Complementary service 3
+CAT252:I110:C4                                               Complementary service 4
+CAT252:I110:C5                                               Complementary service 5
+CAT252:I110:spare                                            spare bits set to 0
+CAT252:I110:FX                                               
+CAT252:I120:CS                                               Callsign
+CAT252:I130:spare                                            spare bits set to 0
+CAT252:I130:TrackN                                           Track Number
+CAT252:I135:ModeS                                            Mode-S address
+CAT252:I137:aid                                              Aircraft identification
+CAT252:I140:W1                                               Wildcard inidicator for digit 1
+CAT252:I140:W2                                               Wildcard inidicator for digit 2
+CAT252:I140:W3                                               Wildcard inidicator for digit 3
+CAT252:I140:W4                                               Wildcard inidicator for digit 4
+CAT252:I140:Mode3A                                           Mode 3/A code
+CAT252:I150:ADEP                                             Departure Airport
+CAT252:I160:ADES                                             Destination Airport
+CAT252:I170:ACTyp                                            Aircraft type
+CAT252:I190:CENTRE                                           Group identification code
+CAT252:I190:POSITION                                         Control Position identification code
+CAT252:I200:TYP                                              Type
+CAT252:I200:DETECT                                           Detect
+CAT252:I200:VALT1                                            
+CAT252:I200:STCOR                                            
+CAT252:I200:TNT                                              
+CAT252:I200:SPI                                              
+CAT252:I200:ME                                               
+CAT252:I200:TRAF                                             
+CAT252:I200:FCAT                                             
+CAT252:I200:spare                                            spar bits set to 0
+CAT252:I210:SVR                                              Server Identification Tag (I030/010)
+CAT252:I210:USR                                              User Number (I030/015)
+CAT252:I210:SID                                              Service Identification (I030/030)
+CAT252:I210:TYP                                              Type of message (I030/035)
+CAT252:I210:TRN                                              Track Number (I030/040)
+CAT252:I210:LTU                                              Time of Last Update (I030/070)
+CAT252:I210:TRA                                              Track ages (I030/170)
+CAT252:I210:CTP                                              Calculated track position (I030/100)
+CAT252:I210:TVp                                              Calculated track velocity (polar) (I030/180)
+CAT252:I210:TVc                                              Calculated track velocity (cartesian) (I030/181)
+CAT252:I210:TMA                                              Track Mode 3/A (I030/060)
+CAT252:I210:TMC                                              Measured Track mode C (I030/150)
+CAT252:I210:ALT                                              Calculated track altitude (I030/130)
+CAT252:I210:CTF                                              Calculated track flight level (I030/160)
+CAT252:I210:ATS                                              ARTAS Track Status (I030/080)
+CAT252:I210:FX                                               Field extension
+CAT252:I210:ATQ                                              ARTAS Track Quality (I030/090)
+CAT252:I210:MOF                                              Mode-of-Flight (I030/200)
+CAT252:I210:RCD                                              Calculated rate of climb/descent (I030/220)
+CAT252:I210:RTN                                              Calculated rate of turn (I030/240)
+CAT252:I210:PLA                                              Plot ages (local track/plot) (I030/290
+CAT252:I210:RSI                                              Radar Identification tag (local track/plot) (I030/260
+CAT252:I210:PPP                                              Measured position (local track/plot) (I030/360)
+CAT252:I210:MTF                                              Last measured mode C (local track/plot) (I030/140)
+CAT252:I210:M3A                                              Last measured Mode 3/A (local track/plot) (I030/340)
+CAT252:I210:FDP                                              FPPS identification tag (minipln) (I030/390)
+CAT252:I210:CAL                                              Callsign (minipln) (I030/400)
+CAT252:I210:PLN                                              PLN Number (minipln) (I030/410)
+CAT252:I210:DEP                                              Departure Airport (minipln) (I030/440)
+CAT252:I210:DST                                              Destination Airport (minipln) (I030/450)
+CAT252:I210:TUR                                              Category of turbulence (minipln) (I030/435)
+CAT252:I210:FX                                               Field extension
+CAT252:I210:AFT                                              Type of Aircraft (minipln) (I030/430)
+CAT252:I210:COD                                              Allocated SSR Codes (minipln) (I030/460)
+CAT252:I210:CFL                                              Current Cleared Flight Level (minipln) (I030/480)
+CAT252:I210:FLI                                              Flight Category (minipln) (I030/420)
+CAT252:I210:CCP                                              Current Control Position (minipln) (I030/490)
+CAT252:I210:LMT                                              Time of message (I030/020)
+CAT252:I210:MSA                                              aircraft address (Mode S) (I030/382)
+CAT252:I210:MSI                                              aircraft identification (Mode S) (I030/384)
+CAT252:I210:CCF                                              Communication capability and flight status (Mode S) (I030/386)
+CAT252:I210:TPa                                              Estimated accuracy of track position (I030/110)
+CAT252:I210:Vap                                              Estimated accuracy of track velocity (polar) (I030/190)
+CAT252:I210:Vac                                              Estimated accuracy of track velocity (cartesian) (I030/191)
+CAT252:I210:ALA                                              Estimated accuracy of track altitude (I030/135)
+CAT252:I210:FLa                                              Estimated accuracy of calculated track Flight Level (I030/165)
+CAT252:I210:CDa                                              Estimated accuracy of rate of climb/descent (I030/230)
+CAT252:I210:FX                                               Field extension
+CAT252:I210:TNa                                              Estimated accuracy of rate of turn (I030/250)
+CAT252:I210:MFp                                              Mode-of-Flight probabilities (I030/210)
+CAT252:I210:TM2                                              Track Mode 2 code (I030/120)
+CAT252:I210:ATN                                              ARTAS Track Number (I030/050)
+CAT252:I210:LTN                                              Local Track Number (last track/plot) (I030/270)
+CAT252:I210:3DH                                              Measured 3-D Height (last track/plot) (I030/370)
+CAT252:I210:REF                                              Reserved Expansion Data Field (I030/RE)
+CAT252:I210:spare                                            spare bits set to 0
+CAT252:I210:FX                                               Field extension
+CAT252:I220:spare                                            spare bit set to 0
+CAT252:I220:scanning                                         Directive for scanning the mosaic
+CAT252:I220:ScanPer                                          Time for scanning the mosaic
+CAT252:I220:BatPer                                           Time period between two consecutive batches
+CAT252:I220:UpdPer                                           Time period between the same batch of two consecutive scans
+CAT252:I220:spare                                            spare bits set to 0
+CAT252:I220:delay                                            Delay
+CAT252:I220:spare                                            spare bit set to 0
+CAT252:I220:maxflow                                          Maximum User input Data Flow
+CAT252:I230:MSAC                                             Main radar Source area code
+CAT252:I230:MSIC                                             Main radar Souurce identitiy code
+CAT252:I230:NOP                                              
+CAT252:I230:spare                                            spare bits set to 0
+CAT252:I230:fx                                               Field extension
+CAT252:I230:BSAC                                             Spare radar Source area code
+CAT252:I230:BSIC                                             Spare radar Souurce identitiy code
+CAT252:I230:spare                                            spare bits set to 0
+CAT252:I230:fx                                               Field extension
+CAT252:I240:TLF                                              Track Life events (Birth, Death, no radar update)
+CAT252:I240:TNB                                              ARTAS Track Number changes (switch Master/Slave Track Number)
+CAT252:I240:TQY                                              Modifications of Track Quality
+CAT252:I240:PLN                                              Modification of Flight Plan related information (i.e. in the Minipln)
+CAT252:I240:M3A                                              Change of Mode 3/A identity
+CAT252:I240:MO2                                              Change of Mode 2 identification
+CAT252:I240:COR                                              Flight-plan to Track correlation/end of correlation
+CAT252:I240:SPE                                              Special Mode 3/A transponding (7500, 7600 and 7700)
+CAT252:I240:MOF                                              Change of Mode-of-Flight
+CAT252:I240:spare                                            spare bits set to 0
+CAT252:I240:FX                                               Field extansion bit
+CAT252:I250:MOFpc                                            MOF Probability Criterion
+CAT252:I255:rocdc                                            Rate of Climb/Descent Criterion
+CAT252:I260:posc                                             Position Criterion
+CAT252:I265:rotc                                             Rate of Turn Criterion
+CAT252:I270:headc                                            Heading Criterion
+CAT252:I280:speedc                                           Speed Module Criterion
+CAT252:I290:altc                                             Altitude Criterion
+CAT252:I300:factork                                          Factor K
+CAT252:I310:RefPer                                           Refreshment Period
+CAT252:I320:MinPer                                           Minimal period
+CAT252:I330:nature                                           Nature of the Message
+CAT252:I330:code                                             Report code
+CAT252:I340:SF                                               Track Position coding precision
+CAT252:I340:spare                                            spare bits set to 0
+CAT252:I350:SAC                                              Source Area Code
+CAT252:I350:SIC                                              Source Identity Code
+CAT252:I360:SVR                                              Server Identification Tag
+CAT252:I360:USR                                              User number (I031/015)
+CAT252:I360:LMT                                              Time of message (I031/020)
+CAT252:I360:SIT                                              Sensor Identification Tag (I031/030)
+CAT252:I360:SST                                              Sensor Status (I031/040)
+CAT252:I360:TSB                                              Time Stamping Bias (I031/050)
+CAT252:I360:SRB                                              SSR Range gain and Bias (I031/060)
+CAT252:I360:SAB                                              SSR Azimuth Bias (I031/070)
+CAT252:I360:PRB                                              PR Range gain and Bias (I031/080)
+CAT252:I360:PAB                                              PR Azimuth Bias (I031/090)
+CAT252:I360:spare                                            Spare bits set to 0
+CAT252:I370:UpdPer                                           Update period
+CAT252:I400:RefPer                                           Period of refresh when no change is detected.
+CAT252:I410:SSC                                              Sensor Status Change
+CAT252:I410:spare                                            spare bits set to 0
+CAT252:I420:spare                                            spare bits set to 0
+CAT252:I420:tsb                                              Variation threshold of the time stamping bias
+CAT252:I430:spare                                            spare bits set to 0
+CAT252:I430:ssrrb                                            Variation threshold of the SSR range bias
+CAT252:I440:spare                                            spare bits set to 0
+CAT252:I440:ssrrg                                            Variation threshold of the SSR range gain
+CAT252:I450:ssrab                                            Variation threshold of the SSR azimuth bias
+CAT252:I460:spare                                            spare bits set to 0
+CAT252:I460:prrb                                             Variation threshold of the PR range bias
+CAT252:I470:spare                                            spare bits set to 0
+CAT252:I470:prrg                                             Variation threshold of the PR range gain
+CAT252:I480:prab                                             Variation threshold of the PR azimuth bias
