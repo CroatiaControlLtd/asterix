@@ -1085,7 +1085,7 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 				}
 			} else if (m_bIsConst) {
 				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
-				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("d", m_nConst));
+				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("k", m_nConst));
 			} else if (!m_lValue.empty()) { // check values
 				std::list<BitsValue*>::iterator it;
 				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
@@ -1124,7 +1124,7 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 				}
 			} else if (m_bIsConst) {
 				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
-				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("d", m_nConst));
+				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("k", m_nConst));
 			} else if (!m_lValue.empty()) { // check values
 				std::list<BitsValue*>::iterator it;
 				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
