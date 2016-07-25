@@ -16,4 +16,4 @@ script:
   - make test
   - cd ..
   - mkdir dist-packages
-  - python setup.py install --install-dir=./dist-packages
+  - python setup.py install --install-base=./dist-packages
