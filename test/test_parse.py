@@ -20,7 +20,7 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['category'], 48)
             self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
             self.assertEqual(packet[0]['I220']['ACAddr']['desc'], 'AircraftAddress')
-            self.assertListEqual(packet, [{'I161': {'Tn': {'desc': 'Track Number', 'val': 3563}},
+            self.assertDictEqual(packet[0], {'I161': {'Tn': {'desc': 'Track Number', 'val': 3563}},
                                          'I090': {'G': {'meaning': 'Default', 'desc': '', 'val': 0},
                                                   'V': {'meaning': 'Code validated', 'desc': '', 'val': 0},
                                                   'FL': {'desc': 'FlightLevel', 'val': 330.0}}, 'I020': {
@@ -72,7 +72,7 @@ class AsterixParseTest(unittest.TestCase):
                                          'I040': {'THETA': {'desc': '', 'val': 340.13671875},
                                                   'RHO': {'desc': '', 'max': 256.0, 'val': 197.68359375}}, 'I240': {
                     'TId': {'desc': 'Characters 1-8 (coded on 6 bits each) defining target identification',
-                            'val': 'DLH65A  '}}}])
+                            'val': 'DLH65A  '}}})
 
     def test_ParseCAT062CAT065(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat062cat065.raw")
