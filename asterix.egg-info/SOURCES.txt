@@ -49,7 +49,6 @@ asterix/__init__.py
 asterix.egg-info/PKG-INFO
 asterix.egg-info/SOURCES.txt
 asterix.egg-info/dependency_links.txt
-asterix.egg-info/eager_resources.txt
 asterix.egg-info/top_level.txt
 install/config/asterix.dtd
 install/config/asterix.ini

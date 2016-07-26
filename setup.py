@@ -105,7 +105,7 @@ config_files = ['./install/config/asterix_bds.xml',
                 './install/config/asterix_cat252_7_0.xml'
                 ]
 
-eager_files = config_files
+#eager_files = config_files
 
 #eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
 
@@ -119,7 +119,7 @@ setup (name = 'asterix',
        long_description = README,
        ext_modules = [asterix_module],
        data_files = [('install/config', config_files), ('install/sample_data', sample_files)],
-       eager_resources = eager_files,
+#       eager_resources = eager_files,
        author="Damir Salantic",
        author_email="damir.salantic@crocontrol.hr",
        download_url="https://github.com/CroatiaControlLtd/asterix",

@@ -61,7 +61,7 @@ static struct PyModuleDef moduledef = {
 #else
 
 #define PYMODINITFUNC       PyMODINIT_FUNC init_asterix(void)
-#define PYMODULE_CREATE()   Py_InitModule("asterix", asterixMethods)
+#define PYMODULE_CREATE()   Py_InitModule("_asterix", asterixMethods)
 #define MODINITERROR        return
 
 #endif

@@ -27,7 +27,7 @@ def parse(data, format=None):
                     'text' - formatted text
     :return: list of asterix records
     """
-    parsed = _asterix.parse(data)
+    parsed = _asterix.parse(buffer(data))
     if format == 'text':
         i = 0
         txt = ''
