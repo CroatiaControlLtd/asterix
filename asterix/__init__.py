@@ -1,6 +1,7 @@
 import _asterix
 import os
 from pkg_resources import Requirement, resource_filename
+import sys
 
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)
@@ -27,7 +28,10 @@ def parse(data, format=None):
                     'text' - formatted text
     :return: list of asterix records
     """
-    parsed = _asterix.parse(buffer(data))
+    if sys.version_info <= (2, 7):
+        parsed = _asterix.parse(buffer(data))
+    else:
+        parsed = _asterix.parse(bytes(data))
     if format == 'text':
         i = 0
         txt = ''

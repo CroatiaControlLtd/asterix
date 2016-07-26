@@ -24,11 +24,11 @@ install:
   #- make MODE=DEBUG
   #- make test
   #- cd ..
-  - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make test;cd..; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make test;cd ..; fi
   #- if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then pip install -r requirements/py2kreqs.txt; fi
   #- if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then pip install -r requirements/py3kreqs.txt; fi
   - python setup.py -q install
 
 script:
   - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then cd test; python -m unittest discover; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then python -m unittest; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
