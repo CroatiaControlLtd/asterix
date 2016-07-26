@@ -1,21 +1,24 @@
 __author__ = 'dsalanti'
 
 import asterix
-#import dpkt
+import dpkt
 from pkg_resources import Requirement, resource_filename
 
 # Read example file from packet resources
 sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat_034_048.pcap")
-f = open(sample_filename)
-#pcap = dpkt.pcap.Reader(f)
+with open(sample_filename) as f:
+    pcap = dpkt.pcap.Reader(f)
 
-#for ts, buf in pcap:
-#    print ts, len(buf)
+    cntr=1
+    for ts, buf in pcap:
+        eth = dpkt.ethernet.Ethernet(buf)
+        data = eth.ip.udp.data
 
-# Parse data
-#parsed = asterix.parse(data)
-#print(parsed)
+        hexdata = ":".join("{:02x}".format(ord(c)) for c in str(data))
+        print('Parsing packet %d : %s' %(cntr, hexdata))
+        cntr += 1
 
-# parse and print formatted packet
-#formatted = asterix.parse(data, 'text')
-#print(formatted)
+        # Parse data
+        parsed = asterix.parse(data)
+        print(parsed)
+

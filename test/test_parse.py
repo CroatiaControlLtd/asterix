@@ -6,28 +6,6 @@ import unittest
 from pkg_resources import Requirement, resource_filename
 
 
-def deep_sort(obj):
-    """
-    Recursively sort list or dict nested lists
-    """
-
-    if isinstance(obj, dict):
-        _sorted = {}
-        for key in sorted(obj):
-            _sorted[key] = deep_sort(obj[key])
-
-    elif isinstance(obj, list):
-        new_list = []
-        for val in obj:
-            new_list.append(deep_sort(val))
-        _sorted = sorted(new_list)
-
-    else:
-        _sorted = obj
-
-    return _sorted
-
-
 class AsterixParseTest(unittest.TestCase):
     def test_ParseCAT048(self):
         sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat048.raw")
