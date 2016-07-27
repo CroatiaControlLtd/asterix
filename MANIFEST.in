@@ -3,7 +3,12 @@ include MANIFEST.in
 include LICENSE
 include HISTORY
 include setup.py
-include tests/test.py
-include *.c
-include *.h
+include examples/*.py
+include test/*.py
+include src/asterix/*.cpp
+include src/asterix/*.c
+include src/asterix/*.h
+include src/python/*.cpp
+include src/python/*.c
+include src/python/*.h
 recursive-include install/config *.xml *.ini *.dtd
