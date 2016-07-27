@@ -81,8 +81,8 @@ try:
 finally:
     f.close()    
     
-#config_files = [os.path.join('./install/config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
-
+config_files = [os.path.join('./asterix/config/', f) for f in listdir('./asterix/config/') if os.path.isfile(os.path.join('./asterix/config/', f))]
+'''
 config_files = ['./install/config/asterix_bds.xml',
                 './install/config/asterix_cat001_1_1.xml',
                 './install/config/asterix_cat002_1_0.xml',
@@ -104,7 +104,7 @@ config_files = ['./install/config/asterix_bds.xml',
                 './install/config/asterix_cat247_1_2.xml',
                 './install/config/asterix_cat252_7_0.xml'
                 ]
-
+'''
 #eager_files = config_files
 
 #eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
@@ -121,9 +121,9 @@ setup (name = 'asterix',
        keywords = "asterix, eurocontrol, radar, track, croatiacontrol",
        long_description = README,
        ext_modules = [asterix_module],
-       data_files = [('asterix/config', config_files), ('asterix/sample_data', sample_files)],
+       #data_files = [('asterix/config', config_files), ('asterix/sample_data', sample_files)],
        include_package_data = True,
-       package_data = {'asterix' : ['config/*']},
+       package_data = {'asterix' : config_files},
        zip_safe=False,
 #       eager_resources = eager_files,
        author="Damir Salantic",
