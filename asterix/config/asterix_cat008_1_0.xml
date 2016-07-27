@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 008 v1.0 definition 
+	
+	Author:   dmarkus
+	Created:  9.1.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+--> 
+
+<Category id="8" name="Monoroadar Derived Weather Information" ver="1.0">
+
+	<DataItem id="000">
+        <DataItemName>Message Type</DataItemName>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>type</BitsShortName>
+                    <BitsName>Message Type</BitsName>
+                    <BitsValue val="1">Polar vector</BitsValue>
+                    <BitsValue val="2">Cartesian vector of start point/length</BitsValue>
+                    <BitsValue val="3">Contour record</BitsValue>
+                    <BitsValue val="4">Cartesian start point and end point vector</BitsValue>
+					<BitsValue val="254">SOP message</BitsValue>
+                    <BitsValue val="255">EOP message</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+	<DataItem id="010">
+		<DataItemName>Data Source Identifier</DataItemName>
+		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
+		<DataItemFormat desc="Two-octets fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>System Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>System Identification Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+    
+	<DataItem id="020">
+        <DataItemName>Vector Qualifier</DataItemName>
+        <DataItemDefinition>Precipitation intensity level, shading orientation of the vectors representing the precipitation area and coordinate system used.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+		<Variable>
+		<Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>org</BitsShortName>
+                    <BitsName>ORG</BitsName>
+                    <BitsValue val="0">Local Coordinates</BitsValue>
+                    <BitsValue val="1">System Coordinates</BitsValue>					
+                </Bits>
+				<Bits from="7" to="5">
+						<BitsShortName>InteL</BitsShortName>
+                    <BitsName>Intensity level</BitsName>
+                </Bits>
+				<Bits from="4" to="2">
+						<BitsShortName>ShadO</BitsShortName>
+                    <BitsName>Shading orientation with respect to North</BitsName>
+					<BitsUnit scale="22.5">deg</BitsUnit>
+                </Bits>
+				<Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                </Bits>
+            </Fixed>
+		<Fixed length="1">
+                <Bits from="8" to="4">
+                    <BitsShortName>sp</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+				<Bits bit="3">
+                    <BitsShortName>TST</BitsShortName>
+                    <BitsName>Test</BitsName>
+                    <BitsValue val="1">Test vector</BitsValue>
+                    <BitsValue val="0">Default</BitsValue>
+                </Bits>
+				<Bits bit="2">
+                    <BitsShortName>ER</BitsShortName>
+                    <BitsName>Error condition</BitsName>
+                    <BitsValue val="1">Error condition encountered</BitsValue>
+                    <BitsValue val="0">Default</BitsValue>
+                </Bits>
+				<Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                </Bits>
+            </Fixed>				
+		</Variable>	
+        </DataItemFormat>
+        <DataItemNote>For polar vectors bits-4/2 (1'st octet) are meaningless and are set to zero.</DataItemNote>
+    </DataItem>
+
+	<DataItem id="034">
+        <DataItemName>Sequence of Polar Vectors in SPF Notation</DataItemName>
+        <DataItemDefinition>Sequence of weather vectors in local polar coordinates.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of four-octets (vector components) as necessary. ">
+            <Repetitive>
+                <Fixed length="4">
+                    <Bits from="32" to="25">
+						<BitsShortName>StartR</BitsShortName>
+                        <BitsName>Start Range</BitsName>
+                        <BitsUnit scale="1">* 2^(-7+f)</BitsUnit>
+                    </Bits>
+					<Bits from="24" to="17">
+                        <BitsShortName>end_range</BitsShortName>
+                        <BitsName>End Range</BitsName>
+                        <BitsUnit scale="1">* 2^(-7+f)</BitsUnit>
+                    </Bits>
+					<Bits from="16" to="1">
+						<BitsShortName>Azi</BitsShortName>
+                        <BitsName>Azimuth</BitsName>
+                        <BitsUnit scale="0.0054931640625">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+	<DataItemNote>f is a parameter of the SOP message.</DataItemNote>     
+	</DataItem>	
+	
+	<DataItem id="036">
+        <DataItemName>Sequence of Cartesian Vectors in SPF Notation</DataItemName>
+        <DataItemDefinition>Sequence of weather vectors, in the representation start point/ length, in local or in system cartesian coordinates.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of three-octets (vector components) as necessary.">
+            <Repetitive>
+                <Fixed length="3">
+                    <Bits from="24" to="17" encode="signed">
+                        <BitsShortName>x_component</BitsShortName>
+                        <BitsName>X-Component</BitsName>
+                        <BitsUnit scale="1">NM /Note: LSB=2^(-6+f) : for STAR2000 f=6)/</BitsUnit>
+                    </Bits>
+					<Bits from="16" to="9" encode="signed">
+						<BitsShortName>Yc</BitsShortName>
+                        <BitsName>Y-Component</BitsName>
+                        <BitsUnit scale="1">NM /Note: LSB=2^(-6+f) : for STAR2000 f=6)/</BitsUnit>
+                    </Bits>
+					<Bits from="8" to="1">
+                        <BitsShortName>len</BitsShortName>
+                        <BitsName>Length</BitsName>
+                        <BitsUnit scale="1">NM /Note: LSB=2^(-6+f) : for STAR2000 f=6)/</BitsUnit>
+                    </Bits>			
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+	<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-24 and bit-16 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+	</DataItem>			
+	
+	<DataItem id="038">
+        <DataItemName>Sequence of Weather Vectors in SPF Notation</DataItemName>
+        <DataItemDefinition>Sequence of weather vectors, in the representation start point/ end point, in local or in system cartesian coordinates.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of vectors, followed by series of four-octets (vector components) as necessary.">
+            <Repetitive>
+                <Fixed length="4">
+                    <Bits from="32" to="25" encode="signed">
+						<BitsShortName>X1c</BitsShortName>
+                        <BitsName>X1-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>
+					<Bits from="24" to="17" encode="signed">
+						<BitsShortName>Y1c</BitsShortName>
+                        <BitsName>Y1-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>
+					<Bits from="16" to="9" encode="signed">
+						<BitsShortName>X2c</BitsShortName>
+                        <BitsName>X2-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>
+					<Bits from="8" to="1" encode="signed">
+						<BitsShortName>Y2c</BitsShortName>
+                        <BitsName>Y2-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>	
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+	<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bits-32, 24, 16  and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+	</DataItem>	
+	
+	<DataItem id="040">
+        <DataItemName>Contour Identifier</DataItemName>
+        <DataItemDefinition>Contour serial number together with the precipitation intensity levels and the coordinates system used.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item">
+            <Fixed length="2">
+			        <Bits bit="16">
+                    <BitsShortName>org</BitsShortName>
+                    <BitsName>ORG</BitsName>
+                    <BitsValue val="0">Local Coordinates</BitsValue>
+                    <BitsValue val="1">System Coordinates</BitsValue>					
+                </Bits>
+				<Bits from="15" to="13">
+					<BitsShortName>IntL</BitsShortName>
+                    <BitsName>Intensity level</BitsName>
+                </Bits>
+                <Bits from="12" to="11">
+                    <BitsShortName>sp</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>								
+				<Bits from="4" to="2">
+                    <BitsShortName>fst_lst</BitsShortName>
+                    <BitsName>FST-LST</BitsName>
+					<BitsValue val="0">Intermediate record of a contour</BitsValue>
+                    <BitsValue val="1">Last record of a contour of at least two records</BitsValue>
+					<BitsValue val="2">First record of a contour of at least two records</BitsValue>
+                    <BitsValue val="3">First and only record, fully defining a contour</BitsValue>
+                </Bits>
+				<Bits from="8" to="1">
+                        <BitsShortName>CSN</BitsShortName>
+                        <BitsName>Contour Serial Number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+	<DataItemNote>The Contour Serial Number provides an unambiguous identification for each contour record. Within one update cycle, a serial number shall never be assigned twice.</DataItemNote>     
+	</DataItem>
+	
+	<DataItem id="050">
+        <DataItemName>Sequence of Contour Points in SPF Notation</DataItemName>
+        <DataItemDefinition>Cartesian coordinates of a variable number of points defining a contour.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) indicating the number of consecutive points followed by X and Y coordinates of each point.">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="9" encode="signed">
+						<BitsShortName>X1c</BitsShortName>
+                        <BitsName>X1-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>
+					<Bits from="8" to="1" encode="signed">
+						<BitsShortName>Y1c</BitsShortName>
+                        <BitsName>Y1-Component</BitsName>
+                        <BitsUnit scale="1">*2^(-6+f)</BitsUnit>
+                    </Bits>					
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+	<DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+	</DataItem>		
+			
+	<DataItem id="090">
+        <DataItemName>Time of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item.">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+					<BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time of day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The time of day value is reset to zero each day at midnight. 2. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 [ Ref.2]. </DataItemNote>
+    </DataItem>
+
+    <DataItem id="100">
+        <DataItemName>Processing Status</DataItemName>
+        <DataItemDefinition>Information concerning the scaling factor currently applied, current reduction step in use, etc.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of three-octets, followed by one-octet extents as necessary.">
+            <Variable>
+                <Fixed length="3">
+                    <Bits from="24" to="20" encode="signed">
+                        <BitsShortName>f</BitsShortName>
+                        <BitsName>Scaling factor f</BitsName>
+                    </Bits>
+					<Bits from="19" to="17" >
+                        <BitsShortName>R</BitsShortName>
+                        <BitsName>Current reduction stage</BitsName>
+						<BitsValue val="0">Normal operation</BitsValue>
+                    </Bits>
+					<Bits from="16" to="2" >
+                        <BitsShortName>Q</BitsShortName>
+                        <BitsName>Processing parameters</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>    
+
+    <DataItem id="110">
+        <DataItemName>Station Configuration Status</DataItemName>
+        <DataItemDefinition>Information concerning the use and status of some vital hardware components of the radar system.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="2">
+						<BitsShortName>Stat</BitsShortName>
+                        <BitsName>Status</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="120">
+        <DataItemName>Total Number of Items Constituting One Weather</DataItemName>
+        <DataItemDefinition>Total number of vectors, respectively contour points, constituting the total weather image, provided with the EOP message.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>total_number</BitsShortName>
+                    <BitsName>Total Number of Items</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="1+">020</UAPItem>
+        <UAPItem bit="3" frn="4" len="1+">036</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">034</UAPItem>
+        <UAPItem bit="5" frn="6" len="2">040</UAPItem>
+        <UAPItem bit="6" frn="7" len="1+">050</UAPItem>
+        <UAPItem bit="7" frn="FX">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="3">090</UAPItem>
+        <UAPItem bit="9" frn="9" len="3+">100</UAPItem>
+        <UAPItem bit="10" frn="10" len="1+">110</UAPItem>
+        <UAPItem bit="11" frn="11" len="2">120</UAPItem>
+		<UAPItem bit="12" frn="12" len="1+">038</UAPItem>
+        <UAPItem bit="15" frn="FX">-</UAPItem>        
+    </UAP>
+                
+</Category>
+

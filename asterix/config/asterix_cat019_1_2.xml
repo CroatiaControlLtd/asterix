@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--
+
+    Asterix Category 019 v1.2 definition
+
+    Author:   B.Bertrand
+    Created:  2013-01-24
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+-->
+
+<Category id="019" name="Multilateration System Status Messages" ver="1.2">
+
+
+    <DataItem id="000" rule="mandatory">
+        <DataItemName>Message Type</DataItemName>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of information.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+					<BitsShortName>MsgTyp</BitsShortName>
+                    <BitsName>Message Type</BitsName>
+                    <BitsValue val="1">Start of Update Cycle</BitsValue>
+                    <BitsValue val="2">Periodic Status Message</BitsValue>
+                    <BitsValue val="3">Event-triggered Status Message</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the system from which the data is received.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="140" rule="mandatory">
+        <DataItemName>Time of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping expressed as UTC.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item.">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+					<BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time Of Day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="550" rule="optional">
+        <DataItemName>System Status</DataItemName>
+        <DataItemDefinition>Information concerning the configuration and status of a System.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="7">
+                    <BitsShortName>NOGO</BitsShortName>
+                    <BitsName>Operational Release Status of the System</BitsName>
+                    <BitsValue val="0">Operational</BitsValue>
+                    <BitsValue val="1">Degraded</BitsValue>
+                    <BitsValue val="2">NOGO</BitsValue>
+                    <BitsValue val="3">undefined</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>OVL</BitsShortName>
+                    <BitsName>Overload indicator</BitsName>
+                    <BitsValue val="0">No overload</BitsValue>
+                    <BitsValue val="1">Overload</BitsValue>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>TSV</BitsShortName>
+                    <BitsName>Time Source Validity</BitsName>
+                    <BitsValue val="0">valid</BitsValue>
+                    <BitsValue val="1">invalid</BitsValue>
+                </Bits>
+                <Bits bit="4">
+                    <BitsShortName>TTF</BitsShortName>
+                    <BitsName>Test Target Failure</BitsName>
+                    <BitsValue val="0">Test Target Operative</BitsValue>
+                    <BitsValue val="1">Test Target Failure</BitsValue>
+                </Bits>
+                <Bits from="3" to="1">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to zero</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="551" rule="optional">
+        <DataItemName>Tracking Processor Detailed Status</DataItemName>
+        <DataItemDefinition>Information concerning the configuration and status of the Tracking processors.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>TP1_mode</BitsShortName>
+                    <BitsName>TP 1</BitsName>
+                    <BitsValue val="0">Standby</BitsValue>
+                    <BitsValue val="1">Exec</BitsValue>
+                </Bits>
+                <Bits bit="7">
+                    <BitsShortName>TP1_status</BitsShortName>
+                    <BitsName>TP 1</BitsName>
+                    <BitsValue val="0">Faulted</BitsValue>
+                    <BitsValue val="1">Good</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>TP2_mode</BitsShortName>
+                    <BitsName>TP 2</BitsName>
+                    <BitsValue val="0">Standby</BitsValue>
+                    <BitsValue val="1">Exec</BitsValue>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>TP2_status</BitsShortName>
+                    <BitsName>TP 2</BitsName>
+                    <BitsValue val="0">Faulted</BitsValue>
+                    <BitsValue val="1">Good</BitsValue>
+                </Bits>
+                <Bits bit="4">
+                    <BitsShortName>TP3_mode</BitsShortName>
+                    <BitsName>TP 3</BitsName>
+                    <BitsValue val="0">Standby</BitsValue>
+                    <BitsValue val="1">Exec</BitsValue>
+                </Bits>
+                <Bits bit="3">
+                    <BitsShortName>TP3_status</BitsShortName>
+                    <BitsName>TP 3</BitsName>
+                    <BitsValue val="0">Faulted</BitsValue>
+                    <BitsValue val="1">Good</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>TP4_mode</BitsShortName>
+                    <BitsName>TP 4</BitsName>
+                    <BitsValue val="0">Standby</BitsValue>
+                    <BitsValue val="1">Exec</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>TP4_status</BitsShortName>
+                    <BitsName>TP 4</BitsName>
+                    <BitsValue val="0">Faulted</BitsValue>
+                    <BitsValue val="1">Good</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="552" rule="optional">
+        <DataItemName>Remote Sensor Detailed Status</DataItemName>
+        <DataItemDefinition>Information concerning the configuration and status of the Remote Sensors (RS)</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one report comprising a status of one Remote Sensor (RS).">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="9">
+                        <BitsShortName>RS_id</BitsShortName>
+                        <BitsName>RS Identification 8-bit Identification number of RS</BitsName>
+                    </Bits>
+                    <Bits from="8" to="5">
+                        <BitsShortName>RS_type</BitsShortName>
+                        <BitsName>RS Type 4-bit Type of RS</BitsName>
+                    </Bits>
+                    <Bits from="4" to="1">
+						<BitsShortName>Stat</BitsShortName>
+                        <BitsName>Status</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="553" rule="optional">
+        <DataItemName>Reference Transponder Detailed Status</DataItemName>
+        <DataItemDefinition>Information concerning the configuration and status of the Reference Transponder.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary (depending on the number of Reference Transponders).">
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="7">
+                        <BitsShortName>ref_trans_1</BitsShortName>
+                        <BitsName>Ref Trans 1 Status</BitsName>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">Warning</BitsValue>
+                        <BitsValue val="2">Faulted</BitsValue>
+                        <BitsValue val="3">Good</BitsValue>
+                    </Bits>
+                    <Bits from="6" to="5">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bit set to zero</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="4" to="3">
+                        <BitsShortName>ref_trans_2</BitsShortName>
+                        <BitsName>Ref Trans 2 Status</BitsName>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">Warning</BitsValue>
+                        <BitsValue val="2">Faulted</BitsValue>
+                        <BitsValue val="3">Good</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bit set to zero</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+					<Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="600" rule="optional">
+        <DataItemName>Position of the MLT System Reference Point</DataItemName>
+        <DataItemDefinition>Position of the MLT reference point in WGS-84 Coordinates.</DataItemDefinition>
+        <DataItemFormat desc="Eight-octet fixed length Data Item">
+            <Fixed length="8">
+                <Bits from="64" to="33" encode="signed">
+					<BitsShortName>Lat</BitsShortName>
+					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
+                    <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
+                </Bits>
+                <Bits from="32" to="1" encode="signed">
+					<BitsShortName>Lon</BitsShortName>
+					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
+                    <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="610" rule="optional">
+        <DataItemName>Height of the MLT System Reference Point</DataItemName>
+        <DataItemDefinition>Height of the MLT system reference point in two's complement form. The height shall use mean sea level as the zero reference level.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>height</BitsShortName>
+                    <BitsName>Height (WGS-84) above MSL</BitsName>
+                    <BitsUnit scale="0.25">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="620" rule="optional">
+        <DataItemName>WGS-84 Undulation</DataItemName>
+        <DataItemDefinition>WGS-84 undulation value of the MLT system reference point, in meters. Geoid undulation value is the difference between the ellipsoidal height and the height above mean sea level</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>undulation</BitsShortName>
+                    <BitsName>WGS-84 Undulation value (MSL)</BitsName>
+                    <BitsUnit scale="1">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">140</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">550</UAPItem>
+        <UAPItem bit="4" frn="5" len="1">551</UAPItem>
+        <UAPItem bit="5" frn="6" len="1+">552</UAPItem>
+        <UAPItem bit="6" frn="7" len="1+">553</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="8">600</UAPItem>
+        <UAPItem bit="9" frn="9" len="2">610</UAPItem>
+        <UAPItem bit="10" frn="10" len="1">620</UAPItem>
+        <UAPItem bit="11" frn="11" len="-">-</UAPItem>
+        <UAPItem bit="12" frn="12" len="-">-</UAPItem>
+        <UAPItem bit="13" frn="13" len="-">RE</UAPItem>
+        <UAPItem bit="14" frn="14" len="-">SP</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+
+</Category>

@@ -1,0 +1,1867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 252 v7.0 definition 
+	
+	Author:   dmarkus
+	Created:  30.10.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+--> 
+
+<Category id="252" name="Connection and Service Messages" ver="7.0">
+
+	<DataItem id="010">
+		<DataItemName>Server Identification Tag</DataItemName>
+		<DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>System Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>System Identity Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+    
+	<DataItem id="015">
+		<DataItemName>User Number</DataItemName>
+		<DataItemDefinition>Identification of the User of track/sensor information</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="1" to="16">
+					<BitsShortName>UserN</BitsShortName>
+                    <BitsName>User number</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
+    </DataItem>
+    
+	<DataItem id="020">
+		<DataItemName>Time Of Message</DataItemName>
+		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+		<DataItemFormat desc="Three-byte fixed length data item.">
+			<Fixed length="3">
+				<Bits from="24" to="1" encode="unsigned">
+					<BitsShortName>ToM</BitsShortName>
+					<BitsName>Time Of Message</BitsName>
+					<BitsUnit scale="0.0078125">s</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+		<DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
+	</DataItem>		
+
+	<DataItem id="035">
+		<DataItemName>Type Of Message</DataItemName>
+		<DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>typ</BitsShortName>
+                    <BitsName>Type of Message</BitsName>
+                    <BitsValue val="17">Family: Connections, Nature: Request for connection</BitsValue>
+                    <BitsValue val="18">Family: Connections, Nature: Request for disconnection</BitsValue>
+                    <BitsValue val="19">Family: Connections, Nature: connection related report</BitsValue>
+                    <!-- TODO <BitsValue from="17" to="31">Family: Connections, Nature: unknown</BitsValue> -->
+                    <BitsValue val="33">Family: Track information service definition, Nature: background service</BitsValue>
+                    <BitsValue val="34">Family: Track information service definition, Nature: synchronised complementary service</BitsValue>
+                    <BitsValue val="35">Family: Track information service definition, Nature: independent complementary Service</BitsValue>
+                    <BitsValue val="36">Family: Track information service definition, Nature: Service Request Update : Stop Track/Item Transmission</BitsValue>
+                    <BitsValue val="37">Family: Track information service definition, Nature: Service Request Update : Start Track/Item Transmission</BitsValue>
+                    <BitsValue val="38">Family: Track information service definition, Nature: Service Control Request : Interruption</BitsValue>
+                    <BitsValue val="39">Family: Track information service definition, Nature: Service Control Request : Restart</BitsValue>
+                    <BitsValue val="40">Family: Track information service definition, Nature: Service Control Request : End of Service</BitsValue>
+                    <!-- TODO <BitsValue from="32" to="63">Family: Track information service definition, Nature: unknown</BitsValue> -->
+                    <BitsValue val="49">Family: Server messages, Nature: Server Status Message</BitsValue>
+                    <BitsValue val="50">Family: Server messages, Nature: Track Service Related Report</BitsValue>
+                    <BitsValue val="51">Family: Server messages, Nature: Sensor information service related report</BitsValue>
+                    <!-- TODO <BitsValue from="48" to="63">Family: Server messages, Nature: unknown</BitsValue> -->
+                    <BitsValue val="65">Family: Sensor information service definition, Nature: service definition</BitsValue>
+                    <BitsValue val="66">Family: Sensor information service definition, Nature: service control request : Interruption</BitsValue>
+                    <BitsValue val="67">Family: Sensor information service definition, Nature: service control request : Restart</BitsValue>
+                    <BitsValue val="68">Family: Sensor information service definition, Nature: service control request : End of Service</BitsValue>
+                    <!-- TODO <BitsValue from="64" to="79">Family: Sensor information service definition, Nature: unknown</BitsValue> -->
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY</DataItemNote>
+    </DataItem>
+        
+	<DataItem id="040">
+        <DataItemName>Access Key</DataItemName>
+        <DataItemDefinition>User password to be sent in the Connection Request.</DataItemDefinition>
+        <DataItemFormat desc="Eight-byte fixed length data item.">
+            <Fixed length="8">
+                <Bits from="64" to="1" encode="ascii">
+                    <BitsShortName>pwd</BitsShortName>
+                    <BitsName>User password</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>        
+
+	<DataItem id="045">
+        <DataItemName>Role and Version</DataItemName>
+        <DataItemDefinition>Identification of the ROLE of a system and of the VERSION of interface.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="7">
+                    <BitsShortName>ROLE</BitsShortName>
+                    <BitsName>Role</BitsName>
+                    <BitsValue val="3">Operational</BitsValue>
+                    <BitsValue val="2">Evaluation</BitsValue>
+                    <BitsValue val="1">Development</BitsValue>
+                </Bits>
+                <Bits from="6" to="1">
+                    <BitsShortName>VER</BitsShortName>
+                    <BitsName>Version</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+	<DataItem id="050">
+        <DataItemName>Default connection options</DataItemName>
+        <DataItemDefinition>This item is used to indicate that the default values of parameters required to set a connection are selected.</DataItemDefinition>
+        <DataItemFormat desc="1-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="7">
+                    <BitsShortName>UDI</BitsShortName>
+                    <BitsValue val="0">the domain of interest shall be the default one in the ARTAS geographical database.</BitsValue>
+                    <BitsValue val="1">the domain of interest of the User shall be the Domain of interest of the ARTAS Unit to which this User is connected.</BitsValue>
+                    <BitsValue val="2">the domain of interest is specified in the connection request.</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>UPP</BitsShortName>
+                    <BitsValue val="0">No upper limitation of the domain of interest</BitsValue>
+                    <BitsValue val="1">An upper limit is specified in the request.</BitsValue>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>LOW</BitsShortName>
+                    <BitsValue val="0">No lower limitation of the Domain of Interest</BitsValue>
+                    <BitsValue val="1">A lower limit is specified in the request.</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>FPP</BitsShortName>
+                    <BitsValue val="0">Default option selected</BitsValue>
+                    <BitsValue val="1">A preferred FPPS is specified in the connection request.</BitsValue>
+                </Bits>
+                <Bits from="3" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+    
+	<DataItem id="060">
+       <DataItemName>Geographical Area</DataItemName>
+       <DataItemDefinition>Definition of geographical area in the form of a sequence of geographical points.</DataItemDefinition>
+       <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of points, followed by series of 6-bytes (geographical points) as necessary.">
+           <Repetitive>
+               <Fixed length="6">
+                   <Bits bit="48">
+                       <BitsShortName>NS</BitsShortName>
+                       <BitsName>Nort/South</BitsName>
+                       <BitsValue val="0">North Latitude</BitsValue>
+                       <BitsValue val="1">South Latitude</BitsValue>
+                   </Bits>
+                   <Bits from="47" to="41">
+                       <BitsShortName>LAT_deg</BitsShortName>
+                       <BitsName>Latitude (degrees)</BitsName>
+                       <BitsUnit min="0" max="90">deg</BitsUnit>
+                   </Bits>
+                   <Bits from="40" to="39">
+						<BitsShortName>spare</BitsShortName>
+                       <BitsName>spare bits set to 0</BitsName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
+                   <Bits from="38" to="33">
+                       <BitsShortName>LAT_min</BitsShortName>
+                       <BitsName>Latitude (minutes)</BitsName>
+                       <BitsUnit min="0" max="59">min</BitsUnit>
+                   </Bits>
+                   <Bits from="32" to="31">
+						<BitsShortName>spare</BitsShortName>
+                       <BitsName>spare bits set to 0</BitsName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
+                   <Bits from="30" to="25">
+                       <BitsShortName>LAT_sec</BitsShortName>
+                       <BitsName>Latitude (seconds)</BitsName>
+                       <BitsUnit min="0" max="59">min</BitsUnit>
+                   </Bits>
+                   <Bits from="24" to="17">
+                       <BitsShortName>LON_deg</BitsShortName>
+                       <BitsName>Longitude (degrees)</BitsName>
+                       <BitsUnit min="0" max="90">deg</BitsUnit>
+                   </Bits>
+                   <Bits bit="16">
+                       <BitsShortName>EW</BitsShortName>
+                       <BitsName>East/West</BitsName>
+                       <BitsValue val="0">East Longitude</BitsValue>
+                       <BitsValue val="1">West Longitude</BitsValue>
+                   </Bits>
+                   <Bits bit="15">
+						<BitsShortName>spare</BitsShortName>
+                       <BitsName>spare bit set to 0</BitsName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
+                   <Bits from="14" to="9">
+                       <BitsShortName>LON_min</BitsShortName>
+                       <BitsName>Longitude (minutes)</BitsName>
+                       <BitsUnit min="0" max="59">min</BitsUnit>
+                   </Bits>
+                   <Bits from="8" to="7">
+						<BitsShortName>spare</BitsShortName>
+                       <BitsName>spare bits set to 0</BitsName>
+                       <BitsConst>0</BitsConst>
+                   </Bits>
+                   <Bits from="6" to="1">
+                       <BitsShortName>LON_sec</BitsShortName>
+                       <BitsName>Longitude (seconds)</BitsName>
+                       <BitsUnit min="0" max="59">min</BitsUnit>
+                   </Bits>
+               </Fixed>
+           </Repetitive>
+       </DataItemFormat>
+       <DataItemNote>Latitude and Longitude accuracy = 1 second @ 30 m.</DataItemNote>
+   </DataItem>    
+    
+	<DataItem id="070">
+        <DataItemName>Lower Limit</DataItemName>
+        <DataItemDefinition>Definition of the Lower limit of a Domain of Interest</DataItemDefinition>
+        <DataItemFormat desc="Two-bytes fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="15">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="14" to="1" encode="signed">
+                    <BitsShortName>LDL</BitsShortName>
+                    <BitsName>Lower domain limit</BitsName>
+					<BitsUnit scale="25" min="-1500" max="150000"/>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+	<DataItem id="080">
+        <DataItemName>Upper Limit</DataItemName>
+        <DataItemDefinition>Definition of the Upper limit of a Domain of Interest</DataItemDefinition>
+        <DataItemFormat desc="Two-bytes fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="15">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="14" to="1" encode="signed">
+                    <BitsShortName>UDL</BitsShortName>
+                    <BitsName>Upper domain limit</BitsName>
+					<BitsUnit scale="25" min="-1500" max="150000"/>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+	<DataItem id="090">
+		<DataItemName>Preferred FPPS Identification tag</DataItemName>
+		<DataItemDefinition>Identification of the Flight Plan Data Processing System from which Flight-Plan related information shall preferably be sent to the User.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identity Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+    
+    <DataItem id="100">
+        <DataItemName>Connection Related Report</DataItemName>
+        <DataItemDefinition>Report message sent by the Server to the User in relation to a connection.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 1-byte (Acknowledgement message) as necessary">
+            <Repetitive>
+                <Fixed length="1">
+                    <Bits from="8" to="6">
+                        <BitsShortName>nature</BitsShortName>
+                        <BitsName>Nature of the message</BitsName>
+                        <BitsValue val="0">Connection acknowledgement</BitsValue>
+                        <BitsValue val="1">Connection Status Message</BitsValue>
+                        <BitsValue val="2">Connection Refused Report</BitsValue>
+                        <BitsValue val="3">Error in default connection data</BitsValue>
+                        <BitsValue val="4">Disconnection acknowledgement</BitsValue>
+                        <BitsValue val="5">Disconnection Refused Report</BitsValue>
+                    </Bits>
+                    <Bits from="5" to="1">
+                        <BitsShortName>code</BitsShortName>
+                        <BitsName>Report code</BitsName>
+                        <BitsValue val="0">Connection terminated on user request.</BitsValue>
+                        <BitsValue val="1">Connection terminated due to server overload conditions.</BitsValue>
+                        <BitsValue val="2">Connection terminated by the ARTAS operator.</BitsValue>
+                        <BitsValue val="3">Connection terminated due to contingency.</BitsValue>
+                        <BitsValue val="4">Server unable to accept the connection (Maximum number of Users already connected)</BitsValue>
+                        <BitsValue val="5">Illegal connection identification</BitsValue>
+                        <BitsValue val="6">Incorrect definition of geographical point(s) of the domain of interest</BitsValue>
+                        <BitsValue val="7">erroneous Upper/Lower Limit(s)</BitsValue>
+                        <BitsValue val="8">crossing lines</BitsValue>
+                        <BitsValue val="9">point(s) defined outside the maximum domain of interest</BitsValue>
+                        <BitsValue val="10">number of points below the minimum value</BitsValue>
+                        <BitsValue val="11">number of points exceeding the maximum</BitsValue>
+                        <BitsValue val="12">Incorrect Scaling Factor</BitsValue>
+                        <BitsValue val="13">both specific values and default option have been specified for the same parameter</BitsValue>
+                        <BitsValue val="14">syntax error in the connection request (e.g. missing item(s))</BitsValue>
+                        <BitsValue val="15">incorrect role</BitsValue>
+                        <BitsValue val="16">incorrect interface version</BitsValue>
+                        <BitsValue val="17">incorrect access key</BitsValue>
+                        <BitsValue val="18">erroneous Upper/Lower Limits in the definition of the User maximum DoI</BitsValue>
+                        <BitsValue val="19">incorrect service identification</BitsValue>
+                        <BitsValue val="20">level outside User maximum DoI</BitsValue>
+                        <BitsValue val="21">connection disallowed by the ARTAS Operator</BitsValue>
+                        <BitsValue val="22">automatic disconnection due to the absence of active services</BitsValue>
+                        <BitsValue val="23">incorrect default connection options</BitsValue>
+                        <BitsValue val="24">not connected</BitsValue>
+                        <BitsValue val="25">crossing lines in the definition of the User maximum DoI</BitsValue>
+                        <BitsValue val="26">Default DoI outside the maximum Domain of Interest</BitsValue>
+                        <BitsValue val="27">ARTAS Unit DoI outside the maximum Domain of Interest</BitsValue>
+                        <BitsValue val="28">already connected</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="110">
+        <DataItemName>Service Identification</DataItemName>
+        <DataItemDefinition>Identification of a service.</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of one byte followed by a 1-byte extent as necessary.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="4">
+						<BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>BS</BitsShortName>
+                        <BitsName>Background service</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>C1</BitsShortName>
+                        <BitsName>Complementary service 1</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>C2</BitsShortName>
+                        <BitsName>Complementary service 2</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>C3</BitsShortName>
+                        <BitsName>Complementary service 3</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>C4</BitsShortName>
+                        <BitsName>Complementary service 4</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>C4</BitsShortName>
+                        <BitsName>Complementary service 5</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits from="4" to="1">
+						<BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                </Fixed>
+            </Variable>            
+        </DataItemFormat>
+        <DataItemNote>In the case of ARTAS : only one elementary service identification bit from BS, C1 .. C5 can be set at a time.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="120">
+        <DataItemName>Callsign selector</DataItemName>
+        <DataItemDefinition>List of aircraft Callsigns indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 7-byte (Callsign) as necessary.">
+            <Repetitive>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+						<BitsShortName>CS</BitsShortName>
+                        <BitsName>Callsign</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="130">
+        <DataItemName>Track Number Selector</DataItemName>
+        <DataItemDefinition>List of Track numbers indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by up to 5 series of 2-byte as necessary.">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+						<BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="12" to="1">
+						<BitsShortName>TrackN</BitsShortName>
+                        <BitsName>Track Number</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>            
+        </DataItemFormat>
+        <DataItemNote>The Track Number Selector contains track numbers (see I030/040).</DataItemNote>
+    </DataItem>    
+
+    <DataItem id="135">
+        <DataItemName>Aircraft Address Selector</DataItemName>
+        <DataItemDefinition>List of Mode S Aircraft Addresses indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 3-bytes (24 bits Aircraft Address) as necessary.">
+            <Repetitive>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+						<BitsShortName>ModeS</BitsShortName>
+                        <BitsName>Mode-S address</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="137">
+        <DataItemName>Aircraft Identification Selector</DataItemName>
+        <DataItemDefinition>List of Aircraft Identification Mode S items indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 6-byte (Aircraft Identification) as necessary.">
+            <Repetitive>
+                <Fixed length="6">
+                    <Bits from="48" to="1" encode="6bitschar">
+                        <BitsShortName>aid</BitsShortName>
+                        <BitsName>Aircraft identification</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+        
+    <DataItem id="140">
+        <DataItemName>Code Family selector</DataItemName>
+        <DataItemDefinition>List of families of Mode 3/A replies indicated as track selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 2-byte (Mode 3/A Family) as necessary.">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>W1</BitsShortName>
+                        <BitsName>Wildcard inidicator for digit 1</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>W2</BitsShortName>
+                        <BitsName>Wildcard inidicator for digit 2</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>W3</BitsShortName>
+                        <BitsName>Wildcard inidicator for digit 3</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>W4</BitsShortName>
+                        <BitsName>Wildcard inidicator for digit 4</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits from="12" to="1" encode="octal">
+						<BitsShortName>Mode3A</BitsShortName>
+                        <BitsName>Mode 3/A code</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>            
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="150">
+        <DataItemName>Departure Airport Selector</DataItemName>
+        <DataItemDefinition>List of Departure Airports indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 4-byte (Airport) as necessary">
+            <Repetitive>
+                <Fixed length="4">
+                    <Bits from="32" to="1" encode="ascii">
+						<BitsShortName>ADEP</BitsShortName>
+                        <BitsName>Departure Airport</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>The airport names are indicated in the ICAO location indicators book.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="160">
+        <DataItemName>Destination Airport Selector</DataItemName>
+        <DataItemDefinition>List of Destination Airports indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 4-byte (Airport) as necessary">
+            <Repetitive>
+                <Fixed length="4">
+                    <Bits from="32" to="1" encode="ascii">
+						<BitsShortName>ADES</BitsShortName>
+                        <BitsName>Destination Airport</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>The airport names are indicated in the ICAO location indicators book.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="170">
+        <DataItemName>Aircraft Type Selector</DataItemName>
+        <DataItemDefinition>List of Aircraft Types indicated as Track Selection elements in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 4-byte (Airport) as necessary">
+            <Repetitive>
+                <Fixed length="4">
+                    <Bits from="32" to="1" encode="ascii">
+						<BitsShortName>ACTyp</BitsShortName>
+                        <BitsName>Aircraft type</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>The types of aircraft are defined in ICAO Document 4444.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="190">
+        <DataItemName>Current Control Position Selector</DataItemName>
+        <DataItemDefinition>Identification of the Current Control Position to be used as track selector element in a Service Request.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>CENTRE</BitsShortName>
+                    <BitsName>Group identification code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>POSITION</BitsShortName>
+                    <BitsName>Control Position identification code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The centre and the control position identification codes have to be defined between communication partners.</DataItemNote>
+    </DataItem>
+    
+    <DataItem id="200">
+        <DataItemName>Track/Flight Categories Selector</DataItemName>
+        <DataItemDefinition>This item defines which categories of tracks and/or flights shall be served.</DataItemDefinition>
+        <DataItemFormat desc="fixed length four-byte data item.">
+            <Fixed length="4">
+                <Bits from="32" to="31">
+                    <BitsShortName>TYP</BitsShortName>
+                    <BitsName>Type</BitsName>
+                    <BitsValue val="0">Tracks from live surveillance reports</BitsValue>
+                    <BitsValue val="1">Tracks from simulated surveillance reports</BitsValue>
+                    <BitsValue val="2">Tracks from both live and simulated surveillance reports</BitsValue>
+                </Bits>
+                <Bits from="30" to="26">
+                    <BitsShortName>DETECT</BitsShortName>
+                    <BitsName>Detect</BitsName>
+                    <BitsValue val="15">Combined radar reports</BitsValue>
+                    <BitsValue val="23">SSR reports</BitsValue>
+                    <BitsValue val="27">PR reports</BitsValue>
+                    <BitsValue val="29">Mode S station reports</BitsValue>
+                    <BitsValue val="30">ADS reports</BitsValue>
+                </Bits>
+                <Bits from="25" to="24">
+                    <BitsShortName>VALT1</BitsShortName>
+                    <BitsValue val="0">Default. All tracks are selected.</BitsValue>
+                    <BitsValue val="1">All tracks that have a calculated track flight level (I030/160) or a valid last measured Mode C (I030/140) are selected.</BitsValue>
+                    <BitsValue val="2">All tracks having a calculated track altitude (I030/130) computed using assumed height are selected.</BitsValue>
+                </Bits>
+                <Bits from="23" to="22">
+                    <BitsShortName>STCOR</BitsShortName>
+                    <BitsValue val="0">default</BitsValue>
+                    <BitsValue val="1">tracks correlated to Flight Plan(s) only</BitsValue>
+                    <BitsValue val="2">tracks not correlated to Flight Plan(s) only</BitsValue>
+                </Bits>
+                <Bits bit="21">
+                    <BitsShortName>TNT</BitsShortName>
+                    <BitsValue val="0">tentative tracks shall be sent</BitsValue>
+                    <BitsValue val="1">tentative tracks shall not be sent</BitsValue>
+                </Bits>
+                <Bits bit="20">
+                    <BitsShortName>SPI</BitsShortName>
+                    <BitsValue val="0">tracks with SPI flag shall be sent</BitsValue>
+                    <BitsValue val="1">tracks with SPI flag shall not be sent</BitsValue>
+                </Bits>
+                <Bits bit="19">
+                    <BitsShortName>ME</BitsShortName>
+                    <BitsValue val="0">tracks with ME flag shall be sent</BitsValue>
+                    <BitsValue val="1">tracks with ME flag shall not be sent</BitsValue>
+                </Bits>
+                <Bits from="18" to="17">
+                    <BitsShortName>TRAF</BitsShortName>
+                    <BitsValue val="0">all traffic</BitsValue> 
+                    <BitsValue val="1">General Air Traffic</BitsValue> 
+                    <BitsValue val="2">Operational Air Traffic</BitsValue> 
+                </Bits>
+                <Bits from="16" to="14">
+                    <BitsShortName>FCAT</BitsShortName>
+                    <BitsValue val="3">IFR selected</BitsValue>
+                    <BitsValue val="5">VFR selected</BitsValue>
+                    <BitsValue val="6">CVFR selected</BitsValue>
+                </Bits>
+                <Bits from="13" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spar bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>    
+
+    <DataItem id="210">
+        <DataItemName>Item Selector</DataItemName>
+        <DataItemDefinition>The Item Selector is used to define the composition of the track information messages. The bits that compose the Item Selector point the items composing the ARTAS Track Information UAP (ATI/UAP).</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of two bytes, followed by 2-byte extents as necessary.">
+            <Variable>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>SVR</BitsShortName>
+                        <BitsName>Server Identification Tag (I030/010)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>USR</BitsShortName>
+                        <BitsName>User Number (I030/015)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>SID</BitsShortName>
+                        <BitsName>Service Identification (I030/030)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>TYP</BitsShortName>
+                        <BitsName>Type of message (I030/035)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="12">
+                        <BitsShortName>TRN</BitsShortName>
+                        <BitsName>Track Number (I030/040)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>LTU</BitsShortName>
+                        <BitsName>Time of Last Update (I030/070)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="10">
+                        <BitsShortName>TRA</BitsShortName>
+                        <BitsName>Track ages (I030/170)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="9">
+                        <BitsShortName>CTP</BitsShortName>
+                        <BitsName>Calculated track position (I030/100)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>TVp</BitsShortName>
+                        <BitsName>Calculated track velocity (polar) (I030/180)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>TVc</BitsShortName>
+                        <BitsName>Calculated track velocity (cartesian) (I030/181)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>TMA</BitsShortName>
+                        <BitsName>Track Mode 3/A (I030/060)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>TMC</BitsShortName>
+                        <BitsName>Measured Track mode C (I030/150)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>ALT</BitsShortName>
+                        <BitsName>Calculated track altitude (I030/130)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>CTF</BitsShortName>
+                        <BitsName>Calculated track flight level (I030/160)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>ATS</BitsShortName>
+                        <BitsName>ARTAS Track Status (I030/080)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>ATQ</BitsShortName>
+                        <BitsName>ARTAS Track Quality (I030/090)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>MOF</BitsShortName>
+                        <BitsName>Mode-of-Flight (I030/200)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>RCD</BitsShortName>
+                        <BitsName>Calculated rate of climb/descent (I030/220)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>RTN</BitsShortName>
+                        <BitsName>Calculated rate of turn (I030/240)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="12">
+                        <BitsShortName>PLA</BitsShortName>
+                        <BitsName>Plot ages (local track/plot) (I030/290</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>RSI</BitsShortName>
+                        <BitsName>Radar Identification tag (local track/plot) (I030/260</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="10">
+                        <BitsShortName>PPP</BitsShortName>
+                        <BitsName>Measured position (local track/plot) (I030/360)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="9">
+                        <BitsShortName>MTF</BitsShortName>
+                        <BitsName>Last measured mode C (local track/plot) (I030/140)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>M3A</BitsShortName>
+                        <BitsName>Last measured Mode 3/A (local track/plot) (I030/340)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>FDP</BitsShortName>
+                        <BitsName>FPPS identification tag (minipln) (I030/390)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>CAL</BitsShortName>
+                        <BitsName>Callsign (minipln) (I030/400)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>PLN</BitsShortName>
+                        <BitsName>PLN Number (minipln) (I030/410)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>DEP</BitsShortName>
+                        <BitsName>Departure Airport (minipln) (I030/440)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>DST</BitsShortName>
+                        <BitsName>Destination Airport (minipln) (I030/450)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>TUR</BitsShortName>
+                        <BitsName>Category of turbulence (minipln) (I030/435)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into second extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>AFT</BitsShortName>
+                        <BitsName>Type of Aircraft (minipln) (I030/430)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>COD</BitsShortName>
+                        <BitsName>Allocated SSR Codes (minipln) (I030/460)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>CFL</BitsShortName>
+                        <BitsName>Current Cleared Flight Level (minipln) (I030/480)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>FLI</BitsShortName>
+                        <BitsName>Flight Category (minipln) (I030/420)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="12">
+                        <BitsShortName>CCP</BitsShortName>
+                        <BitsName>Current Control Position (minipln) (I030/490)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>LMT</BitsShortName>
+                        <BitsName>Time of message (I030/020)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="10">
+                        <BitsShortName>MSA</BitsShortName>
+                        <BitsName>aircraft address (Mode S) (I030/382)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="9">
+                        <BitsShortName>MSI</BitsShortName>
+                        <BitsName>aircraft identification (Mode S) (I030/384)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>CCF</BitsShortName>
+                        <BitsName>Communication capability and flight status (Mode S) (I030/386)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>TPa</BitsShortName>
+                        <BitsName>Estimated accuracy of track position (I030/110)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>Vap</BitsShortName>
+                        <BitsName>Estimated accuracy of track velocity (polar) (I030/190)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>Vac</BitsShortName>
+                        <BitsName>Estimated accuracy of track velocity (cartesian) (I030/191)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>ALA</BitsShortName>
+                        <BitsName>Estimated accuracy of track altitude (I030/135)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>FLa</BitsShortName>
+                        <BitsName>Estimated accuracy of calculated track Flight Level (I030/165)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>CDa</BitsShortName>
+                        <BitsName>Estimated accuracy of rate of climb/descent (I030/230)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into third extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>TNa</BitsShortName>
+                        <BitsName>Estimated accuracy of rate of turn (I030/250)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>MFp</BitsShortName>
+                        <BitsName>Mode-of-Flight probabilities (I030/210)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>TM2</BitsShortName>
+                        <BitsName>Track Mode 2 code (I030/120)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>ATN</BitsShortName>
+                        <BitsName>ARTAS Track Number (I030/050)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits> 
+                    <Bits bit="12">
+                        <BitsShortName>LTN</BitsShortName>
+                        <BitsName>Local Track Number (last track/plot) (I030/270)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>3DH</BitsShortName>
+                        <BitsName>Measured 3-D Height (last track/plot) (I030/370)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits>
+                    <Bits bit="10">
+                        <BitsShortName>REF</BitsShortName>
+                        <BitsName>Reserved Expansion Data Field (I030/RE)</BitsName>
+                        <BitsValue val="0">Not selected</BitsValue>
+                        <BitsValue val="1">Selected</BitsValue>
+                    </Bits> 
+                    <Bits from="9" to="2">
+						<BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>                    
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+						<BitsValue val="0">end of data item</BitsValue>
+						<BitsValue val="1">extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>        
+    </DataItem>
+
+    <DataItem id="220">
+        <DataItemName>Cyclical Update Characteristics</DataItemName>
+        <DataItemDefinition>Definition of the Scanning Period, Update Period, Max Data Flow and Extra Delay (to be considered for the track extrapolation) in case of cyclical service.</DataItemDefinition>
+        <DataItemFormat desc="Five-byte fixed length data item.">
+            <Fixed length="5">
+                <Bits bit="40">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bit set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="39">
+                    <BitsShortName>scanning</BitsShortName>
+                    <BitsName>Directive for scanning the mosaic</BitsName>
+                    <BitsValue val="0">scanning by column</BitsValue>
+                    <BitsValue val="1">scanning by row</BitsValue>
+                </Bits>
+                <Bits from="38" to="33">
+					<BitsShortName>ScanPer</BitsShortName>
+                    <BitsName>Time for scanning the mosaic</BitsName>
+                    <BitsUnit>s</BitsUnit>
+                </Bits>
+                <Bits from="32" to="29">
+					<BitsShortName>BatPer</BitsShortName>
+                    <BitsName>Time period between two consecutive batches</BitsName>
+                    <BitsUnit scale="0.1">s</BitsUnit>
+                </Bits>
+                <Bits from="28" to="17">
+					<BitsShortName>UpdPer</BitsShortName>
+                    <BitsName>Time period between the same batch of two consecutive scans</BitsName>
+                    <BitsUnit>s</BitsUnit>
+                </Bits>
+                <Bits from="16" to="15">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>                    
+                <Bits from="14" to="9">
+                    <BitsShortName>delay</BitsShortName>
+                    <BitsName>Delay</BitsName>
+                    <BitsUnit scale="0.1">s</BitsUnit>
+                </Bits>
+                <Bits bit="8">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bit set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>                
+                <Bits from="7" to="1">
+                    <BitsShortName>maxflow</BitsShortName>
+                    <BitsName>Maximum User input Data Flow</BitsName>
+                    <BitsUnit>KBytes/s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>            
+    
+    <DataItem id="230">
+        <DataItemName>Radar Synchronization Characteristics</DataItemName>
+        <DataItemDefinition>Transmission Characteristics for a service of the type radar synchronised.</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of three bytes, followed by three bytes as necessary.">
+        <Variable>
+            <Fixed length="3">
+                <Bits from="24" to="17">
+                    <BitsShortName>MSAC</BitsShortName>
+                    <BitsName>Main radar Source area code</BitsName>
+                </Bits>
+                <Bits from="16" to="9">
+                    <BitsShortName>MSIC</BitsShortName>
+                    <BitsName>Main radar Souurce identitiy code</BitsName>
+                </Bits>
+                <Bits bit="8">
+                    <BitsShortName>NOP</BitsShortName>
+                    <BitsValue val="0">no information shall be sent</BitsValue>
+                    <BitsValue val="1">a track update shall be sent after the time-window for the plot-to-track association is passed without a plot has been associated.</BitsValue>
+                </Bits>
+                <Bits from="7" to="2">
+						<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="1" fx="1">
+                    <BitsShortName>fx</BitsShortName>
+                    <BitsName>Field extension</BitsName>
+                    <BitsValue val="0">end of data item</BitsValue>
+                    <BitsValue val="1">extension to first extent</BitsValue>
+                </Bits>
+            </Fixed>
+            <Fixed length="3">
+                <Bits from="24" to="17">
+                    <BitsShortName>BSAC</BitsShortName>
+                    <BitsName>Spare radar Source area code</BitsName>
+                </Bits>
+                <Bits from="16" to="9">
+                    <BitsShortName>BSIC</BitsShortName>
+                    <BitsName>Spare radar Souurce identitiy code</BitsName>
+                </Bits>
+                <Bits from="8" to="2">
+						<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="1" fx="1">
+                    <BitsShortName>fx</BitsShortName>
+                    <BitsName>Field extension</BitsName>
+                    <BitsValue val="0">end of data item</BitsValue>
+                    <BitsValue val="1">extension to next extent</BitsValue>
+                </Bits>
+            </Fixed>
+        </Variable>    
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="240">
+        <DataItemName>Discrete Parameters Flags</DataItemName>
+        <DataItemDefinition>This item contains a number of flags to indicate which category(ies) of discrete events shall be considered for triggering the track information transmission (aperiodical way of transmission).</DataItemDefinition>
+        <DataItemFormat desc="Two-byte variable length data item.">
+            <Variable>
+                <Fixed length="2">
+                    <Bits bit="16">
+                        <BitsShortName>TLF</BitsShortName>
+                        <BitsName>Track Life events (Birth, Death, no radar update)</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>TNB</BitsShortName>
+                        <BitsName>ARTAS Track Number changes (switch Master/Slave Track Number)</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>TQY</BitsShortName>
+                        <BitsName>Modifications of Track Quality</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>PLN</BitsShortName>
+                        <BitsName>Modification of Flight Plan related information (i.e. in the Minipln)</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="12">
+                        <BitsShortName>M3A</BitsShortName>
+                        <BitsName>Change of Mode 3/A identity</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>MO2</BitsShortName>
+                        <BitsName>Change of Mode 2 identification</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits> 
+                    <Bits bit="10">
+                        <BitsShortName>COR</BitsShortName>
+                        <BitsName>Flight-plan to Track correlation/end of correlation</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="9">
+                        <BitsShortName>SPE</BitsShortName>
+                        <BitsName>Special Mode 3/A transponding (7500, 7600 and 7700)</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>MOF</BitsShortName>
+                        <BitsName>Change of Mode-of-Flight</BitsName>
+                        <BitsValue val="0">Not set</BitsValue>
+                        <BitsValue val="1">Set</BitsValue>
+                    </Bits>
+                    <Bits from="7" to="2">
+						<BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extansion bit</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension to next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="250">
+        <DataItemName>MOF Probability Criterion</DataItemName>
+        <DataItemDefinition>Variation step of Mode-of-Flight Probabilities to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted MOF probability assessment for a given track exceeds the indicated threshold value).</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>MOFpc</BitsShortName>
+                    <BitsName>MOF Probability Criterion</BitsName>
+                    <BitsUnit scale="0.25" max="64">%</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+    
+    <DataItem id="255">
+        <DataItemName>Rate of Climb/Descent Criterion</DataItemName>
+        <DataItemDefinition>Variation step of the calculated rate of climb/descent to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted assessment of the rate of climb/ descent for a given track exceeds the indicated threshold value).</DataItemDefinition>
+        <DataItemFormat desc="Two-bytes fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>rocdc</BitsShortName>
+                    <BitsName>Rate of Climb/Descent Criterion</BitsName>
+                    <BitsUnit scale="5.86">ft/min</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+    
+    <DataItem id="260">
+        <DataItemName>Position Criterion</DataItemName>
+        <DataItemDefinition>Variation step of Track positional information to trigger the transmission of track updates. An update will be sent each time the variation between the current track position and the extrapolated position based on the previously sent information exceeds the indicated threshold.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>posc</BitsShortName>
+                    <BitsName>Position Criterion</BitsName>
+                    <BitsUnit scale="0.015625" max="4">NM</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+            
+    <DataItem id="265">
+        <DataItemName>Rate of Turn Criterion</DataItemName>
+        <DataItemDefinition>Variation step of the calculated rate of turn to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted assessment of the rate of turn for a given track exceeds the indicated threshold value).</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>rotc</BitsShortName>
+                    <BitsName>Rate of Turn Criterion</BitsName>
+                    <BitsUnit scale="0.25" max="64">deg/s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+
+    <DataItem id="270">
+        <DataItemName>Heading Criterion</DataItemName>
+        <DataItemDefinition>Variation step of heading (i.e. Speed Vector) to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted Track Heading assessment for a given track exceeds the indicated threshold value).</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>headc</BitsShortName>
+                    <BitsName>Heading Criterion</BitsName>
+                    <BitsUnit scale="0.02197" max="5.6">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+
+    <DataItem id="280">
+        <DataItemName>Speed Module Criterion</DataItemName>
+        <DataItemDefinition>Variation step of Speed Module to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted Speed Module assessment for a given track exceed the indicated threshold value).</DataItemDefinition>
+            <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>speedc</BitsShortName>
+                    <BitsName>Speed Module Criterion</BitsName>
+                    <BitsUnit>kt</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+
+    <DataItem id="290">
+        <DataItemName>Altitude Criterion</DataItemName>
+        <DataItemDefinition>A threshold for triggering the transmission of a track. A track update will be sent each time the calculated track altitude or calculated track flight level has changed by more than the indicated amount since the last track update.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>altc</BitsShortName>
+                    <BitsName>Altitude Criterion</BitsName>
+                    <BitsUnit scale="25" max="3200">ft</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+            
+    <DataItem id="300">
+        <DataItemName>Factor K</DataItemName>
+        <DataItemDefinition>The so-called factor K is used to trigger the data transmission as a function of the internal accuracy by which the ARTAS Tracker has estimated the state vector elements. An update will be sent each time one of the state vector elements has varied from more than K time the standard deviation associated to this element.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>factork</BitsShortName>
+                    <BitsName>Factor K</BitsName>
+					<BitsUnit scale="0.125" max="32"/>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+    
+    <DataItem id="310">
+        <DataItemName>Refreshment Period</DataItemName>
+        <DataItemDefinition>In relation to a service applying the aperiodical mode of transmission, the Refreshment Period concerns the systematic transmission of track updates for those tracks for which no changes have been detected.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+					<BitsShortName>RefPer</BitsShortName>
+                    <BitsName>Refreshment Period</BitsName>
+                    <BitsUnit>s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+
+    <DataItem id="320">
+        <DataItemName>Minimal Period</DataItemName>
+        <DataItemDefinition>In relation to a service applying the aperiodical mode of transmission, a Minimal Period shall be specified to avoid that too close transmission intervals are applied when highly manoeuvring aircraft are tracked.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+					<BitsShortName>MinPer</BitsShortName>
+                    <BitsName>Minimal period</BitsName>
+                    <BitsUnit>s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>        
+    </DataItem>
+    
+    <DataItem id="330">
+        <DataItemName>Service Related Report</DataItemName>
+        <DataItemDefinition>Report message sent by the Server to the User in relation to a connection or a service.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 2-byte (Acknowledgement message) as necessary.">
+        <Repetitive>
+            <Fixed length="2">
+                <Bits from="16" to="12">
+                    <BitsShortName>nature</BitsShortName>
+                    <BitsName>Nature of the Message</BitsName>
+                    <BitsValue val="0">Server status message</BitsValue>
+                    <BitsValue val="1">Service initial request report</BitsValue>
+                    <BitsValue val="2">Service update request report : stop track/item transmission</BitsValue>
+                    <BitsValue val="3">Service update request report : start track/item transmission</BitsValue>
+                    <BitsValue val="4">Service control request report : interruption</BitsValue>
+                    <BitsValue val="5">Service control request report : restart</BitsValue>
+                    <BitsValue val="6">Service control request report : end of service</BitsValue>
+                    <BitsValue val="7">Error in default service</BitsValue>
+                    <BitsValue val="8">Service synchronisation report (periodical or radar synchronised service)</BitsValue>
+                </Bits>
+                <Bits from="11" to="1">
+                    <BitsShortName>code</BitsShortName>
+                    <BitsName>Report code</BitsName>
+                    <BitsValue val="1">service degradation</BitsValue>
+                    <BitsValue val="2">service degradation ended</BitsValue>
+                    <BitsValue val="3">main radar out of service</BitsValue>
+                    <BitsValue val="4">service interrupted by the ARTAS operator</BitsValue>
+                    <BitsValue val="5">service interrupted due to contingency</BitsValue>
+                    <BitsValue val="6">ready for service restart after contingency</BitsValue>
+                    <BitsValue val="7">Request accepted</BitsValue>
+                    <BitsValue val="8">Server unable to accept the request (overload conditions)</BitsValue>
+                    <BitsValue val="9">Service refused, the maximum number of simultaneous services per User being already reached for that User</BitsValue>
+                    <BitsValue val="10">Service Identification already existing</BitsValue>
+                    <BitsValue val="11">Incorrect Service Identification</BitsValue>
+                    <BitsValue val="12">Incorrect point(s) definition of in the geographical sub-area</BitsValue>
+                    <BitsValue val="13">Incorrect definition of Upper/Lower Limit(s) in the geographical sub-area</BitsValue>
+                    <BitsValue val="14">crossing lines in the geographical sub-area</BitsValue>
+                    <BitsValue val="15">point(s) defined outside the User Domain of Interest</BitsValue>
+                    <BitsValue val="16">number of points below the minimum value</BitsValue>
+                    <BitsValue val="17">number of points exceeding the maximum</BitsValue>
+                    <BitsValue val="18">Repetition Factor of Callsign Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="19">Incorrectly coded Callsign(s)</BitsValue>
+                    <BitsValue val="20">Repetition Factor of Track Number Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="21">Incorrect Track Number(s)</BitsValue>
+                    <BitsValue val="22">Repetition Factor of Aircraft Address Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="23">Repetition Factor of Aircraft Identification Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="24">Incorrect Aircraft Identification(s)</BitsValue>
+                    <BitsValue val="25">Repetition Factor of Code Family Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="26">Repetition Factor of the Departure Airport Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="27">Incorrectly coded Departure Airport(s)</BitsValue>
+                    <BitsValue val="28">Repetition Factor of the Destination Airport Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="29">Incorrectly coded Destination Airport(s)</BitsValue>
+                    <BitsValue val="30">Repetition Factor of Aircraft Type Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="31">Incorrectly coded Aircraft Type(s)</BitsValue>
+                    <BitsValue val="32">Incorrectly coded Current Control Position</BitsValue>
+                    <BitsValue val="33">Wrong track/flight categories selector</BitsValue>                    
+                    <BitsValue val="34">Mixed definition of periodical/aperiodical transmission characteristics</BitsValue>
+                    <BitsValue val="35">Update period below the minimum value</BitsValue>
+                    <BitsValue val="36">Update period over the maximum value</BitsValue>
+                    <BitsValue val="37">scanning period below the minimum value</BitsValue>
+                    <BitsValue val="38">scanning period over the maximum value</BitsValue>
+                    <BitsValue val="39">Extra delay over the maximum value</BitsValue>
+                    <BitsValue val="40">Max flow below the minimum value</BitsValue>
+                    <BitsValue val="41">Max flow over the maximum value</BitsValue>
+                    <BitsValue val="42">Unknown Main Radar Station</BitsValue>
+                    <BitsValue val="43">Background service not identified</BitsValue>
+                    <BitsValue val="44">More than one Background service have been identified</BitsValue>
+                    <BitsValue val="45">syntax error in the request (e.g. missing items).</BitsValue>
+                    <BitsValue val="46">maximum number of simultaneous radar synchronised service is reached.</BitsValue>
+                    <BitsValue val="47">Main radar outside the maximum user domain of interest</BitsValue>
+                    <BitsValue val="48">non existing referenced service</BitsValue>
+                    <BitsValue val="49">mixed definition of geographical and non-geographical track selection keys</BitsValue>
+                    <BitsValue val="50">number of exclusion areas exceeding the maximum</BitsValue>
+                    <BitsValue val="51">number of layers for an exclusion area exceeding the maximum</BitsValue>
+                    <BitsValue val="52">defined geographical area already excluded</BitsValue>
+                    <BitsValue val="53">Too many sub-domains</BitsValue>
+                    <BitsValue val="54">Too many sub-domain layers</BitsValue>
+                    <BitsValue val="55">Service already interrupted</BitsValue>
+                    <BitsValue val="56">Service already active.</BitsValue>
+                    <BitsValue val="57">NO LONGER USED BY ARTAS</BitsValue>
+                    <BitsValue val="58">Service ended by the operator</BitsValue>
+                    <BitsValue val="59">failure of user main radar</BitsValue>
+                    <BitsValue val="60">Incorrectly coded Discrete Parameters Flags</BitsValue>
+                    <BitsValue val="61">Incorrectly coded Item Selector</BitsValue>
+                    <BitsValue val="62">Mixed definition of item and track selection keys</BitsValue>
+                    <BitsValue val="63">Incorrect definition of the Upper/Lower limits in the update geographical area</BitsValue>
+                    <BitsValue val="64">Crossing lines in the definition of the update geographical area</BitsValue>
+                    <BitsValue val="65">Service update no longer possible</BitsValue>
+                    <BitsValue val="66">No initial service</BitsValue>
+                    <BitsValue val="67">Not possible to restart complementary service while background is interrupted</BitsValue>
+                    <BitsValue val="68">Complementary service not defined</BitsValue>
+                    <BitsValue val="69">Illegal background state</BitsValue>
+                    <BitsValue val="70">Illegal background type</BitsValue>
+                    <BitsValue val="71">Illegal connection number</BitsValue>
+                    <BitsValue val="72">Illegal service type</BitsValue>
+                    <BitsValue val="73">User not connected</BitsValue>
+                    <BitsValue val="74">Service restarted by the ARTAS Operator</BitsValue>
+                    <BitsValue val="75">Refresh period less or equal than minimal period</BitsValue>
+                    <BitsValue val="76">Batch period below the minimum value</BitsValue>
+                    <BitsValue val="77">Update period less than scanning period</BitsValue>
+                    <BitsValue val="78">Main radar becoming operational</BitsValue>
+                    <BitsValue val="79">Main radar becoming degraded</BitsValue>
+                    <BitsValue val="80">Service continuity interrupted due to disconnection with adjacent Unit</BitsValue>
+                    <BitsValue val="81">Service continuity restarted</BitsValue>
+                    <BitsValue val="82">Radar synchronised subarea going beyond the ARTAS Unit DoI</BitsValue>
+                    <BitsValue val="83">Service synchronised on backup radar</BitsValue>
+                    <BitsValue val="84">Service synchronised on main radar</BitsValue>
+                    <BitsValue val="85">Main and backup radars, if any, failed</BitsValue>
+                    <BitsValue val="86">Unknown backup radar</BitsValue>
+                    <BitsValue val="87">Incorrectly coded radar synchronisation characteristics</BitsValue>
+                    <BitsValue val="88">Unknown Sensor(s)</BitsValue>
+                    <BitsValue val="89">Refresh period out of bounds</BitsValue>
+                    <BitsValue val="90">Time Stamping Bias change threshold out of bounds</BitsValue>
+                    <BitsValue val="91">SSR Range Bias change threshold out of bounds</BitsValue>
+                    <BitsValue val="92">SSR Range gain change threshold out of bounds</BitsValue>
+                    <BitsValue val="93">PR Range Bias change threshold out of bounds</BitsValue>
+                    <BitsValue val="94">PR Range gain change threshold out of bounds</BitsValue>
+                    <BitsValue val="95">Repetition Factor of Sensor Selector exceeding the maximum value</BitsValue>
+                    <BitsValue val="96">Sensor Service Not Defined</BitsValue>
+                </Bits>
+            </Fixed>
+        </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+ 
+    <DataItem id="340">
+        <DataItemName>Scaling Factor</DataItemName>
+        <DataItemDefinition>This item is used to select the precision by which will be coded a cartesian track position</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>SF</BitsShortName>
+                    <BitsName>Track Position coding precision</BitsName>
+                    <BitsValue val="0">1/64 NM</BitsValue>
+                    <BitsValue val="1">1/32 NM</BitsValue>
+                </Bits>
+                <Bits from="7" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="350">
+        <DataItemName>Sensor Selector</DataItemName>
+        <DataItemDefinition>List of Sensor SIC/SAC identifications for which Sensor information are to be provided</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of selected sensors, followed by series of 2-byte (sensor identifications) as necessary.">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="9">
+                        <BitsShortName>SAC</BitsShortName>
+                        <BitsName>Source Area Code</BitsName>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>SIC</BitsShortName>
+                        <BitsName>Source Identity Code</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="360">
+        <DataItemName>Sensor Item Selector</DataItemName>
+        <DataItemDefinition>This item is used to define the composition of the Sensor Information messages</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item">
+            <Fixed length="2">
+                <Bits bit="16">
+                    <BitsShortName>SVR</BitsShortName>
+                    <BitsName>Server Identification Tag</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="15">
+                    <BitsShortName>USR</BitsShortName>
+                    <BitsName>User number (I031/015)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="14">
+                    <BitsShortName>LMT</BitsShortName>
+                    <BitsName>Time of message (I031/020)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="13">
+                    <BitsShortName>SIT</BitsShortName>
+                    <BitsName>Sensor Identification Tag (I031/030)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="12">
+                    <BitsShortName>SST</BitsShortName>
+                    <BitsName>Sensor Status (I031/040)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="11">
+                    <BitsShortName>TSB</BitsShortName>
+                    <BitsName>Time Stamping Bias (I031/050)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="10">
+                    <BitsShortName>SRB</BitsShortName>
+                    <BitsName>SSR Range gain and Bias (I031/060)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="9">
+                    <BitsShortName>SAB</BitsShortName>
+                    <BitsName>SSR Azimuth Bias (I031/070)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="8">
+                    <BitsShortName>PRB</BitsShortName>
+                    <BitsName>PR Range gain and Bias (I031/080)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits bit="7">
+                    <BitsShortName>PAB</BitsShortName>
+                    <BitsName>PR Azimuth Bias (I031/090)</BitsName>
+                    <BitsValue val="0">Not selected</BitsValue>
+                    <BitsValue val="1">Selected</BitsValue>
+                </Bits>
+                <Bits from="6" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+        
+    <DataItem id="370">
+        <DataItemName>Periodical Characteristics of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Update period of a periodical service of Sensor Information messages</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+					<BitsShortName>UpdPer</BitsShortName>
+                    <BitsName>Update period</BitsName>
+                    <BitsUnit min="4" max="3600">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="400">
+        <DataItemName>Refreshment Period of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Refreshment period of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+					<BitsShortName>RefPer</BitsShortName>
+                    <BitsName>Period of refresh when no change is detected.</BitsName>
+                    <BitsUnit min="4" max="3600">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="410">
+        <DataItemName>Discrete Parameters of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Discrete parameters of an aperiodical service of Sensor Information messages. It defines which event(s) shall trigger a message to be sent.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>SSC</BitsShortName>
+                    <BitsName>Sensor Status Change</BitsName>
+                </Bits>
+                <Bits from="7" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="420">
+        <DataItemName>Time Stamping Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Time stamping bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="15">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="14" to="1">
+                    <BitsShortName>tsb</BitsShortName>
+                    <BitsName>Variation threshold of the time stamping bias</BitsName>
+                    <BitsUnit min="0" max="10000">ms</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="430">
+        <DataItemName>SSR Range Bias Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>SSR range bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="12">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="11" to="1">
+                    <BitsShortName>ssrrb</BitsShortName>
+                    <BitsName>Variation threshold of the SSR range bias</BitsName>
+                    <BitsUnit min="0" max="10.8" scale="0.0078125">NM</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="440">
+        <DataItemName>SSR Range Gain Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>SSR range gain criterion of an aperiodical service of Sensor Information messages</DataItemDefinition>
+        <DataItemFormat desc="Three-byte fixed length data item.">
+            <Fixed length="3">
+                <Bits from="24" to="21">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="20" to="1">
+                    <BitsShortName>ssrrg</BitsShortName>
+                    <BitsName>Variation threshold of the SSR range gain</BitsName>
+					<BitsUnit min="0" max="1" scale="0.000001"/>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>            
+
+    <DataItem id="450">
+        <DataItemName>SSR Azimuth Bias Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>SSR azimuth bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>ssrab</BitsShortName>
+                    <BitsName>Variation threshold of the SSR azimuth bias</BitsName>
+                    <BitsUnit min="0" max="359.9945" scale="0.0055">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>            
+        
+    <DataItem id="460">
+        <DataItemName>PR Range Bias Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Primary range bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="12">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="11" to="1">
+                    <BitsShortName>prrb</BitsShortName>
+                    <BitsName>Variation threshold of the PR range bias</BitsName>
+                    <BitsUnit min="0" max="10.8" scale="0.0078125">NM</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+    <DataItem id="470">
+        <DataItemName>PR Range Gain Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Primary range gain criterion of an aperiodical service of Sensor Information messages</DataItemDefinition>
+        <DataItemFormat desc="Three-byte fixed length data item.">
+            <Fixed length="3">
+                <Bits from="24" to="21">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="20" to="1">
+                    <BitsShortName>prrg</BitsShortName>
+                    <BitsName>Variation threshold of the PR range gain</BitsName>
+					<BitsUnit min="0" max="1" scale="0.000001"/>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>            
+    
+    <DataItem id="480">
+        <DataItemName>PR Azimuth Bias Criterion of Sensor Information Service</DataItemName>
+        <DataItemDefinition>Primary azimuth bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>prab</BitsShortName>
+                    <BitsName>Variation threshold of the PR azimuth bias</BitsName>
+                    <BitsUnit min="0" max="359.9945" scale="0.0055">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>            
+    
+    <!-- connection related messages  ( "Message Type = 0x11" - Request for connection-->
+    <UAP use_if_byte_nr="8" is_set_to="17">
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="2">015</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">020</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">035</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">100</UAPItem>
+        <UAPItem bit="5" frn="6" len="8">040</UAPItem>
+        <UAPItem bit="6" frn="7" len="1">045</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1">050</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">060</UAPItem>
+        <UAPItem bit="10" frn="10" len="2">070</UAPItem>
+        <UAPItem bit="11" frn="11" len="2">080</UAPItem>
+        <UAPItem bit="12" frn="12" len="2">090</UAPItem>
+        <UAPItem bit="13" frn="13" len="1">340</UAPItem>
+        <UAPItem bit="14" frn="14" len="-">-</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+	</UAP>			
+
+    <!-- connection related messages  ( "Message Type = 0x12" - Request for disconnection-->
+    <UAP use_if_byte_nr="8" is_set_to="18">
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="2">015</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">020</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">035</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">100</UAPItem>
+        <UAPItem bit="5" frn="6" len="8">040</UAPItem>
+        <UAPItem bit="6" frn="7" len="1">045</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1">050</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">060</UAPItem>
+        <UAPItem bit="10" frn="10" len="2">070</UAPItem>
+        <UAPItem bit="11" frn="11" len="2">080</UAPItem>
+        <UAPItem bit="12" frn="12" len="2">090</UAPItem>
+        <UAPItem bit="13" frn="13" len="1">340</UAPItem>
+        <UAPItem bit="14" frn="14" len="-">-</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+	</UAP>	
+
+    <!-- connection related messages  ( "Message Type = 0x13" - Connection related report-->
+    <UAP use_if_byte_nr="8" is_set_to="19">
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="2">015</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">020</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">035</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">100</UAPItem>
+        <UAPItem bit="5" frn="6" len="8">040</UAPItem>
+        <UAPItem bit="6" frn="7" len="1">045</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1">050</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">060</UAPItem>
+        <UAPItem bit="10" frn="10" len="2">070</UAPItem>
+        <UAPItem bit="11" frn="11" len="2">080</UAPItem>
+        <UAPItem bit="12" frn="12" len="2">090</UAPItem>
+        <UAPItem bit="13" frn="13" len="1">340</UAPItem>
+        <UAPItem bit="14" frn="14" len="-">-</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+	</UAP>	
+
+
+    <!-- service related messages -->
+	<UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="2">015</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">020</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">035</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">110</UAPItem>
+        <UAPItem bit="5" frn="6" len="1+">330</UAPItem>
+        <UAPItem bit="6" frn="7" len="2+">210</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="5">220</UAPItem>
+        <UAPItem bit="9" frn="9" len="4">200</UAPItem>
+        <UAPItem bit="10" frn="10" len="1+">130</UAPItem>
+        <UAPItem bit="11" frn="11" len="1+">140</UAPItem>
+        <UAPItem bit="12" frn="12" len="1+">120</UAPItem>
+        <UAPItem bit="13" frn="13" len="1+">150</UAPItem>
+        <UAPItem bit="14" frn="14" len="1+">160</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="16" frn="15" len="1+">060</UAPItem>
+        <UAPItem bit="17" frn="16" len="1+">170</UAPItem>
+        <UAPItem bit="18" frn="17" len="2">190</UAPItem>
+        <UAPItem bit="19" frn="18" len="3+">230</UAPItem>
+        <UAPItem bit="20" frn="19" len="1">320</UAPItem>
+        <UAPItem bit="21" frn="20" len="1">310</UAPItem>
+        <UAPItem bit="22" frn="21" len="2+">240</UAPItem>
+        <UAPItem bit="23" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="24" frn="22" len="1">270</UAPItem>
+        <UAPItem bit="25" frn="23" len="1">280</UAPItem>
+        <UAPItem bit="26" frn="24" len="1">290</UAPItem>
+        <UAPItem bit="27" frn="25" len="1">260</UAPItem>
+        <UAPItem bit="28" frn="26" len="1">250</UAPItem>
+        <UAPItem bit="29" frn="27" len="1">300</UAPItem>
+        <UAPItem bit="30" frn="28" len="2">255</UAPItem>
+        <UAPItem bit="31" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="32" frn="29" len="1">265</UAPItem>
+        <UAPItem bit="33" frn="30" len="2">070</UAPItem>
+        <UAPItem bit="34" frn="31" len="2">080</UAPItem>
+        <UAPItem bit="35" frn="32" len="1+">135</UAPItem>
+        <UAPItem bit="36" frn="33" len="1+">137</UAPItem>
+        <UAPItem bit="37" frn="34" len="1+">350</UAPItem>        
+        <UAPItem bit="38" frn="35" len="2">360</UAPItem>
+        <UAPItem bit="39" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="40" frn="36" len="2">370</UAPItem>
+        <UAPItem bit="41" frn="37" len="2">400</UAPItem>
+        <UAPItem bit="42" frn="38" len="1">410</UAPItem>
+        <UAPItem bit="43" frn="39" len="2">420</UAPItem>
+        <UAPItem bit="44" frn="40" len="2">430</UAPItem>
+        <UAPItem bit="45" frn="41" len="3">440</UAPItem>
+        <UAPItem bit="46" frn="42" len="2">450</UAPItem>
+        <UAPItem bit="47" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="48" frn="43" len="2">460</UAPItem>
+        <UAPItem bit="49" frn="44" len="3">470</UAPItem>
+        <UAPItem bit="50" frn="45" len="2">480</UAPItem>
+        <UAPItem bit="51" frn="46" len="-">-</UAPItem>
+        <UAPItem bit="52" frn="47" len="-">-</UAPItem>
+        <UAPItem bit="53" frn="48" len="-">-</UAPItem>
+        <UAPItem bit="54" frn="49" len="-">-</UAPItem>
+        <UAPItem bit="55" frn="FX" len="-">-</UAPItem> 
+	</UAP>			
+                 
+</Category>

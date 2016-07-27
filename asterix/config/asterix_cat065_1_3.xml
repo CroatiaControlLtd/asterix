@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 65 v1.3 definition 
+	
+	Author:   dmarkus
+	Created:  29.10.2012.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+--> 
+
+<Category id="65" name="SDPS Service Status Messages" ver="1.3">
+
+	<DataItem id="000">
+		<DataItemName>Message Type</DataItemName>
+		<DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+		<DataItemFormat desc="One-octet fixed length Data Item.">
+			<Fixed length="1">
+				<Bits from="8" to="1">
+					<BitsShortName>Typ</BitsShortName>
+					<BitsName>Message Type</BitsName>
+                    				<BitsValue val="1">SDPS Status</BitsValue>
+                    				<BitsValue val="2">End of Batch</BitsValue>
+                    				<BitsValue val="3">Service Status Report</BitsValue>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="010">
+		<DataItemName>Data Source Identifier</DataItemName>
+		<DataItemDefinition>Identification of the SDPS sending the data.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identification Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+    
+	<DataItem id="015">
+		<DataItemName>Service Identification</DataItemName>
+		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
+        	<DataItemFormat desc="One-Octet fixed length data item.">
+		            <Fixed length="1">
+		                <Bits from="8" to="1">
+					<BitsShortName>SID</BitsShortName>
+		                    <BitsName>Service Identification</BitsName>
+		                </Bits> 
+		            </Fixed>
+        	</DataItemFormat>
+        	<DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
+    	</DataItem>
+ 
+	<DataItem id="020">
+		<DataItemName>Batch Number</DataItemName>
+		<DataItemDefinition>A number indicating the completion of a service for that batch of track data, from 0 to N-1, N being the number of batches used to make one complete processing cycle.</DataItemDefinition>
+		<DataItemFormat desc="One-Octet fixed length data item.">
+			<Fixed length="1">
+				<Bits from="8" to="1">
+					<BitsShortName>BTN</BitsShortName>
+					<BitsName>Batch Number</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>		  
+  
+	<DataItem id="030">
+		<DataItemName>Time Of Message</DataItemName>
+		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+		<DataItemFormat desc="Three-byte fixed length data item.">
+			<Fixed length="3">
+				<Bits from="24" to="1" encode="unsigned">
+					<BitsShortName>ToD</BitsShortName>
+					<BitsName>Time Of Message</BitsName>
+					<BitsUnit scale="0.0078125">s</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+		<DataItemNote>The time of the day value is reset to zero at every midnight.</DataItemNote>
+	</DataItem>		
+
+	<DataItem id="040">
+		<DataItemName>SDPS Configuration and Status</DataItemName>
+		<DataItemDefinition>Status of an SDPS.</DataItemDefinition>
+		<DataItemFormat desc="One-Octet fixed length data item.">
+			<Fixed length="1">
+				<Bits from="8" to="7">
+					<BitsShortName>NOGO</BitsShortName>
+					<BitsName>NOGO</BitsName>
+					<BitsValue val="0">Operational</BitsValue>
+                    			<BitsValue val="1">Degraded</BitsValue>
+                    			<BitsValue val="2">Not currently connected</BitsValue>
+								<BitsValue val="3">Unknown</BitsValue>
+				</Bits>
+				<Bits bit="6">
+                    <BitsShortName>OVL</BitsShortName>
+                    <BitsName>Overload</BitsName>
+								<BitsValue val="0">Default</BitsValue>
+                    			<BitsValue val="1">Overload</BitsValue>
+                </Bits>
+				<Bits bit="5">
+                    <BitsShortName>TSV</BitsShortName>
+                    <BitsName>Time Source Status</BitsName>
+								<BitsValue val="0">Default</BitsValue>
+                    			<BitsValue val="1">Invalid Time Source</BitsValue>
+                </Bits>
+				<Bits from="4" to="3">
+					<BitsShortName>PSS</BitsShortName>
+					<BitsName>Processing System Status</BitsName>
+								<BitsValue val="0">Not applicable</BitsValue>
+                    			<BitsValue val="1">SDPS-1 selected</BitsValue>
+                    			<BitsValue val="2">SDPS-2 selected</BitsValue>
+                    			<BitsValue val="3">SDPS-3 selected</BitsValue>
+				</Bits>
+                <Bits from="2" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    			<BitsName>Spare bits se to 0</BitsName>
+                    			<BitsConst>0</BitsConst>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>	
+	
+	<DataItem id="050">
+        <DataItemName>Service Status Report</DataItemName>
+        <DataItemDefinition>Report sent by the SDPS related to a service</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed 1ength data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>REPORT</BitsShortName>
+                    <BitsName>Service Status Report</BitsName>
+			                	<BitsValue val="1">service degradation</BitsValue>
+			            		<BitsValue val="2">service degradation ended</BitsValue>
+			       		        <BitsValue val="3">main radar out of service</BitsValue>
+					 	<BitsValue val="4">service interrupted by the operator</BitsValue>
+						<BitsValue val="5">service interrupted due to contingency</BitsValue>
+						<BitsValue val="6">ready for service restart after contingency</BitsValue>
+						<BitsValue val="7">service ended by the operator</BitsValue>
+						<BitsValue val="8">failure of user main radar</BitsValue>
+						<BitsValue val="9">service restarted by the operator</BitsValue>
+						<BitsValue val="10">main radar becoming operational</BitsValue>
+						<BitsValue val="11">main radar becoming degraded</BitsValue>
+						<BitsValue val="12">service continuity interrupted due to disconnection with adjacent unit</BitsValue>
+						<BitsValue val="13">service continuity restarted</BitsValue>
+						<BitsValue val="14">service synchronised on backup radar</BitsValue>
+						<BitsValue val="15">service synchronised on main radar</BitsValue>
+						<BitsValue val="16">main and backup radar, if any, failed</BitsValue>					
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+
+    <UAP>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="1">000</UAPItem>
+		<UAPItem bit="2" frn="3" len="1">015</UAPItem>
+		<UAPItem bit="3" frn="4" len="3">030</UAPItem>
+		<UAPItem bit="4" frn="5" len="1">020</UAPItem>
+		<UAPItem bit="5" frn="6" len="1">040</UAPItem>
+		<UAPItem bit="6" frn="7" len="1">050</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="-">-</UAPItem>
+        <UAPItem bit="9" frn="9" len="-">-</UAPItem>
+        <UAPItem bit="10" frn="10" len="-">-</UAPItem>
+		<UAPItem bit="11" frn="11" len="-">-</UAPItem>
+		<UAPItem bit="12" frn="12" len="-">-</UAPItem>
+		<UAPItem bit="13" frn="13" len="1+1+">RE</UAPItem>
+		<UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+        
+</Category>
+	
