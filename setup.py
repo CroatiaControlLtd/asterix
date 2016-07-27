@@ -109,7 +109,10 @@ config_files = ['./install/config/asterix_bds.xml',
 
 #eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
 
-sample_files = [os.path.join('./install/sample_data/', f) for f in listdir('./install/sample_data/') if os.path.isfile(os.path.join('./install/sample_data/', f))]
+sample_files = ['./install/sample_data/cat048.raw',
+                './install/sample_data/cat062cat065.raw',
+                './install/sample_data/cat_034_048.pcap',
+                './install/sample_data/cat_062_065.pcap']
 
 setup (name = 'asterix',
        packages = ['asterix'],
