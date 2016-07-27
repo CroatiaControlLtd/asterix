@@ -121,9 +121,7 @@ setup (name = 'asterix',
        keywords = "asterix, eurocontrol, radar, track, croatiacontrol",
        long_description = README,
        ext_modules = [asterix_module],
-       package_data = {'asterix' : config_files},
-       include_package_data = True,
-       data_files = [('install/config', config_files), ('install/sample_data', sample_files)],
+       data_files = [('asterix/config', config_files), ('asterix/sample_data', sample_files)],
 #       eager_resources = eager_files,
        author="Damir Salantic",
        author_email="damir.salantic@crocontrol.hr",
@@ -133,10 +131,3 @@ setup (name = 'asterix',
        url="https://github.com/CroatiaControlLtd/asterix",
        classifiers=CLASSIFIERS,
        )
-
-#if sys.version_info[0] >= 3:
-#    print( "*" * 100)
-#    print("If you want to run the tests be sure to run 2to3 on them first, "
-#          "e.g. `2to3 -w tests/tests.py`.")
-#    print("*" * 100)
-

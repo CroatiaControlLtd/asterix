@@ -64,7 +64,8 @@ def parse(data, format=None):
 #        print(a)
 
 # initialize asterix with default configuration files
-filepath = resource_filename(Requirement.parse("asterix"), "install/config")
+
+filepath = os.path.join(os.path.dirname(__file__), 'config')
 for fn in sorted(os.listdir(filepath)):
      f = os.path.join(filepath, fn)
      if os.path.isfile(f) and f.endswith(".xml"):

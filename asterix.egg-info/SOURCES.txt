@@ -46,10 +46,12 @@ setup.py
 ./src/python/python_wrapper.c
 ./src/python/version.h
 asterix/__init__.py
+asterix/__init__.pyc
 asterix.egg-info/PKG-INFO
 asterix.egg-info/SOURCES.txt
 asterix.egg-info/dependency_links.txt
 asterix.egg-info/top_level.txt
+asterix/__pycache__/__init__.cpython-34.pyc
 examples/multicast_send_receive.py
 examples/read_pcap_file.py
 examples/read_raw_bytes.py
