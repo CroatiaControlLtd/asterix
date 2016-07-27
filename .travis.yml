@@ -30,5 +30,5 @@ install:
   - python setup.py -q install
 
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then cd test; python -m unittest discover; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then cd asterix/test; python -m unittest discover; fi
   - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi

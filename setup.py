@@ -82,37 +82,11 @@ finally:
     f.close()    
     
 config_files = [os.path.join('./asterix/config/', f) for f in listdir('./asterix/config/') if os.path.isfile(os.path.join('./asterix/config/', f))]
-'''
-config_files = ['./install/config/asterix_bds.xml',
-                './install/config/asterix_cat001_1_1.xml',
-                './install/config/asterix_cat002_1_0.xml',
-                './install/config/asterix_cat004_1_8.xml',
-                './install/config/asterix_cat008_1_0.xml',
-                './install/config/asterix_cat010_1_1.xml',
-                './install/config/asterix_cat019_1_2.xml',
-                './install/config/asterix_cat020_1_7.xml',
-                './install/config/asterix_cat021_1_8.xml',
-                './install/config/asterix_cat023_1_2.xml',
-                './install/config/asterix_cat030_6_2.xml',
-                './install/config/asterix_cat031_6_2.xml',
-                './install/config/asterix_cat032_7_0.xml',
-                './install/config/asterix_cat034_1_26.xml',
-                './install/config/asterix_cat048_1_21.xml',
-                './install/config/asterix_cat062_1_16.xml',
-                './install/config/asterix_cat063_1_3.xml',
-                './install/config/asterix_cat065_1_3.xml',
-                './install/config/asterix_cat247_1_2.xml',
-                './install/config/asterix_cat252_7_0.xml'
-                ]
-'''
-#eager_files = config_files
 
-#eager_files = [os.path.join('config/', f) for f in listdir('./install/config/') if os.path.isfile(os.path.join('./install/config/', f))]
-
-sample_files = ['./install/sample_data/cat048.raw',
-                './install/sample_data/cat062cat065.raw',
-                './install/sample_data/cat_034_048.pcap',
-                './install/sample_data/cat_062_065.pcap']
+sample_files = ['./asterix/sample_data/cat048.raw',
+                './asterix/sample_data/cat062cat065.raw',
+                './asterix/sample_data/cat_034_048.pcap',
+                './asterix/sample_data/cat_062_065.pcap']
 
 setup (name = 'asterix',
        packages = ['asterix'],
@@ -123,7 +97,7 @@ setup (name = 'asterix',
        ext_modules = [asterix_module],
        #data_files = [('asterix/config', config_files), ('asterix/sample_data', sample_files)],
        include_package_data = True,
-       package_data = {'asterix' : config_files},
+       package_data = {'asterix' : config_files+sample_files},
        zip_safe=False,
 #       eager_resources = eager_files,
        author="Damir Salantic",

@@ -10,6 +10,8 @@ include src/engine/*.*
 include src/main/*.*
 include src/python/*.*
 recursive-include asterix/config *.xml *.dtd
+recursive-include asterix/sample_data *
+recursive-include asterix/test *
 #recursive-include install/config *.xml *.ini *.dtd
 recursive-include install/sample_data *.raw *.pcap
 

@@ -74,6 +74,16 @@ asterix/config/asterix_cat063_1_3.xml
 asterix/config/asterix_cat065_1_3.xml
 asterix/config/asterix_cat247_1_2.xml
 asterix/config/asterix_cat252_7_0.xml
+asterix/sample_data/cat048.raw
+asterix/sample_data/cat062cat065.raw
+asterix/sample_data/cat_034_048.pcap
+asterix/sample_data/cat_062_065.pcap
+asterix/test/__init__.py
+asterix/test/test_init.py
+asterix/test/test_parse.py
+asterix/test/valgrind-python.supp.txt
+asterix/test/__pycache__/test_init.cpython-34.pyc
+asterix/test/__pycache__/test_parse.cpython-34.pyc
 examples/multicast_send_receive.py
 examples/read_pcap_file.py
 examples/read_raw_bytes.py
