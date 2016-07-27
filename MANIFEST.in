@@ -9,6 +9,6 @@ include src/asterix/*.*
 include src/engine/*.*
 include src/main/*.*
 include src/python/*.*
-include sample_data/*.raw
-include sample_data/*.pcap
 recursive-include install/config *.xml *.ini *.dtd
+recursive-include install/sample_data *.raw *.pcap
+
