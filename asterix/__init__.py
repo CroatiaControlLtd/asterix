@@ -58,6 +58,33 @@ def parse(data, format=None):
         return parsed
 
 
+def list_sample_files():
+    """
+    Return the list of Asterix format sample files from the package
+    :return: list of Asterix sample files
+    """
+    sample_files = []
+    filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
+    for fn in sorted(os.listdir(filepath)):
+         f = os.path.join(filepath, fn)
+         if os.path.isfile(f):
+            sample_files.append(f)
+    return sample_files
+
+
+def get_sample_file(match):
+    """
+    Returns first Asterix sample file matching the parameter string
+    :param match: Search string for sample file
+    :return: Sample file path
+    """
+    filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
+    for fn in sorted(os.listdir(filepath)):
+         f = os.path.join(filepath, fn)
+         if os.path.isfile(f) and match in fn:
+            return f
+
+
 # default callback function
 #def callback(arg):
 #    for a in arg:

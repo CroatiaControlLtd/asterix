@@ -2,10 +2,9 @@ __author__ = 'dsalanti'
 
 import asterix
 import dpkt
-from pkg_resources import Requirement, resource_filename
 
 # Read example file from packet resources
-sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat_034_048.pcap")
+sample_filename = asterix.get_sample_file('cat_034_048.pcap')
 with open(sample_filename) as f:
     pcap = dpkt.pcap.Reader(f)
 

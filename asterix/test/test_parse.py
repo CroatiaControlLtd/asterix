@@ -4,13 +4,11 @@ __author__ = 'dsalanti'
 import asterix
 import unittest
 import os
-from pkg_resources import Requirement, resource_filename
 
 
 class AsterixParseTest(unittest.TestCase):
     def test_ParseCAT048(self):
-        sample_filename = os.path.join(os.path.dirname(__file__), '../sample_data/cat048.raw')
-        #sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat048.raw")
+        sample_filename = asterix.get_sample_file('cat048.raw')
         with open(sample_filename, "rb") as f:
             data = f.read()
             packet = asterix.parse(data)
@@ -80,8 +78,7 @@ class AsterixParseTest(unittest.TestCase):
                                                          'meaning': 'SI-Code Capable'}}})
 
     def test_ParseCAT062CAT065(self):
-        sample_filename = os.path.join(os.path.dirname(__file__), '../sample_data/cat062cat065.raw')
-        #sample_filename = resource_filename(Requirement.parse("asterix"), "install/sample_data/cat062cat065.raw")
+        sample_filename = asterix.get_sample_file('cat062cat065.raw')
         with open(sample_filename, "rb") as f:
             data = f.read()
             packet = asterix.parse(data)

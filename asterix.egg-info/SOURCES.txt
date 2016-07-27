@@ -82,12 +82,9 @@ asterix/test/__init__.py
 asterix/test/test_init.py
 asterix/test/test_parse.py
 asterix/test/valgrind-python.supp.txt
+asterix/test/__pycache__/__init__.cpython-34.pyc
 asterix/test/__pycache__/test_init.cpython-34.pyc
 asterix/test/__pycache__/test_parse.cpython-34.pyc
-examples/multicast_send_receive.py
-examples/read_pcap_file.py
-examples/read_raw_bytes.py
-examples/read_raw_file.py
 install/config/asterix.dtd
 install/config/asterix.ini
 install/config/asterix_bds.xml
@@ -218,6 +215,3 @@ src/python/python_parser.h
 src/python/python_parser.h~
 src/python/python_wrapper.c
 src/python/version.h
-test/__init__.py
-test/test_init.py
-test/test_parse.py
