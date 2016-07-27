@@ -6,5 +6,7 @@ include setup.py
 include examples/*.py
 include test/*.py
 include src/asterix/*.*
-include src/python/*
+include src/engine/*.*
+include src/main/*.*
+include src/python/*.*
 recursive-include install/config *.xml *.ini *.dtd
