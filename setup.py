@@ -30,6 +30,14 @@ except(OSError):
     pass
 
 
+# Remove the "-Wstrict-prototypes" compiler option, which isn't valid for C++.
+import distutils.sysconfig
+cfg_vars = distutils.sysconfig.get_config_vars()
+for key, value in cfg_vars.items():
+    if type(value) == str:
+        cfg_vars[key] = value.replace("-Wstrict-prototypes", "")
+# ==================================
+
 asterix_module = Extension('_asterix',
                     sources = ['./src/python/asterix.c',
                                 './src/python/python_wrapper.c', 
@@ -57,8 +65,8 @@ asterix_module = Extension('_asterix',
                                 './src/asterix/XMLParser.cpp',
                                ],
 
-                    include_dirs = ['./asterix/python', './src/asterix', './src/engine', './src/main'],
-                    extra_compile_args=['-D_GNU_SOURCE', '-DPYTHON_WRAPPER', '-DLINUX'],
+                    include_dirs = ['./asterix/python', './src/asterix', './src/engine'],
+                    extra_compile_args=['-DPYTHON_WRAPPER'],
                     extra_link_args=['-lexpat'])
 
 

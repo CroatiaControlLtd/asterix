@@ -41,7 +41,7 @@ class SenderThread(threading.Thread):
         while self.counter:
             if exitFlag:
                 self.name.exit()
-            time.sleep(1)
+            time.sleep(0.1)
             print("%d. Sender sending : %s" % (self.counter, str(asterix_packet)))
             self.sock.sendto(asterix_packet, ("224.51.105.104", 5000))
             self.counter -= 1
@@ -88,7 +88,7 @@ class ReceiverThread (threading.Thread):
         print("Exiting " + self.name)
 
 # Create new threads
-repeat = 10
+repeat = 1000
 sender_thread = SenderThread(1, "Sender", repeat)
 receiver_thread = ReceiverThread(1, "Receiver", repeat)
 
