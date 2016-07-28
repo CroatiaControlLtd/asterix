@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include "DataItemFormatRepetitive.h"
 #include "Tracer.h"
 #include "asterixformat.hxx"
@@ -235,6 +231,7 @@ PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength
 	  {
 		PyObject* p1 = pFixed->getObject(pData, fixedLength);
 		PyList_Append(p, p1);
+		Py_DECREF(p1);
 	    pData += fixedLength;
 	  }
 

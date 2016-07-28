@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include "DataBlock.h"
 #include "Tracer.h"
 #include "Utils.h"
@@ -178,6 +174,7 @@ void DataBlock::getData(PyObject* plist)
 		{
 			PyObject* p = dr->getData();
 			PyList_Append(plist, p);
+			Py_DECREF(p);
 		}
 	}
 }

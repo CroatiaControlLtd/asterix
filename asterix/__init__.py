@@ -1,6 +1,5 @@
 import _asterix
 import os
-from pkg_resources import Requirement, resource_filename
 import sys
 
 #def set_callback(callback):

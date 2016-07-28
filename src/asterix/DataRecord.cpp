@@ -21,11 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
-//#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"
 #include "Tracer.h"
@@ -355,7 +350,12 @@ PyObject* DataRecord::getData()
 {
 	UAP* pUAP = m_pCategory->getUAP(m_pFSPECData, m_nFSPECLength);
 	PyObject*p = PyDict_New();
-	PyDict_SetItem(p, Py_BuildValue("s", "category"), Py_BuildValue("H", m_pCategory->m_id));
+
+	PyObject* k1 = Py_BuildValue("s", "category");
+	PyObject* v1 = Py_BuildValue("H", m_pCategory->m_id);
+	PyDict_SetItem(p, k1, v1);
+	Py_DECREF(k1);
+	Py_DECREF(v1);
 
 	if (!pUAP)
 	{
@@ -370,15 +370,13 @@ PyObject* DataRecord::getData()
 			DataItem* di = (DataItem*)(*it);
 			if (di)
 			{
-				PyObject* pi = di->getData();
-
+				PyObject* v1 = di->getData();
 				char tmp[20];
 				sprintf(tmp, "I%s", di->m_pDescription->m_strID.c_str());
-
-				if ( 0 != PyDict_SetItem(p, Py_BuildValue("s", tmp), pi))
-				{
-					// TODO error
-				}
+                PyObject* k1 = Py_BuildValue("s", tmp);
+				PyDict_SetItem(p, k1, v1);
+                Py_DECREF(k1);
+				Py_DECREF(v1);
 			}
 		}
 	}

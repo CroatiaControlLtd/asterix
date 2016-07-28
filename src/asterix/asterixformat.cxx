@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -88,23 +84,8 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
   return false;
 }
 
-#if defined(PYTHON_WRAPPER)
-extern PyObject *my_callback;
-#endif
-
 bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device, const unsigned int formatType, bool &discard)
 {
-#if defined(PYTHON_WRAPPER)
-	CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
-	PyObject *lst = Descriptor.m_pAsterixData->getData();
-	PyObject *arg = Py_BuildValue("(O)", lst);
-	PyObject *result = PyObject_CallObject(my_callback, arg);
-	Py_DECREF(lst);
-	if (result != NULL)
-		/// use result...
-		Py_DECREF(result);
-	return true;
-#else
   std::string strPacketDescription;
 
   switch (formatType)
@@ -160,7 +141,6 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
   }
   LOGERROR(1, "Unsupported format type %d.\n", formatType);
   return false;
-#endif
 }
 
 

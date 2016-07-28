@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include "DataItemDescription.h"
 #include <stdlib.h>
 

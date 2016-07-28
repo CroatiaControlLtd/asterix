@@ -21,9 +21,6 @@
  *
  */
 
-
-#include <Python.h>
-
 #include "python_parser.h"
 
 static int bInitialized = 0;
@@ -125,89 +122,3 @@ set_callback(PyObject* self, PyObject *args)
     return result;
 }
 
-
-#if 0
-python_data* getList(python_data* p, PyObject* lst)
-{
-	// create holder for record category
-	char* name = NULL;
-
-	int dataBlock = 0;
-	PyObject* dataRecord = NULL;
-	PyObject* lstItems = NULL;
-	PyObject* dataItem = NULL;
-	PyObject* lstValues = NULL;
-
-	while(p != NULL)
-	{
-		if (p->tree == 1)
-		{ // entering the tree
-			PyObject* item = PyDict_New();
-			PyObject *sublist = PyList_New(0);
-			if (name != NULL)
-				PyDict_SetItemString(item, name, sublist);
-			else
-				PyDict_SetItemString(item, p->description, sublist);
-			PyList_Append(lst, item);
-			p = p->next;
-			p = getList(p, sublist);
-		}
-		else if (p->tree == -1)
-		{ // exiting the tree
-			if (name)
-				free(name);
-			return p;
-		}
-		else if (p->description != NULL)
-		{ // just a description
-			printf("Description: %s\n", p->description);
-		}
-		else if (p->pid == 0)
-		{ // record
-			// create record category
-			PyObject* block = PyDict_New();
-			char tmp[7];
-			sprintf(tmp, "CAT%03d", p->val.ul);
-			if (name)
-				free(name);
-			name = strdup(tmp);
-/*
-			// create list of record in block
-			lstRecords = PyList_New(0);
-			PyDict_SetItemString(block, name, lstBlocks);
-
-//			    PyObject *num = PyLong_FromLong(p->val.ul);
-			if (PyList_Append(lstBlocks, record))
-			{
-				printf("Error in list append");
-				Py_DECREF(lstBlocks);
-				Py_RETURN_NONE;
-			}
-*/
-		}
-		else
-		{ // item
-			char* name = NULL; //todo pDefinitions[p->pid]->name;
-			char* abbrev = NULL; //todopDefinitions[p->pid]->abbrev;
-
-			PyObject* item = PyDict_New();
-			if (p->type == FA_FT_UINT_STRING)
-			{
-				PyDict_SetItemString(item, abbrev, PyString_FromString(p->val.str));
-				printf("\t%s\t\t%s\t%s\n", abbrev, p->val.str, name);
-			}
-			else
-			{
-				PyDict_SetItemString(item, abbrev, PyLong_FromLong(p->val.ul));
-				printf("\t%s\t\t%ld\t%s\n", abbrev, p->val.ul, name);
-			}
-			PyList_Append(lst, item);
-		}
-		p = p->next;
-	}
-
-	if (name)
-		free(name);
-	return p;
-}
-#endif

@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include "DataItemFormat.h"
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

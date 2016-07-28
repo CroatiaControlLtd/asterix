@@ -59,11 +59,6 @@ public:
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions(); //!< returns linked list of Wireshark definitions
 #endif
-
-#if defined(PYTHON_WRAPPER)
-//  python_definitions* getWiresharkDefinitions(); //!< returns linked list of Python definitions
-#endif
-
 };
 
 #endif /* CATEGORY_H_ */

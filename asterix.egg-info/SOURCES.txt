@@ -81,6 +81,7 @@ asterix/sample_data/cat_062_065.pcap
 asterix/test/__init__.py
 asterix/test/test_init.py
 asterix/test/test_parse.py
+asterix/test/test_parse.pyc
 asterix/test/valgrind-python.supp.txt
 asterix/test/__pycache__/__init__.cpython-34.pyc
 asterix/test/__pycache__/test_init.cpython-34.pyc

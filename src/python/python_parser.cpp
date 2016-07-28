@@ -24,13 +24,10 @@
 #define LOGDEBUG(cond, ...)
 #define LOGERROR(cond, ...)
 
-#include <Python.h>
-
 #include "python_parser.h"
 #include "AsterixDefinition.h"
 #include "XMLParser.h"
 #include "InputParser.h"
-
 
 static AsterixDefinition* pDefinition = NULL;
 static InputParser *inputParser = NULL;
@@ -83,3 +80,14 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
     return NULL;
 }
 
+/*
+	CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
+	PyObject *lst = Descriptor.m_pAsterixData->getData();
+	PyObject *arg = Py_BuildValue("(O)", lst);
+	PyObject *result = PyObject_CallObject(my_callback, arg);
+	Py_DECREF(lst);
+	if (result != NULL)
+		/// use result...
+		Py_DECREF(result);
+	return true;
+*/

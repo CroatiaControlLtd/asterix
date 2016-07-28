@@ -21,10 +21,6 @@
  *
  */
 
-#if defined(PYTHON_WRAPPER)
-#include <Python.h>
-#endif
-
 #include "DataItemFormat.h"
 #include "DataItemBits.h"
 #include "Tracer.h"
@@ -1051,10 +1047,17 @@ PyObject* DataItemBits::getObject(unsigned char* pData, long nLength)
 
 void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 {
-	//PyObject* val = NULL;
 	PyObject* pValue = PyDict_New();
-	PyDict_SetItem(pValue, Py_BuildValue("s", "desc"), Py_BuildValue("s", m_strName.c_str()));
-	PyDict_SetItem(p, Py_BuildValue("s", m_strShortName.c_str()), pValue);
+	PyObject* k1 = Py_BuildValue("s", "desc");
+	PyObject* v1 = Py_BuildValue("s", m_strName.c_str());
+	PyDict_SetItem(pValue, k1, v1);
+	Py_DECREF(k1);
+	Py_DECREF(v1);
+
+	PyObject* k2 = Py_BuildValue("s", m_strShortName.c_str());
+	PyDict_SetItem(p, k2, pValue);
+	Py_DECREF(k2);
+	Py_DECREF(pValue);
 
 	if (m_nFrom > m_nTo)
 	{ // just in case
@@ -1075,35 +1078,75 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 
 			if (m_dScale != 0) {
 				double scaled = value * m_dScale;
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", scaled));
+                PyObject* k1 = Py_BuildValue("s", "val");
+                PyObject* v1 = Py_BuildValue("d", scaled);
+				PyDict_SetItem(pValue, k1, v1);
+                Py_DECREF(k1);
+                Py_DECREF(v1);
 
 				if (m_bMaxValueSet) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "max"), Py_BuildValue("d", m_dMaxValue));
+                    PyObject* k1 = Py_BuildValue("s", "max");
+                    PyObject* v1 = Py_BuildValue("d", m_dMaxValue);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
 				}
 				if (m_bMinValueSet) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "min"), Py_BuildValue("d", m_dMinValue));
+                    PyObject* k1 = Py_BuildValue("s", "min");
+                    PyObject* v1 = Py_BuildValue("d", m_dMinValue);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
 				}
 			} else if (m_bIsConst) {
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
-				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("k", m_nConst));
+                PyObject* k1 = Py_BuildValue("s", "val");
+                PyObject* v1 = Py_BuildValue("k", value);
+				PyDict_SetItem(pValue, k1, v1);
+                Py_DECREF(k1);
+                Py_DECREF(v1);
+                PyObject* k2 = Py_BuildValue("s", "const");
+                PyObject* v2 = Py_BuildValue("k", m_nConst);
+				PyDict_SetItem(pValue, k2, v2);
+                Py_DECREF(k2);
+                Py_DECREF(v2);
 			} else if (!m_lValue.empty()) { // check values
 				std::list<BitsValue*>::iterator it;
 				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
-					BitsValue* bv = (BitsValue*) (*it);
-					if (bv->m_nVal == (int) value) {
-						PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
-						PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", bv->m_strDescription.c_str()));
+                        BitsValue* bv = (BitsValue*) (*it);
+                        if (bv->m_nVal == (int) value) {
+                        PyObject* k1 = Py_BuildValue("s", "val");
+                        PyObject* v1 = Py_BuildValue("k", value);
+						PyDict_SetItem(pValue, k1, v1);
+                        Py_DECREF(k1);
+                        Py_DECREF(v1);
+                        PyObject* k2 = Py_BuildValue("s", "meaning");
+                        PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
+						PyDict_SetItem(pValue, k2, v2);
+                        Py_DECREF(k2);
+                        Py_DECREF(v2);
 						break;
 					}
 				}
 				if (it == m_lValue.end()) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
-					PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", "???"));
+                    PyObject* k1 = Py_BuildValue("s", "val");
+                    PyObject* v1 = Py_BuildValue("k", value);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
+                    PyObject* k2 = Py_BuildValue("s", "meaning");
+                    PyObject* v2 = Py_BuildValue("s", "???");
+					PyDict_SetItem(pValue, k2, v2);
+                    Py_DECREF(k2);
+                    Py_DECREF(v2);
 				}
 			}
 			else
 			{
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("k", value));
+                PyObject* k1 = Py_BuildValue("s", "val");
+                PyObject* v1 = Py_BuildValue("k", value);
+				PyDict_SetItem(pValue, k1, v1);
+                Py_DECREF(k1);
+                Py_DECREF(v1);
 			}
 		}
 		break;
@@ -1114,35 +1157,75 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 
 			if (m_dScale != 0) {
 				double scaled = value * m_dScale;
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", scaled));
+                    PyObject* k1 = Py_BuildValue("s", "val");
+                    PyObject* v1 = Py_BuildValue("d", scaled);
+				PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
 
 				if (m_bMaxValueSet) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "max"), Py_BuildValue("d", m_dMaxValue));
+                    PyObject* k1 = Py_BuildValue("s", "max");
+                    PyObject* v1 = Py_BuildValue("d", m_dMaxValue);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
 				}
 				if (m_bMinValueSet) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "min"), Py_BuildValue("d", m_dMinValue));
+                    PyObject* k1 = Py_BuildValue("s", "min");
+                    PyObject* v1 = Py_BuildValue("d", m_dMinValue);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
 				}
 			} else if (m_bIsConst) {
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
-				PyDict_SetItem(pValue, Py_BuildValue("s", "const"), Py_BuildValue("k", m_nConst));
+                PyObject* k1 = Py_BuildValue("s", "val");
+                PyObject* v1 = Py_BuildValue("d", value);
+                Py_DECREF(k1);
+                Py_DECREF(v1);
+				PyDict_SetItem(pValue, k1, v1);
+                PyObject* k2 = Py_BuildValue("s", "const");
+                PyObject* v2 = Py_BuildValue("k", m_nConst);
+				PyDict_SetItem(pValue, k2, v2);
+                Py_DECREF(k2);
+                Py_DECREF(v2);
 			} else if (!m_lValue.empty()) { // check values
 				std::list<BitsValue*>::iterator it;
 				for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
-					BitsValue* bv = (BitsValue*) (*it);
-					if (bv->m_nVal == (int) value) {
-						PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
-						PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", bv->m_strDescription.c_str()));
+                        BitsValue* bv = (BitsValue*) (*it);
+                        if (bv->m_nVal == (int) value) {
+                        PyObject* k1 = Py_BuildValue("s", "val");
+                        PyObject* v1 = Py_BuildValue("d", value);
+						PyDict_SetItem(pValue, k1, v1);
+                        Py_DECREF(k1);
+                        Py_DECREF(v1);
+                        PyObject* k2 = Py_BuildValue("s", "meaning");
+                        PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
+						PyDict_SetItem(pValue, k2, v2);
+                        Py_DECREF(k2);
+                        Py_DECREF(v2);
 						break;
 					}
 				}
 				if (it == m_lValue.end()) {
-					PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("d", value));
-					PyDict_SetItem(pValue, Py_BuildValue("s", "meaning"), Py_BuildValue("s", "???"));
+                    PyObject* k1 = Py_BuildValue("s", "val");
+                    PyObject* v1 = Py_BuildValue("d", value);
+					PyDict_SetItem(pValue, k1, v1);
+                    Py_DECREF(k1);
+                    Py_DECREF(v1);
+                    PyObject* k2 = Py_BuildValue("s", "meaning");
+                    PyObject* v2 = Py_BuildValue("s", "???");
+					PyDict_SetItem(pValue, k2, v2);
+                    Py_DECREF(k2);
+                    Py_DECREF(v2);
 				}
 			}
 			else
 			{
-				PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("l", value));
+                PyObject* k1 = Py_BuildValue("s", "val");
+                PyObject* v1 = Py_BuildValue("l", value);
+				PyDict_SetItem(pValue, k1, v1);
+                Py_DECREF(k1);
+                Py_DECREF(v1);
 			}
 		}
 		break;
@@ -1150,7 +1233,11 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 		case DATAITEM_ENCODING_SIX_BIT_CHAR:
 		{
 			unsigned char* str = getSixBitString(pData, nLength, m_nFrom, m_nTo);
-			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+            PyObject* k1 = Py_BuildValue("s", "val");
+            PyObject* v1 = Py_BuildValue("s", str);
+			PyDict_SetItem(pValue, k1, v1);
+            Py_DECREF(k1);
+            Py_DECREF(v1);
 			delete[] str;
 		}
 		break;
@@ -1158,7 +1245,11 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 		case DATAITEM_ENCODING_HEX_BIT_CHAR:
 		{
 			unsigned char* str = getHexBitString(pData, nLength, m_nFrom, m_nTo);
-			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+            PyObject* k1 = Py_BuildValue("s", "val");
+            PyObject* v1 = Py_BuildValue("s", str);
+			PyDict_SetItem(pValue, k1, v1);
+            Py_DECREF(k1);
+            Py_DECREF(v1);
 			delete[] str;
 		}
 		break;
@@ -1166,7 +1257,11 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 		case DATAITEM_ENCODING_OCTAL:
 		{
 			unsigned char* str = getOctal(pData, nLength, m_nFrom, m_nTo);
-			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", str));
+            PyObject* k1 = Py_BuildValue("s", "val");
+            PyObject* v1 = Py_BuildValue("s", str);
+			PyDict_SetItem(pValue, k1, v1);
+            Py_DECREF(k1);
+            Py_DECREF(v1);
 			delete[] str;
 		}
 		break;
@@ -1176,12 +1271,20 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 			char* pStr = new char[nLength+1];
 			memset(pStr, 0, nLength+1);
 			strncpy(pStr, (const char*)pData, nLength);
-			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", pStr));
+            PyObject* k1 = Py_BuildValue("s", "val");
+            PyObject* v1 = Py_BuildValue("s", pStr);
+			PyDict_SetItem(pValue, k1, v1);
+            Py_DECREF(k1);
+            Py_DECREF(v1);
 			delete pStr;
 		}
 		break;
 		default:
-			PyDict_SetItem(pValue, Py_BuildValue("s", "val"), Py_BuildValue("s", "???"));
+            PyObject* k1 = Py_BuildValue("s", "val");
+            PyObject* v1 = Py_BuildValue("s", "???");
+			PyDict_SetItem(pValue, k1, v1);
+            Py_DECREF(k1);
+            Py_DECREF(v1);
 		break;
 	}
 

@@ -24,6 +24,10 @@
 #ifndef DATAITEMFORMAT_H_
 #define DATAITEMFORMAT_H_
 
+#if defined(PYTHON_WRAPPER)
+#include <Python.h>
+#endif
+
 #include <string>
 #include <list>
 #include "Utils.h"
