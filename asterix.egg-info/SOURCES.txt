@@ -74,6 +74,11 @@ asterix/config/asterix_cat063_1_3.xml
 asterix/config/asterix_cat065_1_3.xml
 asterix/config/asterix_cat247_1_2.xml
 asterix/config/asterix_cat252_7_0.xml
+asterix/examples/__init__.py
+asterix/examples/multicast_send_receive.py
+asterix/examples/read_pcap_file.py
+asterix/examples/read_raw_bytes.py
+asterix/examples/read_raw_file.py
 asterix/sample_data/cat048.raw
 asterix/sample_data/cat062cat065.raw
 asterix/sample_data/cat_034_048.pcap

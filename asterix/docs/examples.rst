@@ -65,3 +65,21 @@ Parse Pcap file with the help of dpkt module (only available for Python 2)::
             parsed = asterix.parse(data)
             print(parsed)
 
+
+Listen to UDP multicast stream and print parsed Asterix data::
+
+    import socket
+    import struct
+    import asterix
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    sock.bind(('', 5000))
+    mreq = struct.pack("=4sl", socket.inet_aton("224.51.105.104"), socket.INADDR_ANY)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+
+    while True:
+        data = sock.recv(10240)
+        parsed = asterix.parse(data)
+        print(parsed)
