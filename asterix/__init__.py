@@ -84,6 +84,33 @@ def get_sample_file(match):
             return f
 
 
+def list_configuration_files():
+    """
+    Return the list of Asterix configuration files from the package
+    :return: list of Asterix configuration files
+    """
+    sample_files = []
+    filepath = os.path.join(os.path.dirname(__file__), 'config')
+    for fn in sorted(os.listdir(filepath)):
+         f = os.path.join(filepath, fn)
+         if os.path.isfile(f):
+            sample_files.append(f)
+    return sample_files
+
+
+def get_configuration_file(match):
+    """
+    Returns first Asterix configuration file matching the parameter string
+    :param match: Search string for configuration file
+    :return: Configuration file path
+    """
+    filepath = os.path.join(os.path.dirname(__file__), 'config')
+    for fn in sorted(os.listdir(filepath)):
+         f = os.path.join(filepath, fn)
+         if os.path.isfile(f) and match in fn:
+            return f
+
+
 # default callback function
 #def callback(arg):
 #    for a in arg:

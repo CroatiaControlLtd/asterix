@@ -26,4 +26,25 @@ If you want to receive textual presentation of asterix packet instead of list us
     formatted = asterix.parse(asterix_packet, 'text')
     print(formatted)
 
+All Asterix categories are defined with XML configuration file.
+You can get a list of configuration files ith following command::
+
+    config = asterix.list_configuration_files()
+    print(config)
+
+And then get specific configuration file::
+
+    configfile = asterix.get_configuration_file('cat048')
+    with open(configfile, "rt") as f:
+        config = f.read()
+        print(config)
+
+If you want to create your own Asterix definition file, create XML file using dtd definition::
+
+    dtd = asterix.get_configuration_file('dtd')
+
+
+And then initialize asterix with your configuration::
+
+    asterix.init(path_to_your_config_file)
 
