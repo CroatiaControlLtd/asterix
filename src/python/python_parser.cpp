@@ -80,6 +80,50 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
     return NULL;
 }
 
+PyObject *python_describe(int category, const char* item=NULL, const char* field=NULL, const char* value=NULL)
+{
+    if (!pDefinition)
+        return Py_BuildValue("s", "Not initialized");
+
+    Category* cat = pDefinition->getCategory(category);
+    if (!cat)
+    {
+        return Py_BuildValue("s", "Unknown category");
+    }
+
+    if (item == NULL && field == NULL && value == NULL)
+    {   // return Category description
+        return Py_BuildValue("s", cat->m_strName.c_str());
+    }
+
+	std::list<DataItemDescription*>::iterator it;
+	DataItemDescription* di = NULL;
+
+    std::string item_number = format("%s", &item[1]);
+	for ( it=cat->m_lDataItems.begin() ; it != cat->m_lDataItems.end(); it++ )
+    {
+        di = (DataItemDescription*)(*it);
+        if (di->m_strID.compare(item_number) == 0)
+            break;
+        di = NULL;
+    }
+    if (di == NULL)
+        return Py_BuildValue("s", "Unknown item");
+
+    if (field == NULL && value == NULL)
+    { // Return Item name and description
+        return Py_BuildValue("s", (di->m_strName+" ("+di->m_strDefinition+" )").c_str());
+    }
+
+    if (value == NULL)
+    {
+        return Py_BuildValue("s", "field todo");
+    }
+    return Py_BuildValue("s", "value todo");
+}
+
+
+
 /*
 	CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
 	PyObject *lst = Descriptor.m_pAsterixData->getData();

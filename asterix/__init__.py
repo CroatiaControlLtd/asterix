@@ -19,6 +19,23 @@ def init(filename):
     return _asterix.init(filename)
 
 
+def describe(category, item=None, field=None, value=None):
+    """
+    Return the description of specific Category, Item, Field and Value in Asterix specification
+    :param category: Asterix category (e.g. 62)
+    :param item: Asterix Item ID (e.g. 'I010')
+    :param field: Asterix field name (e.g. 'SAC')
+    :param value: Asterix field value meaning (e.g. 1)
+    :return:
+    """
+    if value:
+        return _asterix.describe(category, item, field, value)
+    elif field:
+        return _asterix.describe(category, item, field)
+    elif item:
+        return _asterix.describe(category, item)
+    return _asterix.describe(category)
+
 def parse(data, format=None):
     """ Parse raw asterix data
     :param data: Bytes to be parsed
@@ -37,11 +54,11 @@ def parse(data, format=None):
         for record in parsed:
             i+=1
             txt += '\n\nAsterix record: %d ' % i
-            txt += '\nCategory: %d' % record['category']
+            cat = record['category']
+            txt += '\nCategory: %d (%s)' % (cat, _asterix.describe(cat))
             for key, value in record.items():
                 if key != 'category':
-                    txt += '\nItem '
-                    txt += str(key)
+                    txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
                     if isinstance(value, dict):
                         for ikey, ival in value.items():
                             txt += '\n\t%s (%s): %s' % (ikey, ival['desc'], ival['val'])

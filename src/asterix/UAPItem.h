@@ -55,8 +55,8 @@ public:
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getObject(unsigned char* pData, long nLength);
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength);
+  PyObject* getObject(unsigned char* pData, long nLength) { return NULL; };
+  void insertToDict(PyObject* p, unsigned char* pData, long nLength) {};
 #endif
 };
 

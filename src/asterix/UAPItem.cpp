@@ -103,26 +103,3 @@ fulliautomatix_data* UAPItem::getData(unsigned char* pData, long len, int byteof
   return NULL;
 }
 #endif
-
-#if defined(PYTHON_WRAPPER)
-PyObject* UAPItem::getObject(unsigned char* pData, long len)
-{
-	// TODO
-//  int byteShift = m_nBit/8;
-//  if (byteShift<len)
-//    return newDataUL(NULL, 0/*getPID()*/, byteoffset+byteShift, 1, *(pData+byteShift));
-  return NULL;
-
-}
-
-void UAPItem::insertToDict(PyObject* p, unsigned char* pData, long len)
-{
-	// TODO
-//  int byteShift = m_nBit/8;
-//  if (byteShift<len)
-//    return newDataUL(NULL, 0/*getPID()*/, byteoffset+byteShift, 1, *(pData+byteShift));
-//  return NULL;
-
-}
-
-#endif

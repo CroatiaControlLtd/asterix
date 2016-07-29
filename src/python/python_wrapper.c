@@ -70,6 +70,41 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
     return Py_BuildValue("i", -2);
 }
 
+
+PyObject*
+describe(PyObject* self, PyObject* args, PyObject *kwargs)
+{
+    int category;
+    const char* item = NULL;
+    const char* field = NULL;
+    const char* value = NULL;
+
+    Py_ssize_t TupleSize = PyTuple_Size(args);
+    if (TupleSize == 1)
+    {
+        if (!PyArg_ParseTuple(args, "i", &category))
+            return NULL;
+    }
+    else if (TupleSize == 2)
+    {
+        if (!PyArg_ParseTuple(args, "is", &category, &item))
+            return NULL;
+    }
+    else if (TupleSize == 3)
+    {
+        if (!PyArg_ParseTuple(args, "iss", &category, &item, &field))
+            return NULL;
+    }
+    else
+    {
+        if (!PyArg_ParseTuple(args, "isss", &category, &item, &field, &value))
+            return NULL;
+    }
+
+	return python_describe(category, item, field, value);
+}
+
+
 PyObject*
 parse(PyObject* self, PyObject* args, PyObject *kwargs)
 {
