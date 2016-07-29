@@ -734,6 +734,38 @@ bool DataItemBits::filterOutItem(const char* name)
 	return false;
 }
 
+const char* DataItemBits::getDescription(const char* field, const char* value = NULL )
+{
+  if (m_strName.empty() && !m_strShortName.empty())
+    m_strName = m_strShortName;
+  else if (!m_strName.empty() && m_strShortName.empty())
+    m_strShortName = m_strName;
+
+
+    if (m_strShortName.compare(field) == 0)
+    {
+        if (value == NULL)
+        {
+            return m_strName.c_str();
+        }
+        else
+        {
+            int val = atoi(value);
+            if (m_lValue.size() > 0)
+            {
+                std::list<BitsValue*>::iterator it;
+                for ( it=m_lValue.begin() ; it != m_lValue.end(); it++ )
+                {
+                    BitsValue* bv = (BitsValue*)(*it);
+                    if (bv->m_nVal == val)
+                        return bv->m_strDescription.c_str();
+                }
+            }
+        }
+    }
+    return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemBits::getWiresharkDefinitions()
 {

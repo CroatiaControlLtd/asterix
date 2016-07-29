@@ -14,13 +14,8 @@ asterix_packet = bytearray([0x30, 0x00, 0x30, 0xfd, 0xf7, 0x02, 0x19, 0xc9, 0x35
 parsed = asterix.parse(asterix_packet)
 print(parsed)
 
-print(asterix.describe(48))
-print(asterix.describe(48, 'I020'))
-#TODO print(asterix.describe(48, 'I020', 'SIM'))
-#TODO print(asterix.describe(48, 'I020', 'SIM', '0'))
-
-# parse and print formatted packet
-formatted = asterix.parse(asterix_packet, 'text')
+# describe Asterix data
+formatted = asterix.describe(parsed)
 print(formatted)
 
 

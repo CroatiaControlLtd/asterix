@@ -85,6 +85,12 @@ PyObject *python_describe(int category, const char* item=NULL, const char* field
     if (!pDefinition)
         return Py_BuildValue("s", "Not initialized");
 
+    const char* description = pDefinition->getDescription(category, item, field, value);
+    if (description == NULL)
+        return Py_BuildValue("s", "");
+    return Py_BuildValue("s", description);
+
+/*
     Category* cat = pDefinition->getCategory(category);
     if (!cat)
     {
@@ -120,6 +126,7 @@ PyObject *python_describe(int category, const char* item=NULL, const char* field
         return Py_BuildValue("s", "field todo");
     }
     return Py_BuildValue("s", "value todo");
+*/
 }
 
 

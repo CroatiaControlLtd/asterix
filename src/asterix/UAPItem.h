@@ -49,6 +49,7 @@ public:
  	std::string printDescriptors(std::string) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors
   bool filterOutItem(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
   bool isFiltered(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
+  const char* getDescription(const char* field, const char* value ) { Tracer::Error("Function should not be called!"); return NULL; }; // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

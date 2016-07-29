@@ -190,6 +190,19 @@ bool DataItemFormatBDS::isFiltered(const char* name)
 	return pFixed->isFiltered(name);
 }
 
+const char* DataItemFormatBDS::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatBDS::getWiresharkDefinitions()
 {// TODO

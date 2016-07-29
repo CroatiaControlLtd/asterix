@@ -100,3 +100,14 @@ bool AsterixDefinition::isFiltered(int cat, std::string item, const char* name)
 	}
 	return false;
 }
+
+const char* AsterixDefinition::getDescription(int category, const char* item=NULL, const char* field=NULL, const char* value=NULL)
+{
+    if (m_pCategory[category] != NULL)
+    {
+        if(item == NULL && field == NULL && value == NULL)
+            return m_pCategory[category]->m_strName.c_str();
+        return m_pCategory[category]->getDescription(item, field, value);
+    }
+    return NULL;
+}

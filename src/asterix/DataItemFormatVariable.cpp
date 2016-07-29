@@ -198,6 +198,19 @@ bool DataItemFormatVariable::isFiltered(const char* name)
   return false;
 }
 
+const char* DataItemFormatVariable::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+    const char* desc = dip->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatVariable::getWiresharkDefinitions()
 {

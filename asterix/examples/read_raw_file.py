@@ -12,6 +12,6 @@ with open(sample_filename, "rb") as f:
     parsed = asterix.parse(data)
     print(parsed)
 
-    # parse and print formatted packet
-    formatted = asterix.parse(data, 'text')
+    # describe Asterix data
+    formatted = asterix.describe(parsed)
     print(formatted)

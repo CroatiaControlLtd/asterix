@@ -42,6 +42,7 @@ public:
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
   bool isExplicit() 	{ return true; }; // true if this is Explicit format
+  const char* getDescription(const char* field, const char* value ); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

@@ -36,42 +36,43 @@ def describe(category, item=None, field=None, value=None):
         return _asterix.describe(category, item)
     return _asterix.describe(category)
 
-def parse(data, format=None):
+def parse(data):
     """ Parse raw asterix data
     :param data: Bytes to be parsed
-    :param format: Format of data returned:
-                    'list' - return list of asterix data (default)
-                    'text' - formatted text
     :return: list of asterix records
     """
     if sys.version_info <= (2, 7):
-        parsed = _asterix.parse(buffer(data))
-    else:
-        parsed = _asterix.parse(bytes(data))
-    if format == 'text':
-        i = 0
-        txt = ''
-        for record in parsed:
-            i+=1
-            txt += '\n\nAsterix record: %d ' % i
-            cat = record['category']
-            txt += '\nCategory: %d (%s)' % (cat, _asterix.describe(cat))
-            for key, value in record.items():
-                if key != 'category':
-                    txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
-                    if isinstance(value, dict):
-                        for ikey, ival in value.items():
-                            txt += '\n\t%s (%s): %s' % (ikey, ival['desc'], ival['val'])
-                    elif isinstance(value, list):
-                        for it in value:
-                            for ikey, ival in it.items():
-                                txt += '\n\t%s (%s): %s' % (ikey, ival['desc'], ival['val'])
-                    else:
-                        txt += str(value)
+        return _asterix.parse(buffer(data))
+    return _asterix.parse(bytes(data))
 
-        return txt
-    else:
-        return parsed
+
+def describe(parsed):
+    """
+    Describe all elements in Asterix data in textual format.
+    :param parsed: Parsed Asterix packet returned by ateris.parse
+    :return: Formatted string describing all Asterix data
+    """
+    i = 0
+    txt = ''
+    for record in parsed:
+        i+=1
+        txt += '\n\nAsterix record: %d ' % i
+        cat = record['category']
+        txt += '\nCategory: %d (%s)' % (cat, _asterix.describe(cat))
+        for key, value in record.items():
+            if key != 'category':
+                txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
+                if isinstance(value, dict):
+                    for ikey, ival in value.items():
+                        txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']), _asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                elif isinstance(value, list):
+                    for it in value:
+                        for ikey, ival in it.items():
+                            txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']), _asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                else:
+                    txt += str(value)
+
+    return txt
 
 
 def list_sample_files():

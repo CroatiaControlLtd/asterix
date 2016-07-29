@@ -41,6 +41,7 @@ public:
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
   bool isRepetitive() 	{ return true; }; // true if this is Repetitive format
+  const char* getDescription(const char* field, const char* value ); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

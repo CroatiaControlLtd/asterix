@@ -84,6 +84,7 @@ public:
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char*) {return m_bFiltered; } // true if item is in filter (shall be printed)
   bool isBits() 		{ return true; }; // true if this is Bits description format
+  const char* getDescription(const char* field, const char* value ); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();

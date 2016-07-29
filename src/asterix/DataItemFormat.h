@@ -60,6 +60,7 @@ public:
   virtual std::string printDescriptors(std::string header) = 0; // print items format descriptors
   virtual bool filterOutItem(const char* name) = 0; // mark item for filtering
   virtual bool isFiltered(const char* name) = 0; // is item filtered
+  virtual const char* getDescription(const char* field, const char* value ) = 0; // return descrtption ef element
 
   virtual bool isFixed() 		{ return false; }; // true if this is Fixed format
   virtual bool isRepetitive() 	{ return false; }; // true if this is Repetitive format
@@ -68,6 +69,7 @@ public:
   virtual bool isExplicit() 	{ return false; }; // true if this is Explicit format
   virtual bool isCompound() 	{ return false; }; // true if this is Compound format
   virtual bool isBits() 		{ return false; }; // true if this is Bits description format
+
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   virtual fulliautomatix_definitions* getWiresharkDefinitions() = 0;
