@@ -55,6 +55,7 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
 #ifdef _DEBUG
       unsigned char nDataLen2 = *m_pData;
 #endif
+
       dataLen <<= 8;
       dataLen |= *m_pData;
       m_pData ++; m_nPos ++;
@@ -76,18 +77,19 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
 
       m_nDataLength -= 3;
       dataLen -= 3;
+
 #ifdef _DEBUG
       std::stringstream buffer;
-      buffer << std::hex << std::setfill('0');
-      buffer << std::setw(2) << std::uppercase << static_cast<unsigned>(nCategory) << " ";
-      buffer << std::hex << std::setfill('0');
-      buffer << std::setw(2) << std::uppercase << static_cast<unsigned>(nDataLen1) << " ";
-      buffer << std::hex << std::setfill('0');
-      buffer << std::setw(2) << std::uppercase << static_cast<unsigned>(nDataLen2) << " ";
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+	std::uppercase << static_cast<unsigned>(nCategory) << " ";
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+        std::uppercase << static_cast<unsigned>(nDataLen1) << " ";
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+        std::uppercase << static_cast<unsigned>(nDataLen2) << " ";
 
       for (int i = 0; i < dataLen; i++) {
-        buffer << std::hex << std::setfill('0');
-        buffer << std::setw(2) << std::uppercase << static_cast<unsigned>(m_pData[i]) << " ";
+        buffer << std::hex << std::setfill('0') << std::setw(2) <<
+          std::uppercase << static_cast<unsigned>(m_pData[i]) << " ";
       }
       std::string hexString = buffer.str();
       hexString.erase(hexString.size() - 1);
