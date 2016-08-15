@@ -7,6 +7,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: C150ED0E
 Timestamp: 27356508
 
 Item 010 : Data Source Identifier
@@ -114,6 +115,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: C150ED0E
 Timestamp: 27356508
 
 Item 010 : Data Source Identifier
@@ -221,6 +223,7 @@ Len: 52
 -------------------------
 Data Record 1
 Len: 52
+CRC: C89D6B52
 Timestamp: 27356523
 
 Item 010 : Data Source Identifier
@@ -333,6 +336,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: B73A7F08
 Timestamp: 27356523
 
 Item 010 : Data Source Identifier
@@ -359,6 +363,7 @@ Len: 52
 -------------------------
 Data Record 1
 Len: 52
+CRC: C89D6B52
 Timestamp: 27356523
 
 Item 010 : Data Source Identifier
@@ -471,6 +476,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: B73A7F08
 Timestamp: 27356523
 
 Item 010 : Data Source Identifier
@@ -497,6 +503,7 @@ Len: 182
 -------------------------
 Data Record 1
 Len: 18
+CRC: 8F68CCFE
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -553,6 +560,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 60
+CRC: A508BA23
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -671,6 +679,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: 984BF3C7
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -778,6 +787,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 52
+CRC: 31EB0B8F
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -886,6 +896,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: CB776DDA
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -912,6 +923,7 @@ Len: 182
 -------------------------
 Data Record 1
 Len: 18
+CRC: 8F68CCFE
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -968,6 +980,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 60
+CRC: A508BA23
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -1086,6 +1099,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: 984BF3C7
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -1193,6 +1207,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 52
+CRC: 31EB0B8F
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -1301,6 +1316,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: CB776DDA
 Timestamp: 27356536
 
 Item 010 : Data Source Identifier
@@ -1327,6 +1343,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 1C5AF8FE
 Timestamp: 27356544
 
 Item 010 : Data Source Identifier
@@ -1450,6 +1467,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 1C5AF8FE
 Timestamp: 27356544
 
 Item 010 : Data Source Identifier
@@ -1573,6 +1591,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: B73DC179
 Timestamp: 27356551
 
 Item 010 : Data Source Identifier
@@ -1685,6 +1704,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: B73DC179
 Timestamp: 27356551
 
 Item 010 : Data Source Identifier
@@ -1797,6 +1817,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: 030E3E5E
 Timestamp: 27356562
 
 Item 010 : Data Source Identifier
@@ -1886,6 +1907,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: 030E3E5E
 Timestamp: 27356562
 
 Item 010 : Data Source Identifier
@@ -1975,6 +1997,7 @@ Len: 413
 -------------------------
 Data Record 1
 Len: 43
+CRC: 4513E840
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2064,6 +2087,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: C98CC145
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2167,6 +2191,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: E8B91A38
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2274,6 +2299,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 42
+CRC: 6D99945F
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2362,6 +2388,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 5
 Len: 43
+CRC: 119A8636
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2451,6 +2478,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 6
 Len: 52
+CRC: 062C7C19
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2558,6 +2586,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 7
 Len: 43
+CRC: D02699E2
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2647,6 +2676,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 8
 Len: 43
+CRC: 114420A6
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2736,6 +2766,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 9
 Len: 43
+CRC: 0FBB3A48
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2830,6 +2861,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: BAF37C4E
 Timestamp: 27356568
 
 Item 010 : Data Source Identifier
@@ -2856,6 +2888,7 @@ Len: 413
 -------------------------
 Data Record 1
 Len: 43
+CRC: 4513E840
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -2945,6 +2978,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: C98CC145
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3048,6 +3082,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: E8B91A38
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3155,6 +3190,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 42
+CRC: 6D99945F
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3243,6 +3279,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 5
 Len: 43
+CRC: 119A8636
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3332,6 +3369,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 6
 Len: 52
+CRC: 062C7C19
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3439,6 +3477,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 7
 Len: 43
+CRC: D02699E2
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3528,6 +3567,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 8
 Len: 43
+CRC: 114420A6
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3617,6 +3657,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 9
 Len: 43
+CRC: 0FBB3A48
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3711,6 +3752,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: BAF37C4E
 Timestamp: 27356573
 
 Item 010 : Data Source Identifier
@@ -3737,6 +3779,7 @@ Len: 60
 -------------------------
 Data Record 1
 Len: 60
+CRC: C7D346A3
 Timestamp: 27356578
 
 Item 010 : Data Source Identifier
@@ -3860,6 +3903,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: C6BE6E9C
 Timestamp: 27356578
 
 Item 010 : Data Source Identifier
@@ -3886,6 +3930,7 @@ Len: 60
 -------------------------
 Data Record 1
 Len: 60
+CRC: C7D346A3
 Timestamp: 27356583
 
 Item 010 : Data Source Identifier
@@ -4009,6 +4054,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: C6BE6E9C
 Timestamp: 27356583
 
 Item 010 : Data Source Identifier
@@ -4035,6 +4081,7 @@ Len: 25
 -------------------------
 Data Record 1
 Len: 25
+CRC: 849ACC64
 Timestamp: 27356590
 
 Item 010 : Data Source Identifier
@@ -4097,6 +4144,7 @@ Len: 25
 -------------------------
 Data Record 1
 Len: 25
+CRC: 849ACC64
 Timestamp: 27356594
 
 Item 010 : Data Source Identifier
@@ -4159,6 +4207,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: A79E5B6A
 Timestamp: 27356600
 
 Item 010 : Data Source Identifier
@@ -4185,6 +4234,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: A79E5B6A
 Timestamp: 27356600
 
 Item 010 : Data Source Identifier
@@ -4211,6 +4261,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 129F04DB
 Timestamp: 27356617
 
 Item 010 : Data Source Identifier
@@ -4323,6 +4374,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 129F04DB
 Timestamp: 27356617
 
 Item 010 : Data Source Identifier
@@ -4435,6 +4487,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: 1B6021AF
 Timestamp: 27356630
 
 Item 010 : Data Source Identifier
@@ -4542,6 +4595,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: 1B6021AF
 Timestamp: 27356630
 
 Item 010 : Data Source Identifier
@@ -4649,6 +4703,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 68D9E100
 Timestamp: 27356639
 
 Item 010 : Data Source Identifier
@@ -4761,6 +4816,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 68D9E100
 Timestamp: 27356639
 
 Item 010 : Data Source Identifier
@@ -4873,6 +4929,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: C52EDB5C
 Timestamp: 27356651
 
 Item 010 : Data Source Identifier
@@ -4985,6 +5042,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: C52EDB5C
 Timestamp: 27356651
 
 Item 010 : Data Source Identifier
@@ -5097,6 +5155,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 8720FA1E
 Timestamp: 27356665
 
 Item 010 : Data Source Identifier
@@ -5220,6 +5279,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 8720FA1E
 Timestamp: 27356665
 
 Item 010 : Data Source Identifier
@@ -5343,6 +5403,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 6E9DF477
 Timestamp: 27356669
 
 Item 010 : Data Source Identifier
@@ -5369,6 +5430,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 6E9DF477
 Timestamp: 27356669
 
 Item 010 : Data Source Identifier
@@ -5395,6 +5457,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 9E5A87BC
 Timestamp: 27356674
 
 Item 010 : Data Source Identifier
@@ -5421,6 +5484,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 9E5A87BC
 Timestamp: 27356674
 
 Item 010 : Data Source Identifier
@@ -5447,6 +5511,7 @@ Len: 87
 -------------------------
 Data Record 1
 Len: 44
+CRC: 77FD5328
 Timestamp: 27356698
 
 Item 010 : Data Source Identifier
@@ -5537,6 +5602,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 43
+CRC: FD95767E
 Timestamp: 27356698
 
 Item 010 : Data Source Identifier
@@ -5631,6 +5697,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 42D5B378
 Timestamp: 27356698
 
 Item 010 : Data Source Identifier
@@ -5682,6 +5749,7 @@ Len: 87
 -------------------------
 Data Record 1
 Len: 44
+CRC: 77FD5328
 Timestamp: 27356699
 
 Item 010 : Data Source Identifier
@@ -5772,6 +5840,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 43
+CRC: FD95767E
 Timestamp: 27356699
 
 Item 010 : Data Source Identifier
@@ -5866,6 +5935,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 42D5B378
 Timestamp: 27356699
 
 Item 010 : Data Source Identifier
@@ -5917,6 +5987,7 @@ Len: 104
 -------------------------
 Data Record 1
 Len: 52
+CRC: 21D2D11F
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6020,6 +6091,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: B89AE88F
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6132,6 +6204,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 0EF8C7AF
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6183,6 +6256,7 @@ Len: 104
 -------------------------
 Data Record 1
 Len: 52
+CRC: 21D2D11F
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6286,6 +6360,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: B89AE88F
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6398,6 +6473,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 0EF8C7AF
 Timestamp: 27356707
 
 Item 010 : Data Source Identifier
@@ -6449,6 +6525,7 @@ Len: 68
 -------------------------
 Data Record 1
 Len: 68
+CRC: 44721B03
 Timestamp: 27356717
 
 Item 010 : Data Source Identifier
@@ -6583,6 +6660,7 @@ Len: 68
 -------------------------
 Data Record 1
 Len: 68
+CRC: 44721B03
 Timestamp: 27356719
 
 Item 010 : Data Source Identifier
@@ -6717,6 +6795,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 85A2C5A5
 Timestamp: 27356720
 
 Item 010 : Data Source Identifier
@@ -6766,6 +6845,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 57ABE48E
 Timestamp: 27356722
 
 Item 010 : Data Source Identifier
@@ -6815,6 +6895,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 85A2C5A5
 Timestamp: 27356722
 
 Item 010 : Data Source Identifier
@@ -6864,6 +6945,7 @@ Len: 13
 -------------------------
 Data Record 1
 Len: 13
+CRC: 57ABE48E
 Timestamp: 27356724
 
 Item 010 : Data Source Identifier
@@ -6913,6 +6995,7 @@ Len: 68
 -------------------------
 Data Record 1
 Len: 68
+CRC: 034A2E84
 Timestamp: 27356725
 
 Item 010 : Data Source Identifier
@@ -7047,6 +7130,7 @@ Len: 68
 -------------------------
 Data Record 1
 Len: 68
+CRC: 034A2E84
 Timestamp: 27356727
 
 Item 010 : Data Source Identifier
@@ -7181,6 +7265,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 79F8B1CA
 Timestamp: 27356731
 
 Item 010 : Data Source Identifier
@@ -7304,6 +7389,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 79F8B1CA
 Timestamp: 27356731
 
 Item 010 : Data Source Identifier
@@ -7427,6 +7513,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 6FE11308
 Timestamp: 27356733
 
 Item 010 : Data Source Identifier
@@ -7539,6 +7626,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 6FE11308
 Timestamp: 27356733
 
 Item 010 : Data Source Identifier
@@ -7651,6 +7739,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: F44F3224
 Timestamp: 27356747
 
 Item 010 : Data Source Identifier
@@ -7774,6 +7863,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: F44F3224
 Timestamp: 27356747
 
 Item 010 : Data Source Identifier
@@ -7897,6 +7987,7 @@ Len: 38
 -------------------------
 Data Record 1
 Len: 38
+CRC: 172A6EB8
 Timestamp: 27356769
 
 Item 010 : Data Source Identifier
@@ -7991,6 +8082,7 @@ Len: 38
 -------------------------
 Data Record 1
 Len: 38
+CRC: 172A6EB8
 Timestamp: 27356769
 
 Item 010 : Data Source Identifier
@@ -8085,6 +8177,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 87650865
 Timestamp: 27356785
 
 Item 010 : Data Source Identifier
@@ -8208,6 +8301,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 87650865
 Timestamp: 27356785
 
 Item 010 : Data Source Identifier
@@ -8331,6 +8425,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 61D2A4CF
 Timestamp: 27356799
 
 Item 010 : Data Source Identifier
@@ -8454,6 +8549,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 61D2A4CF
 Timestamp: 27356799
 
 Item 010 : Data Source Identifier
@@ -8577,6 +8673,7 @@ Len: 53
 -------------------------
 Data Record 1
 Len: 53
+CRC: 0115C617
 Timestamp: 27356811
 
 Item 010 : Data Source Identifier
@@ -8686,6 +8783,7 @@ Len: 53
 -------------------------
 Data Record 1
 Len: 53
+CRC: 0115C617
 Timestamp: 27356811
 
 Item 010 : Data Source Identifier
@@ -8795,6 +8893,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 8371D002
 Timestamp: 27356814
 
 Item 010 : Data Source Identifier
@@ -8907,6 +9006,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 8371D002
 Timestamp: 27356814
 
 Item 010 : Data Source Identifier
@@ -9019,6 +9119,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 93EA529B
 Timestamp: 27356825
 
 Item 010 : Data Source Identifier
@@ -9131,6 +9232,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 93EA529B
 Timestamp: 27356825
 
 Item 010 : Data Source Identifier
@@ -9243,6 +9345,7 @@ Len: 52
 -------------------------
 Data Record 1
 Len: 52
+CRC: 116F0ABA
 Timestamp: 27356831
 
 Item 010 : Data Source Identifier
@@ -9351,6 +9454,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: E12A9E22
 Timestamp: 27356831
 
 Item 010 : Data Source Identifier
@@ -9377,6 +9481,7 @@ Len: 52
 -------------------------
 Data Record 1
 Len: 52
+CRC: 116F0ABA
 Timestamp: 27356832
 
 Item 010 : Data Source Identifier
@@ -9485,6 +9590,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: E12A9E22
 Timestamp: 27356832
 
 Item 010 : Data Source Identifier
@@ -9511,6 +9617,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 5B39D888
 Timestamp: 27356839
 
 Item 010 : Data Source Identifier
@@ -9634,6 +9741,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 5B39D888
 Timestamp: 27356839
 
 Item 010 : Data Source Identifier
@@ -9757,6 +9865,7 @@ Len: 95
 -------------------------
 Data Record 1
 Len: 43
+CRC: 00EF229F
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -9846,6 +9955,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: B4B2DC1C
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -9958,6 +10068,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: C15FC145
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -9984,6 +10095,7 @@ Len: 95
 -------------------------
 Data Record 1
 Len: 43
+CRC: 00EF229F
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -10073,6 +10185,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: B4B2DC1C
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -10185,6 +10298,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: C15FC145
 Timestamp: 27356840
 
 Item 010 : Data Source Identifier
@@ -10211,6 +10325,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: A33C7D44
 Timestamp: 27356842
 
 Item 010 : Data Source Identifier
@@ -10334,6 +10449,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: A33C7D44
 Timestamp: 27356842
 
 Item 010 : Data Source Identifier
@@ -10457,6 +10573,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 59040859
 Timestamp: 27356844
 
 Item 010 : Data Source Identifier
@@ -10569,6 +10686,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: 5CBDD72E
 Timestamp: 27356848
 
 Item 010 : Data Source Identifier
@@ -10658,6 +10776,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 59040859
 Timestamp: 27356848
 
 Item 010 : Data Source Identifier
@@ -10770,6 +10889,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 20B8B568
 Timestamp: 27356850
 
 Item 010 : Data Source Identifier
@@ -10882,6 +11002,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: 5CBDD72E
 Timestamp: 27356850
 
 Item 010 : Data Source Identifier
@@ -10971,6 +11092,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 20B8B568
 Timestamp: 27356852
 
 Item 010 : Data Source Identifier
@@ -11083,6 +11205,7 @@ Len: 250
 -------------------------
 Data Record 1
 Len: 60
+CRC: AF9C039F
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11201,6 +11324,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 43
+CRC: 5A7ECA60
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11290,6 +11414,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: 643F3FFF
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11397,6 +11522,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 43
+CRC: 8D9FB587
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11486,6 +11612,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 5
 Len: 52
+CRC: 13D59D22
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11598,6 +11725,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: ECE39D64
 Timestamp: 27356855
 
 Item 010 : Data Source Identifier
@@ -11624,6 +11752,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: C1CDD751
 Timestamp: 27356856
 
 Item 010 : Data Source Identifier
@@ -11736,6 +11865,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: C1CDD751
 Timestamp: 27356857
 
 Item 010 : Data Source Identifier
@@ -11848,6 +11978,7 @@ Len: 250
 -------------------------
 Data Record 1
 Len: 60
+CRC: AF9C039F
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -11966,6 +12097,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 43
+CRC: 5A7ECA60
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -12055,6 +12187,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 52
+CRC: 643F3FFF
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -12162,6 +12295,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 43
+CRC: 8D9FB587
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -12251,6 +12385,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 5
 Len: 52
+CRC: 13D59D22
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -12363,6 +12498,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: ECE39D64
 Timestamp: 27356860
 
 Item 010 : Data Source Identifier
@@ -12389,6 +12525,7 @@ Len: 190
 -------------------------
 Data Record 1
 Len: 52
+CRC: E74265D4
 Timestamp: 27356882
 
 Item 010 : Data Source Identifier
@@ -12496,6 +12633,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: 196C807B
 Timestamp: 27356882
 
 Item 010 : Data Source Identifier
@@ -12603,6 +12741,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 43
+CRC: 0EC0A43F
 Timestamp: 27356882
 
 Item 010 : Data Source Identifier
@@ -12692,6 +12831,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 43
+CRC: 997B69DB
 Timestamp: 27356882
 
 Item 010 : Data Source Identifier
@@ -12786,6 +12926,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: CC96C203
 Timestamp: 27356882
 
 Item 010 : Data Source Identifier
@@ -12812,6 +12953,7 @@ Len: 190
 -------------------------
 Data Record 1
 Len: 52
+CRC: E74265D4
 Timestamp: 27356887
 
 Item 010 : Data Source Identifier
@@ -12919,6 +13061,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 2
 Len: 52
+CRC: 196C807B
 Timestamp: 27356887
 
 Item 010 : Data Source Identifier
@@ -13026,6 +13169,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 3
 Len: 43
+CRC: 0EC0A43F
 Timestamp: 27356887
 
 Item 010 : Data Source Identifier
@@ -13115,6 +13259,7 @@ Item 230 : Comm capability
 -------------------------
 Data Record 4
 Len: 43
+CRC: 997B69DB
 Timestamp: 27356887
 
 Item 010 : Data Source Identifier
@@ -13209,6 +13354,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: CC96C203
 Timestamp: 27356887
 
 Item 010 : Data Source Identifier
@@ -13235,6 +13381,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 03679DBF
 Timestamp: 27356913
 
 Item 010 : Data Source Identifier
@@ -13261,6 +13408,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 03679DBF
 Timestamp: 27356913
 
 Item 010 : Data Source Identifier
@@ -13287,6 +13435,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: 32054D7B
 Timestamp: 27356915
 
 Item 010 : Data Source Identifier
@@ -13394,6 +13543,7 @@ Len: 45
 -------------------------
 Data Record 1
 Len: 45
+CRC: 32054D7B
 Timestamp: 27356915
 
 Item 010 : Data Source Identifier
@@ -13501,6 +13651,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 0C672C56
 Timestamp: 27356928
 
 Item 010 : Data Source Identifier
@@ -13613,6 +13764,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 0C672C56
 Timestamp: 27356928
 
 Item 010 : Data Source Identifier
@@ -13725,6 +13877,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 6C00F0B3
 Timestamp: 27356930
 
 Item 010 : Data Source Identifier
@@ -13848,6 +14001,7 @@ Len: 55
 -------------------------
 Data Record 1
 Len: 55
+CRC: 6C00F0B3
 Timestamp: 27356930
 
 Item 010 : Data Source Identifier
@@ -13971,6 +14125,7 @@ Len: 27
 -------------------------
 Data Record 1
 Len: 27
+CRC: A503AD56
 Timestamp: 27356937
 
 Item 010 : Data Source Identifier
@@ -14046,6 +14201,7 @@ Len: 27
 -------------------------
 Data Record 1
 Len: 27
+CRC: A503AD56
 Timestamp: 27356937
 
 Item 010 : Data Source Identifier
@@ -14121,6 +14277,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: FE4B4464
 Timestamp: 27356941
 
 Item 010 : Data Source Identifier
@@ -14210,6 +14367,7 @@ Len: 36
 -------------------------
 Data Record 1
 Len: 36
+CRC: FE4B4464
 Timestamp: 27356941
 
 Item 010 : Data Source Identifier
@@ -14299,6 +14457,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 976DC2D5
 Timestamp: 27356950
 
 Item 010 : Data Source Identifier
@@ -14411,6 +14570,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: 976DC2D5
 Timestamp: 27356950
 
 Item 010 : Data Source Identifier
@@ -14523,6 +14683,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: EA5F4225
 Timestamp: 27356953
 
 Item 010 : Data Source Identifier
@@ -14635,6 +14796,7 @@ Len: 47
 -------------------------
 Data Record 1
 Len: 47
+CRC: EA5F4225
 Timestamp: 27356953
 
 Item 010 : Data Source Identifier
