@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--
+
+    Asterix Category 023 v1.2 definition
+
+    Author:   unknown
+    Created:  2013-01-28
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+	
+
+-->
+
+<Category id="023" name="Surveillance Data Exchange – Part 16 CNS/ATM Ground Station and Service Status Reports" ver="1.2">
+
+
+    <DataItem id="000" rule="mandatory">
+        <DataItemName>Report Type</DataItemName>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the reports at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>report_type</BitsShortName>
+                    <BitsName>Report Type</BitsName>
+                    <BitsValue val="1">Ground Station Status Report</BitsValue>
+                    <BitsValue val="2">Service Status Report</BitsValue>
+                    <BitsValue val="3">Service Statistics Report</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the Ground Station from which the data is received.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="015" rule="optional">
+        <DataItemName>Service Type and Identification</DataItemName>
+        <DataItemDefinition>Identifies the type of service being reported.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="5">
+                    <BitsShortName>SID</BitsShortName>
+                    <BitsName>Service Identification</BitsName>
+                </Bits>
+                <Bits from="4" to="1">
+                    <BitsShortName>STYP</BitsShortName>
+                    <BitsName>Type of Service</BitsName>
+                    <BitsValue val="1">ADS-B VDL4</BitsValue>
+                    <BitsValue val="2">ADS-B Ext Squitter</BitsValue>
+                    <BitsValue val="3">ADS-B UAT</BitsValue>
+                    <BitsValue val="4">TIS-B VDL4</BitsValue>
+                    <BitsValue val="5">TIS-B Ext Squitter</BitsValue>
+                    <BitsValue val="6">TIS-B UAT</BitsValue>
+                    <BitsValue val="7">FIS-B VDL4</BitsValue>
+                    <BitsValue val="8">GRAS VDL4</BitsValue>
+                    <BitsValue val="9">MLT</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="070" rule="mandatory">
+        <DataItemName>Time of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item.">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+					<BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time Of Day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="100" rule="optional">
+        <DataItemName>Ground Station Status</DataItemName>
+        <DataItemDefinition>Information concerning the status of a Ground Station.</DataItemDefinition>
+        <DataItemFormat desc="A one octet extensible field.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>NOGO</BitsShortName>
+                        <BitsName>Operational Release Status of the Data</BitsName>
+                        <BitsValue val="0">Data is released for operational use</BitsValue>
+                        <BitsValue val="1">Data must not be used operationally</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>ODP</BitsShortName>
+                        <BitsName>Data Processor Overload Indicator</BitsName>
+                        <BitsValue val="0">Default, no overload</BitsValue>
+                        <BitsValue val="1">Overload in DP</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>OXT</BitsShortName>
+                        <BitsName>Ground Interface Data Communications</BitsName>
+                        <BitsValue val="0">Default, no overload</BitsValue>
+                        <BitsValue val="1">Overload in transmission subsystem</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>MSC</BitsShortName>
+                        <BitsName>Monitoring System Connected Status</BitsName>
+                        <BitsValue val="0">Monitoring system not connected or unknown</BitsValue>
+                        <BitsValue val="1">Monitoring system connected</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>TSV</BitsShortName>
+                        <BitsName>Time Source Validity</BitsName>
+                        <BitsValue val="0">valid</BitsValue>
+                        <BitsValue val="1">invalid</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>SPO</BitsShortName>
+                        <BitsName>Indication of spoofing attack</BitsName>
+                        <BitsValue val="0">no spoofing detected</BitsValue>
+                        <BitsValue val="1">potential spoofing attack</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>RN</BitsShortName>
+                        <BitsName>Renumbering Indication for Track ID</BitsName>
+                        <BitsValue val="0">default</BitsValue>
+                        <BitsValue val="1">track numbering has restarted</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="2">
+                        <BitsShortName>GSSP</BitsShortName>
+                        <BitsName>Ground Station Status Reporting</BitsName>
+                        <BitsUnit scale="1" min="1" max="127">s</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of item</BitsValue>
+                        <BitsValue val="1">Extension into Second Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="101" rule="optional">
+        <DataItemName>Service Configuration</DataItemName>
+        <DataItemDefinition>Information concerning the configuration of a Service.</DataItemDefinition>
+        <DataItemFormat desc="A two octet extensible field.">
+            <Variable>
+                <Fixed length="2">
+                    <Bits from="16" to="9">
+                        <BitsShortName>RP</BitsShortName>
+                        <BitsName>Report Period for Category 021 Reports</BitsName>
+                        <BitsUnit scale="0.5">s</BitsUnit>
+                    </Bits>
+                    <Bits from="8" to="6">
+                        <BitsShortName>SC</BitsShortName>
+                        <BitsName>Service Class</BitsName>
+                        <BitsValue val="0">No information</BitsValue>
+                        <BitsValue val="1">NRA class</BitsValue>
+                        <BitsValue val="2">reserved</BitsValue>
+                        <BitsValue val="3">reserved</BitsValue>
+                        <BitsValue val="4">reserved</BitsValue>
+                        <BitsValue val="5">reserved</BitsValue>
+                        <BitsValue val="6">reserved</BitsValue>
+                        <BitsValue val="7">reserved</BitsValue>
+                    </Bits>
+                    <Bits from="5" to="2">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bit set to zero</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of item</BitsValue>
+                        <BitsValue val="1">Extension into next octet</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="2">
+                        <BitsShortName>SSRP</BitsShortName>
+                        <BitsName>Service Status Reporting Period</BitsName>
+                        <BitsUnit scale="1" min="1" max="127">s</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of item</BitsValue>
+                        <BitsValue val="1">Extension into Second Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="110" rule="optional">
+        <DataItemName>Service Status</DataItemName>
+        <DataItemDefinition>Information concerning the status of the Service provided by a Ground Station.</DataItemDefinition>
+        <DataItemFormat desc="A one octet extensible field.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="5">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bit set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="4" to="2">
+                        <BitsShortName>STAT</BitsShortName>
+                        <BitsName>Status of the Service</BitsName>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">Failed</BitsValue>
+                        <BitsValue val="2">Disabled</BitsValue>
+                        <BitsValue val="3">Degraded</BitsValue>
+                        <BitsValue val="4">Normal</BitsValue>
+                        <BitsValue val="5">Initialisation</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="120" rule="optional">
+        <DataItemName>Service Statistics</DataItemName>
+        <DataItemDefinition>Statistics concerning the service. Provides counts of various ADS-B message types that have been received since the report was last sent.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one block of 6 octets.">
+            <Repetitive>
+                <Fixed length="7">
+                    <Bits from="56" to="49">
+                        <BitsShortName>REP</BitsShortName>
+                        <BitsName>Number of counters following</BitsName>
+                    </Bits>
+                    <Bits from="48" to="41">
+                        <BitsShortName>TYPE</BitsShortName>
+                        <BitsName>Type of report counter</BitsName>
+                        <BitsValue val="0">Number of unknown messages received</BitsValue>
+                        <BitsValue val="1">Number of too old messages received</BitsValue>
+                        <BitsValue val="2">Number of failed message conversions</BitsValue>
+                        <BitsValue val="3">Total Number of messages received</BitsValue>
+                        <BitsValue val="4">Total number of messages transmitted</BitsValue>
+                        <BitsValue val="20">Number of TIS-B management messages received</BitsValue>
+                        <BitsValue val="21">Number of Basic messages received</BitsValue>
+                        <BitsValue val="22">Number of High Dynamic messages received</BitsValue>
+                        <BitsValue val="23">Number of Full Position messages received</BitsValue>
+                        <BitsValue val="24">Number of Basic Ground messages received</BitsValue>
+                        <BitsValue val="25">Number of TCP messages received</BitsValue>
+                        <BitsValue val="26">Number of UTC time messages received</BitsValue>
+                        <BitsValue val="27">Number of Data messages received</BitsValue>
+                        <BitsValue val="28">Number of High Resolution messages received</BitsValue>
+                        <BitsValue val="29">Number of Aircraft Target Airborne messages received</BitsValue>
+                        <BitsValue val="30">Number of Aircraft Target Ground messages received</BitsValue>
+                        <BitsValue val="31">Number of Ground Vehicle Target messages received</BitsValue>
+                        <BitsValue val="32">Number of 2 slots TCP messages received</BitsValue>
+                    </Bits>
+                    <Bits bit="40">
+                        <BitsShortName>REF</BitsShortName>
+                        <BitsName>Reference from which the messages are countered</BitsName>
+                        <BitsValue val="0">From midnight</BitsValue>
+                        <BitsValue val="1">From the last report</BitsValue>
+                    </Bits>
+                    <Bits from="39" to="33">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="32" to="1">
+                        <BitsShortName>counter</BitsShortName>
+                        <BitsName>32-bit counter value</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="200" rule="optional">
+        <DataItemName>Operational Range</DataItemName>
+        <DataItemDefinition>Currently active operational range of the Ground Station.</DataItemDefinition>
+        <DataItemFormat desc="A one octet fixed length field.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>Range</BitsShortName>
+                    <BitsName>Operational range of the GS</BitsName>
+                    <BitsUnit scale="1">NM</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="1">015</UAPItem>
+        <UAPItem bit="3" frn="4" len="3">070</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">100</UAPItem>
+        <UAPItem bit="5" frn="6" len="2+">101</UAPItem>
+        <UAPItem bit="6" frn="7" len="1">200</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1+">110</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">120</UAPItem>
+        <UAPItem bit="10" frn="10" len="-">-</UAPItem>
+        <UAPItem bit="11" frn="11" len="-">-</UAPItem>
+        <UAPItem bit="12" frn="12" len="-">-</UAPItem>
+        <UAPItem bit="13" frn="13" len="1+1+">RE</UAPItem>
+        <UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+
+</Category>

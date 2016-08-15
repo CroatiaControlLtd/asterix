@@ -1,0 +1,15 @@
+include README.rst
+include MANIFEST.in
+include LICENSE
+include HISTORY
+include setup.py
+include src/asterix/*.*
+include src/engine/*.*
+include src/main/*.*
+include src/python/*.*
+recursive-include asterix/config *.xml *.dtd
+recursive-include asterix/sample_data *
+recursive-include asterix/test *
+recursive-include asterix/examples *.py
+recursive-include install/sample_data *.raw *.pcap
+

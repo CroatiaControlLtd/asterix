@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 31 v6.2 definition 
+	
+	Author:   dsalantic
+	Created:  9.2.2009.
+	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+
+--> 
+
+<Category id="31" name="Sensor Information Messages" ver="6.2">
+
+	<DataItem id="010">
+		<DataItemName>Server Identification Tag</DataItemName>
+		<DataItemDefinition>Identification of the Server of Sensor information.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identification Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+    
+	<DataItem id="015">
+		<DataItemName>User Number</DataItemName>
+		<DataItemDefinition>Identification of the User of Sensor information</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="1" to="16">
+					<BitsShortName>UserN</BitsShortName>
+                    <BitsName>User number</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
+    </DataItem>
+    
+	<DataItem id="020">
+		<DataItemName>Time Of Message</DataItemName>
+		<DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+		<DataItemFormat desc="Three-byte fixed length data item.">
+			<Fixed length="3">
+				<Bits from="24" to="1" encode="unsigned">
+					<BitsShortName>ToM</BitsShortName>
+					<BitsName>Time Of Message</BitsName>
+					<BitsUnit scale="0.0078125">s</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+		<DataItemNote>This is the time at which a message is filled and not the time at which the data-block containing the tracks is sent. The time of the day value is reset to 0 at every midnight.</DataItemNote>
+	</DataItem>		
+
+	<DataItem id="030">
+		<DataItemName>Sensor Identification Tag</DataItemName>
+		<DataItemDefinition>Identification of the Sensor to which the provided information are related.</DataItemDefinition>
+		<DataItemFormat desc="Two-byte fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>Source Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>Source Identity Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>	
+	
+	<DataItem id="040">
+        <DataItemName>Sensor Status</DataItemName>
+        <DataItemDefinition>Functioning status of the Sensor as monitored by ARTAS.</DataItemDefinition>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="6">
+                    <BitsShortName>ST</BitsShortName>
+                    <BitsName>Status of the radar</BitsName>
+                    <BitsValue val="0">Operational</BitsValue>
+                    <BitsValue val="1">Degraded</BitsValue>
+                    <BitsValue val="2">Initialization</BitsValue>
+                    <BitsValue val="3">Initialization RMCDE</BitsValue>
+                    <BitsValue val="4">Not Connected</BitsValue>
+                </Bits>
+                <Bits from="5" to="1">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits se to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+	<DataItem id="050">
+        <DataItemName>Time Stamping Bias</DataItemName>
+        <DataItemDefinition>Plot Time stamping bias</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="15">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits se to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="14" to="1" encode="signed">
+                    <BitsShortName>TSB</BitsShortName>
+                    <BitsName>Time Stamping Bias Valus</BitsName>
+                    <BitsUnit min="-5000" max="5000">ms</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    
+	<DataItem id="060">
+        <DataItemName>SSR Range Gain and Bias</DataItemName>
+        <DataItemDefinition>SSR range gain and bias</DataItemDefinition>
+        <DataItemFormat desc="Four-byte fixed length data item.">
+            <Fixed length="4">
+                <Bits bit="32">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits se to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="31" to="21" encode="signed">
+                    <BitsShortName>SSRRB</BitsShortName>
+                    <BitsName>SSR range bias</BitsName>
+                    <BitsUnit scale="0.0078125" min="-5.4" max="5.4">NM</BitsUnit>
+                </Bits>
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>SSRRG</BitsShortName>
+                    <BitsName>SSR range gain</BitsName>
+<!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
+                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+	<DataItem id="070">
+        <DataItemName>SSR Azimuth Bias</DataItemName>
+        <DataItemDefinition>SSR azimuth bias</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>SSRAB</BitsShortName>
+                    <BitsName>SSR azimuth bias</BitsName>
+                    <BitsUnit scale="0.0054931640625" min="-180" max="179.9945">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+	<DataItem id="080">
+        <DataItemName>PR Range Gain and Bias</DataItemName>
+        <DataItemDefinition>PR range gain and bias</DataItemDefinition>
+        <DataItemFormat desc="Four-byte fixed length data item.">
+            <Fixed length="4">
+                <Bits bit="32">
+					<BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits se to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="31" to="21" encode="signed">
+                    <BitsShortName>PRRB</BitsShortName>
+                    <BitsName>PR range bias</BitsName>
+                    <BitsUnit scale="0.0078125" min="-5.4" max="5.4">NM</BitsUnit>
+                </Bits>
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>PRRG</BitsShortName>
+                    <BitsName>PR range gain</BitsName>
+<!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
+                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+	<DataItem id="090">
+        <DataItemName>PR Azimuth Bias</DataItemName>
+        <DataItemDefinition>PR azimuth bias</DataItemDefinition>
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>PRAB</BitsShortName>
+                    <BitsName>PR azimuth bias</BitsName>
+                    <BitsUnit scale="0.0054931640625" min="-180" max="179.9945">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <UAP>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="2">015</UAPItem>
+		<UAPItem bit="2" frn="3" len="3">020</UAPItem>
+		<UAPItem bit="3" frn="4" len="2">030</UAPItem>
+		<UAPItem bit="4" frn="5" len="1">040</UAPItem>
+		<UAPItem bit="5" frn="6" len="2">050</UAPItem>
+		<UAPItem bit="6" frn="7" len="4">060</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+		<UAPItem bit="8" frn="8" len="2">070</UAPItem>
+		<UAPItem bit="9" frn="9" len="4">080</UAPItem>
+		<UAPItem bit="10" frn="10" len="2">090</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+        
+</Category>
+	
