@@ -21,7 +21,6 @@
  *
  */
 
-//#include "../main/asterix.h"
 #include "Category.h"
 #include "DataRecord.h"
 #include "Tracer.h"
@@ -343,5 +342,50 @@ fulliautomatix_data* DataRecord::getData(int byteoffset)
 
   lastData = newDataTreeEnd(lastData,endOffset);
   return firstData;
+}
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataRecord::getData()
+{
+	UAP* pUAP = m_pCategory->getUAP(m_pFSPECData, m_nFSPECLength);
+	PyObject*p = PyDict_New();
+
+	PyObject* k1 = Py_BuildValue("s", "category");
+	PyObject* v1 = Py_BuildValue("H", m_pCategory->m_id);
+	PyDict_SetItem(p, k1, v1);
+	Py_DECREF(k1);
+	Py_DECREF(v1);
+
+	if (!pUAP)
+	{
+		Tracer::Error("UAP for CAT%03d not found!", m_pCategory->m_id);
+	}
+	else
+	{
+		// go through all present data items in this record
+		std::list<DataItem*>::iterator it;
+		for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+		{
+			DataItem* di = (DataItem*)(*it);
+			if (di)
+			{
+				PyObject* v1 = di->getData();
+				char tmp[20];
+				sprintf(tmp, "I%s", di->m_pDescription->m_strID.c_str());
+                PyObject* k1 = Py_BuildValue("s", tmp);
+				PyDict_SetItem(p, k1, v1);
+                Py_DECREF(k1);
+				Py_DECREF(v1);
+			}
+		}
+	}
+
+  if (!m_bFormatOK)
+  {
+    // TODO err
+  }
+
+  return p;
 }
 #endif

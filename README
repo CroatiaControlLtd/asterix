@@ -101,14 +101,31 @@ WIRESHARK PLUGIN
 
 Wireshark (http://www.wireshark.org/) plugin can be created from Asterix source.
 For instructions see asterix\src\asterix\wireshark-plugin\HowToBuild.txt
-			
+
+PYTHON MODULE
+=============
+
+Asterix can be built as Python module.
+
+Build with:
+    python setup.py build
+
+Install:
+    python setup.py install
+
+To run unit tests:
+    python -m unittest
+
+
 CREDITS
 =======
 
 Jurica Baricevic	-	Created engine source (as part of converter project)
 Zeljko Harjac		-	Modifications of engine source
-Damir Salantic		-	Created Asterix source and part of Asterix XML files
+Damir Salantic		-	Created Asterix source and part of Asterix XML files, Created Python module
 Darko Markus		-	Created Asterix XML files, debuging and testing
 Benjamin Bertrand	-	Created Asterix XML files, OS X building procedure
 Sergey Nastasyak	-	Created Asterix XML files
 Nabil Bendafi		-	Etheral plugin
+
+

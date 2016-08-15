@@ -198,6 +198,19 @@ bool DataItemFormatVariable::isFiltered(const char* name)
   return false;
 }
 
+const char* DataItemFormatVariable::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+    const char* desc = dip->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatVariable::getWiresharkDefinitions()
 {
@@ -262,5 +275,44 @@ fulliautomatix_data* DataItemFormatVariable::getData(unsigned char* pData, long 
   while(!lastPart && len > 0);
 
   return firstData;
+}
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+  std::list<DataItemFormat*>::iterator it;
+  bool lastPart = false;
+
+  it=m_lSubItems.begin();
+
+  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+
+  do
+  {
+    lastPart = dip->isLastPart(pData);
+
+	dip->insertToDict(p, pData, dip->getLength());
+
+    pData += dip->getLength();
+    nLength -= dip->getLength();
+
+    if (it != m_lSubItems.end())
+    {
+      it++;
+      if (it != m_lSubItems.end())
+      {
+        dip = (DataItemFormatFixed*)(*it);
+      }
+    }
+  }
+  while(!lastPart && nLength > 0);
 }
 #endif

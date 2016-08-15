@@ -264,6 +264,19 @@ bool DataItemFormatFixed::isFiltered(const char* name)
   return false;
 }
 
+const char* DataItemFormatFixed::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatFixed::getWiresharkDefinitions()
 {
@@ -306,4 +319,25 @@ fulliautomatix_data* DataItemFormatFixed::getData(unsigned char* pData, long len
   }
   return firstData;
 }
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItemFormatFixed::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemFormatFixed::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+	std::list<DataItemFormat*>::iterator it;
+	DataItemBits* bv = NULL;
+	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+	{
+		bv = (DataItemBits*)(*it);
+		bv->insertToDict(p, pData, nLength);
+	}
+}
+
 #endif

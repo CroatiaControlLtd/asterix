@@ -153,6 +153,19 @@ bool DataItemFormatRepetitive::isFiltered(const char* name)
 	return pFixed->isFiltered(name);
 }
 
+const char* DataItemFormatRepetitive::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatRepetitive::getWiresharkDefinitions()
 {
@@ -200,5 +213,47 @@ fulliautomatix_data* DataItemFormatRepetitive::getData(unsigned char* pData, lon
 	}
 
 	return firstData;
+}
+#endif
+
+#if defined(PYTHON_WRAPPER)
+
+PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyList_New(0);
+
+	 DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	  if (!pFixed)
+	  {
+	    // TODO Tracer::Error("Wrong format of repetitive item");
+	    return NULL;
+	  }
+
+	  int fixedLength = pFixed->getLength(pData);
+	  unsigned char nRepetition = *pData;
+
+	  if (1+nRepetition*fixedLength != nLength)
+	  {
+	    //TODO Tracer::Error("Wrong length in Repetitive");
+	    return NULL;
+	  }
+
+	  pData++;
+
+	  while(nRepetition--)
+	  {
+		PyObject* p1 = pFixed->getObject(pData, fixedLength);
+		PyList_Append(p, p1);
+		Py_DECREF(p1);
+	    pData += fixedLength;
+	  }
+
+	return p;
+}
+
+
+void DataItemFormatRepetitive::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+ // Not supported
 }
 #endif

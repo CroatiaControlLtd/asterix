@@ -42,6 +42,10 @@ public:
   fulliautomatix_data* getData();
 #endif
 
+#if defined(PYTHON_WRAPPER)
+  PyObject* getData();
+#endif
+
   bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
 };
 

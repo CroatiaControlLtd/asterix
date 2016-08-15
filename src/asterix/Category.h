@@ -28,7 +28,10 @@
 
 #include "DataItemDescription.h"
 #include "UAP.h"
+
+#if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 #include "WiresharkWrapper.h"
+#endif
 
 class Category
 {
@@ -52,6 +55,7 @@ public:
   std::string printDescriptors(); // print item descriptors
   bool filterOutItem(std::string item, const char* name);
   bool isFiltered(std::string item, const char* name);
+  const char* getDescription(const char* item, const char* field, const char* value); //!< return item string definition
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions(); //!< returns linked list of Wireshark definitions

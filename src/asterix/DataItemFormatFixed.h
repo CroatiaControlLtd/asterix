@@ -49,10 +49,15 @@ public:
   bool filterOutItem(const char* name); // mark item for filtering
   bool isFiltered(const char* name);
   bool isFixed() 		{ return true; }; // true if this is Fixed format
+  const char* getDescription(const char* field, const char* value ); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+#endif
+#if defined(PYTHON_WRAPPER)
+  PyObject* getObject(unsigned char* pData, long nLength);
+  void insertToDict(PyObject* p, unsigned char* pData, long nLength);
 #endif
 };
 

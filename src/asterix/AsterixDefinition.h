@@ -39,10 +39,12 @@ public:
   ~AsterixDefinition();
 
   Category* getCategory(int i);
+  Category* newCategory(int i);
   bool CategoryDefined(int i);
   std::string printDescriptors();
   bool filterOutItem(int cat, std::string item, const char* name);
   bool isFiltered(int cat, std::string item, const char* name);
+  const char* getDescription(int category, const char* item, const char* field, const char* value);
 
 private:
   Category *m_pCategory[MAX_CATEGORIES];

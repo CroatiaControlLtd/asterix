@@ -20,6 +20,7 @@
  * AUTHORS: Damir Salantic, Croatia Control Ltd.
  *
  */
+
 #include "DataItem.h"
 #include "Tracer.h"
 #include "Utils.h"
@@ -145,5 +146,16 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
   byteoffset += m_nLength;
   lastData = newDataTreeEnd(lastData,byteoffset);
   return firstData;
+}
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItem::getData()
+{
+  if (m_pDescription && m_pDescription->m_pFormat && m_pData)
+  {
+    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength);
+  }
+  return Py_BuildValue("s", "Error");
 }
 #endif

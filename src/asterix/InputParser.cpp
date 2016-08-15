@@ -21,6 +21,9 @@
  *
  */
 
+#ifdef _DEBUG
+#include "asterix.h"
+#endif
 #include "InputParser.h"
 
 InputParser::InputParser(AsterixDefinition* pDefinition)

@@ -166,6 +166,19 @@ bool DataItemFormatExplicit::isFiltered(const char* name)
 	return false;
 }
 
+const char* DataItemFormatExplicit::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {
@@ -204,5 +217,31 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
 	byteoffset += nFullLength;
 
 	return firstData;
+}
+#endif
+
+#if defined(PYTHON_WRAPPER)
+
+PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+  if (pFixed == NULL)
+  {
+    //TODO Tracer::Error("Wrong format of explicit item");
+    return;
+  }
+
+  int fixedLength = pFixed->getLength(pData);
+  //unsigned char nFullLength = *pData;
+  pData++;
+
+  pFixed->insertToDict(p, pData, fixedLength);
 }
 #endif

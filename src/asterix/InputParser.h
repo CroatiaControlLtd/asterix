@@ -27,7 +27,6 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include "asterix.h"
 #include "AsterixDefinition.h"
 #include "AsterixData.h"
 

@@ -253,6 +253,19 @@ bool DataItemFormatCompound::isFiltered(const char* name)
 	return false;
 }
 
+const char* DataItemFormatCompound::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatCompound::getWiresharkDefinitions()
 {
@@ -347,4 +360,66 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long,
 	}
 	return firstData;
 }
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItemFormatCompound::getObject(unsigned char* pData, long nLength)
+{
+  PyObject* p = PyDict_New();
+  insertToDict(p, pData, nLength);
+  return p;
+}
+
+void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+  std::list<DataItemFormat*>::iterator it;
+  std::list<DataItemFormat*>::iterator it2;
+  it2 = m_lSubItems.begin();
+  DataItemFormatVariable* pCompoundPrimary = (DataItemFormatVariable*)(*it2);
+  it2++;
+  if (pCompoundPrimary == NULL)
+  {
+    Tracer::Error("Missing primary subfield of Compound");
+  }
+
+  int primaryPartLength = pCompoundPrimary->getLength(pData);
+  unsigned char* pSecData = pData + primaryPartLength;
+
+  pCompoundPrimary->insertToDict(p, pData, primaryPartLength);
+
+  int secondaryPart = 1;
+
+  for ( it=pCompoundPrimary->m_lSubItems.begin() ; it != pCompoundPrimary->m_lSubItems.end(); it++ )
+  {
+    if (it2 == m_lSubItems.end())
+    {
+      Tracer::Error("Error in compound format");
+      return;
+    }
+
+    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+    bool lastPart = dip->isLastPart(pData);
+
+    for (int i=0;i<7 && it2 != m_lSubItems.end(); i++)
+    { // parse up to 8 secondary parts
+      if (dip->isSecondaryPartPresent(pData, secondaryPart))
+      {
+        DataItemFormat* dip2 = (DataItemFormat*)(*it2);
+        int skip = dip2->getLength(pSecData);
+        dip2->insertToDict(p, pSecData, skip);
+
+        pSecData += skip;
+      }
+      it2++;
+      secondaryPart++;
+    }
+
+    pData += dip->getLength();
+
+    if (lastPart)
+      break;
+  }
+}
+
+
 #endif

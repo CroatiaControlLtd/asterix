@@ -53,6 +53,16 @@ Category* AsterixDefinition::getCategory(int i)
   return m_pCategory[i];
 }
 
+Category* AsterixDefinition::newCategory(int i)
+{
+  if (m_pCategory[i] != NULL)
+  {
+    delete m_pCategory[i];
+    m_pCategory[i] = NULL;
+  }
+  return getCategory(i);
+}
+
 bool AsterixDefinition::CategoryDefined(int i)
 {
   return (m_pCategory[i] != NULL) ? true : false;
@@ -89,4 +99,15 @@ bool AsterixDefinition::isFiltered(int cat, std::string item, const char* name)
 		return getCategory(cat)->isFiltered(item, name);
 	}
 	return false;
+}
+
+const char* AsterixDefinition::getDescription(int category, const char* item=NULL, const char* field=NULL, const char* value=NULL)
+{
+    if (m_pCategory[category] != NULL)
+    {
+        if(item == NULL && field == NULL && value == NULL)
+            return m_pCategory[category]->m_strName.c_str();
+        return m_pCategory[category]->getDescription(item, field, value);
+    }
+    return NULL;
 }

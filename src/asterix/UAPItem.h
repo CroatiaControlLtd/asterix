@@ -49,10 +49,15 @@ public:
  	std::string printDescriptors(std::string) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors
   bool filterOutItem(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
   bool isFiltered(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
+  const char* getDescription(const char* field, const char* value ) { Tracer::Error("Function should not be called!"); return NULL; }; // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
   fulliautomatix_definitions* getWiresharkDefinitions();
   fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+#endif
+#if defined(PYTHON_WRAPPER)
+  PyObject* getObject(unsigned char* pData, long nLength) { return NULL; };
+  void insertToDict(PyObject* p, unsigned char* pData, long nLength) {};
 #endif
 };
 

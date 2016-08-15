@@ -190,6 +190,19 @@ bool DataItemFormatBDS::isFiltered(const char* name)
 	return pFixed->isFiltered(name);
 }
 
+const char* DataItemFormatBDS::getDescription(const char* field, const char* value = NULL )
+{
+  std::list<DataItemFormat*>::iterator it;
+  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
+  {
+    DataItemBits* bv = (DataItemBits*)(*it);
+    const char* desc = bv->getDescription(field, value);
+    if (desc != NULL)
+        return desc;
+  }
+  return NULL;
+}
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatBDS::getWiresharkDefinitions()
 {// TODO
@@ -238,4 +251,50 @@ fulliautomatix_data* DataItemFormatBDS::getData(unsigned char* pData, long len, 
 
 	return firstData;
 }
+#endif
+
+#if defined(PYTHON_WRAPPER)
+PyObject* DataItemFormatBDS::getObject(unsigned char* pData, long nLength)
+{
+	PyObject* p = PyDict_New();
+	insertToDict(p, pData, nLength);
+	return p;
+}
+
+void DataItemFormatBDS::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+{
+	int fixedLength = 7+1; // size of BDS register (including the BDS byte)
+	unsigned char nRepetition = *pData;
+
+	if (1+nRepetition*fixedLength != nLength)
+	{
+		Tracer::Error("Wrong length in BDS");
+		return;
+	}
+
+	pData++;
+
+	std::string tmpStr;
+
+	while(nRepetition--)
+	{
+		int BDSid = pData[7];
+
+		// Find BDS register
+		std::list<DataItemFormat*>::iterator it =  m_lSubItems.begin();
+		while (it != m_lSubItems.end())
+		{
+			DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
+			if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
+			{
+                pFixed->insertToDict(p, pData, fixedLength-1);
+				break;
+			}
+			it++;
+		}
+
+		pData += fixedLength;
+	}
+}
+
 #endif

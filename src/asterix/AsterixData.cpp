@@ -20,6 +20,7 @@
  * AUTHORS: Damir Salantic, Croatia Control Ltd.
  *
  */
+
 #include "AsterixData.h"
 #include "Utils.h"
 #include <time.h>
@@ -97,3 +98,20 @@ fulliautomatix_data* AsterixData::getData()
 }
 #endif
 
+#if defined(PYTHON_WRAPPER)
+PyObject* AsterixData::getData()
+{
+	PyObject* hp = PyList_New(0);
+
+	std::list<DataBlock*>::iterator it;
+	for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
+	{
+		DataBlock* db = (DataBlock*)(*it);
+		if (db != NULL)
+		{
+			db->getData(hp);
+		}
+	}
+	return hp;
+}
+#endif

@@ -69,6 +69,26 @@ DataItemDescription* Category::getDataItemDescription(std::string id)
   return di;
 }
 
+const char* Category::getDescription(const char* item, const char* field=NULL, const char* value=NULL)
+{
+    std::list<DataItemDescription*>::iterator it;
+    DataItemDescription* di = NULL;
+
+    std::string item_number = format("%s", &item[1]);
+
+    for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+    {
+        di = (DataItemDescription*)(*it);
+        if (di->m_strID.compare(item_number) == 0)
+        {
+            if (field == NULL)
+                return di->m_strName.c_str();
+            return di->m_pFormat->getDescription(field, value);
+        }
+    }
+    return NULL;
+}
+
 UAP* Category::newUAP()
 {
   UAP* uap = new UAP();
