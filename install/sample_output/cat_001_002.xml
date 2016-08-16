@@ -1,5 +1,5 @@
 <ASTERIXSTART>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="F34C4219" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -34,7 +34,7 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="F1618F20" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -69,7 +69,7 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="FF7EE4A2" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -104,7 +104,7 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="E42AA613" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -139,14 +139,14 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="2">
+<ASTERIX ver="1" crc="10732D75" cat="2">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <type>2</type>
 <Azi>112.5000000</Azi>
 <ToD>45826.1796875</ToD>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="1CA747DB" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -181,7 +181,7 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="9D4195F7" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>
@@ -216,7 +216,7 @@
 <Qty>7</Qty>
 <FX>0</FX>
 </ASTERIX>
-<ASTERIX ver="1" cat="1">
+<ASTERIX ver="1" crc="2077158E" cat="1">
 <SAC>25</SAC>
 <SIC>201</SIC>
 <TYP>1</TYP>

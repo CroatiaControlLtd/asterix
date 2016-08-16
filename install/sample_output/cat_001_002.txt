@@ -7,6 +7,7 @@ Len: 69
 -------------------------
 Data Record 1
 Len: 23
+CRC: F34C4219
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -74,6 +75,7 @@ Item 210 : Track Quality
 -------------------------
 Data Record 2
 Len: 23
+CRC: F1618F20
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -141,6 +143,7 @@ Item 210 : Track Quality
 -------------------------
 Data Record 3
 Len: 23
+CRC: FF7EE4A2
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -213,6 +216,7 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
+CRC: E42AA613
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -285,6 +289,7 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
+CRC: 10732D75
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -311,6 +316,7 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
+CRC: 1CA747DB
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -383,6 +389,7 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
+CRC: 9D4195F7
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
@@ -455,6 +462,7 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
+CRC: 2077158E
 Timestamp: 45826414
 
 Item 010 : Data Source Identifier
