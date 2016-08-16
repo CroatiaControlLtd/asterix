@@ -155,6 +155,18 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
 		}
 		strNewResult += format("]");
 		Tracer::Error(strNewResult.c_str());
+  } else {
+    uint32_t nCrc32 = 0;
+    // some arithmetic to get m_nLength as individual bytes
+
+    unsigned char nCategory = m_pCategory->m_id & 0xff;
+    unsigned char nFirstByteLength = (m_nLength >> 8) & 0xff;
+    unsigned char nSecondByteLength = m_nLength & 0xff;
+    crc32(&nCategory, sizeof(nCategory), nCrc32);
+    nCrc32 = crc32(&nFirstByteLength, 1, nCrc32);
+    nCrc32 = crc32(&nSecondByteLength, 1, nCrc32);
+    nCrc32 = crc32(data, len, nCrc32);
+    m_nCrc = nCrc32;
 	}
 }
 
@@ -187,24 +199,25 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	case CAsterixFormat::ETxt:
 		strNewResult = format("\n-------------------------\nData Record %d", m_nID);
 		strNewResult += format("\nLen: %ld", m_nLength);
+		strNewResult += format("\nCRC: %08X", m_nCrc);
 		if (m_nTimestamp != 0)
 		strNewResult += format("\nTimestamp: %ld", m_nTimestamp);
 		break;
 	case CAsterixFormat::EJSON:
 		if (m_nTimestamp != 0)
-		strNewResult = format("{\"id\":%d,\"length\":%ld,\"timestamp\":%ld,\"CAT%03d\":{", m_nID, m_nLength, m_nTimestamp, m_pCategory->m_id);
+		strNewResult = format("{\"id\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%ld,\"CAT%03d\":{", m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pCategory->m_id);
 		else
-			strNewResult = format("{\"id\":%d,\"length\":%ld,\"CAT%03d\":{", m_nID, m_nLength, m_pCategory->m_id);
+			strNewResult = format("{\"id\":%d,\"length\":%ld,\"crc\":\"%08X\",\"CAT%03d\":{", m_nID, m_nLength, m_nCrc, m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EJSONH:
 		if (m_nTimestamp != 0)
-		strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"timestamp\":%ld,\n\"CAT%03d\":{\n", m_nID, m_nLength, m_nTimestamp, m_pCategory->m_id);
+		strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%ld,\n\"CAT%03d\":{\n", m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pCategory->m_id);
 		else
-			strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"CAT%03d\":{\n", m_nID, m_nLength, m_pCategory->m_id);
+			strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"CAT%03d\":{\n", m_nID, m_nCrc, m_nLength, m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EXML:
 		const int nXIDEFv = 1;
-		strNewResult = format("\n<ASTERIX ver=\"%d\" cat=\"%d\">", nXIDEFv, m_pCategory->m_id);
+		strNewResult = format("\n<ASTERIX ver=\"%d\" crc=\"%08X\" cat=\"%d\">", nXIDEFv, m_nCrc, m_pCategory->m_id);
 		break;
   }
 

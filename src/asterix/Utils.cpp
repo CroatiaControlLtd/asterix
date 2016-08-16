@@ -50,3 +50,14 @@ std::string format(const char *fmt, ...)
     return s;
 }
 
+uint32_t crc32(const void* pBuffer, size_t nLength, uint32_t nPreviousCrc32 = 0)
+{
+    uint32_t nCrc = ~nPreviousCrc32; // same as previousCrc32 ^ 0xFFFFFFFF
+    const uint8_t* pCurrent = (const uint8_t*) pBuffer;
+
+    while (nLength-- > 0) {
+	nCrc = (nCrc >> 8) ^ Crc32Lookup[(nCrc & 0xFF) ^ *pCurrent++];
+    }
+
+    return ~nCrc; // same as crc ^ 0xFFFFFFFF
+}
