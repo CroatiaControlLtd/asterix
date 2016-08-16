@@ -3,5 +3,5 @@
 Installation
 ============
 
-pip install asterix
+pip install asterix_decoder
 
