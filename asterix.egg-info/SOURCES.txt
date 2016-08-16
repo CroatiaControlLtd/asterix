@@ -46,7 +46,6 @@ setup.py
 ./src/python/python_wrapper.c
 ./src/python/version.h
 asterix/__init__.py
-asterix/__init__.pyc
 asterix.egg-info/PKG-INFO
 asterix.egg-info/SOURCES.txt
 asterix.egg-info/dependency_links.txt
@@ -87,11 +86,7 @@ asterix/sample_data/cat_062_065.pcap
 asterix/test/__init__.py
 asterix/test/test_init.py
 asterix/test/test_parse.py
-asterix/test/test_parse.pyc
 asterix/test/valgrind-python.supp.txt
-asterix/test/__pycache__/__init__.cpython-34.pyc
-asterix/test/__pycache__/test_init.cpython-34.pyc
-asterix/test/__pycache__/test_parse.cpython-34.pyc
 install/config/asterix.dtd
 install/config/asterix.ini
 install/config/asterix_bds.xml
@@ -217,8 +212,6 @@ src/main/asterix.h
 src/main/version.h
 src/python/asterix.c
 src/python/python_parser.cpp
-src/python/python_parser.cpp~
 src/python/python_parser.h
-src/python/python_parser.h~
 src/python/python_wrapper.c
 src/python/version.h

@@ -96,7 +96,7 @@ sample_files = ['./asterix/sample_data/cat048.raw',
                 './asterix/sample_data/cat_034_048.pcap',
                 './asterix/sample_data/cat_062_065.pcap']
 
-setup (name = 'asterix',
+setup (name = 'asterix_decoder',
        packages = ['asterix'],
        version = get_version(),
        description = "ASTERIX decoder in Python",
