@@ -13,8 +13,7 @@
 --> 
 
 <Category id="34" name="Transmission of Monoroadar Service Messages" ver="1.0">
-<!--  Artifitial id 444 - true id 0 -->
-    <DataItem id="444">
+    <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
         <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">

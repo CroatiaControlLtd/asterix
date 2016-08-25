@@ -344,7 +344,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -484,7 +484,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -904,7 +904,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -1324,7 +1324,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -2869,7 +2869,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -3760,7 +3760,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -3911,7 +3911,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -4062,7 +4062,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -4089,7 +4089,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 01 ]
 	Message Type: 1 (North marker message)
 
@@ -4152,7 +4152,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 01 ]
 	Message Type: 1 (North marker message)
 
@@ -4215,7 +4215,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 205
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -4242,7 +4242,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 205
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5411,7 +5411,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5438,7 +5438,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 201
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5465,7 +5465,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 204
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5492,7 +5492,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 204
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5705,7 +5705,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 11
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -5943,7 +5943,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 11
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6212,7 +6212,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 11
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6481,7 +6481,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 11
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6803,7 +6803,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 14
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6853,7 +6853,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 14
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6903,7 +6903,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 14
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -6953,7 +6953,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 14
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -9462,7 +9462,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -9598,7 +9598,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -10076,7 +10076,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -10306,7 +10306,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 13
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -11733,7 +11733,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -12506,7 +12506,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -12934,7 +12934,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -13362,7 +13362,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 12
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -13389,7 +13389,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 205
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 
@@ -13416,7 +13416,7 @@ Item 010 : Data Source Identifier
 	System Area Code: 25
 	System Identification Code: 205
 
-Item 444 : Message Type
+Item 000 : Message Type
 [ 02 ]
 	Message Type: 2 (Sector crossing message)
 

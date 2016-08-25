@@ -937,7 +937,7 @@ CAT032:I460:Mode3A                                           Mode 3/A Code
 CAT032:I480:CCFL                                             Current cleared flight level
 CAT032:I490:CENTRE                                           Group identification code
 CAT032:I490:POSITION                                         Control Position identification code
-CAT034:I444:MsgTyp                                           Message Type
+CAT034:I000:MsgTyp                                           Message Type
 CAT034:I010:SAC                                              System Area Code
 CAT034:I010:SIC                                              System Identification Code
 CAT034:I020:Azi                                              Antenna azimuth
