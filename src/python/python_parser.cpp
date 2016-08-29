@@ -24,6 +24,7 @@
 #define LOGDEBUG(cond, ...)
 #define LOGERROR(cond, ...)
 
+#include <sys/time.h>
 #include "python_parser.h"
 #include "AsterixDefinition.h"
 #include "XMLParser.h"
@@ -67,9 +68,14 @@ int python_init(const char* xml_config_file)
 
 PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
 {
+    // get current timstamp in ms since epoch
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+
     if (inputParser)
     {
-        AsterixData* pData = inputParser->parsePacket(pBuf, len);
+        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp);
         if (pData)
         { // convert to Python format
           PyObject *lst = pData->getData();

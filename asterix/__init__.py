@@ -51,7 +51,7 @@ Example:
 import _asterix
 import os
 import sys
-
+from datetime import datetime
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)
 
@@ -110,8 +110,17 @@ def describe(parsed):
     for record in parsed:
         i+=1
         txt += '\n\nAsterix record: %d ' % i
+        len = record['len']
+        txt += '\nLen: %ld' % (len)
+        crc = record['crc']
+        txt += '\nCRC: %s' % (crc)
+        ts = record['ts']
+        strts = datetime.fromtimestamp(ts/1000.)
+
+        txt += '\nTimestamp: %ld (%s)' % (ts, strts)
         cat = record['category']
         txt += '\nCategory: %d (%s)' % (cat, _asterix.describe(cat))
+
         for key, value in record.items():
             if key != 'category':
                 txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))

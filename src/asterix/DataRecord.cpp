@@ -370,6 +370,26 @@ PyObject* DataRecord::getData()
 	Py_DECREF(k1);
 	Py_DECREF(v1);
 
+	PyObject* k2 = Py_BuildValue("s", "len");
+	PyObject* v2 = Py_BuildValue("l", m_nLength);
+	PyDict_SetItem(p, k2, v2);
+	Py_DECREF(k2);
+	Py_DECREF(v2);
+
+    char hexcrc[9];
+    sprintf(hexcrc, "%08X", m_nCrc);
+	PyObject* k3 = Py_BuildValue("s", "crc");
+	PyObject* v3 = Py_BuildValue("s", hexcrc);
+	PyDict_SetItem(p, k3, v3);
+	Py_DECREF(k3);
+	Py_DECREF(v3);
+
+	PyObject* k4 = Py_BuildValue("s", "ts");
+	PyObject* v4 = Py_BuildValue("l", m_nTimestamp);
+	PyDict_SetItem(p, k4, v4);
+	Py_DECREF(k4);
+	Py_DECREF(v4);
+
 	if (!pUAP)
 	{
 		Tracer::Error("UAP for CAT%03d not found!", m_pCategory->m_id);
