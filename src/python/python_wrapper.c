@@ -40,16 +40,16 @@ say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
     if (!PyArg_ParseTuple(args, "s", &name))
         return NULL;
 
-	/* Time to call the callback */
-	PyObject *arglist;
-	PyObject *result;
-	arglist = Py_BuildValue("(s)", "Hello world!!!");
-	result = PyObject_CallObject(my_callback, arglist);
-	Py_DECREF(arglist);
-	if (result == NULL)
-	    return NULL; /* Pass error back */
-	/// use result...
-	Py_DECREF(result);
+    /* Time to call the callback */
+    PyObject *arglist;
+    PyObject *result;
+    arglist = Py_BuildValue("(s)", "Hello world!!!");
+    result = PyObject_CallObject(my_callback, arglist);
+    Py_DECREF(arglist);
+    if (result == NULL)
+        return NULL; /* Pass error back */
+    /// use result...
+    Py_DECREF(result);
 
     Py_RETURN_NONE;
 }
@@ -60,12 +60,12 @@ init(PyObject* self, PyObject* args, PyObject *kwargs)
     if (!PyArg_ParseTuple(args, "s", &ini_filename))
         return Py_BuildValue("i", -1);
 
-	int ret = python_init(ini_filename);
-	if (ret == 0)
-	{
-		bInitialized = 1;
+    int ret = python_init(ini_filename);
+    if (ret == 0)
+    {
+        bInitialized = 1;
         return Py_BuildValue("i", 0);
-	}
+    }
 
     return Py_BuildValue("i", -2);
 }
@@ -123,16 +123,16 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
     if (!PyArg_ParseTuple(args, "s#", &data, &len))
         return NULL;
 
-	if (!bInitialized)
-	{
-	    printf("Not initialized!");
-	    return NULL;
-	}
+    if (!bInitialized)
+    {
+        printf("Not initialized!");
+        return NULL;
+    }
 
-	PyObject *lstBlocks = python_parse((const unsigned char*) data, len);
-	if (lstBlocks == NULL)
-		return PyList_New(0);
-	return lstBlocks;
+    PyObject *lstBlocks = python_parse((const unsigned char*) data, len);
+    if (lstBlocks == NULL)
+        return PyList_New(0);
+    return lstBlocks;
 }
 
 
