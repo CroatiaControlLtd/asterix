@@ -23,12 +23,12 @@
 
 #ifndef INPUTPARSER_H_
 #define INPUTPARSER_H_
+#include "AsterixDefinition.h"
+#include "AsterixData.h"
 #include <ios>
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include "AsterixDefinition.h"
-#include "AsterixData.h"
 
 class InputParser
 {

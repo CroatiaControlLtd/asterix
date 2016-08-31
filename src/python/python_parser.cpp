@@ -24,11 +24,11 @@
 #define LOGDEBUG(cond, ...)
 #define LOGERROR(cond, ...)
 
-#include <sys/time.h>
 #include "python_parser.h"
 #include "AsterixDefinition.h"
 #include "XMLParser.h"
 #include "InputParser.h"
+#include <sys/time.h>
 
 static AsterixDefinition* pDefinition = NULL;
 static InputParser *inputParser = NULL;

@@ -23,8 +23,8 @@
 
 #ifndef XMLPARSER_H_
 #define XMLPARSER_H_
-#include "expat.h"
 #include "AsterixDefinition.h"
+#include "expat.h"
 #include "DataItemFormatFixed.h"
 #include "DataItemFormatVariable.h"
 #include "DataItemFormatCompound.h"

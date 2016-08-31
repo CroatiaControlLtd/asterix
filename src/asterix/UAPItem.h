@@ -24,8 +24,8 @@
 #ifndef UAPITEM_H_
 #define UAPITEM_H_
 
-#include "Tracer.h"
 #include "DataItemFormat.h"
+#include "Tracer.h"
 
 
 class UAPItem : public DataItemFormat

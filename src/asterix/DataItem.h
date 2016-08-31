@@ -23,9 +23,8 @@
 #ifndef DATAITEM_H_
 #define DATAITEM_H_
 
-#include <string>
-
 #include "DataItemDescription.h"
+#include <string>
 
 class DataItem
 {

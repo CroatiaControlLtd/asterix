@@ -21,8 +21,8 @@
  *
  */
 
-#include <memory.h>
 #include "AsterixDefinition.h"
+#include <memory.h>
 
 AsterixDefinition::AsterixDefinition()
 {

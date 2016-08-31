@@ -24,10 +24,9 @@
 #ifndef ASTERIXDATA_H_
 #define ASTERIXDATA_H_
 
-#include <map>
-
 #include "AsterixDefinition.h"
 #include "DataBlock.h"
+#include <map>
 
 class AsterixData
 {

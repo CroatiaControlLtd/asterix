@@ -23,11 +23,10 @@
 #ifndef CATEGORY_H_
 #define CATEGORY_H_
 
-#include <string>
-#include <list>
-
 #include "DataItemDescription.h"
 #include "UAP.h"
+#include <string>
+#include <list>
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 #include "WiresharkWrapper.h"
