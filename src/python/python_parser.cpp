@@ -47,7 +47,7 @@ static void debug_trace(char const*format, ...)
   vsnprintf (buffer, 1024, format, args);
   va_end (args);
   strcat(buffer, "\n");
-  printf(buffer); // TODO
+  LOGERROR(1, "%s", buffer); // TODO
   // TODO PyErr_SetString(PyExc_RuntimeError, buffer);
 }
 
