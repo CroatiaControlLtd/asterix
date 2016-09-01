@@ -1,12 +1,18 @@
 # !/usr/bin/python
-__author__ = 'dsalanti'
 
 import asterix
 import unittest
 import os
+import sys
 
 
 class AsterixInitTest(unittest.TestCase):
+
+    def assertRaisesRegexpression(self, exc, text):
+        if sys.version_info < (3, 0, 0):
+            return self.assertRaisesRegexp(exc, text)
+        else:
+            return self.assertRaisesRegex(exc, text)
 
     def test_init_ok(self):
         sample_init = os.path.join(os.path.dirname(__file__), '../config/asterix_cat062_1_16.xml')
@@ -26,11 +32,12 @@ class AsterixInitTest(unittest.TestCase):
             asterix.init("unknown_file.xml")
 
     def test_init_syntax_error(self):
-        with self.assertRaisesRegexp(SyntaxError, "Unknown tag: noCategory*"):
+
+        with self.assertRaisesRegexpression(SyntaxError, "Unknown tag: noCategory*"):
             sample_init = os.path.join(os.path.dirname(__file__), './parsing_error_1.xml')
             asterix.init(sample_init)
 
-        with self.assertRaisesRegexp(SyntaxError, "XMLParser : <Bits> without <Format>*"):
+        with self.assertRaisesRegexpression(SyntaxError, "XMLParser : <Bits> without <Format>*"):
             sample_init = os.path.join(os.path.dirname(__file__), './parsing_error_2.xml')
             asterix.init(sample_init)
 
