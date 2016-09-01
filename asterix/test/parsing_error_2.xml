@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	This definition file is used to test errors in XML file.
+	Do not use it for normal work.
+
+-->
+
+<Category id="62" name="SDPS Track Messages" ver="1.16">
+	
+	<DataItem id="010" rule="mandatory" >
+		<DataItemName>Data Source Identifier</DataItemName>	
+		<DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
+		<DataItemFormat>
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>System Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>System Identification Code</BitsName>
+				</Bits>
+		</DataItemFormat>
+		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
+	</DataItem>
+	
+	</Category>
+	

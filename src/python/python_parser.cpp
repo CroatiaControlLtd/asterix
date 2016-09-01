@@ -39,11 +39,25 @@ bool gVerbose = false;
 bool gForceRouting = false;
 int gHeartbeat = 0;
 
+static void debug_trace(char const*format, ...)
+{
+  char buffer[1024];
+  va_list args;
+  va_start (args, format);
+  vsnprintf (buffer, 1024, format, args);
+  va_end (args);
+  strcat(buffer, "\n");
+  printf(buffer); // TODO
+  // TODO PyErr_SetString(PyExc_RuntimeError, buffer);
+}
+
 /*
  * Initialize Asterix Python with XML configuration file
  */
 int python_init(const char* xml_config_file)
 {
+    Tracer::Configure(debug_trace);
+
     if (!pDefinition)
         pDefinition = new AsterixDefinition();
 
@@ -53,7 +67,8 @@ int python_init(const char* xml_config_file)
     FILE* fp = fopen(xml_config_file, "rt");
     if (!fp)
     {
-      return -11;
+        PyErr_SetString(PyExc_IOError, "Input file not found.");
+        return -1;
     }
     // parse format file
     XMLParser Parser;

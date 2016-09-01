@@ -57,17 +57,17 @@ say_hello(PyObject* self, PyObject* args, PyObject *kwargs)
 PyObject*
 init(PyObject* self, PyObject* args, PyObject *kwargs)
 {
-    if (!PyArg_ParseTuple(args, "s", &ini_filename))
-        return Py_BuildValue("i", -1);
-
+    if (!PyArg_ParseTuple(args, "s", &ini_filename)) {
+        PyErr_SetString(PyExc_ValueError, "Parameter must be string containing path to XML configuration file");
+        return NULL;
+    }
     int ret = python_init(ini_filename);
     if (ret == 0)
     {
         bInitialized = 1;
         return Py_BuildValue("i", 0);
     }
-
-    return Py_BuildValue("i", -2);
+    return NULL;
 }
 
 
@@ -130,6 +130,8 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
     }
 
     PyObject *lstBlocks = python_parse((const unsigned char*) data, len);
+    if (PyErr_Occurred())
+        return NULL;
     if (lstBlocks == NULL)
         return PyList_New(0);
     return lstBlocks;

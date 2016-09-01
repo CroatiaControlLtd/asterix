@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	This definition file is used to test errors in XML file.
+	Do not use it for normal work.
+
+-->
+
+<noCategory id="62" name="SDPS Track Messages" ver="1.16">
+	
+
+</noCategory>
+	

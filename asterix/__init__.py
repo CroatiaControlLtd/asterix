@@ -52,6 +52,7 @@ import _asterix
 import os
 import sys
 from datetime import datetime
+
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)
 
@@ -61,25 +62,31 @@ from datetime import datetime
 
 
 def init(filename):
-    """ Initializes asterix with category definition
-
-    :param filename: Path to XML definition file
-    :return: 0 if successful
-
+    """ Initializes asterix with XML category definition
+    Args:
+        filename: Path to XML definition file
+    Returns:
+        0: if OK
+    Raises:
+        SyntaxError: if there is a syntax error in XMl file
+        RuntimeError: if there is some internal problem
+        IOError: if XML file is not found or can't be read
+        ValueError: if parameter is not string
+        TypeError: if there is more or less than 1 parameter
     Example:
-    >>> asterix.init(path_to_your_config_file)
+        >>> asterix.init(path_to_your_config_file)
     """
     return _asterix.init(filename)
 
 
 def describe(category, item=None, field=None, value=None):
-    """
-    Return the description of specific Category, Item, Field and Value in Asterix specification
-    :param category: Asterix category (e.g. 62)
-    :param item: Asterix Item ID (e.g. 'I010')
-    :param field: Asterix field name (e.g. 'SAC')
-    :param value: Asterix field value meaning (e.g. 1)
-    :return:
+    """ Return the description of specific Category, Item, Field and Value in Asterix specification
+    Args:
+        category: Asterix category (e.g. 62)
+        item: Asterix Item ID (e.g. 'I010')
+        field: Asterix field name (e.g. 'SAC')
+        value: Asterix field value meaning (e.g. 1)
+
     """
     if value:
         return _asterix.describe(category, item, field, value)
@@ -91,8 +98,10 @@ def describe(category, item=None, field=None, value=None):
 
 def parse(data):
     """ Parse raw asterix data
-    :param data: Bytes to be parsed
-    :return: list of asterix records
+    Args:
+        data: Bytes to be parsed
+    Returns:
+        list of asterix records
     """
     if sys.version_info <= (2, 7):
         return _asterix.parse(buffer(data))
@@ -100,10 +109,11 @@ def parse(data):
 
 
 def describe(parsed):
-    """
-    Describe all elements in Asterix data in textual format.
-    :param parsed: Parsed Asterix packet returned by ateris.parse
-    :return: Formatted string describing all Asterix data
+    """ Describe all elements in Asterix data in textual format.
+    Args:
+        parsed: Parsed Asterix packet returned by ateris.parse
+    Returns:
+         Formatted string describing all Asterix data
     """
     i = 0
     txt = ''
@@ -138,13 +148,11 @@ def describe(parsed):
 
 
 def list_sample_files():
-    """
-    Return the list of Asterix format sample files from the package
-    :return: list of Asterix sample files
-
-    >>> list_sample_files()
-    todo
-
+    """ Return the list of Asterix format sample files from the package
+    Returns:
+         list of Asterix sample files
+    Example:
+        >>> list_sample_files()
     """
     sample_files = []
     filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
@@ -156,10 +164,11 @@ def list_sample_files():
 
 
 def get_sample_file(match):
-    """
-    Returns first Asterix sample file matching the parameter string
-    :param match: Search string for sample file
-    :return: Sample file path
+    """ Returns first Asterix sample file matching the parameter string
+    Args:
+        match: Search string for sample file
+    Returns:
+         Sample file path
     """
     filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
     for fn in sorted(os.listdir(filepath)):
@@ -169,9 +178,9 @@ def get_sample_file(match):
 
 
 def list_configuration_files():
-    """
-    Return the list of Asterix configuration files from the package
-    :return: list of Asterix configuration files
+    """ Return the list of Asterix configuration files from the package
+    Returns:
+        list of Asterix configuration files
     """
     sample_files = []
     filepath = os.path.join(os.path.dirname(__file__), 'config')
@@ -183,10 +192,11 @@ def list_configuration_files():
 
 
 def get_configuration_file(match):
-    """
-    Returns first Asterix configuration file matching the parameter string
-    :param match: Search string for configuration file
-    :return: Configuration file path
+    """ Returns first Asterix configuration file matching the parameter string
+    Args:
+        match: Search string for configuration file
+    Returns:
+         Configuration file path
     """
     filepath = os.path.join(os.path.dirname(__file__), 'config')
     for fn in sorted(os.listdir(filepath)):

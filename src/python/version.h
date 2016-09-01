@@ -22,4 +22,4 @@
  */
 
 
-#define PYASTERIX_VERSION "0.2.0"
+#define PYASTERIX_VERSION "0.2.1"

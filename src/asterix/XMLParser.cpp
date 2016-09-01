@@ -57,7 +57,11 @@ bool XMLParser::GetAttribute(const char* elementName, const char* attrName, std:
 	{
 		if (ptrString == NULL)
 		{
+#ifdef PYTHON_WRAPPER
+            PyErr_SetString(PyExc_SyntaxError, "XMLParser : Attribute parsing error");
+#else
 			Tracer::Error("XMLParser : Attribute parsing error");
+#endif
 		}
 		else
 		{
@@ -74,7 +78,11 @@ bool XMLParser::GetAttribute(const char* elementName, const char* attrName, int*
 	{
 		if (ptrInt == NULL)
 		{
+#ifdef PYTHON_WRAPPER
+            PyErr_SetString(PyExc_SyntaxError, "XMLParser : Attribute parsing error");
+#else
 			Tracer::Error("XMLParser : Attribute parsing error");
+#endif
 		}
 		else
 		{
@@ -99,7 +107,12 @@ void XMLParser::Error(const char* errstr)
 	std::string tmpstr(errstr);
 	tmpstr += strLine;
 	tmpstr += "\n";
+
+#ifdef PYTHON_WRAPPER
+    PyErr_SetString(PyExc_SyntaxError, (char*)tmpstr.c_str());
+#else
 	Tracer::Error((char*)tmpstr.c_str());
+#endif
 
 	m_bErrorDetectedStopParsing = true;
 }
@@ -114,7 +127,11 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 
 	if (p == NULL)
 	{
+#ifdef PYTHON_WRAPPER
+        PyErr_SetString(PyExc_RuntimeError, "Missing Parser!");
+#else
 		Tracer::Error("Missing Parser!");
+#endif
 		return;
 	}
 
@@ -808,7 +825,11 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 
 	if (p == NULL)
 	{
+#ifdef PYTHON_WRAPPER
+        PyErr_SetString(PyExc_RuntimeError, "Missing Parser!");
+#else
 		Tracer::Error("Missing Parser!");
+#endif
 		return;
 	}
 
@@ -992,7 +1013,11 @@ XMLParser::XMLParser()
 	m_Parser = XML_ParserCreate(NULL);
 	if (!m_Parser)
 	{
+#ifdef PYTHON_WRAPPER
+        PyErr_SetString(PyExc_RuntimeError, "Couldn't allocate memory for parser");
+#else
 		Tracer::Error("Couldn't allocate memory for parser");
+#endif
 	}
 
 	XML_SetElementHandler(m_Parser, ElementHandlerStart, ElementHandlerEnd);
@@ -1027,7 +1052,11 @@ bool XMLParser::Parse(FILE* pFile, AsterixDefinition* pDefinition, const char* f
 		len = (int)fread(m_pBuff, 1, BUFFSIZE, pFile);
 		if (ferror(pFile))
 		{
+#ifdef PYTHON_WRAPPER
+        PyErr_SetString(PyExc_IOError, "Format file read error.");
+#else
 			Tracer::Error("Format file read error.");
+#endif
 			return false;
 		}
 		done = feof(pFile);
