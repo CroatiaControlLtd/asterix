@@ -45,6 +45,9 @@ AsterixDefinition::~AsterixDefinition()
 
 Category* AsterixDefinition::getCategory(int i)
 {
+  if (i >= MAX_CATEGORIES)
+    return NULL;
+
   if (m_pCategory[i] == NULL)
   {
     m_pCategory[i] = new Category(i);
@@ -53,19 +56,21 @@ Category* AsterixDefinition::getCategory(int i)
   return m_pCategory[i];
 }
 
-Category* AsterixDefinition::newCategory(int i)
+void AsterixDefinition::setCategory(Category* newCategory)
 {
-  if (m_pCategory[i] != NULL)
+  if (newCategory != NULL)
   {
-    delete m_pCategory[i];
-    m_pCategory[i] = NULL;
+     if (m_pCategory[newCategory->m_id] != NULL)
+     {
+        delete m_pCategory[newCategory->m_id];
+     }
+     m_pCategory[newCategory->m_id] = newCategory;
   }
-  return getCategory(i);
 }
 
 bool AsterixDefinition::CategoryDefined(int i)
 {
-  return (m_pCategory[i] != NULL) ? true : false;
+  return (i < MAX_CATEGORIES && m_pCategory[i] != NULL) ? true : false;
 }
 
 std::string AsterixDefinition::printDescriptors()

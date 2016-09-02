@@ -1,9 +1,5 @@
-# !/usr/bin/python
-__author__ = 'dsalanti'
-
 import asterix
 import unittest
-import os
 
 
 class AsterixParseTest(unittest.TestCase):
@@ -86,9 +82,9 @@ class AsterixParseTest(unittest.TestCase):
         with open(sample_filename, "rb") as f:
             data = f.read()
             packet = asterix.parse(data)
-
             self.assertIsNotNone(packet)
             self.assertIsNotNone(packet[0])
+            self.assertIs(len(data), 195)
             self.assertIs(len(packet), 3)
             self.assertIs(packet[0]['category'], 62)
             self.assertIs(packet[0]['len'], 66)

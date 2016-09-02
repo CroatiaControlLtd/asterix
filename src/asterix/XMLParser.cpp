@@ -153,11 +153,12 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 
 				if (id >= 0 && id <= MAX_CATEGORIES)
 				{
-					p->m_pCategory = p->m_pDef->newCategory(id);
+					p->m_pCategory = new Category(id);
 				}
 				else
 				{
 					p->Error("XMLParser : Wrong category: ", attr[i+1]);
+					break;
 				}
 			}
 			else if (!strcmp(attr[i], "name"))
@@ -840,6 +841,7 @@ void XMLParser::ElementHandlerEnd(void *data, const char *el)
 	{
 		if (p->m_pCategory)
 		{
+            p->m_pDef->setCategory(p->m_pCategory);
 			p->m_pCategory = NULL;
 		}
 		else
@@ -1053,7 +1055,7 @@ bool XMLParser::Parse(FILE* pFile, AsterixDefinition* pDefinition, const char* f
 		if (ferror(pFile))
 		{
 #ifdef PYTHON_WRAPPER
-        PyErr_SetString(PyExc_IOError, "Format file read error.");
+            PyErr_SetString(PyExc_IOError, "Format file read error.");
 #else
 			Tracer::Error("Format file read error.");
 #endif

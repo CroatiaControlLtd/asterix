@@ -39,7 +39,7 @@ public:
   ~AsterixDefinition();
 
   Category* getCategory(int i);
-  Category* newCategory(int i);
+  void setCategory(Category* newCategory);
   bool CategoryDefined(int i);
   std::string printDescriptors();
   bool filterOutItem(int cat, std::string item, const char* name);
