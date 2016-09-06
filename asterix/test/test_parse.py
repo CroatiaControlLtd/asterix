@@ -37,9 +37,22 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['I200'], {'CGS': {'desc': 'Calculated groundspeed', 'val': 434.94},
                                                  'CHdg': {'desc': 'Calculated heading', 'val': 124.002685546875}})
             self.assertEqual(packet[0]['I220'], {'ACAddr': {'desc': 'AircraftAddress', 'val': '3C660C'}})
-            self.assertEqual(packet[0]['I250'], [{'MBdata': {'desc': 'MBdata', 'val': 'C0780031BC0000'},
-                                                  'DSB1': {'desc': 'Comm B Data Buffer Store 1', 'val': 4},
-                                                  'DSB2': {'desc': 'Comm B Data Buffer Store 2', 'val': 0}}])
+            self.assertEqual(packet[0]['I250'], {'ALT_HOLD': {'val': 0, 'desc': 'ALT HOLD Mode',
+                                                               'meaning': 'Not active'},
+                                                  'APP': {'val': 0, 'desc': 'APPROACH Mode', 'meaning': 'Not active'},
+                                                  'BP_STATUS': {'val': 1, 'desc': 'Barometric Pressure Status'},
+                                                  'MODE_STATUS': {'val': 0, 'desc': 'Status of MCP/FCU Mode Bits'},
+                                                  'MCP_ALT': {'val': 33008.0, 'desc': 'MCP/FCU Selected Altitude'},
+                                                  'VNAV': {'val': 0, 'desc': 'VNAV Mode', 'meaning': 'Not active'},
+                                                  'FMS_ALT_STATUS': {'val': 0, 'desc': 'FMS Altitude Status'},
+                                                  'FMS_ALT': {'val': 0.0, 'desc': 'FMS Selected Altitude'},
+                                                  'res': {'val': 0, 'desc': 'Reserved'},
+                                                  'MCP_ALT_STATUS': {'val': 1, 'desc': 'MCP Altitude Status'},
+                                                  'TARGET_ALT_STATUS': {'val': 0, 'desc': 'Status of Target ALT source bits',
+                                                                        'meaning': 'No source information provided'},
+                                                  'BP': {'val': 227.0, 'desc': 'Barometric Pressure'},
+                                                  'TARGET_ALT_SOURCE': {'val': 0, 'desc': 'Target ALT source',
+                                                                        'meaning': 'Unknown'}})
             self.assertEqual(packet[0]['I040'], {'THETA': {'desc': '', 'val': 340.13671875},
                                                  'RHO': {'desc': '', 'max': 256.0, 'val': 197.68359375}})
             self.assertEqual(packet[0]['I240'],
