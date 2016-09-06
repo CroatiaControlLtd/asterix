@@ -11,6 +11,7 @@
 	Modified:  30.03.2016. (hubbiedihub) Copied 1.14 version and adapted to 1.21 (XPP field added)
 	Modified:  31.03.2016. (hubbiedihub) Added SI bit in data item 230 and codes 19-23 in data item 030.
                                          Fixed typo in data item 030 code 14 (space was missing)
+    Modified:  6.9.2016. (dsalantic)     Added BDS definition to I250                                            
 
 --> 
 
@@ -1065,26 +1066,10 @@
 	<DataItem id="250" >
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-		<DataItemFormat desc="Repetetive">
-			<Repetitive>
-					<Fixed length="8">
-						<Bits from="64" to="9" encode="hex">
-							<BitsShortName>MBdata</BitsShortName>
-							<BitsName>MBdata</BitsName>						
-						</Bits>
-
-						<Bits from="8" to="5">
-							<BitsShortName>DSB1</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 1</BitsName>
-						</Bits>
-						<Bits from="4" to="1">
-							<BitsShortName>DSB2</BitsShortName>
-							<BitsName>Comm B Data Buffer Store 2</BitsName>                       
-						</Bits>
-					</Fixed>
-			</Repetitive>	
+		<DataItemFormat desc="BDS">
+			<BDS></BDS>
 		</DataItemFormat>
-		<DataItemNote>.</DataItemNote>
+		<DataItemNote/>
 	</DataItem>	
 	
 	<DataItem id="260" >
