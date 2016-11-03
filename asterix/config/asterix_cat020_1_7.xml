@@ -522,7 +522,7 @@
         <DataItemDefinition>Target address (ICAO 24-bit address) assigned uniquely to each Target.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
-                <Bits from="24" to="1">
+                <Bits from="24" to="1" encode="hex">
 					<BitsShortName>TAddr</BitsShortName>
                     <BitsName>24-bits Target Address</BitsName>
                 </Bits>
