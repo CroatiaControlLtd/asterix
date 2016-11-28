@@ -7,8 +7,8 @@
 
     Author:   S.Nastasyak
     Created:  2013-06-21
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-			   23.11.2015. (dsalantic) Fixed scale factor for item 041. Shall be 180/2^31.
+    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+               23.11.2015. (dsalantic) Fixed scale factor for item 041. Shall be 180/2^31.
 
 -->
 
@@ -21,7 +21,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-					<BitsShortName>MsgTyp</BitsShortName>
+                    <BitsShortName>MsgTyp</BitsShortName>
                     <BitsName>Type of msg.</BitsName>
                     <BitsValue val="1">Target Report</BitsValue>
                     <BitsValue val="2">Start of Update Cycle</BitsValue>
@@ -178,13 +178,13 @@
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
-					<BitsShortName>Lat</BitsShortName>
-					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
+                    <BitsShortName>Lat</BitsShortName>
+                    <BitsName>Latitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.00000008381903171539306640625" min="-90" max="90">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
-					<BitsShortName>Lon</BitsShortName>
-					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
+                    <BitsShortName>Lon</BitsShortName>
+                    <BitsName>Longitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.00000008381903171539306640625" min="-180" max="180">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -239,7 +239,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-					<BitsShortName>Mod3A</BitsShortName>
+                    <BitsShortName>Mod3A</BitsShortName>
                     <BitsName>Mode-3/A reply in octal representation</BitsName>
                 </Bits>
             </Fixed>
@@ -262,7 +262,7 @@
                     <BitsValue val="1">Garbled code</BitsValue>
                 </Bits>
                 <Bits from="14" to="1" encode="signed">
-					<BitsShortName>FL</BitsShortName>
+                    <BitsShortName>FL</BitsShortName>
                     <BitsName>Flight Level</BitsName>
                     <BitsUnit scale="0.25">FL</BitsUnit>
                 </Bits>
@@ -276,7 +276,7 @@
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-					<BitsShortName>MHeight</BitsShortName>
+                    <BitsShortName>MHeight</BitsShortName>
                     <BitsName>Measured Height</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft</BitsUnit>
                 </Bits>
@@ -303,7 +303,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-					<BitsShortName>ToD</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -322,7 +322,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1">
-					<BitsShortName>TrkNb</BitsShortName>
+                    <BitsShortName>TrkNb</BitsShortName>
                     <BitsName>Track number</BitsName>
                 </Bits>
             </Fixed>
@@ -431,12 +431,12 @@
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17">
-					<BitsShortName>GS</BitsShortName>
+                    <BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed</BitsName>
                     <BitsUnit scale="0.00006103515625">NM/s</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
-					<BitsShortName>TA</BitsShortName>
+                    <BitsShortName>TA</BitsShortName>
                     <BitsName>Track Angle clockwise reference to True North</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>
@@ -513,7 +513,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="48" to="1" encode="6bitschar">
-					<BitsShortName>TId</BitsShortName>
+                    <BitsShortName>TId</BitsShortName>
                     <BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
                 </Bits>
             </Fixed>
@@ -566,7 +566,7 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits from="8" to="2">
-							<BitsShortName>Ori</BitsShortName>
+                            <BitsShortName>Ori</BitsShortName>
                             <BitsName>Orientation</BitsName>
                             <BitsUnit scale="2.81">deg.</BitsUnit>
                         </Bits>
@@ -678,17 +678,17 @@
                 <Bits from="32" to="25">
                     <BitsShortName>Qx</BitsShortName>
                     <BitsName>Standard deviation X component</BitsName>
-					<BitsUnit scale="0.25"/>
+                    <BitsUnit scale="0.25"/>
                 </Bits>
                 <Bits from="24" to="17">
                     <BitsShortName>Qy</BitsShortName>
                     <BitsName>Standard deviation Y component</BitsName>
-					<BitsUnit scale="0.25"/>
+                    <BitsUnit scale="0.25"/>
                 </Bits>
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>Qxy</BitsShortName>
                     <BitsName>Q(X,Y)</BitsName>
-					<BitsUnit scale="0.25"/>
+                    <BitsUnit scale="0.25"/>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -747,7 +747,7 @@
             <Explicit> 
                 <Fixed length="1"> 
                     <Bits from="8" to="1"> 
-						<BitsShortName>SPval</BitsShortName>
+                        <BitsShortName>SPval</BitsShortName>
                     </Bits> 
                 </Fixed>          
             </Explicit> 

@@ -3,64 +3,64 @@
 
 <!--  
 
-	Asterix Category 247 v1.2 definition (Version Number Exchange) 
-	
-	Author:   Planevision Systems LLC
-	Created:  2015-10-11 (kr)
+    Asterix Category 247 v1.2 definition (Version Number Exchange) 
+    
+    Author:   Planevision Systems LLC
+    Created:  2015-10-11 (kr)
 --> 
 
 <Category id="247" name="Version Number Exchange" ver="1.2">
-	
-	<DataItem id="010">
-		<DataItemName>Data Source Identifier</DataItemName>
-		<DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
-		<DataItemFormat desc="Two-octets fixed length data item.">
-			<Fixed length="2">
-				<Bits from="16" to="9">
-					<BitsShortName>SAC</BitsShortName>
-					<BitsName>System Area Code</BitsName>
-				</Bits>
-				<Bits from="8" to="1">
-					<BitsShortName>SIC</BitsShortName>
-					<BitsName>System Identification Code</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>
+    
+    <DataItem id="010">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the radar station from which the data are received.</DataItemDefinition>
+        <DataItemFormat desc="Two-octets fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
 
-	<DataItem id="015">
+    <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
         <DataItemDefinition>Identification of the service provided to one or more users</DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item">
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>SI</BitsShortName>
-			<BitsName>Service Identification</BitsName>
+            <BitsName>Service Identification</BitsName>
                     </Bits>
                 </Fixed>
         </DataItemFormat>
         </DataItem>
-    	
-	<DataItem id="140" >
-		<DataItemName>Time Of Day</DataItemName>
-		<DataItemDefinition>Absolute time stamping of the information in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
-		<DataItemFormat desc="Three-octet fixed length Data Item">
-			<Fixed length="3">
-				<Bits from="24" to="1">
-					<BitsShortName>ToD</BitsShortName>
-					<BitsName>Time Of Day</BitsName>
-					<BitsUnit scale="0.0078125">s</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>		
-	
-	<DataItem id="550" >
-		<DataItemName>Category Version Number Report</DataItemName>
-		<DataItemDefinition>Version number of Categories used</DataItemDefinition>
-        	<DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Version number report for each Category used and comprising one octet CAT number and one two octets Version Number (Main/Sub).">
-		    <Repetitive>
-                	<Fixed length="3">
+        
+    <DataItem id="140" >
+        <DataItemName>Time Of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping of the information in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time Of Day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>     
+    
+    <DataItem id="550" >
+        <DataItemName>Category Version Number Report</DataItemName>
+        <DataItemDefinition>Version number of Categories used</DataItemDefinition>
+            <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Version number report for each Category used and comprising one octet CAT number and one two octets Version Number (Main/Sub).">
+            <Repetitive>
+                    <Fixed length="3">
                          <Bits from="24" to="17">
                             <BitsShortName>CAT</BitsShortName>
                             <BitsName>CAT</BitsName>
@@ -73,11 +73,11 @@
                             <BitsShortName>SUB</BitsShortName>
                             <BitsName>Sub version</BitsName>
                         </Bits>
-                    	</Fixed>         
-            	     </Repetitive>
-		</DataItemFormat>
-	</DataItem>		
-	
+                        </Fixed>         
+                     </Repetitive>
+        </DataItemFormat>
+    </DataItem>     
+    
 <!--Transmission of Version Number --> 
     <UAP>
       <UAPItem bit="0" frn="1" len="2">010</UAPItem>

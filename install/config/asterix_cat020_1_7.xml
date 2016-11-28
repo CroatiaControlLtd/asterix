@@ -7,7 +7,7 @@
 
     Author:   B.Bertrand
     Created:  2013-01-08
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
 -->
 
@@ -72,7 +72,7 @@
                         <BitsValue val="1">Other Technology Multilateration</BitsValue>
                         <BitsValue val="0">No Other Technology Multilateration</BitsValue>
                     </Bits>
-					<Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
@@ -114,7 +114,7 @@
                         <BitsValue val="0">Default</BitsValue>
                         <BitsValue val="1">Test Target</BitsValue>
                     </Bits>
-					<Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
@@ -144,7 +144,7 @@
                         <BitsValue val="17">Mode S error correction applied</BitsValue>
                         <BitsValue val="18">Undecodable Mode C code / Mode S altitude code</BitsValue>
                     </Bits>
-					<Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
@@ -160,13 +160,13 @@
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
-					<BitsShortName>Lat</BitsShortName>
-					<BitsName>Latitude in WGS-84 in twos complement.</BitsName>
+                    <BitsShortName>Lat</BitsShortName>
+                    <BitsName>Latitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.000005364418029785156" min="-90" max="90">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
-					<BitsShortName>Lon</BitsShortName>
-					<BitsName>Longitude in WGS-84 in twos complement.</BitsName>
+                    <BitsShortName>Lon</BitsShortName>
+                    <BitsName>Longitude in WGS-84 in twos complement.</BitsName>
                     <BitsUnit scale="0.000005364418029785156" min="-180" max="180">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -221,7 +221,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-					<BitsShortName>Mode2</BitsShortName>
+                    <BitsShortName>Mode2</BitsShortName>
                     <BitsName>Mode-2 reply in octal representation</BitsName>
                 </Bits>
             </Fixed>
@@ -248,9 +248,9 @@
                     <BitsValue val="0">Mode-1 code derived from the reply of the transponder</BitsValue>
                     <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker n</BitsValue>
                 </Bits>
-				<Bits from="5" to="1">
-					<!-- encode="octal" not supported on 5 bits -->
-					<BitsShortName>Mode1</BitsShortName>
+                <Bits from="5" to="1">
+                    <!-- encode="octal" not supported on 5 bits -->
+                    <BitsShortName>Mode1</BitsShortName>
                     <BitsName>Mode-1 Code in octal representation</BitsName>
                 </Bits>
             </Fixed>
@@ -283,7 +283,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1" encode="octal">
-					<BitsShortName>Mod3A</BitsShortName>
+                    <BitsShortName>Mod3A</BitsShortName>
                     <BitsName>Mode-3/A reply in octal representation</BitsName>
                 </Bits>
             </Fixed>
@@ -306,7 +306,7 @@
                     <BitsValue val="1">Garbled code</BitsValue>
                 </Bits>
                 <Bits from="14" to="1" encode="signed">
-					<BitsShortName>FL</BitsShortName>
+                    <BitsShortName>FL</BitsShortName>
                     <BitsName>Flight Level</BitsName>
                     <BitsUnit scale="0.25">FL</BitsUnit>
                 </Bits>
@@ -335,7 +335,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="28" to="17">
-					<BitsShortName>ModeC</BitsShortName>
+                    <BitsShortName>ModeC</BitsShortName>
                     <BitsName>Mode-C reply in Gray notation</BitsName>
                 </Bits>
                 <Bits from="16" to="13">
@@ -374,7 +374,7 @@
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-					<BitsShortName>MHeight</BitsShortName>
+                    <BitsShortName>MHeight</BitsShortName>
                     <BitsName>Measured Height</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft</BitsUnit>
                 </Bits>
@@ -388,7 +388,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-					<BitsShortName>ToD</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -407,7 +407,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="12" to="1">
-					<BitsShortName>TrkNb</BitsShortName>
+                    <BitsShortName>TrkNb</BitsShortName>
                     <BitsName>Track number</BitsName>
                 </Bits>
             </Fixed>
@@ -452,7 +452,7 @@
                         <BitsValue val="0">Measured position</BitsValue>
                         <BitsValue val="1">Smoothed position</BitsValue>
                     </Bits>
-					<Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
@@ -469,7 +469,7 @@
                         <BitsName>Spare bits set to zero</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-					<Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into second extent</BitsValue>
@@ -523,7 +523,7 @@
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-					<BitsShortName>TAddr</BitsShortName>
+                    <BitsShortName>TAddr</BitsShortName>
                     <BitsName>24-bits Target Address</BitsName>
                 </Bits>
             </Fixed>
@@ -609,7 +609,7 @@
                     <BitsConst>0</BitsConst>
                 </Bits>
                 <Bits from="48" to="1" encode="6bitschar">
-					<BitsShortName>TId</BitsShortName>
+                    <BitsShortName>TId</BitsShortName>
                     <BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
                 </Bits>
             </Fixed>
@@ -622,7 +622,7 @@
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
                 <Fixed length="8">
-					<Bits from="64" to="9" encode="hex">
+                    <Bits from="64" to="9" encode="hex">
                         <BitsShortName>MB_Data</BitsShortName>
                         <BitsName>(MB Data) 56-bit message conveying Mode S Comm B message data</BitsName>
                     </Bits>
@@ -755,17 +755,17 @@
                         <Bits from="48" to="33">
                             <BitsShortName>DOPx</BitsShortName>
                             <BitsName>DOP along x axis</BitsName>
-						<BitsUnit scale="0.25"/>
+                        <BitsUnit scale="0.25"/>
                         </Bits>
                         <Bits from="32" to="17">
                             <BitsShortName>DOPy</BitsShortName>
                             <BitsName>DOP along y axis</BitsName>
-						<BitsUnit scale="0.25"/>
+                        <BitsUnit scale="0.25"/>
                         </Bits>
                         <Bits from="16" to="1" encode="signed">
                             <BitsShortName>DOPxy</BitsShortName>
                             <BitsName>p(X,Y)</BitsName>
-						<BitsUnit scale="0.25"/>
+                        <BitsUnit scale="0.25"/>
                         </Bits>
                     </Fixed>
                     <Fixed length="6">
@@ -782,7 +782,7 @@
                         <Bits from="16" to="1" encode="signed">
                             <BitsShortName>SDPxy</BitsShortName>
                             <BitsName>Correlation coefficient in two’s complement</BitsName>
-						<BitsUnit scale="0.25"/>
+                        <BitsUnit scale="0.25"/>
                         </Bits>
                     </Fixed>
                     <Fixed length="2">
@@ -1215,20 +1215,20 @@
         </DataItemFormat>    
     </DataItem>
 
-	 <DataItem id="SP" rule="optional">
-		<DataItemName>SP</DataItemName>
-		<DataItemDefinition>SP</DataItemDefinition>
-		<DataItemFormat desc="Fixed">
-			<Explicit>
-				<Fixed length="1">
-					<Bits from="8" to="1">
-						<BitsShortName>SP</BitsShortName>
-						<BitsName>SP</BitsName>
-					</Bits>
-				</Fixed>
-			</Explicit>
-		</DataItemFormat>
-	</DataItem>
+     <DataItem id="SP" rule="optional">
+        <DataItemName>SP</DataItemName>
+        <DataItemDefinition>SP</DataItemDefinition>
+        <DataItemFormat desc="Fixed">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SP</BitsShortName>
+                        <BitsName>SP</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+    </DataItem>
 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>

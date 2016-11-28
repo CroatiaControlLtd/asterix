@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 
 	DTD for Asterix format
@@ -10,6 +9,7 @@
 	Modified:  16.5.2014. (dsalantic) Nested compound enabled
 									  Explicit can contain all types
 			   6.7.2016.  (dsalantic) BDS format added
+			   28.11.2016.  (dsalantic) BDS format fixed
 				
 -->
 
@@ -55,14 +55,17 @@
 			<!ELEMENT Explicit (Fixed|Explicit|Repetitive|Variable|Compound)>
 
 			<!-- Repetitive length data fields -->
-			<!ELEMENT Repetitive (Fixed+|BDS)>
+			<!ELEMENT Repetitive (Fixed+)>
 
 			<!-- Variable (extended) length data fields -->
 			<!ELEMENT Variable (Fixed+)>
 
 			<!-- Compund data fields -->
 			<!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable|Compound)*)>
-            
+
+            <!-- BDS is defined in asterix_bds.xml -->
+			<!ELEMENT BDS (#PCDATA)>
+
 	<!-- User Application Profile -->
 	<!ELEMENT UAP (UAPItem*)>
 	<!ATTLIST UAP use_if_bit_set CDATA "0">
