@@ -11,7 +11,7 @@ import sys
 
 
 CLASSIFIERS = [
-'Development Status :: 2 - Pre-Alpha',
+'Development Status :: 3 - Alpha',
 'Intended Audience :: Developers',
 'License :: OSI Approved :: GNU General Public License (GPL)',
 'Programming Language :: C',
