@@ -96,6 +96,7 @@ def describe(category, item=None, field=None, value=None):
         return _asterix.describe(category, item)
     return _asterix.describe(category)
 
+
 def parse(data):
     """ Parse raw asterix data
     Args:
@@ -106,6 +107,23 @@ def parse(data):
     if sys.version_info <= (2, 7):
         return _asterix.parse(buffer(data))
     return _asterix.parse(bytes(data))
+
+
+def parse_with_offset(data, offset=0, blocks_count=1000):
+    """ Parse raw asterix data with bytes offset with returning number of blocks of data 
+    passed with arguments
+    Args:
+        data: Bytes to be parsed
+        offset: bytes offset
+        blocks_count: number of blocks data to be returned
+    Returns:
+        tuple of two elements:
+            list of asterix records
+            bytes offset at ending of computation
+    """
+    if sys.version_info <= (2, 7):
+        return _asterix.parse_with_offset(buffer(data), offset, blocks_count)
+    return _asterix.parse_with_offset(bytes(data), offset, blocks_count)
 
 
 def describe(parsed):
