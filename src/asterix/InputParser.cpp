@@ -111,6 +111,67 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
   return pAsterixData;
 }
 
+DataBlock* InputParser::parse_next_data_block(const unsigned char* m_pData, unsigned int &m_nPos, unsigned int m_nBufferSize,
+    unsigned long nTimestamp, unsigned int &m_nDataLength)
+/*  parse next data block
+ *  AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
+ */
+{
+      unsigned char nCategory = *m_pData;
+      m_pData ++; m_nPos ++;
+      unsigned short dataLen = *m_pData; // length
+#ifdef _DEBUG
+      unsigned char nDataLen1 = *m_pData;
+#endif
+      m_pData ++; m_nPos ++;
+#ifdef _DEBUG
+      unsigned char nDataLen2 = *m_pData;
+#endif
+      dataLen <<= 8;
+      dataLen |= *m_pData;
+      m_pData ++; m_nPos ++;
+
+      // parse Asterix data
+      if (dataLen <= 3 || dataLen > m_nDataLength)
+      {
+        Tracer::Error("Wrong Asterix data length (%d)", dataLen);
+
+        if (dataLen <= 3)
+        {
+          // otherwise finish
+          return NULL;
+        }
+
+        // there is not enough data, but parse what is there
+        dataLen = (unsigned short)m_nDataLength;
+      }
+
+      m_nDataLength -= 3;
+      dataLen -= 3;
+#ifdef _DEBUG
+      std::stringstream buffer;
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+	std::uppercase << static_cast<unsigned>(nCategory) << " ";
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+        std::uppercase << static_cast<unsigned>(nDataLen1) << " ";
+      buffer << std::hex << std::setfill('0') << std::setw(2) <<
+        std::uppercase << static_cast<unsigned>(nDataLen2) << " ";
+
+      for (int i = 0; i < dataLen; i++) {
+        buffer << std::hex << std::setfill('0') << std::setw(2) <<
+          std::uppercase << static_cast<unsigned>(m_pData[i]) << " ";
+      }
+      std::string hexString = buffer.str();
+      hexString.erase(hexString.size() - 1);
+      LOGDEBUG(1, "[%s]\n", hexString.c_str());
+#endif
+      DataBlock* db = new DataBlock(m_pDefinition->getCategory(nCategory), dataLen, m_pData, nTimestamp);
+      m_pData += dataLen;
+      m_nPos += dataLen;
+      m_nDataLength -= dataLen;
+      return db;
+}
+
 std::string InputParser::printDefinition()
 {
 	return m_pDefinition->printDescriptors();

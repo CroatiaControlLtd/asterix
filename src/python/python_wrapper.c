@@ -137,6 +137,40 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
     return lstBlocks;
 }
 
+PyObject*
+parse_with_offset(PyObject* self, PyObject* args, PyObject *kwargs)
+/* parsing arguments with bytes offset with returning number of blocks of data passed
+ * with arguments
+ * AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
+*/
+{
+    const char* data;
+    Py_ssize_t len;
+    unsigned int offset;
+    unsigned int blocks_count;
+    //int len;
+
+    if (!PyArg_ParseTuple(args, "s#II", &data, &len, &offset, &blocks_count))
+        return NULL;
+
+    if (!bInitialized)
+    {
+        printf("Not initialized!");
+        return NULL;
+    }
+
+    PyObject *py_output = python_parse_with_offset((const unsigned char*) data, len, offset, blocks_count);
+    if (PyErr_Occurred())
+        return NULL;
+    if (py_output == NULL) 
+    {
+		PyObject* empty_list = PyList_New(0);
+		PyObject* offset_value = Py_BuildValue("l", offset); 
+        return PyTuple_Pack(2, empty_list, offset_value);
+	}
+    return py_output;
+}
+
 
 PyObject *
 set_callback(PyObject* self, PyObject *args)

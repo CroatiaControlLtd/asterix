@@ -40,6 +40,7 @@
 PyObject* say_hello(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* init(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* parse(PyObject* self, PyObject *args, PyObject *kwargs);
+PyObject* parse_with_offset(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* describe(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* set_callback(PyObject* self, PyObject *args);
 
@@ -50,6 +51,7 @@ static PyMethodDef asterixMethods[] = {
   {"init", (PyCFunction) init, METH_VARARGS | METH_KEYWORDS, "Initializes asterix converter" ENCODER_HELP_TEXT},
   {"describe", (PyCFunction) describe, METH_VARARGS, "Describe ASTERIX item" ENCODER_HELP_TEXT},
   {"parse", (PyCFunction) parse, METH_VARARGS | METH_KEYWORDS, "Parse ASTERIX data" ENCODER_HELP_TEXT},
+  {"parse_with_offset", (PyCFunction) parse_with_offset, METH_VARARGS | METH_KEYWORDS, "Parse ASTERIX data with bytes offset" ENCODER_HELP_TEXT},
   {"set_callback", (PyCFunction) set_callback, METH_VARARGS, "Set callback function" ENCODER_HELP_TEXT},
   {NULL, NULL, 0, NULL}       /* Sentinel */
 };

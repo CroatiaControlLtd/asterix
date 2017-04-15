@@ -101,6 +101,46 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
     return NULL;
 }
 
+PyObject *python_parse_with_offset(const unsigned char* pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count)
+/* AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
+*/
+{
+    // get current timstamp in ms since epoch
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+
+    if (inputParser)
+    {
+        AsterixData* pData = new AsterixData();
+        unsigned int m_nPos = offset;
+        unsigned int current_blocks_count = 0;
+        while (m_nPos < len && current_blocks_count < blocks_count)
+        {
+            unsigned int m_nDataLength = len - m_nPos;
+            while (m_nDataLength > 3 && current_blocks_count < blocks_count)
+            {
+				const unsigned char* pBuf_offset = (pBuf + m_nPos);
+                DataBlock* block = inputParser->parse_next_data_block(
+                    pBuf_offset, m_nPos, len, nTimestamp, m_nDataLength);
+                if (block) {
+                    pData->m_lDataBlocks.push_back(block);
+                    current_blocks_count++;
+                }
+            }
+        }
+        if (pData)
+        { // convert to Python format
+          PyObject *lst = pData->getData();
+          delete pData;
+          PyObject* py_m_nPos = Py_BuildValue("l", m_nPos);
+          PyObject* py_output = PyTuple_Pack(2, lst, py_m_nPos);
+          return py_output;
+        }
+    }
+    return NULL;
+}
+
 PyObject *python_describe(int category, const char* item=NULL, const char* field=NULL, const char* value=NULL)
 {
     if (!pDefinition)

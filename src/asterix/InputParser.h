@@ -25,6 +25,7 @@
 #define INPUTPARSER_H_
 #include "AsterixDefinition.h"
 #include "AsterixData.h"
+#include "DataBlock.h"
 #include <ios>
 #include <iostream>
 #include <iomanip>
@@ -36,7 +37,9 @@ public:
   InputParser(AsterixDefinition* pDefinition);
   ~InputParser() { if (m_pDefinition) delete m_pDefinition; }
   AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp = 0);
-
+  DataBlock* parse_next_data_block(const unsigned char* m_pData, unsigned int &m_nPos, unsigned int m_nBufferSize,
+    unsigned long nTimestamp, unsigned int &m_nDataLength);
+  
   std::string printDefinition();
   bool filterOutItem(int cat, std::string item, const char* name);
   bool isFiltered(int cat, std::string item, const char* name);
