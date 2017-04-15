@@ -1,29 +1,29 @@
 language: python
-
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "nightly" # currently points to 3.6-dev
-
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- '3.5'
+- 3.5-dev
+- nightly
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install valgrind
-#  - pip install -r requirements.txt
-
+- sudo apt-get -qq update
+- sudo apt-get install valgrind
 compiler:
-  - gcc
-
+- gcc
 install:
-  - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make test;cd ..; fi
-  #- if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then pip install -r requirements/py2kreqs.txt; fi
-  #- if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then pip install -r requirements/py3kreqs.txt; fi
-  - python setup.py install
-
+- if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make
+  test;cd ..; fi
+- python setup.py install
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then python -m unittest discover; fi
-  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
+- if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then python -m unittest discover; fi
+- if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
+deploy:
+  provider: pypi
+  user: dsalantic
+  password:
+    secure: ECaji465r2vqss9n/ylnjzC9a8K0IiTeurpR3Ir1MATawHU12oLTRceYlZBUPFIW07ocK9klbw0i2/Qr7N+2AXeTQCydpsL3wCtGJ3/z+I9APKnEAlDbFsw2kg0BpBL2FLyc15W7lfbzlFrfm6bCoCwLHidPbFu+bqe+bm9jIojswjT5JkPbO+M8MZ9vu+myd2DbKZVoUwcL14pIrXLtl+NKiWYTXofm/0Z2ZUq1jaOEfMgWqPBtLbmlo7o9P9EWciyfcS+D7WoTekRsbiod19+04bZnLSsYAxFk3qlZxT8k3yPToTt40j0t+1dHMlt2xhTePSHW1abaH+wx1v85O2MFPXEJ461jy5GMUEEt4TIiHR/9aACT2MZKFEUxiSZnMUk9poSfU6A/UOmZPIhaCu3qv69nWl4HHtxVBk3TVY8g61Fg4eEBAYYxKHYAlA/sorfM4sedoQq1lCRI+hvWRclXvyJePzKdKMWYP5hR1mx6HmQkhwECoXWxV5dvbq6VchmAdKx9RRfXnQUFZmo2Go8iM9+Y2m248ASFkaygi2ZBEzB8NNKbyX131/3zz0mrR7p94CzDpgpL8Ez+uuDKVsVAtaKi2W/0tZZcbCbAYc3LCbBX6AzBhDymQWI3f7XEVwhahW24UOPqI2O1722w6JWC1f90/WFFYyPm3/yx6iQ=
+  on:
+    tags: true
