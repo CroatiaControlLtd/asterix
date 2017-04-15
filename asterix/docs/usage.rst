@@ -21,6 +21,17 @@ Parse the packet with asterix module. It will return the list of Asterix records
     print(parsed)
 
 
+parse_with_offset(data, offset=0, blocks_count=1000):
+ Parse raw asterix data with bytes offset with returning number of blocks of data passed with arguments
+     Args:
+         data: Bytes to be parsed
+         offset: bytes offset
+         blocks_count: number of blocks data to be returned
+     Returns:
+         tuple of two elements:
+             list of asterix records
+             bytes offset at ending of computation
+ 	
 If you want to receive textual presentation of asterix packet instead of list use 'text' parameter::
 
     formatted = asterix.parse(asterix_packet, 'text')

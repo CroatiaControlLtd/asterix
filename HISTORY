@@ -120,3 +120,6 @@ Issue #50 fixed spelling typo
 Issue #51 BDS decoding implemented (for now registers 40,50,60)
 Feature: Added automatic tests and Travis CI integration
 
+python_v0.4.0
+15.4.2017.
+Added parsing with offset (by Krzysztof Rutkowski)
