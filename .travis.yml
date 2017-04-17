@@ -26,5 +26,4 @@ deploy:
   password:
     secure: c1vL1fKkc6+nWoag6Q5Qb/jPrxbYn29WCkypnMyO8+0kdzQBH/a3uGPXwpZ2C3aEXeZZoCkyBmFVtWQI2Qty5B6vEo7wk4P39ft1JMH/WMM7DPBQhcBGDPBKTWNplRc1BIabJxC2sitY4cMB3BzM96anCQeq19MVQe1d3IjrkgcDeuJtK9/2gjaz8bTOeqcDRQLsuXbl1Brgy/o5m+hwUv4RSfHYs1ylyBEs9Mblfg14bSFhWCpgK/N+JblRus9SPM7QSAmucoxHXb9EwEZ6J/K1lcYSf/WwucO1St+89ilYRS/s1xDF/75e+Yyyr8bcxj49Bict/kXru2Osy1WP0jTlCykpAMn+xQN5tfQ0J7zDCdADe9FWd84BNifQYuMu74u1PVvzguKo6TYLAm4nhyCo6NpZsu3mVT/jtVMXMNI3JsFmX7e4YmATK+Y6IitL18qWEnF6pij008WBloybqnn2QU5GS/tJcuxjWVNO8vaxLbuWe9kJuWsb/KK9MAqVgiXh0zFaIKuG5pVeHn+aDIEMmmZLFxLVWQqGFVPtc091vJMLT6VoivT77QHrIZ5CNxRcyD7rNj4goT07M75iuKkyNLkQqrGNEOcqfeu1/1BzhxyhSge8R/b8iY0Nc/if8q3ZQ59MhjlHiQNjOCOap6MY0zxvtkXXS8xctgPC5LQ=
   on:
-    tags: true
-    condition: $TRAVIS_PYTHON_VERSION = "2.6"
+    condition: $TRAVIS_PYTHON_VERSION = "3.5"
