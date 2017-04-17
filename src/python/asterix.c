@@ -21,8 +21,6 @@
  *
  */
 
-#include "version.h"
-
 #include <Python.h>
 
 #if PY_MAJOR_VERSION >= 3
@@ -84,18 +82,12 @@ static struct PyModuleDef moduledef = {
 
 PYMODINITFUNC
 {
-    PyObject *module;
-    PyObject *version_string;
-
-    module = PYMODULE_CREATE();
+    PyObject *module = PYMODULE_CREATE();
 
     if (module == NULL)
     {
         MODINITERROR;
     }
-
-    version_string = PyString_FromString (PYASTERIX_VERSION);
-    PyModule_AddObject (module, "__version__", version_string);
 
 #if PY_MAJOR_VERSION >= 3
   return module;

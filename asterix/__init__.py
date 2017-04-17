@@ -52,6 +52,7 @@ import _asterix
 import os
 import sys
 from datetime import datetime
+from .version import __version__
 
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)

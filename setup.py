@@ -9,6 +9,7 @@ from os import listdir
 import re
 import sys
 
+exec(open('asterix/version.py').read())
 
 CLASSIFIERS = [
 'Development Status :: 3 - Alpha',
@@ -70,19 +71,6 @@ asterix_module = Extension('_asterix',
                     extra_link_args=['-lexpat'])
 
 
-def get_version():
-    filename = os.path.join(os.path.dirname(__file__), './src/python/version.h')
-    file = None
-    try:
-        file = open(filename)
-        header = file.read()
-    finally:
-        if file:
-            file.close()
-    m = re.search(r'#define\s+PYASTERIX_VERSION\s+"(\d+\.\d+(?:\.\d+)?)"', header)
-    assert m, "version.h must contain PYASTERIX_VERSION macro"
-    return m.group(1)
-
 f = open('README.rst')
 try:
     README = f.read()
@@ -98,7 +86,7 @@ sample_files = ['./asterix/sample_data/cat048.raw',
 
 setup (name = 'asterix_decoder',
        packages = ['asterix'],
-       version = get_version(),
+       version = __version__,
        description = "ASTERIX decoder in Python",
        keywords = "asterix, eurocontrol, radar, track, croatiacontrol",
        long_description = README,
