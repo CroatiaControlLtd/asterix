@@ -679,7 +679,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 		default:
 			break;
 		}
-    delete pStr;
+    delete[] pStr;
   }
     break;
   default:
@@ -1308,7 +1308,7 @@ void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 			PyDict_SetItem(pValue, k1, v1);
             Py_DECREF(k1);
             Py_DECREF(v1);
-			delete pStr;
+			delete[] pStr;
 		}
 		break;
 		default:
