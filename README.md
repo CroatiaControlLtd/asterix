@@ -3,8 +3,7 @@ asterix
 
 [![Build Status](https://travis-ci.org/CroatiaControlLtd/asterix.svg?branch=master)](https://travis-ci.org/CroatiaControlLtd/asterix)
 [![Documentation badge](https://readthedocs.org/projects/asterix/badge/?version=latest)](http://asterix.readthedocs.io/en/latest/)
-[![PyPI](https://img.shields.io/pypi/v/asterix_decoder.svg)]
-(https://pypi.python.org/pypi/asterix_decoder)
+[![PyPI](https://img.shields.io/pypi/v/asterix_decoder.svg)](https://pypi.python.org/pypi/asterix_decoder)
 
 Asterix is Python module and standalone application used for reading and parsing of EUROCONTROL ASTERIX protocol data from stdin, file or network multicast stream.
 
