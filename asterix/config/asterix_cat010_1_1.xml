@@ -9,6 +9,7 @@
     Created:  2013-06-21
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
                23.11.2015. (dsalantic) Fixed scale factor for item 041. Shall be 180/2^31.
+               08.05.2017. (ifsnop) Removed wrong compound definition from cat10/di270.
 
 -->
 
@@ -545,62 +546,56 @@
 
      <DataItem id="270" rule="optional">
         <DataItemName>Target Size and Orientation</DataItemName>
-        <DataItemDefinition>Target size defined as lenght and with of the detected target, and orientation.</DataItemDefinition>
+        <DataItemDefinition>Target size defined as length and with of the detected target, and orientation.</DataItemDefinition>
         <DataItemFormat desc="Variable Data Item, comprising a first part of one octet, followed by one-octed as necessary.">
-            <Compound>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits from="8" to="2">
-                            <BitsShortName>Lenght</BitsShortName>
-                            <BitsName>Lenght</BitsName>
-                            <BitsUnit scale="1">m</BitsUnit>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">End of Data Item</BitsValue>
-                            <BitsValue val="1">Extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-                <Variable>
-                    <Fixed length="1">
-                        <Bits from="8" to="2">
-                            <BitsShortName>Ori</BitsShortName>
-                            <BitsName>Orientation</BitsName>
-                            <BitsUnit scale="2.81">deg.</BitsUnit>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">End of Data Item</BitsValue>
-                            <BitsValue val="1">Extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-                <Variable>
-                    <Fixed length="1">
-                         <Bits from="8" to="2">
-                            <BitsShortName>Width</BitsShortName>
-                            <BitsName>Width</BitsName>
-                            <BitsUnit scale="1">m</BitsUnit>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension Indicator</BitsName>
-                            <BitsValue val="0">End of Data Item</BitsValue>
-                            <BitsValue val="1">Extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-            </Compound>
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="2">
+                        <BitsShortName>Length</BitsShortName>
+                        <BitsName>Length</BitsName>
+                        <BitsUnit scale="1">m</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension Indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="2">
+                        <BitsShortName>Ori</BitsShortName>
+                        <BitsName>Orientation</BitsName>
+                        <BitsUnit scale="2.81">deg.</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension Indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                     <Bits from="8" to="2">
+                        <BitsShortName>Width</BitsShortName>
+                        <BitsName>Width</BitsName>
+                        <BitsUnit scale="1">m</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension Indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
         </DataItemFormat>
     </DataItem>
 
     <DataItem id="280" rule="optional">
         <DataItemName>Special Purpose</DataItemName>
         <DataItemDefinition>Special information</DataItemDefinition>
-        <DataItemFormat desc="Repetitive data lenght item">
+        <DataItemFormat desc="Repetitive data length item">
             <Repetitive>
                 <Fixed length="2">
                          <Bits from="16" to="9" encode="signed">
@@ -673,7 +668,7 @@
     <DataItem id="500" rule="optional">
         <DataItemName>Standard Deviation of POsition</DataItemName>
         <DataItemDefinition>Standard Deviation of Position</DataItemDefinition>
-        <DataItemFormat desc="Four octed fixed lenght Data Item.">
+        <DataItemFormat desc="Four octed fixed length Data Item.">
             <Fixed length="4">
                 <Bits from="32" to="25">
                     <BitsShortName>Qx</BitsShortName>
@@ -743,7 +738,7 @@
     <DataItem id="SP" rule="optional"> 
         <DataItemName>Special Purpose</DataItemName>
         <DataItemDefinition>Special information</DataItemDefinition>
-        <DataItemFormat desc="Repetitive data lenght item">
+        <DataItemFormat desc="Repetitive data length item">
             <Explicit> 
                 <Fixed length="1"> 
                     <Bits from="8" to="1"> 
