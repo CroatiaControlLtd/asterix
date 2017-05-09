@@ -67,12 +67,6 @@ bool CAsterixRawSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 
 		if (oradis)
 		{
-			if (leftBytes < 6)
-			{
-				LOGERROR(1, "Not enough data for packet. Size = %d\n", leftBytes);
-				return false;
-			}
-
 			// Read ORADIS header (6 bytes)
 			unsigned char oradisHeader[6];
 			readSize = 6;
@@ -113,12 +107,6 @@ bool CAsterixRawSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 		}
 		else
 		{
-			if (leftBytes < 3)
-			{
-				LOGERROR(1, "Not enough data for packet. Size = %d\n", leftBytes);
-				return false;
-			}
-
 			// Read Asterix header (3 bytes)
 			unsigned char asterixHeader[3];
 			readSize = 3;

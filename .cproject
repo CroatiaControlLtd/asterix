@@ -105,15 +105,6 @@
 			<resource resourceType="PROJECT" workspacePath="/asterix"/>
 		</configuration>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.338720114;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.360528631;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.891266556">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC"/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.338720114;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.1160693207;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1747435264">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP"/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 		<buildTargets>
 			<target name="Release" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
@@ -125,5 +116,20 @@
 				<runAllBuilders>true</runAllBuilders>
 			</target>
 		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.1330079484;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.1330079484.;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.1764328002;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1677398893">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.338720114;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.1160693207;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1747435264">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.1330079484;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.1330079484.;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1554202253;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.2042837624">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372;cdt.managedbuild.toolchain.gnu.cygwin.base.1179451372.338720114;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.360528631;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.891266556">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>
