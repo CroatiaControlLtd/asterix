@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+	Asterix Category 240 v1.3 definition (Radar Video Transmission) 
+	
+	Author:   dsalantic
+	Created:  17.5.2017.
+
+--> 
+
+<Category id="240" name="Radar Video Transmission" ver="1.3">
+
+
+	<DataItem id="000">
+		<DataItemName>Message Type</DataItemName>
+		<DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+		<DataItemFormat desc="One-octet fixed length Data Item.">
+			<Fixed length="1">
+				<Bits from="8" to="1">
+					<BitsShortName>TYP</BitsShortName>
+					<BitsName>Message Type</BitsName>
+                    <BitsValue val="1">Video Summary message</BitsValue>
+                    <BitsValue val="2">Video message</BitsValue>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="010">
+		<DataItemName>Data Source Identifier</DataItemName>
+		<DataItemDefinition>Identification of the system from which the data are received.</DataItemDefinition>
+		<DataItemFormat desc="Two-octets fixed length data item.">
+			<Fixed length="2">
+				<Bits from="16" to="9">
+					<BitsShortName>SAC</BitsShortName>
+					<BitsName>System Area Code</BitsName>
+				</Bits>
+				<Bits from="8" to="1">
+					<BitsShortName>SIC</BitsShortName>
+					<BitsName>System Identification Code</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+
+	<DataItem id="020">
+		<DataItemName>Video Record Header</DataItemName>
+		<DataItemDefinition>Contains a message sequence identifier.</DataItemDefinition>
+		<DataItemFormat desc="Four-Octets fixed length data item.">
+			<Fixed length="4">
+				<Bits from="32" to="1">
+					<BitsShortName>MSG_INDEX</BitsShortName>
+					<BitsName>Message Sequence Identifier</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="030">
+		<DataItemName>Video Summary</DataItemName>
+		<DataItemDefinition>Contains an ASCII string (free text to define stream meta data).</DataItemDefinition>
+		<DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one sub-field of one octet (ASCII character).">
+			<Repetitive>
+				<Fixed length="1">
+					<Bits from="8" to="1" encode="ascii">
+						<BitsShortName>CHAR</BitsShortName>
+						<BitsName>Character in ASCII representation</BitsName>
+					</Bits>
+				</Fixed>
+			</Repetitive>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="040">
+		<DataItemName>Video Header Nano</DataItemName>
+		<DataItemDefinition>Defines a group of video cells corresponding to a video radial: all cells have the same size in azimuth and range and are consecutive in range.</DataItemDefinition>
+		<DataItemFormat desc="Twelve-Octets fixed length data item.">
+			<Fixed length="12">
+				<Bits from="96" to="81">
+					<BitsShortName>START_AZ</BitsShortName>
+					<BitsName>Start azimuth of the cells group</BitsName>
+					<BitsUnit max="360" scale="0.0054931640625">deg</BitsUnit>
+				</Bits>
+				<Bits from="80" to="65">
+					<BitsShortName>END_AZ</BitsShortName>
+					<BitsName>End azimuth of the cells group</BitsName>
+					<BitsUnit max="360" scale="0.0054931640625">deg</BitsUnit>
+				</Bits>
+				<Bits from="64" to="33">
+					<BitsShortName>START_RG</BitsShortName>
+					<BitsName>Starting range of the cells group, expressed in number of cells</BitsName>
+				</Bits>
+				<Bits from="32" to="1">
+					<BitsShortName>CELL_DUR</BitsShortName>
+					<BitsName>Video cell duration in nano-seconds</BitsName>
+					<BitsUnit>ns</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="041">
+		<DataItemName>Video Header Femto</DataItemName>
+		<DataItemDefinition>Defines a group of video cells corresponding to a video radial: all cells have the same size in azimuth and range and are consecutive in range.</DataItemDefinition>
+		<DataItemFormat desc="Twelve-Octets fixed length data item.">
+			<Fixed length="12">
+				<Bits from="96" to="81">
+					<BitsShortName>START_AZ</BitsShortName>
+					<BitsName>Start azimuth of the cells group</BitsName>
+					<BitsUnit max="360" scale="0.0054931640625">deg</BitsUnit>
+				</Bits>
+				<Bits from="80" to="65">
+					<BitsShortName>END_AZ</BitsShortName>
+					<BitsName>End azimuth of the cells group</BitsName>
+					<BitsUnit max="360" scale="0.0054931640625">deg</BitsUnit>
+				</Bits>
+				<Bits from="64" to="33">
+					<BitsShortName>START_RG</BitsShortName>
+					<BitsName>Starting range of the cells group, expressed in number of cells</BitsName>
+				</Bits>
+				<Bits from="32" to="1">
+					<BitsShortName>CELL_DUR</BitsShortName>
+					<BitsName>Video cell duration in femto-seconds</BitsName>
+					<BitsUnit>fs</BitsUnit>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="048">
+		<DataItemName>Video Cells Resolution and Data Compression Indicator</DataItemName>
+		<DataItemDefinition>This Data Item defines the bit resolution used in the coding of the video signal amplitude in all cells of the video group as well as an indicator whether data compression has been applied.</DataItemDefinition>
+		<DataItemFormat desc="Two-Octets fixed length data item.">
+			<Fixed length="2">
+				<Bits bit="16">
+					<BitsShortName>C</BitsShortName>
+					<BitsName>Data Compression Indicator</BitsName>
+                    <BitsValue val="0">No compression applied</BitsValue>
+                    <BitsValue val="1">Compression applied</BitsValue>
+				</Bits>
+				<Bits from="15" to="9">
+					<BitsShortName>spare</BitsShortName>
+					<BitsName>spares bit set to 0</BitsName>
+					<BitsConst>0</BitsConst>
+				</Bits>                 
+				<Bits from="8" to="1">
+					<BitsShortName>RES</BitsShortName>
+					<BitsName>Bit resolution used for the coding of the amplitude of the video signal in every cell of a video group</BitsName>
+                    <BitsValue val="1">Monobit Resolution (coding length = 1 bit)</BitsValue>
+                    <BitsValue val="2">Low Resolution (coding length = 2 bits)</BitsValue>
+                    <BitsValue val="3">Medium Resolution (coding length = 4 bits)</BitsValue>
+                    <BitsValue val="4">High Resolution (coding length = 8 bits)</BitsValue>
+                    <BitsValue val="5">Very High Resolution (coding length = 16 bits)</BitsValue>
+                    <BitsValue val="6">Ultra High Resolution (coding length = 32 bits)</BitsValue>
+				</Bits>                 
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+	
+	<DataItem id="049">
+		<DataItemName>Video Octets and Video Cells Counters</DataItemName>
+		<DataItemDefinition>This Data Item contains the number of valid octets (i.e. nonempty octets) used in the coding of the video signal amplitude and the number of valid cells in the video group</DataItemDefinition>
+		<DataItemFormat desc="Five-Octets fixed length data item.">
+			<Fixed length="5">
+				<Bits from="40" to="25">
+					<BitsShortName>NB_VB</BitsShortName>
+					<BitsName>Number of valid octets</BitsName>
+				</Bits>
+				<Bits from="24" to="1">
+					<BitsShortName>NB_CELLS</BitsShortName>
+					<BitsName>Number of valid cells</BitsName>
+				</Bits>
+			</Fixed>
+		</DataItemFormat>
+	</DataItem>
+
+	<DataItem id="050">
+		<DataItemName>Video Block Low Data Volume</DataItemName>
+		<DataItemDefinition>Contains a group of video cells corresponding to a video radial; all cells have the same size in azimuth and range and are consecutive in range. This item shall be used in cases where a low data volume, up to 1020 bytes, will be transmitted.</DataItemDefinition>
+		<DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one video block of four-octets.">
+			<Repetitive>
+				<Fixed length="4">
+					<Bits from="32" to="1" encode="hex">
+						<BitsShortName>VIDEO</BitsShortName>
+						<BitsName>Video signal amplitude of the cells in the group</BitsName>
+					</Bits>
+				</Fixed>
+			</Repetitive>
+		</DataItemFormat>
+	</DataItem>
+
+	<DataItem id="051">
+		<DataItemName>Video Block Medium Data Volume</DataItemName>
+		<DataItemDefinition>Contains a group of video cells corresponding to a video radial; all cells have the same size in azimuth and range and are consecutive in range. This item shall be used in cases where a medium data volume, up to 16320 bytes, will be transmitted.</DataItemDefinition>
+		<DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one video block of sixty fouroctets.">
+			<Repetitive>
+				<Fixed length="64">
+					<Bits from="512" to="1" encode="hex">
+						<BitsShortName>VIDEO</BitsShortName>
+						<BitsName>Video signal amplitude of the cells in the group</BitsName>
+					</Bits>
+				</Fixed>
+			</Repetitive>
+		</DataItemFormat>
+	</DataItem>
+
+	<DataItem id="052">
+		<DataItemName>Video Block High Data Volume</DataItemName>
+		<DataItemDefinition>Contains a group of video cells corresponding to a video radial; all cells have the same size in azimuth and range and are consecutive in range. This item shall be used in cases where a high data volume, up to 65024 bytes, will be transmitted.</DataItemDefinition>
+		<DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one video block of two hundred fifty six-octets.">
+			<Repetitive>
+				<Fixed length="256">
+					<Bits from="2048" to="1" encode="hex">
+						<BitsShortName>VIDEO</BitsShortName>
+						<BitsName>Video signal amplitude of the cells in the group</BitsName>
+					</Bits>
+				</Fixed>
+			</Repetitive>
+		</DataItemFormat>
+	</DataItem>
+
+    <DataItem id="140" >
+        <DataItemName>Time Of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping expressed as UTC.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time Of Day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>     
+	
+    <UAP>
+		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+		<UAPItem bit="1" frn="2" len="1">000</UAPItem>
+		<UAPItem bit="2" frn="3" len="4">020</UAPItem>
+		<UAPItem bit="3" frn="4" len="1+n">030</UAPItem>
+		<UAPItem bit="4" frn="5" len="12">040</UAPItem>
+		<UAPItem bit="5" frn="6" len="12">041</UAPItem>
+		<UAPItem bit="6" frn="7" len="2">048</UAPItem>
+		<UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+		<UAPItem bit="8" frn="8" len="5">049</UAPItem>
+		<UAPItem bit="9" frn="9" len="1+4*n">050</UAPItem>
+		<UAPItem bit="10" frn="10" len="1+64*n">051</UAPItem>
+		<UAPItem bit="11" frn="11" len="1+256*n">052</UAPItem>
+		<UAPItem bit="12" frn="12" len="3">140</UAPItem>
+		<UAPItem bit="13" frn="13" len="-">-</UAPItem>
+		<UAPItem bit="14" frn="14" len="-">-</UAPItem>
+		<UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+ </Category>
