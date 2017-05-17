@@ -365,6 +365,8 @@ CAT010:I245:TId                                              Characters 1-8 (cod
 CAT010:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
 CAT010:I250:BDS1                                             Comm B Data Buffer Store 1 Address
 CAT010:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT010:I270:Length                                           Length
+CAT010:I270:FX                                               Extension Indicator
 CAT010:I270:Ori                                              Orientation
 CAT010:I270:FX                                               Extension Indicator
 CAT010:I270:Width                                            Width
@@ -1503,6 +1505,28 @@ CAT065:I040:TSV                                              Time Source Status
 CAT065:I040:PSS                                              Processing System Status
 CAT065:I040:spare                                            Spare bits se to 0
 CAT065:I050:REPORT                                           Service Status Report
+CAT240:I000:TYP                                              Message Type
+CAT240:I010:SAC                                              System Area Code
+CAT240:I010:SIC                                              System Identification Code
+CAT240:I020:MSG_INDEX                                        Message Sequence Identifier
+CAT240:I030:CHAR                                             Character in ASCII representation
+CAT240:I040:START_AZ                                         Start azimuth of the cells group
+CAT240:I040:END_AZ                                           End azimuth of the cells group
+CAT240:I040:START_RG                                         Starting range of the cells group, expressed in number of cells
+CAT240:I040:CELL_DUR                                         Video cell duration in nano-seconds
+CAT240:I041:START_AZ                                         Start azimuth of the cells group
+CAT240:I041:END_AZ                                           End azimuth of the cells group
+CAT240:I041:START_RG                                         Starting range of the cells group, expressed in number of cells
+CAT240:I041:CELL_DUR                                         Video cell duration in femto-seconds
+CAT240:I048:C                                                Data Compression Indicator
+CAT240:I048:spare                                            spares bit set to 0
+CAT240:I048:RES                                              Bit resolution used for the coding of the amplitude of the video signal in every cell of a video group
+CAT240:I049:NB_VB                                            Number of valid octets
+CAT240:I049:NB_CELLS                                         Number of valid cells
+CAT240:I050:VIDEO                                            Video signal amplitude of the cells in the group
+CAT240:I051:VIDEO                                            Video signal amplitude of the cells in the group
+CAT240:I052:VIDEO                                            Video signal amplitude of the cells in the group
+CAT240:I140:ToD                                              Time Of Day
 CAT242:I010:SAC                                              System Area Code
 CAT242:I010:SIC                                              System Identification Code
 CAT242:I020:TYP                                              
