@@ -13,6 +13,7 @@
                                          Fixed typo in data item 030 code 14 (space was missing)
     Modified:  6.9.2016. (dsalantic)     Added BDS definition to I250                                            
     Modified:  29.12.2016. (dsalantic)   Added I260 ACAS definition
+    Modified:  06.07.2017. (dsalantic)   Fixed I260 ACAS definition
 -->  
 
 <Category id="48" name="Transmission of Monoroadar Data" ver="1.21">
@@ -1133,13 +1134,13 @@
 							<BitsValue val="0">Not Active</BitsValue>
 							<BitsValue val="1">Active Do not pass below</BitsValue>
                         </Bits>
-                        <Bits bit="34">
+                        <Bits bit="33">
                             <BitsShortName>RAC56</BitsShortName>
                             <BitsName>Resolution Advisory Complement bit 56</BitsName>
 							<BitsValue val="0">Not Active</BitsValue>
 							<BitsValue val="1">Active Do not pass above</BitsValue>
                         </Bits>
-                        <Bits bit="33">
+                        <Bits bit="32">
                             <BitsShortName>RAC57</BitsShortName>
                             <BitsName>Resolution Advisory Complement bit 57</BitsName>
 							<BitsValue val="0">Not Active</BitsValue>
@@ -1150,10 +1151,6 @@
                             <BitsName>Resolution Advisory Complement bit 58</BitsName>
 							<BitsValue val="0">Not Active</BitsValue>
 							<BitsValue val="1">Active Do not turn right</BitsValue>
-                        </Bits>
-                        <Bits from="34" to="31" encode="hex">
-                            <BitsShortName>RAC</BitsShortName>
-                            <BitsName>RACs records</BitsName>                        
                         </Bits>
                         <Bits bit="30">
                             <BitsShortName>RAT</BitsShortName>
@@ -1201,7 +1198,6 @@
         <DataItemNote/>
     </DataItem>     
     
-<!--Transmission of Track--> 
     <UAP>
             <UAPItem bit="0" frn="1" len="2">010</UAPItem>
             <UAPItem bit="1" frn="2" len="3">140</UAPItem>

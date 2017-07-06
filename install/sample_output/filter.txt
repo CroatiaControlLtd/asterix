@@ -1527,66 +1527,6 @@ CAT240:I050:VIDEO                                            Video signal amplit
 CAT240:I051:VIDEO                                            Video signal amplitude of the cells in the group
 CAT240:I052:VIDEO                                            Video signal amplitude of the cells in the group
 CAT240:I140:ToD                                              Time Of Day
-CAT242:I010:SAC                                              System Area Code
-CAT242:I010:SIC                                              System Identification Code
-CAT242:I020:TYP                                              
-CAT242:I020:spare                                            spares bit set to 0
-CAT242:I020:FX                                               
-CAT242:I020:spare                                            spares bit set to 0
-CAT242:I020:ME                                               
-CAT242:I020:MI                                               
-CAT242:I020:spare                                            spare bits set to 0
-CAT242:I020:FX                                               
-CAT242:I040:RHO                                              
-CAT242:I040:THETA                                            
-CAT242:I050:V                                                
-CAT242:I050:G                                                
-CAT242:I050:L                                                
-CAT242:I050:spare                                            spare bit set to 0
-CAT242:I050:Mode2                                            Mode-2 code
-CAT242:I055:V                                                
-CAT242:I055:G                                                
-CAT242:I055:L                                                
-CAT242:I055:Mode1                                            Mode-1 code
-CAT242:I070:V                                                
-CAT242:I070:G                                                
-CAT242:I070:L                                                
-CAT242:I070:spare                                            spare bit set to 0
-CAT242:I070:Mode3A                                           Mode-3/A reply code
-CAT242:I090:V                                                
-CAT242:I090:G                                                
-CAT242:I090:ModeC                                            Mode-C reply code
-CAT242:I130:Power                                            
-CAT242:I140:ToT                                              Time Of Track Information
-CAT242:I220:ACAddr                                           AircraftAddress
-CAT242:I230:COM                                              COM
-CAT242:I230:STAT                                             STAT
-CAT242:I230:spare                                            spare bit set to 0
-CAT242:I240:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
-CAT242:ISP:Range                                             
-CAT242:ISP:REPMODE1                                          
-CAT242:ISP:REPMODE2                                          
-CAT242:ISP:REPMODE3A                                         
-CAT242:ISP:REPMODEC                                          
-CAT242:ISP:SSRAZ                                             SSRAZ
-CAT242:ISP:SSRAM                                             SSRAM
-CAT242:ISP:SSROBA                                            SSROBA
-CAT242:ISP:ACRR                                              ACRR
-CAT242:ISP:spare                                             spare bit set to 0
-CAT242:ISP:RANGE                                             RANGE
-CAT242:ISP:ACAM                                              ACAM
-CAT242:ISP:ACAZ                                              ACAZ
-CAT242:ISP:ACOBA                                             ACOBA
-CAT242:ISP:RCRR                                              RCRR
-CAT242:ISP:RCRANGE                                           RCRANGE
-CAT242:ISP:RCOBA1                                            RCOBA1
-CAT242:ISP:RCOBA2                                            RCOBA2
-CAT242:ISP:Alert                                             Alert
-CAT242:ISP:Comm_A                                            Comm A indication
-CAT242:ISP:Comm_B                                            Comm B indication
-CAT242:ISP:Comm_C                                            Comm C indication
-CAT242:ISP:Comm_D                                            Comm D indication
-CAT242:ISP:NBGICB                                            NBGCIB
 CAT252:I010:SAC                                              System Area Code
 CAT252:I010:SIC                                              System Identity Code
 CAT252:I015:UserN                                            User number

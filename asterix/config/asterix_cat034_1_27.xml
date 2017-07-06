@@ -435,7 +435,7 @@
                     <BitsValue val="2">STC Map-3</BitsValue>
                     <BitsValue val="3">STC Map-4</BitsValue>
                 </Bits>
-                <Bits bit="1">
+                <Bits from="2" to="1">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>spare bit set to 0</BitsName>
                     <BitsConst>0</BitsConst>
