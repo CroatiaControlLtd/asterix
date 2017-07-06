@@ -25,10 +25,8 @@ Example:
     parsed = asterix.parse(asterix_packet)
     print(parsed)
 
-
-    # If you want to receive textual presentation of asterix packet instead of list use 'text' parameter::
-    formatted = asterix.parse(asterix_packet, 'text')
-    print(formatted)
+    # If you want to see textual presentation of asterix packet use describe::
+	print(asterix.describe(parsed))
 
     # All Asterix categories are defined with XML configuration file.
     # You can get a list of configuration files ith following command::

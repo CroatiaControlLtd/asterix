@@ -19,9 +19,9 @@ Parse the binary Asterix packet::
     parsed = asterix.parse(asterix_packet)
     print(parsed)
 
-    # parse and print formatted packet
-    formatted = asterix.parse(asterix_packet, 'text')
-    print(formatted)
+    # print formatted packet
+    # If you want to see textual presentation of asterix packet use describe::
+	print(asterix.describe(parsed))
 
 
 Parse the raw Asterix file::
@@ -38,10 +38,10 @@ Parse the raw Asterix file::
         parsed = asterix.parse(data)
         print(parsed)
 
-        # parse and print formatted packet
-        formatted = asterix.parse(data, 'text')
-        print(formatted)
+        # print formatted packet
+		print(asterix.describe(parsed))
 
+		
 Parse Pcap file with the help of dpkt module (only available for Python 2)::
 
     import asterix
