@@ -86,8 +86,8 @@
                     <BitsName>Target ALT source</BitsName>
                     <BitsValue val="0">Unknown</BitsValue>
                     <BitsValue val="1">Aircraft Altitude</BitsValue>
-                    <BitsValue val="0">FCU/MCP selected altitude</BitsValue>
-                    <BitsValue val="1">FMS selected altitude</BitsValue>
+                    <BitsValue val="2">FCU/MCP selected altitude</BitsValue>
+                    <BitsValue val="3">FMS selected altitude</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
