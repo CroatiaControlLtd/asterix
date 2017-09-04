@@ -10,13 +10,14 @@
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
                23.11.2015. (dsalantic) Fixed scale factor for item 041. Shall be 180/2^31.
                08.05.2017. (ifsnop) Removed wrong compound definition from cat10/di270.
+               24.07.2017. (ifsnop) Changed dataitem name "001" to "000", as per Eurocontrol Definition.
 
 -->
 
 <Category id="010" name="Transmission of Monosensor Surface Movement Data" ver="1.1">
 
 
-    <DataItem id="001" rule="mandatory">
+    <DataItem id="000" rule="mandatory">
         <DataItemName>Message Type</DataItemName>
         <DataItemDefinition>This data item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
@@ -751,7 +752,7 @@
      
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
-        <UAPItem bit="1" frn="2" len="1">001</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
         <UAPItem bit="2" frn="3" len="1+">020</UAPItem>
         <UAPItem bit="3" frn="4" len="3">140</UAPItem>
         <UAPItem bit="4" frn="5" len="8">041</UAPItem>
