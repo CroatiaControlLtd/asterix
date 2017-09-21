@@ -29,7 +29,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="015">
         <DataItemName>User Number</DataItemName>
         <DataItemDefinition>Identification of the User of track/sensor information</DataItemDefinition>
@@ -43,7 +43,7 @@
         </DataItemFormat>
         <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="020">
         <DataItemName>Time Of Message</DataItemName>
         <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
@@ -94,7 +94,7 @@
         </DataItemFormat>
         <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY</DataItemNote>
     </DataItem>
-        
+
     <DataItem id="040">
         <DataItemName>Access Key</DataItemName>
         <DataItemDefinition>User password to be sent in the Connection Request.</DataItemDefinition>
@@ -127,7 +127,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="050">
         <DataItemName>Default connection options</DataItemName>
         <DataItemDefinition>This item is used to indicate that the default values of parameters required to set a connection are selected.</DataItemDefinition>
@@ -162,81 +162,81 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-    
+
     <DataItem id="060">
-       <DataItemName>Geographical Area</DataItemName>
-       <DataItemDefinition>Definition of geographical area in the form of a sequence of geographical points.</DataItemDefinition>
-       <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of points, followed by series of 6-bytes (geographical points) as necessary.">
-           <Repetitive>
-               <Fixed length="6">
-                   <Bits bit="48">
-                       <BitsShortName>NS</BitsShortName>
-                       <BitsName>Nort/South</BitsName>
-                       <BitsValue val="0">North Latitude</BitsValue>
-                       <BitsValue val="1">South Latitude</BitsValue>
-                   </Bits>
-                   <Bits from="47" to="41">
-                       <BitsShortName>LAT_deg</BitsShortName>
-                       <BitsName>Latitude (degrees)</BitsName>
-                       <BitsUnit min="0" max="90">deg</BitsUnit>
-                   </Bits>
-                   <Bits from="40" to="39">
+        <DataItemName>Geographical Area</DataItemName>
+        <DataItemDefinition>Definition of geographical area in the form of a sequence of geographical points.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of points, followed by series of 6-bytes (geographical points) as necessary.">
+            <Repetitive>
+                <Fixed length="6">
+                    <Bits bit="48">
+                        <BitsShortName>NS</BitsShortName>
+                        <BitsName>Nort/South</BitsName>
+                        <BitsValue val="0">North Latitude</BitsValue>
+                        <BitsValue val="1">South Latitude</BitsValue>
+                    </Bits>
+                    <Bits from="47" to="41">
+                        <BitsShortName>LAT_deg</BitsShortName>
+                        <BitsName>Latitude (degrees)</BitsName>
+                        <BitsUnit min="0" max="90">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="40" to="39">
                         <BitsShortName>spare</BitsShortName>
-                       <BitsName>spare bits set to 0</BitsName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
-                   <Bits from="38" to="33">
-                       <BitsShortName>LAT_min</BitsShortName>
-                       <BitsName>Latitude (minutes)</BitsName>
-                       <BitsUnit min="0" max="59">min</BitsUnit>
-                   </Bits>
-                   <Bits from="32" to="31">
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="38" to="33">
+                        <BitsShortName>LAT_min</BitsShortName>
+                        <BitsName>Latitude (minutes)</BitsName>
+                        <BitsUnit min="0" max="59">min</BitsUnit>
+                    </Bits>
+                    <Bits from="32" to="31">
                         <BitsShortName>spare</BitsShortName>
-                       <BitsName>spare bits set to 0</BitsName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
-                   <Bits from="30" to="25">
-                       <BitsShortName>LAT_sec</BitsShortName>
-                       <BitsName>Latitude (seconds)</BitsName>
-                       <BitsUnit min="0" max="59">min</BitsUnit>
-                   </Bits>
-                   <Bits from="24" to="17">
-                       <BitsShortName>LON_deg</BitsShortName>
-                       <BitsName>Longitude (degrees)</BitsName>
-                       <BitsUnit min="0" max="90">deg</BitsUnit>
-                   </Bits>
-                   <Bits bit="16">
-                       <BitsShortName>EW</BitsShortName>
-                       <BitsName>East/West</BitsName>
-                       <BitsValue val="0">East Longitude</BitsValue>
-                       <BitsValue val="1">West Longitude</BitsValue>
-                   </Bits>
-                   <Bits bit="15">
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="30" to="25">
+                        <BitsShortName>LAT_sec</BitsShortName>
+                        <BitsName>Latitude (seconds)</BitsName>
+                        <BitsUnit min="0" max="59">min</BitsUnit>
+                    </Bits>
+                    <Bits from="24" to="17">
+                        <BitsShortName>LON_deg</BitsShortName>
+                        <BitsName>Longitude (degrees)</BitsName>
+                        <BitsUnit min="0" max="90">deg</BitsUnit>
+                    </Bits>
+                    <Bits bit="16">
+                        <BitsShortName>EW</BitsShortName>
+                        <BitsName>East/West</BitsName>
+                        <BitsValue val="0">East Longitude</BitsValue>
+                        <BitsValue val="1">West Longitude</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
                         <BitsShortName>spare</BitsShortName>
-                       <BitsName>spare bit set to 0</BitsName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
-                   <Bits from="14" to="9">
-                       <BitsShortName>LON_min</BitsShortName>
-                       <BitsName>Longitude (minutes)</BitsName>
-                       <BitsUnit min="0" max="59">min</BitsUnit>
-                   </Bits>
-                   <Bits from="8" to="7">
+                        <BitsName>spare bit set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="14" to="9">
+                        <BitsShortName>LON_min</BitsShortName>
+                        <BitsName>Longitude (minutes)</BitsName>
+                        <BitsUnit min="0" max="59">min</BitsUnit>
+                    </Bits>
+                    <Bits from="8" to="7">
                         <BitsShortName>spare</BitsShortName>
-                       <BitsName>spare bits set to 0</BitsName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
-                   <Bits from="6" to="1">
-                       <BitsShortName>LON_sec</BitsShortName>
-                       <BitsName>Longitude (seconds)</BitsName>
-                       <BitsUnit min="0" max="59">min</BitsUnit>
-                   </Bits>
-               </Fixed>
-           </Repetitive>
-       </DataItemFormat>
-       <DataItemNote>Latitude and Longitude accuracy = 1 second @ 30 m.</DataItemNote>
-   </DataItem>    
-    
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="6" to="1">
+                        <BitsShortName>LON_sec</BitsShortName>
+                        <BitsName>Longitude (seconds)</BitsName>
+                        <BitsUnit min="0" max="59">min</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>Latitude and Longitude accuracy = 1 second @ 30 m.</DataItemNote>
+    </DataItem>    
+
     <DataItem id="070">
         <DataItemName>Lower Limit</DataItemName>
         <DataItemDefinition>Definition of the Lower limit of a Domain of Interest</DataItemDefinition>
@@ -274,7 +274,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="090">
         <DataItemName>Preferred FPPS Identification tag</DataItemName>
         <DataItemDefinition>Identification of the Flight Plan Data Processing System from which Flight-Plan related information shall preferably be sent to the User.</DataItemDefinition>
@@ -291,7 +291,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="100">
         <DataItemName>Connection Related Report</DataItemName>
         <DataItemDefinition>Report message sent by the Server to the User in relation to a connection.</DataItemDefinition>
@@ -345,7 +345,7 @@
             </Repetitive>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="110">
         <DataItemName>Service Identification</DataItemName>
         <DataItemDefinition>Identification of a service.</DataItemDefinition>
@@ -411,7 +411,7 @@
         </DataItemFormat>
         <DataItemNote>In the case of ARTAS : only one elementary service identification bit from BS, C1 .. C5 can be set at a time.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="120">
         <DataItemName>Callsign selector</DataItemName>
         <DataItemDefinition>List of aircraft Callsigns indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -426,7 +426,7 @@
             </Repetitive>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="130">
         <DataItemName>Track Number Selector</DataItemName>
         <DataItemDefinition>List of Track numbers indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -462,7 +462,7 @@
             </Repetitive>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="137">
         <DataItemName>Aircraft Identification Selector</DataItemName>
         <DataItemDefinition>List of Aircraft Identification Mode S items indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -477,7 +477,7 @@
             </Repetitive>
         </DataItemFormat>
     </DataItem>
-        
+
     <DataItem id="140">
         <DataItemName>Code Family selector</DataItemName>
         <DataItemDefinition>List of families of Mode 3/A replies indicated as track selection elements in a Service Request.</DataItemDefinition>
@@ -516,7 +516,7 @@
             </Repetitive>            
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="150">
         <DataItemName>Departure Airport Selector</DataItemName>
         <DataItemDefinition>List of Departure Airports indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -532,7 +532,7 @@
         </DataItemFormat>
         <DataItemNote>The airport names are indicated in the ICAO location indicators book.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="160">
         <DataItemName>Destination Airport Selector</DataItemName>
         <DataItemDefinition>List of Destination Airports indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -548,7 +548,7 @@
         </DataItemFormat>
         <DataItemNote>The airport names are indicated in the ICAO location indicators book.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="170">
         <DataItemName>Aircraft Type Selector</DataItemName>
         <DataItemDefinition>List of Aircraft Types indicated as Track Selection elements in a Service Request.</DataItemDefinition>
@@ -564,7 +564,7 @@
         </DataItemFormat>
         <DataItemNote>The types of aircraft are defined in ICAO Document 4444.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="190">
         <DataItemName>Current Control Position Selector</DataItemName>
         <DataItemDefinition>Identification of the Current Control Position to be used as track selector element in a Service Request.</DataItemDefinition>
@@ -582,7 +582,7 @@
         </DataItemFormat>
         <DataItemNote>The centre and the control position identification codes have to be defined between communication partners.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="200">
         <DataItemName>Track/Flight Categories Selector</DataItemName>
         <DataItemDefinition>This item defines which categories of tracks and/or flights shall be served.</DataItemDefinition>
@@ -1064,63 +1064,63 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>            
-    
+
     <DataItem id="230">
         <DataItemName>Radar Synchronization Characteristics</DataItemName>
         <DataItemDefinition>Transmission Characteristics for a service of the type radar synchronised.</DataItemDefinition>
         <DataItemFormat desc="Variable length data item comprising a first part of three bytes, followed by three bytes as necessary.">
-        <Variable>
-            <Fixed length="3">
-                <Bits from="24" to="17">
-                    <BitsShortName>MSAC</BitsShortName>
-                    <BitsName>Main radar Source area code</BitsName>
-                </Bits>
-                <Bits from="16" to="9">
-                    <BitsShortName>MSIC</BitsShortName>
-                    <BitsName>Main radar Souurce identitiy code</BitsName>
-                </Bits>
-                <Bits bit="8">
-                    <BitsShortName>NOP</BitsShortName>
-                    <BitsValue val="0">no information shall be sent</BitsValue>
-                    <BitsValue val="1">a track update shall be sent after the time-window for the plot-to-track association is passed without a plot has been associated.</BitsValue>
-                </Bits>
-                <Bits from="7" to="2">
+            <Variable>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>MSAC</BitsShortName>
+                        <BitsName>Main radar Source area code</BitsName>
+                    </Bits>
+                    <Bits from="16" to="9">
+                        <BitsShortName>MSIC</BitsShortName>
+                        <BitsName>Main radar Souurce identitiy code</BitsName>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>NOP</BitsShortName>
+                        <BitsValue val="0">no information shall be sent</BitsValue>
+                        <BitsValue val="1">a track update shall be sent after the time-window for the plot-to-track association is passed without a plot has been associated.</BitsValue>
+                    </Bits>
+                    <Bits from="7" to="2">
                         <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
-                </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>fx</BitsShortName>
-                    <BitsName>Field extension</BitsName>
-                    <BitsValue val="0">end of data item</BitsValue>
-                    <BitsValue val="1">extension to first extent</BitsValue>
-                </Bits>
-            </Fixed>
-            <Fixed length="3">
-                <Bits from="24" to="17">
-                    <BitsShortName>BSAC</BitsShortName>
-                    <BitsName>Spare radar Source area code</BitsName>
-                </Bits>
-                <Bits from="16" to="9">
-                    <BitsShortName>BSIC</BitsShortName>
-                    <BitsName>Spare radar Souurce identitiy code</BitsName>
-                </Bits>
-                <Bits from="8" to="2">
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension to first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>BSAC</BitsShortName>
+                        <BitsName>Spare radar Source area code</BitsName>
+                    </Bits>
+                    <Bits from="16" to="9">
+                        <BitsShortName>BSIC</BitsShortName>
+                        <BitsName>Spare radar Souurce identitiy code</BitsName>
+                    </Bits>
+                    <Bits from="8" to="2">
                         <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
-                </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>fx</BitsShortName>
-                    <BitsName>Field extension</BitsName>
-                    <BitsValue val="0">end of data item</BitsValue>
-                    <BitsValue val="1">extension to next extent</BitsValue>
-                </Bits>
-            </Fixed>
-        </Variable>    
+                        <BitsName>spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>fx</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension to next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>    
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="240">
         <DataItemName>Discrete Parameters Flags</DataItemName>
         <DataItemDefinition>This item contains a number of flags to indicate which category(ies) of discrete events shall be considered for triggering the track information transmission (aperiodical way of transmission).</DataItemDefinition>
@@ -1196,7 +1196,7 @@
             </Variable>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="250">
         <DataItemName>MOF Probability Criterion</DataItemName>
         <DataItemDefinition>Variation step of Mode-of-Flight Probabilities to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted MOF probability assessment for a given track exceeds the indicated threshold value).</DataItemDefinition>
@@ -1210,7 +1210,7 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-    
+
     <DataItem id="255">
         <DataItemName>Rate of Climb/Descent Criterion</DataItemName>
         <DataItemDefinition>Variation step of the calculated rate of climb/descent to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted assessment of the rate of climb/ descent for a given track exceeds the indicated threshold value).</DataItemDefinition>
@@ -1224,7 +1224,7 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-    
+
     <DataItem id="260">
         <DataItemName>Position Criterion</DataItemName>
         <DataItemDefinition>Variation step of Track positional information to trigger the transmission of track updates. An update will be sent each time the variation between the current track position and the extrapolated position based on the previously sent information exceeds the indicated threshold.</DataItemDefinition>
@@ -1238,7 +1238,7 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-            
+
     <DataItem id="265">
         <DataItemName>Rate of Turn Criterion</DataItemName>
         <DataItemDefinition>Variation step of the calculated rate of turn to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted assessment of the rate of turn for a given track exceeds the indicated threshold value).</DataItemDefinition>
@@ -1270,7 +1270,7 @@
     <DataItem id="280">
         <DataItemName>Speed Module Criterion</DataItemName>
         <DataItemDefinition>Variation step of Speed Module to trigger the transmission of track information updates (i.e. an update will be sent each time the variation between the current and the last transmitted Speed Module assessment for a given track exceed the indicated threshold value).</DataItemDefinition>
-            <DataItemFormat desc="One-byte fixed length data item.">
+        <DataItemFormat desc="One-byte fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>speedc</BitsShortName>
@@ -1294,7 +1294,7 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-            
+
     <DataItem id="300">
         <DataItemName>Factor K</DataItemName>
         <DataItemDefinition>The so-called factor K is used to trigger the data transmission as a function of the internal accuracy by which the ARTAS Tracker has estimated the state vector elements. An update will be sent each time one of the state vector elements has varied from more than K time the standard deviation associated to this element.</DataItemDefinition>
@@ -1308,7 +1308,7 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-    
+
     <DataItem id="310">
         <DataItemName>Refreshment Period</DataItemName>
         <DataItemDefinition>In relation to a service applying the aperiodical mode of transmission, the Refreshment Period concerns the systematic transmission of track updates for those tracks for which no changes have been detected.</DataItemDefinition>
@@ -1336,131 +1336,131 @@
             </Fixed>
         </DataItemFormat>        
     </DataItem>
-    
+
     <DataItem id="330">
         <DataItemName>Service Related Report</DataItemName>
         <DataItemDefinition>Report message sent by the Server to the User in relation to a connection or a service.</DataItemDefinition>
         <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, followed by series of 2-byte (Acknowledgement message) as necessary.">
-        <Repetitive>
-            <Fixed length="2">
-                <Bits from="16" to="12">
-                    <BitsShortName>nature</BitsShortName>
-                    <BitsName>Nature of the Message</BitsName>
-                    <BitsValue val="0">Server status message</BitsValue>
-                    <BitsValue val="1">Service initial request report</BitsValue>
-                    <BitsValue val="2">Service update request report : stop track/item transmission</BitsValue>
-                    <BitsValue val="3">Service update request report : start track/item transmission</BitsValue>
-                    <BitsValue val="4">Service control request report : interruption</BitsValue>
-                    <BitsValue val="5">Service control request report : restart</BitsValue>
-                    <BitsValue val="6">Service control request report : end of service</BitsValue>
-                    <BitsValue val="7">Error in default service</BitsValue>
-                    <BitsValue val="8">Service synchronisation report (periodical or radar synchronised service)</BitsValue>
-                </Bits>
-                <Bits from="11" to="1">
-                    <BitsShortName>code</BitsShortName>
-                    <BitsName>Report code</BitsName>
-                    <BitsValue val="1">service degradation</BitsValue>
-                    <BitsValue val="2">service degradation ended</BitsValue>
-                    <BitsValue val="3">main radar out of service</BitsValue>
-                    <BitsValue val="4">service interrupted by the ARTAS operator</BitsValue>
-                    <BitsValue val="5">service interrupted due to contingency</BitsValue>
-                    <BitsValue val="6">ready for service restart after contingency</BitsValue>
-                    <BitsValue val="7">Request accepted</BitsValue>
-                    <BitsValue val="8">Server unable to accept the request (overload conditions)</BitsValue>
-                    <BitsValue val="9">Service refused, the maximum number of simultaneous services per User being already reached for that User</BitsValue>
-                    <BitsValue val="10">Service Identification already existing</BitsValue>
-                    <BitsValue val="11">Incorrect Service Identification</BitsValue>
-                    <BitsValue val="12">Incorrect point(s) definition of in the geographical sub-area</BitsValue>
-                    <BitsValue val="13">Incorrect definition of Upper/Lower Limit(s) in the geographical sub-area</BitsValue>
-                    <BitsValue val="14">crossing lines in the geographical sub-area</BitsValue>
-                    <BitsValue val="15">point(s) defined outside the User Domain of Interest</BitsValue>
-                    <BitsValue val="16">number of points below the minimum value</BitsValue>
-                    <BitsValue val="17">number of points exceeding the maximum</BitsValue>
-                    <BitsValue val="18">Repetition Factor of Callsign Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="19">Incorrectly coded Callsign(s)</BitsValue>
-                    <BitsValue val="20">Repetition Factor of Track Number Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="21">Incorrect Track Number(s)</BitsValue>
-                    <BitsValue val="22">Repetition Factor of Aircraft Address Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="23">Repetition Factor of Aircraft Identification Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="24">Incorrect Aircraft Identification(s)</BitsValue>
-                    <BitsValue val="25">Repetition Factor of Code Family Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="26">Repetition Factor of the Departure Airport Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="27">Incorrectly coded Departure Airport(s)</BitsValue>
-                    <BitsValue val="28">Repetition Factor of the Destination Airport Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="29">Incorrectly coded Destination Airport(s)</BitsValue>
-                    <BitsValue val="30">Repetition Factor of Aircraft Type Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="31">Incorrectly coded Aircraft Type(s)</BitsValue>
-                    <BitsValue val="32">Incorrectly coded Current Control Position</BitsValue>
-                    <BitsValue val="33">Wrong track/flight categories selector</BitsValue>                    
-                    <BitsValue val="34">Mixed definition of periodical/aperiodical transmission characteristics</BitsValue>
-                    <BitsValue val="35">Update period below the minimum value</BitsValue>
-                    <BitsValue val="36">Update period over the maximum value</BitsValue>
-                    <BitsValue val="37">scanning period below the minimum value</BitsValue>
-                    <BitsValue val="38">scanning period over the maximum value</BitsValue>
-                    <BitsValue val="39">Extra delay over the maximum value</BitsValue>
-                    <BitsValue val="40">Max flow below the minimum value</BitsValue>
-                    <BitsValue val="41">Max flow over the maximum value</BitsValue>
-                    <BitsValue val="42">Unknown Main Radar Station</BitsValue>
-                    <BitsValue val="43">Background service not identified</BitsValue>
-                    <BitsValue val="44">More than one Background service have been identified</BitsValue>
-                    <BitsValue val="45">syntax error in the request (e.g. missing items).</BitsValue>
-                    <BitsValue val="46">maximum number of simultaneous radar synchronised service is reached.</BitsValue>
-                    <BitsValue val="47">Main radar outside the maximum user domain of interest</BitsValue>
-                    <BitsValue val="48">non existing referenced service</BitsValue>
-                    <BitsValue val="49">mixed definition of geographical and non-geographical track selection keys</BitsValue>
-                    <BitsValue val="50">number of exclusion areas exceeding the maximum</BitsValue>
-                    <BitsValue val="51">number of layers for an exclusion area exceeding the maximum</BitsValue>
-                    <BitsValue val="52">defined geographical area already excluded</BitsValue>
-                    <BitsValue val="53">Too many sub-domains</BitsValue>
-                    <BitsValue val="54">Too many sub-domain layers</BitsValue>
-                    <BitsValue val="55">Service already interrupted</BitsValue>
-                    <BitsValue val="56">Service already active.</BitsValue>
-                    <BitsValue val="57">NO LONGER USED BY ARTAS</BitsValue>
-                    <BitsValue val="58">Service ended by the operator</BitsValue>
-                    <BitsValue val="59">failure of user main radar</BitsValue>
-                    <BitsValue val="60">Incorrectly coded Discrete Parameters Flags</BitsValue>
-                    <BitsValue val="61">Incorrectly coded Item Selector</BitsValue>
-                    <BitsValue val="62">Mixed definition of item and track selection keys</BitsValue>
-                    <BitsValue val="63">Incorrect definition of the Upper/Lower limits in the update geographical area</BitsValue>
-                    <BitsValue val="64">Crossing lines in the definition of the update geographical area</BitsValue>
-                    <BitsValue val="65">Service update no longer possible</BitsValue>
-                    <BitsValue val="66">No initial service</BitsValue>
-                    <BitsValue val="67">Not possible to restart complementary service while background is interrupted</BitsValue>
-                    <BitsValue val="68">Complementary service not defined</BitsValue>
-                    <BitsValue val="69">Illegal background state</BitsValue>
-                    <BitsValue val="70">Illegal background type</BitsValue>
-                    <BitsValue val="71">Illegal connection number</BitsValue>
-                    <BitsValue val="72">Illegal service type</BitsValue>
-                    <BitsValue val="73">User not connected</BitsValue>
-                    <BitsValue val="74">Service restarted by the ARTAS Operator</BitsValue>
-                    <BitsValue val="75">Refresh period less or equal than minimal period</BitsValue>
-                    <BitsValue val="76">Batch period below the minimum value</BitsValue>
-                    <BitsValue val="77">Update period less than scanning period</BitsValue>
-                    <BitsValue val="78">Main radar becoming operational</BitsValue>
-                    <BitsValue val="79">Main radar becoming degraded</BitsValue>
-                    <BitsValue val="80">Service continuity interrupted due to disconnection with adjacent Unit</BitsValue>
-                    <BitsValue val="81">Service continuity restarted</BitsValue>
-                    <BitsValue val="82">Radar synchronised subarea going beyond the ARTAS Unit DoI</BitsValue>
-                    <BitsValue val="83">Service synchronised on backup radar</BitsValue>
-                    <BitsValue val="84">Service synchronised on main radar</BitsValue>
-                    <BitsValue val="85">Main and backup radars, if any, failed</BitsValue>
-                    <BitsValue val="86">Unknown backup radar</BitsValue>
-                    <BitsValue val="87">Incorrectly coded radar synchronisation characteristics</BitsValue>
-                    <BitsValue val="88">Unknown Sensor(s)</BitsValue>
-                    <BitsValue val="89">Refresh period out of bounds</BitsValue>
-                    <BitsValue val="90">Time Stamping Bias change threshold out of bounds</BitsValue>
-                    <BitsValue val="91">SSR Range Bias change threshold out of bounds</BitsValue>
-                    <BitsValue val="92">SSR Range gain change threshold out of bounds</BitsValue>
-                    <BitsValue val="93">PR Range Bias change threshold out of bounds</BitsValue>
-                    <BitsValue val="94">PR Range gain change threshold out of bounds</BitsValue>
-                    <BitsValue val="95">Repetition Factor of Sensor Selector exceeding the maximum value</BitsValue>
-                    <BitsValue val="96">Sensor Service Not Defined</BitsValue>
-                </Bits>
-            </Fixed>
-        </Repetitive>
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="12">
+                        <BitsShortName>nature</BitsShortName>
+                        <BitsName>Nature of the Message</BitsName>
+                        <BitsValue val="0">Server status message</BitsValue>
+                        <BitsValue val="1">Service initial request report</BitsValue>
+                        <BitsValue val="2">Service update request report : stop track/item transmission</BitsValue>
+                        <BitsValue val="3">Service update request report : start track/item transmission</BitsValue>
+                        <BitsValue val="4">Service control request report : interruption</BitsValue>
+                        <BitsValue val="5">Service control request report : restart</BitsValue>
+                        <BitsValue val="6">Service control request report : end of service</BitsValue>
+                        <BitsValue val="7">Error in default service</BitsValue>
+                        <BitsValue val="8">Service synchronisation report (periodical or radar synchronised service)</BitsValue>
+                    </Bits>
+                    <Bits from="11" to="1">
+                        <BitsShortName>code</BitsShortName>
+                        <BitsName>Report code</BitsName>
+                        <BitsValue val="1">service degradation</BitsValue>
+                        <BitsValue val="2">service degradation ended</BitsValue>
+                        <BitsValue val="3">main radar out of service</BitsValue>
+                        <BitsValue val="4">service interrupted by the ARTAS operator</BitsValue>
+                        <BitsValue val="5">service interrupted due to contingency</BitsValue>
+                        <BitsValue val="6">ready for service restart after contingency</BitsValue>
+                        <BitsValue val="7">Request accepted</BitsValue>
+                        <BitsValue val="8">Server unable to accept the request (overload conditions)</BitsValue>
+                        <BitsValue val="9">Service refused, the maximum number of simultaneous services per User being already reached for that User</BitsValue>
+                        <BitsValue val="10">Service Identification already existing</BitsValue>
+                        <BitsValue val="11">Incorrect Service Identification</BitsValue>
+                        <BitsValue val="12">Incorrect point(s) definition of in the geographical sub-area</BitsValue>
+                        <BitsValue val="13">Incorrect definition of Upper/Lower Limit(s) in the geographical sub-area</BitsValue>
+                        <BitsValue val="14">crossing lines in the geographical sub-area</BitsValue>
+                        <BitsValue val="15">point(s) defined outside the User Domain of Interest</BitsValue>
+                        <BitsValue val="16">number of points below the minimum value</BitsValue>
+                        <BitsValue val="17">number of points exceeding the maximum</BitsValue>
+                        <BitsValue val="18">Repetition Factor of Callsign Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="19">Incorrectly coded Callsign(s)</BitsValue>
+                        <BitsValue val="20">Repetition Factor of Track Number Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="21">Incorrect Track Number(s)</BitsValue>
+                        <BitsValue val="22">Repetition Factor of Aircraft Address Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="23">Repetition Factor of Aircraft Identification Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="24">Incorrect Aircraft Identification(s)</BitsValue>
+                        <BitsValue val="25">Repetition Factor of Code Family Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="26">Repetition Factor of the Departure Airport Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="27">Incorrectly coded Departure Airport(s)</BitsValue>
+                        <BitsValue val="28">Repetition Factor of the Destination Airport Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="29">Incorrectly coded Destination Airport(s)</BitsValue>
+                        <BitsValue val="30">Repetition Factor of Aircraft Type Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="31">Incorrectly coded Aircraft Type(s)</BitsValue>
+                        <BitsValue val="32">Incorrectly coded Current Control Position</BitsValue>
+                        <BitsValue val="33">Wrong track/flight categories selector</BitsValue>                    
+                        <BitsValue val="34">Mixed definition of periodical/aperiodical transmission characteristics</BitsValue>
+                        <BitsValue val="35">Update period below the minimum value</BitsValue>
+                        <BitsValue val="36">Update period over the maximum value</BitsValue>
+                        <BitsValue val="37">scanning period below the minimum value</BitsValue>
+                        <BitsValue val="38">scanning period over the maximum value</BitsValue>
+                        <BitsValue val="39">Extra delay over the maximum value</BitsValue>
+                        <BitsValue val="40">Max flow below the minimum value</BitsValue>
+                        <BitsValue val="41">Max flow over the maximum value</BitsValue>
+                        <BitsValue val="42">Unknown Main Radar Station</BitsValue>
+                        <BitsValue val="43">Background service not identified</BitsValue>
+                        <BitsValue val="44">More than one Background service have been identified</BitsValue>
+                        <BitsValue val="45">syntax error in the request (e.g. missing items).</BitsValue>
+                        <BitsValue val="46">maximum number of simultaneous radar synchronised service is reached.</BitsValue>
+                        <BitsValue val="47">Main radar outside the maximum user domain of interest</BitsValue>
+                        <BitsValue val="48">non existing referenced service</BitsValue>
+                        <BitsValue val="49">mixed definition of geographical and non-geographical track selection keys</BitsValue>
+                        <BitsValue val="50">number of exclusion areas exceeding the maximum</BitsValue>
+                        <BitsValue val="51">number of layers for an exclusion area exceeding the maximum</BitsValue>
+                        <BitsValue val="52">defined geographical area already excluded</BitsValue>
+                        <BitsValue val="53">Too many sub-domains</BitsValue>
+                        <BitsValue val="54">Too many sub-domain layers</BitsValue>
+                        <BitsValue val="55">Service already interrupted</BitsValue>
+                        <BitsValue val="56">Service already active.</BitsValue>
+                        <BitsValue val="57">NO LONGER USED BY ARTAS</BitsValue>
+                        <BitsValue val="58">Service ended by the operator</BitsValue>
+                        <BitsValue val="59">failure of user main radar</BitsValue>
+                        <BitsValue val="60">Incorrectly coded Discrete Parameters Flags</BitsValue>
+                        <BitsValue val="61">Incorrectly coded Item Selector</BitsValue>
+                        <BitsValue val="62">Mixed definition of item and track selection keys</BitsValue>
+                        <BitsValue val="63">Incorrect definition of the Upper/Lower limits in the update geographical area</BitsValue>
+                        <BitsValue val="64">Crossing lines in the definition of the update geographical area</BitsValue>
+                        <BitsValue val="65">Service update no longer possible</BitsValue>
+                        <BitsValue val="66">No initial service</BitsValue>
+                        <BitsValue val="67">Not possible to restart complementary service while background is interrupted</BitsValue>
+                        <BitsValue val="68">Complementary service not defined</BitsValue>
+                        <BitsValue val="69">Illegal background state</BitsValue>
+                        <BitsValue val="70">Illegal background type</BitsValue>
+                        <BitsValue val="71">Illegal connection number</BitsValue>
+                        <BitsValue val="72">Illegal service type</BitsValue>
+                        <BitsValue val="73">User not connected</BitsValue>
+                        <BitsValue val="74">Service restarted by the ARTAS Operator</BitsValue>
+                        <BitsValue val="75">Refresh period less or equal than minimal period</BitsValue>
+                        <BitsValue val="76">Batch period below the minimum value</BitsValue>
+                        <BitsValue val="77">Update period less than scanning period</BitsValue>
+                        <BitsValue val="78">Main radar becoming operational</BitsValue>
+                        <BitsValue val="79">Main radar becoming degraded</BitsValue>
+                        <BitsValue val="80">Service continuity interrupted due to disconnection with adjacent Unit</BitsValue>
+                        <BitsValue val="81">Service continuity restarted</BitsValue>
+                        <BitsValue val="82">Radar synchronised subarea going beyond the ARTAS Unit DoI</BitsValue>
+                        <BitsValue val="83">Service synchronised on backup radar</BitsValue>
+                        <BitsValue val="84">Service synchronised on main radar</BitsValue>
+                        <BitsValue val="85">Main and backup radars, if any, failed</BitsValue>
+                        <BitsValue val="86">Unknown backup radar</BitsValue>
+                        <BitsValue val="87">Incorrectly coded radar synchronisation characteristics</BitsValue>
+                        <BitsValue val="88">Unknown Sensor(s)</BitsValue>
+                        <BitsValue val="89">Refresh period out of bounds</BitsValue>
+                        <BitsValue val="90">Time Stamping Bias change threshold out of bounds</BitsValue>
+                        <BitsValue val="91">SSR Range Bias change threshold out of bounds</BitsValue>
+                        <BitsValue val="92">SSR Range gain change threshold out of bounds</BitsValue>
+                        <BitsValue val="93">PR Range Bias change threshold out of bounds</BitsValue>
+                        <BitsValue val="94">PR Range gain change threshold out of bounds</BitsValue>
+                        <BitsValue val="95">Repetition Factor of Sensor Selector exceeding the maximum value</BitsValue>
+                        <BitsValue val="96">Sensor Service Not Defined</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
         </DataItemFormat>
     </DataItem>
- 
+
     <DataItem id="340">
         <DataItemName>Scaling Factor</DataItemName>
         <DataItemDefinition>This item is used to select the precision by which will be coded a cartesian track position</DataItemDefinition>
@@ -1480,7 +1480,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="350">
         <DataItemName>Sensor Selector</DataItemName>
         <DataItemDefinition>List of Sensor SIC/SAC identifications for which Sensor information are to be provided</DataItemDefinition>
@@ -1573,7 +1573,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-        
+
     <DataItem id="370">
         <DataItemName>Periodical Characteristics of Sensor Information Service</DataItemName>
         <DataItemDefinition>Update period of a periodical service of Sensor Information messages</DataItemDefinition>
@@ -1587,7 +1587,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="400">
         <DataItemName>Refreshment Period of Sensor Information Service</DataItemName>
         <DataItemDefinition>Refreshment period of an aperiodical service of Sensor Information messages.</DataItemDefinition>
@@ -1601,7 +1601,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="410">
         <DataItemName>Discrete Parameters of Sensor Information Service</DataItemName>
         <DataItemDefinition>Discrete parameters of an aperiodical service of Sensor Information messages. It defines which event(s) shall trigger a message to be sent.</DataItemDefinition>
@@ -1657,7 +1657,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="440">
         <DataItemName>SSR Range Gain Criterion of Sensor Information Service</DataItemName>
         <DataItemDefinition>SSR range gain criterion of an aperiodical service of Sensor Information messages</DataItemDefinition>
@@ -1690,7 +1690,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>            
-        
+
     <DataItem id="460">
         <DataItemName>PR Range Bias Criterion of Sensor Information Service</DataItemName>
         <DataItemDefinition>Primary range bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
@@ -1709,7 +1709,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="470">
         <DataItemName>PR Range Gain Criterion of Sensor Information Service</DataItemName>
         <DataItemDefinition>Primary range gain criterion of an aperiodical service of Sensor Information messages</DataItemDefinition>
@@ -1728,7 +1728,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>            
-    
+
     <DataItem id="480">
         <DataItemName>PR Azimuth Bias Criterion of Sensor Information Service</DataItemName>
         <DataItemDefinition>Primary azimuth bias criterion of an aperiodical service of Sensor Information messages.</DataItemDefinition>
@@ -1742,7 +1742,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>            
-    
+
     <!-- connection related messages  ( "Message Type = 0x11" - Request for connection-->
     <UAP use_if_byte_nr="8" is_set_to="17">
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
@@ -1863,5 +1863,5 @@
         <UAPItem bit="54" frn="49" len="-">-</UAPItem>
         <UAPItem bit="55" frn="FX" len="-">-</UAPItem> 
     </UAP>          
-                 
+
 </Category>

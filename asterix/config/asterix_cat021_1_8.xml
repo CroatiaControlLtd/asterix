@@ -496,13 +496,13 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>TIS_presence</BitsShortName>
-                            <BitsName>Trajectory Intent Status presence</BitsName>
+                            <BitsShortName>TIS</BitsShortName>
+                            <BitsName>Trajectory Intent Status</BitsName>
                             <BitsPresence>1</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>TID_presence</BitsShortName>
-                            <BitsName>Trajectory Intent Data prsence</BitsName>
+                            <BitsShortName>TID</BitsShortName>
+                            <BitsName>Trajectory Intent Data</BitsName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits from="6" to="2">
@@ -1019,23 +1019,23 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>WS_presence</BitsShortName>
-                            <BitsName>Wind speed presence</BitsName>
+                            <BitsShortName>WS</BitsShortName>
+                            <BitsName>Wind speed</BitsName>
                             <BitsPresence>1</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>WD_presence</BitsShortName>
-                            <BitsName>Wind Direction presence</BitsName>
+                            <BitsShortName>WD</BitsShortName>
+                            <BitsName>Wind Direction</BitsName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">
-                            <BitsShortName>TMP_presence</BitsShortName>
-                            <BitsName>Temperature presence</BitsName>
+                            <BitsShortName>TMP</BitsShortName>
+                            <BitsName>Temperature</BitsName>
                             <BitsPresence>3</BitsPresence>
                         </Bits>
                         <Bits bit="5">
-                            <BitsShortName>TRB_presence</BitsShortName>
-                            <BitsName>Turbulence presence</BitsName>
+                            <BitsShortName>TRB</BitsShortName>
+                            <BitsName>Turbulence</BitsName>
                             <BitsPresence>4</BitsPresence>
                         </Bits>
                         <Bits from="4" to="2">
@@ -1051,33 +1051,33 @@
                         </Bits>
                     </Fixed>
                 </Variable>
-                    <Fixed length="2">
-                        <Bits from="16" to="1">
+                <Fixed length="2">
+                    <Bits from="16" to="1">
                         <BitsShortName>WindS</BitsShortName>
-                            <BitsName>Wind Speed</BitsName>
-                            <BitsUnit scale="1" max="300">knot</BitsUnit>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="2">
-                        <Bits from="16" to="1">
+                        <BitsName>Wind Speed</BitsName>
+                        <BitsUnit scale="1" max="300">knot</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1">
                         <BitsShortName>WindD</BitsShortName>
-                            <BitsName>Wind Direction</BitsName>
-                            <BitsUnit scale="1" min="1" max="360">deg</BitsUnit>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="2">
-                        <Bits from="16" to="1" encode="signed">
+                        <BitsName>Wind Direction</BitsName>
+                        <BitsUnit scale="1" min="1" max="360">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1" encode="signed">
                         <BitsShortName>Temp</BitsShortName>
-                            <BitsName>Temperature</BitsName>
-                            <BitsUnit scale="0.25" min="-100" max="100">C</BitsUnit>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="1">
-                        <Bits from="8" to="1">
+                        <BitsName>Temperature</BitsName>
+                        <BitsUnit scale="0.25" min="-100" max="100">C</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
                         <BitsShortName>Turb</BitsShortName>
                         <BitsName>Turbulence</BitsName>
-                        </Bits>
-                    </Fixed>
+                    </Bits>
+                </Fixed>
             </Compound>
         </DataItemFormat>
     </DataItem>
@@ -1204,38 +1204,38 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>AOS_presence</BitsShortName>
-                            <BitsName>Aircraft Operational Status age presence</BitsName>
+                            <BitsShortName>AOS</BitsShortName>
+                            <BitsName>Aircraft Operational Status age</BitsName>
                             <BitsPresence>1</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>TRD_presence</BitsShortName>
-                            <BitsName>arget Report Descriptor age presence</BitsName>
+                            <BitsShortName>TRD</BitsShortName>
+                            <BitsName>arget Report Descriptor age</BitsName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">
-                            <BitsShortName>M3A_presence</BitsShortName>
-                            <BitsName>Mode 3/A Code age presence</BitsName>
+                            <BitsShortName>M3A</BitsShortName>
+                            <BitsName>Mode 3/A Code age</BitsName>
                             <BitsPresence>3</BitsPresence>
                         </Bits>
                         <Bits bit="5">
-                            <BitsShortName>QI_presence</BitsShortName>
-                            <BitsName>Quality Indicators age presence</BitsName>
+                            <BitsShortName>QI</BitsShortName>
+                            <BitsName>Quality Indicators age</BitsName>
                             <BitsPresence>4</BitsPresence>
                         </Bits>
                         <Bits bit="4">
-                            <BitsShortName>TI_presence</BitsShortName>
-                            <BitsName>Trajectory Intent age presence</BitsName>
+                            <BitsShortName>TI</BitsShortName>
+                            <BitsName>Trajectory Intent age</BitsName>
                             <BitsPresence>5</BitsPresence>
                         </Bits>
                         <Bits bit="3">
-                            <BitsShortName>MAM_presence</BitsShortName>
-                            <BitsName>Message Amplitude age presence</BitsName>
+                            <BitsShortName>MAM</BitsShortName>
+                            <BitsName>Message Amplitude age</BitsName>
                             <BitsPresence>6</BitsPresence>
                         </Bits>
                         <Bits bit="2">
-                            <BitsShortName>GH_presence</BitsShortName>
-                            <BitsName>Geometric Height age presence</BitsName>
+                            <BitsShortName>GH</BitsShortName>
+                            <BitsName>Geometric Height age</BitsName>
                             <BitsPresence>7</BitsPresence>
                         </Bits>
                         <Bits bit="1" fx="1">
@@ -1247,38 +1247,38 @@
                     </Fixed>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>FL_presence</BitsShortName>
-                            <BitsName>Flight Level age presence</BitsName>
+                            <BitsShortName>FL</BitsShortName>
+                            <BitsName>Flight Level age</BitsName>
                             <BitsPresence>8</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>ISA_presence</BitsShortName>
-                            <BitsName>Intermediate State Selected Altitude age presence</BitsName>
+                            <BitsShortName>ISA</BitsShortName>
+                            <BitsName>Intermediate State Selected Altitude age</BitsName>
                             <BitsPresence>9</BitsPresence>
                         </Bits>
                         <Bits bit="6">
-                            <BitsShortName>FSA_presence</BitsShortName>
-                            <BitsName>Final State Selected Altitude age presence</BitsName>
+                            <BitsShortName>FSA</BitsShortName>
+                            <BitsName>Final State Selected Altitude age</BitsName>
                             <BitsPresence>10</BitsPresence>
                         </Bits>
                         <Bits bit="5">
-                            <BitsShortName>AS_presence</BitsShortName>
-                            <BitsName>Air Speed age presence</BitsName>
+                            <BitsShortName>AS</BitsShortName>
+                            <BitsName>Air Speed age</BitsName>
                             <BitsPresence>11</BitsPresence>
                         </Bits>
                         <Bits bit="4">
-                            <BitsShortName>TAS_presence</BitsShortName>
-                            <BitsName>True Air Speed age presence</BitsName>
+                            <BitsShortName>TAS</BitsShortName>
+                            <BitsName>True Air Speed age</BitsName>
                             <BitsPresence>12</BitsPresence>
                         </Bits>
                         <Bits bit="3">
-                            <BitsShortName>MH_presence</BitsShortName>
-                            <BitsName>Magnetic Heading age presence</BitsName>
+                            <BitsShortName>MH</BitsShortName>
+                            <BitsName>Magnetic Heading age</BitsName>
                             <BitsPresence>13</BitsPresence>
                         </Bits>
                         <Bits bit="2">
-                            <BitsShortName>BVR_presence</BitsShortName>
-                            <BitsName>Barometric Vertical Rate age presence</BitsName>
+                            <BitsShortName>BVR</BitsShortName>
+                            <BitsName>Barometric Vertical Rate age</BitsName>
                             <BitsPresence>14</BitsPresence>
                         </Bits>
                         <Bits bit="1" fx="1">
@@ -1290,38 +1290,38 @@
                     </Fixed>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>GVR_presence</BitsShortName>
-                            <BitsName>Geometric Vertical Rate age presence</BitsName>
+                            <BitsShortName>GVR</BitsShortName>
+                            <BitsName>Geometric Vertical Rate age</BitsName>
                             <BitsPresence>15</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>GV_presence</BitsShortName>
-                            <BitsName>Ground Vector age presence</BitsName>
+                            <BitsShortName>GV</BitsShortName>
+                            <BitsName>Ground Vector age</BitsName>
                             <BitsPresence>16</BitsPresence>
                         </Bits>
                         <Bits bit="6">
-                            <BitsShortName>TAR_presence</BitsShortName>
-                            <BitsName>Track Angle Rate age presence</BitsName>
+                            <BitsShortName>TAR</BitsShortName>
+                            <BitsName>Track Angle Rate age</BitsName>
                             <BitsPresence>17</BitsPresence>
                         </Bits>
                         <Bits bit="5">
-                            <BitsShortName>TI_presence</BitsShortName>
-                            <BitsName>Target Identification age presence</BitsName>
+                            <BitsShortName>TI</BitsShortName>
+                            <BitsName>Target Identification age</BitsName>
                             <BitsPresence>18</BitsPresence>
                         </Bits>
                         <Bits bit="4">
-                            <BitsShortName>TS_presence</BitsShortName>
-                            <BitsName>Target Status age presence</BitsName>
+                            <BitsShortName>TS</BitsShortName>
+                            <BitsName>Target Status age</BitsName>
                             <BitsPresence>19</BitsPresence>
                         </Bits>
                         <Bits bit="3">
-                            <BitsShortName>MET_presence</BitsShortName>
-                            <BitsName>Met Information age presence</BitsName>
+                            <BitsShortName>MET</BitsShortName>
+                            <BitsName>Met Information age</BitsName>
                             <BitsPresence>20</BitsPresence>
                         </Bits>
                         <Bits bit="2">
-                            <BitsShortName>ROA_presence</BitsShortName>
-                            <BitsName>Roll Angle age presence</BitsName>
+                            <BitsShortName>ROA</BitsShortName>
+                            <BitsName>Roll Angle age</BitsName>
                             <BitsPresence>21</BitsPresence>
                         </Bits>
                         <Bits bit="1" fx="1">
@@ -1333,13 +1333,13 @@
                     </Fixed>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>ARA_presence</BitsShortName>
-                            <BitsName>ACAS Resolution Advisory age age presence</BitsName>
+                            <BitsShortName>ARA</BitsShortName>
+                            <BitsName>ACAS Resolution Advisory age</BitsName>
                             <BitsPresence>22</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>SCC_presence</BitsShortName>
-                            <BitsName>Surface Capabilities and Characteristics age presence</BitsName>
+                            <BitsShortName>SCC</BitsShortName>
+                            <BitsName>Surface Capabilities and Characteristics age</BitsName>
                             <BitsPresence>23</BitsPresence>
                         </Bits>
                         <Bits from="6" to="2">

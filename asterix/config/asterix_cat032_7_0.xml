@@ -12,7 +12,7 @@
 --> 
 
 <Category id="32" name="Messages Provided by Users to ARTAS" ver="6.2">
-    
+
     <DataItem id="010">
         <DataItemName>Server Identification Tag</DataItemName>
         <DataItemDefinition>Identification of the Server of track information.</DataItemDefinition>
@@ -28,23 +28,23 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-            <DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to the sender of the miniplan.</DataItemNote>
+        <DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to the sender of the miniplan.</DataItemNote>
     </DataItem>
 
     <DataItem id="015">
         <DataItemName>User Number</DataItemName>
         <DataItemDefinition>Identification of the User of track information</DataItemDefinition>
-            <DataItemFormat desc="Two-byte fixed length data item.">
-                    <Fixed length="2">
-                        <Bits from="16" to="1">
-                                <BitsShortName>UserNumber</BitsShortName>
-                                <BitsName>User number</BitsName>
-                        </Bits> 
-                    </Fixed>
-            </DataItemFormat>
-            <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to the receiver of the miniplan.</DataItemNote>
-        </DataItem>
-    
+        <DataItemFormat desc="Two-byte fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>UserNumber</BitsShortName>
+                    <BitsName>User number</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to the receiver of the miniplan.</DataItemNote>
+    </DataItem>
+
     <DataItem id="018">
         <DataItemName>Data Source Identification Tag</DataItemName>
         <DataItemDefinition>Identification of the data source (system) from which the information contained in the message was originated.</DataItemDefinition>
@@ -62,7 +62,7 @@
         </DataItemFormat>
         <DataItemNote>This item will be used if the system sending the minipln information (i.e. the system which is identified in I032/015 : USER NUMBER) is another system than the FPPS from which the minipln information has been received. This will be the case of e.g. an ARTAS unit forwarding minipln information to an adjacent unit.</DataItemNote>
     </DataItem>
-            
+
     <DataItem id="020">
         <DataItemName>Time Of Message</DataItemName>
         <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
@@ -77,28 +77,28 @@
         </DataItemFormat>
         <DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
     </DataItem>     
-        
+
     <DataItem id="035">
         <DataItemName>Type Of Message</DataItemName>
         <DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
-            <DataItemFormat desc="One-byte fixed length data item.">
-                    <Fixed length="1">
-                        <Bits from="8" to="5">
-                                <BitsShortName>FAMILY</BitsShortName>
-                                <BitsName>Familiy to which the message belongs</BitsName>
-                        </Bits> 
-                        <Bits from="4" to="1">
-                             <BitsShortName>NATURE</BitsShortName>
-                             <BitsName>Nature of the message (within its family)</BitsName>
-                             <BitsValue val="1">Flight Plan to track initial correlation</BitsValue>
-                             <BitsValue val="2">Miniplan update</BitsValue>
-                             <BitsValue val="3">End of correlation</BitsValue>
-                             <BitsValue val="4">Miniplan Cancellation</BitsValue>
-                        </Bits> 
-                    </Fixed>
-            </DataItemFormat>
-            <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY.</DataItemNote>
-        </DataItem>
+        <DataItemFormat desc="One-byte fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="5">
+                    <BitsShortName>FAMILY</BitsShortName>
+                    <BitsName>Familiy to which the message belongs</BitsName>
+                </Bits> 
+                <Bits from="4" to="1">
+                    <BitsShortName>NATURE</BitsShortName>
+                    <BitsName>Nature of the message (within its family)</BitsName>
+                    <BitsValue val="1">Flight Plan to track initial correlation</BitsValue>
+                    <BitsValue val="2">Miniplan update</BitsValue>
+                    <BitsValue val="3">End of correlation</BitsValue>
+                    <BitsValue val="4">Miniplan Cancellation</BitsValue>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY.</DataItemNote>
+    </DataItem>
 
     <DataItem id="040">
         <DataItemName>Track Number</DataItemName>
@@ -122,140 +122,140 @@
         </DataItemFormat>
         <DataItemNote>Unlike the ARTAS track number I032/050, the track number does not change when a track enters or leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="050">
-            <DataItemName>Artas Track Number</DataItemName>
-            <DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
-            <DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
-                <Variable>
-                    <Fixed length="3">
-                        <Bits from="24" to="17">
-                            <BitsShortName>AUI</BitsShortName>
-                                <BitsName>Artas Unit Identification</BitsName>
-                            </Bits>
-                            <Bits from="16" to="14">
-                                <BitsShortName>unused</BitsShortName>
-                                <BitsName>unused bits</BitsName>
-                            </Bits>
-                            <Bits from="13" to="2">
-                                <BitsShortName>STN</BitsShortName>
-                                <BitsName>System Track Number</BitsName>
-                            </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>FX</BitsShortName>
-                                <BitsName>Field extension</BitsName>
-                            <BitsValue val="0">end of data item</BitsValue>
-                            <BitsValue val="1">extension into next extent</BitsValue>
-                </Bits>
-                    </Fixed>
-
-                    <Fixed length="3">
-                            <Bits from="24" to="17">
-                                <BitsShortName>AUI</BitsShortName>
-                                <BitsName>Artas Unit Identification</BitsName>
-                            </Bits>
-                            <Bits from="16" to="14">
-                                <BitsShortName>unused</BitsShortName>
-                                <BitsName>unused bits</BitsName>
-                            </Bits>
-                            <Bits from="13" to="2">
-                                <BitsShortName>STN</BitsShortName>
-                                <BitsName>System Track Number</BitsName>
-                            </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>FX</BitsShortName>
-                                <BitsName>Field extension</BitsName>
+        <DataItemName>Artas Track Number</DataItemName>
+        <DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
+            <Variable>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
                         <BitsValue val="0">end of data item</BitsValue>
                         <BitsValue val="1">extension into next extent</BitsValue>
-                </Bits>
-                    </Fixed>
+                    </Bits>
+                </Fixed>
 
-                    <Fixed length="3">
-                            <Bits from="24" to="17">
-                                <BitsShortName>AUI</BitsShortName>
-                                <BitsName>Artas Unit Identification</BitsName>
-                            </Bits>
-                            <Bits from="16" to="14">
-                                <BitsShortName>unused</BitsShortName>
-                                <BitsName>unused bits</BitsName>
-                            </Bits>
-                            <Bits from="13" to="2">
-                                <BitsShortName>STN</BitsShortName>
-                                <BitsName>System Track Number</BitsName>
-                            </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>FX</BitsShortName>
-                                <BitsName>Field extension</BitsName>
-                            <BitsValue val="0">end of data item</BitsValue>
-                            <BitsValue val="1">extension into next extent</BitsValue>
-                </Bits>
-                    </Fixed>
-
-                    <Fixed length="3">
-                            <Bits from="24" to="17">
-                                <BitsShortName>AUI</BitsShortName>
-                                <BitsName>Artas Unit Identification</BitsName>
-                            </Bits>
-                            <Bits from="16" to="14">
-                                <BitsShortName>unused</BitsShortName>
-                                <BitsName>unused bits</BitsName>
-                            </Bits>
-                            <Bits from="13" to="2">
-                                <BitsShortName>STN</BitsShortName>
-                                <BitsName>System Track Number</BitsName>
-                            </Bits>
-                <Bits bit="1" fx="1">
-                    <BitsShortName>FX</BitsShortName>
-                                <BitsName>Field extension</BitsName>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
                         <BitsValue val="0">end of data item</BitsValue>
                         <BitsValue val="1">extension into next extent</BitsValue>
-                </Bits>
-                    </Fixed>
+                    </Bits>
+                </Fixed>
 
-                    <Fixed length="3">
-                        <Bits from="24" to="17">
-                            <BitsShortName>AUI</BitsShortName>
-                            <BitsName>Artas Unit Identification</BitsName>
-                        </Bits>
-                        <Bits from="16" to="14">
-                            <BitsShortName>unused</BitsShortName>
-                            <BitsName>unused bits</BitsName>
-                        </Bits>
-                        <Bits from="13" to="2">
-                            <BitsShortName>STN</BitsShortName>
-                            <BitsName>System Track Number</BitsName>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Field extension</BitsName>
-                            <BitsValue val="0">end of data item</BitsValue>
-                            <BitsValue val="1">extension into next extent</BitsValue>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="3">
-                        <Bits from="24" to="17">
-                            <BitsShortName>AUI</BitsShortName>
-                            <BitsName>Artas Unit Identification</BitsName>
-                        </Bits>
-                        <Bits from="16" to="14">
-                            <BitsShortName>unused</BitsShortName>
-                            <BitsName>unused bits</BitsName>
-                        </Bits>
-                        <Bits from="13" to="2">
-                            <BitsShortName>STN</BitsShortName>
-                            <BitsName>System Track Number</BitsName>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Field extension</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                    </Fixed>
-                </Variable>
-            </DataItemFormat>
-            <DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
-        </DataItem>
-    
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="17">
+                        <BitsShortName>AUI</BitsShortName>
+                        <BitsName>Artas Unit Identification</BitsName>
+                    </Bits>
+                    <Bits from="16" to="14">
+                        <BitsShortName>unused</BitsShortName>
+                        <BitsName>unused bits</BitsName>
+                    </Bits>
+                    <Bits from="13" to="2">
+                        <BitsShortName>STN</BitsShortName>
+                        <BitsName>System Track Number</BitsName>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field extension</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
+    </DataItem>
+
     <DataItem id="060">
         <DataItemName>Track Mode 3/A</DataItemName>
         <DataItemDefinition>Mode 3/A identity associated to the track</DataItemDefinition>
@@ -274,7 +274,7 @@
         </DataItemFormat>
         <DataItemNote/>
     </DataItem> 
-    
+
     <DataItem id="400">
         <DataItemName>Callsign</DataItemName>
         <DataItemDefinition>Callsign (in 7 characters) of an aircraft (provided in the Minipln).</DataItemDefinition>
@@ -287,7 +287,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>    
-    
+
     <DataItem id="410">
         <DataItemName>PLN Number</DataItemName>
         <DataItemDefinition>The PLN NUMBER is an integer value representing a unique reference to a Flight-plan record within a particular FPPS (Information provided in the minipln).</DataItemDefinition>
@@ -427,7 +427,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="490">
         <DataItemName>Current Control Position</DataItemName>
         <DataItemDefinition>Identification of the Current Control Position in charge of an aircraft, as provided by a FPPS</DataItemDefinition>
@@ -446,7 +446,7 @@
         <DataItemNote>The centre and the control position identification codes have to be defined between communication partners.</DataItemNote>
     </DataItem>
 
-<DataItem id="500">
+    <DataItem id="500">
         <DataItemName>SUPPLEMENTARY FLIGHT DATA</DataItemName>
         <DataItemDefinition>Flight related data provided by ground based systems.</DataItemDefinition>
         <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
@@ -454,229 +454,226 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
-                                        <BitsShortName>8</BitsShortName>
-                                        <BitsName>IFPS FLIGHT ID</BitsName>
-                                        <BitsPresence>1</BitsPresence>
-                            </Bits>
+                            <BitsShortName>8</BitsShortName>
+                            <BitsName>IFPS FLIGHT ID</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
                         <Bits bit="7">
-                                        <BitsShortName>RVP</BitsShortName>
-                                        <BitsName>RVSM and Flight Priority</BitsName>
-                                        <BitsPresence>2</BitsPresence>
-                                    </Bits>             
-                                <Bits bit="6">
-                                        <BitsShortName>RDS</BitsShortName>
-                                        <BitsName>Runway Designation</BitsName>
-                                        <BitsPresence>3</BitsPresence>
-                                    </Bits>
+                            <BitsShortName>RVP</BitsShortName>
+                            <BitsName>RVSM and Flight Priority</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>             
+                        <Bits bit="6">
+                            <BitsShortName>RDS</BitsShortName>
+                            <BitsName>Runway Designation</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
                         <Bits bit="5">
                             <BitsShortName>ToD</BitsShortName>
-                                        <BitsName>Time of Departure / Arrival</BitsName>
-                                        <BitsPresence>4</BitsPresence>
-                                    </Bits>  
+                            <BitsName>Time of Departure / Arrival</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>  
                         <Bits bit="4">
-                                        <BitsShortName>AST</BitsShortName>
-                                        <BitsName>Aircraft Stand</BitsName>
-                                        <BitsPresence>5</BitsPresence>
-                                    </Bits>
+                            <BitsShortName>AST</BitsShortName>
+                            <BitsName>Aircraft Stand</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
                         <Bits bit="3">
-                                        <BitsShortName>STS</BitsShortName>
-                                        <BitsName>Stand Status</BitsName>
-                                        <BitsPresence>6</BitsPresence>
-                                    </Bits>             
-                                <Bits bit="2">
-                                        <BitsShortName>STD</BitsShortName>
-                                        <BitsName>Standard Instrument Departure</BitsName>
-                                        <BitsPresence>7</BitsPresence>
-                                    </Bits>
-                                <Bits bit="1" fx="1">
-                                        <BitsShortName>FX</BitsShortName>
-                                        <BitsName>Extension Indicator</BitsName>
-                                        <BitsPresence>1</BitsPresence>
-                                </Bits>
+                            <BitsShortName>STS</BitsShortName>
+                            <BitsName>Stand Status</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>             
+                        <Bits bit="2">
+                            <BitsShortName>STD</BitsShortName>
+                            <BitsName>Standard Instrument Departure</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
                     </Fixed>
-                                
+
                     <Fixed length="1">
                         <Bits bit="8">
-                                        <BitsShortName>STA</BitsShortName>
-                                        <BitsName>Standard Instrument Arrival</BitsName>
-                                        <BitsPresence>8</BitsPresence>
-                                    </Bits>             
-                                <Bits bit="1" fx="1">
-                                        <BitsShortName>FX</BitsShortName>
-                                        <BitsName>Extension Indicator</BitsName>
-                                        <BitsPresence>1</BitsPresence>
-                                </Bits>
+                            <BitsShortName>STA</BitsShortName>
+                            <BitsName>Standard Instrument Arrival</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>             
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
                     </Fixed>
                 </Variable>
-                
-                    <Fixed length="4">
-                            <Bits from="32" to="31">
-                                    <BitsShortName>TYP</BitsShortName>
-                                    <BitsValue val="0">Plan Number</BitsValue>
+
+                <Fixed length="4">
+                    <Bits from="32" to="31">
+                        <BitsShortName>TYP</BitsShortName>
+                        <BitsValue val="0">Plan Number</BitsValue>
                         <BitsValue val="1">Unit 1 internal flight number</BitsValue>
                         <BitsValue val="2">Unit 2 internal flight number</BitsValue>
                         <BitsValue val="3">Unit 3 internal flight number</BitsValue>    
-                            </Bits>
-                <Bits from="30" to="28">
+                    </Bits>
+                    <Bits from="30" to="28">
                         <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare bit set to 0</BitsName>
-                    <BitsConst>0</BitsConst>                            
-                            </Bits>
-                <Bits from="27" to="1">
-                                    <BitsShortName>NBR</BitsShortName>                            
-                            </Bits>
-                    </Fixed>
-
-                   <Fixed length="1">
-                <Bits from="8" to="4">
-                        <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare bit set to 0</BitsName>
-                    <BitsConst>0</BitsConst>                            
-                            </Bits>
-                            <Bits from="3" to="2">
-                                    <BitsShortName>RVSM</BitsShortName>
-                                    <BitsValue val="0">Unknown</BitsValue>
-                        <BitsValue val="1">Approved</BitsValue>
-                        <BitsValue val="2">Exempt</BitsValue>
-                        <BitsValue val="3">Not Approved</BitsValue>    
-                            </Bits>
-                <Bits bit="1">
-                                    <BitsShortName>HPR</BitsShortName>   
-                        <BitsValue val="0">Normal Priority Flight</BitsValue>
-                        <BitsValue val="1">High Priority Flight</BitsValue>
-                            </Bits>
-                    </Fixed>                    
-                    
-
-                  <Fixed length="3">
-                <Bits from="24" to="17" encode="ascii"> 
-                    <BitsShortName>NU1</BitsShortName>
-                    <BitsName>First number</BitsName>                       
-                            </Bits>
-                            <Bits from="16" to="9" encode="ascii">
-                                    <BitsShortName>NU2</BitsShortName>
-                    <BitsName>Second number</BitsName>  
-                            </Bits>
-                <Bits from="8" to="1" encode="ascii">
-                                    <BitsShortName>LTR</BitsShortName>
-                    <BitsName>Letter</BitsName>                             
-                            </Bits>
-                </Fixed>    
-
-                
-        <Repetitive>
-        <Fixed length="4">
-                <Bits from="32" to="28">
-                    <BitsShortName>TYP</BitsShortName>
-                    <BitsName>Type</BitsName>
-                                <BitsValue val="0">Scheduled off-block time</BitsValue>
-                                <BitsValue val="1">Estimated off-block time</BitsValue>
-                                <BitsValue val="2">Estimated take-off time</BitsValue>
-                                <BitsValue val="3">Actual off-block time</BitsValue>
-                                <BitsValue val="4">Predicted time at runway hold</BitsValue> 
-                                <BitsValue val="5">Actual time at runway hold</BitsValue> 
-                                <BitsValue val="6">Actual line-up time</BitsValue> 
-                                <BitsValue val="7">Actual take-off time</BitsValue> 
-                                <BitsValue val="8">Estimated time of arrival</BitsValue> 
-                                <BitsValue val="9">Predicted landing time</BitsValue> 
-                                <BitsValue val="10">Actual landing time</BitsValue> 
-                                <BitsValue val="11">Actual time off runway</BitsValue> 
-                                <BitsValue val="12">Predicted time to gate</BitsValue> 
-                                <BitsValue val="13">Actual on-block time</BitsValue>                                
-                </Bits>
-                <Bits from="27" to="26" >
-                    <BitsShortName>DAY</BitsShortName>
-                    <BitsName>Day</BitsName>
-                                <BitsValue val="0">Today</BitsValue>
-                                <BitsValue val="1">Yesterday</BitsValue>
-                                <BitsValue val="2">Tomorrow</BitsValue>
-                                <BitsValue val="3">Invalid</BitsValue>
-                </Bits>
-                <Bits from="25" to="22">
-                            <BitsShortName>spare</BitsShortName>
-                                <BitsName>spare bit set to 0</BitsName>
-                                <BitsConst>0</BitsConst>                            
-                            </Bits>     
-                <Bits from="21" to="17">
-                                <BitsShortName>HOR</BitsShortName>
-                                <BitsName>Hours</BitsName>                          
-                            </Bits>                                 
-                <Bits from="16" to="15">
-                            <BitsShortName>spare</BitsShortName>
-                                <BitsName>spare bit set to 0</BitsName>
-                                <BitsConst>0</BitsConst>                            
-                            </Bits>
-                <Bits from="14" to="9">
-                                <BitsShortName>MIN</BitsShortName>
-                                <BitsName>Minutes</BitsName>                            
-                            </Bits> 
-                <Bits bit="8">
-                                <BitsShortName>AVS</BitsShortName>
-                                <BitsName>Seconds available</BitsName>
-                                <BitsValue val="0">Seconds available</BitsValue>
-                                <BitsValue val="1">Seconds not available</BitsValue>                
-                            </Bits>                             
-                <Bits bit="7">
-                            <BitsShortName>spare</BitsShortName>
-                                <BitsName>spare bit set to 0</BitsName>
-                                <BitsConst>0</BitsConst>                            
-                            </Bits>                     
-                <Bits from="6" to="1">
-                                <BitsShortName>SEC</BitsShortName>
-                                <BitsName>Seconds</BitsName>                            
-                            </Bits>                             
-        </Fixed>
-        </Repetitive>
-
-
-                <Fixed length="6">
-                        <Bits from="48" to="1" encode="ascii">
-                                <BitsShortName>AircraftStand</BitsShortName>
-                                <BitsName>Aircraft Stand</BitsName>
-                        </Bits>
+                        <BitsName>spare bit set to 0</BitsName>
+                        <BitsConst>0</BitsConst>                            
+                    </Bits>
+                    <Bits from="27" to="1">
+                        <BitsShortName>NBR</BitsShortName>                            
+                    </Bits>
                 </Fixed>
 
                 <Fixed length="1">
-                            <Bits from="8" to="7">
-                                    <BitsShortName>EMP</BitsShortName>
-                                        <BitsValue val="0">Empty</BitsValue>
-                            <BitsValue val="1">Occupied</BitsValue>
-                            <BitsValue val="2">Unknown</BitsValue>
-                            <BitsValue val="3">Invalid</BitsValue>    
-                            </Bits>
-                <Bits from="6" to="1">
-                                    <BitsShortName>AVL</BitsShortName>
-                                        <BitsValue val="0">Available</BitsValue>
-                            <BitsValue val="1">Not available</BitsValue>
-                            <BitsValue val="2">Unknown</BitsValue>
-                            <BitsValue val="3">Invalid</BitsValue>    
-                            </Bits>
-            </Fixed>        
+                    <Bits from="8" to="4">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>spare bit set to 0</BitsName>
+                        <BitsConst>0</BitsConst>                            
+                    </Bits>
+                    <Bits from="3" to="2">
+                        <BitsShortName>RVSM</BitsShortName>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">Approved</BitsValue>
+                        <BitsValue val="2">Exempt</BitsValue>
+                        <BitsValue val="3">Not Approved</BitsValue>    
+                    </Bits>
+                    <Bits bit="1">
+                        <BitsShortName>HPR</BitsShortName>   
+                        <BitsValue val="0">Normal Priority Flight</BitsValue>
+                        <BitsValue val="1">High Priority Flight</BitsValue>
+                    </Bits>
+                </Fixed>                    
 
-            <Fixed length="7">
-                        <Bits from="56" to="1" encode="ascii">
-                                <BitsShortName>SID</BitsShortName>
-                            <BitsName>Standard Instrument Departure</BitsName>
+
+                <Fixed length="3">
+                    <Bits from="24" to="17" encode="ascii"> 
+                        <BitsShortName>NU1</BitsShortName>
+                        <BitsName>First number</BitsName>                       
+                    </Bits>
+                    <Bits from="16" to="9" encode="ascii">
+                        <BitsShortName>NU2</BitsShortName>
+                        <BitsName>Second number</BitsName>  
+                    </Bits>
+                    <Bits from="8" to="1" encode="ascii">
+                        <BitsShortName>LTR</BitsShortName>
+                        <BitsName>Letter</BitsName>                             
+                    </Bits>
+                </Fixed>    
+
+
+                <Repetitive>
+                    <Fixed length="4">
+                        <Bits from="32" to="28">
+                            <BitsShortName>TYP</BitsShortName>
+                            <BitsName>Type</BitsName>
+                            <BitsValue val="0">Scheduled off-block time</BitsValue>
+                            <BitsValue val="1">Estimated off-block time</BitsValue>
+                            <BitsValue val="2">Estimated take-off time</BitsValue>
+                            <BitsValue val="3">Actual off-block time</BitsValue>
+                            <BitsValue val="4">Predicted time at runway hold</BitsValue> 
+                            <BitsValue val="5">Actual time at runway hold</BitsValue> 
+                            <BitsValue val="6">Actual line-up time</BitsValue> 
+                            <BitsValue val="7">Actual take-off time</BitsValue> 
+                            <BitsValue val="8">Estimated time of arrival</BitsValue> 
+                            <BitsValue val="9">Predicted landing time</BitsValue> 
+                            <BitsValue val="10">Actual landing time</BitsValue> 
+                            <BitsValue val="11">Actual time off runway</BitsValue> 
+                            <BitsValue val="12">Predicted time to gate</BitsValue> 
+                            <BitsValue val="13">Actual on-block time</BitsValue>                                
                         </Bits>
+                        <Bits from="27" to="26" >
+                            <BitsShortName>DAY</BitsShortName>
+                            <BitsName>Day</BitsName>
+                            <BitsValue val="0">Today</BitsValue>
+                            <BitsValue val="1">Yesterday</BitsValue>
+                            <BitsValue val="2">Tomorrow</BitsValue>
+                            <BitsValue val="3">Invalid</BitsValue>
+                        </Bits>
+                        <Bits from="25" to="22">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>spare bit set to 0</BitsName>
+                            <BitsConst>0</BitsConst>                            
+                        </Bits>     
+                        <Bits from="21" to="17">
+                            <BitsShortName>HOR</BitsShortName>
+                            <BitsName>Hours</BitsName>                          
+                        </Bits>                                 
+                        <Bits from="16" to="15">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>spare bit set to 0</BitsName>
+                            <BitsConst>0</BitsConst>                            
+                        </Bits>
+                        <Bits from="14" to="9">
+                            <BitsShortName>MIN</BitsShortName>
+                            <BitsName>Minutes</BitsName>                            
+                        </Bits> 
+                        <Bits bit="8">
+                            <BitsShortName>AVS</BitsShortName>
+                            <BitsName>Seconds available</BitsName>
+                            <BitsValue val="0">Seconds available</BitsValue>
+                            <BitsValue val="1">Seconds not available</BitsValue>                
+                        </Bits>                             
+                        <Bits bit="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>spare bit set to 0</BitsName>
+                            <BitsConst>0</BitsConst>                            
+                        </Bits>                     
+                        <Bits from="6" to="1">
+                            <BitsShortName>SEC</BitsShortName>
+                            <BitsName>Seconds</BitsName>                            
+                        </Bits>                             
+                    </Fixed>
+                </Repetitive>
+
+
+                <Fixed length="6">
+                    <Bits from="48" to="1" encode="ascii">
+                        <BitsShortName>AircraftStand</BitsShortName>
+                        <BitsName>Aircraft Stand</BitsName>
+                    </Bits>
                 </Fixed>
 
-            <Fixed length="7">
-                        <Bits from="56" to="1" encode="ascii">
-                                <BitsShortName>STAR</BitsShortName>
-                                <BitsName>Standard Instrument Arrival</BitsName>
-                        </Bits>
-            </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="7">
+                        <BitsShortName>EMP</BitsShortName>
+                        <BitsValue val="0">Empty</BitsValue>
+                        <BitsValue val="1">Occupied</BitsValue>
+                        <BitsValue val="2">Unknown</BitsValue>
+                        <BitsValue val="3">Invalid</BitsValue>    
+                    </Bits>
+                    <Bits from="6" to="1">
+                        <BitsShortName>AVL</BitsShortName>
+                        <BitsValue val="0">Available</BitsValue>
+                        <BitsValue val="1">Not available</BitsValue>
+                        <BitsValue val="2">Unknown</BitsValue>
+                        <BitsValue val="3">Invalid</BitsValue>    
+                    </Bits>
+                </Fixed>        
 
-            
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>SID</BitsShortName>
+                        <BitsName>Standard Instrument Departure</BitsName>
+                    </Bits>
+                </Fixed>
 
-                    
-        </Compound>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>STAR</BitsShortName>
+                        <BitsName>Standard Instrument Arrival</BitsName>
+                    </Bits>
+                </Fixed>
+
+
+
+
+            </Compound>
         </DataItemFormat>
     </DataItem>     
-    
-    
-    
-    
+
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="2">015</UAPItem>
@@ -698,8 +695,8 @@
         <UAPItem bit="17" frn="16" len="4">430</UAPItem>
         <UAPItem bit="18" frn="17" len="1">435</UAPItem>
         <UAPItem bit="19" frn="18" len="1+">460</UAPItem>
-    <UAPItem bit="20" frn="19" len="1+">500</UAPItem>
+        <UAPItem bit="20" frn="19" len="1+">500</UAPItem>
         <UAPItem bit="22" frn="FX">-</UAPItem>
     </UAP>
-        
+
 </Category>   

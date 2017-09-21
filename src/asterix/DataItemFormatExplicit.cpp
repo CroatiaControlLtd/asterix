@@ -74,8 +74,7 @@ bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHea
 	// full length must be multiple of body length
 	if (bodyLength == 0 || nFullLength % bodyLength != 0)
 	{
-		Tracer::Error("Wrong data length in Explicit");
-		return false;
+		Tracer::Error("Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
 	}
 
 	std::string tmpStr = "";

@@ -727,15 +727,15 @@
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
-                            <BitsShortName>DOP_presence</BitsShortName>
+                            <BitsShortName>DOP</BitsShortName>
                             <BitsPresence>1</BitsPresence>
                         </Bits>
                         <Bits bit="7">
-                            <BitsShortName>SDP_presence</BitsShortName>
+                            <BitsShortName>SDP</BitsShortName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">
-                            <BitsShortName>SDH_presence</BitsShortName>
+                            <BitsShortName>SDH</BitsShortName>
                             <BitsPresence>3</BitsPresence>
                         </Bits>
                         <Bits from="5" to="2">
@@ -743,60 +743,60 @@
                             <BitsName>Spare bits set to zero</BitsName>
                             <BitsConst>0</BitsConst>
                         </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
-                        <BitsName>Field extension</BitsName>
-                        <BitsValue val="1">Extension into next extent</BitsValue>
-                        <BitsValue val="0">End of Data Item</BitsValue>
-                    </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>fx</BitsShortName>
+                            <BitsName>Field extension</BitsName>
+                            <BitsValue val="1">Extension into next extent</BitsValue>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                        </Bits>
                     </Fixed>
                 </Variable>
-                    <Fixed length="6">
-                        <Bits from="48" to="33">
-                            <BitsShortName>DOPx</BitsShortName>
-                            <BitsName>DOP along x axis</BitsName>
+                <Fixed length="6">
+                    <Bits from="48" to="33">
+                        <BitsShortName>DOPx</BitsShortName>
+                        <BitsName>DOP along x axis</BitsName>
                         <BitsUnit scale="0.25"/>
-                        </Bits>
-                        <Bits from="32" to="17">
-                            <BitsShortName>DOPy</BitsShortName>
-                            <BitsName>DOP along y axis</BitsName>
+                    </Bits>
+                    <Bits from="32" to="17">
+                        <BitsShortName>DOPy</BitsShortName>
+                        <BitsName>DOP along y axis</BitsName>
                         <BitsUnit scale="0.25"/>
-                        </Bits>
-                        <Bits from="16" to="1" encode="signed">
-                            <BitsShortName>DOPxy</BitsShortName>
-                            <BitsName>p(X,Y)</BitsName>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>DOPxy</BitsShortName>
+                        <BitsName>p(X,Y)</BitsName>
                         <BitsUnit scale="0.25"/>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="6">
-                        <Bits from="48" to="33">
-                            <BitsShortName>SDPx</BitsShortName>
-                            <BitsName>Standard Deviation of X component</BitsName>
-                            <BitsUnit scale="0.25">m</BitsUnit>
-                        </Bits>
-                        <Bits from="32" to="17">
-                            <BitsShortName>SDPy</BitsShortName>
-                            <BitsName>Standard Deviation of Y component</BitsName>
-                            <BitsUnit scale="0.25">m</BitsUnit>
-                        </Bits>
-                        <Bits from="16" to="1" encode="signed">
-                            <BitsShortName>SDPxy</BitsShortName>
-                            <BitsName>Correlation coefficient in two’s complement</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="6">
+                    <Bits from="48" to="33">
+                        <BitsShortName>SDPx</BitsShortName>
+                        <BitsName>Standard Deviation of X component</BitsName>
+                        <BitsUnit scale="0.25">m</BitsUnit>
+                    </Bits>
+                    <Bits from="32" to="17">
+                        <BitsShortName>SDPy</BitsShortName>
+                        <BitsName>Standard Deviation of Y component</BitsName>
+                        <BitsUnit scale="0.25">m</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>SDPxy</BitsShortName>
+                        <BitsName>Correlation coefficient in two’s complement</BitsName>
                         <BitsUnit scale="0.25"/>
-                        </Bits>
-                    </Fixed>
-                    <Fixed length="2">
-                        <Bits from="16" to="1">
-                            <BitsShortName>STD_GH</BitsShortName>
-                            <BitsName>Standard Deviation of Geometric Height</BitsName>
-                            <BitsUnit scale="0.5">m</BitsUnit>
-                        </Bits>
-                    </Fixed>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1">
+                        <BitsShortName>STD_GH</BitsShortName>
+                        <BitsName>Standard Deviation of Geometric Height</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
             </Compound>
         </DataItemFormat>
     </DataItem>
 
-<DataItem id="RE">
+    <DataItem id="RE">
         <DataItemName>Reserved Expansion Field</DataItemName>
         <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 020 (Multilateration Target Reports)</DataItemDefinition>
         <DataItemFormat desc="One byte length field, followed by a one byte items indicator and the encoded items.">
@@ -806,27 +806,27 @@
                         <Fixed length="1">
                             <Bits bit="8">
                                 <BitsShortName>PA</BitsShortName>
-                                <BitsName>Position Accuracy presence</BitsName>
+                                <BitsName>Position Accuracy</BitsName>
                                 <BitsPresence>1</BitsPresence>
                             </Bits>
                             <Bits bit="7">
                                 <BitsShortName>GVV</BitsShortName>
-                                <BitsName>Ground Velocity Vector presence</BitsName>
+                                <BitsName>Ground Velocity Vector</BitsName>
                                 <BitsPresence>2</BitsPresence>
                             </Bits>
                             <Bits bit="6">
                                 <BitsShortName>GVA</BitsShortName>
-                                <BitsName>Ground Velocity Accuracy presence</BitsName>
+                                <BitsName>Ground Velocity Accuracy</BitsName>
                                 <BitsPresence>3</BitsPresence>
                             </Bits>
                             <Bits bit="5">
                                 <BitsShortName>TRT</BitsShortName>
-                                <BitsName>Time of Report Transmission presence</BitsName>
+                                <BitsName>Time of Report Transmission</BitsName>
                                 <BitsPresence>4</BitsPresence>
                             </Bits>
                             <Bits bit="4">
                                 <BitsShortName>DA</BitsShortName>
-                                <BitsName>Data Ages presence</BitsName>
+                                <BitsName>Data Ages</BitsName>
                                 <BitsPresence>5</BitsPresence>
                             </Bits>
                             <Bits from="3" to="2">
@@ -877,17 +877,17 @@
                             <Bits from="48" to="33">
                                 <BitsShortName>DOPx</BitsShortName>
                                 <BitsName>DOP along x axis</BitsName>
-                                <BitsUnit scale="0.25"></BitsUnit>
+                                <BitsUnit scale="0.25"/>
                             </Bits>
                             <Bits from="32" to="17">
                                 <BitsShortName>DOPy</BitsShortName>
                                 <BitsName>DOP along y axis</BitsName>
-                                <BitsUnit scale="0.25"></BitsUnit>
+                                <BitsUnit scale="0.25"/>
                             </Bits>
                             <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>DOPxy</BitsShortName>
                                 <BitsName>DOP Covariance Component in two’s complement form</BitsName>
-                                <BitsUnit scale="0.25"></BitsUnit>
+                                <BitsUnit scale="0.25"/>
                             </Bits>
                         </Fixed>
                         <Fixed length="6">
@@ -1215,7 +1215,7 @@
         </DataItemFormat>    
     </DataItem>
 
-     <DataItem id="SP" rule="optional">
+    <DataItem id="SP" rule="optional">
         <DataItemName>SP</DataItemName>
         <DataItemDefinition>SP</DataItemDefinition>
         <DataItemFormat desc="Fixed">

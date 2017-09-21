@@ -177,7 +177,7 @@
             </Variable>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="040">
         <DataItemName>Measured Position in Polar Coordinates</DataItemName>
         <DataItemDefinition>Measured position of an aircraft in local polar coordinates.</DataItemDefinition>
@@ -248,7 +248,7 @@
         </DataItemFormat>
         <DataItemNote>Smoothed Mode-2 data (bit-14 set to one) is used when the plot contains no Mode-2 code or the Mode-2 codes of the plot and track are different. 2. Bits-16/15 have no meaning in the case of a smoothed Mode-2 and are set to 0 for a calculated track.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="055">
         <DataItemName>Mode-1 Code</DataItemName>
         <DataItemDefinition>Reply to Mode-1 interrogation</DataItemDefinition>
@@ -391,8 +391,8 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>This data item is optional. When used, it shall be transmitted only when at least one pulse is of low quality.  It represents the confidence level for each reply bit of the Mode 1 code of the  plot. </DataItemNote>
-   </DataItem>
-    
+    </DataItem>
+
     <DataItem id="070">
         <DataItemName>Mode-3/A Code</DataItemName>
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
@@ -501,7 +501,7 @@
         </DataItemFormat>
         <DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality.</DataItemNote>
     </DataItem>
-                    
+
     <DataItem id="090">
         <DataItemName>Flight Level</DataItemName>
         <DataItemDefinition>Flight level in Binary Representation</DataItemDefinition>
@@ -525,8 +525,8 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>The detector signals a garbled code when at least two replies are overlapping or error corection has been attempted.</DataItemNote>
-     </DataItem>
-    
+    </DataItem>
+
     <DataItem id="100">
         <DataItemName>Mode-C Code and Code Confidence Indicator</DataItemName>
         <DataItemDefinition>Mode-C height in Gray notation as received from the transponder together with the confidence level for each reply bit as provided by a MSSR/ModeS station.</DataItemDefinition>
@@ -620,7 +620,7 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>This Data Item is only transmitted if at least one pulse is of low quality. 2. The detector signals a garbled code when at least two replies are overlapping.</DataItemNote>
-     </DataItem>
+    </DataItem>
 
     <DataItem id="110">
         <DataItemName>Height Measured by a 3D Radar</DataItemName>
@@ -641,35 +641,35 @@
         </DataItemFormat>
         <DataItemNote/>
     </DataItem>      
-         
+
     <DataItem id="120">
         <DataItemName>Radial Doppler Speed</DataItemName>
         <DataItemDefinition>Information on the Doppler Speed of the target report.</DataItemDefinition>
         <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by one of the two defined subfields.">
-         <Compound>
-            <Variable>   
-                <Fixed length="1">
-                    <Bits bit="8">
-                        <BitsShortName>CAL</BitsShortName>
-                        <BitsName>CAL Presence</BitsName>
-                        <BitsPresence>1</BitsPresence>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>RDS</BitsShortName>
-                        <BitsName>RDS Presence</BitsName>
-                        <BitsPresence>2</BitsPresence>
-                    </Bits>  
-                    <Bits from="6" to="2">
+            <Compound>
+                <Variable>   
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>CAL</BitsShortName>
+                            <BitsName>CAL Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>RDS</BitsShortName>
+                            <BitsName>RDS Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>  
+                        <Bits from="6" to="2">
                             <BitsShortName>spare</BitsShortName>
-                        <BitsName>spare bits set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                       <BitsShortName>FX</BitsShortName>
-                       <BitsConst>0</BitsConst>
-                   </Bits>
-                </Fixed>
-            </Variable>
+                            <BitsName>spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                    </Fixed>
+                </Variable>
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>D</BitsShortName>
@@ -707,61 +707,61 @@
                         </Bits>
                     </Fixed>
                 </Repetitive>
-        </Compound>
+            </Compound>
         </DataItemFormat>
         <DataItemNote/>
     </DataItem> 
-    
+
     <DataItem id="130">
         <DataItemName>Radar Plot Characteristics</DataItemName>
         <DataItemDefinition>Additional information on the quality of the target report</DataItemDefinition>
         <DataItemFormat desc="Compound Data Item">
-        <Compound>
-            <Variable>   
-                <Fixed length="1">
-                    <Bits bit="8">
+            <Compound>
+                <Variable>   
+                    <Fixed length="1">
+                        <Bits bit="8">
                             <BitsShortName>SRLP</BitsShortName>
-                        <BitsName>SRL Presence</BitsName>
-                        <BitsPresence>1</BitsPresence>
-                    </Bits>
-                    <Bits bit="7">
+                            <BitsName>SRL Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
                             <BitsShortName>SRRP</BitsShortName>
-                        <BitsName>SRR Presence</BitsName>
-                        <BitsPresence>2</BitsPresence>
-                    </Bits>  
-                    <Bits bit="6">
+                            <BitsName>SRR Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>  
+                        <Bits bit="6">
                             <BitsShortName>SAMP</BitsShortName>
-                        <BitsName>SAM Presence</BitsName>
-                        <BitsPresence>3</BitsPresence>
-                    </Bits>  
-                    <Bits bit="5">
+                            <BitsName>SAM Presence</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>  
+                        <Bits bit="5">
                             <BitsShortName>PRLP</BitsShortName>
-                        <BitsName>PRL Presence</BitsName>
-                        <BitsPresence>4</BitsPresence>
-                    </Bits>  
-                    <Bits bit="4">
+                            <BitsName>PRL Presence</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>  
+                        <Bits bit="4">
                             <BitsShortName>PAMP</BitsShortName>
-                        <BitsName>PAM Presence</BitsName>
-                        <BitsPresence>5</BitsPresence>
-                    </Bits>  
-                    <Bits bit="3">
+                            <BitsName>PAM Presence</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>  
+                        <Bits bit="3">
                             <BitsShortName>RPDP</BitsShortName>
-                        <BitsName>RPD Presence</BitsName>
-                        <BitsPresence>6</BitsPresence>
-                    </Bits>  
-                    <Bits bit="2">
+                            <BitsName>RPD Presence</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>  
+                        <Bits bit="2">
                             <BitsShortName>APDP</BitsShortName>
-                        <BitsName>APD Presence</BitsName>
-                        <BitsPresence>7</BitsPresence>
-                    </Bits>  
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
-                        <BitsName>FX</BitsName>
-                        <BitsValue val="0">End of Data Item</BitsValue>
-                        <BitsValue val="1">Extension into next extent</BitsValue>                    
-                    </Bits>                     
-                </Fixed>
-            </Variable>
+                            <BitsName>APD Presence</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>  
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>FX</BitsName>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                            <BitsValue val="1">Extension into next extent</BitsValue>                    
+                        </Bits>                     
+                    </Fixed>
+                </Variable>
                 <Fixed length="1">                  
                     <Bits from="8" to="1" >
                         <BitsShortName>SRL</BitsShortName>
@@ -811,11 +811,11 @@
                         <BitsUnit scale="0.02197265625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
-        </Compound>         
+            </Compound>         
         </DataItemFormat>
         <DataItemNote>This Data Item may contain parameters such as plot runlength (primary and secondary), difference between primary and secondary derived azimuth, pulse amplitude, etc.</DataItemNote>        
     </DataItem>
-    
+
     <DataItem id="140">
         <DataItemName>Time Of Day</DataItemName>
         <DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
@@ -831,7 +831,7 @@
         <DataItemNote>zero at every midnight.</DataItemNote>
     </DataItem>     
 
-   <DataItem id="161">
+    <DataItem id="161">
         <DataItemName>Track Number</DataItemName>
         <DataItemDefinition>An integer value representing a unique reference to a track record within a particular track/plot file.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
@@ -845,7 +845,7 @@
         <DataItemNote/>
     </DataItem> 
 
-   <DataItem id="170">
+    <DataItem id="170">
         <DataItemName>Track Status</DataItemName>
         <DataItemDefinition>Status of monoradar track derived either from primary and/or secondary radar information.</DataItemDefinition>
         <DataItemFormat desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
@@ -917,7 +917,7 @@
                         <BitsValue val="0">Radar plane</BitsValue>
                         <BitsValue val="1">Slant range correction</BitsValue>
                     </Bits>
-                     <Bits from="4" to="2">
+                    <Bits from="4" to="2">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
@@ -952,37 +952,37 @@
             </Fixed>
         </DataItemFormat>
     </DataItem> 
-    
+
     <DataItem id="210">
         <DataItemName>Track Quality</DataItemName>
         <DataItemDefinition>Track Quality in the form of a vector of standard deviations.</DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item.">
-                <Fixed length="4">
-                    <Bits from="32" to="25">
-                        <BitsShortName>SigmaX</BitsShortName>
-                        <BitsName>SigmaX</BitsName>
-                        <BitsUnit scale="0.0078125">NM</BitsUnit>
-                    </Bits>
-                    <Bits from="24" to="17">
-                        <BitsShortName>SigmaY</BitsShortName>
-                        <BitsName>SigmaY</BitsName>
-                        <BitsUnit scale="0.0078125">NM</BitsUnit>       
-                    </Bits>
-                    <Bits from="16" to="9">
-                        <BitsShortName>SigmaV</BitsShortName>
-                        <BitsName>Sigma Groundspeed</BitsName>
-                        <BitsUnit scale="0.22">Kt</BitsUnit>        
-                    </Bits>
-                    <Bits from="8" to="1">
-                        <BitsShortName>SigmaH</BitsShortName>
-                        <BitsName>Sigma Heading</BitsName>
-                        <BitsUnit scale="0.087890625">deg</BitsUnit>        
-                    </Bits>                 
-                </Fixed>
+            <Fixed length="4">
+                <Bits from="32" to="25">
+                    <BitsShortName>SigmaX</BitsShortName>
+                    <BitsName>SigmaX</BitsName>
+                    <BitsUnit scale="0.0078125">NM</BitsUnit>
+                </Bits>
+                <Bits from="24" to="17">
+                    <BitsShortName>SigmaY</BitsShortName>
+                    <BitsName>SigmaY</BitsName>
+                    <BitsUnit scale="0.0078125">NM</BitsUnit>       
+                </Bits>
+                <Bits from="16" to="9">
+                    <BitsShortName>SigmaV</BitsShortName>
+                    <BitsName>Sigma Groundspeed</BitsName>
+                    <BitsUnit scale="0.22">Kt</BitsUnit>        
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SigmaH</BitsShortName>
+                    <BitsName>Sigma Heading</BitsName>
+                    <BitsUnit scale="0.087890625">deg</BitsUnit>        
+                </Bits>                 
+            </Fixed>
         </DataItemFormat>
         <DataItemNote>.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="220" >
         <DataItemName>Aircraft Address</DataItemName>
         <DataItemDefinition>24-bits Mode S address</DataItemDefinition>
@@ -995,7 +995,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>     
-    
+
     <DataItem id="230" >
         <DataItemName>Comm capability</DataItemName>
         <DataItemDefinition>Communication-ACAS Capability and Flight Status</DataItemDefinition>
@@ -1067,140 +1067,142 @@
     <DataItem id="250" >
         <DataItemName>Mode S Comm B data</DataItemName>
         <DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-        <DataItemFormat desc="BDS">
-            <BDS></BDS>
+        <DataItemFormat desc="Repetitive 8 byte BDS registers">
+        <Repetitive>
+           	<BDS/>
+        </Repetitive>
         </DataItemFormat>
         <DataItemNote/>
     </DataItem> 
-    
+
     <DataItem id="260" >
         <DataItemName>ACAS Resolution Advisory Report</DataItemName>
         <DataItemDefinition>RA</DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item">
-                    <Fixed length="7">
-                        <Bits from="56" to="49" encode="hex">
-                            <BitsShortName>BDS30</BitsShortName>
-                            <BitsName>BDS code 3,0</BitsName>                        
-                        </Bits>
-                        <Bits bit="48">
-                            <BitsShortName>ARA41</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 41</BitsName>
-							<BitsValue val="0">There is more than one threat and the RA is intended to provide separation below some threat(s) and above some other threat(s) or no RA has been generated (when MTE = 0)</BitsValue>
-							<BitsValue val="1">Either there is only one threat or the RA is intended to provide separation in the same direction for all threats</BitsValue>
-                        </Bits>
-                        <Bits bit="47">
-                            <BitsShortName>ARA42</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 42</BitsName>
-							<BitsValue val="0">RA is preventive or RA does not require a correction in the upward sense</BitsValue>
-							<BitsValue val="1">RA is corrective or RA requires a correction in the upward sense</BitsValue>
-                        </Bits>
-                        <Bits bit="46">
-                            <BitsShortName>ARA43</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 43</BitsName>
-							<BitsValue val="0">Upward sense RA has been generated or RA does not require a positive climb</BitsValue>
-							<BitsValue val="1">Downward sense RA has been generated or RA requires a positive climb</BitsValue>
-                        </Bits>
-                        <Bits bit="45">
-                            <BitsShortName>ARA44</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 44</BitsName>
-							<BitsValue val="0">RA is not increased rate or RA does not require a correction in the downward sense</BitsValue>
-							<BitsValue val="1">RA is increased rate or RA requires a correction in the downward sense</BitsValue>
-                        </Bits>
-                        <Bits bit="44">
-                            <BitsShortName>ARA45</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 45</BitsName>
-							<BitsValue val="0">RA is not a sense reversal or RA does not require a positive descend</BitsValue>
-							<BitsValue val="1">RA is a sense reversal or RA requires a positive descend</BitsValue>
-                        </Bits>
-                        <Bits bit="43">
-                            <BitsShortName>ARA46</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 46</BitsName>
-							<BitsValue val="0">RA is not altitude crossing or RA does not require a crossing</BitsValue>
-							<BitsValue val="1">RA is altitude crossing or RA requires a crossing</BitsValue>
-                        </Bits>
-                        <Bits bit="42">
-                            <BitsShortName>ARA47</BitsShortName>
-                            <BitsName>Active Resolution Advisories bit 47</BitsName>
-							<BitsValue val="0">RA is vertical speed limit or RA is not a sense reversal</BitsValue>
-							<BitsValue val="1">RA is positive or RA is a sense reversal</BitsValue>
-                        </Bits>
-                        <Bits from="41" to="35">
-                            <BitsShortName>ACAS3</BitsShortName>
-                            <BitsName>Reserved for ACAS III</BitsName>                        
-                        </Bits>
-                        <Bits bit="34">
-                            <BitsShortName>RAC55</BitsShortName>
-                            <BitsName>Resolution Advisory Complement bit 55</BitsName>
-							<BitsValue val="0">Not Active</BitsValue>
-							<BitsValue val="1">Active Do not pass below</BitsValue>
-                        </Bits>
-                        <Bits bit="33">
-                            <BitsShortName>RAC56</BitsShortName>
-                            <BitsName>Resolution Advisory Complement bit 56</BitsName>
-							<BitsValue val="0">Not Active</BitsValue>
-							<BitsValue val="1">Active Do not pass above</BitsValue>
-                        </Bits>
-                        <Bits bit="32">
-                            <BitsShortName>RAC57</BitsShortName>
-                            <BitsName>Resolution Advisory Complement bit 57</BitsName>
-							<BitsValue val="0">Not Active</BitsValue>
-							<BitsValue val="1">Active Do not turn left</BitsValue>
-                        </Bits>
-                        <Bits bit="31">
-                            <BitsShortName>RAC58</BitsShortName>
-                            <BitsName>Resolution Advisory Complement bit 58</BitsName>
-							<BitsValue val="0">Not Active</BitsValue>
-							<BitsValue val="1">Active Do not turn right</BitsValue>
-                        </Bits>
-                        <Bits bit="30">
-                            <BitsShortName>RAT</BitsShortName>
-                            <BitsName>RA Terminated</BitsName>                        
-							<BitsValue val="0">No</BitsValue>
-							<BitsValue val="1">Yes</BitsValue>                      
-                        </Bits>
-                        <Bits bit="29">
-                            <BitsShortName>MTE</BitsShortName>
-                            <BitsName>Multiple Threat Encounter</BitsName>                        
-							<BitsValue val="0">No</BitsValue>
-							<BitsValue val="1">Yes</BitsValue>                      
-                        </Bits>
-                        <Bits from="28" to="27">
-                            <BitsShortName>TTI</BitsShortName>
-                            <BitsName>Threat Type Indicator</BitsName>     
-							<BitsValue val="0">No identity data in TID</BitsValue>							
-							<BitsValue val="1">TID contains a Mode S transponder address</BitsValue>							
-							<BitsValue val="2">TID contains altitude, range and bearing data</BitsValue>							
-							<BitsValue val="3">Not assigned</BitsValue>							
-                        </Bits>
-                        <Bits from="26" to="1">
-                            <BitsShortName>TID</BitsShortName>
-                            <BitsName>Threat Identity Data</BitsName>                        
-                        </Bits>
-                    </Fixed>
+            <Fixed length="7">
+                <Bits from="56" to="49" encode="hex">
+                    <BitsShortName>BDS30</BitsShortName>
+                    <BitsName>BDS code 3,0</BitsName>                        
+                </Bits>
+                <Bits bit="48">
+                    <BitsShortName>ARA41</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 41</BitsName>
+                    <BitsValue val="0">There is more than one threat and the RA is intended to provide separation below some threat(s) and above some other threat(s) or no RA has been generated (when MTE = 0)</BitsValue>
+                    <BitsValue val="1">Either there is only one threat or the RA is intended to provide separation in the same direction for all threats</BitsValue>
+                </Bits>
+                <Bits bit="47">
+                    <BitsShortName>ARA42</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 42</BitsName>
+                    <BitsValue val="0">RA is preventive or RA does not require a correction in the upward sense</BitsValue>
+                    <BitsValue val="1">RA is corrective or RA requires a correction in the upward sense</BitsValue>
+                </Bits>
+                <Bits bit="46">
+                    <BitsShortName>ARA43</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 43</BitsName>
+                    <BitsValue val="0">Upward sense RA has been generated or RA does not require a positive climb</BitsValue>
+                    <BitsValue val="1">Downward sense RA has been generated or RA requires a positive climb</BitsValue>
+                </Bits>
+                <Bits bit="45">
+                    <BitsShortName>ARA44</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 44</BitsName>
+                    <BitsValue val="0">RA is not increased rate or RA does not require a correction in the downward sense</BitsValue>
+                    <BitsValue val="1">RA is increased rate or RA requires a correction in the downward sense</BitsValue>
+                </Bits>
+                <Bits bit="44">
+                    <BitsShortName>ARA45</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 45</BitsName>
+                    <BitsValue val="0">RA is not a sense reversal or RA does not require a positive descend</BitsValue>
+                    <BitsValue val="1">RA is a sense reversal or RA requires a positive descend</BitsValue>
+                </Bits>
+                <Bits bit="43">
+                    <BitsShortName>ARA46</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 46</BitsName>
+                    <BitsValue val="0">RA is not altitude crossing or RA does not require a crossing</BitsValue>
+                    <BitsValue val="1">RA is altitude crossing or RA requires a crossing</BitsValue>
+                </Bits>
+                <Bits bit="42">
+                    <BitsShortName>ARA47</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 47</BitsName>
+                    <BitsValue val="0">RA is vertical speed limit or RA is not a sense reversal</BitsValue>
+                    <BitsValue val="1">RA is positive or RA is a sense reversal</BitsValue>
+                </Bits>
+                <Bits from="41" to="35">
+                    <BitsShortName>ACAS3</BitsShortName>
+                    <BitsName>Reserved for ACAS III</BitsName>                        
+                </Bits>
+                <Bits bit="34">
+                    <BitsShortName>RAC55</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 55</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass below</BitsValue>
+                </Bits>
+                <Bits bit="33">
+                    <BitsShortName>RAC56</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 56</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass above</BitsValue>
+                </Bits>
+                <Bits bit="32">
+                    <BitsShortName>RAC57</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 57</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn left</BitsValue>
+                </Bits>
+                <Bits bit="31">
+                    <BitsShortName>RAC58</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 58</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn right</BitsValue>
+                </Bits>
+                <Bits bit="30">
+                    <BitsShortName>RAT</BitsShortName>
+                    <BitsName>RA Terminated</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
+                </Bits>
+                <Bits bit="29">
+                    <BitsShortName>MTE</BitsShortName>
+                    <BitsName>Multiple Threat Encounter</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
+                </Bits>
+                <Bits from="28" to="27">
+                    <BitsShortName>TTI</BitsShortName>
+                    <BitsName>Threat Type Indicator</BitsName>     
+                    <BitsValue val="0">No identity data in TID</BitsValue>
+                    <BitsValue val="1">TID contains a Mode S transponder address</BitsValue>
+                    <BitsValue val="2">TID contains altitude, range and bearing data</BitsValue>
+                    <BitsValue val="3">Not assigned</BitsValue>
+                </Bits>
+                <Bits from="26" to="1">
+                    <BitsShortName>TID</BitsShortName>
+                    <BitsName>Threat Identity Data</BitsName>                        
+                </Bits>
+            </Fixed>
         </DataItemFormat>
         <DataItemNote/>
     </DataItem>         
 
-<!--Special Purpose Field - content unknown -->     
+    <!--Special Purpose Field - content unknown -->     
     <DataItem id="SP" >
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>SP</DataItemDefinition>
         <DataItemFormat desc="Explicit">
             <Explicit>
-                    <Fixed length="1">
-                        <Bits from="8" to="1">
+                <Fixed length="1">
+                    <Bits from="8" to="1">
                         <BitsShortName>SP</BitsShortName>
                         <BitsName>SP</BitsName>
-                        </Bits>
-                    </Fixed>
-                </Explicit>
+                    </Bits>
+                </Fixed>
+            </Explicit>
         </DataItemFormat>
         <DataItemNote/>
     </DataItem>     
-    
+
     <UAP>
-            <UAPItem bit="0" frn="1" len="2">010</UAPItem>
-            <UAPItem bit="1" frn="2" len="3">140</UAPItem>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="3">140</UAPItem>
         <UAPItem bit="2" frn="3" len="1+">020</UAPItem>
         <UAPItem bit="3" frn="4" len="4">040</UAPItem>
         <UAPItem bit="4" frn="5" len="2">070</UAPItem>
@@ -1232,5 +1234,5 @@
         <UAPItem bit="30" frn="28" len="1+1+">RE</UAPItem>
         <UAPItem bit="31" frn="FX" len="-">-</UAPItem>      
     </UAP>
-     
- </Category>                    
+
+</Category>                    

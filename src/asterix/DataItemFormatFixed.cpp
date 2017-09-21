@@ -161,13 +161,12 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int
       }
 
       // select byte
-      int bytenr = (bitnr-1)/8;
+      int bytenr = m_nLength-1-(bitnr-1)/8;
       pData += bytenr;
 
-      bitnr -= bytenr*8;
-
+      int shift = (bitnr-1)%8;
       unsigned char mask = 0x01;
-      mask <<= (bitnr-1);
+      mask <<= shift;
 
       // check this bit in pData
       if (*pData & mask)
@@ -177,7 +176,7 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char* pData, int
       return false;
     }
   }
-  Tracer::Error("BitsPresence bit not found");
+  // Tracer::Error("BitsPresence bit %d not found", part);
   return false;
 }
 

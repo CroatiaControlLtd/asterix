@@ -301,7 +301,7 @@ CAT008:I100:fx                                               Field extension
 CAT008:I110:Stat                                             Status
 CAT008:I110:fx                                               Field extension
 CAT008:I120:total_number                                     Total Number of Items
-CAT010:I001:MsgTyp                                           Type of msg.
+CAT010:I000:MsgTyp                                           Type of msg.
 CAT010:I010:SAC                                              System Area Code fixed to zero
 CAT010:I010:SIC                                              System Identification Code
 CAT010:I020:TYP                                              TYP
@@ -945,58 +945,60 @@ CAT034:I010:SIC                                              System Identificati
 CAT034:I020:Azi                                              Antenna azimuth
 CAT034:I030:ToD                                              Time of day
 CAT034:I041:RotS                                             Antenna rotation speed
-CAT034:I050:NOGO                                             NOGO
-CAT034:I050:RDPC                                             RDPC
-CAT034:I050:RDPR                                             RDPR
-CAT034:I050:OVL RDP                                          OVL RDP
-CAT034:I050:OVL XMT                                          OVL XMT
-CAT034:I050:MSC                                              MSC
-CAT034:I050:TSV                                              TSV
+CAT034:I050:NOGO                                             Operational Release Status of the System
+CAT034:I050:RDPC                                             Radar Data Processor Chain Selection Status
+CAT034:I050:RDPR                                             Event to signal a reset/restart of the selected Radar Data Processor Chain
+CAT034:I050:OVLRDP                                           Radar Data Processor Overload Indicator
+CAT034:I050:OVLXMT                                           Transmission Subsystem Overload Status
+CAT034:I050:MSC                                              Monitoring System Connected Status
+CAT034:I050:TSV                                              Time Source Validity
 CAT034:I050:spare                                            spare bit set to 0
-CAT034:I050:ANT                                              ANT
-CAT034:I050:CHAB                                             CH-A/B
-CAT034:I050:OVL                                              OVL
-CAT034:I050:MSC                                              MSC
+CAT034:I050:PSRANT                                           Selected PSR antenna
+CAT034:I050:PSRCHAB                                          PSR Channel A/B selection status
+CAT034:I050:PSROVL                                           PSSR Overload condition
+CAT034:I050:PSRMSC                                           PSSR Monitoring System Connected Status
 CAT034:I050:spare                                            spare bit set to 0
-CAT034:I050:ANT                                              ANT
-CAT034:I050:CHAB                                             CH-A/B
-CAT034:I050:OVL                                              OVL
-CAT034:I050:MSC                                              MSC
+CAT034:I050:SSRANT                                           Selected SSR antenna
+CAT034:I050:SSRCHAB                                          SSR Channel A/B selection status
+CAT034:I050:SSROVL                                           SSR Overload condition
+CAT034:I050:SSRMSC                                           SSR Monitoring System Connected Status
 CAT034:I050:spare                                            spare bit set to 0
-CAT034:I050:ANT                                              ANT
-CAT034:I050:CHAB                                             CH-A/B
-CAT034:I050:OVL SUR                                          OVL SUR
-CAT034:I050:MSC                                              MSC
-CAT034:I050:SCF                                              Channel A/B sellection for Surveillance Co-ordination Function
-CAT034:I050:DLF                                              Channel A/B sellection for Data Link Function
-CAT034:I050:OVL SCF                                          OVL SCF
-CAT034:I050:OVL DLF                                          OVL DLF
+CAT034:I050:MDSANT                                           Mode S Selected antenna
+CAT034:I050:MDSCHAB                                          Mode S Channel A/B selection status for surveillance
+CAT034:I050:MDSOVLSUR                                        Mode S Overload condition
+CAT034:I050:MDSMSC                                           Mode S Monitoring System Connected Status
+CAT034:I050:MDSSCF                                           Mode S Channel A/B sellection for Surveillance Co-ordination Function
+CAT034:I050:MDSDLF                                           Mode S Channel A/B sellection for Data Link Function
+CAT034:I050:MDSOVLSCF                                        Mode S Overload in Surveillance Co-ordination Function
+CAT034:I050:MDSOVLDLF                                        Mode S Overload in Data Link Function
 CAT034:I050:spare                                            spare bit set to 0
 CAT034:I060:spare                                            spare bit set to 0
-CAT034:I060:REDRDP                                           RED-RDP
-CAT034:I060:REDXMT                                           RED-XMT
+CAT034:I060:REDRDP                                           Reduction Steps in use for an overload of the RDP
+CAT034:I060:REDXMT                                           Reduction Steps in use for an overload of the Transmission subsystem
 CAT034:I060:spare                                            spare bit set to 0
-CAT034:I060:POL                                              Polarization in use
-CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:POL                                              Polarization in use by PSR
+CAT034:I060:PSRREDRAD                                        Reduction Steps in use as result of an overload within the PSR subsystem
 CAT034:I060:STC                                              Sensitivity Time Control Map in use
 CAT034:I060:spare                                            spare bit set to 0
-CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:SSRREDRAD                                        Reduction Steps in use as result of an overload within the SSR subsystem
 CAT034:I060:spare                                            spare bit set to 0
-CAT034:I060:REDRAD                                           Reduction Steps in use
+CAT034:I060:MDSREDRAD                                        Reduction Steps in use as result of an overload within the Mode S subsystem
 CAT034:I060:CLU                                              Cluster State
 CAT034:I060:spare                                            spare bit set to 0
 CAT034:I070:TYP                                              Type of message counter
 CAT034:I070:counter                                          Counter value
-CAT034:I090:range_error                                      Range Error
-CAT034:I090:AziErr                                           Azimuth
+CAT034:I090:RngErr                                           Range Error
+CAT034:I090:AziErr                                           Azimuth Error
 CAT034:I100:RhoS                                             Rho start
 CAT034:I100:RhoE                                             Rho end
 CAT034:I100:ThetaS                                           Theta start
 CAT034:I100:ThetaE                                           Theta end
 CAT034:I110:TYP                                              TYP
-CAT034:I120:Height                                           Height in WGS-84
+CAT034:I120:Height                                           Signed Height of the Data Source, expressed in meters above WGS 84 reference ellipsoid.
 CAT034:I120:LAT                                              Latitude in WGS-84
 CAT034:I120:Lon                                              Longitude in WGS-84
+CAT034:ISP:SP                                                SP
+CAT034:IRE:RE                                                RE
 CAT048:I010:SAC                                              System Area Code
 CAT048:I010:SIC                                              System Identification Code
 CAT048:I020:TYP                                              TYP
@@ -1006,7 +1008,8 @@ CAT048:I020:SPI                                              SPI
 CAT048:I020:RAB                                              RAB
 CAT048:I020:FX                                               FX
 CAT048:I020:TST                                              TST
-CAT048:I020:spare                                            spare bits set to 0
+CAT048:I020:spare                                            spare bit set to 0
+CAT048:I020:XPP                                              XPP
 CAT048:I020:ME                                               ME
 CAT048:I020:MI                                               MI
 CAT048:I020:FOEFRI                                           FOE/FRI
@@ -1121,6 +1124,7 @@ CAT048:I210:SigmaH                                           Sigma Heading
 CAT048:I220:ACAddr                                           AircraftAddress
 CAT048:I230:COM                                              COM
 CAT048:I230:STAT                                             STAT
+CAT048:I230:SI                                               SI/II Transponder Capability
 CAT048:I230:spare                                            spare bit set to 0
 CAT048:I230:ModeSSSC                                         ModeS Specific Service Capability
 CAT048:I230:ARC                                              Altitude reporting capability
@@ -1142,6 +1146,7 @@ CAT048:I250:BDS40:APP                                        APPROACH Mode
 CAT048:I250:BDS40:res                                        Reserved
 CAT048:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT048:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT048:I250:BDS40:BDS                                        BDS register
 CAT048:I250:BDS50:RA_STATUS                                  Roll Angle Status
 CAT048:I250:BDS50:RA                                         Roll Angle
 CAT048:I250:BDS50:TTA_STATUS                                 True Track Angle Status
@@ -1152,6 +1157,7 @@ CAT048:I250:BDS50:TAR_STATUS                                 Track Angle Rate St
 CAT048:I250:BDS50:TAR                                        Track Angle Rate
 CAT048:I250:BDS50:TAS_STATUS                                 True Airspeed Status
 CAT048:I250:BDS50:TAS                                        True Airspeed
+CAT048:I250:BDS50:BDS                                        BDS register
 CAT048:I250:BDS60:HDG_STATUS                                 Heading Status
 CAT048:I250:BDS60:HDG                                        Magnetic Heading
 CAT048:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
@@ -1162,8 +1168,26 @@ CAT048:I250:BDS60:BAR_STATUS                                 Barometric Altitude
 CAT048:I250:BDS60:BAR                                        Barometric Altitude Rate
 CAT048:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
 CAT048:I250:BDS60:IVV                                        Inertial Vertical Velocity
-CAT048:I250:BDS0:BDS                                         BDS value
-CAT048:I260:MBdata                                           BDS 3,0
+CAT048:I250:BDS60:BDS                                        BDS register
+CAT048:I250:BDS0:VAL                                         BDS value
+CAT048:I250:BDS0:BDS                                         BDS register
+CAT048:I260:BDS30                                            BDS code 3,0
+CAT048:I260:ARA41                                            Active Resolution Advisories bit 41
+CAT048:I260:ARA42                                            Active Resolution Advisories bit 42
+CAT048:I260:ARA43                                            Active Resolution Advisories bit 43
+CAT048:I260:ARA44                                            Active Resolution Advisories bit 44
+CAT048:I260:ARA45                                            Active Resolution Advisories bit 45
+CAT048:I260:ARA46                                            Active Resolution Advisories bit 46
+CAT048:I260:ARA47                                            Active Resolution Advisories bit 47
+CAT048:I260:ACAS3                                            Reserved for ACAS III
+CAT048:I260:RAC55                                            Resolution Advisory Complement bit 55
+CAT048:I260:RAC56                                            Resolution Advisory Complement bit 56
+CAT048:I260:RAC57                                            Resolution Advisory Complement bit 57
+CAT048:I260:RAC58                                            Resolution Advisory Complement bit 58
+CAT048:I260:RAT                                              RA Terminated
+CAT048:I260:MTE                                              Multiple Threat Encounter
+CAT048:I260:TTI                                              Threat Type Indicator
+CAT048:I260:TID                                              Threat Identity Data
 CAT048:ISP:SP                                                SP
 CAT062:I010:SAC                                              System Area Code
 CAT062:I010:SIC                                              System Identification Code

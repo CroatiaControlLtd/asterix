@@ -49,7 +49,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="020">
         <DataItemName>Sector Number</DataItemName>
         <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
@@ -79,7 +79,7 @@
         </DataItemFormat>
         <DataItemNote>1. The time of day value is reset to zero each day at midnight. 2. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 [ Ref.2]. 3. Data Item I002/030 can have various logical meanings. In a particular message, the logical meaning is implicit from its context (e.g. in a North marker message it represents the antenna North crossing time; in a sector message it represents the antenna sector crossing time).</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="041">
         <DataItemName>Antenna Rotation Speed</DataItemName>
         <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
@@ -137,7 +137,7 @@
         </DataItemFormat>
         <DataItemNote>Typical information conveyed within this Data Item includes inter alia type of polarisation in use, Moving Target Indicator (MTI) in use and/or definition of the range to which MTI is applied, presence of overload conditions and the type of load reduction measures in use. 2. Only the structure of this Data Item is defined, no attempt is made to standardise its contents, in order not to hamper any application or future development.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="070">
         <DataItemName>Plot Count Values</DataItemName>
         <DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna scan or for the last sector processed.</DataItemDefinition>
@@ -165,7 +165,7 @@
             </Repetitive>            
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="080">
         <DataItemName>Warning/Error Conditions</DataItemName>
         <DataItemDefinition>Warning/error conditions affecting the functioning of the radar system itself.</DataItemDefinition>
@@ -253,6 +253,6 @@
         <UAPItem bit="11" frn="11" len="1+">080</UAPItem>
         <UAPItem bit="15" frn="FX">-</UAPItem>        
     </UAP>
-                
+
 </Category>
 

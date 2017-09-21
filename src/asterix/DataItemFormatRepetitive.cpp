@@ -51,27 +51,27 @@ DataItemFormatRepetitive::~DataItemFormatRepetitive()
 
 long DataItemFormatRepetitive::getLength(const unsigned char* pData)
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	DataItemFormat* pF = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pF == NULL)
 	{
 		Tracer::Error("Wrong data in Repetitive");
 		return 0;
 	}
 	unsigned char nRepetition = *pData;
-	return (1+nRepetition*pFixed->getLength(pData+1));
+	return (1+nRepetition*pF->getLength(pData+1));
 }
 
 bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
 	bool ret = false;
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
+	DataItemFormatFixed* pF = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+	if (pF == NULL)
 	{
 		Tracer::Error("Wrong data in Repetitive");
 		return true;
 	}
 
-	int fixedLength = pFixed->getLength(pData);
+	int fixedLength = pF->getLength(pData);
 	unsigned char nRepetition = *pData;
 
 	if (1+nRepetition*fixedLength != nLength)
@@ -91,7 +91,7 @@ bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strH
 
 		while(nRepetition--)
 		{
-			ret |= pFixed->getText(tmpStr, strHeader, formatType, pData, fixedLength);
+			ret |= pF->getText(tmpStr, strHeader, formatType, pData, fixedLength);
 			pData += fixedLength;
 
 			if (nRepetition > 0)
@@ -108,7 +108,7 @@ bool DataItemFormatRepetitive::getText(std::string& strResult, std::string& strH
 	{
 		while(nRepetition--)
 		{
-			ret |= pFixed->getText(strResult, strHeader, formatType, pData, fixedLength);
+			ret |= pF->getText(strResult, strHeader, formatType, pData, fixedLength);
 			pData += fixedLength;
 		}
 		break;

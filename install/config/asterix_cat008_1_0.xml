@@ -48,61 +48,61 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="020">
         <DataItemName>Vector Qualifier</DataItemName>
         <DataItemDefinition>Precipitation intensity level, shading orientation of the vectors representing the precipitation area and coordinate system used.</DataItemDefinition>
         <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
-        <Variable>
-        <Fixed length="1">
-                <Bits bit="8">
-                    <BitsShortName>org</BitsShortName>
-                    <BitsName>ORG</BitsName>
-                    <BitsValue val="0">Local Coordinates</BitsValue>
-                    <BitsValue val="1">System Coordinates</BitsValue>                   
-                </Bits>
-                <Bits from="7" to="5">
+            <Variable>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>org</BitsShortName>
+                        <BitsName>ORG</BitsName>
+                        <BitsValue val="0">Local Coordinates</BitsValue>
+                        <BitsValue val="1">System Coordinates</BitsValue>                   
+                    </Bits>
+                    <Bits from="7" to="5">
                         <BitsShortName>InteL</BitsShortName>
-                    <BitsName>Intensity level</BitsName>
-                </Bits>
-                <Bits from="4" to="2">
+                        <BitsName>Intensity level</BitsName>
+                    </Bits>
+                    <Bits from="4" to="2">
                         <BitsShortName>ShadO</BitsShortName>
-                    <BitsName>Shading orientation with respect to North</BitsName>
-                    <BitsUnit scale="22.5">deg</BitsUnit>
-                </Bits>
-                <Bits bit="1" fx="1">
+                        <BitsName>Shading orientation with respect to North</BitsName>
+                        <BitsUnit scale="22.5">deg</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
                         <BitsShortName>fx</BitsShortName>
                         <BitsName>Field extension</BitsName>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                         <BitsValue val="0">End of Data Item</BitsValue>
-                </Bits>
-            </Fixed>
-        <Fixed length="1">
-                <Bits from="8" to="4">
-                    <BitsShortName>sp</BitsShortName>
-                    <BitsName>Spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
-                </Bits>
-                <Bits bit="3">
-                    <BitsShortName>TST</BitsShortName>
-                    <BitsName>Test</BitsName>
-                    <BitsValue val="1">Test vector</BitsValue>
-                    <BitsValue val="0">Default</BitsValue>
-                </Bits>
-                <Bits bit="2">
-                    <BitsShortName>ER</BitsShortName>
-                    <BitsName>Error condition</BitsName>
-                    <BitsValue val="1">Error condition encountered</BitsValue>
-                    <BitsValue val="0">Default</BitsValue>
-                </Bits>
-                <Bits bit="1" fx="1">
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="4">
+                        <BitsShortName>sp</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>TST</BitsShortName>
+                        <BitsName>Test</BitsName>
+                        <BitsValue val="1">Test vector</BitsValue>
+                        <BitsValue val="0">Default</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>ER</BitsShortName>
+                        <BitsName>Error condition</BitsName>
+                        <BitsValue val="1">Error condition encountered</BitsValue>
+                        <BitsValue val="0">Default</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
                         <BitsShortName>fx</BitsShortName>
                         <BitsName>Field extension</BitsName>
                         <BitsValue val="1">Extension into next extent</BitsValue>
                         <BitsValue val="0">End of Data Item</BitsValue>
-                </Bits>
-            </Fixed>                
-        </Variable> 
+                    </Bits>
+                </Fixed>                
+            </Variable> 
         </DataItemFormat>
         <DataItemNote>For polar vectors bits-4/2 (1'st octet) are meaningless and are set to zero.</DataItemNote>
     </DataItem>
@@ -131,9 +131,9 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-    <DataItemNote>f is a parameter of the SOP message.</DataItemNote>     
+        <DataItemNote>f is a parameter of the SOP message.</DataItemNote>     
     </DataItem> 
-    
+
     <DataItem id="036">
         <DataItemName>Sequence of Cartesian Vectors in SPF Notation</DataItemName>
         <DataItemDefinition>Sequence of weather vectors, in the representation start point/ length, in local or in system cartesian coordinates.</DataItemDefinition>
@@ -158,9 +158,9 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-    <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-24 and bit-16 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+        <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-24 and bit-16 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
     </DataItem>         
-    
+
     <DataItem id="038">
         <DataItemName>Sequence of Weather Vectors in SPF Notation</DataItemName>
         <DataItemDefinition>Sequence of weather vectors, in the representation start point/ end point, in local or in system cartesian coordinates.</DataItemDefinition>
@@ -190,15 +190,15 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-    <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bits-32, 24, 16  and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+        <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bits-32, 24, 16  and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
     </DataItem> 
-    
+
     <DataItem id="040">
         <DataItemName>Contour Identifier</DataItemName>
         <DataItemDefinition>Contour serial number together with the precipitation intensity levels and the coordinates system used.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
-                    <Bits bit="16">
+                <Bits bit="16">
                     <BitsShortName>org</BitsShortName>
                     <BitsName>ORG</BitsName>
                     <BitsValue val="0">Local Coordinates</BitsValue>
@@ -222,14 +222,14 @@
                     <BitsValue val="3">First and only record, fully defining a contour</BitsValue>
                 </Bits>
                 <Bits from="8" to="1">
-                        <BitsShortName>CSN</BitsShortName>
-                        <BitsName>Contour Serial Number</BitsName>
+                    <BitsShortName>CSN</BitsShortName>
+                    <BitsName>Contour Serial Number</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    <DataItemNote>The Contour Serial Number provides an unambiguous identification for each contour record. Within one update cycle, a serial number shall never be assigned twice.</DataItemNote>     
+        <DataItemNote>The Contour Serial Number provides an unambiguous identification for each contour record. Within one update cycle, a serial number shall never be assigned twice.</DataItemNote>     
     </DataItem>
-    
+
     <DataItem id="050">
         <DataItemName>Sequence of Contour Points in SPF Notation</DataItemName>
         <DataItemDefinition>Cartesian coordinates of a variable number of points defining a contour.</DataItemDefinition>
@@ -249,9 +249,9 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-    <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
+        <DataItemNote>f is a parameter of the SOP message. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>     
     </DataItem>     
-            
+
     <DataItem id="090">
         <DataItemName>Time of Day</DataItemName>
         <DataItemDefinition>Absolute time stamping expressed as UTC time.</DataItemDefinition>
@@ -318,7 +318,7 @@
         </DataItemFormat>
         <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="120">
         <DataItemName>Total Number of Items Constituting One Weather</DataItemName>
         <DataItemDefinition>Total number of vectors, respectively contour points, constituting the total weather image, provided with the EOP message.</DataItemDefinition>
@@ -331,8 +331,6 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-
-    
 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
@@ -350,6 +348,6 @@
         <UAPItem bit="12" frn="12" len="1+">038</UAPItem>
         <UAPItem bit="15" frn="FX">-</UAPItem>        
     </UAP>
-                
+
 </Category>
 

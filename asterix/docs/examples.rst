@@ -41,7 +41,7 @@ Parse the raw Asterix file::
         # print formatted packet
 		print(asterix.describe(parsed))
 
-		
+
 Parse Pcap file with the help of dpkt module (only available for Python 2)::
 
     import asterix

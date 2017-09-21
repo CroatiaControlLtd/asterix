@@ -52,81 +52,41 @@ DataItemFormatBDS::DataItemFormatBDS(const DataItemFormatBDS& obj)
 
 long DataItemFormatBDS::getLength(const unsigned char* pData)
 {
-	unsigned char nRepetition = *pData;
-	return (1+nRepetition*8); // BDS length is always 8 bytes
+	return 8; // BDS length is always 8 bytes
 }
 
 bool DataItemFormatBDS::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
 	bool ret = false;
-	int fixedLength = 7+1; // size of BDS register (including the BDS byte)
-	unsigned char nRepetition = *pData;
 
-	if (1+nRepetition*fixedLength != nLength)
-	{
+	if (nLength != 8)
+	{ // size of BDS register (including the BDS byte) is always 8
 		Tracer::Error("Wrong length in BDS");
 		return true;
 	}
 
-	pData++;
-
 	std::string tmpStr;
 
-	while(nRepetition--)
-	{
-		int BDSid = pData[7];
+	int BDSid = pData[7];
 
-		// Find BDS register
-		std::list<DataItemFormat*>::iterator it =  m_lSubItems.begin();
-		while (it != m_lSubItems.end())
+	// Find BDS register
+	std::list<DataItemFormat*>::iterator it =  m_lSubItems.begin();
+	while (it != m_lSubItems.end())
+	{
+		DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
+		if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
 		{
-			DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
-			if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
+			std::string item_str;
+
+			bool ret2 = pFixed->getText(item_str, strHeader, formatType, pData, 8);
+			if (ret2)
 			{
-				std::string item_str;
-				if (formatType == CAsterixFormat::EJSONH)
-					item_str = format("\n\t\t{\"BDS%x\":", BDSid);
-				else if (formatType == CAsterixFormat::EJSON)
-					item_str = format("{\"BDS%x\":", BDSid);
-				else if (formatType == CAsterixFormat::ETxt)
-					item_str = format("\n\tBDS register: %x", BDSid);
-
-				bool ret2 = pFixed->getText(item_str, strHeader, formatType, pData, fixedLength-1);
-				if (ret2)
-				{
-					ret |= ret2;
-
-					if (formatType == CAsterixFormat::EJSONH || formatType == CAsterixFormat::EJSON)
-					{
-						if (tmpStr.size() == 0)
-							tmpStr = "[";
-						else
-							tmpStr += ",";
-
-						tmpStr += item_str + "}";
-					}
-					else if (formatType == CAsterixFormat::ETxt)
-					{
-						tmpStr += item_str;
-
-					}
-					else
-					{
-						tmpStr += item_str;
-					}
-				}
-				break;
+				ret |= ret2;
+				tmpStr += item_str;
 			}
-			it++;
+			break;
 		}
-
-		pData += fixedLength;
-
-	}
-
-	if (formatType == CAsterixFormat::EJSONH || formatType == CAsterixFormat::EJSON)
-	{
-		tmpStr += format("]");
+		it++;
 	}
 
 	if (ret)
@@ -263,37 +223,27 @@ PyObject* DataItemFormatBDS::getObject(unsigned char* pData, long nLength)
 
 void DataItemFormatBDS::insertToDict(PyObject* p, unsigned char* pData, long nLength)
 {
-	int fixedLength = 7+1; // size of BDS register (including the BDS byte)
-	unsigned char nRepetition = *pData;
-
-	if (1+nRepetition*fixedLength != nLength)
+	if (nLength != 8)
 	{
 		Tracer::Error("Wrong length in BDS");
 		return;
 	}
 
-	pData++;
-
 	std::string tmpStr;
 
-	while(nRepetition--)
+	int BDSid = pData[7];
+
+	// Find BDS register
+	std::list<DataItemFormat*>::iterator it =  m_lSubItems.begin();
+	while (it != m_lSubItems.end())
 	{
-		int BDSid = pData[7];
-
-		// Find BDS register
-		std::list<DataItemFormat*>::iterator it =  m_lSubItems.begin();
-		while (it != m_lSubItems.end())
+		DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
+		if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
 		{
-			DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
-			if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
-			{
-                pFixed->insertToDict(p, pData, fixedLength-1);
-				break;
-			}
-			it++;
+			pFixed->insertToDict(p, pData, 8);
+			break;
 		}
-
-		pData += fixedLength;
+		it++;
 	}
 }
 

@@ -46,7 +46,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="020">
         <DataItemName>Sector Number</DataItemName>
         <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
@@ -76,7 +76,7 @@
         </DataItemFormat>
         <DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed since last midnight. </DataItemNote>
     </DataItem>
-    
+
     <DataItem id="041">
         <DataItemName>Antenna Rotation Speed</DataItemName>
         <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
@@ -96,53 +96,53 @@
         <DataItemDefinition>Information concerning the configuration and status of a System..</DataItemDefinition>
         <DataItemFormat desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
             <Compound>
-            <Variable>
-                <Fixed length="1">
-                    <Bits bit="8">
-                        <BitsShortName>COM_presence</BitsShortName>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>COM_presence</BitsShortName>
                             <BitsName>COM Presence</BitsName>
                             <BitsPresence>1</BitsPresence>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>                         
-                    <Bits bit="6">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="5">
-                        <BitsShortName>PSR_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>                         
+                        <Bits bit="6">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>PSR_presence</BitsShortName>
                             <BitsName>PSR Presence</BitsName>
                             <BitsPresence>2</BitsPresence>
-                    </Bits>
-                    <Bits bit="4">
-                        <BitsShortName>SSR_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>SSR_presence</BitsShortName>
                             <BitsName>SSR Presence</BitsName>
                             <BitsPresence>3</BitsPresence>
-                    </Bits>
-                    <Bits bit="3">
-                        <BitsShortName>MDS_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>MDS_presence</BitsShortName>
                             <BitsName>MDS Presence</BitsName>
                             <BitsPresence>4</BitsPresence>
-                    </Bits>
-                    <Bits bit="2">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
-                        <BitsName>Field extension</BitsName>
-                        <BitsValue val="1">Extension into next extent</BitsValue>
-                        <BitsValue val="0">End of Data Item</BitsValue>
-                    </Bits>
-                </Fixed>                
-            </Variable>
-            
-            <Fixed length="1">
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>fx</BitsShortName>
+                            <BitsName>Field extension</BitsName>
+                            <BitsValue val="1">Extension into next extent</BitsValue>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                        </Bits>
+                    </Fixed>                
+                </Variable>
+
+                <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>NOGO</BitsShortName>
                         <BitsName>NOGO</BitsName>
@@ -191,7 +191,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>                
-                
+
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>ANT</BitsShortName>
@@ -225,7 +225,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>                
-                
+
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>ANT</BitsShortName>
@@ -259,7 +259,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>ANT</BitsShortName>
@@ -317,7 +317,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>
-                
+
             </Compound>     
         </DataItemFormat>
         <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
@@ -327,51 +327,51 @@
         <DataItemName>System Processing Mode</DataItemName>
         <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
         <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
-   <Compound>
-            <Variable>
-                <Fixed length="1">
-                    <Bits bit="8">
-                        <BitsShortName>COM_presence</BitsShortName>
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>COM_presence</BitsShortName>
                             <BitsName>COM Presence</BitsName>
                             <BitsPresence>1</BitsPresence>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                    </Bits>                         
-                    <Bits bit="6">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                    </Bits>
-                    <Bits bit="5">
-                        <BitsShortName>PSR_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                        </Bits>                         
+                        <Bits bit="6">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>PSR_presence</BitsShortName>
                             <BitsName>PSR Presence</BitsName>
                             <BitsPresence>2</BitsPresence>
-                    </Bits>
-                    <Bits bit="4">
-                        <BitsShortName>SSR_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>SSR_presence</BitsShortName>
                             <BitsName>SSR Presence</BitsName>
                             <BitsPresence>3</BitsPresence>
-                    </Bits>
-                    <Bits bit="3">
-                        <BitsShortName>MDS_presence</BitsShortName>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>MDS_presence</BitsShortName>
                             <BitsName>MDS Presence</BitsName>
                             <BitsPresence>4</BitsPresence>
-                    </Bits>
-                    <Bits bit="2">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>fx</BitsShortName>
-                        <BitsName>Field extension</BitsName>
-                        <BitsValue val="1">Extension into next extent</BitsValue>
-                        <BitsValue val="0">End of Data Item</BitsValue>
-                    </Bits>
-                </Fixed>                
-            </Variable>
-   
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>fx</BitsShortName>
+                            <BitsName>Field extension</BitsName>
+                            <BitsValue val="1">Extension into next extent</BitsValue>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                        </Bits>
+                    </Fixed>                
+                </Variable>
+
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>spare</BitsShortName>
@@ -392,7 +392,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>        
-                
+
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>POL</BitsShortName>
@@ -414,7 +414,7 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>    
-                
+
                 <Fixed length="1"> 
                     <Bits from="8" to="6">
                         <BitsShortName>REDRAD</BitsShortName>
@@ -426,13 +426,13 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>    
-                
+
                 <Fixed length="1"> 
                     <Bits from="8" to="6">
                         <BitsShortName>REDRAD</BitsShortName>
                         <BitsName>Reduction Steps in use</BitsName>         
                     </Bits>         
-                     <Bits bit="5">
+                    <Bits bit="5">
                         <BitsShortName>CLU</BitsShortName>
                         <BitsName>Cluster State</BitsName>
                         <BitsValue val="0">Autonomous</BitsValue>
@@ -444,8 +444,8 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>    
-    </Compound>
-         </DataItemFormat>
+            </Compound>
+        </DataItemFormat>
         <DataItemNote>.</DataItemNote>
     </DataItem>
 
@@ -467,7 +467,7 @@
             </Repetitive>            
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="090">
         <DataItemName>Collimation Error</DataItemName>
         <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station</DataItemDefinition>
@@ -517,8 +517,8 @@
         </DataItemFormat>
         <DataItemNote>The logical meaning of the polar window is defined by its context, given by the Message Type (Data Item I002/000) in the record concerned.</DataItemNote>
     </DataItem>
-  
-  <DataItem id="110">
+
+    <DataItem id="110">
         <DataItemName>Data Filter</DataItemName>
         <DataItemDefinition>.</DataItemDefinition>
         <DataItemFormat desc="One octet fixed length Data Item.">
@@ -531,8 +531,8 @@
         </DataItemFormat>
         <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a  Data Filter for a specific geographical subarea. A Data Source may have  zero, one or multiple data filters active at any time.</DataItemNote>
     </DataItem>
-    
-  <DataItem id="120">
+
+    <DataItem id="120">
         <DataItemName>3D POS</DataItemName>
         <DataItemDefinition>3D-Position of Data Source in WGS-84 Coordinates</DataItemDefinition>
         <DataItemFormat desc="Eight-octet fixed length Data Item.">
@@ -575,6 +575,6 @@
         <UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
         <UAPItem bit="15" frn="FX">-</UAPItem>        
     </UAP>
-                
+
 </Category>
 

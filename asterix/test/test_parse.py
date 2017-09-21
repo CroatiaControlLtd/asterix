@@ -37,22 +37,23 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['I200'], {'CGS': {'desc': 'Calculated groundspeed', 'val': 434.94},
                                                  'CHdg': {'desc': 'Calculated heading', 'val': 124.002685546875}})
             self.assertEqual(packet[0]['I220'], {'ACAddr': {'desc': 'AircraftAddress', 'val': '3C660C'}})
-            self.assertEqual(packet[0]['I250'], {'ALT_HOLD': {'val': 0, 'desc': 'ALT HOLD Mode',
-                                                               'meaning': 'Not active'},
-                                                  'APP': {'val': 0, 'desc': 'APPROACH Mode', 'meaning': 'Not active'},
-                                                  'BP_STATUS': {'val': 1, 'desc': 'Barometric Pressure Status'},
-                                                  'MODE_STATUS': {'val': 0, 'desc': 'Status of MCP/FCU Mode Bits'},
-                                                  'MCP_ALT': {'val': 33008.0, 'desc': 'MCP/FCU Selected Altitude'},
-                                                  'VNAV': {'val': 0, 'desc': 'VNAV Mode', 'meaning': 'Not active'},
-                                                  'FMS_ALT_STATUS': {'val': 0, 'desc': 'FMS Altitude Status'},
-                                                  'FMS_ALT': {'val': 0.0, 'desc': 'FMS Selected Altitude'},
-                                                  'res': {'val': 0, 'desc': 'Reserved'},
-                                                  'MCP_ALT_STATUS': {'val': 1, 'desc': 'MCP Altitude Status'},
-                                                  'TARGET_ALT_STATUS': {'val': 0, 'desc': 'Status of Target ALT source bits',
-                                                                        'meaning': 'No source information provided'},
-                                                  'BP': {'val': 227.0, 'desc': 'Barometric Pressure'},
-                                                  'TARGET_ALT_SOURCE': {'val': 0, 'desc': 'Target ALT source',
-                                                                        'meaning': 'Unknown'}})
+
+            self.assertEqual(packet[0]['I250'][0], {'TARGET_ALT_STATUS': {'desc': 'Status of Target ALT source bits',
+                                                                          'meaning': 'No source information provided', 'val': 0},
+                                                    'res': {'desc': 'Reserved', 'val': 0},
+                                                    'FMS_ALT': {'desc': 'FMS Selected Altitude', 'val': 0.0},
+                                                    'APP': {'desc': 'APPROACH Mode', 'meaning': 'Not active', 'val': 0},
+                                                    'ALT_HOLD': {'desc': 'ALT HOLD Mode', 'meaning': 'Not active', 'val': 0},
+                                                    'TARGET_ALT_SOURCE': {'desc': 'Target ALT source', 'meaning': 'Unknown', 'val': 0},
+                                                    'BDS': {'desc': 'BDS register', 'val': '40'},
+                                                    'FMS_ALT_STATUS': {'desc': 'FMS Altitude Status', 'val': 0},
+                                                    'BP_STATUS': {'desc': 'Barometric Pressure Status', 'val': 1},
+                                                    'BP': {'desc': 'Barometric Pressure', 'val': 227.0},
+                                                    'MODE_STATUS': {'desc': 'Status of MCP/FCU Mode Bits', 'val': 0},
+                                                    'VNAV': {'desc': 'VNAV Mode', 'meaning': 'Not active', 'val': 0},
+                                                    'MCP_ALT_STATUS': {'desc': 'MCP Altitude Status', 'val': 1},
+                                                    'MCP_ALT': {'desc': 'MCP/FCU Selected Altitude', 'val': 33008.0}})
+
             self.assertEqual(packet[0]['I040'], {'THETA': {'desc': '', 'val': 340.13671875},
                                                  'RHO': {'desc': '', 'max': 256.0, 'val': 197.68359375}})
             self.assertEqual(packet[0]['I240'],
@@ -110,14 +111,11 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[2]['crc'], '8B7DA47A')
             self.assertEqual(packet[0]['I220'], {'RoC': {'val': -443.75, 'desc': 'Rate of Climb/Descent'}})
             self.assertEqual(packet[0]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
-            self.assertEqual(packet[0]['I290'], {
-                'MDS': {'val': 63.75, 'desc': 'Age of the last Mode S detection used to update the track'},
-                'ES': {'val': 0, 'desc': 'ADS-B Extended Squitter age'},
-                'PSR': {'val': 7.25, 'desc': 'Age of the last primary detection used to update the track'},
-                'FX': {'meaning': 'no extension', 'val': 0, 'desc': 'Extension indicator'},
-                'VDL': {'val': 0, 'desc': 'ADS-B VDL Mode 4 age'}, 'ADS': {'val': 0, 'desc': 'ADS-C age'},
-                'TRK': {'val': 0, 'desc': 'Track age'},
-                'SSR': {'val': 0.0, 'desc': 'Age of the last secondary detection used to update the track'}})
+
+            self.assertEqual(packet[0]['I290']['MDS'], {'MDS': {'val': 63.75, 'desc': 'Age of the last Mode S detection used to update the track'}})
+            self.assertEqual(packet[0]['I290']['PSR'], {'PSR': {'val': 7.25, 'desc': 'Age of the last primary detection used to update the track'}})
+            self.assertEqual(packet[0]['I290']['SSR'], {'SSR': {'val': 0.0, 'desc': 'Age of the last secondary detection used to update the track'}})
+
             self.assertEqual(packet[0]['I135'], {
                 'QNH': {'meaning': 'No QNH correction applied', 'val': 0, 'desc': 'QNH'},
                 'CTBA': {'max': 150000.0, 'min': -1500.0, 'val': 15700.0,
@@ -173,42 +171,42 @@ class AsterixParseTest(unittest.TestCase):
                                                  'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
                                                  'Mode3A': {'val': '4276',
                                                             'desc': 'Mode-3/A reply in octal representation'}})
-            self.assertEqual(packet[0]['I295'], {'MD2': {'val': 0, 'desc': ''}, 'MD5': {'val': 0, 'desc': ''},
-                                                 'MFL': {'val': 0.0, 'desc': ''}, 'MDA': {'val': 0.0, 'desc': ''},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'}, 'MHG': {'val': 0, 'desc': ''},
-                                                 'MD1': {'val': 0, 'desc': ''}, 'MD4': {'val': 0, 'desc': ''}})
+
+            self.assertEqual(packet[0]['I295']['MDA'], {'MDA': {'val': 0, 'desc': ''}})
+            self.assertEqual(packet[0]['I295']['MFL'], {'MFL': {'val': 0.0, 'desc': ''}})
+
             self.assertEqual(packet[0]['I010'], {'SAC': {'val': 25, 'desc': 'System Area Code'},
                                                  'SIC': {'val': 100, 'desc': 'System Identification Code'}})
-            self.assertEqual(packet[0]['I340'], {'SID': {'val': 1, 'desc': 'Sensor Identification'},
-                                                 'Mode3A': {'val': '4276',
-                                                            'desc': 'Mode 3/A reply under the form of 4 digits in octal representation'},
-                                                 'HEI': {'val': 0, 'desc': 'Measured 3-D Height'},
-                                                 'TST': {'meaning': 'Real target report', 'val': 0, 'desc': ''},
-                                                 'G': {'meaning': 'Default', 'val': 0, 'desc': ''},
-                                                 'V': {'meaning': 'Code validated', 'val': 0, 'desc': ''},
-                                                 'CG': {'meaning': 'Default', 'val': 0, 'desc': ''},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'},
-                                                 'ModeC': {'max': 1270.0, 'min': -12.0, 'val': 157.0,
-                                                           'desc': 'Last Measured Mode C Code'},
-                                                 'CV': {'meaning': 'Code validated', 'val': 0, 'desc': ''},
-                                                 'SAC': {'val': 25, 'desc': 'System Area Code'},
-                                                 'RHO': {'max': 256.0, 'val': 186.6875, 'desc': 'Measured distance'},
-                                                 'SIM': {'meaning': 'Actual target report', 'val': 0, 'desc': ''},
-                                                 'MDA': {'val': 1, 'desc': 'Last Measured Mode 3/A code'},
-                                                 'SIC': {'val': 13, 'desc': 'System Identification Code'},
-                                                 'THETA': {'val': 259.453125, 'desc': 'Measured azimuth'},
-                                                 'POS': {'val': 1, 'desc': 'Measured Position'},
-                                                 'TYP': {'meaning': 'Single SSR detection', 'val': 2,
-                                                         'desc': 'Report Type'},
-                                                 'RAB': {'meaning': 'Report from aircraft transponder', 'val': 0,
-                                                         'desc': ''},
-                                                 'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to zero'},
-                                                 'L': {
-                                                     'meaning': 'MODE 3/A code as derived from the reply of the transponder',
-                                                     'val': 0, 'desc': ''},
-                                                 'MDC': {'val': 1, 'desc': 'Last Measured Mode C code'}})
+
+            self.assertEqual(packet[0]['I340']['TYP'], {
+                'TYP': {'val': 2, 'meaning': 'Single SSR detection', 'desc': 'Report Type'},
+                'TST': {'val': 0, 'meaning': 'Real target report', 'desc': ''},
+                'spare': {'val': 0, 'desc': 'Spare bits set to zero', 'const': 0},
+                'RAB': {'val': 0, 'meaning': 'Report from aircraft transponder', 'desc': ''},
+                'SIM': {'val': 0, 'meaning': 'Actual target report', 'desc': ''}})
+
+            self.assertEqual(packet[0]['I340']['SID'], {
+                'SAC': {'val': 25, 'desc': 'System Area Code'},
+                'SIC': {'val': 13, 'desc': 'System Identification Code'}})
+
+            self.assertEqual(packet[0]['I340']['MDC'], {
+                'CG': {'val': 0, 'meaning': 'Default', 'desc': ''},
+                'CV': {'val': 0, 'meaning': 'Code validated', 'desc': ''},
+                'ModeC': {'max': 1270.0, 'val': 157.0, 'min': -12.0, 'desc': 'Last Measured Mode C Code'}})
+
+            self.assertEqual(packet[0]['I340']['MDA'], {
+                'L': {'val': 0, 'meaning': 'MODE 3/A code as derived from the reply of the transponder',
+                      'desc': ''},
+                'V': {'val': 0, 'meaning': 'Code validated', 'desc': ''},
+                'Mode3A': {'val': '4276',
+                           'desc': 'Mode 3/A reply under the form of 4 digits in octal representation'},
+                'G': {'val': 0, 'meaning': 'Default', 'desc': ''},
+                'spare': {'val': 0, 'desc': 'Spare bit set to zero', 'const': 0}})
+
+            self.assertEqual(packet[0]['I340']['POS'], {
+                'RHO': {'max': 256.0, 'val': 186.6875, 'desc': 'Measured distance'},
+                'THETA': {'val': 259.453125, 'desc': 'Measured azimuth'}})
+
             self.assertEqual(packet[0]['I105'], {
                 'Lat': {'val': 44.73441302776337,
                         'desc': 'Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.'},
@@ -218,16 +216,10 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['I210'], {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
             self.assertEqual(packet[1]['I220'], {'RoC': {'val': 0.0, 'desc': 'Rate of Climb/Descent'}})
             self.assertEqual(packet[1]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
-            self.assertEqual(packet[1]['I290'], {
-                'MDS': {'val': 0.0,
-                        'desc': 'Age of the last Mode S detection used to update the track'},
-                'ES': {'val': 0, 'desc': 'ADS-B Extended Squitter age'}, 'PSR': {'val': 1.0,
-                                                                                 'desc': 'Age of the last primary detection used to update the track'},
-                'FX': {'meaning': 'no extension', 'val': 0, 'desc': 'Extension indicator'},
-                'VDL': {'val': 0, 'desc': 'ADS-B VDL Mode 4 age'},
-                'ADS': {'val': 0, 'desc': 'ADS-C age'},
-                'TRK': {'val': 0, 'desc': 'Track age'}, 'SSR': {'val': 0.0,
-                                                                'desc': 'Age of the last secondary detection used to update the track'}})
+
+            self.assertEqual(packet[1]['I290']['MDS'], {'MDS': {'val': 0.0, 'desc': 'Age of the last Mode S detection used to update the track'}})
+            self.assertEqual(packet[1]['I290']['SSR'], {'SSR': {'val': 0.0, 'desc': 'Age of the last secondary detection used to update the track'}})
+
             self.assertEqual(packet[1]['I135'], {
                 'QNH': {'meaning': 'No QNH correction applied', 'val': 0, 'desc': 'QNH'},
                 'CTBA': {'max': 150000.0, 'min': -1500.0, 'val': 35000.0,
@@ -283,106 +275,75 @@ class AsterixParseTest(unittest.TestCase):
                                                  'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
                                                  'Mode3A': {'val': '2535',
                                                             'desc': 'Mode-3/A reply in octal representation'}})
-            self.assertEqual(packet[1]['I295'], {'MD2': {'val': 0, 'desc': ''}, 'MD5': {'val': 0, 'desc': ''},
-                                                 'MFL': {'val': 0.0, 'desc': ''}, 'MDA': {'val': 0.0, 'desc': ''},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'}, 'MHG': {'val': 0, 'desc': ''},
-                                                 'MD1': {'val': 0, 'desc': ''}, 'MD4': {'val': 0, 'desc': ''}})
-            self.assertEqual(packet[1]['I390'], {'FCT': {'val': 1, 'desc': 'Flight Category'},
-                                                 'TYPE': {'val': 'B738', 'desc': 'Type of Aircraft'},
-                                                 'NBR': {'val': 29233709, 'desc': ''},
-                                                 'GATOAT': {'meaning': 'General Air Traffic', 'val': 1, 'desc': ''},
-                                                 'STD': {'val': 0, 'desc': 'Standard Instrument Departure'},
-                                                 'CTL': {'val': 0, 'desc': 'Current Control Position'},
-                                                 'RVSM': {'meaning': 'Approved', 'val': 1, 'desc': ''},
-                                                 'CS': {'val': 'SXD4723', 'desc': 'Callsign'},
-                                                 'DST': {'val': 1, 'desc': 'Destination Airport'},
-                                                 'AST': {'val': 0, 'desc': 'Aircraft Stand'},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'},
-                                                 'IFI': {'val': 1, 'desc': 'IFPS_FLIGHT_ID'},
-                                                 'STS': {'val': 0, 'desc': 'Stand Status'},
-                                                 'RDS': {'val': 1, 'desc': 'Runway Designation'},
-                                                 'DES': {'val': 'HELX', 'desc': 'Destination Airport'},
-                                                 'CFL': {'val': 350.0, 'desc': 'Current Cleared Flight Level'},
-                                                 'DEP': {'val': 'EDDL', 'desc': 'Departure Airport'},
-                                                 'PEC': {'val': 0, 'desc': 'Pre-emergency Callsign'},
-                                                 'TAC': {'val': 1, 'desc': 'Type of Aircraft'},
-                                                 'SAC': {'val': 25, 'desc': 'System Area Code'},
-                                                 'NU2': {'val': ' ', 'desc': 'Second number'},
-                                                 'spare': {'const': 0, 'val': 0, 'desc': 'spare bit set to zero'},
-                                                 'PEM': {'val': 0, 'desc': 'Pre-emergency Mode 3/A code'},
-                                                 'HPR': {'meaning': 'Normal Priority Flight', 'val': 0, 'desc': ''},
-                                                 'SIC': {'val': 100, 'desc': 'System Identification Code'},
-                                                 'FR1FR2': {'meaning': 'Instrument Flight Rules', 'val': 0, 'desc': ''},
-                                                 'TAG': {'val': 1, 'desc': 'FPPS Identification Tag'},
-                                                 'TYP': {'meaning': 'Unit 1 internal flight number', 'val': 1,
-                                                         'desc': ''}, 'TOD': {'val': 0, 'desc': 'Time of Departure'},
-                                                 'NU1': {'val': ' ', 'desc': 'First number'},
-                                                 'LTR': {'val': ' ', 'desc': 'Letter'},
-                                                 'CSN': {'val': 1, 'desc': 'Callsign'},
-                                                 'STA': {'val': 0, 'desc': 'Standard Instrument Arrival'},
-                                                 'WTC': {'val': 'M', 'desc': 'Wake Turbulence Category'}})
+
+            self.assertEqual(packet[1]['I295']['MFL'], {'MFL': {'val': 0.0, 'desc': ''}})
+
+            self.assertEqual(packet[1]['I390']['DEP'], {'DEP': {'desc': 'Departure Airport', 'val': 'EDDL'}})
+            self.assertEqual(packet[1]['I390']['TAC'], {'TYPE': {'desc': 'Type of Aircraft', 'val': 'B738'}})
+            self.assertEqual(packet[1]['I390']['DST'],{'DES': {'desc': 'Destination Airport', 'val': 'HELX'}})
+
+            self.assertEqual(packet[1]['I390']['IFI'], {
+                'spare': {'const': 0, 'desc': 'spare bits set to zero', 'val': 0},
+                'NBR': {'desc': '', 'val': 29233709},
+                'TYP': {'meaning': 'Unit 1 internal flight number', 'desc': '', 'val': 1}})
+
+            self.assertEqual(packet[1]['I390']['RDS'], {'NU1': {'desc': 'First number', 'val': ' '},
+                    'LTR': {'desc': 'Letter', 'val': ' '},
+                    'NU2': {'desc': 'Second number', 'val': ' '}})
+
+            self.assertEqual(packet[1]['I390']['WTC'], {'WTC': {'desc': 'Wake Turbulence Category', 'val': 'M'}})
+
+            self.assertEqual(packet[1]['I390']['CSN'], {'CS': {'desc': 'Callsign', 'val': 'SXD4723'}})
+            self.assertEqual(packet[1]['I390']['TAG'], {
+                'SIC': {'desc': 'System Identification Code', 'val': 100},
+                'SAC': {'desc': 'System Area Code', 'val': 25}})
+
+            self.assertEqual(packet[1]['I390']['FCT'], {
+                'spare': {'const': 0, 'desc': 'spare bit set to zero', 'val': 0},
+                'FR1FR2': {'meaning': 'Instrument Flight Rules', 'desc': '', 'val': 0},
+                'RVSM': {'meaning': 'Approved', 'desc': '', 'val': 1},
+                'GATOAT': {'meaning': 'General Air Traffic', 'desc': '', 'val': 1},
+                'HPR': {'meaning': 'Normal Priority Flight', 'desc': '', 'val': 0}})
+
+            self.assertEqual(packet[1]['I390']['CFL'], {'CFL': {'desc': 'Current Cleared Flight Level', 'val': 350.0}})
             self.assertEqual(packet[1]['I010'], {'SAC': {'val': 25, 'desc': 'System Area Code'},
                                                  'SIC': {'val': 100, 'desc': 'System Identification Code'}})
-            self.assertEqual(packet[1]['I340'], {'SID': {'val': 1, 'desc': 'Sensor Identification'},
-                                                 'Mode3A': {'val': '2535',
-                                                            'desc': 'Mode 3/A reply under the form of 4 digits in octal representation'},
-                                                 'HEI': {'val': 0, 'desc': 'Measured 3-D Height'},
-                                                 'TST': {'meaning': 'Real target report', 'val': 0, 'desc': ''},
-                                                 'G': {'meaning': 'Default', 'val': 0, 'desc': ''},
-                                                 'V': {'meaning': 'Code validated', 'val': 0, 'desc': ''},
-                                                 'CG': {'meaning': 'Default', 'val': 0, 'desc': ''},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'},
-                                                 'ModeC': {'max': 1270.0, 'min': -12.0, 'val': 350.0,
-                                                           'desc': 'Last Measured Mode C Code'},
-                                                 'CV': {'meaning': 'Code validated', 'val': 0, 'desc': ''},
-                                                 'SAC': {'val': 25, 'desc': 'System Area Code'},
-                                                 'RHO': {'max': 256.0, 'val': 93.1953125, 'desc': 'Measured distance'},
-                                                 'SIM': {'meaning': 'Actual target report', 'val': 0, 'desc': ''},
-                                                 'MDA': {'val': 1, 'desc': 'Last Measured Mode 3/A code'},
-                                                 'SIC': {'val': 13, 'desc': 'System Identification Code'},
-                                                 'THETA': {'val': 271.4666748046875, 'desc': 'Measured azimuth'},
-                                                 'POS': {'val': 1, 'desc': 'Measured Position'},
-                                                 'TYP': {'meaning': 'Single ModeS Roll-Call', 'val': 5,
-                                                         'desc': 'Report Type'},
-                                                 'RAB': {'meaning': 'Report from aircraft transponder', 'val': 0,
-                                                         'desc': ''},
-                                                 'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to zero'},
-                                                 'L': {
-                                                     'meaning': 'MODE 3/A code as derived from the reply of the transponder',
-                                                     'val': 0, 'desc': ''},
-                                                 'MDC': {'val': 1, 'desc': 'Last Measured Mode C code'}})
-            self.assertEqual(packet[1]['I380'], {'ACID': {'val': 'SXD4723 ', 'desc': 'Target Identification'},
-                                                 'FSS': {'val': 0, 'desc': 'Final State SelectedAltitude'},
-                                                 'STAT': {'meaning': 'No alert, no SPI, aircraft airborne', 'val': 0,
-                                                          'desc': 'Flight Status'},
-                                                 'ARC': {'meaning': '25 ft resolution', 'val': 1,
-                                                         'desc': 'Altitude reporting capability'},
-                                                 'COM': {'meaning': 'Comm. A and Comm. B capability', 'val': 1,
-                                                         'desc': 'Communications capability of the transponder'},
-                                                 'ID': {'val': 1, 'desc': 'Target Identification'},
-                                                 'TID': {'val': 0, 'desc': 'Trajectory Intent Data'},
-                                                 'AIC': {'meaning': 'Yes', 'val': 1,
-                                                         'desc': 'Aircraft identification capability'},
-                                                 'B1B': {'val': 6, 'desc': 'BDS 1,0 bits 37/40'},
-                                                 'SAL': {'val': 0, 'desc': 'Selected Altitude'},
-                                                 'SAB': {'val': 0, 'desc': 'Status reported by ADS-B'},
-                                                 'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to zero'},
-                                                 'ACS': {'val': 0, 'desc': 'ACAS Resolution Advisory Report'},
-                                                 'TAS': {'val': 0, 'desc': 'True Airspeed'},
-                                                 'ADR': {'val': '3C0A55', 'desc': 'Target Address'},
-                                                 'SSC': {'meaning': 'Yes', 'val': 1,
-                                                         'desc': 'Specific service capability'},
-                                                 'MHG': {'val': 0, 'desc': 'Magnetic Heading'},
-                                                 'IAS': {'val': 0, 'desc': 'Indicated Airspeed/Mach Number'},
-                                                 'FX': {'meaning': 'no extension', 'val': 0,
-                                                        'desc': 'Extension indicator'},
-                                                 'TIS': {'val': 0, 'desc': 'Trajectory Intent Status'},
-                                                 'GVR': {'val': 0, 'desc': 'Geometric Vertical Rate'},
-                                                 'B1A': {'val': 1, 'desc': 'BDS 1,0 bit 16'},
-                                                 'BVR': {'val': 0, 'desc': 'Barometric Vertical Rate'}})
+
+            self.assertEqual(packet[1]['I340']['TYP'], {
+                'TYP': {'desc': 'Report Type', 'meaning': 'Single ModeS Roll-Call', 'val': 5},
+                'TST': {'desc': '', 'meaning': 'Real target report', 'val': 0},
+                'SIM': {'desc': '', 'meaning': 'Actual target report', 'val': 0},
+                'RAB': {'desc': '', 'meaning': 'Report from aircraft transponder', 'val': 0},
+                'spare': {'desc': 'Spare bits set to zero', 'val': 0, 'const': 0}})
+            self.assertEqual(packet[1]['I340']['POS'], {
+                'RHO': {'desc': 'Measured distance', 'val': 93.1953125, 'max': 256.0},
+                'THETA': {'desc': 'Measured azimuth', 'val': 271.4666748046875}})
+            self.assertEqual(packet[1]['I340']['MDA'], {
+                'G': {'desc': '', 'meaning': 'Default', 'val': 0},
+                'L': {'desc': '', 'meaning': 'MODE 3/A code as derived from the reply of the transponder', 'val': 0},
+                'V': {'desc': '', 'meaning': 'Code validated', 'val': 0},
+                'Mode3A': {'desc': 'Mode 3/A reply under the form of 4 digits in octal representation', 'val': '2535'},
+                'spare': {'desc': 'Spare bit set to zero', 'val': 0, 'const': 0}})
+            self.assertEqual(packet[1]['I340']['MDC'], {'ModeC': {'min': -12.0, 'desc': 'Last Measured Mode C Code', 'val': 350.0, 'max': 1270.0},
+                    'CG': {'desc': '', 'meaning': 'Default', 'val': 0},
+                    'CV': {'desc': '', 'meaning': 'Code validated', 'val': 0}})
+            self.assertEqual(packet[1]['I340']['SID'], {
+                'SIC': {'desc': 'System Identification Code', 'val': 13},
+                'SAC': {'desc': 'System Area Code', 'val': 25}})
+
+            self.assertEqual(packet[1]['I380']['COM'], {
+                'COM': {'val': 1, 'meaning': 'Comm. A and Comm. B capability',
+                        'desc': 'Communications capability of the transponder'},
+                'SSC': {'val': 1, 'meaning': 'Yes', 'desc': 'Specific service capability'},
+                'STAT': {'val': 0, 'meaning': 'No alert, no SPI, aircraft airborne', 'desc': 'Flight Status'},
+                'spare': {'val': 0, 'const': 0, 'desc': 'Spare bits set to zero'},
+                'B1A': {'val': 1, 'desc': 'BDS 1,0 bit 16'},
+                'B1B': {'val': 6, 'desc': 'BDS 1,0 bits 37/40'},
+                'ARC': {'val': 1, 'meaning': '25 ft resolution', 'desc': 'Altitude reporting capability'},
+                'AIC': {'val': 1, 'meaning': 'Yes', 'desc': 'Aircraft identification capability'}})
+            self.assertEqual(packet[1]['I380']['ADR'], {'ADR': {'val': '3C0A55', 'desc': 'Target Address'}})
+            self.assertEqual(packet[1]['I380']['ID'], {'ACID': {'val': 'SXD4723 ', 'desc': 'Target Identification'}})
+
             self.assertEqual(packet[1]['I105'], {'Lat': {'val': 45.40080785751343,
                                                          'desc': 'Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.'},
                                                  'Lon': {'val': 15.13318419456482,

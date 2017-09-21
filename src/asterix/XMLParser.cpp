@@ -270,9 +270,42 @@ void  XMLParser::ElementHandlerStart(void *data, const char *el, const char **at
 
 		if (p->m_pFormat != NULL)
 		{
-			delete pFormatBDS;
-			p->Error("XMLParser : <BDS> must be in <DataItem>");
-			return;
+			if (p->m_pFormat->isVariable())
+			{
+				p->m_pFormat->m_lSubItems.push_back(pFormatBDS);
+			}
+			else if (p->m_pFormat->isRepetitive())
+			{
+				if (p->m_pFormat->m_lSubItems.size() != 0)
+				{
+					p->Error("XMLParser : Duplicate BDS item in Repetitive");
+				}
+				p->m_pFormat->m_lSubItems.push_back(pFormatBDS);
+			}
+			else if (p->m_pFormat->isExplicit())
+			{
+				if (p->m_pFormat->m_lSubItems.size() != 0)
+				{
+					p->Error("XMLParser : Duplicate BDS item in Explicit");
+				}
+				p->m_pFormat->m_lSubItems.push_back(pFormatBDS);
+			}
+			else if (p->m_pFormat->isCompound())
+			{
+				if (p->m_pFormat->m_lSubItems.size() == 0)
+				{
+					p->Error("XMLParser : First part of <Compound> must be <Variable> and not <BDS>");
+					return;
+				}
+				p->m_pFormat->m_lSubItems.push_back(pFormatBDS);
+			}
+			else
+			{
+				p->Error("XMLParser : Error in handling BDS format in item ", p->m_pDataItem->m_strName.c_str());
+				return;
+			}
+			pFormatBDS->m_pParentFormat = p->m_pFormat;
+			p->m_pFormat = pFormatBDS;
 		}
 		else
 		{

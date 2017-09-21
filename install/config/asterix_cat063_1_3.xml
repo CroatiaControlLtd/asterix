@@ -29,7 +29,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
         <DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
@@ -43,7 +43,7 @@
         </DataItemFormat>
         <DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="030">
         <DataItemName>Time Of Message</DataItemName>
         <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
@@ -75,113 +75,112 @@
             </Fixed>
         </DataItemFormat>
     </DataItem> 
-    
+
     <DataItem id="060">
         <DataItemName>Sensor Configuration and Status</DataItemName>
         <DataItemDefinition>Configuration and status of the sensor</DataItemDefinition>
-        <DataItemFormat desc="Variable length data item comprising a first part of one octet,
-followed by one-octet extent as necessary.">
-         <Variable>         
-            <Fixed length="1">
-                <Bits from="8" to="7">
-                    <BitsShortName>CON</BitsShortName>
-                    <BitsName>Connection Status</BitsName>
-                    <BitsValue val="0">Operational</BitsValue>
-                    <BitsValue val="1">Degraded</BitsValue>
-                    <BitsValue val="2">Initialization</BitsValue>
-                    <BitsValue val="3">Not currently connected</BitsValue>
-                </Bits>
-                <Bits bit="6">
-                    <BitsShortName>PSR</BitsShortName>
-                    <BitsName>GO/NOGO</BitsName>
-                    <BitsValue val="0">PSR GO</BitsValue>
-                    <BitsValue val="1">PSR NOGO</BitsValue>
-                </Bits>
-                <Bits bit="5">
-                    <BitsShortName>SSR</BitsShortName>
-                    <BitsName>GO/NOGO</BitsName>
-                    <BitsValue val="0">SSR GO</BitsValue>
-                    <BitsValue val="1">SSR NOGO</BitsValue>
-                </Bits>
-                <Bits bit="4">
-                    <BitsShortName>MDS</BitsShortName>
-                    <BitsName>GO/NOGO</BitsName>
-                    <BitsValue val="0">MDS GO</BitsValue>
-                    <BitsValue val="1">MDS NOGO</BitsValue>
-                </Bits>
-                <Bits bit="3">
-                    <BitsShortName>ADS</BitsShortName>
-                    <BitsName>GO/NOGO</BitsName>
-                    <BitsValue val="0">ADS GO</BitsValue>
-                    <BitsValue val="1">ADS NOGO</BitsValue>
-                </Bits>
-                <Bits bit="2">
-                    <BitsShortName>MLT</BitsShortName>
-                    <BitsName>GO/NOGO</BitsName>
-                    <BitsValue val="0">MLT GO</BitsValue>
-                    <BitsValue val="1">MLT NOGO</BitsValue>
-                </Bits>
-     <Bits bit="1" fx="1">
-        <BitsShortName>FX</BitsShortName>
-        <BitsName>Extension indicator</BitsName>
-         <BitsValue val="0">End of Data Item</BitsValue>
-         <BitsValue val="1">Extension into next extent</BitsValue>
-    </Bits>
-            </Fixed>
-            
-                        <Fixed length="1">
-                <Bits bit="8">
-                    <BitsShortName>OPS</BitsShortName>
-                    <BitsName>Operational Release Status of the System</BitsName>
-                    <BitsValue val="0">System is released for operational use</BitsValue>
-                    <BitsValue val="1">Operational use of System is inhibited</BitsValue>
-                </Bits>
-                <Bits bit="7">
-                    <BitsShortName>ODP</BitsShortName>
-                    <BitsName>Data Processor Overload Indicator</BitsName>
-                    <BitsValue val="0">Default, no overload</BitsValue>
-                    <BitsValue val="1">Overload in DP</BitsValue>
-                </Bits>
-                <Bits bit="6">
-                    <BitsShortName>OXT</BitsShortName>
-                    <BitsName>Transmission Subsystem Overload Status</BitsName>
-                    <BitsValue val="0">Default, no overload</BitsValue>
-                    <BitsValue val="1">Overload in transmission subsystem</BitsValue>
-                </Bits>
-                <Bits bit="5">
-                    <BitsShortName>MSC</BitsShortName>
-                    <BitsName>Monitoring System Connected Status</BitsName>
-                    <BitsValue val="0">Monitoring system connected</BitsValue>
-                    <BitsValue val="1">Monitoring system disconnected</BitsValue>
-                </Bits>
-                <Bits bit="4">
-                    <BitsShortName>TSV</BitsShortName>
-                    <BitsName>Time Source Validity</BitsName>
-                    <BitsValue val="0">Valid</BitsValue>
-                    <BitsValue val="1">Invalid</BitsValue>
-                </Bits>
-                <Bits bit="3">
-                    <BitsShortName>NPW</BitsShortName>
-                    <BitsName>No Plot Warning</BitsName>
-                    <BitsValue val="0">Default (no meaning)</BitsValue>
-                    <BitsValue val="1">No plots being received</BitsValue>
-                </Bits>
-                <Bits bit="2">
+        <DataItemFormat desc="Variable length data item comprising a first part of one octet, followed by one-octet extent as necessary.">
+            <Variable>         
+                <Fixed length="1">
+                    <Bits from="8" to="7">
+                        <BitsShortName>CON</BitsShortName>
+                        <BitsName>Connection Status</BitsName>
+                        <BitsValue val="0">Operational</BitsValue>
+                        <BitsValue val="1">Degraded</BitsValue>
+                        <BitsValue val="2">Initialization</BitsValue>
+                        <BitsValue val="3">Not currently connected</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>PSR</BitsShortName>
+                        <BitsName>GO/NOGO</BitsName>
+                        <BitsValue val="0">PSR GO</BitsValue>
+                        <BitsValue val="1">PSR NOGO</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>SSR</BitsShortName>
+                        <BitsName>GO/NOGO</BitsName>
+                        <BitsValue val="0">SSR GO</BitsValue>
+                        <BitsValue val="1">SSR NOGO</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>MDS</BitsShortName>
+                        <BitsName>GO/NOGO</BitsName>
+                        <BitsValue val="0">MDS GO</BitsValue>
+                        <BitsValue val="1">MDS NOGO</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>ADS</BitsShortName>
+                        <BitsName>GO/NOGO</BitsName>
+                        <BitsValue val="0">ADS GO</BitsValue>
+                        <BitsValue val="1">ADS NOGO</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>MLT</BitsShortName>
+                        <BitsName>GO/NOGO</BitsName>
+                        <BitsValue val="0">MLT GO</BitsValue>
+                        <BitsValue val="1">MLT NOGO</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>OPS</BitsShortName>
+                        <BitsName>Operational Release Status of the System</BitsName>
+                        <BitsValue val="0">System is released for operational use</BitsValue>
+                        <BitsValue val="1">Operational use of System is inhibited</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>ODP</BitsShortName>
+                        <BitsName>Data Processor Overload Indicator</BitsName>
+                        <BitsValue val="0">Default, no overload</BitsValue>
+                        <BitsValue val="1">Overload in DP</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>OXT</BitsShortName>
+                        <BitsName>Transmission Subsystem Overload Status</BitsName>
+                        <BitsValue val="0">Default, no overload</BitsValue>
+                        <BitsValue val="1">Overload in transmission subsystem</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>MSC</BitsShortName>
+                        <BitsName>Monitoring System Connected Status</BitsName>
+                        <BitsValue val="0">Monitoring system connected</BitsValue>
+                        <BitsValue val="1">Monitoring system disconnected</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>TSV</BitsShortName>
+                        <BitsName>Time Source Validity</BitsName>
+                        <BitsValue val="0">Valid</BitsValue>
+                        <BitsValue val="1">Invalid</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>NPW</BitsShortName>
+                        <BitsName>No Plot Warning</BitsName>
+                        <BitsValue val="0">Default (no meaning)</BitsValue>
+                        <BitsValue val="1">No plots being received</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
                         <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare Bit set to zero</BitsName>
-         <BitsConst>0</BitsConst>
-                </Bits>
-     <Bits bit="1" fx="1">
-        <BitsShortName>FX</BitsShortName>
-        <BitsName>Extension indicator</BitsName>
-         <BitsValue val="0">End of Data Item</BitsValue>
-         <BitsValue val="1">Extension into next extent</BitsValue>
-    </Bits>
-            </Fixed>
+                        <BitsName>spare Bit set to zero</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension indicator</BitsName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
             </Variable>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="070">
         <DataItemName>Time Stamping Bias</DataItemName>
         <DataItemDefinition>Plot Time stamping bias</DataItemDefinition>
@@ -195,7 +194,7 @@ followed by one-octet extent as necessary.">
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="080">
         <DataItemName>SSR/ModeS Range Gain and Bias</DataItemName>
         <DataItemDefinition>SSR / Mode S Range Gain and Range Bias, in two’s complement form.</DataItemDefinition>
@@ -210,7 +209,7 @@ followed by one-octet extent as necessary.">
                     <BitsShortName>SRB</BitsShortName>
                     <BitsName>SSR range bias</BitsName>
                     <BitsUnit scale="0.0078125" min="-5.4" max="5.4">NM</BitsUnit>
-                    </Bits>
+                </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
@@ -279,8 +278,6 @@ followed by one-octet extent as necessary.">
     </DataItem>
 
 
-
-
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="1">015</UAPItem>
@@ -296,6 +293,6 @@ followed by one-octet extent as necessary.">
         <UAPItem bit="11" frn="11" len="2">092</UAPItem>      
         <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
     </UAP>
-        
+
 </Category>
-    
+

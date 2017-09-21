@@ -17,10 +17,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 1464
+Asterix.CAT001.070.Mode3A 1464
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1480 (370.0000000 FL)
+Asterix.CAT001.090.ModeC 1480 (370.0000000 FL)
 Asterix.CAT001.141.Time 32781 (256.1015625 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -50,10 +50,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 7122
+Asterix.CAT001.070.Mode3A 7122
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1360 (340.0000000 FL)
+Asterix.CAT001.090.ModeC 1360 (340.0000000 FL)
 Asterix.CAT001.141.Time 32788 (256.1562500 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -83,10 +83,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 7060
+Asterix.CAT001.070.Mode3A 7060
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1560 (390.0000000 FL)
+Asterix.CAT001.090.ModeC 1560 (390.0000000 FL)
 Asterix.CAT001.141.Time 32790 (256.1718750 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -116,10 +116,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 0112
+Asterix.CAT001.070.Mode3A 0112
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1240 (310.0000000 FL)
+Asterix.CAT001.090.ModeC 1240 (310.0000000 FL)
 Asterix.CAT001.141.Time 32802 (256.2656250 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -154,10 +154,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 5304
+Asterix.CAT001.070.Mode3A 5304
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1440 (360.0000000 FL)
+Asterix.CAT001.090.ModeC 1440 (360.0000000 FL)
 Asterix.CAT001.141.Time 32808 (256.3125000 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -187,10 +187,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 2636
+Asterix.CAT001.070.Mode3A 2636
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 602 (150.5000000 FL)
+Asterix.CAT001.090.ModeC 602 (150.5000000 FL)
 Asterix.CAT001.141.Time 32824 (256.4375000 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)
@@ -220,10 +220,10 @@ Asterix.CAT001.070.V 0 (Code validated)
 Asterix.CAT001.070.G 0 (Default)
 Asterix.CAT001.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
 Asterix.CAT001.070.spare 0
-Asterix.CAT001.070.Mode-3/A reply code 2645
+Asterix.CAT001.070.Mode3A 2645
 Asterix.CAT001.090.V 0 (Code validated)
 Asterix.CAT001.090.G 0 (Default)
-Asterix.CAT001.090.Mode-C reply code 1440 (360.0000000 FL)
+Asterix.CAT001.090.ModeC 1440 (360.0000000 FL)
 Asterix.CAT001.141.Time 32827 (256.4609375 s)
 Asterix.CAT001.170.CON 0 (Confirmed track)
 Asterix.CAT001.170.RAD 1 (SSR/Combined track)

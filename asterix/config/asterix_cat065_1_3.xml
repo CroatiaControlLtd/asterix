@@ -21,14 +21,14 @@
                 <Bits from="8" to="1">
                     <BitsShortName>Typ</BitsShortName>
                     <BitsName>Message Type</BitsName>
-                                    <BitsValue val="1">SDPS Status</BitsValue>
-                                    <BitsValue val="2">End of Batch</BitsValue>
-                                    <BitsValue val="3">Service Status Report</BitsValue>
+                    <BitsValue val="1">SDPS Status</BitsValue>
+                    <BitsValue val="2">End of Batch</BitsValue>
+                    <BitsValue val="3">Service Status Report</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="010">
         <DataItemName>Data Source Identifier</DataItemName>
         <DataItemDefinition>Identification of the SDPS sending the data.</DataItemDefinition>
@@ -45,21 +45,21 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
         <DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
-            <DataItemFormat desc="One-Octet fixed length data item.">
-                    <Fixed length="1">
-                        <Bits from="8" to="1">
+        <DataItemFormat desc="One-Octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
                     <BitsShortName>SID</BitsShortName>
-                            <BitsName>Service Identification</BitsName>
-                        </Bits> 
-                    </Fixed>
-            </DataItemFormat>
-            <DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
-        </DataItem>
- 
+                    <BitsName>Service Identification</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>the service identification is allocated by the SDPS</DataItemNote>
+    </DataItem>
+
     <DataItem id="020">
         <DataItemName>Batch Number</DataItemName>
         <DataItemDefinition>A number indicating the completion of a service for that batch of track data, from 0 to N-1, N being the number of batches used to make one complete processing cycle.</DataItemDefinition>
@@ -72,7 +72,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>       
-  
+
     <DataItem id="030">
         <DataItemName>Time Of Message</DataItemName>
         <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
@@ -97,39 +97,39 @@
                     <BitsShortName>NOGO</BitsShortName>
                     <BitsName>NOGO</BitsName>
                     <BitsValue val="0">Operational</BitsValue>
-                                <BitsValue val="1">Degraded</BitsValue>
-                                <BitsValue val="2">Not currently connected</BitsValue>
-                                <BitsValue val="3">Unknown</BitsValue>
+                    <BitsValue val="1">Degraded</BitsValue>
+                    <BitsValue val="2">Not currently connected</BitsValue>
+                    <BitsValue val="3">Unknown</BitsValue>
                 </Bits>
                 <Bits bit="6">
                     <BitsShortName>OVL</BitsShortName>
                     <BitsName>Overload</BitsName>
-                                <BitsValue val="0">Default</BitsValue>
-                                <BitsValue val="1">Overload</BitsValue>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Overload</BitsValue>
                 </Bits>
                 <Bits bit="5">
                     <BitsShortName>TSV</BitsShortName>
                     <BitsName>Time Source Status</BitsName>
-                                <BitsValue val="0">Default</BitsValue>
-                                <BitsValue val="1">Invalid Time Source</BitsValue>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Invalid Time Source</BitsValue>
                 </Bits>
                 <Bits from="4" to="3">
                     <BitsShortName>PSS</BitsShortName>
                     <BitsName>Processing System Status</BitsName>
-                                <BitsValue val="0">Not applicable</BitsValue>
-                                <BitsValue val="1">SDPS-1 selected</BitsValue>
-                                <BitsValue val="2">SDPS-2 selected</BitsValue>
-                                <BitsValue val="3">SDPS-3 selected</BitsValue>
+                    <BitsValue val="0">Not applicable</BitsValue>
+                    <BitsValue val="1">SDPS-1 selected</BitsValue>
+                    <BitsValue val="2">SDPS-2 selected</BitsValue>
+                    <BitsValue val="3">SDPS-3 selected</BitsValue>
                 </Bits>
                 <Bits from="2" to="1">
                     <BitsShortName>spare</BitsShortName>
-                                <BitsName>Spare bits se to 0</BitsName>
-                                <BitsConst>0</BitsConst>
+                    <BitsName>Spare bits se to 0</BitsName>
+                    <BitsConst>0</BitsConst>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem> 
-    
+
     <DataItem id="050">
         <DataItemName>Service Status Report</DataItemName>
         <DataItemDefinition>Report sent by the SDPS related to a service</DataItemDefinition>
@@ -138,22 +138,22 @@
                 <Bits from="8" to="1">
                     <BitsShortName>REPORT</BitsShortName>
                     <BitsName>Service Status Report</BitsName>
-                                <BitsValue val="1">service degradation</BitsValue>
-                                <BitsValue val="2">service degradation ended</BitsValue>
-                                <BitsValue val="3">main radar out of service</BitsValue>
-                        <BitsValue val="4">service interrupted by the operator</BitsValue>
-                        <BitsValue val="5">service interrupted due to contingency</BitsValue>
-                        <BitsValue val="6">ready for service restart after contingency</BitsValue>
-                        <BitsValue val="7">service ended by the operator</BitsValue>
-                        <BitsValue val="8">failure of user main radar</BitsValue>
-                        <BitsValue val="9">service restarted by the operator</BitsValue>
-                        <BitsValue val="10">main radar becoming operational</BitsValue>
-                        <BitsValue val="11">main radar becoming degraded</BitsValue>
-                        <BitsValue val="12">service continuity interrupted due to disconnection with adjacent unit</BitsValue>
-                        <BitsValue val="13">service continuity restarted</BitsValue>
-                        <BitsValue val="14">service synchronised on backup radar</BitsValue>
-                        <BitsValue val="15">service synchronised on main radar</BitsValue>
-                        <BitsValue val="16">main and backup radar, if any, failed</BitsValue>                   
+                    <BitsValue val="1">service degradation</BitsValue>
+                    <BitsValue val="2">service degradation ended</BitsValue>
+                    <BitsValue val="3">main radar out of service</BitsValue>
+                    <BitsValue val="4">service interrupted by the operator</BitsValue>
+                    <BitsValue val="5">service interrupted due to contingency</BitsValue>
+                    <BitsValue val="6">ready for service restart after contingency</BitsValue>
+                    <BitsValue val="7">service ended by the operator</BitsValue>
+                    <BitsValue val="8">failure of user main radar</BitsValue>
+                    <BitsValue val="9">service restarted by the operator</BitsValue>
+                    <BitsValue val="10">main radar becoming operational</BitsValue>
+                    <BitsValue val="11">main radar becoming degraded</BitsValue>
+                    <BitsValue val="12">service continuity interrupted due to disconnection with adjacent unit</BitsValue>
+                    <BitsValue val="13">service continuity restarted</BitsValue>
+                    <BitsValue val="14">service synchronised on backup radar</BitsValue>
+                    <BitsValue val="15">service synchronised on main radar</BitsValue>
+                    <BitsValue val="16">main and backup radar, if any, failed</BitsValue>                   
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -178,6 +178,6 @@
         <UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
         <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
     </UAP>
-        
+
 </Category>
-    
+

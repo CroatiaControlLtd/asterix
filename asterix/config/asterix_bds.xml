@@ -12,82 +12,86 @@
 --> 
 
 <Category id="BDS" name="BDS" ver="1.0">
-    
+
     <DataItem id="40">
         <DataItemName>Selected vertical intention</DataItemName>
         <DataItemDefinition>Selected vertical intention</DataItemDefinition>
-        <DataItemFormat desc="Seven-octets fixed length data item.">
-            <Fixed length="7">
-                <Bits bit="56">
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
                     <BitsShortName>MCP_ALT_STATUS</BitsShortName>
                     <BitsName>MCP Altitude Status</BitsName>
                 </Bits>
-                <Bits from="55" to="44" encode="unsigned">
+                <Bits from="63" to="52" encode="unsigned">
                     <BitsShortName>MCP_ALT</BitsShortName>
                     <BitsName>MCP/FCU Selected Altitude</BitsName>
                     <BitsUnit scale="16">ft</BitsUnit>
                 </Bits>
-                <Bits bit="43">
+                <Bits bit="51">
                     <BitsShortName>FMS_ALT_STATUS</BitsShortName>
                     <BitsName>FMS Altitude Status</BitsName>
                 </Bits>
-                <Bits from="42" to="31" encode="unsigned">
+                <Bits from="50" to="39" encode="unsigned">
                     <BitsShortName>FMS_ALT</BitsShortName>
                     <BitsName>FMS Selected Altitude</BitsName>
                     <BitsUnit scale="16">ft</BitsUnit>
                 </Bits>
-                <Bits bit="30">
+                <Bits bit="38">
                     <BitsShortName>BP_STATUS</BitsShortName>
                     <BitsName>Barometric Pressure Status</BitsName>
                 </Bits>
-                <Bits from="29" to="18" encode="unsigned">
+                <Bits from="37" to="26" encode="unsigned">
                     <BitsShortName>BP</BitsShortName>
                     <BitsName>Barometric Pressure</BitsName>
                     <BitsUnit scale="0.1">mb</BitsUnit>
                 </Bits>
-                <Bits from="17" to="10">
+                <Bits from="25" to="18">
                     <BitsShortName>res</BitsShortName>
                     <BitsName>Reserved</BitsName>
                 </Bits>
-                <Bits bit="9">
+                <Bits bit="17">
                     <BitsShortName>MODE_STATUS</BitsShortName>
                     <BitsName>Status of MCP/FCU Mode Bits</BitsName>
                 </Bits>
-                <Bits bit="8">
+                <Bits bit="16">
                     <BitsShortName>VNAV</BitsShortName>
                     <BitsName>VNAV Mode</BitsName>
                     <BitsValue val="0">Not active</BitsValue>
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
-                <Bits bit="7">
+                <Bits bit="15">
                     <BitsShortName>ALT_HOLD</BitsShortName>
                     <BitsName>ALT HOLD Mode</BitsName>
                     <BitsValue val="0">Not active</BitsValue>
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
-                <Bits bit="6">
+                <Bits bit="14">
                     <BitsShortName>APP</BitsShortName>
                     <BitsName>APPROACH Mode</BitsName>
                     <BitsValue val="0">Not active</BitsValue>
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
-                <Bits from="5" to="4">
+                <Bits from="13" to="12">
                     <BitsShortName>res</BitsShortName>
                     <BitsName>Reserved</BitsName>
                 </Bits>
-                <Bits bit="3">
+                <Bits bit="11">
                     <BitsShortName>TARGET_ALT_STATUS</BitsShortName>
                     <BitsName>Status of Target ALT source bits</BitsName>
                     <BitsValue val="0">No source information provided</BitsValue>
                     <BitsValue val="1">Source information deliberately provided</BitsValue>
                 </Bits>
-                <Bits from="2" to="1">
+                <Bits from="10" to="9">
                     <BitsShortName>TARGET_ALT_SOURCE</BitsShortName>
                     <BitsName>Target ALT source</BitsName>
                     <BitsValue val="0">Unknown</BitsValue>
                     <BitsValue val="1">Aircraft Altitude</BitsValue>
                     <BitsValue val="2">FCU/MCP selected altitude</BitsValue>
                     <BitsValue val="3">FMS selected altitude</BitsValue>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -96,52 +100,56 @@
     <DataItem id="50">
         <DataItemName>Track and turn report</DataItemName>
         <DataItemDefinition>Track and turn report</DataItemDefinition>
-        <DataItemFormat desc="Seven-octets fixed length data item.">
-            <Fixed length="7">
-                <Bits bit="56">
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
                     <BitsShortName>RA_STATUS</BitsShortName>
                     <BitsName>Roll Angle Status</BitsName>
                 </Bits>
-                <Bits from="55" to="46" encode="signed">
+                <Bits from="63" to="54" encode="signed">
                     <BitsShortName>RA</BitsShortName>
                     <BitsName>Roll Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
                 </Bits>
-                <Bits bit="45">
+                <Bits bit="53">
                     <BitsShortName>TTA_STATUS</BitsShortName>
                     <BitsName>True Track Angle Status</BitsName>
                 </Bits>
-                <Bits from="44" to="34" encode="signed">
+                <Bits from="52" to="42" encode="signed">
                     <BitsShortName>TTA</BitsShortName>
                     <BitsName>True Track Angle</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
                 </Bits>
-                <Bits bit="33">
+                <Bits bit="41">
                     <BitsShortName>GS_STATUS</BitsShortName>
                     <BitsName>Ground Speed Status</BitsName>
                 </Bits>
-                <Bits from="32" to="23" encode="unsigned">
+                <Bits from="40" to="31" encode="unsigned">
                     <BitsShortName>GS</BitsShortName>
                     <BitsName>Ground Speed</BitsName>
                     <BitsUnit scale="2">kt</BitsUnit>
                 </Bits>
-                <Bits bit="22">
+                <Bits bit="30">
                     <BitsShortName>TAR_STATUS</BitsShortName>
                     <BitsName>Track Angle Rate Status</BitsName>
                 </Bits>
-                <Bits from="21" to="12" encode="signed">
+                <Bits from="29" to="20" encode="signed">
                     <BitsShortName>TAR</BitsShortName>
                     <BitsName>Track Angle Rate</BitsName>
                     <BitsUnit scale="0.03125">deg/sec</BitsUnit>
                 </Bits>
-                <Bits bit="11">
+                <Bits bit="19">
                     <BitsShortName>TAS_STATUS</BitsShortName>
                     <BitsName>True Airspeed Status</BitsName>
                 </Bits>
-                <Bits from="10" to="1" encode="signed">
+                <Bits from="18" to="9" encode="signed">
                     <BitsShortName>TAS</BitsShortName>
                     <BitsName>True Airspeed</BitsName>
                     <BitsUnit scale="2">kt</BitsUnit>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -150,68 +158,77 @@
     <DataItem id="60">
         <DataItemName>Heading and Speed Report</DataItemName>
         <DataItemDefinition>Heading and Speed Report</DataItemDefinition>
-        <DataItemFormat desc="Seven-octets fixed length data item.">
-            <Fixed length="7">
-                <Bits bit="56">
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
                     <BitsShortName>HDG_STATUS</BitsShortName>
                     <BitsName>Heading Status</BitsName>
                 </Bits>
-                <Bits from="55" to="45" encode="signed">
+                <Bits from="63" to="53" encode="signed">
                     <BitsShortName>HDG</BitsShortName>
                     <BitsName>Magnetic Heading</BitsName>
                     <BitsUnit scale="0.17578125">deg</BitsUnit>
                 </Bits>
-                <Bits bit="44">
+                <Bits bit="52">
                     <BitsShortName>IAS_STAT</BitsShortName>
                     <BitsName>Indicated Airspeed Status</BitsName>
                 </Bits>
-                <Bits from="43" to="34">
+                <Bits from="51" to="42">
                     <BitsShortName>IAS</BitsShortName>
                     <BitsName>Indicated Airspeed</BitsName>
                     <BitsUnit scale="1">kt</BitsUnit>
                 </Bits>
-                <Bits bit="33">
+                <Bits bit="41">
                     <BitsShortName>MACH_STATUS</BitsShortName>
                     <BitsName>Mach Speed Status</BitsName>
                 </Bits>
-                <Bits from="32" to="23">
+                <Bits from="40" to="31">
                     <BitsShortName>MACH</BitsShortName>
                     <BitsName>Mach Speed</BitsName>
                     <BitsUnit scale=".004">MACH</BitsUnit>
                 </Bits>
-                <Bits bit="22">
+                <Bits bit="30">
                     <BitsShortName>BAR_STATUS</BitsShortName>
                     <BitsName>Barometric Altitude Rate Status</BitsName>
                 </Bits>
-                <Bits from="21" to="12" encode="signed">
+                <Bits from="29" to="20" encode="signed">
                     <BitsShortName>BAR</BitsShortName>
                     <BitsName>Barometric Altitude Rate</BitsName>
                     <BitsUnit scale="32">ft/min</BitsUnit>
                 </Bits>
-                <Bits bit="11">
+                <Bits bit="19">
                     <BitsShortName>IVV_STATUS</BitsShortName>
                     <BitsName>Inertial Vertical Velocity Status</BitsName>
                 </Bits>
-                <Bits from="10" to="1" encode="signed">
+                <Bits from="18" to="9" encode="signed">
                     <BitsShortName>IVV</BitsShortName>
                     <BitsName>Inertial Vertical Velocity</BitsName>
                     <BitsUnit scale="32">ft/min</BitsUnit>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="00"> <!-- This must be last item  -->
+    <DataItem id="00">
+        <!-- This must be last item  -->
         <DataItemName>BDS register</DataItemName>
         <DataItemDefinition>BDS register</DataItemDefinition>
-        <DataItemFormat desc="Seven-octets fixed length data item.">
-            <Fixed length="7">
-                <Bits from="56" to="1" encode="hex">
-                    <BitsShortName>BDS</BitsShortName>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits from="64" to="9" encode="hex">
+                    <BitsShortName>VAL</BitsShortName>
                     <BitsName>BDS value</BitsName>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
- </Category>
+
+</Category>

@@ -29,7 +29,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="015">
         <DataItemName>User Number</DataItemName>
         <DataItemDefinition>Identification of the User of Sensor information</DataItemDefinition>
@@ -43,7 +43,7 @@
         </DataItemFormat>
         <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
     </DataItem>
-    
+
     <DataItem id="020">
         <DataItemName>Time Of Message</DataItemName>
         <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
@@ -75,7 +75,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem> 
-    
+
     <DataItem id="040">
         <DataItemName>Sensor Status</DataItemName>
         <DataItemDefinition>Functioning status of the Sensor as monitored by ARTAS.</DataItemDefinition>
@@ -98,7 +98,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="050">
         <DataItemName>Time Stamping Bias</DataItemName>
         <DataItemDefinition>Plot Time stamping bias</DataItemDefinition>
@@ -117,7 +117,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="060">
         <DataItemName>SSR Range Gain and Bias</DataItemName>
         <DataItemDefinition>SSR range gain and bias</DataItemDefinition>
@@ -136,7 +136,7 @@
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>SSRRG</BitsShortName>
                     <BitsName>SSR range gain</BitsName>
-<!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
+                    <!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
                     <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
                 </Bits>
             </Fixed>
@@ -175,7 +175,7 @@
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>PRRG</BitsShortName>
                     <BitsName>PR range gain</BitsName>
-<!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
+                    <!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
                     <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
                 </Bits>
             </Fixed>
@@ -210,6 +210,5 @@
         <UAPItem bit="10" frn="10" len="2">090</UAPItem>
         <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
     </UAP>
-        
+
 </Category>
-    

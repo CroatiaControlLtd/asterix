@@ -57,7 +57,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C0 78 00 31 BC 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -71,6 +70,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D EB ]
@@ -99,6 +99,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -163,7 +164,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C0 78 00 31 BC 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -177,6 +177,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D EB ]
@@ -205,6 +206,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -275,7 +277,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 56 32 B0 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 1
@@ -289,6 +290,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 01 E2 ]
@@ -317,6 +319,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -414,7 +417,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 56 32 B0 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 1
@@ -428,6 +430,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 01 E2 ]
@@ -456,6 +459,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -544,6 +548,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -609,7 +614,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C6 50 00 30 7C 00 00 40 F0 09 F7 2F A0 64 02 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -623,7 +627,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: -256 (-45.0000000 deg)
 	Indicated Airspeed Status: 1
@@ -634,6 +638,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 12 (384.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 02 F9 ]
@@ -662,6 +667,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -727,7 +733,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 B8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -741,6 +746,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 05 9B ]
@@ -769,6 +775,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -834,7 +841,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 F1 19 E9 32 60 04 00 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -239 (-42.0117188 deg)
 	Indicated Airspeed Status: 1
@@ -845,6 +851,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 05 90 ]
@@ -873,6 +880,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -961,6 +969,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1026,7 +1035,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C6 50 00 30 7C 00 00 40 F0 09 F7 2F A0 64 02 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -1040,7 +1048,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: -256 (-45.0000000 deg)
 	Indicated Airspeed Status: 1
@@ -1051,6 +1059,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 12 (384.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 02 F9 ]
@@ -1079,6 +1088,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1144,7 +1154,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 B8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -1158,6 +1167,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 05 9B ]
@@ -1186,6 +1196,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1251,7 +1262,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 F1 19 E9 32 60 04 00 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -239 (-42.0117188 deg)
 	Indicated Airspeed Status: 1
@@ -1262,6 +1272,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 05 90 ]
@@ -1290,6 +1301,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1381,7 +1393,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E6 B9 FF 34 BF FC 00 60 CE 20 00 00 00 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -405 (-71.1914062 deg)
 	Indicated Airspeed Status: 1
@@ -1392,7 +1403,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -1 (-32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2500 (40000.0000000 ft)
 	FMS Altitude Status: 0
@@ -1406,6 +1417,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 7B ]
@@ -1439,6 +1451,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1503,7 +1516,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E6 B9 FF 34 BF FC 00 60 CE 20 00 00 00 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -405 (-71.1914062 deg)
 	Indicated Airspeed Status: 1
@@ -1514,7 +1526,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -1 (-32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2500 (40000.0000000 ft)
 	FMS Altitude Status: 0
@@ -1528,6 +1540,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 7B ]
@@ -1561,6 +1574,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1625,7 +1639,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 8B BC 2F 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 375 (6000.0000000 ft)
 	FMS Altitude Status: 1
@@ -1639,6 +1652,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E C3 ]
@@ -1672,6 +1686,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1736,7 +1751,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 8B BC 2F 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 375 (6000.0000000 ft)
 	FMS Altitude Status: 1
@@ -1750,6 +1764,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E C3 ]
@@ -1783,6 +1798,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -1872,6 +1888,7 @@ Item 230 : Comm capability
 [ 20 20 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -1961,6 +1978,7 @@ Item 230 : Comm capability
 [ 20 20 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -2056,6 +2074,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2121,7 +2140,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 AC 5A 09 30 20 0C 00 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 709 (124.6289062 deg)
 	Indicated Airspeed Status: 1
@@ -2132,6 +2150,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 03 63 ]
@@ -2160,6 +2179,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2225,7 +2245,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -2239,6 +2258,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 03 0C ]
@@ -2267,6 +2287,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2356,6 +2377,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2446,6 +2468,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -2511,7 +2534,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C0 78 00 00 00 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -2525,6 +2547,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 01 6C ]
@@ -2553,6 +2576,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2643,6 +2667,7 @@ Item 230 : Comm capability
 [ 20 20 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -2733,6 +2758,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2823,6 +2849,7 @@ Item 230 : Comm capability
 [ 20 40 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -2945,6 +2972,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3010,7 +3038,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 AC 5A 09 30 20 0C 00 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 709 (124.6289062 deg)
 	Indicated Airspeed Status: 1
@@ -3021,6 +3048,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 03 63 ]
@@ -3049,6 +3077,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3114,7 +3143,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -3128,6 +3156,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 03 0C ]
@@ -3156,6 +3185,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3245,6 +3275,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3335,6 +3366,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -3400,7 +3432,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C0 78 00 00 00 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -3414,6 +3445,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 01 6C ]
@@ -3442,6 +3474,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3532,6 +3565,7 @@ Item 230 : Comm capability
 [ 20 20 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -3622,6 +3656,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3712,6 +3747,7 @@ Item 230 : Comm capability
 [ 20 40 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3809,7 +3845,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C0 78 00 31 44 00 00 40 A7 7A 21 30 3F C7 FD 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -3823,7 +3858,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: 631 (110.9179688 deg)
 	Indicated Airspeed Status: 1
@@ -3834,6 +3869,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -3 (-96.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 02 84 ]
@@ -3862,6 +3898,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -3959,7 +3996,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C0 78 00 31 44 00 00 40 A7 7A 21 30 3F C7 FD 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -3973,7 +4009,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: 631 (110.9179688 deg)
 	Indicated Airspeed Status: 1
@@ -3984,6 +4020,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -3 (-96.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 02 84 ]
@@ -4012,6 +4049,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4063,7 +4101,7 @@ Item 010 : Data Source Identifier
 
 Item 000 : Message Type
 [ 01 ]
-	Message Type: 1 (North marker message)
+	Message Type: 1 (North Marker message)
 
 Item 030 : Time of Day
 [ 35 6E 49 ]
@@ -4075,25 +4113,34 @@ Item 041 : Antenna Rotation Speed
 
 Item 050 : System Configuration and Status
 [ 84 44 4E 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 1 (Monitoring system disconnected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 1 (Monitoring system disconnected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 1 (Monitoring system disconnected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 Item 060 : System Processing Mode
 [ 84 00 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
+	Reduction Steps in use as result of an overload within the Mode S subsystem: 0 (No reduction active)
 	Cluster State: 0 (Autonomous)
 
 Item 120 : 3D POS
 [ 03 0C 1E FB DD 0B AA A2 ]
-	Height in WGS-84: 780 (780.0000000 m)
+	Signed Height of the Data Source, expressed in meters above WGS 84 reference ellipsoid.: 780 (780.0000000 m)
 	Latitude in WGS-84: 2030557 (43.5710220 deg)
 	Longitude in WGS-84: 764578 (16.4060624 deg)
 
@@ -4114,7 +4161,7 @@ Item 010 : Data Source Identifier
 
 Item 000 : Message Type
 [ 01 ]
-	Message Type: 1 (North marker message)
+	Message Type: 1 (North Marker message)
 
 Item 030 : Time of Day
 [ 35 6E 49 ]
@@ -4126,25 +4173,34 @@ Item 041 : Antenna Rotation Speed
 
 Item 050 : System Configuration and Status
 [ 84 44 4E 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 1 (Monitoring system disconnected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 1 (Monitoring system disconnected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 1 (Monitoring system disconnected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 Item 060 : System Processing Mode
 [ 84 00 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
+	Reduction Steps in use as result of an overload within the Mode S subsystem: 0 (No reduction active)
 	Cluster State: 0 (Autonomous)
 
 Item 120 : 3D POS
 [ 03 0C 1E FB DD 0B AA A2 ]
-	Height in WGS-84: 780 (780.0000000 m)
+	Signed Height of the Data Source, expressed in meters above WGS 84 reference ellipsoid.: 780 (780.0000000 m)
 	Latitude in WGS-84: 2030557 (43.5710220 deg)
 	Longitude in WGS-84: 764578 (16.4060624 deg)
 
@@ -4259,7 +4315,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -4273,6 +4328,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 53 ]
@@ -4306,6 +4362,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4370,7 +4427,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -4384,6 +4440,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 53 ]
@@ -4417,6 +4474,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4481,7 +4539,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BC 90 00 31 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 1938 (31008.0000000 ft)
 	FMS Altitude Status: 0
@@ -4495,6 +4552,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 80 ]
@@ -4523,6 +4581,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4587,7 +4646,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BC 90 00 31 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 1938 (31008.0000000 ft)
 	FMS Altitude Status: 0
@@ -4601,6 +4659,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 80 ]
@@ -4629,6 +4688,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4693,7 +4753,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C2 6E 13 70 AA 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2125 (34000.0000000 ft)
 	FMS Altitude Status: 1
@@ -4707,6 +4766,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F AC ]
@@ -4740,6 +4800,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4804,7 +4865,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C2 6E 13 70 AA 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2125 (34000.0000000 ft)
 	FMS Altitude Status: 1
@@ -4818,6 +4878,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F AC ]
@@ -4851,6 +4912,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -4915,7 +4977,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -4929,6 +4990,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E EE ]
@@ -4962,6 +5024,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5026,7 +5089,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -5040,6 +5102,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E EE ]
@@ -5073,6 +5136,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5137,7 +5201,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 BE B9 F5 30 60 04 01 60 C8 4E 42 70 A8 00 04 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 1003 (176.3085938 deg)
 	Indicated Airspeed Status: 1
@@ -5148,7 +5211,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 1
@@ -5162,6 +5225,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D EC ]
@@ -5195,6 +5259,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5259,7 +5324,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 BE B9 F5 30 60 04 01 60 C8 4E 42 70 A8 00 04 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 1003 (176.3085938 deg)
 	Indicated Airspeed Status: 1
@@ -5270,7 +5334,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 1
@@ -5284,6 +5348,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D EC ]
@@ -5317,6 +5382,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5521,6 +5587,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5611,6 +5678,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -5647,17 +5715,26 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 94 40 20 46 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	ANT: 0 (antenna 1)
-	CH-A/B: 1 (Channel A only selected)
-	OVL: 0 (No overload)
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 1 (Channel A only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 -------------------------
 Data Block 45
@@ -5748,6 +5825,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -5838,6 +5916,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -5874,17 +5953,26 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 94 40 20 46 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	ANT: 0 (antenna 1)
-	CH-A/B: 1 (Channel A only selected)
-	OVL: 0 (No overload)
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 1 (Channel A only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 -------------------------
 Data Block 47
@@ -5949,7 +6037,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 AF 39 F9 26 FE 4F C9 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 755 (132.7148438 deg)
 	Indicated Airspeed Status: 1
@@ -5960,6 +6047,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -55 (-1760.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -55 (-1760.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 1B ]
@@ -5988,6 +6076,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6053,7 +6142,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -6067,6 +6155,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 FF ]
@@ -6095,6 +6184,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6131,17 +6221,26 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 94 40 20 46 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	ANT: 0 (antenna 1)
-	CH-A/B: 1 (Channel A only selected)
-	OVL: 0 (No overload)
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 1 (Channel A only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 -------------------------
 Data Block 49
@@ -6206,7 +6305,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 AF 39 F9 26 FE 4F C9 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 755 (132.7148438 deg)
 	Indicated Airspeed Status: 1
@@ -6217,6 +6315,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -55 (-1760.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -55 (-1760.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 1B ]
@@ -6245,6 +6344,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6310,7 +6410,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -6324,6 +6423,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 FF ]
@@ -6352,6 +6452,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6388,17 +6489,26 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 94 40 20 46 00 ]
-	NOGO: 0 (GO)
-	RDPC: 1 (RDPC-2)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
-	ANT: 0 (antenna 1)
-	CH-A/B: 1 (Channel A only selected)
-	OVL: 0 (No overload)
-	Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
-	Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 1 (Channel A only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Selected antenna: 0 (antenna 1)
+	Mode S Channel A/B selection status for surveillance: 2 (Channel B only selected)
+	Mode S Overload condition: 0 (No overload)
+	Mode S Monitoring System Connected Status: 0 (Monitoring system connected)
+	Mode S Channel A/B sellection for Surveillance Co-ordination Function: 1 (Channel B in use)
+	Mode S Channel A/B sellection for Data Link Function: 1 (Channel B in use)
+	Mode S Overload in Surveillance Co-ordination Function: 0 (No overload)
+	Mode S Overload in Data Link Function: 0 (No overload)
 
 -------------------------
 Data Block 51
@@ -6463,7 +6573,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 03 CA 3E 51 F0 A8 00 00 40 FF 9A F9 37 3F FC E3 50 D7 99 F5 31 7F DC 00 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 1
@@ -6477,7 +6586,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 50
+	BDS register: 40
 	Roll Angle Status: 1
 	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
@@ -6488,7 +6597,7 @@ Item 250 : Mode S Comm B data
 	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 227 (454.0000000 kt)
-	BDS register: 60
+	BDS register: 50
 	Heading Status: 1
 	Magnetic Heading: -647 (-113.7304688 deg)
 	Indicated Airspeed Status: 1
@@ -6499,6 +6608,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -5 (-160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 7A ]
@@ -6527,6 +6637,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6597,7 +6708,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 03 CA 3E 51 F0 A8 00 00 40 FF 9A F9 37 3F FC E3 50 D7 99 F5 31 7F DC 00 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 1
@@ -6611,7 +6721,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 50
+	BDS register: 40
 	Roll Angle Status: 1
 	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
@@ -6622,7 +6732,7 @@ Item 250 : Mode S Comm B data
 	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 227 (454.0000000 kt)
-	BDS register: 60
+	BDS register: 50
 	Heading Status: 1
 	Magnetic Heading: -647 (-113.7304688 deg)
 	Indicated Airspeed Status: 1
@@ -6633,6 +6743,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -5 (-160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 7A ]
@@ -6661,6 +6772,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -6697,18 +6809,24 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 88 00 20 ]
-	NOGO: 0 (GO)
-	RDPC: 0 (RDPC-1)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 0 (RDPC-1 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 1 (Channel A only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
 
 Item 060 : System Processing Mode
 [ 80 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
 
 -------------------------
 Data Block 54
@@ -6739,18 +6857,24 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 88 00 20 ]
-	NOGO: 0 (GO)
-	RDPC: 0 (RDPC-1)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 0 (RDPC-1 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 1 (Channel A only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
 
 Item 060 : System Processing Mode
 [ 80 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
 
 -------------------------
 Data Block 55
@@ -6781,18 +6905,24 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 88 00 20 ]
-	NOGO: 0 (GO)
-	RDPC: 0 (RDPC-1)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 0 (RDPC-1 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 1 (Channel A only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
 
 Item 060 : System Processing Mode
 [ 80 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
 
 -------------------------
 Data Block 56
@@ -6823,18 +6953,24 @@ Item 020 : Sector Number
 
 Item 050 : System Configuration and Status
 [ 88 00 20 ]
-	NOGO: 0 (GO)
-	RDPC: 0 (RDPC-1)
-	RDPR: 0 (Default)
-	MSC: 0 (Monitoring system connected)
-	TSV: 0 (Time source valid)
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 0 (RDPC-1 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
 	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 1 (Channel A only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
 
 Item 060 : System Processing Mode
 [ 80 00 ]
 	spare bit set to 0: 0
-	RED-RDP: 0
-	RED-XMT: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
 
 -------------------------
 Data Block 57
@@ -6899,7 +7035,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 03 C0 78 00 30 E0 00 00 40 FF 9D BD 36 3F FC DA 50 ED 3A 39 2E 21 94 36 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -6913,7 +7048,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 50
+	BDS register: 40
 	Roll Angle Status: 1
 	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
@@ -6924,7 +7059,7 @@ Item 250 : Mode S Comm B data
 	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 218 (436.0000000 kt)
-	BDS register: 60
+	BDS register: 50
 	Heading Status: 1
 	Magnetic Heading: -301 (-52.9101562 deg)
 	Indicated Airspeed Status: 1
@@ -6935,6 +7070,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 50 (1600.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 54 (1728.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 7F ]
@@ -6963,6 +7099,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7033,7 +7170,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 03 C0 78 00 30 E0 00 00 40 FF 9D BD 36 3F FC DA 50 ED 3A 39 2E 21 94 36 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
 	FMS Altitude Status: 0
@@ -7047,7 +7183,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 50
+	BDS register: 40
 	Roll Angle Status: 1
 	Roll Angle: -4 (-0.7031250 deg)
 	True Track Angle Status: 1
@@ -7058,7 +7194,7 @@ Item 250 : Mode S Comm B data
 	Track Angle Rate: -1 (-0.0312500 deg/sec)
 	True Airspeed Status: 1
 	True Airspeed: 218 (436.0000000 kt)
-	BDS register: 60
+	BDS register: 50
 	Heading Status: 1
 	Magnetic Heading: -301 (-52.9101562 deg)
 	Indicated Airspeed Status: 1
@@ -7069,6 +7205,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 50 (1600.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 54 (1728.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 7F ]
@@ -7097,6 +7234,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7161,7 +7299,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 B3 89 F1 2E 20 07 FF 60 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 824 (144.8437500 deg)
 	Indicated Airspeed Status: 1
@@ -7172,7 +7309,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -7186,6 +7323,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 96 ]
@@ -7219,6 +7357,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7283,7 +7422,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 B3 89 F1 2E 20 07 FF 60 C4 60 00 30 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 824 (144.8437500 deg)
 	Indicated Airspeed Status: 1
@@ -7294,7 +7432,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -7308,6 +7446,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 96 ]
@@ -7341,6 +7480,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7405,7 +7545,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 92 90 00 31 6C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 594 (9504.0000000 ft)
 	FMS Altitude Status: 0
@@ -7419,6 +7558,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E CA ]
@@ -7452,6 +7592,7 @@ Item 230 : Comm capability
 [ 20 E0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7516,7 +7657,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 92 90 00 31 6C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 594 (9504.0000000 ft)
 	FMS Altitude Status: 0
@@ -7530,6 +7670,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E CA ]
@@ -7563,6 +7704,7 @@ Item 230 : Comm capability
 [ 20 E0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7627,7 +7769,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E5 89 F1 31 20 0C 01 60 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -424 (-74.5312500 deg)
 	Indicated Airspeed Status: 1
@@ -7638,7 +7779,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -7652,6 +7793,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E 05 ]
@@ -7685,6 +7827,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7749,7 +7892,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E5 89 F1 31 20 0C 01 60 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -424 (-74.5312500 deg)
 	Indicated Airspeed Status: 1
@@ -7760,7 +7902,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 1 (32.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 1 (32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -7774,6 +7916,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E 05 ]
@@ -7807,6 +7950,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7901,6 +8045,7 @@ Item 230 : Comm capability
 [ 20 F4 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -7995,6 +8140,7 @@ Item 230 : Comm capability
 [ 20 F4 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8059,7 +8205,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 EA 1A 01 32 BF F4 00 60 CA 38 00 30 9E 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -351 (-61.6992188 deg)
 	Indicated Airspeed Status: 1
@@ -8070,7 +8215,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -2 (-64.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -8084,6 +8229,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 97 ]
@@ -8117,6 +8263,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8181,7 +8328,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 EA 1A 01 32 BF F4 00 60 CA 38 00 30 9E 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -351 (-61.6992188 deg)
 	Indicated Airspeed Status: 1
@@ -8192,7 +8338,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -2 (-64.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -8206,6 +8352,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 97 ]
@@ -8239,6 +8386,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8303,7 +8451,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 F3 AA 01 31 A0 34 02 60 C8 48 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -198 (-34.8046875 deg)
 	Indicated Airspeed Status: 1
@@ -8314,7 +8461,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 6 (192.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 0
@@ -8328,6 +8475,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 21 ]
@@ -8361,6 +8509,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8425,7 +8574,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 F3 AA 01 31 A0 34 02 60 C8 48 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -198 (-34.8046875 deg)
 	Indicated Airspeed Status: 1
@@ -8436,7 +8584,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 6 (192.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 2 (64.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 0
@@ -8450,6 +8598,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 21 ]
@@ -8483,6 +8632,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8547,7 +8697,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 00 00 00 00 00 00 05 40 02 01 00 00 00 00 00 02 ]
-	BDS register: 40
 	MCP Altitude Status: 0
 	MCP/FCU Selected Altitude: 0 (0.0000000 ft)
 	FMS Altitude Status: 0
@@ -8561,8 +8710,9 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 1 (Aircraft Altitude)
-	BDS register: 2
+	BDS register: 40
 	BDS value: 02010000000000
+	BDS register: 02
 
 Item 161 : Track Number
 [ 0C E2 ]
@@ -8591,6 +8741,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -8655,7 +8806,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 00 00 00 00 00 00 05 40 02 01 00 00 00 00 00 02 ]
-	BDS register: 40
 	MCP Altitude Status: 0
 	MCP/FCU Selected Altitude: 0 (0.0000000 ft)
 	FMS Altitude Status: 0
@@ -8669,8 +8819,9 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 1 (Aircraft Altitude)
-	BDS register: 2
+	BDS register: 40
 	BDS value: 02010000000000
+	BDS register: 02
 
 Item 161 : Track Number
 [ 0C E2 ]
@@ -8699,6 +8850,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -8763,7 +8915,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 54 EA B0 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 1
@@ -8777,6 +8928,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E 6D ]
@@ -8810,6 +8962,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8874,7 +9027,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 54 EA B0 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 1
@@ -8888,6 +9040,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E 6D ]
@@ -8921,6 +9074,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -8985,7 +9139,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BE 85 F4 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
 	FMS Altitude Status: 1
@@ -8999,6 +9152,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D F8 ]
@@ -9032,6 +9186,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9096,7 +9251,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BE 85 F4 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
 	FMS Altitude Status: 1
@@ -9110,6 +9264,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D F8 ]
@@ -9143,6 +9298,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9213,7 +9369,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 B2 B9 E7 30 3F C7 FF 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 811 (142.5585938 deg)
 	Indicated Airspeed Status: 1
@@ -9224,6 +9379,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 01 DF ]
@@ -9252,6 +9408,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9349,7 +9506,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 B2 B9 E7 30 3F C7 FF 60 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 811 (142.5585938 deg)
 	Indicated Airspeed Status: 1
@@ -9360,6 +9516,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 01 DF ]
@@ -9388,6 +9545,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9479,7 +9637,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 EE 89 F3 31 7F C7 FE 60 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -280 (-49.2187500 deg)
 	Indicated Airspeed Status: 1
@@ -9490,7 +9647,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -2 (-64.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -9504,6 +9661,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 4A ]
@@ -9537,6 +9695,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9601,7 +9760,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 EE 89 F3 31 7F C7 FE 60 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -280 (-49.2187500 deg)
 	Indicated Airspeed Status: 1
@@ -9612,7 +9770,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: -8 (-256.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -2 (-64.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -9626,6 +9784,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D 4A ]
@@ -9659,6 +9818,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9754,6 +9914,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -9819,7 +9980,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 00 00 00 00 00 00 05 40 ]
-	BDS register: 40
 	MCP Altitude Status: 0
 	MCP/FCU Selected Altitude: 0 (0.0000000 ft)
 	FMS Altitude Status: 0
@@ -9833,6 +9993,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 1 (Aircraft Altitude)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 04 BC ]
@@ -9861,6 +10022,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -9983,6 +10145,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10048,7 +10211,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 00 00 00 00 00 00 05 40 ]
-	BDS register: 40
 	MCP Altitude Status: 0
 	MCP/FCU Selected Altitude: 0 (0.0000000 ft)
 	FMS Altitude Status: 0
@@ -10062,6 +10224,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 1 (Aircraft Altitude)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 04 BC ]
@@ -10090,6 +10253,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -10181,7 +10345,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E8 29 F7 31 A0 24 00 60 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -382 (-67.1484375 deg)
 	Indicated Airspeed Status: 1
@@ -10192,7 +10355,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 4 (128.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10206,6 +10369,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E D0 ]
@@ -10239,6 +10403,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10303,7 +10468,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 E8 29 F7 31 A0 24 00 60 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: -382 (-67.1484375 deg)
 	Indicated Airspeed Status: 1
@@ -10314,7 +10478,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 4 (128.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10328,6 +10492,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E D0 ]
@@ -10361,6 +10526,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10425,7 +10591,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C2 68 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2125 (34000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10439,6 +10604,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 32 ]
@@ -10472,6 +10638,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10561,6 +10728,7 @@ Item 230 : Comm capability
 [ 04 40 ]
 	COM: 0
 	STAT: 1
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10625,7 +10793,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C2 68 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2125 (34000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10639,6 +10806,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 32 ]
@@ -10672,6 +10840,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10736,7 +10905,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10750,6 +10918,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E F2 ]
@@ -10783,6 +10952,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10872,6 +11042,7 @@ Item 230 : Comm capability
 [ 04 40 ]
 	COM: 0
 	STAT: 1
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 0 (No)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -10936,7 +11107,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A8 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -10950,6 +11120,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0E F2 ]
@@ -10983,6 +11154,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11053,7 +11225,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C4 60 00 31 58 00 00 40 CF CA 0B 30 20 04 00 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -11067,7 +11238,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: -772 (-135.7031250 deg)
 	Indicated Airspeed Status: 1
@@ -11078,6 +11249,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 8B ]
@@ -11106,6 +11278,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11196,6 +11369,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11261,7 +11435,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -11275,6 +11448,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 05 51 ]
@@ -11303,6 +11477,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11393,6 +11568,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11458,7 +11634,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -11472,6 +11647,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 AD ]
@@ -11500,6 +11676,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11591,7 +11768,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C8 48 00 31 BC 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 0
@@ -11605,6 +11781,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 9B ]
@@ -11638,6 +11815,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11702,7 +11880,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C8 48 00 31 BC 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 0
@@ -11716,6 +11893,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 9B ]
@@ -11749,6 +11927,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11819,7 +11998,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 C4 60 00 31 58 00 00 40 CF CA 0B 30 20 04 00 60 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -11833,7 +12011,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
-	BDS register: 60
+	BDS register: 40
 	Heading Status: 1
 	Magnetic Heading: -772 (-135.7031250 deg)
 	Indicated Airspeed Status: 1
@@ -11844,6 +12022,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 0 (0.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
 
 Item 161 : Track Number
 [ 00 8B ]
@@ -11872,6 +12051,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -11962,6 +12142,7 @@ Item 230 : Comm capability
 [ 20 F6 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12027,7 +12208,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 CA 38 00 30 A4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2375 (38000.0000000 ft)
 	FMS Altitude Status: 0
@@ -12041,6 +12221,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 05 51 ]
@@ -12069,6 +12250,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12159,6 +12341,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12224,7 +12407,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -12238,6 +12420,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 AD ]
@@ -12266,6 +12449,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12363,7 +12547,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 31 6C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -12377,6 +12560,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 07 F8 ]
@@ -12405,6 +12589,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12470,7 +12655,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 7C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -12484,6 +12668,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 EC ]
@@ -12512,6 +12697,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12602,6 +12788,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12692,6 +12879,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12789,7 +12977,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C4 60 00 31 6C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2188 (35008.0000000 ft)
 	FMS Altitude Status: 0
@@ -12803,6 +12990,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 07 F8 ]
@@ -12831,6 +13019,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -12896,7 +13085,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 30 7C 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -12910,6 +13098,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 06 EC ]
@@ -12938,6 +13127,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13028,6 +13218,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13118,6 +13309,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13263,7 +13455,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BE 80 00 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
 	FMS Altitude Status: 0
@@ -13277,6 +13468,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 90 ]
@@ -13305,6 +13497,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13369,7 +13562,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 BE 80 00 30 F4 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
 	FMS Altitude Status: 0
@@ -13383,6 +13575,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C 90 ]
@@ -13411,6 +13604,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13475,7 +13669,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 54 EA B0 A8 01 04 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 1
@@ -13489,6 +13682,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 9E ]
@@ -13522,6 +13716,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13586,7 +13781,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 54 EA B0 A8 01 04 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 1
@@ -13600,6 +13794,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 1 (Source information deliberately provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F 9E ]
@@ -13633,6 +13828,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13697,7 +13893,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 B9 69 F7 30 A0 2F FF 60 C8 4E 42 70 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 918 (161.3671875 deg)
 	Indicated Airspeed Status: 1
@@ -13708,7 +13903,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 5 (160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 1
@@ -13722,6 +13917,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C D3 ]
@@ -13755,6 +13951,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -13819,7 +14016,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 02 B9 69 F7 30 A0 2F FF 60 C8 4E 42 70 A8 00 00 40 ]
-	BDS register: 60
 	Heading Status: 1
 	Magnetic Heading: 918 (161.3671875 deg)
 	Indicated Airspeed Status: 1
@@ -13830,7 +14026,7 @@ Item 250 : Mode S Comm B data
 	Barometric Altitude Rate: 5 (160.0000000 ft/min)
 	Inertial Vertical Velocity Status: 1
 	Inertial Vertical Velocity: -1 (-32.0000000 ft/min)
-	BDS register: 40
+	BDS register: 60
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2313 (37008.0000000 ft)
 	FMS Altitude Status: 1
@@ -13844,6 +14040,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0C D3 ]
@@ -13877,6 +14074,7 @@ Item 230 : Comm capability
 [ 20 F5 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -14116,6 +14314,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -14205,6 +14404,7 @@ Item 230 : Comm capability
 [ 20 A0 ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 0 (100ft resolution)
@@ -14269,7 +14469,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 50 00 31 80 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 0
@@ -14283,6 +14482,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D C7 ]
@@ -14316,6 +14516,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -14380,7 +14581,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 9D 50 00 31 80 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 938 (15008.0000000 ft)
 	FMS Altitude Status: 0
@@ -14394,6 +14594,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0D C7 ]
@@ -14427,6 +14628,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -14491,7 +14693,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 31 94 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -14505,6 +14706,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F AA ]
@@ -14538,6 +14740,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
@@ -14602,7 +14805,6 @@ Item 240 : Aircraft Identification
 
 Item 250 : Mode S Comm B data
 [ 01 C6 50 00 31 94 00 00 40 ]
-	BDS register: 40
 	MCP Altitude Status: 1
 	MCP/FCU Selected Altitude: 2250 (36000.0000000 ft)
 	FMS Altitude Status: 0
@@ -14616,6 +14818,7 @@ Item 250 : Mode S Comm B data
 	APPROACH Mode: 0 (Not active)
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
+	BDS register: 40
 
 Item 161 : Track Number
 [ 0F AA ]
@@ -14649,6 +14852,7 @@ Item 230 : Comm capability
 [ 20 FD ]
 	COM: 1
 	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
 	spare bit set to 0: 0
 	ModeS Specific Service Capability: 1 (Yes)
 	Altitude reporting capability: 1 (25ft resolution)
