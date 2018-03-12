@@ -305,6 +305,39 @@
         </DataItemFormat>
     </DataItem>
 
+    <!--Special Purpose Field - content unknown --> 	
+    <DataItem id="SP" >
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>SP</DataItemDefinition>
+        <DataItemFormat desc="Explicit">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SP</BitsShortName>
+                        <BitsName>SP</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>		
+
+    <!--Reserved Field - content unknown --> 	
+    <DataItem id="RE" >
+        <DataItemName>Reserved Field</DataItemName>
+        <DataItemDefinition>RE</DataItemDefinition>
+        <DataItemFormat desc="Explicit">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>RE</BitsShortName>
+                        <BitsName>RE</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>
 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>

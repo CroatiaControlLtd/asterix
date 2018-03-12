@@ -50,7 +50,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="020" rule="mandatory">
         <DataItemName>Target Report Descriptor</DataItemName>
         <DataItemDefinition>Type and characteristics of the data as transmitted by a system.</DataItemDefinition>
@@ -128,7 +128,7 @@
                         <BitsValue val="2">Ground vehicle</BitsValue>
                         <BitsValue val="3">Helicopter</BitsValue>
                     </Bits>
-                   <Bits bit="1" fx="1">
+                    <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into next extent</BitsValue>
@@ -155,7 +155,7 @@
         </DataItemFormat>
     </DataItem>
 
-   <DataItem id="040" rule="optional">
+    <DataItem id="040" rule="optional">
         <DataItemName>Measured Position in Polar Co-ordinates.</DataItemName>
         <DataItemDefinition>Measured Position of a target in local polar co-ordinates.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
@@ -298,7 +298,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="140" rule="mandatory">
         <DataItemName>Time of Day</DataItemName>
         <DataItemDefinition>Absolute time stamping expressed as UTC.</DataItemDefinition>
@@ -445,7 +445,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="202" rule="optional">
         <DataItemName>Calculated Track Velocity in Cartesian Coordinates</DataItemName>
         <DataItemDefinition>Calculated track velocity expressed in Cartesian Coordinates, in two’s complement representation.</DataItemDefinition>
@@ -545,7 +545,7 @@
         </DataItemFormat>
     </DataItem>
 
-     <DataItem id="270" rule="optional">
+    <DataItem id="270" rule="optional">
         <DataItemName>Target Size and Orientation</DataItemName>
         <DataItemDefinition>Target size defined as length and with of the detected target, and orientation.</DataItemDefinition>
         <DataItemFormat desc="Variable Data Item, comprising a first part of one octet, followed by one-octed as necessary.">
@@ -577,7 +577,7 @@
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
-                     <Bits from="8" to="2">
+                    <Bits from="8" to="2">
                         <BitsShortName>Width</BitsShortName>
                         <BitsName>Width</BitsName>
                         <BitsUnit scale="1">m</BitsUnit>
@@ -599,21 +599,21 @@
         <DataItemFormat desc="Repetitive data length item">
             <Repetitive>
                 <Fixed length="2">
-                         <Bits from="16" to="9" encode="signed">
-                            <BitsShortName>DRHO</BitsShortName>
-                            <BitsName>DRHO</BitsName>
-                            <BitsUnit scale="1" min="-127" max="127">m</BitsUnit>
-                        </Bits>
-                        <Bits bit="8" to="1" encode="signed">
-                            <BitsShortName>DTHETA</BitsShortName>
-                            <BitsName>DTHETA</BitsName>
-                            <BitsUnit scale="0.15" min="-19.05" max="19.05">deg</BitsUnit>
-                        </Bits>
-                    </Fixed>         
+                    <Bits from="16" to="9" encode="signed">
+                        <BitsShortName>DRHO</BitsShortName>
+                        <BitsName>DRHO</BitsName>
+                        <BitsUnit scale="1" min="-127" max="127">m</BitsUnit>
+                    </Bits>
+                    <Bits bit="8" to="1" encode="signed">
+                        <BitsShortName>DTHETA</BitsShortName>
+                        <BitsName>DTHETA</BitsName>
+                        <BitsUnit scale="0.15" min="-19.05" max="19.05">deg</BitsUnit>
+                    </Bits>
+                </Fixed>         
             </Repetitive>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="300" rule="optional">
         <DataItemName>Vehicle Fleet Identification</DataItemName>
         <DataItemDefinition>Vehicle fleet identification number.</DataItemDefinition>
@@ -689,7 +689,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
     <DataItem id="550" rule="optional">
         <DataItemName>System Status</DataItemName>
         <DataItemDefinition>Iformation concerning the configuration and status of a System.</DataItemDefinition>
@@ -726,7 +726,7 @@
                     <BitsValue val="0">Test Target Operative</BitsValue>
                     <BitsValue val="1">Test Target Failure</BitsValue>
                 </Bits>
-                 <Bits from="2" to="1">
+                <Bits from="2" to="1">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare bits set to zero</BitsName>
                     <BitsConst>0</BitsConst>
@@ -734,7 +734,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-    
+
 
     <DataItem id="SP" rule="optional"> 
         <DataItemName>Special Purpose</DataItemName>
@@ -749,7 +749,7 @@
             </Explicit> 
         </DataItemFormat> 
     </DataItem>
-     
+
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="1">000</UAPItem>

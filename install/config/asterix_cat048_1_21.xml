@@ -1069,7 +1069,7 @@
         <DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
         <DataItemFormat desc="Repetitive 8 byte BDS registers">
         <Repetitive>
-           	<BDS/>
+            <BDS/>
         </Repetitive>
         </DataItemFormat>
         <DataItemNote/>
