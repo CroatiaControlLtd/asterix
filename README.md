@@ -40,6 +40,6 @@ Then run it from asterix/install folder:
 ```
 
 For more information about the tool or Asterix protocol feel free to contact the author:
-```html
+<html>
 <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="damirsalantic"><a class="LI-simple-link" href='https://hr.linkedin.com/in/damirsalantic?trk=profile-badge'>Damir Salantic</a></div>
-```
+</html>
