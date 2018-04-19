@@ -135,3 +135,8 @@ Some primary parts of Compund in XML definitions changed
 Some XML files beautified
 Fixed handling of compund when primary part is larger than 1 byte
 Note that output from this version is not compatible with previoud version
+
+2.4.1. (python_v0.5.1)
+19.4.2018.
+wrong repetitive fixed length on I048/120
+BDS30 decoding added to CAT062
