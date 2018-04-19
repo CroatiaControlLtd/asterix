@@ -15,3 +15,31 @@ More about ASTERIX protocol you can find here: http://www.eurocontrol.int/servic
 Asterix application was developed by Croatia Control Ltd.
 
 This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.
+
+It can be installed in Linux or MAC iOS environments. Windows is supported only if you use configure cygwin tools (make and gcc) for compilation.
+
+To install python module run:
+```console
+pip install asterix_decoder
+```
+
+Then include it in python as:
+```console
+import asterix
+```
+
+To install executable (c/c++) version run:
+```console
+cd asterix/src
+make install 
+```
+
+Then run it from asterix/install folder:
+```console
+./asterix
+```
+
+For more information about the tool or Asterix protocol feel free to contact the author:
+```html
+<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="damirsalantic"><a class="LI-simple-link" href='https://hr.linkedin.com/in/damirsalantic?trk=profile-badge'>Damir Salantic</a></div>
+```

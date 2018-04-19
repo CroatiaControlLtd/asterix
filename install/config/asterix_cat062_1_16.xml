@@ -2146,13 +2146,108 @@
                         <BitsValue val="7">Unknown</BitsValue>
                     </Bits>
                 </Fixed>
-
+                
                 <Fixed length="7">
-                    <Bits from="56" to="1" encode="hex">
-                        <BitsShortName>ACASAD</BitsShortName>
-                        <BitsName>ACAS Resolution Advisory Report - BDS 3,0</BitsName>
+                    <Bits from="56" to="49" encode="hex">
+                        <BitsShortName>BDS30</BitsShortName>
+                        <BitsName>BDS code 3,0</BitsName>                        
+                    </Bits>
+                    <Bits bit="48">
+                        <BitsShortName>ARA41</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 41</BitsName>
+                        <BitsValue val="0">There is more than one threat and the RA is intended to provide separation below some threat(s) and above some other threat(s) or no RA has been generated (when MTE = 0)</BitsValue>
+                        <BitsValue val="1">Either there is only one threat or the RA is intended to provide separation in the same direction for all threats</BitsValue>
+                    </Bits>
+                    <Bits bit="47">
+                        <BitsShortName>ARA42</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 42</BitsName>
+                        <BitsValue val="0">RA is preventive or RA does not require a correction in the upward sense</BitsValue>
+                        <BitsValue val="1">RA is corrective or RA requires a correction in the upward sense</BitsValue>
+                    </Bits>
+                    <Bits bit="46">
+                        <BitsShortName>ARA43</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 43</BitsName>
+                        <BitsValue val="0">Upward sense RA has been generated or RA does not require a positive climb</BitsValue>
+                        <BitsValue val="1">Downward sense RA has been generated or RA requires a positive climb</BitsValue>
+                    </Bits>
+                    <Bits bit="45">
+                        <BitsShortName>ARA44</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 44</BitsName>
+                        <BitsValue val="0">RA is not increased rate or RA does not require a correction in the downward sense</BitsValue>
+                        <BitsValue val="1">RA is increased rate or RA requires a correction in the downward sense</BitsValue>
+                    </Bits>
+                    <Bits bit="44">
+                        <BitsShortName>ARA45</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 45</BitsName>
+                        <BitsValue val="0">RA is not a sense reversal or RA does not require a positive descend</BitsValue>
+                        <BitsValue val="1">RA is a sense reversal or RA requires a positive descend</BitsValue>
+                    </Bits>
+                    <Bits bit="43">
+                        <BitsShortName>ARA46</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 46</BitsName>
+                        <BitsValue val="0">RA is not altitude crossing or RA does not require a crossing</BitsValue>
+                        <BitsValue val="1">RA is altitude crossing or RA requires a crossing</BitsValue>
+                    </Bits>
+                    <Bits bit="42">
+                        <BitsShortName>ARA47</BitsShortName>
+                        <BitsName>Active Resolution Advisories bit 47</BitsName>
+                        <BitsValue val="0">RA is vertical speed limit or RA is not a sense reversal</BitsValue>
+                        <BitsValue val="1">RA is positive or RA is a sense reversal</BitsValue>
+                    </Bits>
+                    <Bits from="41" to="35">
+                        <BitsShortName>ACAS3</BitsShortName>
+                        <BitsName>Reserved for ACAS III</BitsName>                        
+                    </Bits>
+                    <Bits bit="34">
+                        <BitsShortName>RAC55</BitsShortName>
+                        <BitsName>Resolution Advisory Complement bit 55</BitsName>
+                        <BitsValue val="0">Not Active</BitsValue>
+                        <BitsValue val="1">Active Do not pass below</BitsValue>
+                    </Bits>
+                    <Bits bit="33">
+                        <BitsShortName>RAC56</BitsShortName>
+                        <BitsName>Resolution Advisory Complement bit 56</BitsName>
+                        <BitsValue val="0">Not Active</BitsValue>
+                        <BitsValue val="1">Active Do not pass above</BitsValue>
+                    </Bits>
+                    <Bits bit="32">
+                        <BitsShortName>RAC57</BitsShortName>
+                        <BitsName>Resolution Advisory Complement bit 57</BitsName>
+                        <BitsValue val="0">Not Active</BitsValue>
+                        <BitsValue val="1">Active Do not turn left</BitsValue>
+                    </Bits>
+                    <Bits bit="31">
+                        <BitsShortName>RAC58</BitsShortName>
+                        <BitsName>Resolution Advisory Complement bit 58</BitsName>
+                        <BitsValue val="0">Not Active</BitsValue>
+                        <BitsValue val="1">Active Do not turn right</BitsValue>
+                    </Bits>
+                    <Bits bit="30">
+                        <BitsShortName>RAT</BitsShortName>
+                        <BitsName>RA Terminated</BitsName>                        
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>                      
+                    </Bits>
+                    <Bits bit="29">
+                        <BitsShortName>MTE</BitsShortName>
+                        <BitsName>Multiple Threat Encounter</BitsName>                        
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>                      
+                    </Bits>
+                    <Bits from="28" to="27">
+                        <BitsShortName>TTI</BitsShortName>
+                        <BitsName>Threat Type Indicator</BitsName>     
+                        <BitsValue val="0">No identity data in TID</BitsValue>
+                        <BitsValue val="1">TID contains a Mode S transponder address</BitsValue>
+                        <BitsValue val="2">TID contains altitude, range and bearing data</BitsValue>
+                        <BitsValue val="3">Not assigned</BitsValue>
+                    </Bits>
+                    <Bits from="26" to="1">
+                        <BitsShortName>TID</BitsShortName>
+                        <BitsName>Threat Identity Data</BitsName>                        
                     </Bits>
                 </Fixed>
+                
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>BVR</BitsShortName>
@@ -2160,6 +2255,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
+                
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>GVR</BitsShortName>
@@ -2167,6 +2263,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
+                
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>RAN</BitsShortName>
