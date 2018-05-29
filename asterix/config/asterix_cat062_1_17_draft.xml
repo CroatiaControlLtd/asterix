@@ -72,10 +72,17 @@
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
         <DataItemFormat>
             <Fixed length="2">
-                <Bits from="16" to="15">
-                    <BitsShortName>spare</BitsShortName>
-                    <BitsName>Spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
+                <Bits bit="16">
+                    <BitsShortName>V</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Code validated</BitsValue>
+                    <BitsValue val="1">Code not validated</BitsValue>
+                </Bits>
+                <Bits bit="15">
+                    <BitsShortName>G</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Garbled Code</BitsValue>
                 </Bits>
                 <Bits bit="14">
                     <BitsShortName>CH</BitsShortName>
