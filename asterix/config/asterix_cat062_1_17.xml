@@ -3,7 +3,7 @@
 
 <!--  
 
-    Asterix Category 62 v1.16 definition 
+    Asterix Category 62 v1.17 definition 
     
     Author:   dmarkus
     Created:  5.11.2012.
@@ -17,9 +17,10 @@
                                        Add missing fields to DataItem I062/390
     Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
     Modified:  05.05.2014. (dsalantic) Item 110 format fixed
+    Modified:  29.05.2018. (railsGod) Updated from 1.16 to 1.17 (2 new bits in Data Item I062/060)
 -->
 
-<Category id="62" name="SDPS Track Messages" ver="1.16">
+<Category id="62" name="SDPS Track Messages" ver="1.17">
 
     <DataItem id="010" rule="mandatory" >
         <DataItemName>Data Source Identifier</DataItemName> 
