@@ -168,6 +168,9 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['I130'], {
                 'Alt': {'max': 150000.0, 'min': -1500.0, 'val': 43300.0, 'desc': 'Altitude'}})
             self.assertEqual(packet[0]['I060'], {'CH': {'meaning': 'No Change', 'val': 0, 'desc': 'Change in Mode 3/A'},
+                                                 'G': {'desc': 'Change in Mode 3/A', 'meaning': 'Default', 'val': 0},
+                                                 'V': {'desc': 'Change in Mode 3/A', 'meaning': 'Code validated',
+                                                       'val': 0},
                                                  'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
                                                  'Mode3A': {'val': '4276',
                                                             'desc': 'Mode-3/A reply in octal representation'}})
@@ -272,6 +275,9 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[1]['I130'], {
                 'Alt': {'max': 150000.0, 'min': -1500.0, 'val': 35312.5, 'desc': 'Altitude'}})
             self.assertEqual(packet[1]['I060'], {'CH': {'meaning': 'No Change', 'val': 0, 'desc': 'Change in Mode 3/A'},
+                                                 'G': {'desc': 'Change in Mode 3/A', 'meaning': 'Default', 'val': 0},
+                                                 'V': {'desc': 'Change in Mode 3/A', 'meaning': 'Code validated',
+                                                       'val': 0},
                                                  'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
                                                  'Mode3A': {'val': '2535',
                                                             'desc': 'Mode-3/A reply in octal representation'}})
