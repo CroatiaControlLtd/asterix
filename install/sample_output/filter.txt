@@ -1147,6 +1147,37 @@ CAT048:I250:BDS40:res                                        Reserved
 CAT048:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT048:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT048:I250:BDS40:BDS                                        BDS register
+CAT048:I250:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT048:I250:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT048:I250:BDS44:WIND_SPEED                                 Wind speed
+CAT048:I250:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT048:I250:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT048:I250:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT048:I250:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT048:I250:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT048:I250:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT048:I250:BDS44:TURBULENCE                                 Turbulence
+CAT048:I250:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT048:I250:BDS44:HUMIDITY                                   Humidity
+CAT048:I250:BDS44:BDS                                        BDS register
+CAT048:I250:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT048:I250:BDS45:TURBULENCE                                 Turbulence
+CAT048:I250:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT048:I250:BDS45:WIND_SHEAR                                 Wind Shear
+CAT048:I250:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT048:I250:BDS45:MICROBURST                                 Microburst
+CAT048:I250:BDS45:STATUS_ICING                               Status Icing
+CAT048:I250:BDS45:ICING                                      Icing
+CAT048:I250:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT048:I250:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT048:I250:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT048:I250:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT048:I250:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT048:I250:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT048:I250:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT048:I250:BDS45:RADIO_HEIGHT                               Radio Height
+CAT048:I250:BDS45:RESERVED                                   Reserved
+CAT048:I250:BDS45:BDS                                        BDS register
 CAT048:I250:BDS50:RA_STATUS                                  Roll Angle Status
 CAT048:I250:BDS50:RA                                         Roll Angle
 CAT048:I250:BDS50:TTA_STATUS                                 True Track Angle Status
@@ -1193,7 +1224,8 @@ CAT062:I010:SAC                                              System Area Code
 CAT062:I010:SIC                                              System Identification Code
 CAT062:I015:SID                                              Service Identification
 CAT062:I040:TrkN                                             Track number
-CAT062:I060:spare                                            Spare bits set to 0
+CAT062:I060:V                                                Change in Mode 3/A
+CAT062:I060:G                                                Change in Mode 3/A
 CAT062:I060:CH                                               Change in Mode 3/A
 CAT062:I060:spare                                            Spare bits set to 0
 CAT062:I060:Mode3A                                           Mode-3/A reply in octal representation
@@ -1396,7 +1428,23 @@ CAT062:I380:DC                                               Differential correc
 CAT062:I380:GBS                                              Ground Bit Set
 CAT062:I380:spare                                            Spare bits set to zero
 CAT062:I380:STAT                                             Flight Status
-CAT062:I380:ACASAD                                           ACAS Resolution Advisory Report - BDS 3,0
+CAT062:I380:BDS30                                            BDS code 3,0
+CAT062:I380:ARA41                                            Active Resolution Advisories bit 41
+CAT062:I380:ARA42                                            Active Resolution Advisories bit 42
+CAT062:I380:ARA43                                            Active Resolution Advisories bit 43
+CAT062:I380:ARA44                                            Active Resolution Advisories bit 44
+CAT062:I380:ARA45                                            Active Resolution Advisories bit 45
+CAT062:I380:ARA46                                            Active Resolution Advisories bit 46
+CAT062:I380:ARA47                                            Active Resolution Advisories bit 47
+CAT062:I380:ACAS3                                            Reserved for ACAS III
+CAT062:I380:RAC55                                            Resolution Advisory Complement bit 55
+CAT062:I380:RAC56                                            Resolution Advisory Complement bit 56
+CAT062:I380:RAC57                                            Resolution Advisory Complement bit 57
+CAT062:I380:RAC58                                            Resolution Advisory Complement bit 58
+CAT062:I380:RAT                                              RA Terminated
+CAT062:I380:MTE                                              Multiple Threat Encounter
+CAT062:I380:TTI                                              Threat Type Indicator
+CAT062:I380:TID                                              Threat Identity Data
 CAT062:I380:BVR                                              Barometric Vertical Rate
 CAT062:I380:GVR                                              Geometric Vertical Rate
 CAT062:I380:RAN                                              Roll Angle
