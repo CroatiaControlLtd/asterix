@@ -3,7 +3,7 @@
 
 <!--  
 
-    Asterix Category 62 v1.16 definition 
+    Asterix Category 62 v1.17 definition 
     
     Author:   dmarkus
     Created:  5.11.2012.
@@ -17,9 +17,10 @@
                                        Add missing fields to DataItem I062/390
     Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
     Modified:  05.05.2014. (dsalantic) Item 110 format fixed
+    Modified:  29.05.2018. (railsGod) Updated from 1.16 to 1.17 (2 new bits in Data Item I062/060)
 -->
 
-<Category id="62" name="SDPS Track Messages" ver="1.16">
+<Category id="62" name="SDPS Track Messages" ver="1.17">
 
     <DataItem id="010" rule="mandatory" >
         <DataItemName>Data Source Identifier</DataItemName> 
@@ -72,10 +73,17 @@
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
         <DataItemFormat>
             <Fixed length="2">
-                <Bits from="16" to="15">
-                    <BitsShortName>spare</BitsShortName>
-                    <BitsName>Spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
+                <Bits bit="16">
+                    <BitsShortName>V</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Code validated</BitsValue>
+                    <BitsValue val="1">Code not validated</BitsValue>
+                </Bits>
+                <Bits bit="15">
+                    <BitsShortName>G</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Garbled Code</BitsValue>
                 </Bits>
                 <Bits bit="14">
                     <BitsShortName>CH</BitsShortName>
@@ -3125,4 +3133,3 @@
     </UAP>
 
 </Category>         
-
