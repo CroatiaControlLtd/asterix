@@ -153,7 +153,12 @@ def describe(parsed):
                 txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
                 if isinstance(value, dict):
                     for ikey, ival in value.items():
-                        txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']), _asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                        if 'val' in ival:
+                            txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),_asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                        else:
+                            txt += '\n\t%s' % ikey
+                            for ikey2, ival2 in ival.items():
+                                txt += '\n\t\t%s (%s): %s %s' % (ikey2, _asterix.describe(cat, str(key), ikey2), str(ival2['val']), _asterix.describe(cat, str(key), ikey2, str(ival2['val'])))
                 elif isinstance(value, list):
                     for it in value:
                         for ikey, ival in it.items():

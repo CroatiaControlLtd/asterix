@@ -144,3 +144,7 @@ BDS30 decoding added to CAT062
 2.4.2. (python_v0.5.2)
 30.5.2018.
 Updated Cat 62 from 1.16 to 1.17 (backward compatible)
+
+2.4.2 (python_v0.5.4)
+20.7.2018.
+Fixed asterix.describe
