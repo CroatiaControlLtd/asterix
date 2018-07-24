@@ -90,7 +90,7 @@ bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDesc
     }
     else if (strcasecmp(deviceName, "disk") == 0)
     {
-        CDescriptor descriptor(deviceDescriptor, ":");
+        CDescriptor descriptor(deviceDescriptor, "|");
         _Device[_nDevices] = new CDiskDevice(descriptor);
     }
     else if (strcasecmp(deviceName, "serial") == 0)

@@ -37,7 +37,7 @@ bool CConverterEngine::Initialize(const char *inputChannel, const char *outputCh
 
     ASSERT(inputChannel);
 
-    CDescriptor inputDescriptor(inputChannel, " ");
+    CDescriptor inputDescriptor(inputChannel, ";");
     const char *inputDevice           = inputDescriptor.GetFirst();
     const char *inputDeviceDescriptor = inputDescriptor.GetNext();
     const char *inputFormat           = inputDescriptor.GetNext();

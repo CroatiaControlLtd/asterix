@@ -110,8 +110,8 @@ int main(int argc, const char *argv[])
 		std::string arg = argv[i];
 		if ((arg == "-h") || (arg == "--help"))
 		{
-				show_usage(argv[0]);
-				return 0;
+			show_usage(argv[0]);
+			return 0;
 		}
 		else if ((arg == "-v") || (arg == "--sync"))
 		{
@@ -272,23 +272,23 @@ int main(int argc, const char *argv[])
 	fclose(tmp);
 
 	// Create input string
-	std::string strInput = "std 0 ";
+	std::string strInput = "std;0;";
 	std::string strInputFixed = "";
 	if (!strFileInput.empty() && !strIPInput.empty())
 	{
-		strInput = "std 0 ASTERIX_RAW";
+		strInput = "std;0;ASTERIX_RAW";
 	}
 	if (!strFileInput.empty())
 	{
-		strInput = "disk " + strFileInput + ":0:";
+		strInput = "disk;" + strFileInput + "|0|";
 
 		if (bLoopFile)
 		{
-			strInput += "65 ";
+			strInput += "65;";
 		}
 		else
 		{
-			strInput += "1 ";
+            strInput += "1;";
 		}
 	}
 	else if (!strIPInput.empty())
@@ -311,7 +311,7 @@ int main(int argc, const char *argv[])
 			exit (3);
 		}
 */
-		strInput = "udp " + strIPInput + " "; // + ":S ";
+		strInput = "udp;" + strIPInput + ";"; // + ":S ";
 	}
 
 	strInput += strInputFormat;

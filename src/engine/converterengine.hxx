@@ -78,7 +78,7 @@ public:
      * @see <CConverterEngine>::<Start>
      */
     bool Initialize(const char *inputChannel, const char *outputChannel[], const unsigned int nOutput, const unsigned int chFailover);
-    
+
     /**
      * Starts the engine. Never returns. Must not be called if initialization
      * is not properly finished.

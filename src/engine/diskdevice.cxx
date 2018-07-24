@@ -22,6 +22,7 @@
  */
 // Standard includes
 #include <stdio.h>
+#include <string>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -38,6 +39,21 @@
 // TO-DO: implement closing existing file and creating a new after defined period
 // (for logging purposes - circular logs)
 
+void findAndReplaceAll(std::string & data, std::string toSearch, std::string replaceStr)
+{
+    // Get the first occurrence
+    size_t pos = data.find(toSearch);
+
+    // Repeat till end is reached
+    while( pos != std::string::npos)
+    {
+        // Replace this occurrence of Sub String
+        data.replace(pos, toSearch.size(), replaceStr);
+        // Get the next occurrence from the current position
+        pos =data.find(toSearch, pos + toSearch.size());
+    }
+}
+
 CDiskDevice::CDiskDevice(CDescriptor &descriptor)
     : _inputDelay(0), _mode(0), _seqNo(0)
 {
@@ -47,11 +63,10 @@ CDiskDevice::CDiskDevice(CDescriptor &descriptor)
 
     const char *spath      = descriptor.GetFirst();
 
-    // fix for c:/path - instead of c: use c; - it will be replaced with c: here
-    if (*(spath+1) == ';')
-    {
-      *(char*)(spath+1) = ':';
-    }
+    // Remove '\\ ' with ' '. This is for Linux paths with space inside.
+    std::string strPath = spath;
+    findAndReplaceAll(strPath, "\\ ", " ");
+    spath = strPath.c_str();
 
     const char *inputDelay = descriptor.GetNext();
     const char *smode      = descriptor.GetNext();
