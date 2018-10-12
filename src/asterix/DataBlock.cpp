@@ -133,7 +133,7 @@ fulliautomatix_data* DataBlock::getData(int byteoffset)
   fulliautomatix_data *firstData = NULL, *lastData=NULL;
   int endOffset = byteoffset+m_nLength+3;
   char tmp[256];
-  sprintf(tmp, "Data Block Cat%03d - %.200s", m_pCategory->m_id, m_pCategory->m_strName.c_str());
+  snprintf(tmp, 256, "Data Block Cat%03d - %.200s", m_pCategory->m_id, m_pCategory->m_strName.c_str());
 
   firstData = lastData = newDataTree(NULL, byteoffset, m_nLength+3, tmp);
 

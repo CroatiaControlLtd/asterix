@@ -125,7 +125,7 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
   fulliautomatix_data *firstData, *lastData;
   std::string strDesc;
   char tmp[20];
-  sprintf(tmp, "Data item %s - ", m_pDescription->m_strID.c_str());
+  snprintf(tmp, 20, "Data item %s - ", m_pDescription->m_strID.c_str());
   strDesc = tmp;
   strDesc += m_pDescription->m_strName;
   lastData = firstData = newDataTree(NULL, byteoffset, m_nLength, (char*)strDesc.c_str());

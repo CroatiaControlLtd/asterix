@@ -71,10 +71,10 @@ fulliautomatix_definitions* UAPItem::getWiresharkDefinitions()
   {
     char tmp[128];
 
-    sprintf(tmp, "Item %s", m_strItemID.c_str());
+    snprintf(tmp, 128, "Item %s", m_strItemID.c_str());
     def->name = strdup(tmp);
 
-    sprintf(tmp, "UAP%s", m_strItemID.c_str());
+    snprintf(tmp, 128, "UAP%s", m_strItemID.c_str());
     def->abbrev = strdup(tmp);
   }
   def->type = FA_FT_UINT8;

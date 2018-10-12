@@ -209,7 +209,7 @@ bool CAsterixFormat::HeartbeatProcessing(
 
 static void debug_trace(char const*format, ...)
 {
-  char buffer[1024];
+  char buffer[1025];
   va_list args;
   va_start (args, format);
   vsnprintf (buffer, 1024, format, args);

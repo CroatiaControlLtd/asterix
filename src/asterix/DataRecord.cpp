@@ -293,7 +293,7 @@ fulliautomatix_data* DataRecord::getData(int byteoffset)
   int endOffset = byteoffset+m_nLength;
 
   char tmp[64];
-  sprintf(tmp, "Data Record %d - %ld bytes", m_nID, m_nLength);
+  snprintf(tmp, 64, "Data Record %d - %ld bytes", m_nID, m_nLength);
 
   firstData = lastData = newDataTree(lastData, byteoffset, m_nLength, tmp);
 
@@ -405,7 +405,7 @@ PyObject* DataRecord::getData()
 			{
 				PyObject* v1 = di->getData();
 				char tmp[20];
-				sprintf(tmp, "I%s", di->m_pDescription->m_strID.c_str());
+				snprintf(tmp, 20, "I%s", di->m_pDescription->m_strID.c_str());
                 PyObject* k1 = Py_BuildValue("s", tmp);
 				PyDict_SetItem(p, k1, v1);
                 Py_DECREF(k1);

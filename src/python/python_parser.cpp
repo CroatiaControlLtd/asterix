@@ -41,13 +41,15 @@ int gHeartbeat = 0;
 
 static void debug_trace(char const*format, ...)
 {
+  /* TODO
   char buffer[1024];
   va_list args;
   va_start (args, format);
-  vsnprintf (buffer, 1024, format, args);
+  vsnprintf (buffer, 1023, format, args);
   va_end (args);
   strcat(buffer, "\n");
   LOGERROR(1, "%s", buffer); // TODO
+  */
   // TODO PyErr_SetString(PyExc_RuntimeError, buffer);
 }
 

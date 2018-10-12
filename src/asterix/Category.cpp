@@ -163,7 +163,7 @@ std::string Category::printDescriptors()
 	  {
 	    di = (DataItemDescription*)(*it);
 
-		sprintf(header, "CAT%03d:I%s:", m_id, di->m_strID.c_str());
+		snprintf(header, 32, "CAT%03d:I%s:", m_id, di->m_strID.c_str());
 
 	    strDef += di->m_pFormat->printDescriptors(header);
 	  }

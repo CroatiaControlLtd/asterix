@@ -975,17 +975,17 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					char tmp[128];
 					if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
 					{
-						sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+						snprintf(tmp, 128, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
 						pOutData->err = 1;
 					}
 					else if (m_bIsConst && (int)value != m_nConst)
 					{
-						sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+						snprintf(tmp, 128, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
 						pOutData->err = 1;
 					}
 					else
 					{
-						sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
+						snprintf(tmp, 128, " (%.7lf %s)", scaled, m_strUnit.c_str());
 					}
 					pOutData->value_description = strdup(tmp);
 				}
@@ -1005,17 +1005,17 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					char tmp[128];
 					if ((m_bMaxValueSet && scaled > m_dMaxValue) || (m_bMinValueSet && scaled < m_dMinValue))
 					{
-						sprintf(tmp, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
+						snprintf(tmp, 128, " (%.7lf %s) Warning! Value out of range (%.7lf to %.7lf)", scaled, m_strUnit.c_str(), m_dMinValue, m_dMaxValue);
 						pOutData->err = 1;
 					}
 					else if (m_bIsConst && (int)value != m_nConst)
 					{
-						sprintf(tmp, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
+						snprintf(tmp, 128, " (%.7lf %s) Warning! Value should be %d", scaled, m_strUnit.c_str(), m_nConst);
 						pOutData->err = 1;
 					}
 					else
 					{
-						sprintf(tmp, " (%.7lf %s)", scaled, m_strUnit.c_str());
+						snprintf(tmp, 128, " (%.7lf %s)", scaled, m_strUnit.c_str());
 					}
 					pOutData->value_description = strdup(tmp);
 				}
