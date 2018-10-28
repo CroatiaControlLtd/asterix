@@ -6,8 +6,8 @@ import distutils.sysconfig
 import shutil
 import os.path
 from os import listdir
-import re
 import sys
+import platform
 
 exec(open('asterix/version.py').read())
 
@@ -31,14 +31,15 @@ try:
 except(OSError):
     pass
 
-
 # Remove the "-Wstrict-prototypes" compiler option, which isn't valid for C++.
-import distutils.sysconfig
 cfg_vars = distutils.sysconfig.get_config_vars()
 for key, value in cfg_vars.items():
     if type(value) == str:
         cfg_vars[key] = value.replace("-Wstrict-prototypes", "")
-# ==================================
+
+# If this is MacOSX set correct deployment target (otherwise compile may fail)
+if sys.platform == 'darwin':
+    os.environ['MACOSX_DEPLOYMENT_TARGET'] = platform.mac_ver()[0]
 
 asterix_module = Extension('_asterix',
                     sources = ['./src/python/asterix.c',
