@@ -321,21 +321,21 @@ fulliautomatix_data* DataItemFormatFixed::getData(unsigned char* pData, long len
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataItemFormatFixed::getObject(unsigned char* pData, long nLength)
+PyObject* DataItemFormatFixed::getObject(unsigned char* pData, long nLength, int description)
 {
 	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength);
+	insertToDict(p, pData, nLength, description);
 	return p;
 }
 
-void DataItemFormatFixed::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+void DataItemFormatFixed::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
 {
 	std::list<DataItemFormat*>::iterator it;
 	DataItemBits* bv = NULL;
 	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
 	{
 		bv = (DataItemBits*)(*it);
-		bv->insertToDict(p, pData, nLength);
+		bv->insertToDict(p, pData, nLength, description);
 	}
 }
 

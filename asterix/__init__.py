@@ -51,6 +51,7 @@ import os
 import sys
 from datetime import datetime
 from .version import __version__
+#todo from .encoder import asterix_encoder
 
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)
@@ -59,6 +60,7 @@ from .version import __version__
 #def hello(world):
 #    return _asterix.hello(world)
 
+_asterix_definitions = None
 
 def init(filename):
     """ Initializes asterix with XML category definition
@@ -75,6 +77,8 @@ def init(filename):
     Example:
         >>> asterix.init(path_to_your_config_file)
     """
+
+    # Initialize decoder
     return _asterix.init(filename)
 
 
@@ -96,16 +100,17 @@ def describe(category, item=None, field=None, value=None):
     return _asterix.describe(category)
 
 
-def parse(data):
+def parse(data, description=True):
     """ Parse raw asterix data
     Args:
         data: Bytes to be parsed
+        description: Show description, meaning, max and min values of item (default: true)
     Returns:
         list of asterix records
     """
     if sys.version_info <= (2, 7):
-        return _asterix.parse(buffer(data))
-    return _asterix.parse(bytes(data))
+        return _asterix.parse(buffer(data), description)
+    return _asterix.parse(bytes(data), description)
 
 
 def parse_with_offset(data, offset=0, blocks_count=1000):
@@ -168,6 +173,16 @@ def describe(parsed):
 
     return txt
 
+# todo
+#def encode(data):
+#    """ Encode ASTERIX packet to raw asterix data
+#    Args:
+#        data: list of asterix records
+#    Returns:
+#        encided raw bytes
+#    """
+#    #return _asterix.encode(data)
+#    return asterix_encoder(data)
 
 def list_sample_files():
     """ Return the list of Asterix format sample files from the package

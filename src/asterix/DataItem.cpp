@@ -26,10 +26,11 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataItem::DataItem(DataItemDescription* pDesc)
+DataItem::DataItem(DataItemDescription* pDesc, int description)
 : m_pDescription(pDesc)
 , m_pData(NULL)
 , m_nLength(0)
+, m_nDescription(description)
 {
 }
 
@@ -154,7 +155,7 @@ PyObject* DataItem::getData()
 {
   if (m_pDescription && m_pDescription->m_pFormat && m_pData)
   {
-    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength);
+    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength, m_nDescription);
   }
   return Py_BuildValue("s", "Error");
 }

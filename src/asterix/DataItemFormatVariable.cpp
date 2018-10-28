@@ -279,14 +279,14 @@ fulliautomatix_data* DataItemFormatVariable::getData(unsigned char* pData, long 
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength)
+PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength, int description)
 {
 	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength);
+	insertToDict(p, pData, nLength, description);
 	return p;
 }
 
-void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
 {
   std::list<DataItemFormat*>::iterator it;
   bool lastPart = false;
@@ -299,7 +299,7 @@ void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, lon
   {
     lastPart = dip->isLastPart(pData);
 
-	dip->insertToDict(p, pData, dip->getLength());
+	dip->insertToDict(p, pData, dip->getLength(), description);
 
     pData += dip->getLength();
     nLength -= dip->getLength();

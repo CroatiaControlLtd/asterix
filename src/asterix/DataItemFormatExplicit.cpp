@@ -221,14 +221,14 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
 
 #if defined(PYTHON_WRAPPER)
 
-PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength)
+PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, int description)
 {
 	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength);
+	insertToDict(p, pData, nLength, description);
 	return p;
 }
 
-void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
 {
   DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
   if (pFixed == NULL)
@@ -241,6 +241,6 @@ void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, lon
   //unsigned char nFullLength = *pData;
   pData++;
 
-  pFixed->insertToDict(p, pData, fixedLength);
+  pFixed->insertToDict(p, pData, fixedLength, description);
 }
 #endif

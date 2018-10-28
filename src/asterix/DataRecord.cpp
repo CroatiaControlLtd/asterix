@@ -27,13 +27,14 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
+DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp, int description)
 : m_pCategory(cat)
 , m_nID(nID)
 , m_nLength(len)
 , m_nFSPECLength(0)
 , m_pFSPECData(NULL)
 , m_nTimestamp(nTimestamp)
+, m_nDescription(description)
 , m_bFormatOK(false)
 {
   const unsigned char* m_pItemDataStart = data;
@@ -63,7 +64,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
         DataItemDescription *dataitemdesc = m_pCategory->getDataItemDescription(pUAP->getDataItemIDByUAPfrn(nFRN));
         if (dataitemdesc)
         {
-          DataItem* di = new DataItem(dataitemdesc);
+          DataItem* di = new DataItem(dataitemdesc, description);
           m_lDataItems.push_back(di);
         }
         else

@@ -91,6 +91,80 @@ class AsterixParseTest(unittest.TestCase):
                                                  'SI': {'desc': 'SI/II Transponder Capability', 'val': 0,
                                                         'meaning': 'SI-Code Capable'}})
 
+    def test_ParseCAT048_nodescription(self):
+        sample_filename = asterix.get_sample_file('cat048.raw')
+        with open(sample_filename, "rb") as f:
+            data = f.read()
+            packet = asterix.parse(data, description=False)
+            self.maxDiff = None
+            self.assertIsNotNone(packet)
+            self.assertIsNotNone(packet[0])
+            self.assertIs(len(packet), 1)
+            self.assertTrue('I220' in packet[0])
+            self.assertEqual(packet[0]['category'], 48)
+            self.assertEqual(packet[0]['len'], 45)
+            self.assertEqual(packet[0]['crc'], 'C150ED0E')
+            self.assertTrue('ts' in packet[0])
+            self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
+            self.assertEqual(packet[0]['I010'], {'SAC': {'val': 25},
+                                                 'SIC': {'val': 201}})
+            self.assertEqual(packet[0]['I170'], {'GHO': {'val': 0},
+                                                 'TCC': {'val': 0},
+                                                 'RAD': {'val': 2},
+                                                 'spare': {'val': 0},
+                                                 'TRE': {'val': 0},
+                                                 'CDM': {'val': 0},
+                                                 'CNF': {'val': 0},
+                                                 'SUP': {'val': 0},
+                                                 'FX': {'val': 0},
+                                                 'DOU': {'val': 0},
+                                                 'MAH': {'val': 0}})
+            self.assertEqual(packet[0]['I200'], {'CGS': {'val': 434.94},
+                                                 'CHdg': {'val': 124.002685546875}})
+            self.assertEqual(packet[0]['I220'], {'ACAddr': {'val': '3C660C'}})
+            self.assertEqual(packet[0]['I250'][0], {'TARGET_ALT_STATUS': {'val': 0},
+                                                    'res': {'val': 0},
+                                                    'FMS_ALT': {'val': 0.0},
+                                                    'APP': {'val': 0},
+                                                    'ALT_HOLD': {'val': 0},
+                                                    'TARGET_ALT_SOURCE': {'val': 0},
+                                                    'BDS': {'val': '40'},
+                                                    'FMS_ALT_STATUS': {'val': 0},
+                                                    'BP_STATUS': {'val': 1},
+                                                    'BP': {'val': 227.0},
+                                                    'MODE_STATUS': {'val': 0},
+                                                    'VNAV': {'val': 0},
+                                                    'MCP_ALT_STATUS': {'val': 1},
+                                                    'MCP_ALT': {'val': 33008.0}})
+            self.assertEqual(packet[0]['I040'], {'THETA': {'val': 340.13671875},
+                                                 'RHO': {'val': 197.68359375}})
+            self.assertEqual(packet[0]['I240'], {'TId': {'val': 'DLH65A  '}})
+            self.assertEqual(packet[0]['I140'], {'ToD': {'val': 27354.6015625}})
+            self.assertEqual(packet[0]['I070'], {'Mode3A': {'val': '1000'},
+                                                 'V': {'val': 0},
+                                                 'L': {'val': 0},
+                                                 'spare': {'val': 0},
+                                                 'G': {'val': 0}})
+            self.assertEqual(packet[0]['I161'], {'Tn': {'val': 3563}})
+            self.assertEqual(packet[0]['I020'], {'SIM': {'val': 0},
+                                                 'TYP': {'val': 5},
+                                                 'RAB': {'val': 0},
+                                                 'RDP': {'val': 0},
+                                                 'FX': {'val': 0},
+                                                 'SPI': {'val': 0}})
+            self.assertEqual(packet[0]['I090'], {'V': {'val': 0},
+                                                 'FL': {'val': 330.0},
+                                                 'G': {'val': 0}})
+            self.assertEqual(packet[0]['I230'], {'COM': {'val': 1},
+                                                 'BDS37': {'val': 5},
+                                                 'ModeSSSC': {'val': 1},
+                                                 'STAT': {'val': 0},
+                                                 'AIC': {'val': 1},
+                                                 'BDS16': {'val': 1},
+                                                 'spare': {'val': 0},
+                                                 'ARC': {'val': 1},
+                                                 'SI': {'val': 0}})
+
     def test_ParseCAT062CAT065(self):
         sample_filename = asterix.get_sample_file('cat062cat065.raw')
         with open(sample_filename, "rb") as f:
