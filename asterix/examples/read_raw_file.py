@@ -8,10 +8,21 @@ sample_filename = asterix.get_sample_file('cat062cat065.raw')
 with open(sample_filename, "rb") as f:
     data = f.read()
 
-    # Parse data
+    # Parse data description=True
+    print('Items with description')
     parsed = asterix.parse(data)
-    print(parsed)
+    for packet in parsed:
+        for item in packet.items():
+            print(item)
 
+    print('Items without description')
+    # Parse data description=False
+    parsed = asterix.parse(data, description=False)
+    for packet in parsed:
+        for item in packet.items():
+            print(item)
+
+    print('Textual description of data')
     # describe Asterix data
     formatted = asterix.describe(parsed)
     print(formatted)

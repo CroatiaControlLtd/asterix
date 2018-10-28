@@ -366,14 +366,14 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long,
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataItemFormatCompound::getObject(unsigned char* pData, long nLength)
+PyObject* DataItemFormatCompound::getObject(unsigned char* pData, long nLength, int description)
 {
 	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength);
+	insertToDict(p, pData, nLength, description);
 	return p;
 }
 
-void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, long nLength)
+void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
 {
 	std::list<DataItemFormat*>::iterator it;
 	std::list<DataItemFormat*>::iterator it2;
@@ -414,7 +414,7 @@ void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, lon
                 // get dictionary from secondary part
 				DataItemFormat* dip2 = (DataItemFormat*)(*it2);
 				int skip = dip2->getLength(pSecData);
-				PyObject* p1 = dip2->getObject(pSecData, skip);
+				PyObject* p1 = dip2->getObject(pSecData, skip, description);
 
                 // insert new dictionary to parent dictionary
                 PyDict_SetItem(p, k1, p1);

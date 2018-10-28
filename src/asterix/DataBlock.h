@@ -29,7 +29,7 @@
 class DataBlock
 {
 public:
-  DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp = 0);
+  DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp = 0, int description=1);
   virtual
   ~DataBlock();
 

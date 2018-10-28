@@ -39,6 +39,7 @@ PyObject* parse(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* parse_with_offset(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* describe(PyObject* self, PyObject *args, PyObject *kwargs);
 PyObject* set_callback(PyObject* self, PyObject *args);
+//todo PyObject* encode(PyObject* self, PyObject *args, PyObject *kwargs);
 
 #define ENCODER_HELP_TEXT "Use ensure_ascii=false to output UTF-8. Pass in double_precision to alter the maximum digit precision of doubles. Set encode_html_chars=True to encode < > & as unicode escape sequences."
 
@@ -48,6 +49,7 @@ static PyMethodDef asterixMethods[] = {
   {"describe", (PyCFunction) describe, METH_VARARGS, "Describe ASTERIX item" ENCODER_HELP_TEXT},
   {"parse", (PyCFunction) parse, METH_VARARGS | METH_KEYWORDS, "Parse ASTERIX data" ENCODER_HELP_TEXT},
   {"parse_with_offset", (PyCFunction) parse_with_offset, METH_VARARGS | METH_KEYWORDS, "Parse ASTERIX data with bytes offset" ENCODER_HELP_TEXT},
+//todo  {"encode", (PyCFunction) encode, METH_VARARGS | METH_KEYWORDS, "Encode ASTERIX packet" ENCODER_HELP_TEXT},
   {"set_callback", (PyCFunction) set_callback, METH_VARARGS, "Set callback function" ENCODER_HELP_TEXT},
   {NULL, NULL, 0, NULL}       /* Sentinel */
 };

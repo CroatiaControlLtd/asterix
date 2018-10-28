@@ -83,7 +83,7 @@ int python_init(const char* xml_config_file)
     return 0;
 }
 
-PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
+PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int description)
 {
     // get current timstamp in ms since epoch
 	struct timeval tp;
@@ -92,7 +92,7 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len)
 
     if (inputParser)
     {
-        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp);
+        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp, description);
         if (pData)
         { // convert to Python format
           PyObject *lst = pData->getData();
@@ -204,4 +204,13 @@ PyObject *python_describe(int category, const char* item=NULL, const char* field
 		/// use result...
 		Py_DECREF(result);
 	return true;
+*/
+/* todo
+Py_ssize_t python_encode(PyObject* packet, char** pBuf)
+{
+    *pBuf = (char *)malloc(10);
+    for (int i=0;i<10;i++)
+        (*pBuf)[i] = 'A'+i;
+    return 10;
+}
 */

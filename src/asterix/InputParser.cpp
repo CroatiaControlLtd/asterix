@@ -34,7 +34,7 @@ InputParser::InputParser(AsterixDefinition* pDefinition)
 /*
  * Parse data
  */
-AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp)
+AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp, int description)
 {
   AsterixData* pAsterixData = new AsterixData();
   unsigned int m_nPos = 0;
@@ -96,7 +96,7 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
       hexString.erase(hexString.size() - 1);
       LOGDEBUG(1, "[%s]\n", hexString.c_str());
 #endif
-      DataBlock* db = new DataBlock(m_pDefinition->getCategory(nCategory), dataLen, m_pData, nTimestamp);
+      DataBlock* db = new DataBlock(m_pDefinition->getCategory(nCategory), dataLen, m_pData, nTimestamp, description);
       m_pData += dataLen;
       m_nPos += dataLen;
       pAsterixData->m_lDataBlocks.push_back(db);

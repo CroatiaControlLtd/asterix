@@ -81,8 +81,8 @@ private:
 #endif
 
 #if defined(PYTHON_WRAPPER)
-  virtual PyObject* getObject(unsigned char* pData, long nLength) = 0;
-  virtual void insertToDict(PyObject* p, unsigned char* pData, long nLength) = 0;
+  virtual PyObject* getObject(unsigned char* pData, long nLength, int description) = 0;
+  virtual void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description) = 0;
 #endif
 
 };

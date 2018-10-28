@@ -29,7 +29,7 @@
 class DataItem
 {
 public:
-  DataItem(DataItemDescription* pDesc);
+  DataItem(DataItemDescription* pDesc, int description);
   virtual
   ~DataItem();
 
@@ -50,6 +50,7 @@ public:
 private:
   unsigned char* m_pData;
   long m_nLength;
+  int m_nDescription;
 
 };
 
