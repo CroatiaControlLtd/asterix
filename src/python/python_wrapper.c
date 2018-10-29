@@ -120,7 +120,7 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
     Py_ssize_t len;
     int verbose;
 
-    if (!PyArg_ParseTuple(args, "s#p", &data, &len, &verbose))
+    if (!PyArg_ParseTuple(args, "s#i", &data, &len, &verbose))
         return NULL;
 
     if (!bInitialized)
@@ -150,7 +150,7 @@ parse_with_offset(PyObject* self, PyObject* args, PyObject *kwargs)
     unsigned int blocks_count;
     int verbose;
 
-    if (!PyArg_ParseTuple(args, "s#IIp", &data, &len, &offset, &blocks_count, &verbose))
+    if (!PyArg_ParseTuple(args, "s#IIi", &data, &len, &offset, &blocks_count, &verbose))
         return NULL;
 
     if (!bInitialized)
