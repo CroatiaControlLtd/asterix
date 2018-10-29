@@ -21,7 +21,7 @@ Parse the binary Asterix packet::
 
     # print formatted packet
     # If you want to see textual presentation of asterix packet use describe::
-	print(asterix.describe(parsed))
+    print(asterix.describe(parsed))
 
 
 Parse the raw Asterix file::
@@ -34,12 +34,27 @@ Parse the raw Asterix file::
     with open(sample_filename, "rb") as f:
         data = f.read()
 
-        # Parse data
+        # Parse data description=True
+        print('Items with description')
+        print('----------------------')
         parsed = asterix.parse(data)
-        print(parsed)
+        for packet in parsed:
+            for item in packet.items():
+                print(item)
 
-        # print formatted packet
-		print(asterix.describe(parsed))
+        print('Items without description')
+        print('----------------------')
+        # Parse data description=False
+        parsed = asterix.parse(data, verbose=False)
+        for packet in parsed:
+            for item in packet.items():
+                print(item)
+
+        print('Textual description of data')
+        print('----------------------')
+        # describe Asterix data
+        formatted = asterix.describe(parsed)
+        print(formatted)
 
 
 Parse Pcap file with the help of dpkt module (only available for Python 2)::
@@ -82,3 +97,4 @@ Listen to UDP multicast stream and print parsed Asterix data::
         asterix_packet = sock.recv(10240)
         data = asterix.parse(asterix_packet)
         print(data)
+

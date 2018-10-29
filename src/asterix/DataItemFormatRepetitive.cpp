@@ -218,7 +218,7 @@ fulliautomatix_data* DataItemFormatRepetitive::getData(unsigned char* pData, lon
 
 #if defined(PYTHON_WRAPPER)
 
-PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength, int description)
+PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength, int verbose)
 {
 	PyObject* p = PyList_New(0);
 
@@ -242,7 +242,7 @@ PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength
 
 	  while(nRepetition--)
 	  {
-		PyObject* p1 = pFixed->getObject(pData, fixedLength, description);
+		PyObject* p1 = pFixed->getObject(pData, fixedLength, verbose);
 		PyList_Append(p, p1);
 		Py_DECREF(p1);
 	    pData += fixedLength;
@@ -252,7 +252,7 @@ PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength
 }
 
 
-void DataItemFormatRepetitive::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
+void DataItemFormatRepetitive::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 {
  // Not supported
 }

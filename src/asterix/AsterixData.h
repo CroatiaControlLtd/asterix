@@ -42,7 +42,7 @@ public:
 #endif
 
 #if defined(PYTHON_WRAPPER)
-  PyObject* getData();
+  PyObject* getData(int verbose);
 #endif
 
   bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format

@@ -28,7 +28,7 @@
 
 extern bool gFiltering;
 
-DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp, int description)
+DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
 , m_nLength(len)
 , m_nTimestamp(nTimestamp)
@@ -46,7 +46,7 @@ DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data
 
   while(nUnparsed > 0)
   {
-    DataRecord* dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, (unsigned long)nTimestamp, description);
+    DataRecord* dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, (unsigned long)nTimestamp);
 
     if (!dr)
     {
@@ -163,7 +163,7 @@ fulliautomatix_data* DataBlock::getData(int byteoffset)
 #endif
 
 #if defined(PYTHON_WRAPPER)
-void DataBlock::getData(PyObject* plist)
+void DataBlock::getData(PyObject* plist, int verbose)
 {
 	// go through all present data items in this block and insert them to list
 	std::list<DataRecord*>::iterator it;
@@ -172,7 +172,7 @@ void DataBlock::getData(PyObject* plist)
 		DataRecord* dr = (DataRecord*)(*it);
 		if (dr != NULL)
 		{
-			PyObject* p = dr->getData();
+			PyObject* p = dr->getData(verbose);
 			PyList_Append(plist, p);
 			Py_DECREF(p);
 		}

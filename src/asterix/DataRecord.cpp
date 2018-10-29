@@ -27,14 +27,13 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp, int description)
+DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
 : m_pCategory(cat)
 , m_nID(nID)
 , m_nLength(len)
 , m_nFSPECLength(0)
 , m_pFSPECData(NULL)
 , m_nTimestamp(nTimestamp)
-, m_nDescription(description)
 , m_bFormatOK(false)
 {
   const unsigned char* m_pItemDataStart = data;
@@ -64,7 +63,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
         DataItemDescription *dataitemdesc = m_pCategory->getDataItemDescription(pUAP->getDataItemIDByUAPfrn(nFRN));
         if (dataitemdesc)
         {
-          DataItem* di = new DataItem(dataitemdesc, description);
+          DataItem* di = new DataItem(dataitemdesc);
           m_lDataItems.push_back(di);
         }
         else
@@ -360,7 +359,7 @@ fulliautomatix_data* DataRecord::getData(int byteoffset)
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataRecord::getData()
+PyObject* DataRecord::getData(int verbose)
 {
 	UAP* pUAP = m_pCategory->getUAP(m_pFSPECData, m_nFSPECLength);
 	PyObject*p = PyDict_New();
@@ -404,7 +403,7 @@ PyObject* DataRecord::getData()
 			DataItem* di = (DataItem*)(*it);
 			if (di)
 			{
-				PyObject* v1 = di->getData();
+				PyObject* v1 = di->getData(verbose);
 				char tmp[20];
 				snprintf(tmp, 20, "I%s", di->m_pDescription->m_strID.c_str());
                 PyObject* k1 = Py_BuildValue("s", tmp);

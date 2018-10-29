@@ -99,7 +99,7 @@ fulliautomatix_data* AsterixData::getData()
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* AsterixData::getData()
+PyObject* AsterixData::getData(int verbose)
 {
 	PyObject* hp = PyList_New(0);
 
@@ -109,7 +109,7 @@ PyObject* AsterixData::getData()
 		DataBlock* db = (DataBlock*)(*it);
 		if (db != NULL)
 		{
-			db->getData(hp);
+			db->getData(hp, verbose);
 		}
 	}
 	return hp;

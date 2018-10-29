@@ -28,6 +28,10 @@ Example:
     # If you want to see textual presentation of asterix packet use describe::
 	print(asterix.describe(parsed))
 
+    # If you do not need description of items and meaning of bit values, you can disable the verbose mode, to just get values::
+    parsed = asterix.parse(asterix_packet, verbose=false)
+    print(parsed)
+
     # All Asterix categories are defined with XML configuration file.
     # You can get a list of configuration files ith following command::
     config = asterix.list_configuration_files()
@@ -51,7 +55,6 @@ import os
 import sys
 from datetime import datetime
 from .version import __version__
-#todo from .encoder import asterix_encoder
 
 #def set_callback(callback):
 #    return _asterix.set_callback(callback)
@@ -60,7 +63,6 @@ from .version import __version__
 #def hello(world):
 #    return _asterix.hello(world)
 
-_asterix_definitions = None
 
 def init(filename):
     """ Initializes asterix with XML category definition
@@ -77,8 +79,6 @@ def init(filename):
     Example:
         >>> asterix.init(path_to_your_config_file)
     """
-
-    # Initialize decoder
     return _asterix.init(filename)
 
 
@@ -100,34 +100,47 @@ def describe(category, item=None, field=None, value=None):
     return _asterix.describe(category)
 
 
-def parse(data, description=True):
+def parse(data, **kwargs):
     """ Parse raw asterix data
     Args:
         data: Bytes to be parsed
-        description: Show description, meaning, max and min values of item (default: true)
+    Kwargs:
+        verbose=True: Show description, meaning, max and min values of item (default: true)
     Returns:
         list of asterix records
     """
+    if 'verbose' in kwargs:
+        verbose = kwargs['verbose']
+    else:
+        verbose = True
+
     if sys.version_info <= (2, 7):
-        return _asterix.parse(buffer(data), description)
-    return _asterix.parse(bytes(data), description)
+        return _asterix.parse(buffer(data), verbose)
+    return _asterix.parse(bytes(data), verbose)
 
 
-def parse_with_offset(data, offset=0, blocks_count=1000):
+def parse_with_offset(data, offset=0, blocks_count=1000, **kwargs):
     """ Parse raw asterix data with bytes offset with returning number of blocks of data 
     passed with arguments
     Args:
         data: Bytes to be parsed
         offset: bytes offset
         blocks_count: number of blocks data to be returned
+    Kwargs:
+        verbose=True: Show description, meaning, max and min values of item (default: true)
     Returns:
         tuple of two elements:
             list of asterix records
             bytes offset at ending of computation
     """
+    if 'verbose' in kwargs:
+        verbose = kwargs['verbose']
+    else:
+        verbose = True
+
     if sys.version_info <= (2, 7):
-        return _asterix.parse_with_offset(buffer(data), offset, blocks_count)
-    return _asterix.parse_with_offset(bytes(data), offset, blocks_count)
+        return _asterix.parse_with_offset(buffer(data), offset, blocks_count, verbose)
+    return _asterix.parse_with_offset(bytes(data), offset, blocks_count, verbose)
 
 
 def describe(parsed):
@@ -173,16 +186,6 @@ def describe(parsed):
 
     return txt
 
-# todo
-#def encode(data):
-#    """ Encode ASTERIX packet to raw asterix data
-#    Args:
-#        data: list of asterix records
-#    Returns:
-#        encided raw bytes
-#    """
-#    #return _asterix.encode(data)
-#    return asterix_encoder(data)
 
 def list_sample_files():
     """ Return the list of Asterix format sample files from the package

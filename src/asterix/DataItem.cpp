@@ -26,11 +26,10 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataItem::DataItem(DataItemDescription* pDesc, int description)
+DataItem::DataItem(DataItemDescription* pDesc)
 : m_pDescription(pDesc)
 , m_pData(NULL)
 , m_nLength(0)
-, m_nDescription(description)
 {
 }
 
@@ -151,11 +150,11 @@ fulliautomatix_data* DataItem::getData(int byteoffset)
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataItem::getData()
+PyObject* DataItem::getData(int verbose)
 {
   if (m_pDescription && m_pDescription->m_pFormat && m_pData)
   {
-    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength, m_nDescription);
+    return m_pDescription->m_pFormat->getObject(m_pData, m_nLength, verbose);
   }
   return Py_BuildValue("s", "Error");
 }

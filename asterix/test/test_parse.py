@@ -95,7 +95,7 @@ class AsterixParseTest(unittest.TestCase):
         sample_filename = asterix.get_sample_file('cat048.raw')
         with open(sample_filename, "rb") as f:
             data = f.read()
-            packet = asterix.parse(data, description=False)
+            packet = asterix.parse(data, verbose=False)
             self.maxDiff = None
             self.assertIsNotNone(packet)
             self.assertIsNotNone(packet[0])
