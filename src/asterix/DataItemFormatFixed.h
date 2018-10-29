@@ -57,7 +57,7 @@ public:
 #endif
 #if defined(PYTHON_WRAPPER)
   PyObject* getObject(unsigned char* pData, long nLength, int description);
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description);
+  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose);
 #endif
 };
 

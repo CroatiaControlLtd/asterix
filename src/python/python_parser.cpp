@@ -83,7 +83,7 @@ int python_init(const char* xml_config_file)
     return 0;
 }
 
-PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int description)
+PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int verbose)
 {
     // get current timstamp in ms since epoch
 	struct timeval tp;
@@ -92,10 +92,10 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int descript
 
     if (inputParser)
     {
-        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp, description);
+        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp);
         if (pData)
         { // convert to Python format
-          PyObject *lst = pData->getData();
+          PyObject *lst = pData->getData(verbose);
           delete pData;
           return lst;
         }
@@ -103,7 +103,7 @@ PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int descript
     return NULL;
 }
 
-PyObject *python_parse_with_offset(const unsigned char* pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count)
+PyObject *python_parse_with_offset(const unsigned char* pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count, int verbose)
 /* AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
 */
 {
@@ -133,7 +133,7 @@ PyObject *python_parse_with_offset(const unsigned char* pBuf, unsigned int len, 
         }
         if (pData)
         { // convert to Python format
-          PyObject *lst = pData->getData();
+          PyObject *lst = pData->getData(verbose);
           delete pData;
           PyObject* py_m_nPos = Py_BuildValue("l", m_nPos);
           PyObject* py_output = PyTuple_Pack(2, lst, py_m_nPos);
@@ -204,13 +204,4 @@ PyObject *python_describe(int category, const char* item=NULL, const char* field
 		/// use result...
 		Py_DECREF(result);
 	return true;
-*/
-/* todo
-Py_ssize_t python_encode(PyObject* packet, char** pBuf)
-{
-    *pBuf = (char *)malloc(10);
-    for (int i=0;i<10;i++)
-        (*pBuf)[i] = 'A'+i;
-    return 10;
-}
 */

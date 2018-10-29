@@ -36,7 +36,7 @@ class InputParser
 public:
   InputParser(AsterixDefinition* pDefinition);
   ~InputParser() { if (m_pDefinition) delete m_pDefinition; }
-  AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp = 0, int description=1);
+  AsterixData* parsePacket(const unsigned char* m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp = 0);
   DataBlock* parse_next_data_block(const unsigned char* m_pData, unsigned int &m_nPos, unsigned int m_nBufferSize,
     unsigned long nTimestamp, unsigned int &m_nDataLength);
   

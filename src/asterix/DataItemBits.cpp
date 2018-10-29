@@ -1070,14 +1070,14 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 
 #if defined(PYTHON_WRAPPER)
 
-		PyObject* DataItemBits::getObject(unsigned char* pData, long nLength, int description)
+		PyObject* DataItemBits::getObject(unsigned char* pData, long nLength, int verbose)
 		{
 			PyObject* p = PyDict_New();
-			insertToDict(p, pData, nLength, description);
+			insertToDict(p, pData, nLength, verbose);
 			return p;
 		}
 
-		void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
+		void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 		{
 		    // Add item name
     		PyObject* pValue = PyDict_New();
@@ -1086,7 +1086,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
             Py_DECREF(k2);
             Py_DECREF(pValue);
 
-			if (description)
+			if (verbose)
 			{
 			    // Add item description
                 PyObject* k1 = Py_BuildValue("s", "desc");
@@ -1121,14 +1121,14 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					Py_DECREF(k1);
 					Py_DECREF(v1);
 
-					if (description && m_bMaxValueSet) {
+					if (verbose && m_bMaxValueSet) {
 						PyObject* k1 = Py_BuildValue("s", "max");
 						PyObject* v1 = Py_BuildValue("d", m_dMaxValue);
 						PyDict_SetItem(pValue, k1, v1);
 						Py_DECREF(k1);
 						Py_DECREF(v1);
 					}
-					if (description && m_bMinValueSet) {
+					if (verbose && m_bMinValueSet) {
 						PyObject* k1 = Py_BuildValue("s", "min");
 						PyObject* v1 = Py_BuildValue("d", m_dMinValue);
 						PyDict_SetItem(pValue, k1, v1);
@@ -1141,7 +1141,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					PyDict_SetItem(pValue, k1, v1);
 					Py_DECREF(k1);
 					Py_DECREF(v1);
-					if (description) {
+					if (verbose) {
 					    PyObject* k2 = Py_BuildValue("s", "const");
 					    PyObject* v2 = Py_BuildValue("k", m_nConst);
 					    PyDict_SetItem(pValue, k2, v2);
@@ -1158,7 +1158,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 							PyDict_SetItem(pValue, k1, v1);
 							Py_DECREF(k1);
 							Py_DECREF(v1);
-							if (description) {
+							if (verbose) {
 							    PyObject* k2 = Py_BuildValue("s", "meaning");
 							    PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
 							    PyDict_SetItem(pValue, k2, v2);
@@ -1174,7 +1174,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 						PyDict_SetItem(pValue, k1, v1);
 						Py_DECREF(k1);
 						Py_DECREF(v1);
-						if (description) {
+						if (verbose) {
 						    PyObject* k2 = Py_BuildValue("s", "meaning");
 						    PyObject* v2 = Py_BuildValue("s", "???");
 						    PyDict_SetItem(pValue, k2, v2);
@@ -1206,14 +1206,14 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					Py_DECREF(k1);
 					Py_DECREF(v1);
 
-					if (description && m_bMaxValueSet) {
+					if (verbose && m_bMaxValueSet) {
 						PyObject* k1 = Py_BuildValue("s", "max");
 						PyObject* v1 = Py_BuildValue("d", m_dMaxValue);
 						PyDict_SetItem(pValue, k1, v1);
 						Py_DECREF(k1);
 						Py_DECREF(v1);
 					}
-					if (description && m_bMinValueSet) {
+					if (verbose && m_bMinValueSet) {
 						PyObject* k1 = Py_BuildValue("s", "min");
 						PyObject* v1 = Py_BuildValue("d", m_dMinValue);
 						PyDict_SetItem(pValue, k1, v1);
@@ -1225,7 +1225,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					PyObject* v1 = Py_BuildValue("d", value);
 					Py_DECREF(k1);
 					Py_DECREF(v1);
-					if (description) {
+					if (verbose) {
 					    PyDict_SetItem(pValue, k1, v1);
 					    PyObject* k2 = Py_BuildValue("s", "const");
 					    PyObject* v2 = Py_BuildValue("k", m_nConst);
@@ -1243,7 +1243,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 							PyDict_SetItem(pValue, k1, v1);
 							Py_DECREF(k1);
 							Py_DECREF(v1);
-							if (description) {
+							if (verbose) {
 							    PyObject* k2 = Py_BuildValue("s", "meaning");
 							    PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
 							    PyDict_SetItem(pValue, k2, v2);
@@ -1259,7 +1259,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 						PyDict_SetItem(pValue, k1, v1);
 						Py_DECREF(k1);
 						Py_DECREF(v1);
-						if (description) {
+						if (verbose) {
 						    PyObject* k2 = Py_BuildValue("s", "meaning");
 						    PyObject* v2 = Py_BuildValue("s", "???");
 						    PyDict_SetItem(pValue, k2, v2);

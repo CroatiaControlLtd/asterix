@@ -118,9 +118,9 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
 */
     const char* data;
     Py_ssize_t len;
-    int description;
+    int verbose;
 
-    if (!PyArg_ParseTuple(args, "s#p", &data, &len, &description))
+    if (!PyArg_ParseTuple(args, "s#p", &data, &len, &verbose))
         return NULL;
 
     if (!bInitialized)
@@ -129,7 +129,7 @@ parse(PyObject* self, PyObject* args, PyObject *kwargs)
         return NULL;
     }
 
-    PyObject *lstBlocks = python_parse((const unsigned char*) data, len, description);
+    PyObject *lstBlocks = python_parse((const unsigned char*) data, len, verbose);
     if (PyErr_Occurred())
         return NULL;
     if (lstBlocks == NULL)
@@ -148,9 +148,9 @@ parse_with_offset(PyObject* self, PyObject* args, PyObject *kwargs)
     Py_ssize_t len;
     unsigned int offset;
     unsigned int blocks_count;
-    //int len;
+    int verbose;
 
-    if (!PyArg_ParseTuple(args, "s#II", &data, &len, &offset, &blocks_count))
+    if (!PyArg_ParseTuple(args, "s#IIp", &data, &len, &offset, &blocks_count, &verbose))
         return NULL;
 
     if (!bInitialized)
@@ -159,7 +159,7 @@ parse_with_offset(PyObject* self, PyObject* args, PyObject *kwargs)
         return NULL;
     }
 
-    PyObject *py_output = python_parse_with_offset((const unsigned char*) data, len, offset, blocks_count);
+    PyObject *py_output = python_parse_with_offset((const unsigned char*) data, len, offset, blocks_count, verbose);
     if (PyErr_Occurred())
         return NULL;
     if (py_output == NULL) 
@@ -170,20 +170,8 @@ parse_with_offset(PyObject* self, PyObject* args, PyObject *kwargs)
 	}
     return py_output;
 }
-/* todo
-PyObject* encode(PyObject* packet)
-{
-    char* data = NULL;
-    Py_ssize_t len;
-    len = python_encode(packet, &data);
-    if (len > 0)
-    {
-        PyObject* ret = PyBytes_FromStringAndSize(data, 10);
-        return ret;
-    }
-    return NULL;
-}
-*/
+
+
 PyObject *
 set_callback(PyObject* self, PyObject *args)
 {

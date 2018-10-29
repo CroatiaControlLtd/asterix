@@ -29,7 +29,7 @@
 class DataItem
 {
 public:
-  DataItem(DataItemDescription* pDesc, int description);
+  DataItem(DataItemDescription* pDesc);
   virtual
   ~DataItem();
 
@@ -44,13 +44,12 @@ public:
   fulliautomatix_data* getData(int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getData();
+  PyObject* getData(int verbose);
 #endif
 
 private:
   unsigned char* m_pData;
   long m_nLength;
-  int m_nDescription;
 
 };
 

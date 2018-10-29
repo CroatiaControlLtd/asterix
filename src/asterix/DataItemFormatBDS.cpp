@@ -214,14 +214,14 @@ fulliautomatix_data* DataItemFormatBDS::getData(unsigned char* pData, long len, 
 #endif
 
 #if defined(PYTHON_WRAPPER)
-PyObject* DataItemFormatBDS::getObject(unsigned char* pData, long nLength, int description)
+PyObject* DataItemFormatBDS::getObject(unsigned char* pData, long nLength, int verbose)
 {
 	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength, description);
+	insertToDict(p, pData, nLength, verbose);
 	return p;
 }
 
-void DataItemFormatBDS::insertToDict(PyObject* p, unsigned char* pData, long nLength, int description)
+void DataItemFormatBDS::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 {
 	if (nLength != 8)
 	{
@@ -240,7 +240,7 @@ void DataItemFormatBDS::insertToDict(PyObject* p, unsigned char* pData, long nLe
 		DataItemFormatFixed* pFixed = (DataItemFormatFixed*)(*it);
 		if (pFixed->m_nID == BDSid || pFixed->m_nID == 0)
 		{
-			pFixed->insertToDict(p, pData, 8, description);
+			pFixed->insertToDict(p, pData, 8, verbose);
 			break;
 		}
 		it++;
