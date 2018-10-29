@@ -20,7 +20,7 @@ Parse the packet with asterix module. It will return the list of Asterix records
 
 If you do not need description of items and meaning of bit values, you can disable the verbose mode, to just get values::
 
-    parsed = asterix.parse(asterix_packet, verbose=false)
+    parsed = asterix.parse(asterix_packet, verbose=False)
     print(parsed)
 
 parse_with_offset(data, offset=0, blocks_count=1000):

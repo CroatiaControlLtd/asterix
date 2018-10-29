@@ -34,7 +34,7 @@ Parse the raw Asterix file::
     with open(sample_filename, "rb") as f:
         data = f.read()
 
-        # Parse data description=True
+        # Parse data verbose=True
         print('Items with description')
         print('----------------------')
         parsed = asterix.parse(data)
@@ -44,7 +44,7 @@ Parse the raw Asterix file::
 
         print('Items without description')
         print('----------------------')
-        # Parse data description=False
+        # Parse data verbose=False
         parsed = asterix.parse(data, verbose=False)
         for packet in parsed:
             for item in packet.items():
