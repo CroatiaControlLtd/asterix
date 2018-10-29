@@ -105,14 +105,14 @@ def parse(data, **kwargs):
     Args:
         data: Bytes to be parsed
     Kwargs:
-        verbose=True: Show description, meaning, max and min values of item (default: true)
+        verbose=True: Show description, meaning, max and min values of item (default: True)
     Returns:
         list of asterix records
     """
-    if 'verbose' in kwargs:
-        verbose = kwargs['verbose']
+    if 'verbose' in kwargs and not kwargs['verbose']:
+        verbose = 0
     else:
-        verbose = True
+        verbose = 1
 
     if sys.version_info <= (2, 7):
         return _asterix.parse(buffer(data), verbose)
@@ -127,16 +127,16 @@ def parse_with_offset(data, offset=0, blocks_count=1000, **kwargs):
         offset: bytes offset
         blocks_count: number of blocks data to be returned
     Kwargs:
-        verbose=True: Show description, meaning, max and min values of item (default: true)
+        verbose=True: Show description, meaning, max and min values of item (default: True)
     Returns:
         tuple of two elements:
             list of asterix records
             bytes offset at ending of computation
     """
-    if 'verbose' in kwargs:
-        verbose = kwargs['verbose']
+    if 'verbose' in kwargs and not kwargs['verbose']:
+        verbose = 0
     else:
-        verbose = True
+        verbose = 1
 
     if sys.version_info <= (2, 7):
         return _asterix.parse_with_offset(buffer(data), offset, blocks_count, verbose)
