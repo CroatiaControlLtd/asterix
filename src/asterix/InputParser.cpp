@@ -44,7 +44,13 @@ AsterixData* InputParser::parsePacket(const unsigned char* m_pBuffer, unsigned i
   while(m_nPos < m_nBufferSize)
   {
     bool bOK = true;
-    m_nDataLength = m_nBufferSize;
+    m_nDataLength = m_nBufferSize-m_nPos;
+
+    if (m_nDataLength <= 3)
+    {
+        Tracer::Error("Not enough data for Asterix header (%d)", m_nDataLength);
+        break;
+    }
 
     while(bOK && m_nDataLength > 3)
     {

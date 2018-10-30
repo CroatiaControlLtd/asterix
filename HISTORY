@@ -156,3 +156,7 @@ Special characters ('Space' and ':') are now allowed in file names.
 2.4.4 (python_v0.5.6)
 12.10.2018.
 Possible bug with buffer overflow fixed
+
+2.4.5 (python_v0.5.8)
+30.10.2018.
+Possible bug with memory overflow fixed when input buffer longer then needed

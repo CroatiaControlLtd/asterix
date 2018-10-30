@@ -1223,10 +1223,10 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 				} else if (m_bIsConst) {
 					PyObject* k1 = Py_BuildValue("s", "val");
 					PyObject* v1 = Py_BuildValue("d", value);
+				    PyDict_SetItem(pValue, k1, v1);
 					Py_DECREF(k1);
 					Py_DECREF(v1);
 					if (verbose) {
-					    PyDict_SetItem(pValue, k1, v1);
 					    PyObject* k2 = Py_BuildValue("s", "const");
 					    PyObject* v2 = Py_BuildValue("k", m_nConst);
 					    PyDict_SetItem(pValue, k2, v2);
@@ -1336,6 +1336,5 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 				Py_DECREF(v1);
 				break;
 			}
-
 		}
 #endif

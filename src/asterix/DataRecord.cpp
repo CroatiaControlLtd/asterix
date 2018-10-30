@@ -361,7 +361,6 @@ fulliautomatix_data* DataRecord::getData(int byteoffset)
 #if defined(PYTHON_WRAPPER)
 PyObject* DataRecord::getData(int verbose)
 {
-	UAP* pUAP = m_pCategory->getUAP(m_pFSPECData, m_nFSPECLength);
 	PyObject*p = PyDict_New();
 
 	PyObject* k1 = Py_BuildValue("s", "category");
@@ -390,34 +389,25 @@ PyObject* DataRecord::getData(int verbose)
 	Py_DECREF(k4);
 	Py_DECREF(v4);
 
-	if (!pUAP)
-	{
-		Tracer::Error("UAP for CAT%03d not found!", m_pCategory->m_id);
-	}
-	else
-	{
-		// go through all present data items in this record
-		std::list<DataItem*>::iterator it;
-		for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
-		{
-			DataItem* di = (DataItem*)(*it);
-			if (di)
-			{
-				PyObject* v1 = di->getData(verbose);
-				char tmp[20];
-				snprintf(tmp, 20, "I%s", di->m_pDescription->m_strID.c_str());
+    if (m_bFormatOK)
+    {
+        // go through all present data items in this record
+        std::list<DataItem*>::iterator it;
+        for ( it=m_lDataItems.begin() ; it != m_lDataItems.end(); it++ )
+        {
+            DataItem* di = (DataItem*)(*it);
+            if (di)
+            {
+                PyObject* v1 = di->getData(verbose);
+                char tmp[20];
+                snprintf(tmp, 20, "I%s", di->m_pDescription->m_strID.c_str());
                 PyObject* k1 = Py_BuildValue("s", tmp);
-				PyDict_SetItem(p, k1, v1);
+                PyDict_SetItem(p, k1, v1);
                 Py_DECREF(k1);
-				Py_DECREF(v1);
-			}
-		}
-	}
-
-  if (!m_bFormatOK)
-  {
-    // TODO err
-  }
+                Py_DECREF(v1);
+            }
+        }
+    }
 
   return p;
 }
