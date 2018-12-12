@@ -17,6 +17,11 @@ install:
 - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make
   test;cd ..; fi
 - python setup.py install
+addons:
+  sonarcloud:
+    organization: "croatiacontrolltd"
+#    token:
+#      secure: ********* # encrypted value of your token
 script:
 - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then python -m unittest discover; fi
 - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
