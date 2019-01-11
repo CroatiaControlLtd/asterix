@@ -1094,7 +1094,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. Negative Value indicates “Left Wing Down”. 2. Resolution provided by the technology “1090 MHz Extended Squitter” is 1 degree.</DataItemNote>
+        <DataItemNote>1. Negative Value indicates Left Wing Down. 2. Resolution provided by the technology 1090 MHz Extended Squitter is 1 degree.</DataItemNote>
     </DataItem>
 
     <DataItem id="250" rule="mandatory">
@@ -1170,7 +1170,7 @@
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>IDENT</BitsShortName>
-                        <BitsName>Setting of “IDENT”-switch</BitsName>
+                        <BitsName>Setting of IDENT-switch</BitsName>
                         <BitsValue val="0">IDENT switch not active</BitsValue>
                         <BitsValue val="1">IDENT switch active</BitsValue>
                     </Bits>
@@ -1518,7 +1518,7 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>1. In all the subfields, the age is the time delay since the latest update received from the target. 2. In all the subfields, the maximum value indicates “maximum value or above”.</DataItemNote>
+        <DataItemNote>1. In all the subfields, the age is the time delay since the latest update received from the target. 2. In all the subfields, the maximum value indicates maximum value or above.</DataItemNote>
     </DataItem>
 
     <DataItem id="400" rule="optional">
@@ -1760,6 +1760,19 @@ TNH
         </DataItemNote>
     </DataItem>
 
+    <DataItem id="SP" rule="optional">
+        <DataItemName>Special Purpose</DataItemName>
+        <DataItemDefinition>Special information</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data length item">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SPval</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+    </DataItem>
 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
