@@ -160,3 +160,7 @@ Possible bug with buffer overflow fixed
 2.4.5 (python_v0.5.8)
 30.10.2018.
 Possible bug with memory overflow fixed when input buffer longer then needed
+
+2.4.6 (python_v0.5.9)
+08.02.2019.
+Fixes in asterix definition files for CAT021 and CAT001
