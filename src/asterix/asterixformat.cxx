@@ -33,6 +33,7 @@
 #include "asterixfinalsubformat.hxx"
 #include "asterixformatdescriptor.hxx"
 #include "asterixhdlcsubformat.hxx"
+#include "asterixgpssubformat.hxx"
 
 #include "Tracer.h"
 #include "XMLParser.h"
@@ -51,6 +52,7 @@ const char* CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
   "ASTERIX_ORADIS_RAW",
   "ASTERIX_ORADIS_PCAP",
   "ASTERIX_OUT",
+  "ASTERIX_GPS"
 };
 
 //CBaseFormatDescriptor* CAsterixFormat::m_pFormatDescriptor = NULL;
@@ -72,6 +74,8 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
           return CAsterixFinalSubformat::ReadPacket(formatDescriptor, device, discard);
       case EHDLC:
           return CAsterixHDLCSubformat::ReadPacket(formatDescriptor, device, discard);
+      case EGPS:
+          return CAsterixGPSSubformat::ReadPacket(formatDescriptor, device, discard);
       case EXML:
       case EJSON:
       case EJSONH:
@@ -102,6 +106,8 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
         return CAsterixFinalSubformat::WritePacket(formatDescriptor, device, discard); // TODO
       case EHDLC:
           return CAsterixHDLCSubformat::WritePacket(formatDescriptor, device, discard);//TODO
+      case EGPS:
+          return CAsterixGPSSubformat::WritePacket(formatDescriptor, device, discard);//TODO
       case EXML:
       {
 			static bool firstTime = true;
@@ -162,6 +168,8 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBas
         return CAsterixFinalSubformat::ProcessPacket(formatDescriptor, device, discard);
       case EHDLC:
         return CAsterixHDLCSubformat::ProcessPacket(formatDescriptor, device, discard);
+      case EGPS:
+        return CAsterixGPSSubformat::ProcessPacket(formatDescriptor, device, discard);
       case ETxt:
       case EXML:
       case EJSON:
@@ -194,6 +202,8 @@ bool CAsterixFormat::HeartbeatProcessing(
         return CAsterixFinalSubformat::Heartbeat(formatDescriptor, device);
     case EHDLC:
         return CAsterixHDLCSubformat::Heartbeat(formatDescriptor, device);
+    case EGPS:
+        return CAsterixGPSSubformat::Heartbeat(formatDescriptor, device);
     case ETxt:
     case EXML:
     case EJSON:

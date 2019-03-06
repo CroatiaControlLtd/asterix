@@ -74,6 +74,7 @@ static void show_usage(std::string name)
 			  << "\n\t-O,--oradis\tAsterix packet is encapsulated in ORADIS packet."
 			  << "\n\t-F,--final\tAsterix packet is encapsulated in FINAL packet."
 			  << "\n\t-H,--hdlc\tAsterix packet is encapsulated in HDLC packet."
+			  << "\n\t-G,--gps\tAsterix packet is encapsulated in GPS packet."
 			  << "\n\nOutput format"
 			  << "\n------------"
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
@@ -183,6 +184,15 @@ int main(int argc, const char *argv[])
 				return 1;
 			}
 			strInputFormat = "ASTERIX_HDLC";
+		}
+		else if ((arg == "-G") || (arg == "--gps"))
+		{
+			if (strInputFormat != "ASTERIX_RAW")
+			{
+				std::cerr << "Error: Option -H not allowed because input format already defined as "+strInputFormat << std::endl;
+				return 1;
+			}
+			strInputFormat = "ASTERIX_GPS";
 		}
 		else if ((arg == "-l") || (arg == "--line"))
 		{

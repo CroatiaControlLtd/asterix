@@ -51,7 +51,8 @@ public:
       m_bInvertByteOrder(true),
       m_pBuffer(NULL),
       m_nBufferSize(0),
-      m_nDataSize(0)
+      m_nDataSize(0),
+      m_nTimeStamp(0)
     {
     }
 
@@ -131,6 +132,7 @@ private:
     const unsigned char* m_pBuffer; // input buffer
     unsigned int m_nBufferSize; // input buffer size
     unsigned int m_nDataSize; // size of data in buffer
+    unsigned long m_nTimeStamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
 };
 
 #endif
