@@ -55,6 +55,7 @@ public:
   EOradisRaw,     // Raw Asterix format with ORADIS header
   EOradisPcap,    // PCAP file format with ORADIS header
   EOut,           // textual output (one line text, easy for parsing)
+  EGPS,           // GPS (timestamped datablocks + 2200 bytes header)
   ETotalFormats
   };
 

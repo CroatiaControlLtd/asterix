@@ -59,7 +59,8 @@ OBJS = AsterixData.o \
 	asterixpcapsubformat.o \
 	asterixfinalsubformat.o \
 	asterixhdlcsubformat.o \
-	asterixhdlcparsing.o
+	asterixhdlcparsing.o \
+	asterixgpssubformat.o
 	
 OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
