@@ -14,5 +14,6 @@ $exec -d $config -R -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filt
 $exec -d $config -R -l -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filter.txt > "../sample_output/cat_001_002_line.txt"
 $exec -d $config -P -f ../sample_data/cat_034_048.pcap -LF ../sample_output/filter.txt > "../sample_output/cat_034_048_filtered.txt"
 $exec -d $config -P -f ../sample_data/cat_034_048.pcap > "../sample_output/cat_034_048.txt"
+$exec -d $config -G -f ../sample_data/parsegps.gps > "../sample_output/parsegps.txt"
 
 echo Done

@@ -40,11 +40,12 @@ test_compare "Test txt CAT_001_002" "$exec -d $config -R -f ../sample_data/cat_0
 test_compare "Test line CAT_001_002" "$exec -d $config -R -l -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filter.txt" "../sample_output/cat_001_002_line.txt"
 test_compare "Test filtered txt CAT_034_048" "$exec -d $config -P -f ../sample_data/cat_034_048.pcap -LF ../sample_output/filter.txt" "../sample_output/cat_034_048_filtered.txt"
 test_compare "Test unfiltered txt CAT_034_048" "$exec -d $config -P -f ../sample_data/cat_034_048.pcap" "../sample_output/cat_034_048.txt"
-
+test_compare "Test GPS parsing" "$exec -d $config -G -f ../sample_data/parsegps.gps" "../sample_output/parsegps.txt"
 
 
 #test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
-test_output  "Test Memory leak with valgrind" "valgrind --leak-check=full --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
+test_output  "Test Memory leak with valgrind (1)" "valgrind --leak-check=full --error-exitcode=1 $execd -P -d $config -f ../sample_data/cat_062_065.pcap -jh" "0"
+test_output  "Test Memory leak with valgrind (2)" "valgrind --leak-check=full --error-exitcode=1 $execd -G -d $config -f ../sample_data/parsegps.gps -jh" "0"
 
 
 if [ "$failedtests" == "0" ]; then

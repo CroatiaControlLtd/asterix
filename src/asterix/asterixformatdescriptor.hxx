@@ -113,6 +113,16 @@ public:
       m_nDataSize = len;
     }
 
+    // used only when format is GPS
+    unsigned long GetTimeStamp()
+    {
+      return m_nTimeStamp;
+    }
+
+    void SetTimeStamp(unsigned long ts)
+    {
+      m_nTimeStamp = ts;
+    }
 
     // used only in PCAP (TODO)
     typedef enum

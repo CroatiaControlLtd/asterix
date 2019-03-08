@@ -24,10 +24,6 @@ CAT001:I050:G
 CAT001:I050:L                                                
 CAT001:I050:spare                                            spare bit set to 0
 CAT001:I050:Mode2                                            Mode-2 code
-CAT001:I055:V                                                
-CAT001:I055:G                                                
-CAT001:I055:L                                                
-CAT001:I055:Mode1                                            Mode-1 code
 CAT001:I060:spare                                            spares bit set to 0
 CAT001:I060:QA4                                              
 CAT001:I060:QA2                                              
@@ -41,12 +37,6 @@ CAT001:I060:QC1
 CAT001:I060:QD4                                              
 CAT001:I060:QD2                                              
 CAT001:I060:QD1                                              
-CAT001:I065:spare                                            spares bit set to 0
-CAT001:I065:QA4                                              
-CAT001:I065:QA2                                              
-CAT001:I065:QA1                                              
-CAT001:I065:QB2                                              
-CAT001:I065:QB1                                              
 CAT001:I070:V                                                
 CAT001:I070:G                                                
 CAT001:I070:L                                                
@@ -112,6 +102,8 @@ CAT001:I200:CalcGS                                           Calculated groundsp
 CAT001:I200:CalcHdg                                          Calculated heading
 CAT001:I210:Qty                                              Quality indicator
 CAT001:I210:FX                                               
+CAT001:ISP:SPval                                             
+CAT001:IRFS:RFSval                                           
 CAT002:I000:type                                             Message Type
 CAT002:I010:SAC                                              System Area Code
 CAT002:I010:SIC                                              System Identification Code
@@ -550,7 +542,7 @@ CAT021:I008:TS                                               Target State Report
 CAT021:I008:ARV                                              Air-Referenced Velocity Report Capability
 CAT021:I008:CDTI_A                                           Cockpit Display of Traffic Information airborne
 CAT021:I008:not_TCAS                                         TCAS System Status
-CAT021:I008:spare                                            spare bit, set to 0
+CAT021:I008:SA                                               Single Antenna
 CAT021:I010:SAC                                              System Area Code
 CAT021:I010:SIC                                              System Identification Code
 CAT021:I015:id                                               Service Identification
@@ -568,8 +560,8 @@ CAT021:I040:TST                                              Test Target
 CAT021:I040:SAA                                              Selected Altitude Available
 CAT021:I040:CL                                               Confidence Level
 CAT021:I040:FX                                               Field Extension
-CAT021:I040:EC7                                              Error Condition 7
-CAT021:I040:EC6                                              Error Condition 6
+CAT021:I040:spare                                            Spare bits set to 0
+CAT021:I040:LLC                                              List Lookup Check
 CAT021:I040:IPC                                              Independent Position Check
 CAT021:I040:NOGO                                             No-go Bit Status
 CAT021:I040:CPR                                              Compact Position Reporting
@@ -590,11 +582,19 @@ CAT021:I077:time_report_transmission                         Time of ASTERIX Rep
 CAT021:I080:TAddr                                            Target Address
 CAT021:I090:NUCr_or_NACv                                     Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity
 CAT021:I090:NUCp_or_NIC                                      Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC.
-CAT021:I090:FX                                               
+CAT021:I090:FX                                               Extension Indicator
 CAT021:I090:NICbaro                                          Navigation Integrity Category for Barometric Altitude
-CAT021:I090:SIL                                              Surveillance Integrity Level
+CAT021:I090:SIL                                              Surveillance (version 1) or Source (version 2) Integrity Level
 CAT021:I090:NACp                                             Navigation Accuracy Category for Position
-CAT021:I090:FX                                               
+CAT021:I090:FX                                               Extension Indicator
+CAT021:I090:spare                                            Spare bits set to 0
+CAT021:I090:SILS                                             
+CAT021:I090:SDA                                              Horizontal Position System Design Assurance Level (as defined in version 2)
+CAT021:I090:GVA                                              Geometric Altitude Accuracy
+CAT021:I090:FX                                               Extension Indicator
+CAT021:I090:PIC                                              Position Integrity Category
+CAT021:I090:spare                                            Spare bits set to 0
+CAT021:I090:FX                                               Extension Indicator
 CAT021:I110:NAV                                              NAV
 CAT021:I110:NVB                                              NVB
 CAT021:I110:spare                                            Spare bits set to zero
@@ -642,7 +642,9 @@ CAT021:I161:TrackN                                           Track number
 CAT021:I165:spare                                            Spare bits set to zero
 CAT021:I165:TA_rate                                          Track Angle Rate
 CAT021:I170:TId                                              Characters 1-8 (coded on 6 Bits each) defining target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in [6] Section 3.1.2.9.1.2 and Table 3-9.
-CAT021:I200:spare                                            Spare bits set to zero
+CAT021:I200:ICF                                              Intent Change Flag
+CAT021:I200:LNAV                                             LNAV Mode
+CAT021:I200:ME                                               Military emergency
 CAT021:I200:PS                                               Priority Status
 CAT021:I200:SS                                               Surveillance Status
 CAT021:I210:spare                                            Spare bits set to zero
@@ -657,39 +659,47 @@ CAT021:I230:RollA                                            Roll Angle
 CAT021:I250:MB                                               (MB Data) 56-bit message conveying Mode S Comm B message data
 CAT021:I250:BDS1                                             Comm B Data Buffer Store 1 Address
 CAT021:I250:BDS2                                             Comm B Data Buffer Store 2 Address
-CAT021:I260:ARA                                              Information conveyed in an active ACAS Resoulution Advisory.
+CAT021:I260:TYP                                              Message Type
+CAT021:I260:STYP                                             Message Sub-Type
+CAT021:I260:ARA                                              Active Resolution Advisories
+CAT021:I260:RAC                                              RAC (RA Complement) Record
+CAT021:I260:RAT                                              RA Terminated
+CAT021:I260:MTE                                              Multiple Threat Encounter
+CAT021:I260:TTI                                              Threat Type Indicator
+CAT021:I260:TID                                              Threat Identity Data
 CAT021:I271:spare                                            Spare bits set to zero
 CAT021:I271:POA                                              Position Offset Applied
 CAT021:I271:CDTI_S                                           Cockpit Display of Traffic Information Surface
 CAT021:I271:B2_low                                           Class B2 transmit power less than 70 Watts
 CAT021:I271:RAS                                              Receiving ATC Services
-CAT021:I271:IDENT                                            Setting of “IDENT”-switch
+CAT021:I271:IDENT                                            Setting of 'IDENT'-switch
 CAT021:I271:FX                                               FX Extension indicator
+CAT021:I271:LW                                               Length and width of the aircraft
 CAT021:I271:spare                                            Spare bits set to zero
-CAT021:I271:length_width                                     Length and width of the aircraft
+CAT021:I271:FX                                               Extension indicator
 CAT021:I295:AOS                                              Age of the latest received information transmitted in item I021/008.
-CAT021:I295:TRD                                              Age of the last update of the Target Report Descriptor, item I021/040
-CAT021:I295:M3A                                              Age of the last update of the Mode 3/A Code, item I021/070
-CAT021:I295:QI                                               Age of the latest information received to update the Quality Indicators, item I021/090
-CAT021:I295:TI                                               Age of the last update of the Trajectory Intent information updating item I021/110
-CAT021:I295:MAM                                              Age of the latest measurement of the message amplitude, item I021/132
-CAT021:I295:GH                                               Age of the information contained in item 021/140
-CAT021:I295:FL                                               Age of the Flight Level information in item I021/145
-CAT021:I295:ISA                                              Age of the Intermediate State Selected Altitude in item I021/146
-CAT021:I295:FSA                                              Age of the Final State Selected Altitude in item I021/148
-CAT021:I295:AS                                               Age of the Air Speed contained in item I021/150
-CAT021:I295:TAS                                              Age of the value for the True Air Speed in item I021/151
-CAT021:I295:MH                                               Age of the value for the Magnetic Heading in item I021/152
-CAT021:I295:BVR                                              Age of the Barometric Vertical Rate contained in I021/155
-CAT021:I295:GVR                                              Age of the Geometric Vertical Rate in item I021/157
-CAT021:I295:GV                                               Age of the Ground Vector in item I021/160
-CAT021:I295:TAR                                              Age of item I021/165 Track Angle Rate
-CAT021:I295:TI                                               Age of the Target Identification in item I021/170
-CAT021:I295:TS                                               Age of the Target Status as contained in item I021/200
-CAT021:I295:MET                                              Age of the Meteorological data contained in I021/220
-CAT021:I295:ROA                                              Age of the Roll Angle value as in item I021/230
-CAT021:I295:ARA                                              Age of the latest update of an active ACAS Resolution Advisory
-CAT021:I295:SCC                                              Age of the latest information received on the surface capabilities and characteristics of the respective target
+CAT021:I295:TRD                                              Age of the Target Report Descriptor, item I021/040
+CAT021:I295:M3A                                              Age of the Mode 3/A Code, item I021/070
+CAT021:I295:QI                                               Age of the Quality Indicators, item I021/090
+CAT021:I295:TI                                               Age of the Trajectory Intent information, item I021/110
+CAT021:I295:MAM                                              Age of the message amplitude, item I021/132
+CAT021:I295:GH                                               Age of the Geometric Height, item 021/140
+CAT021:I295:FL                                               Age of the Flight Level, item I021/145
+CAT021:I295:ISA                                              Age of the Intermediate State Selected Altitude, item I021/146
+CAT021:I295:FSA                                              Age of the Final State Selected Altitude, item I021/148
+CAT021:I295:AS                                               Age of the Air Speed contained, item I021/150
+CAT021:I295:TAS                                              Age of the value for the True Air Speed, item I021/151
+CAT021:I295:MH                                               Age of the value for the Magnetic Heading, item I021/152
+CAT021:I295:BVR                                              Age of the Barometric Vertical Rate contained, I021/155
+CAT021:I295:GVR                                              Age of the Geometric Vertical Rate, item I021/157
+CAT021:I295:GV                                               Age of the Ground Vector, item I021/160
+CAT021:I295:TAR                                              Age of the Track Angle Rate, item I021/165
+CAT021:I295:TI                                               Age of the Target Identification, item I021/170
+CAT021:I295:TS                                               Age of the Target Status as contained, item I021/200
+CAT021:I295:MET                                              Age of the Meteorological information, I021/220
+CAT021:I295:ROA                                              Age of the Roll Angle, item I021/230
+CAT021:I295:ARA                                              Age of the latest update of an active ACAS Resolution Advisory, item I021/260
+CAT021:I295:SCC                                              Age of the information on the surface capabilities and characteristics of the respective target, item I021/271
 CAT021:I400:RID                                              Receiver ID
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:BPS                                               Barometric Pressure Setting
@@ -716,6 +726,7 @@ CAT021:IRE:UAT                                               UAT capability
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:TNH                                               Magnetic Heading
+CAT021:ISP:SPval                                             
 CAT030:I010:SAC                                              System Area Code
 CAT030:I010:SIC                                              System Identification Code
 CAT030:I015:UserN                                            User number

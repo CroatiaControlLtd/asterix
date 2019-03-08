@@ -171,10 +171,16 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 				LOGERROR(1, "Couldn't read GPS post bytes.\n");
 				return false;
 			}
-			/*
-			LOGERROR(1, "%02X %02X %02X %02X %02X %02X %02X %02X\n", GPSPost[0], GPSPost[1],
-			    GPSPost[2], GPSPost[3], GPSPost[4], GPSPost[5], GPSPost[6], GPSPost[7]);
-			*/
+
+			float fTimeStamp = ((GPSPost[6]<<16) + (GPSPost[7]<<8) + (GPSPost[8])) / 128.0;
+			unsigned long nTimeStamp = ((long)fTimeStamp) * 1000 + (fTimeStamp - ((long)fTimeStamp)) * 1000;
+#ifdef _DEBUG
+			LOGERROR(1, "GPS Bytes [%02X %02X %02X %02X %02X %02X %02X %02X %02X %02X]\n", GPSPost[0], GPSPost[1],
+			    GPSPost[2], GPSPost[3], GPSPost[4], GPSPost[5], GPSPost[6], GPSPost[7],
+			    GPSPost[8], GPSPost[9]);
+			LOGERROR(1, "GPS Timestamp [%3.4f]\n", fTimeStamp);
+#endif
+			Descriptor.SetTimeStamp(nTimeStamp);
 
 		}
 	}
@@ -207,14 +213,15 @@ bool CAsterixGPSSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 		Descriptor.m_pAsterixData = NULL;
 	}
 
-	// get current timstamp in ms since midnight
-	struct timeval tp;
-	gettimeofday(&tp, NULL);
-	unsigned long nTimestamp = (tp.tv_sec % 86400) * 1000 + tp.tv_usec / 1000;
-
 	// parse packet
 	if (oradis)
 	{
+
+		// get current timstamp in ms since midnight
+		struct timeval tp;
+		gettimeofday(&tp, NULL);
+		unsigned long nTimestamp = (tp.tv_sec % 86400) * 1000 + tp.tv_usec / 1000;
+
 		unsigned char* pPacketPtr = (unsigned char*) Descriptor.GetBuffer();
 		int m_nDataLength = Descriptor.GetBufferLen();
 
@@ -258,7 +265,8 @@ bool CAsterixGPSSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 	}
 	else
 	{
-		Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetBufferLen(), nTimestamp);
+		unsigned long nTimeStamp = Descriptor.GetTimeStamp();
+		Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetBufferLen(), nTimeStamp);
 	}
 
 	return true;
