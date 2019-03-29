@@ -1,0 +1,1484 @@
+
+
+-------------------------
+Data Block 1
+Category: 48
+Len: 56
+-------------------------
+Data Record 1
+Len: 56
+CRC: 88D5ACB5
+Timestamp: 2179
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 00 BE ]
+	Time Of Day: 190 (1.4843750 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3D 64 A8 DC ]
+	RHO: 15716 (61.3906250 NM)
+	THETA: 43228 (237.4584961 deg)
+
+Item 070 : Mode-3/A Code
+[ 0B 0E ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 5416
+
+Item 090 : Flight Level
+[ 05 00 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 1280 (320.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 11 02 C3 ]
+	SSR Plot Runlength: 17 (0.7470703 deg)
+	SSR-Number of received reply: 2
+	SSR-Reply amplitude: -61 (-61.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 02 BE 80 00 30 A4 00 00 40 CC 3A 5F 33 FF E4 00 60 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Heading Status: 1
+	Magnetic Heading: -829 (-145.7226562 deg)
+	Indicated Airspeed Status: 1
+	Indicated Airspeed: 303 (303.0000000 kt)
+	Mach Speed Status: 1
+	Mach Speed: 207 (0.8280000 MACH)
+	Barometric Altitude Rate Status: 1
+	Barometric Altitude Rate: -4 (-128.0000000 ft/min)
+	Inertial Vertical Velocity Status: 1
+	Inertial Vertical Velocity: 0 (0.0000000 ft/min)
+	BDS register: 60
+
+Item 161 : Track Number
+[ 06 DC ]
+	Track Number: 1756
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 09 C8 92 3F ]
+	Calculated groundspeed: 2504 (550.8800000 kt)
+	Calculated heading: 37439 (205.6585693 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
+
+-------------------------
+Data Block 2
+Category: 48
+Len: 62
+-------------------------
+Data Record 1
+Len: 39
+CRC: 533E14EB
+Timestamp: 2679
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 01 00 ]
+	Time Of Day: 256 (2.0000000 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 15 C9 AB ]
+	RHO: 12565 (49.0820312 NM)
+	THETA: 51627 (283.5955811 deg)
+
+Item 070 : Mode-3/A Code
+[ 0F FF ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 7777
+
+Item 090 : Flight Level
+[ 00 F0 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 240 (60.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 18 04 BB ]
+	SSR Plot Runlength: 24 (1.0546875 deg)
+	SSR-Number of received reply: 4
+	SSR-Reply amplitude: -69 (-69.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+
+Item 161 : Track Number
+[ 03 0A ]
+	Track Number: 778
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 01 2A 56 ]
+	Calculated groundspeed: 1 (0.2200000 kt)
+	Calculated heading: 10838 (59.5349121 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 A0 ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 0 (100ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 0
+	BDS 1,0 bits 37/40: 0
+-------------------------
+Data Record 2
+Len: 23
+CRC: 9BC604DF
+Timestamp: 2679
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 01 24 ]
+	Time Of Day: 292 (2.2812500 s)
+
+Item 020 : Target Report Descriptor
+[ 21 80 ]
+	TYP: 1 (Single PSR detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 1 (Extension into first extent)
+	TST: 1 (Test target report)
+	spare bit set to 0: 0
+	XPP: 0 (No X-Pulse present)
+	ME: 0 (Default)
+	MI: 0 (Default)
+	FOE/FRI: 0 (No mode 4 interrogation)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC 8B ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56459 (310.1385498 deg)
+
+Item 130 : Radar Plot Characteristics
+[ 18 14 00 ]
+	Primary Plot Runlength: 20 (0.8789062 deg)
+	Amplitude of Primary plot: 0 (0.0000000 dBm)
+
+Item 161 : Track Number
+[ 00 17 ]
+	Track Number: 23
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 00 00 00 ]
+	Calculated groundspeed: 0 (0.0000000 kt)
+	Calculated heading: 0 (0.0000000 deg)
+
+Item 170 : Track Status
+[ 20 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 3
+Category: 34
+Len: 16
+-------------------------
+Data Record 1
+Len: 16
+CRC: 9B2D589E
+Timestamp: 2882
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+Item 030 : Time of Day
+[ 00 01 6E ]
+	Time of day: 366 (2.8593750 s)
+
+Item 041 : Antenna Rotation Speed
+[ 02 01 ]
+	Antenna rotation speed: 513 (4.0078125 s)
+
+Item 050 : System Configuration and Status
+[ 98 40 40 40 ]
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
+	spare bit set to 0: 0
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 2 (Channel B only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 2 (Channel B only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+
+Item 060 : System Processing Mode
+[ 90 00 88 ]
+	spare bit set to 0: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
+	spare bit set to 0: 0
+	Polarization in use by PSR: 1 (Circular)
+	Reduction Steps in use as result of an overload within the PSR subsystem: 0 (No reduction active)
+	Sensitivity Time Control Map in use: 2 (STC Map-3)
+	spare bit set to 0: 0
+
+-------------------------
+Data Block 4
+Category: 48
+Len: 56
+-------------------------
+Data Record 1
+Len: 56
+CRC: EDE5988B
+Timestamp: 4132
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 01 BC ]
+	Time Of Day: 444 (3.4687500 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 82 24 27 CC ]
+	RHO: 33316 (130.1406250 NM)
+	THETA: 10188 (55.9643555 deg)
+
+Item 070 : Mode-3/A Code
+[ 01 16 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 0426
+
+Item 090 : Flight Level
+[ 01 97 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 407 (101.7500000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 56 0A BA ]
+	SSR Plot Runlength: 86 (3.7792969 deg)
+	SSR-Number of received reply: 10
+	SSR-Reply amplitude: -70 (-70.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 84 80 00 31 6C 00 00 40 CF CA 0B 1D BF 2F E8 60 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Heading Status: 1
+	Magnetic Heading: -772 (-135.7031250 deg)
+	Indicated Airspeed Status: 1
+	Indicated Airspeed: 261 (261.0000000 kt)
+	Mach Speed Status: 1
+	Mach Speed: 118 (0.4720000 MACH)
+	Barometric Altitude Rate Status: 1
+	Barometric Altitude Rate: -27 (-864.0000000 ft/min)
+	Inertial Vertical Velocity Status: 1
+	Inertial Vertical Velocity: -24 (-768.0000000 ft/min)
+	BDS register: 60
+
+Item 161 : Track Number
+[ 06 21 ]
+	Track Number: 1569
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 06 24 8F 17 ]
+	Calculated groundspeed: 1572 (345.8400000 kt)
+	Calculated heading: 36631 (201.2200928 deg)
+
+Item 170 : Track Status
+[ 4E ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 1 (Horizontal manoeuvring sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
+
+-------------------------
+Data Block 5
+Category: 48
+Len: 22
+-------------------------
+Data Record 1
+Len: 22
+CRC: 7BE12B5E
+Timestamp: 4484
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 01 E5 ]
+	Time Of Day: 485 (3.7890625 s)
+
+Item 020 : Target Report Descriptor
+[ 20 ]
+	TYP: 1 (Single PSR detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 06 3B 3C E6 ]
+	RHO: 1595 (6.2304688 NM)
+	THETA: 15590 (85.6384277 deg)
+
+Item 130 : Radar Plot Characteristics
+[ 18 18 2A ]
+	Primary Plot Runlength: 24 (1.0546875 deg)
+	Amplitude of Primary plot: 42 (42.0000000 dBm)
+
+Item 161 : Track Number
+[ 07 DA ]
+	Track Number: 2010
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 01 A0 C9 C7 ]
+	Calculated groundspeed: 416 (91.5200000 kt)
+	Calculated heading: 51655 (283.7493896 deg)
+
+Item 170 : Track Status
+[ 20 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 6
+Category: 48
+Len: 48
+-------------------------
+Data Record 1
+Len: 48
+CRC: C9BC8A66
+Timestamp: 6187
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 02 BF ]
+	Time Of Day: 703 (5.4921875 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3D E8 A8 AF ]
+	RHO: 15848 (61.9062500 NM)
+	THETA: 43183 (237.2113037 deg)
+
+Item 070 : Mode-3/A Code
+[ 0B 0E ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 5416
+
+Item 090 : Flight Level
+[ 05 00 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 1280 (320.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 11 02 C4 ]
+	SSR Plot Runlength: 17 (0.7470703 deg)
+	SSR-Number of received reply: 2
+	SSR-Reply amplitude: -60 (-60.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 01 BE 80 00 30 A4 00 00 40 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+Item 161 : Track Number
+[ 06 DC ]
+	Track Number: 1756
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 09 C3 92 5D ]
+	Calculated groundspeed: 2499 (549.7800000 kt)
+	Calculated heading: 37469 (205.8233643 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
+
+-------------------------
+Data Block 7
+Category: 48
+Len: 62
+-------------------------
+Data Record 1
+Len: 39
+CRC: 562EF362
+Timestamp: 6687
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 03 01 ]
+	Time Of Day: 769 (6.0078125 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 17 C9 AC ]
+	RHO: 12567 (49.0898438 NM)
+	THETA: 51628 (283.6010742 deg)
+
+Item 070 : Mode-3/A Code
+[ 0F FF ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 7777
+
+Item 090 : Flight Level
+[ 00 F0 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 240 (60.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 10 03 BB ]
+	SSR Plot Runlength: 16 (0.7031250 deg)
+	SSR-Number of received reply: 3
+	SSR-Reply amplitude: -69 (-69.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+
+Item 161 : Track Number
+[ 03 0A ]
+	Track Number: 778
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 01 FD 0A ]
+	Calculated groundspeed: 1 (0.2200000 kt)
+	Calculated heading: 64778 (355.8361816 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 A0 ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 0 (100ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 0
+	BDS 1,0 bits 37/40: 0
+-------------------------
+Data Record 2
+Len: 23
+CRC: 0DEA9B9A
+Timestamp: 6687
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 03 24 ]
+	Time Of Day: 804 (6.2812500 s)
+
+Item 020 : Target Report Descriptor
+[ 21 80 ]
+	TYP: 1 (Single PSR detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 1 (Extension into first extent)
+	TST: 1 (Test target report)
+	spare bit set to 0: 0
+	XPP: 0 (No X-Pulse present)
+	ME: 0 (Default)
+	MI: 0 (Default)
+	FOE/FRI: 0 (No mode 4 interrogation)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC 84 ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56452 (310.1000977 deg)
+
+Item 130 : Radar Plot Characteristics
+[ 18 14 00 ]
+	Primary Plot Runlength: 20 (0.8789062 deg)
+	Amplitude of Primary plot: 0 (0.0000000 dBm)
+
+Item 161 : Track Number
+[ 00 17 ]
+	Track Number: 23
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 00 00 00 ]
+	Calculated groundspeed: 0 (0.0000000 kt)
+	Calculated heading: 0 (0.0000000 deg)
+
+Item 170 : Track Status
+[ 20 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 8
+Category: 34
+Len: 16
+-------------------------
+Data Record 1
+Len: 16
+CRC: 2C838A61
+Timestamp: 6882
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+Item 030 : Time of Day
+[ 00 03 6F ]
+	Time of day: 879 (6.8671875 s)
+
+Item 041 : Antenna Rotation Speed
+[ 02 01 ]
+	Antenna rotation speed: 513 (4.0078125 s)
+
+Item 050 : System Configuration and Status
+[ 98 40 40 40 ]
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
+	spare bit set to 0: 0
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 2 (Channel B only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 2 (Channel B only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+
+Item 060 : System Processing Mode
+[ 90 00 88 ]
+	spare bit set to 0: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
+	spare bit set to 0: 0
+	Polarization in use by PSR: 1 (Circular)
+	Reduction Steps in use as result of an overload within the PSR subsystem: 0 (No reduction active)
+	Sensitivity Time Control Map in use: 2 (STC Map-3)
+	spare bit set to 0: 0
+
+-------------------------
+Data Block 9
+Category: 48
+Len: 56
+-------------------------
+Data Record 1
+Len: 56
+CRC: 991B6C90
+Timestamp: 8132
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 03 BD ]
+	Time Of Day: 957 (7.4765625 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 81 CF 27 DD ]
+	RHO: 33231 (129.8085938 NM)
+	THETA: 10205 (56.0577393 deg)
+
+Item 070 : Mode-3/A Code
+[ 01 16 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 0426
+
+Item 090 : Flight Level
+[ 01 96 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 406 (101.5000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 4E 09 B9 ]
+	SSR Plot Runlength: 78 (3.4277344 deg)
+	SSR-Number of received reply: 9
+	SSR-Reply amplitude: -71 (-71.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 84 80 00 31 6C 00 00 40 80 39 AD 27 3F FC 98 50 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Roll Angle Status: 1
+	Roll Angle: 1 (0.1757812 deg)
+	True Track Angle Status: 1
+	True Track Angle: -810 (-142.3828125 deg)
+	Ground Speed Status: 1
+	Ground Speed: 156 (312.0000000 kt)
+	Track Angle Rate Status: 1
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
+	True Airspeed Status: 1
+	True Airspeed: 152 (304.0000000 kt)
+	BDS register: 50
+
+Item 161 : Track Number
+[ 06 21 ]
+	Track Number: 1569
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 06 28 8F 3F ]
+	Calculated groundspeed: 1576 (346.7200000 kt)
+	Calculated heading: 36671 (201.4398193 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
+
+-------------------------
+Data Block 10
+Category: 48
+Len: 12
+-------------------------
+Data Record 1
+Len: 12
+CRC: C668DDC1
+Timestamp: 8132
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 04 0A ]
+	Time Of Day: 1034 (8.0781250 s)
+
+Item 020 : Target Report Descriptor
+[ 00 ]
+	TYP: 0 (No detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 161 : Track Number
+[ 07 DA ]
+	Track Number: 2010
+
+Item 170 : Track Status
+[ 21 80 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 1 (Extension into first extent)
+	TRE: 1 (Last report for a track)
+	GHO: 0 (True target track)
+	SUP: 0 (Track from cluster network - NO)
+	TCC: 0 (Radar plane)
+	spare bits set to 0: 0
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 11
+Category: 48
+Len: 22
+-------------------------
+Data Record 1
+Len: 22
+CRC: DC171C3A
+Timestamp: 9382
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 04 54 ]
+	Time Of Day: 1108 (8.6562500 s)
+
+Item 020 : Target Report Descriptor
+[ 20 ]
+	TYP: 1 (Single PSR detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 16 F1 74 93 ]
+	RHO: 5873 (22.9414062 NM)
+	THETA: 29843 (163.9324951 deg)
+
+Item 130 : Radar Plot Characteristics
+[ 18 05 43 ]
+	Primary Plot Runlength: 5 (0.2197266 deg)
+	Amplitude of Primary plot: 67 (67.0000000 dBm)
+
+Item 161 : Track Number
+[ 05 D5 ]
+	Track Number: 1493
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 01 4B AC BE ]
+	Calculated groundspeed: 331 (72.8200000 kt)
+	Calculated heading: 44222 (242.9187012 deg)
+
+Item 170 : Track Status
+[ A0 ]
+	CNF: 1 (Tentative Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 12
+Category: 48
+Len: 56
+-------------------------
+Data Record 1
+Len: 56
+CRC: A4BB5FDC
+Timestamp: 10179
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 04 BF ]
+	Time Of Day: 1215 (9.4921875 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3E 6E A8 7D ]
+	RHO: 15982 (62.4296875 NM)
+	THETA: 43133 (236.9366455 deg)
+
+Item 070 : Mode-3/A Code
+[ 0B 0E ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 5416
+
+Item 090 : Flight Level
+[ 05 00 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 1280 (320.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 19 04 C2 ]
+	SSR Plot Runlength: 25 (1.0986328 deg)
+	SSR-Number of received reply: 4
+	SSR-Reply amplitude: -62 (-62.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 02 BE 80 00 30 A4 00 00 40 80 39 29 44 40 04 F7 50 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Roll Angle Status: 1
+	Roll Angle: 1 (0.1757812 deg)
+	True Track Angle Status: 1
+	True Track Angle: -876 (-153.9843750 deg)
+	Ground Speed Status: 1
+	Ground Speed: 273 (546.0000000 kt)
+	Track Angle Rate Status: 0
+	Track Angle Rate: 0 (0.0000000 deg/sec)
+	True Airspeed Status: 1
+	True Airspeed: 247 (494.0000000 kt)
+	BDS register: 50
+
+Item 161 : Track Number
+[ 06 DC ]
+	Track Number: 1756
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 09 C2 92 67 ]
+	Calculated groundspeed: 2498 (549.5600000 kt)
+	Calculated heading: 37479 (205.8782959 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
+
+-------------------------
+Data Block 13
+Category: 48
+Len: 62
+-------------------------
+Data Record 1
+Len: 39
+CRC: 51872D84
+Timestamp: 10679
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 05 02 ]
+	Time Of Day: 1282 (10.0156250 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 17 C9 AA ]
+	RHO: 12567 (49.0898438 NM)
+	THETA: 51626 (283.5900879 deg)
+
+Item 070 : Mode-3/A Code
+[ 0F FF ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 7777
+
+Item 090 : Flight Level
+[ 00 F0 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 240 (60.0000000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 10 03 BB ]
+	SSR Plot Runlength: 16 (0.7031250 deg)
+	SSR-Number of received reply: 3
+	SSR-Reply amplitude: -69 (-69.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+
+Item 161 : Track Number
+[ 03 0A ]
+	Track Number: 778
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 00 C2 F2 ]
+	Calculated groundspeed: 0 (0.0000000 kt)
+	Calculated heading: 49906 (274.1418457 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 A0 ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 0 (100ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 0
+	BDS 1,0 bits 37/40: 0
+-------------------------
+Data Record 2
+Len: 23
+CRC: D4B6C0FE
+Timestamp: 10679
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 05 25 ]
+	Time Of Day: 1317 (10.2890625 s)
+
+Item 020 : Target Report Descriptor
+[ 21 80 ]
+	TYP: 1 (Single PSR detection)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 1 (Extension into first extent)
+	TST: 1 (Test target report)
+	spare bit set to 0: 0
+	XPP: 0 (No X-Pulse present)
+	ME: 0 (Default)
+	MI: 0 (Default)
+	FOE/FRI: 0 (No mode 4 interrogation)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC CE ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56526 (310.5065918 deg)
+
+Item 130 : Radar Plot Characteristics
+[ 18 13 00 ]
+	Primary Plot Runlength: 19 (0.8349609 deg)
+	Amplitude of Primary plot: 0 (0.0000000 dBm)
+
+Item 161 : Track Number
+[ 00 17 ]
+	Track Number: 23
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 00 00 00 00 ]
+	Calculated groundspeed: 0 (0.0000000 kt)
+	Calculated heading: 0 (0.0000000 deg)
+
+Item 170 : Track Status
+[ 20 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 1 (PSR Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 0 (End of Data Item)
+
+-------------------------
+Data Block 14
+Category: 34
+Len: 16
+-------------------------
+Data Record 1
+Len: 16
+CRC: 089C40BC
+Timestamp: 10882
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+Item 030 : Time of Day
+[ 00 05 6F ]
+	Time of day: 1391 (10.8671875 s)
+
+Item 041 : Antenna Rotation Speed
+[ 02 00 ]
+	Antenna rotation speed: 512 (4.0000000 s)
+
+Item 050 : System Configuration and Status
+[ 98 40 40 40 ]
+	Operational Release Status of the System: 0 (System is released for operational use)
+	Radar Data Processor Chain Selection Status: 1 (RDPC-2 selected)
+	Event to signal a reset/restart of the selected Radar Data Processor Chain: 0 (Default)
+	Radar Data Processor Overload Indicator: 0 (No overload)
+	Transmission Subsystem Overload Status: 0 (No overload)
+	Monitoring System Connected Status: 0 (Monitoring system connected)
+	Time Source Validity: 0 (Time source valid)
+	spare bit set to 0: 0
+	Selected PSR antenna: 0 (antenna 1)
+	PSR Channel A/B selection status: 2 (Channel B only selected)
+	PSSR Overload condition: 0 (No overload)
+	PSSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+	Selected SSR antenna: 0 (antenna 1)
+	SSR Channel A/B selection status: 2 (Channel B only selected)
+	SSR Overload condition: 0 (No overload)
+	SSR Monitoring System Connected Status: 0 (Monitoring system connected)
+	spare bit set to 0: 0
+
+Item 060 : System Processing Mode
+[ 90 00 88 ]
+	spare bit set to 0: 0
+	Reduction Steps in use for an overload of the RDP: 0 (No reduction active)
+	Reduction Steps in use for an overload of the Transmission subsystem: 0 (No reduction active)
+	spare bit set to 0: 0
+	Polarization in use by PSR: 1 (Circular)
+	Reduction Steps in use as result of an overload within the PSR subsystem: 0 (No reduction active)
+	Sensitivity Time Control Map in use: 2 (STC Map-3)
+	spare bit set to 0: 0
+
+-------------------------
+Data Block 15
+Category: 48
+Len: 56
+-------------------------
+Data Record 1
+Len: 56
+CRC: 680D6E3A
+Timestamp: 12132
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 140 : Time Of Day
+[ 00 05 BE ]
+	Time Of Day: 1470 (11.4843750 s)
+
+Item 020 : Target Report Descriptor
+[ A8 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 1 (Report from RDP Chain 2)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ 81 7D 27 E7 ]
+	RHO: 33149 (129.4882812 NM)
+	THETA: 10215 (56.1126709 deg)
+
+Item 070 : Mode-3/A Code
+[ 01 16 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 0426
+
+Item 090 : Flight Level
+[ 01 95 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 405 (101.2500000 FL)
+
+Item 130 : Radar Plot Characteristics
+[ E0 4E 0A B2 ]
+	SSR Plot Runlength: 78 (3.4277344 deg)
+	SSR-Number of received reply: 10
+	SSR-Reply amplitude: -78 (-78.0000000 dBm)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 10 01 06 80 ED 00 00 10 84 80 00 31 6C 00 00 40 ]
+	BDS value: 10010680ED0000
+	BDS register: 10
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+Item 161 : Track Number
+[ 06 21 ]
+	Track Number: 1569
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 06 18 8F EE ]
+	Calculated groundspeed: 1560 (343.2000000 kt)
+	Calculated heading: 36846 (202.4011230 deg)
+
+Item 170 : Track Status
+[ 46 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 3 (Invalid)
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 FD ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 13
