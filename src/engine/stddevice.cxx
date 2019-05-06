@@ -26,6 +26,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include <sys/select.h> // fd_set
 
 // Local includes
 #include "asterix.h"

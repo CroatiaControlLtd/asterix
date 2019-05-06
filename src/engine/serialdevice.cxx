@@ -31,6 +31,7 @@
 #include <ctype.h>
 #include <stdlib.h> //atoi
 #include <errno.h>
+#include <sys/select.h> // fd_set
 
 
 // Local includes
