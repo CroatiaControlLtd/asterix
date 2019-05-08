@@ -13,7 +13,7 @@
 
 -->
 
-<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="1.8">
+<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="2.4">
 
 
     <DataItem id="008" rule="optional">
