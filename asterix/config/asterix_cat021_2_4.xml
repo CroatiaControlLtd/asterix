@@ -948,7 +948,7 @@
     </DataItem>
 
     <DataItem id="160" rule="optional">
-        <DataItemName>Ground Vector</DataItemName>
+        <DataItemName>Airborne Ground Vector</DataItemName>
         <DataItemDefinition>Ground Speed and Track Angle elements of Ground Vector.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
@@ -1209,20 +1209,7 @@
         <DataItemDefinition>Mode S Comm B data as extracted from the aircraft transponder.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS message comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
-                <Fixed length="8">
-                    <Bits from="64" to="9">
-                        <BitsShortName>MB</BitsShortName>
-                        <BitsName>(MB Data) 56-bit message conveying Mode S Comm B message data</BitsName>
-                    </Bits>
-                    <Bits from="8" to="5">
-                        <BitsShortName>BDS1</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 1 Address</BitsName>
-                    </Bits>
-                    <Bits from="4" to="1">
-                        <BitsShortName>BDS2</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 2 Address</BitsName>
-                    </Bits>
-                </Fixed>
+                <BDS/>
             </Repetitive>
         </DataItemFormat>
         <DataItemNote>
@@ -1365,7 +1352,7 @@
                         </Bits>
                         <Bits bit="7">
                             <BitsShortName>TRD</BitsShortName>
-                            <BitsName>arget Report Descriptor age</BitsName>
+                            <BitsName>Target Report Descriptor age</BitsName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">
@@ -1733,8 +1720,8 @@
                                 <BitsPresence>7</BitsPresence>
                             </Bits>
                             <Bits bit="1">
-                                <BitsShortName>spare</BitsShortName>
-                                <BitsName>Spare bits set to zero</BitsName>
+                                <BitsShortName>MES</BitsShortName>
+                                <BitsName>Military Extended Squitters</BitsName>
                                 <BitsConst>0</BitsConst>
                             </Bits>
                         </Fixed>
@@ -1833,8 +1820,8 @@
                                 <BitsValue val="1">Ground Track provided.</BitsValue>
                             </Bits>
                             <Bits bit="13">
-                                <BitsShortName>North</BitsShortName>
-                                <BitsName>North</BitsName>
+                                <BitsShortName>HRD</BitsShortName>
+                                <BitsName>True North</BitsName>
                                 <BitsValue val="0">True North.</BitsValue>
                                 <BitsValue val="1">Magnetic North.</BitsValue>
                             </Bits>
@@ -1892,8 +1879,233 @@
                     <Fixed length="2">
                         <Bits from="16" to="1">
                             <BitsShortName>TNH</BitsShortName>
-                            <BitsName>Magnetic Heading</BitsName>
+                            <BitsName>True North Magnetic Heading</BitsName>
                             <BitsUnit scale="0.0054931640625">deg</BitsUnit>
+                        </Bits>
+                    </Fixed>
+                    <Variable>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>SUM</BitsShortName>
+                                <BitsName>Mode 5 Summary</BitsName>
+                                <BitsPresence>1</BitsPresence>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>PNO</BitsShortName>
+                                <BitsName>Mode 5 PIN/National Origin</BitsName>
+                                <BitsPresence>2</BitsPresence>
+                            </Bits>
+                            <Bits bit="6">
+                                <BitsShortName>EM1</BitsShortName>
+                                <BitsName>Extended Mode 1 Code in Octal Representation</BitsName>
+                                <BitsPresence>3</BitsPresence>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>XP</BitsShortName>
+                                <BitsName>X Pulse Presence</BitsName>
+                                <BitsPresence>4</BitsPresence>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>FOM</BitsShortName>
+                                <BitsName>Figure of Merit</BitsName>
+                                <BitsPresence>5</BitsPresence>
+                            </Bits>
+                            <Bits bit="3">
+                                <BitsShortName>M2</BitsShortName>
+                                <BitsName>Mode 2 Code</BitsName>
+                                <BitsPresence>6</BitsPresence>
+                            </Bits>
+                            <Bits bit="2">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>Spare bit, set to “0”</BitsName>
+                                <BitsPresence>7</BitsPresence>
+                            </Bits>
+                            <Bits bit="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>M5</BitsShortName>
+                            <BitsName>Mode 5 interrogation</BitsName>
+                            <BitsValue val="0">No Mode 5 interrogation</BitsValue>
+                            <BitsValue val="1">Mode 5 interrogation</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>ID</BitsShortName>
+                            <BitsName>Authenticated Mode 5 ID</BitsName>
+                            <BitsValue val="0">No authenticated Mode 5 ID reply/report</BitsValue>
+                            <BitsValue val="1">Authenticated Mode 5 ID reply/report</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>DA</BitsShortName>
+                            <BitsName>Authenticated Mode 5 Data reply or Report</BitsName>
+                            <BitsValue val="0">No authenticated Mode 5 Data reply or Report</BitsValue>
+                            <BitsValue val="1">Authenticated Mode 5 Data reply or Report</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>M1</BitsShortName>
+                            <BitsName>Mode 1 code</BitsName>
+                            <BitsValue val="0">Mode 1 code not present or not from Mode 5 reply/report</BitsValue>
+                            <BitsValue val="1">Mode 1 code from Mode 5 reply/report</BitsValue>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>M2</BitsShortName>
+                            <BitsName>Mode 2 code</BitsName>
+                            <BitsValue val="0">Mode 2 code not present or not from Mode 5 reply/report</BitsValue>
+                            <BitsValue val="1">Mode 2 code from Mode 5 reply/report</BitsValue>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>M3</BitsShortName>
+                            <BitsName>Mode 3 code</BitsName>
+                            <BitsValue val="0">Mode 3 code not present or not from Mode 5 reply/report</BitsValue>
+                            <BitsValue val="1">Mode 3 code from Mode 5 reply/report</BitsValue>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>MC</BitsShortName>
+                            <BitsName>Flightlevel</BitsName>
+                            <BitsValue val="0">Flightlevel not present or not from Mode 5 reply/report</BitsValue>
+                            <BitsValue val="1">Flightlevel from Mode 5 reply/report</BitsValue>
+                        </Bits>
+                        <Bits bit="1">
+                            <BitsShortName>PO</BitsShortName>
+                            <BitsName>Position from Mode 5 Report</BitsName>
+                            <BitsValue val="0">Position not from Mode 5 report (ADS-B report)</BitsValue>
+                            <BitsValue val="1">Position from Mode 5 report</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="4">
+                        <Bits from="32" to="31">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="30" to="17">
+                            <BitsShortName>PIN</BitsShortName>
+                            <BitsName>PIN Code</BitsName>
+                        </Bits>
+                        <Bits from="16" to="12">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="11" to="1">
+                            <BitsShortName>NO</BitsShortName>
+                            <BitsName>National Origin Code</BitsName>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="2">
+                        <Bits bit="16">
+                            <BitsShortName>V</BitsShortName>
+                            <BitsName>Code validated</BitsName>
+                            <BitsValue val="0">Code validated</BitsValue>
+                            <BitsValue val="1">Code not validated</BitsValue>
+                        </Bits>
+                        <Bits bit="15">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="14">
+                            <BitsShortName>L</BitsShortName>
+                            <BitsName>Mode 1 code from transponder or smoothed</BitsName>
+                            <BitsValue val="0">Mode 1 code as derived from the report of the transponder</BitsValue>
+                            <BitsValue val="1">Smoothed Mode 1 code as provided by a local tracker</BitsValue>
+                        </Bits>
+                        <Bits bit="13">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="12" to="1">
+                            <BitsShortName>EM1</BitsShortName>
+                            <BitsName>Extended Mode 1 Code in octal representation</BitsName>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits from="8" to="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>XP</BitsShortName>
+                            <BitsName>X-pulse from Mode 5 PIN reply/report</BitsName>
+                            <BitsValue val="0">X-Pulse not present</BitsValue>
+                            <BitsValue val="1">X-pulse present</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>X5</BitsShortName>
+                            <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
+                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
+                            <BitsValue val="1">X-pulse set to one (present).</BitsValue>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>XC</BitsShortName>
+                            <BitsName>X-pulse from Mode C reply</BitsName>
+                            <BitsValue val="0">X-pulse set to zero or no Mode C reply</BitsValue>
+                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>X3</BitsShortName>
+                            <BitsName>X-pulse from Mode 3/A reply</BitsName>
+                            <BitsValue val="0">X-pulse set to zero or no Mode 3/A reply</BitsValue>
+                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>X2</BitsShortName>
+                            <BitsName>X-pulse from Mode 2 reply</BitsName>
+                            <BitsValue val="0">X-pulse set to zero or no Mode 2 reply</BitsValue>
+                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
+                        </Bits>
+                        <Bits bit="1">
+                            <BitsShortName>X1</BitsShortName>
+                            <BitsName>X-pulse from Mode 1 reply</BitsName>
+                            <BitsValue val="0">X-pulse set to zero or no Mode 1 reply</BitsValue>
+                            <BitsValue val="1">X-pulse set to one (present)</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits from="8" to="6">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1">
+                            <BitsShortName>FOM</BitsShortName>
+                            <BitsName>Figure of Merit Position Accuracy as extracted and provided by a Mode 5 transponder</BitsName>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="2">
+                        <Bits bit="16">
+                            <BitsShortName>V</BitsShortName>
+                            <BitsName>Code validated</BitsName>
+                            <BitsValue val="0">Code validated</BitsValue>
+                            <BitsValue val="1">Code validated</BitsValue>
+                        </Bits>
+                        <Bits bit="15">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="14">
+                            <BitsShortName>L</BitsShortName>
+                            <BitsName>Mode 2 code from transponder or smoothed</BitsName>
+                            <BitsValue val="0">Mode-2 code as derived from the reply of the transponder</BitsValue>
+                            <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker</BitsValue>
+                        </Bits>
+                        <Bits bit="13">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="12" to="1">
+                            <BitsShortName>M2CO</BitsShortName>
+                            <BitsName>Mode-2 code in octal representation</BitsName>
                         </Bits>
                     </Fixed>
                 </Compound>
