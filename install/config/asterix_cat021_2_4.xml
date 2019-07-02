@@ -1447,7 +1447,7 @@
                             <BitsPresence>17</BitsPresence>
                         </Bits>
                         <Bits bit="5">
-                            <BitsShortName>TI</BitsShortName>
+                            <BitsShortName>TID</BitsShortName>
                             <BitsName>Target Identification age</BitsName>
                             <BitsPresence>18</BitsPresence>
                         </Bits>
@@ -1618,7 +1618,7 @@
                 </Fixed>
                 <Fixed length="1">
                     <Bits from="1" to="8">
-                        <BitsShortName>TI</BitsShortName>
+                        <BitsShortName>TID</BitsShortName>
                         <BitsName>Age of the Target Identification, item I021/170</BitsName>
                         <BitsUnit scale="0.1" max="25.5">s</BitsUnit>
                     </Bits>
