@@ -379,23 +379,30 @@ unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int fromb
 	return str;
 }
 
-char* DataItemBits::getASCII(unsigned char* pData, int bytes) {
+char* DataItemBits::getASCII(unsigned char* pData, int bytes, int frombit, int tobit) {
 
-	if (!bytes) {
-		Tracer::Error("ASCII representation not valid");
-		return (char *) strdup("???");
-	}
+    int numberOfBits = (tobit-frombit+1);
+    if (bytes < numberOfBits/8 || !numberOfBits || numberOfBits%8)
+    {
+        Tracer::Error("ASCII representation not valid");
+        return strdup("???");
+    }
 
-	char *pStr = new char[bytes + 1];
+
+	char *pStr = new char[numberOfBits/8 + 1];
+    char *ppStr = pStr;
+
+    pData += (frombit-1) / 8;
 
 	// replace non alphabetic ASCII characters with ?
-	for (int i=0; i<bytes; i++) {
-		if (pData[i] >= 32 && pData[i] <= 126)
-			pStr[i] = pData[i];
+	for (int i=(frombit-1)/8; i<tobit/8; i++) {
+		if (*pData >= 32 && *pData <= 126)
+			*ppStr++ = *pData++;
 		else
-			pStr[i] = '?';
+			*ppStr++ = ' ';
 	}
 
+	*ppStr = 0;
 	return pStr;
 }
 
@@ -682,7 +689,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	break;
 	case DATAITEM_ENCODING_ASCII:
 	{
-		char* pStr = getASCII(pData, nLength);
+		char* pStr = getASCII(pData, nLength, m_nFrom, m_nTo);
 		switch(formatType)
 		{
 		case CAsterixFormat::ETxt:
@@ -1068,7 +1075,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 			break;
 			case DATAITEM_ENCODING_ASCII:
 			{
-				char* pStr = getASCII(pData, nLength);
+				char* pStr = getASCII(pData, nLength, m_nFrom, m_nTo);
 				fulliautomatix_data* data = newDataString(NULL, getPID(), byteoffset+firstByte, numberOfBytes, pStr);
 				delete pStr;
 				return data;
@@ -1333,7 +1340,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 
 			case DATAITEM_ENCODING_ASCII:
 			{
-				char* pStr = getASCII(pData, nLength);
+				char* pStr = getASCII(pData, nLength, m_nFrom, m_nTo);
 				PyObject* k1 = Py_BuildValue("s", "val");
 				PyObject* v1 = Py_BuildValue("s", pStr);
 				PyDict_SetItem(pValue, k1, v1);

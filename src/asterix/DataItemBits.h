@@ -105,7 +105,7 @@ private:
   unsigned char* getSixBitString(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getHexBitString(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getOctal(unsigned char* pData, int bytes, int frombit, int tobit);
-  char* getASCII(unsigned char* pData, int bytes);
+  char* getASCII(unsigned char* pData, int bytes, int frombit, int tobit);
 
 
 };
