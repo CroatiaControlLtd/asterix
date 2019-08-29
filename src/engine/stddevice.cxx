@@ -59,8 +59,11 @@ bool CStdDevice::Read(void *data, size_t len)
     }
     else if (bytesRead == 0)
     {
+        _opened = false;
     	return false;
     }
+
+	_onstart = false;
 
     ResetReadErrors(true);
     return true; 

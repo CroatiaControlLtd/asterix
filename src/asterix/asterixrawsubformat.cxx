@@ -112,7 +112,7 @@ bool CAsterixRawSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 			readSize = 3;
 			if (!device.Read((void*)asterixHeader, &readSize))
 			{
-				LOGERROR(1, "Couldn't read Asterix header.\n");
+				// LOGERROR(1, "Couldn't read Asterix header.\n");
 				return false;
 			}
 
@@ -126,7 +126,7 @@ bool CAsterixRawSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 				LOGERROR(1, "Wrong Asterix data length (%d)\n", dataLen);
 				return false;
 			}
-			if (dataLen > leftBytes)
+			if (leftBytes != 0 && dataLen > leftBytes)
 			{
 				LOGERROR(1, "Not enough data for packet! Size = %d, left = %d.\n", dataLen, leftBytes);
 				return false;

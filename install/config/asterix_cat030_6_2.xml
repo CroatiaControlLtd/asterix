@@ -1380,6 +1380,7 @@
         <UAPItem bit="56" frn="50" len="3+">50</UAPItem>
         <UAPItem bit="57" frn="51" len="2">270</UAPItem>
         <UAPItem bit="58" frn="52" len="2">370</UAPItem>
+        <UAPItem bit="62" frn="56" len="1+">RE</UAPItem>
         <UAPItem bit="64" frn="FX" len="-">FX</UAPItem>
     </UAP>
 

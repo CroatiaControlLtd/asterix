@@ -241,7 +241,7 @@ signed long DataItemBits::getSigned(unsigned char* pData, int bytes, int frombit
 unsigned char* DataItemBits::getSixBitString(unsigned char* pData, int bytes, int frombit, int tobit)
 {
 	int numberOfBits = (tobit-frombit+1);
-	if (numberOfBits%6)
+	if (!numberOfBits || numberOfBits%6)
 	{
 		Tracer::Error("Six-bit char representation not valid");
 		return (unsigned char*)strdup("???");
@@ -294,7 +294,7 @@ unsigned char* DataItemBits::getSixBitString(unsigned char* pData, int bytes, in
 unsigned char* DataItemBits::getHexBitString(unsigned char* pData, int bytes, int frombit, int tobit)
 {
 	int numberOfBits = (tobit-frombit+1);
-	if (numberOfBits%4)
+	if (!numberOfBits || numberOfBits%4)
 	{
 		Tracer::Error("Hex representation not valid");
 		return (unsigned char*)strdup("???");
@@ -327,7 +327,7 @@ unsigned char* DataItemBits::getHexBitString(unsigned char* pData, int bytes, in
 unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int frombit, int tobit)
 {
 	int numberOfBits = (tobit-frombit+1);
-	if (numberOfBits%3)
+	if (!numberOfBits || numberOfBits%3)
 	{
 		Tracer::Error("Octal representation not valid");
 		return (unsigned char*)strdup("???");
@@ -378,6 +378,27 @@ unsigned char* DataItemBits::getOctal(unsigned char* pData, int bytes, int fromb
 	delete[] pB;
 	return str;
 }
+
+char* DataItemBits::getASCII(unsigned char* pData, int bytes) {
+
+	if (!bytes) {
+		Tracer::Error("ASCII representation not valid");
+		return (char *) strdup("???");
+	}
+
+	char *pStr = new char[bytes + 1];
+
+	// replace non alphabetic ASCII characters with ?
+	for (int i=0; i<bytes; i++) {
+		if (pData[i] >= 32 && pData[i] <= 126)
+			pStr[i] = pData[i];
+		else
+			pStr[i] = '?';
+	}
+
+	return pStr;
+}
+
 
 bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
 {
@@ -661,9 +682,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	break;
 	case DATAITEM_ENCODING_ASCII:
 	{
-		char* pStr = new char[nLength+1];
-		memset(pStr, 0, nLength+1);
-		strncpy(pStr, (const char*)pData, nLength);
+		char* pStr = getASCII(pData, nLength);
 		switch(formatType)
 		{
 		case CAsterixFormat::ETxt:
@@ -1049,10 +1068,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 			break;
 			case DATAITEM_ENCODING_ASCII:
 			{
-				char* pStr = new char[nLength+1];
-				memset(pStr, 0, nLength+1);
-				strncpy(pStr, (const char*)pData, nLength);
-
+				char* pStr = getASCII(pData, nLength);
 				fulliautomatix_data* data = newDataString(NULL, getPID(), byteoffset+firstByte, numberOfBytes, pStr);
 				delete pStr;
 				return data;
@@ -1079,22 +1095,22 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 
 		void DataItemBits::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 		{
-		    // Add item name
-    		PyObject* pValue = PyDict_New();
-            PyObject* k2 = Py_BuildValue("s", m_strShortName.c_str());
-            PyDict_SetItem(p, k2, pValue);
-            Py_DECREF(k2);
-            Py_DECREF(pValue);
+			// Add item name
+			PyObject* pValue = PyDict_New();
+			PyObject* k2 = Py_BuildValue("s", m_strShortName.c_str());
+			PyDict_SetItem(p, k2, pValue);
+			Py_DECREF(k2);
+			Py_DECREF(pValue);
 
 			if (verbose)
 			{
-			    // Add item description
-                PyObject* k1 = Py_BuildValue("s", "desc");
-                PyObject* v1 = Py_BuildValue("s", m_strName.c_str());
-                PyDict_SetItem(pValue, k1, v1);
-                Py_DECREF(k1);
-                Py_DECREF(v1);
-            }
+				// Add item description
+				PyObject* k1 = Py_BuildValue("s", "desc");
+				PyObject* v1 = Py_BuildValue("s", m_strName.c_str());
+				PyDict_SetItem(pValue, k1, v1);
+				Py_DECREF(k1);
+				Py_DECREF(v1);
+			}
 
 			if (m_nFrom > m_nTo)
 			{ // just in case
@@ -1142,11 +1158,11 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 					Py_DECREF(k1);
 					Py_DECREF(v1);
 					if (verbose) {
-					    PyObject* k2 = Py_BuildValue("s", "const");
-					    PyObject* v2 = Py_BuildValue("k", m_nConst);
-					    PyDict_SetItem(pValue, k2, v2);
-					    Py_DECREF(k2);
-					    Py_DECREF(v2);
+						PyObject* k2 = Py_BuildValue("s", "const");
+						PyObject* v2 = Py_BuildValue("k", m_nConst);
+						PyDict_SetItem(pValue, k2, v2);
+						Py_DECREF(k2);
+						Py_DECREF(v2);
 					}
 				} else if (!m_lValue.empty()) { // check values
 					std::list<BitsValue*>::iterator it;
@@ -1158,12 +1174,12 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 							PyDict_SetItem(pValue, k1, v1);
 							Py_DECREF(k1);
 							Py_DECREF(v1);
-							if (verbose) {
-							    PyObject* k2 = Py_BuildValue("s", "meaning");
-							    PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
-							    PyDict_SetItem(pValue, k2, v2);
-							    Py_DECREF(k2);
-							    Py_DECREF(v2);
+							if (verbose && !bv->m_strDescription.empty()) {
+								PyObject* k2 = Py_BuildValue("s", "meaning");
+								PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
+								PyDict_SetItem(pValue, k2, v2);
+								Py_DECREF(k2);
+								Py_DECREF(v2);
 							}
 							break;
 						}
@@ -1175,11 +1191,11 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 						Py_DECREF(k1);
 						Py_DECREF(v1);
 						if (verbose) {
-						    PyObject* k2 = Py_BuildValue("s", "meaning");
-						    PyObject* v2 = Py_BuildValue("s", "???");
-						    PyDict_SetItem(pValue, k2, v2);
-						    Py_DECREF(k2);
-						    Py_DECREF(v2);
+							PyObject* k2 = Py_BuildValue("s", "meaning");
+							PyObject* v2 = Py_BuildValue("s", "???");
+							PyDict_SetItem(pValue, k2, v2);
+							Py_DECREF(k2);
+							Py_DECREF(v2);
 						}
 					}
 				}
@@ -1223,15 +1239,15 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 				} else if (m_bIsConst) {
 					PyObject* k1 = Py_BuildValue("s", "val");
 					PyObject* v1 = Py_BuildValue("d", value);
-				    PyDict_SetItem(pValue, k1, v1);
+					PyDict_SetItem(pValue, k1, v1);
 					Py_DECREF(k1);
 					Py_DECREF(v1);
 					if (verbose) {
-					    PyObject* k2 = Py_BuildValue("s", "const");
-					    PyObject* v2 = Py_BuildValue("k", m_nConst);
-					    PyDict_SetItem(pValue, k2, v2);
-					    Py_DECREF(k2);
-					    Py_DECREF(v2);
+						PyObject* k2 = Py_BuildValue("s", "const");
+						PyObject* v2 = Py_BuildValue("k", m_nConst);
+						PyDict_SetItem(pValue, k2, v2);
+						Py_DECREF(k2);
+						Py_DECREF(v2);
 					}
 				} else if (!m_lValue.empty()) { // check values
 					std::list<BitsValue*>::iterator it;
@@ -1243,12 +1259,12 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 							PyDict_SetItem(pValue, k1, v1);
 							Py_DECREF(k1);
 							Py_DECREF(v1);
-							if (verbose) {
-							    PyObject* k2 = Py_BuildValue("s", "meaning");
-							    PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
-							    PyDict_SetItem(pValue, k2, v2);
-							    Py_DECREF(k2);
-							    Py_DECREF(v2);
+							if (verbose && !bv->m_strDescription.empty()) {
+								PyObject* k2 = Py_BuildValue("s", "meaning");
+								PyObject* v2 = Py_BuildValue("s", bv->m_strDescription.c_str());
+								PyDict_SetItem(pValue, k2, v2);
+								Py_DECREF(k2);
+								Py_DECREF(v2);
 							}
 							break;
 						}
@@ -1260,11 +1276,11 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 						Py_DECREF(k1);
 						Py_DECREF(v1);
 						if (verbose) {
-						    PyObject* k2 = Py_BuildValue("s", "meaning");
-						    PyObject* v2 = Py_BuildValue("s", "???");
-						    PyDict_SetItem(pValue, k2, v2);
-						    Py_DECREF(k2);
-						    Py_DECREF(v2);
+							PyObject* k2 = Py_BuildValue("s", "meaning");
+							PyObject* v2 = Py_BuildValue("s", "???");
+							PyDict_SetItem(pValue, k2, v2);
+							Py_DECREF(k2);
+							Py_DECREF(v2);
 						}
 					}
 				}
@@ -1317,9 +1333,7 @@ const char* DataItemBits::getDescription(const char* field, const char* value = 
 
 			case DATAITEM_ENCODING_ASCII:
 			{
-				char* pStr = new char[nLength+1];
-				memset(pStr, 0, nLength+1);
-				strncpy(pStr, (const char*)pData, nLength);
+				char* pStr = getASCII(pData, nLength);
 				PyObject* k1 = Py_BuildValue("s", "val");
 				PyObject* v1 = Py_BuildValue("s", pStr);
 				PyDict_SetItem(pValue, k1, v1);

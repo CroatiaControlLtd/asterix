@@ -90,12 +90,6 @@ static void show_usage(std::string name)
 
 int main(int argc, const char *argv[])
 {
-    if (argc < 2)
-    {
-    	show_usage("asterix.exe");
-        return 1;
-    }
-
 	std::string strDefinitions = "config/asterix.ini";
 	std::string strFileInput;
 	std::string strIPInput;

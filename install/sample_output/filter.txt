@@ -656,9 +656,76 @@ CAT021:I220:WindD                                            Wind Direction
 CAT021:I220:Temp                                             Temperature
 CAT021:I220:Turb                                             Turbulence
 CAT021:I230:RollA                                            Roll Angle
-CAT021:I250:MB                                               (MB Data) 56-bit message conveying Mode S Comm B message data
-CAT021:I250:BDS1                                             Comm B Data Buffer Store 1 Address
-CAT021:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT021:I250:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT021:I250:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT021:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT021:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT021:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT021:I250:BDS40:BP                                         Barometric Pressure
+CAT021:I250:BDS40:res                                        Reserved
+CAT021:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT021:I250:BDS40:VNAV                                       VNAV Mode
+CAT021:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT021:I250:BDS40:APP                                        APPROACH Mode
+CAT021:I250:BDS40:res                                        Reserved
+CAT021:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT021:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT021:I250:BDS40:BDS                                        BDS register
+CAT021:I250:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT021:I250:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT021:I250:BDS44:WIND_SPEED                                 Wind speed
+CAT021:I250:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT021:I250:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT021:I250:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT021:I250:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT021:I250:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT021:I250:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT021:I250:BDS44:TURBULENCE                                 Turbulence
+CAT021:I250:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT021:I250:BDS44:HUMIDITY                                   Humidity
+CAT021:I250:BDS44:BDS                                        BDS register
+CAT021:I250:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT021:I250:BDS45:TURBULENCE                                 Turbulence
+CAT021:I250:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT021:I250:BDS45:WIND_SHEAR                                 Wind Shear
+CAT021:I250:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT021:I250:BDS45:MICROBURST                                 Microburst
+CAT021:I250:BDS45:STATUS_ICING                               Status Icing
+CAT021:I250:BDS45:ICING                                      Icing
+CAT021:I250:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT021:I250:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT021:I250:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT021:I250:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT021:I250:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT021:I250:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT021:I250:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT021:I250:BDS45:RADIO_HEIGHT                               Radio Height
+CAT021:I250:BDS45:RESERVED                                   Reserved
+CAT021:I250:BDS45:BDS                                        BDS register
+CAT021:I250:BDS50:RA_STATUS                                  Roll Angle Status
+CAT021:I250:BDS50:RA                                         Roll Angle
+CAT021:I250:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT021:I250:BDS50:TTA                                        True Track Angle
+CAT021:I250:BDS50:GS_STATUS                                  Ground Speed Status
+CAT021:I250:BDS50:GS                                         Ground Speed
+CAT021:I250:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT021:I250:BDS50:TAR                                        Track Angle Rate
+CAT021:I250:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT021:I250:BDS50:TAS                                        True Airspeed
+CAT021:I250:BDS50:BDS                                        BDS register
+CAT021:I250:BDS60:HDG_STATUS                                 Heading Status
+CAT021:I250:BDS60:HDG                                        Magnetic Heading
+CAT021:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT021:I250:BDS60:IAS                                        Indicated Airspeed
+CAT021:I250:BDS60:MACH_STATUS                                Mach Speed Status
+CAT021:I250:BDS60:MACH                                       Mach Speed
+CAT021:I250:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT021:I250:BDS60:BAR                                        Barometric Altitude Rate
+CAT021:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT021:I250:BDS60:IVV                                        Inertial Vertical Velocity
+CAT021:I250:BDS60:BDS                                        BDS register
+CAT021:I250:BDS0:VAL                                         BDS value
+CAT021:I250:BDS0:BDS                                         BDS register
 CAT021:I260:TYP                                              Message Type
 CAT021:I260:STYP                                             Message Sub-Type
 CAT021:I260:ARA                                              Active Resolution Advisories
@@ -694,7 +761,7 @@ CAT021:I295:BVR                                              Age of the Barometr
 CAT021:I295:GVR                                              Age of the Geometric Vertical Rate, item I021/157
 CAT021:I295:GV                                               Age of the Ground Vector, item I021/160
 CAT021:I295:TAR                                              Age of the Track Angle Rate, item I021/165
-CAT021:I295:TI                                               Age of the Target Identification, item I021/170
+CAT021:I295:TID                                              Age of the Target Identification, item I021/170
 CAT021:I295:TS                                               Age of the Target Status as contained, item I021/200
 CAT021:I295:MET                                              Age of the Meteorological information, I021/220
 CAT021:I295:ROA                                              Age of the Roll Angle, item I021/230
@@ -716,7 +783,7 @@ CAT021:IRE:GAO                                               GPS Antenna Offset
 CAT021:IRE:STP                                               Aircraft stopped
 CAT021:IRE:HTS                                               Heading/Ground Track
 CAT021:IRE:HTT                                               Heading/Ground data
-CAT021:IRE:North                                             North
+CAT021:IRE:HRD                                               True North
 CAT021:IRE:GSS                                               Ground Speed
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:HGT                                               Heading/Ground Track information
@@ -725,7 +792,46 @@ CAT021:IRE:ES                                                1090 ES IN capabili
 CAT021:IRE:UAT                                               UAT capability
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:FX                                                Extension indicator
-CAT021:IRE:TNH                                               Magnetic Heading
+CAT021:IRE:TNH                                               True North Magnetic Heading
+CAT021:IRE:SUM                                               Mode 5 Summary
+CAT021:IRE:PNO                                               Mode 5 PIN/National Origin
+CAT021:IRE:EM1                                               Extended Mode 1 Code in Octal Representation
+CAT021:IRE:XP                                                X Pulse Presence
+CAT021:IRE:FOM                                               Figure of Merit
+CAT021:IRE:M2                                                Mode 2 Code
+CAT021:IRE:spare                                             Spare bit, set to “0”
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:M5                                                Mode 5 interrogation
+CAT021:IRE:ID                                                Authenticated Mode 5 ID
+CAT021:IRE:DA                                                Authenticated Mode 5 Data reply or Report
+CAT021:IRE:M1                                                Mode 1 code
+CAT021:IRE:M2                                                Mode 2 code
+CAT021:IRE:M3                                                Mode 3 code
+CAT021:IRE:MC                                                Flightlevel
+CAT021:IRE:PO                                                Position from Mode 5 Report
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:PIN                                               PIN Code
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:NO                                                National Origin Code
+CAT021:IRE:V                                                 Code validated
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:L                                                 Mode 1 code from transponder or smoothed
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:EM1                                               Extended Mode 1 Code in octal representation
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:XP                                                X-pulse from Mode 5 PIN reply/report
+CAT021:IRE:X5                                                X-pulse from Mode 5 Data reply or Report.
+CAT021:IRE:XC                                                X-pulse from Mode C reply
+CAT021:IRE:X3                                                X-pulse from Mode 3/A reply
+CAT021:IRE:X2                                                X-pulse from Mode 2 reply
+CAT021:IRE:X1                                                X-pulse from Mode 1 reply
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:FOM                                               Figure of Merit Position Accuracy as extracted and provided by a Mode 5 transponder
+CAT021:IRE:V                                                 Code validated
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:L                                                 Mode 2 code from transponder or smoothed
+CAT021:IRE:spare                                             Spare bits set to 0
+CAT021:IRE:M2CO                                              Mode-2 code in octal representation
 CAT021:ISP:SPval                                             
 CAT030:I010:SAC                                              System Area Code
 CAT030:I010:SIC                                              System Identification Code
@@ -1610,6 +1716,8 @@ CAT240:I050:VIDEO                                            Video signal amplit
 CAT240:I051:VIDEO                                            Video signal amplitude of the cells in the group
 CAT240:I052:VIDEO                                            Video signal amplitude of the cells in the group
 CAT240:I140:ToD                                              Time Of Day
+CAT240:ISP:SP                                                SP value
+CAT240:IRE:RE                                                RE value
 CAT252:I010:SAC                                              System Area Code
 CAT252:I010:SIC                                              System Identity Code
 CAT252:I015:UserN                                            User number

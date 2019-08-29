@@ -149,7 +149,7 @@ void CConverterEngine::Start()
             }
             else
             {
-                LOGERROR(1, "ReadPacket() failed.\n");
+                // LOGERROR(1, "ReadPacket() failed.\n");
 
                 if(rps & (STS_FAIL_INPUT | STS_FAIL_DATA))
                     continue;

@@ -52,12 +52,12 @@ public:
 
   typedef enum
   {
-    DATAITEM_ENCODING_UNSIGNED = 0,
-    DATAITEM_ENCODING_SIGNED,
-    DATAITEM_ENCODING_SIX_BIT_CHAR,
+	DATAITEM_ENCODING_UNSIGNED = 0,
+	DATAITEM_ENCODING_SIGNED,
+	DATAITEM_ENCODING_SIX_BIT_CHAR,
 	DATAITEM_ENCODING_HEX_BIT_CHAR,
-    DATAITEM_ENCODING_OCTAL,
-    DATAITEM_ENCODING_ASCII
+	DATAITEM_ENCODING_OCTAL,
+	DATAITEM_ENCODING_ASCII
   } _eEncoding;
 
   _eEncoding m_eEncoding;
@@ -105,6 +105,7 @@ private:
   unsigned char* getSixBitString(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getHexBitString(unsigned char* pData, int bytes, int frombit, int tobit);
   unsigned char* getOctal(unsigned char* pData, int bytes, int frombit, int tobit);
+  char* getASCII(unsigned char* pData, int bytes);
 
 
 };

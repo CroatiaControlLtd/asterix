@@ -164,3 +164,8 @@ Possible bug with memory overflow fixed when input buffer longer then needed
 2.4.6 (python_v0.5.9)
 08.02.2019.
 Fixes in asterix definition files for CAT021 and CAT001
+
+2.5.0 (python_v0.5.10)
+29.8.2019.
+Fixed Issue #92 that crashed python version when ASCII characters were not alphanumeric
+Fixed issue #91 Processing stdin. Now asterix can be called with : cat file.asterix | asterix
