@@ -1745,8 +1745,8 @@
                             <BitsConst>0</BitsConst>
                         </Bits>
                         <Bits bit="12">
-                            <BitsShortName>HRD</BitsShortName>
-                            <BitsName>Horizontal Reference Direction</BitsName>
+                            <BitsShortName>SelHHRD</BitsShortName>
+                            <BitsName>SelH Horizontal Reference Direction</BitsName>
                             <BitsValue val="0">True North.</BitsValue>
                             <BitsValue val="1">Magnetic North.</BitsValue>
                         </Bits>
@@ -1820,8 +1820,8 @@
                                 <BitsValue val="1">Ground Track provided.</BitsValue>
                             </Bits>
                             <Bits bit="13">
-                                <BitsShortName>HRD</BitsShortName>
-                                <BitsName>True North</BitsName>
+                                <BitsShortName>SVGHRD</BitsShortName>
+                                <BitsName>SVG Horizontal Reference Direction</BitsName>
                                 <BitsValue val="0">True North.</BitsValue>
                                 <BitsValue val="1">Magnetic North.</BitsValue>
                             </Bits>
