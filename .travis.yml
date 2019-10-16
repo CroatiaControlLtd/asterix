@@ -1,12 +1,11 @@
 language: python
 python:
-- '2.6'
 - '2.7'
-- '3.2'
-- '3.3'
 - '3.4'
 - '3.5'
 - '3.6'
+- '3.7'
+- '3.8'
 - nightly
 before_install:
 - sudo apt-get -qq update
@@ -14,7 +13,7 @@ before_install:
 compiler:
 - gcc
 install:
-- if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then cd src;make;make MODE=DEBUG;make
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then cd src;make;make MODE=DEBUG;make
   test;cd ..; fi
 - python setup.py install
 addons:
@@ -31,6 +30,6 @@ deploy:
   password:
     secure: pOQCtEjqI8csLM/VfDVOpWXy7EQjsMqvPITgDkJM3tPmEk0UFfhAwcSwnWoXigT+sChCW7XfIUaK/wYH5BjK+ESWsmy3FZKxYrCkvS14jQdLm7AdJTjlLmpPX4LT01M78phh5n+8qORU5FDBFs+uQd14Ztt7L2kTL6tZcUYJFLeF46hwSR8G3WwK4JRPl/prB4X5nW7Gp6Q+LI4AnAy0htNfyhfmSryAc2CCM2ZunYKIYpvFCboJIcMBBMVa5FlwNguL+gVnteKXllgfRLLEPkQMAp6qcmjOJWLi0oWD+1eMQneBDyBPVxFWtauZ5X8WaOKIHyco7Ws6HDnFCbHEaDIzXV8yT99tmWPjQHCyM9sWPwKzL5t9o24nu3UIwgsnAGVwL7fko/PNDHIv/NINCHoJcAu8sLI3MS91wf6CotYAWFt9z5QbmOVDHgYOzraWsV+GO6Wq6jmKa4OJMp1+Zxmkj2T75chR/yD1JrFDZXw/pORx7mJKEOXd07d36UUNkAE55BgVjfGpw36e88AE5lC6GH+BXZaEt5CInfEVLkKKrwCCbg+mW6NP+YoA1gC3ULezJcntz446useJtTDCaaSfdwI8ppnjjpsSLFND1QcK6iHmuY2+4bnueJnSul/nXLHm/H4BePGx6no8mzBXLFRsgssyjQkL25GXlF8r7KA=
   on:
-    condition: $TRAVIS_PYTHON_VERSION = "3.6"
+    condition: $TRAVIS_PYTHON_VERSION = "3.8"
     tags: true
 
