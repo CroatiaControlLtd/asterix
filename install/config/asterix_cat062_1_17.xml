@@ -18,7 +18,10 @@
     Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
     Modified:  05.05.2014. (dsalantic) Item 110 format fixed
     Modified:  29.05.2018. (railsGod) Updated from 1.16 to 1.17 (2 new bits in Data Item I062/060)
+    Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
+
 -->
+
 
 <Category id="62" name="SDPS Track Messages" ver="1.17">
 
@@ -2441,20 +2444,7 @@
                 </Fixed>
 
                 <Repetitive>
-                    <Fixed length="8">
-                        <Bits from="9" to="64">
-                            <BitsShortName>MB</BitsShortName>
-                            <BitsName>56 bit message conveying Mode S B message data</BitsName>
-                        </Bits>
-                        <Bits from="5" to="8">
-                            <BitsShortName>BDS1</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 1 Address</BitsName>
-                        </Bits>
-                        <Bits from="1" to="4">
-                            <BitsShortName>BDS2</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 2 Address</BitsName>
-                        </Bits>
-                    </Fixed>
+                    <BDS/>
                 </Repetitive>
 
                 <Fixed length="2">

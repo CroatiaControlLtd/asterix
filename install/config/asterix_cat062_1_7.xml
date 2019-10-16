@@ -7,8 +7,9 @@
 
     Author:   B.Bertrand
     Created:  11.09.2012
-	Version:  1.0
-	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Version:  1.0
+    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
 
 -->
 
@@ -2164,20 +2165,7 @@
                     </Bits> 
                 </Fixed>
                 <Repetitive>
-                    <Fixed length="8">
-                        <Bits from="64" to="9">
-                            <BitsShortName>MB_data</BitsShortName>
-                            <BitsName>Mode S B message data</BitsName>
-                        </Bits>
-                        <Bits from="8" to="5">
-                            <BitsShortName>BDS1</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 1 Address</BitsName>
-                        </Bits>
-                        <Bits from="4" to="1">
-                            <BitsShortName>BDS2</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 2 Address</BitsName>
-                        </Bits>
-                    </Fixed>
+                    <BDS/>
                 </Repetitive>
                 <Fixed length="2">
                     <Bits from="1" to="16">

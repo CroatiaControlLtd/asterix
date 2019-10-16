@@ -7,7 +7,9 @@
 
     Author:   N.Lagesson
     Created:  2019-10-15
-    -->
+    Modified: 16.10.2019. (dsalantic) Added BDS register definition in I380
+
+-->
 
 <Category id="11" name="Transmission of A-SMGCS Data" ver="1.2">
     <DataItem id="000" rule="mandatory">
@@ -756,28 +758,9 @@
                             <BitsValue val="1">extension</BitsValue>
                         </Bits>
                     </Fixed>
-                    <Fixed length="8">
-                        <!--Bits from="72" to="65">
-                            <BitsShortName>REP</BitsShortName>
-                            <BitsName>Repition factor</BitsName>
-                            <BitsPresence>8</BitsPresence>
-                        </Bits-->
-                        <Bits from="64" to="9">
-                            <BitsShortName>MBData</BitsShortName>
-                            <BitsName>56 bit message conveying Mode S B message data</BitsName>
-                            <BitsPresence>9</BitsPresence>
-                        </Bits>
-                        <Bits from="8" to="5">
-                            <BitsShortName>BDS1</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 1 Address</BitsName>
-                            
-                        </Bits>
-                        <Bits from="4" to="1">
-                            <BitsShortName>BDS2</BitsShortName>
-                            <BitsName>Comm B data Buffer Store 2 Address</BitsName>
-                            
-                        </Bits>
-                    </Fixed>
+                    <Repetitive>
+                        <BDS/>
+                    </Repetitive>
                     <Fixed length="3">
                         <Bits from="24" to="1">
                             <BitsShortName>AircraftAdress</BitsShortName>

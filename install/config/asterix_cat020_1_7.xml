@@ -8,6 +8,7 @@
     Author:   B.Bertrand
     Created:  2013-01-08
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified:  16.10.2019. (dsalantic) Added BDS register definition in I250
 
 -->
 
@@ -621,20 +622,7 @@
         <DataItemDefinition>Mode S Comm B data as extracted from the aircraft transponder.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
-                <Fixed length="8">
-                    <Bits from="64" to="9" encode="hex">
-                        <BitsShortName>MB_Data</BitsShortName>
-                        <BitsName>(MB Data) 56-bit message conveying Mode S Comm B message data</BitsName>
-                    </Bits>
-                    <Bits from="8" to="5">
-                        <BitsShortName>BDS1</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 1 Address</BitsName>
-                    </Bits>
-                    <Bits from="4" to="1">
-                        <BitsShortName>BDS2</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 2 Address</BitsName>
-                    </Bits>
-                </Fixed>
+                <BDS/>
             </Repetitive>
         </DataItemFormat>
     </DataItem>

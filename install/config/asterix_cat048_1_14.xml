@@ -1053,7 +1053,7 @@
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
 		<DataItemFormat desc="BDS">
-			<BDS></BDS>
+			<BDS/>
 		</DataItemFormat>
 		<DataItemNote/>
 	</DataItem>	

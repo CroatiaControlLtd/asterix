@@ -787,7 +787,7 @@
         <UAPItem bit="3" frn="4" len="4">040</UAPItem>
         <UAPItem bit="4" frn="5" len="4">042</UAPItem>
         <UAPItem bit="5" frn="6" len="4">200</UAPItem>
-        <UAPItem bit="6" frn="7" len="3">070</UAPItem>
+        <UAPItem bit="6" frn="7" len="2">070</UAPItem>
         <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
         <UAPItem bit="8" frn="8" len="2">090</UAPItem>
         <UAPItem bit="9" frn="9" len="2">141</UAPItem>

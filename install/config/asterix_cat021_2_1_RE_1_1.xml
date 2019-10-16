@@ -7,6 +7,7 @@
     ASTERIX Part 12 Category 021 Appendix A Coding rules for Reserved Expansion Field v1.1
     Author:   D. Torres
     Created:  2016-02-21
+    Modified: 16.10.2019. (dsalantic) Added BDS register definition in I250
 
 -->
 
@@ -1187,20 +1188,7 @@ Bit-8 (ICF), when set to "1" indicates that new information is available in the 
         <DataItemDefinition>Mode S Comm B data as extracted from the aircraft transponder.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS message comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
-                <Fixed length="8">
-                    <Bits from="64" to="9">
-                        <BitsShortName>MB</BitsShortName>
-                        <BitsName>(MB Data) 56-bit message conveying Mode S Comm B message data</BitsName>
-                    </Bits>
-                    <Bits from="8" to="5">
-                        <BitsShortName>BDS1</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 1 Address</BitsName>
-                    </Bits>
-                    <Bits from="4" to="1">
-                        <BitsShortName>BDS2</BitsShortName>
-                        <BitsName>Comm B Data Buffer Store 2 Address</BitsName>
-                    </Bits>
-                </Fixed>
+                <BDS/>
             </Repetitive>
         </DataItemFormat>
     </DataItem>
