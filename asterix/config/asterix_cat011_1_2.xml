@@ -53,7 +53,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>Service Identification</BitsShortName>
+                    <BitsShortName>SI</BitsShortName>
                     <BitsName>the service identification is allocated by the A-SMGCS</BitsName>
                 </Bits>
             </Fixed>
@@ -1543,21 +1543,29 @@
     <DataItem id="SP" rule="optional">
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>Special Purpose Field</DataItemDefinition>
-        <DataItemFormat desc="Special Purpose Field"><Variable><Fixed>
-            <Bits>
-            </Bits>
-        </Fixed>
-        </Variable></DataItemFormat>
+        <DataItemFormat desc="Special Purpose Field">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SPval</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
     </DataItem>
 
     <DataItem id="RE" rule="optional">
         <DataItemName>Reserved Expansion Field</DataItemName>
         <DataItemDefinition>Reserved Expansion Field</DataItemDefinition>
-        <DataItemFormat desc="Reserved Expansion Field"><Variable><Fixed>
-            <Bits>
-            </Bits>
-        </Fixed>
-        </Variable></DataItemFormat>
+        <DataItemFormat desc="Reserved Expansion Field">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>REval</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
     </DataItem>
 
     <UAP>

@@ -354,9 +354,76 @@ CAT010:I220:TAddr                                            24-bits Target Addr
 CAT010:I245:STI                                              
 CAT010:I245:spare                                            Spare bits set to zero
 CAT010:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
-CAT010:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
-CAT010:I250:BDS1                                             Comm B Data Buffer Store 1 Address
-CAT010:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT010:I250:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT010:I250:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT010:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT010:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT010:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT010:I250:BDS40:BP                                         Barometric Pressure
+CAT010:I250:BDS40:res                                        Reserved
+CAT010:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT010:I250:BDS40:VNAV                                       VNAV Mode
+CAT010:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT010:I250:BDS40:APP                                        APPROACH Mode
+CAT010:I250:BDS40:res                                        Reserved
+CAT010:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT010:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT010:I250:BDS40:BDS                                        BDS register
+CAT010:I250:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT010:I250:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT010:I250:BDS44:WIND_SPEED                                 Wind speed
+CAT010:I250:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT010:I250:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT010:I250:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT010:I250:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT010:I250:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT010:I250:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT010:I250:BDS44:TURBULENCE                                 Turbulence
+CAT010:I250:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT010:I250:BDS44:HUMIDITY                                   Humidity
+CAT010:I250:BDS44:BDS                                        BDS register
+CAT010:I250:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT010:I250:BDS45:TURBULENCE                                 Turbulence
+CAT010:I250:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT010:I250:BDS45:WIND_SHEAR                                 Wind Shear
+CAT010:I250:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT010:I250:BDS45:MICROBURST                                 Microburst
+CAT010:I250:BDS45:STATUS_ICING                               Status Icing
+CAT010:I250:BDS45:ICING                                      Icing
+CAT010:I250:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT010:I250:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT010:I250:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT010:I250:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT010:I250:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT010:I250:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT010:I250:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT010:I250:BDS45:RADIO_HEIGHT                               Radio Height
+CAT010:I250:BDS45:RESERVED                                   Reserved
+CAT010:I250:BDS45:BDS                                        BDS register
+CAT010:I250:BDS50:RA_STATUS                                  Roll Angle Status
+CAT010:I250:BDS50:RA                                         Roll Angle
+CAT010:I250:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT010:I250:BDS50:TTA                                        True Track Angle
+CAT010:I250:BDS50:GS_STATUS                                  Ground Speed Status
+CAT010:I250:BDS50:GS                                         Ground Speed
+CAT010:I250:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT010:I250:BDS50:TAR                                        Track Angle Rate
+CAT010:I250:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT010:I250:BDS50:TAS                                        True Airspeed
+CAT010:I250:BDS50:BDS                                        BDS register
+CAT010:I250:BDS60:HDG_STATUS                                 Heading Status
+CAT010:I250:BDS60:HDG                                        Magnetic Heading
+CAT010:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT010:I250:BDS60:IAS                                        Indicated Airspeed
+CAT010:I250:BDS60:MACH_STATUS                                Mach Speed Status
+CAT010:I250:BDS60:MACH                                       Mach Speed
+CAT010:I250:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT010:I250:BDS60:BAR                                        Barometric Altitude Rate
+CAT010:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT010:I250:BDS60:IVV                                        Inertial Vertical Velocity
+CAT010:I250:BDS60:BDS                                        BDS register
+CAT010:I250:BDS0:VAL                                         BDS value
+CAT010:I250:BDS0:BDS                                         BDS register
 CAT010:I270:Length                                           Length
 CAT010:I270:FX                                               Extension Indicator
 CAT010:I270:Ori                                              Orientation
@@ -378,6 +445,186 @@ CAT010:I550:DIV                                              Diversity indicator
 CAT010:I550:TTF                                              Test Target indicator
 CAT010:I550:spare                                            Spare bits set to zero
 CAT010:ISP:SPval                                             
+CAT011:I000:MsgTyp                                           Type of msg.
+CAT011:I010:SAC                                              System Area Code fixed to zero
+CAT011:I010:SIC                                              System Identification Code
+CAT011:I015:SI                                               the service identification is allocated by the A-SMGCS
+CAT011:I041:Lat                                              Latitude in WGS-84 in twos complement.
+CAT011:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT011:I042:X                                                X
+CAT011:I042:Y                                                Y
+CAT011:I060:spare                                            Spare bit set to 0
+CAT011:I060:Mod3A                                            Mode-3/A reply in octal representation
+CAT011:I090:MFL                                              Measured Flight Level
+CAT011:I092:CTGA                                             Calculated Track Geometric Altitude
+CAT011:I093:QNH                                              Primary Plot Amplitude
+CAT011:I093:CalcQNH                                          Calculated Track Barometric Altitude
+CAT011:I140:ToTI                                             Time of Track Information
+CAT011:I161:spare                                            Spare bits set to zero
+CAT011:I161:FTN                                              Fusion Track Number
+CAT011:I170:MON                                              
+CAT011:I170:GBS                                              
+CAT011:I170:MRH                                              
+CAT011:I170:SRC                                              
+CAT011:I170:CNF                                              
+CAT011:I170:FX                                               
+CAT011:I170:SIM                                              
+CAT011:I170:TSE                                              
+CAT011:I170:TSB                                              
+CAT011:I170:FRI/FOE                                          
+CAT011:I170:ME                                               
+CAT011:I170:MI                                               
+CAT011:I170:FX                                               
+CAT011:I170:AMA                                              
+CAT011:I170:SPI                                              
+CAT011:I170:CST                                              
+CAT011:I170:FPC                                              
+CAT011:I170:AFF                                              
+CAT011:I170:spare                                            Spare bits set to zero
+CAT011:I170:FX                                               
+CAT011:I202:Vx                                               Vx
+CAT011:I202:Vy                                               Vy
+CAT011:I210:Ax                                               Ax
+CAT011:I210:Ay                                               Ay
+CAT011:I215:RoCD                                             Rate of Climb/Descent
+CAT011:I245:STI                                              
+CAT011:I245:spare                                            Spare bits set to zero
+CAT011:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT011:I270:Length                                           Length
+CAT011:I270:FX                                               Extension Indicator
+CAT011:I270:Ori                                              Orientation
+CAT011:I270:FX                                               Extension Indicator
+CAT011:I270:Width                                            Width
+CAT011:I270:FX                                               Extension Indicator
+CAT011:I290:PSR                                              Age of the last primary detection used to update the track
+CAT011:I290:SSR                                              Age of the last secondary detection used to update the track
+CAT011:I290:MDA                                              Age of the last Mode A detection used to update the track
+CAT011:I290:MFL                                              Age of the last Mode C detection used to update the track
+CAT011:I290:MDS                                              Age of the last Mode S detection used to update the track
+CAT011:I290:ADS                                              Age of the last ADS report used to update the track
+CAT011:I290:ADB                                              Age of the last ADS-B report used to update the track
+CAT011:I290:MD1                                              Age of the last valid Mode 1 used to update the track
+CAT011:I290:MD2                                              Age of the last Mode 2 used to update the track
+CAT011:I290:LOP                                              Age of the last magentic loop detection
+CAT011:I290:MLT                                              Age of the last MLT detection 
+CAT011:I290:TRK                                              Actual track age since first occurrence
+CAT011:I290:MUL                                              Age of the last multilateration detection 
+CAT011:I300:VFI                                              Vehicle Fleet Identification
+CAT011:I310:TRB                                              
+CAT011:I310:MSG                                              
+CAT011:I380:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT011:I380:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT011:I380:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT011:I380:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT011:I380:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT011:I380:BDS40:BP                                         Barometric Pressure
+CAT011:I380:BDS40:res                                        Reserved
+CAT011:I380:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT011:I380:BDS40:VNAV                                       VNAV Mode
+CAT011:I380:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT011:I380:BDS40:APP                                        APPROACH Mode
+CAT011:I380:BDS40:res                                        Reserved
+CAT011:I380:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT011:I380:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT011:I380:BDS40:BDS                                        BDS register
+CAT011:I380:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT011:I380:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT011:I380:BDS44:WIND_SPEED                                 Wind speed
+CAT011:I380:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT011:I380:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT011:I380:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT011:I380:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT011:I380:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT011:I380:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT011:I380:BDS44:TURBULENCE                                 Turbulence
+CAT011:I380:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT011:I380:BDS44:HUMIDITY                                   Humidity
+CAT011:I380:BDS44:BDS                                        BDS register
+CAT011:I380:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT011:I380:BDS45:TURBULENCE                                 Turbulence
+CAT011:I380:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT011:I380:BDS45:WIND_SHEAR                                 Wind Shear
+CAT011:I380:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT011:I380:BDS45:MICROBURST                                 Microburst
+CAT011:I380:BDS45:STATUS_ICING                               Status Icing
+CAT011:I380:BDS45:ICING                                      Icing
+CAT011:I380:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT011:I380:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT011:I380:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT011:I380:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT011:I380:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT011:I380:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT011:I380:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT011:I380:BDS45:RADIO_HEIGHT                               Radio Height
+CAT011:I380:BDS45:RESERVED                                   Reserved
+CAT011:I380:BDS45:BDS                                        BDS register
+CAT011:I380:BDS50:RA_STATUS                                  Roll Angle Status
+CAT011:I380:BDS50:RA                                         Roll Angle
+CAT011:I380:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT011:I380:BDS50:TTA                                        True Track Angle
+CAT011:I380:BDS50:GS_STATUS                                  Ground Speed Status
+CAT011:I380:BDS50:GS                                         Ground Speed
+CAT011:I380:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT011:I380:BDS50:TAR                                        Track Angle Rate
+CAT011:I380:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT011:I380:BDS50:TAS                                        True Airspeed
+CAT011:I380:BDS50:BDS                                        BDS register
+CAT011:I380:BDS60:HDG_STATUS                                 Heading Status
+CAT011:I380:BDS60:HDG                                        Magnetic Heading
+CAT011:I380:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT011:I380:BDS60:IAS                                        Indicated Airspeed
+CAT011:I380:BDS60:MACH_STATUS                                Mach Speed Status
+CAT011:I380:BDS60:MACH                                       Mach Speed
+CAT011:I380:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT011:I380:BDS60:BAR                                        Barometric Altitude Rate
+CAT011:I380:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT011:I380:BDS60:IVV                                        Inertial Vertical Velocity
+CAT011:I380:BDS60:BDS                                        BDS register
+CAT011:I380:BDS0:VAL                                         BDS value
+CAT011:I380:BDS0:BDS                                         BDS register
+CAT011:I380:AircraftAdress                                   24 bits Aircraft address, A23 to A0 
+CAT011:I380:COM                                              Communications capability of the transponder
+CAT011:I380:STAT                                             Flight Status
+CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I380:SSC                                              Specific service capability
+CAT011:I380:ARC                                              Altitude reporting capability
+CAT011:I380:AIC                                              Aircraft identification capability
+CAT011:I380:B1A                                              BDS 1,0 bit 16
+CAT011:I380:B1B                                              BDS 1,0 bit 37/40
+CAT011:I380:AC                                               ACAS operational
+CAT011:I380:MN                                               Multiple navigational aids operating
+CAT011:I380:DC                                               Differential correction
+CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I380:AircraftType                                     Aircraft Derived Aircraft Type
+CAT011:I380:ECAT                                             Emitter category
+CAT011:I380:VDL                                              VDL
+CAT011:I380:MDS                                              MDS
+CAT011:I380:UAT                                              UAT
+CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I430:FLS                                              Phase of flight
+CAT011:I500:APC_X                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
+CAT011:I500:APC_Y                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
+CAT011:I500:COV_XY                                           XY covariance component
+CAT011:I500:APW_Lat                                          APW Latitude Component
+CAT011:I500:APW_Long                                         APW Longitude Component
+CAT011:I500:AGA_Acc                                          Calculated Track Geometric Altitude Estimated accuracy
+CAT011:I500:ABA_Acc                                          Calculated Track Barometric Altitude Estimated accuracy
+CAT011:I500:ATV_X                                            Estimated Accuracy Of Track Velocity X_Cartesian
+CAT011:I500:ATV_Y                                            Estimated Accuracy Of Track Velocity Y_Cartesian
+CAT011:I500:AA_X                                             Estimated Accuracy Of Acceleration X_Cartesian
+CAT011:I500:AA_Y                                             Estimated Accuracy Of Acceleration Y_Cartesian
+CAT011:I500:ARC_Acc                                          Rate Of Climb/Descent Estimated accuracy
+CAT011:I600:ACK                                              ACK
+CAT011:I600:SVR                                              SVR
+CAT011:I600:spare                                            Spare Bit set to zero
+CAT011:I600:AT                                               Alert Type
+CAT011:I600:AN                                               Alert Number
+CAT011:I605:spare                                            Spare Bit set to zero
+CAT011:I605:FTN                                              Fusion Track Number
+CAT011:I610:spare                                            Spare Bit set to zero
+CAT011:I610:li                                               Indicator
+CAT011:ISP:SPval                                             
+CAT011:IRE:REval                                             
 CAT019:I000:MsgTyp                                           Message Type
 CAT019:I010:SAC                                              System Area Code
 CAT019:I010:SIC                                              System Identification Code
@@ -485,9 +732,76 @@ CAT020:I230:B1B                                              BDS 1,0 bits 37/40
 CAT020:I245:STI                                              
 CAT020:I245:spare                                            Spare bits set to zero
 CAT020:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
-CAT020:I250:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data
-CAT020:I250:BDS1                                             Comm B Data Buffer Store 1 Address
-CAT020:I250:BDS2                                             Comm B Data Buffer Store 2 Address
+CAT020:I250:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT020:I250:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT020:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT020:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT020:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT020:I250:BDS40:BP                                         Barometric Pressure
+CAT020:I250:BDS40:res                                        Reserved
+CAT020:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT020:I250:BDS40:VNAV                                       VNAV Mode
+CAT020:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT020:I250:BDS40:APP                                        APPROACH Mode
+CAT020:I250:BDS40:res                                        Reserved
+CAT020:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT020:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT020:I250:BDS40:BDS                                        BDS register
+CAT020:I250:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT020:I250:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT020:I250:BDS44:WIND_SPEED                                 Wind speed
+CAT020:I250:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT020:I250:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT020:I250:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT020:I250:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT020:I250:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT020:I250:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT020:I250:BDS44:TURBULENCE                                 Turbulence
+CAT020:I250:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT020:I250:BDS44:HUMIDITY                                   Humidity
+CAT020:I250:BDS44:BDS                                        BDS register
+CAT020:I250:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT020:I250:BDS45:TURBULENCE                                 Turbulence
+CAT020:I250:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT020:I250:BDS45:WIND_SHEAR                                 Wind Shear
+CAT020:I250:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT020:I250:BDS45:MICROBURST                                 Microburst
+CAT020:I250:BDS45:STATUS_ICING                               Status Icing
+CAT020:I250:BDS45:ICING                                      Icing
+CAT020:I250:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT020:I250:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT020:I250:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT020:I250:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT020:I250:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT020:I250:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT020:I250:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT020:I250:BDS45:RADIO_HEIGHT                               Radio Height
+CAT020:I250:BDS45:RESERVED                                   Reserved
+CAT020:I250:BDS45:BDS                                        BDS register
+CAT020:I250:BDS50:RA_STATUS                                  Roll Angle Status
+CAT020:I250:BDS50:RA                                         Roll Angle
+CAT020:I250:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT020:I250:BDS50:TTA                                        True Track Angle
+CAT020:I250:BDS50:GS_STATUS                                  Ground Speed Status
+CAT020:I250:BDS50:GS                                         Ground Speed
+CAT020:I250:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT020:I250:BDS50:TAR                                        Track Angle Rate
+CAT020:I250:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT020:I250:BDS50:TAS                                        True Airspeed
+CAT020:I250:BDS50:BDS                                        BDS register
+CAT020:I250:BDS60:HDG_STATUS                                 Heading Status
+CAT020:I250:BDS60:HDG                                        Magnetic Heading
+CAT020:I250:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT020:I250:BDS60:IAS                                        Indicated Airspeed
+CAT020:I250:BDS60:MACH_STATUS                                Mach Speed Status
+CAT020:I250:BDS60:MACH                                       Mach Speed
+CAT020:I250:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT020:I250:BDS60:BAR                                        Barometric Altitude Rate
+CAT020:I250:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT020:I250:BDS60:IVV                                        Inertial Vertical Velocity
+CAT020:I250:BDS60:BDS                                        BDS register
+CAT020:I250:BDS0:VAL                                         BDS value
+CAT020:I250:BDS0:BDS                                         BDS register
 CAT020:I260:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data of BDS Register 3,0.
 CAT020:I300:VFI                                              Vehicle Fleet Identification
 CAT020:I310:TRB                                              
@@ -771,7 +1085,7 @@ CAT021:I400:RID                                              Receiver ID
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:BPS                                               Barometric Pressure Setting
 CAT021:IRE:spare                                             Spare bits set to zero
-CAT021:IRE:HRD                                               Horizontal Reference Direction
+CAT021:IRE:SelHHRD                                           SelH Horizontal Reference Direction
 CAT021:IRE:Stat                                              Selected Heading Status
 CAT021:IRE:SelH                                              Selected Heading
 CAT021:IRE:AP                                                Autopilot engaged
@@ -783,7 +1097,7 @@ CAT021:IRE:GAO                                               GPS Antenna Offset
 CAT021:IRE:STP                                               Aircraft stopped
 CAT021:IRE:HTS                                               Heading/Ground Track
 CAT021:IRE:HTT                                               Heading/Ground data
-CAT021:IRE:HRD                                               True North
+CAT021:IRE:SVGHRD                                            SVG Horizontal Reference Direction
 CAT021:IRE:GSS                                               Ground Speed
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:HGT                                               Heading/Ground Track information
@@ -1587,9 +1901,76 @@ CAT062:I380:Lon                                              Longitude in WGS.84
 CAT062:I380:GAL                                              Geometric Altitude
 CAT062:I380:spare                                            Spare bits set to zero
 CAT062:I380:PUN                                              Position Uncertainty
-CAT062:I380:MB                                               56 bit message conveying Mode S B message data
-CAT062:I380:BDS1                                             Comm B data Buffer Store 1 Address
-CAT062:I380:BDS2                                             Comm B data Buffer Store 2 Address
+CAT062:I380:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
+CAT062:I380:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
+CAT062:I380:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
+CAT062:I380:BDS40:FMS_ALT                                    FMS Selected Altitude
+CAT062:I380:BDS40:BP_STATUS                                  Barometric Pressure Status
+CAT062:I380:BDS40:BP                                         Barometric Pressure
+CAT062:I380:BDS40:res                                        Reserved
+CAT062:I380:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
+CAT062:I380:BDS40:VNAV                                       VNAV Mode
+CAT062:I380:BDS40:ALT_HOLD                                   ALT HOLD Mode
+CAT062:I380:BDS40:APP                                        APPROACH Mode
+CAT062:I380:BDS40:res                                        Reserved
+CAT062:I380:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
+CAT062:I380:BDS40:TARGET_ALT_SOURCE                          Target ALT source
+CAT062:I380:BDS40:BDS                                        BDS register
+CAT062:I380:BDS44:FOM_SOURCE                                 Figure of Merit
+CAT062:I380:BDS44:STATUS_WIND                                Status Wind speed and Direction
+CAT062:I380:BDS44:WIND_SPEED                                 Wind speed
+CAT062:I380:BDS44:WIND_DIRECTION                             Wind direction (True)
+CAT062:I380:BDS44:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT062:I380:BDS44:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT062:I380:BDS44:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT062:I380:BDS44:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT062:I380:BDS44:STATUS_TURBULENCE                          Status Turbulence
+CAT062:I380:BDS44:TURBULENCE                                 Turbulence
+CAT062:I380:BDS44:STATUS_HUMIDITY                            Status Humidity
+CAT062:I380:BDS44:HUMIDITY                                   Humidity
+CAT062:I380:BDS44:BDS                                        BDS register
+CAT062:I380:BDS45:STATUS_TURBULENCE                          Status Turbulence
+CAT062:I380:BDS45:TURBULENCE                                 Turbulence
+CAT062:I380:BDS45:STATUS_WIND_SHEAR                          Status Wind Shear
+CAT062:I380:BDS45:WIND_SHEAR                                 Wind Shear
+CAT062:I380:BDS45:STATUS_MICROBURST                          Status Microburst
+CAT062:I380:BDS45:MICROBURST                                 Microburst
+CAT062:I380:BDS45:STATUS_ICING                               Status Icing
+CAT062:I380:BDS45:ICING                                      Icing
+CAT062:I380:BDS45:STATUS_WAKE_VORTEX                         Status Wake Vortex
+CAT062:I380:BDS45:WAKE_VORTEX                                Wake Vortex
+CAT062:I380:BDS45:STATUS_STATIC_AIR_TEMPERATURE              Status Static Air Temperature
+CAT062:I380:BDS45:STATIC_AIR_TEMPERATURE                     Static Air Temperature
+CAT062:I380:BDS45:STATUS_AVERAGE_STATIC_PRESSURE             Status Average Static Pressure
+CAT062:I380:BDS45:AVERAGE_STATIC_PRESSURE                    Status Average Static Pressure
+CAT062:I380:BDS45:STATUS_RADIO_HEIGHT                        Status Radio Height
+CAT062:I380:BDS45:RADIO_HEIGHT                               Radio Height
+CAT062:I380:BDS45:RESERVED                                   Reserved
+CAT062:I380:BDS45:BDS                                        BDS register
+CAT062:I380:BDS50:RA_STATUS                                  Roll Angle Status
+CAT062:I380:BDS50:RA                                         Roll Angle
+CAT062:I380:BDS50:TTA_STATUS                                 True Track Angle Status
+CAT062:I380:BDS50:TTA                                        True Track Angle
+CAT062:I380:BDS50:GS_STATUS                                  Ground Speed Status
+CAT062:I380:BDS50:GS                                         Ground Speed
+CAT062:I380:BDS50:TAR_STATUS                                 Track Angle Rate Status
+CAT062:I380:BDS50:TAR                                        Track Angle Rate
+CAT062:I380:BDS50:TAS_STATUS                                 True Airspeed Status
+CAT062:I380:BDS50:TAS                                        True Airspeed
+CAT062:I380:BDS50:BDS                                        BDS register
+CAT062:I380:BDS60:HDG_STATUS                                 Heading Status
+CAT062:I380:BDS60:HDG                                        Magnetic Heading
+CAT062:I380:BDS60:IAS_STAT                                   Indicated Airspeed Status
+CAT062:I380:BDS60:IAS                                        Indicated Airspeed
+CAT062:I380:BDS60:MACH_STATUS                                Mach Speed Status
+CAT062:I380:BDS60:MACH                                       Mach Speed
+CAT062:I380:BDS60:BAR_STATUS                                 Barometric Altitude Rate Status
+CAT062:I380:BDS60:BAR                                        Barometric Altitude Rate
+CAT062:I380:BDS60:IVV_STATUS                                 Inertial Vertical Velocity Status
+CAT062:I380:BDS60:IVV                                        Inertial Vertical Velocity
+CAT062:I380:BDS60:BDS                                        BDS register
+CAT062:I380:BDS0:VAL                                         BDS value
+CAT062:I380:BDS0:BDS                                         BDS register
 CAT062:I380:IAS                                              Indicated Air Speed
 CAT062:I380:MNO                                              Mach Number
 CAT062:I380:spare                                            spare bits set to zero
