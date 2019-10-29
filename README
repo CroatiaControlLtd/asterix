@@ -16,14 +16,22 @@ BUILDING FOR WINDOWS
 ====================
 
 You need to install Cygwin (http://www.cygwin.com/)
-From asterix/src directory start following command:
+Install following cygwin packages:
+	binutils
+	cygwin-devel
+	gcc-core
+	gcc-g++
+	make
+	libexpat-devel
+
+In cygwin terminal from asterix/src directory start following command:
 
 make
 make install
 
 for debug version:
-make MODE=DEBUG
-make MODE=DEBUG install
+make debug
+make debug install
 
 asterix.exe will be created in asterix/install
 
@@ -36,8 +44,8 @@ make
 make install
 
 for debug version:
-make MODE=DEBUG
-make MODE=DEBUG install
+make debug
+make debug install
 
 asterix.exe will be created in asterix/install
 
@@ -55,8 +63,8 @@ make
 make install
 
 for debug version:
-make MODE=DEBUG
-make MODE=DEBUG install
+make debug
+make debug install
 
 asterix.exe will be created in asterix/install
 
@@ -101,6 +109,8 @@ WIRESHARK PLUGIN
 
 Wireshark (http://www.wireshark.org/) plugin can be created from Asterix source.
 For instructions see asterix\src\asterix\wireshark-plugin\HowToBuild.txt
+Note: Wireshark plugin is not supported any more since the Wireshark version 1.10.
+(but now there is a Asterix dissector in Wireshark so you can use it directly)
 
 PYTHON MODULE
 =============
@@ -116,6 +126,11 @@ Install:
 To run unit tests:
     python -m unittest
 
+You can also install the latest version from pip directly:
+    pip install asterix-decoder
+
+To install python module on Windows machine you need to do it through cygwin console (see above).
+
 
 CREDITS
 =======
@@ -127,5 +142,5 @@ Darko Markus		-	Created Asterix XML files, debuging and testing
 Benjamin Bertrand	-	Created Asterix XML files, OS X building procedure
 Sergey Nastasyak	-	Created Asterix XML files
 Nabil Bendafi		-	Etheral plugin
-Krzysztof Rutkowski -   Python function for parsing with offset
+Krzysztof Rutkowski  	-   	Python function for parsing with offset
 
