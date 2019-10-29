@@ -16,11 +16,16 @@ Asterix application was developed by Croatia Control Ltd.
 
 This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.
 
-It can be installed in Linux or MAC iOS environments. Windows is supported only if you use configure cygwin tools (make and gcc) for compilation.
+It can be installed in Linux, Windows or MAC iOS environments. Windows is supported only if you use cygwin tools (make and gcc) for compilation.
 
 To install python module run:
 ```console
 pip install asterix_decoder
+```
+
+To compile python module from source run:
+```console
+python setup.py install
 ```
 
 Then include it in python as:
@@ -37,6 +42,17 @@ make install
 Then run it from asterix/install folder:
 ```console
 ./asterix
+```
+
+If you are using Windows install it through Cygwin terminal.
+```console
+Install following cygwin packages:
+	binutils
+	cygwin-devel
+	gcc-core
+	gcc-g++
+	make
+	libexpat-devel
 ```
 
 For more information about the tool or Asterix protocol feel free to contact the author:
