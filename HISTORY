@@ -173,3 +173,7 @@ Fixed issue #91 Processing stdin. Now asterix can be called with : cat file.aste
 2.5.1 (python_v0.5.11)
 16.10.2019.
 Added CAT011
+
+2.5.2 (python_v0.5.12)
+6.11.2019.
+Issue #99 problem decoding I048/100 Mode-C Code and Code Confidence Indicator

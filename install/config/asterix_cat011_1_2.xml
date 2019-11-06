@@ -1544,13 +1544,13 @@
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>Special Purpose Field</DataItemDefinition>
         <DataItemFormat desc="Special Purpose Field">
-        <Explicit>
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>SPval</BitsShortName>
-                </Bits>
-            </Fixed>
-        </Explicit>
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SPval</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
         </DataItemFormat>
     </DataItem>
 
@@ -1558,13 +1558,13 @@
         <DataItemName>Reserved Expansion Field</DataItemName>
         <DataItemDefinition>Reserved Expansion Field</DataItemDefinition>
         <DataItemFormat desc="Reserved Expansion Field">
-        <Explicit>
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>REval</BitsShortName>
-                </Bits>
-            </Fixed>
-        </Explicit>
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>REval</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
         </DataItemFormat>
     </DataItem>
 

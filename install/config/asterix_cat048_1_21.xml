@@ -15,6 +15,7 @@
     Modified:  29.12.2016. (dsalantic)   Added I260 ACAS definition
     Modified:  06.07.2017. (dsalantic)   Fixed I260 ACAS definition
     Modified:  23.3.2018.  (dsalantic)   Issue #72 wrong repetitive fixed length on I048/120 
+    Modified:  06.11.2019. (dslantic)    Issue #99 problem decoding I048/100 Mode-C Code and Code Confidence Indicator
     
 -->  
 
@@ -610,12 +611,12 @@
                     <BitsValue val="1">Low quality pulse</BitsValue>
                 </Bits>
                 <Bits bit="2">
-                    <BitsShortName>QB1</BitsShortName>
+                    <BitsShortName>QB4</BitsShortName>
                     <BitsValue val="0">High quality pulse</BitsValue>
                     <BitsValue val="1">Low quality pulse</BitsValue>
                 </Bits>
                 <Bits bit="1">
-                    <BitsShortName>QD1</BitsShortName>
+                    <BitsShortName>QD4</BitsShortName>
                     <BitsValue val="0">High quality pulse</BitsValue>
                     <BitsValue val="1">Low quality pulse</BitsValue>
                 </Bits>
