@@ -305,7 +305,7 @@ bool CDiskDevice::Init(const char *path)
          ASSERT( !(_mode & DD_MODE_PACKETFILE) ); // not supported for input
 //         ASSERT( !(_mode & DD_MODE_TEMPNAME) ); // not supported for input
 
-        _fileStream = fopen(fname, "r");
+        _fileStream = fopen(fname, "rb");
         _onstart = true;
     }
     else
