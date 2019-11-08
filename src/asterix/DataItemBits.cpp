@@ -180,7 +180,7 @@ unsigned long DataItemBits::getUnsigned(unsigned char* pData, int bytes, int fro
 
 	if (numberOfBits<1 || numberOfBits>32)
 	{
-		Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.m Number of bits = %d, and must be between 1 and 32.", numberOfBits);
+		Tracer::Error("DataItemBits::getUnsigned : Wrong parameter.m Number of bits = %d, and must be between 1 and 32. Currently is from %d to %d", numberOfBits, tobit, frombit);
 	}
 	else
 	{

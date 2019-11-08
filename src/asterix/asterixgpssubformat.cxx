@@ -175,10 +175,10 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 			float fTimeStamp = ((GPSPost[6]<<16) + (GPSPost[7]<<8) + (GPSPost[8])) / 128.0;
 			unsigned long nTimeStamp = ((long)fTimeStamp) * 1000 + (fTimeStamp - ((long)fTimeStamp)) * 1000;
 #ifdef _DEBUG
-			LOGERROR(1, "GPS Bytes [%02X %02X %02X %02X %02X %02X %02X %02X %02X %02X]\n", GPSPost[0], GPSPost[1],
+			LOGDEBUG(1, "GPS Bytes [%02X %02X %02X %02X %02X %02X %02X %02X %02X %02X]\n", GPSPost[0], GPSPost[1],
 			    GPSPost[2], GPSPost[3], GPSPost[4], GPSPost[5], GPSPost[6], GPSPost[7],
 			    GPSPost[8], GPSPost[9]);
-			LOGERROR(1, "GPS Timestamp [%3.4f]\n", fTimeStamp);
+			LOGDEBUG(1, "GPS Timestamp [%3.4f]\n", fTimeStamp);
 #endif
 			Descriptor.SetTimeStamp(nTimeStamp);
 
