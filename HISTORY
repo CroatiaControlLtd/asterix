@@ -177,3 +177,4 @@ Added CAT011
 2.5.2 (python_v0.5.12)
 6.11.2019.
 Issue #99 problem decoding I048/100 Mode-C Code and Code Confidence Indicator
+Fix: open asterix file in binary mode
