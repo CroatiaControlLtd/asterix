@@ -192,7 +192,7 @@ bool CUdpDevice::Read(void *data, size_t* len)
 	    _countToRead--;
 	    // _socketDesc is going to be read, clear bits
 	    FD_CLR(_socketDesc[i], &_descToRead);
-	    ssize_t lenread = recvfrom(_socketDesc[i], data, *len, MSG_NOSIGNAL, (struct sockaddr *) &clientAddr, &clientLen);
+	    ssize_t lenread = recvfrom(_socketDesc[i], data, *len, MSG_DONTWAIT, (struct sockaddr *) &clientAddr, &clientLen);
 	    if (lenread < 0)
 	    {
 		LOGERROR(1, "Error reading from %s on address %s.\n",
