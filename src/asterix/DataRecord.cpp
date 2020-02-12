@@ -210,7 +210,7 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 		break;
 	case CAsterixFormat::EXML:
 		const int nXIDEFv = 1;
-		strNewResult = format("\n<ASTERIX ver=\"%d\" crc=\"%08X\" cat=\"%d\">", nXIDEFv, m_nCrc, m_pCategory->m_id);
+		strNewResult = format("\n<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pCategory->m_id);
 		break;
   }
 
