@@ -108,11 +108,11 @@ int main(int argc, const char *argv[])
 			show_usage(argv[0]);
 			return 0;
 		}
-		else if ((arg == "-v") || (arg == "--sync"))
+		else if ((arg == "-v") || (arg == "--verbose"))
 		{
 			gVerbose = true;
 		}
-		else if ((arg == "-s") || (arg == "--verbose"))
+		else if ((arg == "-s") || (arg == "--sync"))
 		{
 			gSynchronous = true;
 		}

@@ -5,7 +5,7 @@ import dpkt
 
 # Read example file from packet resources
 sample_filename = asterix.get_sample_file('cat_034_048.pcap')
-with open(sample_filename) as f:
+with open(sample_filename, 'rb') as f:
     pcap = dpkt.pcap.Reader(f)
 
     cntr=1

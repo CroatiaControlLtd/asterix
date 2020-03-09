@@ -52,6 +52,9 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
 	  case CAsterixFormat::EJSONH:
 		  strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
 		  break;
+	  case CAsterixFormat::EXML:
+		  strNewResult = format("\n<I%s>", m_pDescription->m_strID.c_str());
+		  break;
 	  case CAsterixFormat::ETxt:
 		  strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(), m_pDescription->m_strName.c_str());
 		  strNewResult += format("\n[ ");
@@ -74,6 +77,9 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
 
   switch(formatType)
 {
+	  case CAsterixFormat::EXML:
+		  strResult += format("\n</I%s>", m_pDescription->m_strID.c_str());
+		  break;
   	  case CAsterixFormat::EJSON:
   	  case CAsterixFormat::EJSONH:
 		  // replace last ',' with '}'
