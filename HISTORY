@@ -182,3 +182,8 @@ Fix: open asterix file in binary mode
 2.5.3
 4.12.2019.
 Issue #106 UDP multicast receiving on OS X
+
+2.5.4 (python_v0.5.13)
+9.3.2020.
+Fixed format of I380, I390 in CAT11
+Added RE field definition for Category 62+ format
