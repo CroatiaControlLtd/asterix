@@ -8,7 +8,7 @@
     Author:   N.Lagesson
     Created:  2019-10-15
     Modified: 16.10.2019. (dsalantic) Added BDS register definition in I380
-    Modified: 9.3.2020. (georglysen) Fixed items 380 and 390
+    Modified: 26.3.2020. (georglysen) Fixed items 380 and 390
 
 -->
 
@@ -218,16 +218,16 @@
                         <BitsValue val="0">Barometric altitude (Mode C) more reliable</BitsValue>
                         <BitsValue val="1">Geometric altitude more reliable</BitsValue>
                     </Bits>
-                    <Bits from="5" to="3" encode="hex">
+                    <Bits from="5" to="3" encode="unsigned">
                         <BitsShortName>SRC</BitsShortName>
-                        <BitsValue val="000b">no source</BitsValue>
-                        <BitsValue val="001b">GPS</BitsValue>
-                        <BitsValue val="010b">3d radar</BitsValue>
-                        <BitsValue val="011b">triangulation</BitsValue>
-                        <BitsValue val="100b">height from coverage</BitsValue>
-                        <BitsValue val="101b">speed look-up table</BitsValue>
-                        <BitsValue val="110b">default height</BitsValue>
-                        <BitsValue val="111b">multilateration</BitsValue>
+                        <BitsValue val="0">no source</BitsValue>
+                        <BitsValue val="1">GPS</BitsValue>
+                        <BitsValue val="2">3d radar</BitsValue>
+                        <BitsValue val="3">triangulation</BitsValue>
+                        <BitsValue val="4">height from coverage</BitsValue>
+                        <BitsValue val="5">speed look-up table</BitsValue>
+                        <BitsValue val="6">default height</BitsValue>
+                        <BitsValue val="7">multilateration</BitsValue>
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>CNF</BitsShortName>
@@ -256,12 +256,12 @@
                         <BitsValue val="0">default value</BitsValue>
                         <BitsValue val="1">track service begin (i.e. first message transmitted to the user for the track)</BitsValue>
                     </Bits>
-                    <Bits from="5" to="4" encode="hex">
+                    <Bits from="5" to="4" encode="unsigned">
                         <BitsShortName>FRI/FOE</BitsShortName>
-                        <BitsValue val="00b">No Mode 4 interrogationt</BitsValue>
-                        <BitsValue val="01b">Friendly target</BitsValue>
-                        <BitsValue val="10b">Unknown target</BitsValue>
-                        <BitsValue val="11b">No reply</BitsValue>
+                        <BitsValue val="0">No Mode 4 interrogationt</BitsValue>
+                        <BitsValue val="1">Friendly target</BitsValue>
+                        <BitsValue val="2">Unknown target</BitsValue>
+                        <BitsValue val="3">No reply</BitsValue>
                         
                     </Bits>
                     <Bits bit="3">
@@ -378,11 +378,11 @@
         <DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters.</DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item.">
             <Fixed length="7">
-                <Bits from="56" to="55" encode="hex">
+                <Bits from="56" to="55" encode="unsigned">
                     <BitsShortName>STI</BitsShortName>
-                    <BitsValue val="00b">Callsign or registration downlinked from transponde</BitsValue>
-                    <BitsValue val="01b">Callsign not downlinked from transponder</BitsValue>
-                    <BitsValue val="10b">Registration not downlinked from transponder</BitsValue>
+                    <BitsValue val="0">Callsign or registration downlinked from transponde</BitsValue>
+                    <BitsValue val="1">Callsign not downlinked from transponder</BitsValue>
+                    <BitsValue val="2">Registration not downlinked from transponder</BitsValue>
                 </Bits>
                 <Bits from="54" to="49">
                     <BitsShortName>spare</BitsShortName>
@@ -1067,13 +1067,13 @@
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
-                    <Bits from="32" to="31" encode="hex">
+                    <Bits from="32" to="31" encode="unsigned">
                         <BitsShortName>TYP</BitsShortName>
                         <BitsName>TYP</BitsName>
-                        <BitsValue val="00b">Plan number </BitsValue>
-                        <BitsValue val="01b">Unit 1 internal flight number </BitsValue>
-                        <BitsValue val="10b">Unit 2 internal flight number </BitsValue>
-                        <BitsValue val="11b">Unit 3 internal flight number </BitsValue>
+                        <BitsValue val="0">Plan number </BitsValue>
+                        <BitsValue val="1">Unit 1 internal flight number </BitsValue>
+                        <BitsValue val="2">Unit 2 internal flight number </BitsValue>
+                        <BitsValue val="3">Unit 3 internal flight number </BitsValue>
                     </Bits>
                     <Bits from="30" to="28">
                         <BitsShortName>spare</BitsShortName>
@@ -1086,29 +1086,29 @@
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
-                    <Bits from="8" to="7" encode="hex">
+                    <Bits from="8" to="7" encode="unsigned">
                         <BitsShortName>GAT/OAT</BitsShortName>
                         <BitsName>GAT/OAT</BitsName>
-                        <BitsValue val="00b">Unknown</BitsValue>
-                        <BitsValue val="01b">General Air Traffic</BitsValue>
-                        <BitsValue val="10b">Operational Air Traffic</BitsValue>
-                        <BitsValue val="11b">Not applicable</BitsValue>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">General Air Traffic</BitsValue>
+                        <BitsValue val="2">Operational Air Traffic</BitsValue>
+                        <BitsValue val="3">Not applicable</BitsValue>
                     </Bits>
-                    <Bits from="6" to="5" encode="hex">
+                    <Bits from="6" to="5" encode="unsigned">
                         <BitsShortName>FR1/FR2</BitsShortName>
                         <BitsName>FR1/FR2</BitsName>
-                        <BitsValue val="00b">Instrument Flight Rules</BitsValue>
-                        <BitsValue val="01b">Visual Flight rules</BitsValue>
-                        <BitsValue val="10b">Not applicable</BitsValue>
-                        <BitsValue val="11b">Controlled Visual Flight Rules</BitsValue>
+                        <BitsValue val="0">Instrument Flight Rules</BitsValue>
+                        <BitsValue val="1">Visual Flight rules</BitsValue>
+                        <BitsValue val="2">Not applicable</BitsValue>
+                        <BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
                     </Bits>
-                    <Bits from="4" to="3" encode="hex">
+                    <Bits from="4" to="3" encode="unsigned">
                         <BitsShortName>RVSM</BitsShortName>
                         <BitsName>RVSM</BitsName>
-                        <BitsValue val="00b">Unknown Instrument Flight Rules</BitsValue>
-                        <BitsValue val="01b">Approved</BitsValue>
-                        <BitsValue val="10b">Exempt</BitsValue>
-                        <BitsValue val="11b">Not Approved</BitsValue>
+                        <BitsValue val="0">Unknown Instrument Flight Rules</BitsValue>
+                        <BitsValue val="1">Approved</BitsValue>
+                        <BitsValue val="2">Exempt</BitsValue>
+                        <BitsValue val="3">Not Approved</BitsValue>
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>HPR</BitsShortName>
@@ -1293,7 +1293,7 @@
         <DataItemDefinition>Current phase of the flight.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
-                <Bits from="8" to="7">
+                <Bits from="8" to="1">
                     <BitsShortName>FLS</BitsShortName>
                     <BitsName>Phase of flight</BitsName>
                     <BitsValue val="0">unknown </BitsValue>
@@ -1481,12 +1481,12 @@
                     <BitsValue val="0">Alert acknowledged</BitsValue>
                     <BitsValue val="1">Alert not acknowledged</BitsValue>
                 </Bits>
-                <Bits from="23" to="22" encode="hex">
+                <Bits from="23" to="22" encode="unsigned">
                     <BitsShortName>SVR</BitsShortName>
                     <BitsName>SVR</BitsName>
-                    <BitsValue val="00b">End fo alert</BitsValue>
-                    <BitsValue val="01b">Pre-alarm</BitsValue>
-                    <BitsValue val="11b">Severe alert</BitsValue>
+                    <BitsValue val="0">End fo alert</BitsValue>
+                    <BitsValue val="1">Pre-alarm</BitsValue>
+                    <BitsValue val="2">Severe alert</BitsValue>
                 </Bits>
 
                 <Bits from="21" to="17" encode="hex">
