@@ -40,7 +40,7 @@ public:
   unsigned char* m_pFSPECData;
   unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
   uint32_t m_nCrc;
-
+  char* m_pHexData; // hexa conversion of data to display
   bool m_bFormatOK;
   std::list<DataItem*> m_lDataItems;
 
