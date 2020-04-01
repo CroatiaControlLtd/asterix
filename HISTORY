@@ -187,3 +187,7 @@ Issue #106 UDP multicast receiving on OS X
 9.3.2020.
 Fixed format of I380, I390 in CAT11
 Added RE field definition for Category 62+ format
+
+2.5.5 
+1.4.2020.
+#113 Export undecoded asterix data in output
