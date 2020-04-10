@@ -1113,19 +1113,22 @@
                 </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
-                        <BitsShortName>Departure Airport</BitsShortName>
+                        <BitsShortName>ADEP</BitsShortName>
+                        <BitsName>Departure Airport</BitsName>
                         <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
-                        <BitsShortName>Destination Airport</BitsShortName>
+                        <BitsShortName>ADES</BitsShortName>
+                        <BitsName>Destination Airport</BitsName>
                         <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
                     </Bits>
                 </Fixed>
                 <Fixed length="3">
                     <Bits from="24" to="1" encode="ascii">
-                        <BitsShortName>Runway Designation</BitsShortName>
+                        <BitsShortName>RRWY</BitsShortName>
+                        <BitsName>Runway Designation</BitsName>
                         <BitsName>For details refer to ICAO Annex 14, chapter 5.</BitsName>
                     </Bits>
                 </Fixed>
@@ -1206,7 +1209,7 @@
                 <Fixed length="6">
                     <Bits from="48" to="1" encode="ascii">
                         <BitsShortName>Aircraft Stand</BitsShortName>
-                        <BitsName>Aircraft Stand</BitsName>
+                        <BitsName>STAND</BitsName>
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
