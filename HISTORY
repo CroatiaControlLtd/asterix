@@ -190,4 +190,8 @@ Added RE field definition for Category 62+ format
 
 2.5.5 
 1.4.2020.
-#113 Export undecoded asterix data in output
+Issue #113 Export undecoded asterix data in output
+
+2.5.6 (python_v0.5.14)
+10.4.2020.
+Added new categories: CAT025, CAT205
