@@ -537,7 +537,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>PSR</BitsShortName>
                         <BitsName>Age of the last primary detection used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -545,7 +545,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>SSR</BitsShortName>
                         <BitsName>Age of the last secondary detection used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -553,7 +553,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MDA</BitsShortName>
                         <BitsName>Age of the last Mode A detection used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -561,7 +561,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MFL</BitsShortName>
                         <BitsName>Age of the last Mode C detection used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -569,7 +569,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MDS</BitsShortName>
                         <BitsName>Age of the last Mode S detection used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -577,7 +577,7 @@
                     <Bits from="16" to="1">
                         <BitsShortName>ADS</BitsShortName>
                         <BitsName>Age of the last ADS report used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -585,7 +585,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>ADB</BitsShortName>
                         <BitsName>Age of the last ADS-B report used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -593,7 +593,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MD1</BitsShortName>
                         <BitsName>Age of the last valid Mode 1 used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -601,7 +601,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MD2</BitsShortName>
                         <BitsName>Age of the last Mode 2 used to update the track</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -609,7 +609,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>LOP</BitsShortName>
                         <BitsName>Age of the last magentic loop detection</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -617,7 +617,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MLT</BitsShortName>
                         <BitsName>Age of the last MLT detection </BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -625,7 +625,7 @@
                     <Bits from="8" to="1">
                         <BitsShortName>TRK</BitsShortName>
                         <BitsName>Actual track age since first occurrence</BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -633,10 +633,9 @@
                     <Bits from="8" to="1">
                         <BitsShortName>MUL</BitsShortName>
                         <BitsName>Age of the last multilateration detection </BitsName>
-                        <BitsUnit scale="0.25">sec</BitsUnit>                       
+                        <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
 
             </Compound>
         </DataItemFormat>
@@ -1139,24 +1138,21 @@
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
                         <BitsShortName>Departure Airport</BitsShortName>
-                        <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.
-                        </BitsName>
+                        <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
 
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
                         <BitsShortName>Destination Airport</BitsShortName>
-                        <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.
-                        </BitsName>
+                        <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
 
                     </Bits>
                 </Fixed>
                 <Fixed length="3">
                     <Bits from="24" to="1" encode="ascii">
                         <BitsShortName>Runway Designation</BitsShortName>
-                        <BitsName>For details refer to ICAO Annex 14, chapter 5.
-                        </BitsName>
+                        <BitsName>For details refer to ICAO Annex 14, chapter 5.</BitsName>
 
                     </Bits>
                 </Fixed>
