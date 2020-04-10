@@ -32,6 +32,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
+    
     <DataItem id="010" rule="mandatory">
         <DataItemName>Data Source Identifier</DataItemName>
         <DataItemDefinition>Identification of the system from which the data are received.</DataItemDefinition>
@@ -48,6 +49,7 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
+    
     <DataItem id="015" rule="mandatory">
         <DataItemName>Data Source Identifier</DataItemName>
         <DataItemDefinition>Identification of the system from which the data are received.</DataItemDefinition>
@@ -532,7 +534,6 @@
                         </Bits>
                     </Fixed>
                 </Variable>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>PSR</BitsShortName>
@@ -540,7 +541,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>SSR</BitsShortName>
@@ -548,7 +548,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MDA</BitsShortName>
@@ -556,7 +555,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MFL</BitsShortName>
@@ -564,7 +562,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MDS</BitsShortName>
@@ -572,7 +569,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>ADS</BitsShortName>
@@ -580,7 +576,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>ADB</BitsShortName>
@@ -588,7 +583,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MD1</BitsShortName>
@@ -596,7 +590,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MD2</BitsShortName>
@@ -604,7 +597,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>LOP</BitsShortName>
@@ -612,7 +604,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MLT</BitsShortName>
@@ -620,7 +611,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>TRK</BitsShortName>
@@ -628,7 +618,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MUL</BitsShortName>
@@ -636,7 +625,6 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
-
             </Compound>
         </DataItemFormat>
     </DataItem> 
@@ -758,110 +746,105 @@
                             <BitsValue val="1">extension</BitsValue>
                         </Bits>
                     </Fixed>
-				</Variable>
-				
-				<Repetitive>
-					<BDS/>
-				</Repetitive>
-				
-				<Fixed length="3">
-					<Bits from="24" to="1">
-						<BitsShortName>AircraftAdress</BitsShortName>
-						<BitsName>24 bits Aircraft address, A23 to A0 </BitsName>
-						
-					</Bits>
-				</Fixed>
-				
-				<Fixed length="3">
-					<Bits from="24" to="22">
-						<BitsShortName>COM</BitsShortName>
-						<BitsName>Communications capability of the transponder</BitsName>
-						<BitsValue val="0">No communications capability (surveillance only)</BitsValue>
-						<BitsValue val="1">Comm. A and Comm. B capability</BitsValue>
-						<BitsValue val="2">Comm. A, Comm. B and Uplink ELM</BitsValue>
-						<BitsValue val="3">Comm. A, Comm. B, Uplink ELM and Downlink ELM</BitsValue>
-						<BitsValue val="4">Level 5 Transponder capability</BitsValue>
-						<BitsValue val="5">Not assigned</BitsValue>
-						<BitsValue val="6">Not assigned</BitsValue>
-						<BitsValue val="7">Not assigned</BitsValue>
-					</Bits>
-					<Bits from="21" to="18">
-						<BitsShortName>STAT</BitsShortName>
-						<BitsName>Flight Status</BitsName>
-							<BitsValue val="0">No alert, no SPI, aircraft airborne</BitsValue>
-							<BitsValue val="1">No alert, no SPI, aircraft on ground</BitsValue>
-							<BitsValue val="2">Alert, no SPI, aircraft airborne</BitsValue>
-							<BitsValue val="3">Alert, no SPI, aircraft on ground</BitsValue>
-							<BitsValue val="4">Alert, SPI, aircraft airborne or on ground</BitsValue>
-							<BitsValue val="5">No alert, SPI, aircraft airborne or on ground</BitsValue>
-							<BitsValue val="6">General Emergency</BitsValue>
-							<BitsValue val="7"> Lifeguard / medical</BitsValue>
-							<BitsValue val="8">Minimum fuel</BitsValue>
-							<BitsValue val="9">No communications</BitsValue>
-							<BitsValue val="10">Unlawful</BitsValue>
-					</Bits>
-					<Bits bit="17">
-						<BitsShortName>spare</BitsShortName>
-						<BitsName>Spare bits set to 0</BitsName>
-					</Bits>
-					<Bits bit="16">
-						<BitsShortName>SSC</BitsShortName>
-						<BitsName>Specific service capability</BitsName>
-						<BitsValue val="0">No</BitsValue>
-						<BitsValue val="1">Yes</BitsValue>
-					</Bits>
-					<Bits bit="15">
-						<BitsShortName>ARC</BitsShortName>
-						<BitsName>Altitude reporting capability</BitsName>
-							<BitsValue val="0">100 ft resolution</BitsValue>
-							<BitsValue val="1">25 ft resolution</BitsValue>
-					</Bits>
-					<Bits bit="14">
-						<BitsShortName>AIC</BitsShortName>
-						<BitsName>Aircraft identification capability</BitsName>
-						<BitsValue val="0">No</BitsValue>
-						<BitsValue val="1">Yes</BitsValue>
-					</Bits>
-					<Bits bit="13">
-						<BitsShortName>B1A</BitsShortName>
-						<BitsName>BDS 1,0 bit 16</BitsName>
-					</Bits>
-					<Bits from="12" to="9">
-						<BitsShortName>B1B</BitsShortName>
-						<BitsName>BDS 1,0 bit 37/40</BitsName>
-						
-					</Bits>
-					<Bits bit="8">
-						<BitsShortName>AC</BitsShortName>
-						<BitsName>ACAS operational</BitsName>
-							<BitsValue val="0">No</BitsValue>
-							<BitsValue val="1">Yes</BitsValue>
-					</Bits>
-					<Bits bit="7">
-						<BitsShortName>MN</BitsShortName>
-						<BitsName>Multiple navigational aids operating</BitsName>
-							<BitsValue val="0">No</BitsValue>
-							<BitsValue val="1">Yes</BitsValue>
-					</Bits>
-					<Bits bit="6">
-						<BitsShortName>DC</BitsShortName>
-						<BitsName>Differential correction</BitsName>
-							<BitsValue val="0">Yes</BitsValue>
-							<BitsValue val="1">No</BitsValue>
-					</Bits>
-					<Bits from="5" to="1">
-						<BitsShortName>spare</BitsShortName>
-						<BitsName>Spare bits set to 0</BitsName>
-					</Bits>
-				</Fixed>
-
+                </Variable>
+                <Repetitive>
+                    <BDS/>
+                </Repetitive>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+                        <BitsShortName>AircraftAdress</BitsShortName>
+                        <BitsName>24 bits Aircraft address, A23 to A0 </BitsName>
+                        
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="22">
+                        <BitsShortName>COM</BitsShortName>
+                        <BitsName>Communications capability of the transponder</BitsName>
+                        <BitsValue val="0">No communications capability (surveillance only)</BitsValue>
+                        <BitsValue val="1">Comm. A and Comm. B capability</BitsValue>
+                        <BitsValue val="2">Comm. A, Comm. B and Uplink ELM</BitsValue>
+                        <BitsValue val="3">Comm. A, Comm. B, Uplink ELM and Downlink ELM</BitsValue>
+                        <BitsValue val="4">Level 5 Transponder capability</BitsValue>
+                        <BitsValue val="5">Not assigned</BitsValue>
+                        <BitsValue val="6">Not assigned</BitsValue>
+                        <BitsValue val="7">Not assigned</BitsValue>
+                    </Bits>
+                    <Bits from="21" to="18">
+                        <BitsShortName>STAT</BitsShortName>
+                        <BitsName>Flight Status</BitsName>
+                            <BitsValue val="0">No alert, no SPI, aircraft airborne</BitsValue>
+                            <BitsValue val="1">No alert, no SPI, aircraft on ground</BitsValue>
+                            <BitsValue val="2">Alert, no SPI, aircraft airborne</BitsValue>
+                            <BitsValue val="3">Alert, no SPI, aircraft on ground</BitsValue>
+                            <BitsValue val="4">Alert, SPI, aircraft airborne or on ground</BitsValue>
+                            <BitsValue val="5">No alert, SPI, aircraft airborne or on ground</BitsValue>
+                            <BitsValue val="6">General Emergency</BitsValue>
+                            <BitsValue val="7"> Lifeguard / medical</BitsValue>
+                            <BitsValue val="8">Minimum fuel</BitsValue>
+                            <BitsValue val="9">No communications</BitsValue>
+                            <BitsValue val="10">Unlawful</BitsValue>
+                    </Bits>
+                    <Bits bit="17">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                    </Bits>
+                    <Bits bit="16">
+                        <BitsShortName>SSC</BitsShortName>
+                        <BitsName>Specific service capability</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="15">
+                        <BitsShortName>ARC</BitsShortName>
+                        <BitsName>Altitude reporting capability</BitsName>
+                            <BitsValue val="0">100 ft resolution</BitsValue>
+                            <BitsValue val="1">25 ft resolution</BitsValue>
+                    </Bits>
+                    <Bits bit="14">
+                        <BitsShortName>AIC</BitsShortName>
+                        <BitsName>Aircraft identification capability</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="13">
+                        <BitsShortName>B1A</BitsShortName>
+                        <BitsName>BDS 1,0 bit 16</BitsName>
+                    </Bits>
+                    <Bits from="12" to="9">
+                        <BitsShortName>B1B</BitsShortName>
+                        <BitsName>BDS 1,0 bit 37/40</BitsName>
+                        
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>AC</BitsShortName>
+                        <BitsName>ACAS operational</BitsName>
+                            <BitsValue val="0">No</BitsValue>
+                            <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>MN</BitsShortName>
+                        <BitsName>Multiple navigational aids operating</BitsName>
+                            <BitsValue val="0">No</BitsValue>
+                            <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>DC</BitsShortName>
+                        <BitsName>Differential correction</BitsName>
+                            <BitsValue val="0">Yes</BitsValue>
+                            <BitsValue val="1">No</BitsValue>
+                    </Bits>
+                    <Bits from="5" to="1">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                    </Bits>
+                </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
                         <BitsShortName>AircraftType</BitsShortName>
                         <BitsName>Aircraft Derived Aircraft Type</BitsName>
                     </Bits>
                 </Fixed>
-				
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>ECAT</BitsShortName>
@@ -892,7 +875,6 @@
                             <BitsValue val="24">reserved </BitsValue>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>VDL</BitsShortName>
@@ -900,14 +882,12 @@
                             <BitsValue val="0">VDL Mode 4 available </BitsValue>
                             <BitsValue val="1">VDL Mode 4 not available </BitsValue>
                     </Bits>
-
                     <Bits bit="7">
                         <BitsShortName>MDS</BitsShortName>
                         <BitsName>MDS</BitsName>
                             <BitsValue val="0">Mode S available </BitsValue>
                             <BitsValue val="1">Mode S not available </BitsValue>
                     </Bits>
-
                     <Bits bit="6">
                         <BitsShortName>UAT</BitsShortName>
                         <BitsName>UAT</BitsName>
@@ -919,8 +899,7 @@
                             <BitsName>Spare bits set to 0</BitsName>
                      </Bits>
                 </Fixed>
-                
-            </Compound>
+                            </Compound>
         </DataItemFormat>
     </DataItem>
 
@@ -1050,19 +1029,16 @@
                     <Bits from="16" to="9">
                         <BitsShortName>SAC</BitsShortName>
                         <BitsName>System Area Code</BitsName>
-
                     </Bits>
                     <Bits from="8" to="1">
                         <BitsShortName>SIC</BitsShortName>
                         <BitsName>System Identity Code</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="7">
                     <Bits from="56" to="1" encode="ascii">
                         <BitsShortName>CSN</BitsShortName>
                         <BitsName>Callsign</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
@@ -1081,7 +1057,6 @@
                     <Bits from="27" to="1" encode="hex">
                         <BitsShortName>NBR</BitsShortName>
                         <BitsName>Number from 0 to 99 999 999</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
@@ -1128,32 +1103,30 @@
                 </Fixed>
                 <Fixed length="1">
                     <Bits from="8" to="1" encode="ascii">
+                        <BitsShortName>WTC</BitsShortName>
+                        <BitsName>Wake Turbulence Category</BitsName>
                         <BitsValue val="L">Light</BitsValue>
                         <BitsValue val="M">Medium</BitsValue>
                         <BitsValue val="H">Heavy</BitsValue>
                         <BitsValue val="J">Super</BitsValue>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
                         <BitsShortName>Departure Airport</BitsShortName>
                         <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
                     <Bits from="32" to="1" encode="ascii">
                         <BitsShortName>Destination Airport</BitsShortName>
                         <BitsName>The Airport Names are indicated in the ICAO Location Indicators book.</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="3">
                     <Bits from="24" to="1" encode="ascii">
                         <BitsShortName>Runway Designation</BitsShortName>
                         <BitsName>For details refer to ICAO Annex 14, chapter 5.</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="2">
@@ -1161,19 +1134,16 @@
                         <BitsShortName>CFL</BitsShortName>
                         <BitsName>(LSB) = 1/4 FL</BitsName>
                         <BitsUnit scale="0.25">FL</BitsUnit>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="2">
                     <Bits from="16" to="9" encode="hex">
                         <BitsShortName>Centre</BitsShortName>
                         <BitsName>8-bit group Identification code</BitsName>
-
                     </Bits>
                     <Bits from="8" to="1" encode="hex">
                         <BitsShortName>Position</BitsShortName>
                         <BitsName>8-bit Control Position identification code</BitsName>
-
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
@@ -1194,7 +1164,6 @@
                         <BitsValue val="11">Actual time off runway </BitsValue>
                         <BitsValue val="12">Predicted time to gate </BitsValue>
                         <BitsValue val="13">Actual on-block time </BitsValue>
-
                     </Bits>
                     <Bits from="27" to="26">
                         <BitsShortName>DAY</BitsShortName>
@@ -1202,59 +1171,44 @@
                         <BitsValue val="0">Today</BitsValue>
                         <BitsValue val="1">Yesterday</BitsValue>
                         <BitsValue val="2">Tomorrow</BitsValue>
-
                     </Bits>
-
                     <Bits from="25" to="22">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
                     </Bits>
-
                     <Bits from="21" to="17">
                         <BitsShortName>HOR</BitsShortName>
                         <BitsName>Hours, from 0 to 23</BitsName>
-
                     </Bits>
-
                     <Bits from="16" to="15">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
                     </Bits>
-
                     <Bits from="14" to="9">
                         <BitsShortName>MIN</BitsShortName>
                         <BitsName>Minutes, from 0 to 59</BitsName>
-
                     </Bits>
-
                     <Bits bit="8">
                         <BitsShortName>AVS</BitsShortName>
                         <BitsName>AVS</BitsName>
                         <BitsValue val="0">Seconds available</BitsValue>
                         <BitsValue val="1">Seconds not available</BitsValue>
-
                     </Bits>
-
                     <Bits bit="7">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
                     </Bits>
-
                     <Bits from="6" to="1">
                         <BitsShortName>SEC</BitsShortName>
                         <BitsName>Seconds, from 0 to 59</BitsName>
-
                     </Bits>
-
                 </Fixed>
                 <Fixed length="6">
                     <Bits from="48" to="1" encode="ascii">
                         <BitsShortName>Aircraft Stand</BitsShortName>
                         <BitsName>Aircraft Stand</BitsName>
-
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="7" encode="ascii">
                         <BitsShortName>EMP</BitsShortName>
@@ -1262,18 +1216,14 @@
                         <BitsValue val="0">Empty </BitsValue>
                         <BitsValue val="1">Occupied </BitsValue>
                         <BitsValue val="2">Unknown </BitsValue>
-
                     </Bits>
-
                     <Bits from="6" to="5">
                         <BitsShortName>AVL</BitsShortName>
                         <BitsName>AVL</BitsName>
                         <BitsValue val="0">Available </BitsValue>
                         <BitsValue val="1">Not available </BitsValue>
                         <BitsValue val="2">Unknown </BitsValue>
-
                     </Bits>
-
                     <Bits from="4" to="1">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
@@ -1284,7 +1234,6 @@
     </DataItem>
 
     <DataItem id="430" rule="optional">
-
         <DataItemName>Phase of flight</DataItemName>
         <DataItemDefinition>Current phase of the flight.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
@@ -1309,7 +1258,6 @@
     </DataItem>
 
     <DataItem id="500" rule="optional">
-
         <DataItemName>Estimated Accuracies</DataItemName>
         <DataItemDefinition>Overview of all important accuracies</DataItemDefinition>
         <DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to eight subfields of predefined length.">
@@ -1377,7 +1325,6 @@
                         </Bits>
                     </Fixed>
                 </Variable>
-
                 <Fixed length="4">
                     <Bits from="32" to="17">
                         <BitsShortName>APC_X</BitsShortName>
@@ -1390,7 +1337,6 @@
                         <BitsUnit scale="0.5">m</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>COV_XY</BitsShortName>
@@ -1398,7 +1344,6 @@
                         <BitsUnit scale="0.5">m</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="4">
                     <Bits from="17" to="32">
                         <BitsShortName>APW_Lat</BitsShortName>
@@ -1411,7 +1356,6 @@
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>AGA_Acc</BitsShortName>
@@ -1419,7 +1363,6 @@
                         <BitsUnit scale="6.25">ft</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>ABA_Acc</BitsShortName>
@@ -1427,7 +1370,6 @@
                         <BitsUnit scale="6.25">ft</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="2">
                     <Bits from="16" to="9">
                         <BitsShortName>ATV_X</BitsShortName>
@@ -1440,7 +1382,6 @@
                         <BitsUnit scale="0.25">m/s</BitsUnit>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="2">
                     <Bits from="16" to="9">
                         <BitsShortName>AA_X</BitsShortName>
@@ -1453,7 +1394,6 @@
                         <BitsUnit scale="0.25">m/s^2</BitsUnit>
                     </Bits>
                 </Fixed>                            
-
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>ARC_Acc</BitsShortName>
@@ -1461,7 +1401,6 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
-
             </Compound>
         </DataItemFormat>
     </DataItem>
@@ -1484,7 +1423,6 @@
                     <BitsValue val="1">Pre-alarm</BitsValue>
                     <BitsValue val="2">Severe alert</BitsValue>
                 </Bits>
-
                 <Bits from="21" to="17" encode="hex">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare Bit set to zero</BitsName>
@@ -1497,7 +1435,6 @@
                     <BitsShortName>AN</BitsShortName>
                     <BitsName>Alert Number</BitsName>
                 </Bits>
-
             </Fixed>
         </DataItemFormat>
     </DataItem>
@@ -1511,7 +1448,6 @@
                     <BitsShortName>REP</BitsShortName>
                     <BitsName>Repetition Factor</BitsName>
                 </Bits-->
-
                 <Bits from="16" to="13" encode="hex">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare Bit set to zero</BitsName>
@@ -1533,7 +1469,6 @@
                     <BitsShortName>REP</BitsShortName>
                     <BitsName>Repetition Factor</BitsName>
                 </Bits-->
-
                 <Bits from="16" to="13" encode="hex">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare Bit set to zero</BitsName>
@@ -1543,7 +1478,6 @@
                     <BitsName>Indicator</BitsName>
                     <BitsValue val="0">Indicator on</BitsValue>
                     <BitsValue val="1">Indicator off</BitsValue>
-
                 </Bits>
             </Fixed>
         </DataItemFormat>
