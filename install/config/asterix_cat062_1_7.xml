@@ -476,7 +476,7 @@
                     <Fixed length="1">
                         <Bits from="1" to="8" encode="signed">
                             <BitsShortName>TOS</BitsShortName>
-                            <BitsName>Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
+                            <BitsName>Time Offset coded as a two's complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
                             <BitsUnit scale="0.0078125">s</BitsUnit>						
                         </Bits>
                     </Fixed>

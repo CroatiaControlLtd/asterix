@@ -191,8 +191,8 @@ CAT004:I120:CD                                               Conflict duration
 CAT004:I170:AI1                                              Aircraft Identifier 1
 CAT004:I170:spare                                            Spare bits set to 0
 CAT004:I170:M31                                              Mode 3/A Code Aircraft 1
-CAT004:I170:Latitude                                         Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
-CAT004:I170:Longitude                                        Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT004:I170:Latitude                                         Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
+CAT004:I170:Longitude                                        Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
 CAT004:I170:Altitude                                         Altitude of predicted conflict
 CAT004:I170:X                                                Starting X-position of the conflict
 CAT004:I170:Y                                                Starting Y-position of the conflict
@@ -216,8 +216,8 @@ CAT004:I170:CFL                                              Cleared Flight Leve
 CAT004:I171:AI2                                              Aircraft Identifier 2
 CAT004:I171:spare                                            Spare bits set to 0
 CAT004:I171:M32                                              Mode 3/A Code Aircraft 2
-CAT004:I171:Latitude                                         Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
-CAT004:I171:Longitude                                        Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT004:I171:Latitude                                         Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
+CAT004:I171:Longitude                                        Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
 CAT004:I171:Altitude                                         Altitude of predicted conflict
 CAT004:I171:X                                                Starting X-position of the conflict
 CAT004:I171:Y                                                Starting Y-position of the conflict
@@ -313,8 +313,8 @@ CAT010:I020:spare                                            Spare bit set to 0
 CAT010:I020:FX                                               
 CAT010:I040:RHO                                              RHO
 CAT010:I040:Theta                                            Theta
-CAT010:I041:Lat                                              Latitude in WGS-84 in twos complement.
-CAT010:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT010:I041:Lat                                              Latitude in WGS-84 in two's complement.
+CAT010:I041:Lon                                              Longitude in WGS-84 in two's complement.
 CAT010:I042:X                                                X
 CAT010:I042:Y                                                Y
 CAT010:I060:V                                                V
@@ -449,8 +449,8 @@ CAT011:I000:MsgTyp                                           Type of msg.
 CAT011:I010:SAC                                              System Area Code fixed to zero
 CAT011:I010:SIC                                              System Identification Code
 CAT011:I015:SI                                               the service identification is allocated by the A-SMGCS
-CAT011:I041:Lat                                              Latitude in WGS-84 in twos complement.
-CAT011:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT011:I041:Lat                                              Latitude in WGS-84 in two's complement.
+CAT011:I041:Lon                                              Longitude in WGS-84 in two's complement.
 CAT011:I042:X                                                X
 CAT011:I042:Y                                                Y
 CAT011:I060:spare                                            Spare bit set to 0
@@ -650,8 +650,8 @@ CAT019:I553:spare                                            Spare bit set to ze
 CAT019:I553:ref_trans_2                                      Ref Trans 2 Status
 CAT019:I553:spare                                            Spare bit set to zero
 CAT019:I553:FX                                               
-CAT019:I600:Lat                                              Latitude in WGS-84 in twos complement.
-CAT019:I600:Lon                                              Longitude in WGS-84 in twos complement.
+CAT019:I600:Lat                                              Latitude in WGS-84 in two's complement.
+CAT019:I600:Lon                                              Longitude in WGS-84 in two's complement.
 CAT019:I610:height                                           Height (WGS-84) above MSL
 CAT019:I620:undulation                                       WGS-84 Undulation value (MSL)
 CAT020:I010:SAC                                              System Area Code
@@ -674,8 +674,8 @@ CAT020:I020:TST
 CAT020:I020:FX                                               
 CAT020:I030:W_E                                              (W/E Value) Warning/error condition value
 CAT020:I030:FX                                               
-CAT020:I041:Lat                                              Latitude in WGS-84 in twos complement.
-CAT020:I041:Lon                                              Longitude in WGS-84 in twos complement.
+CAT020:I041:Lat                                              Latitude in WGS-84 in two's complement.
+CAT020:I041:Lon                                              Longitude in WGS-84 in two's complement.
 CAT020:I042:X                                                X
 CAT020:I042:Y                                                Y
 CAT020:I050:V                                                V
@@ -925,9 +925,9 @@ CAT021:I110:TRA                                              Turn Radius Availab
 CAT021:I110:TOA                                              
 CAT021:I110:TOV                                              Time Over Point
 CAT021:I110:TTR                                              TCP Turn radius
-CAT021:I130:Lat                                              Latitude in WGS.84 in twos complement. Range -90 <= Lat <= 90 deg.
-CAT021:I130:Lon                                              Longitude in WGS.84 in twos complement. Range -180 <= longitude < 180 deg.
-CAT021:I131:Lat                                              Latitude In WGS.84 in twos complement. Range -90 <= Lat <= 90 deg.
+CAT021:I130:Lat                                              Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.
+CAT021:I130:Lon                                              Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.
+CAT021:I131:Lat                                              Latitude In WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.
 CAT021:I131:Lon                                              Longitude In WGS.84 in two's complement. Range -180 <= longitude < 180 deg.
 CAT021:I132:MAM                                              Message Amplitude
 CAT021:I140:geometric_height                                 Geometric Height
@@ -1701,8 +1701,8 @@ CAT062:I080:spare                                            Spare bits set to 0
 CAT062:I080:FX                                               
 CAT062:I100:X                                                X
 CAT062:I100:Y                                                Y
-CAT062:I105:Lat                                              Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.
-CAT062:I105:Lon                                              Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT062:I105:Lat                                              Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
+CAT062:I105:Lon                                              Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
 CAT062:I110:M5                                               
 CAT062:I110:ID                                               
 CAT062:I110:DA                                               
@@ -1724,7 +1724,7 @@ CAT062:I110:RES                                              Resolution with whi
 CAT062:I110:GA                                               GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.
 CAT062:I110:spare                                            spare bits set to 0
 CAT062:I110:EM1                                              Extended Mode 1 Code in octal representation
-CAT062:I110:TOS                                              Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.
+CAT062:I110:TOS                                              Time Offset coded as a two's complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.
 CAT062:I110:spare                                            spare bits set to 0
 CAT062:I110:X5                                               X-pulse from Mode 5 Data reply or Report.
 CAT062:I110:XC                                               X-pulse from Mode C reply
@@ -1837,8 +1837,8 @@ CAT062:I380:TCA                                              TCP number availabi
 CAT062:I380:NC                                               TCP compliance
 CAT062:I380:TCPnum                                           Trajectory Change Point number
 CAT062:I380:Alt                                              Altitude
-CAT062:I380:Lat                                              Latitude in WGS.84 in twos complement. Range -90 < Lat < 90 deg.
-CAT062:I380:Lon                                              Longitude In WGS.84 in twos complement. Range -180 < longitude < 180 deg.
+CAT062:I380:Lat                                              Latitude in WGS.84 in two's complement. Range -90 < Lat < 90 deg.
+CAT062:I380:Lon                                              Longitude In WGS.84 in two's complement. Range -180 < longitude < 180 deg.
 CAT062:I380:PT                                               Point type
 CAT062:I380:TD                                               Turn Direction
 CAT062:I380:TRA                                              Turn Radius Availability

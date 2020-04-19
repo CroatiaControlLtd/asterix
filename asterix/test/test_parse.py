@@ -286,9 +286,9 @@ class AsterixParseTest(unittest.TestCase):
 
             self.assertEqual(packet[0]['I105'], {
                 'Lat': {'val': 44.73441302776337,
-                        'desc': 'Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.'},
+                        'desc': 'Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.'},
                 'Lon': {'val': 13.0415278673172,
-                        'desc': 'Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.'}})
+                        'desc': 'Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.'}})
             self.assertEqual(packet[0]['I040'], {'TrkN': {'val': 4980, 'desc': 'Track number'}})
             self.assertEqual(packet[0]['I210'], {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
             self.assertEqual(packet[1]['I220'], {'RoC': {'val': 0.0, 'desc': 'Rate of Climb/Descent'}})
@@ -425,9 +425,9 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[1]['I380']['ID'], {'ACID': {'val': 'SXD4723 ', 'desc': 'Target Identification'}})
 
             self.assertEqual(packet[1]['I105'], {'Lat': {'val': 45.40080785751343,
-                                                         'desc': 'Latitude in WGS.84 in twos complement. Range -90 < latitude < 90 deg.'},
+                                                         'desc': 'Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.'},
                                                  'Lon': {'val': 15.13318419456482,
-                                                         'desc': 'Longitude in WGS.84 in twos complement. Range -180 < longitude < 180 deg.'}})
+                                                         'desc': 'Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.'}})
             self.assertEqual(packet[1]['I040'], {'TrkN': {'val': 7977, 'desc': 'Track number'}})
             self.assertEqual(packet[1]['I210'], {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
             self.assertEqual(packet[2]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})

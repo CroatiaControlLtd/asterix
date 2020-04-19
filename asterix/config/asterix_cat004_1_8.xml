@@ -764,12 +764,12 @@
                 <Fixed length="10">
                     <Bits from="80" to="49" encode="signed">
                         <BitsShortName>Latitude</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="48" to="17" encode="signed">
                         <BitsShortName>Longitude</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in twos complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="16" to="1" encode="signed">
@@ -999,12 +999,12 @@
                 <Fixed length="10">
                     <Bits from="80" to="49" encode="signed">
                         <BitsShortName>Latitude</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="48" to="17" encode="signed">
                         <BitsShortName>Longitude</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in twos complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="16" to="1" encode="signed">
