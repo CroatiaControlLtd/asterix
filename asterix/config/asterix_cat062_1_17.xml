@@ -384,12 +384,12 @@
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Lat</BitsShortName>
-                    <BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                    <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
                     <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS.84 in twos complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                    <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -562,7 +562,7 @@
                 <Fixed length="1">
                     <Bits from="1" to="8" encode="signed">
                         <BitsShortName>TOS</BitsShortName>
-                        <BitsName>Time Offset coded as a twos complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
+                        <BitsName>Time Offset coded as a two's complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
                         <BitsUnit scale="0.0078125">s</BitsUnit>                        
                     </Bits>
                 </Fixed>
@@ -1994,12 +1994,12 @@
                         </Bits>
                         <Bits from="96" to="73" encode="signed">
                             <BitsShortName>Lat</BitsShortName>
-                            <BitsName>Latitude in WGS.84 in twos complement. Range -90 &lt; Lat &lt; 90 deg.</BitsName>
+                            <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; Lat &lt; 90 deg.</BitsName>
                             <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
                         </Bits>
                         <Bits from="72" to="49" encode="signed">
                             <BitsShortName>Lon</BitsShortName>
-                            <BitsName>Longitude In WGS.84 in twos complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                            <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                             <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
                         </Bits>
                         <Bits from="48" to="45">
