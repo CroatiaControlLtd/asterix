@@ -43,7 +43,7 @@ std::string format_arg_list(const char *fmt, va_list args)
 	    // we don't know exact size, so guess
 	    length *= 2;
 	    result = -1;
-	} else if ( result > length ) {
+	} else if ( result >= length ) {
 	    length = result + 1;
 	    result = -1;
 	}
