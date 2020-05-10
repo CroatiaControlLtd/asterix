@@ -65,7 +65,7 @@ std::string format(const char *fmt, ...)
     return s;
 }
 
-uint32_t crc32(const void* pBuffer, size_t nLength, uint32_t nPreviousCrc32 = 0)
+uint32_t crc32(const void* pBuffer, size_t nLength, uint32_t nPreviousCrc32)
 {
     uint32_t nCrc = ~nPreviousCrc32; // same as previousCrc32 ^ 0xFFFFFFFF
     const uint8_t* pCurrent = (const uint8_t*) pBuffer;
