@@ -26,33 +26,30 @@
 std::string format_arg_list(const char *fmt, va_list args)
 {
     if (!fmt) return "";
-    int   result = -1, length = 256;
+    int size = 0;
     va_list args_t;
-    // copy args so we can reuse it if vsnprintf overflows
+    char *buffer = NULL;
     *args_t = *args;
-    char *buffer = 0;
-    while (result == -1)
-    {
-        if (buffer) delete [] buffer;
-        buffer = new char [length + 1];
-        memset(buffer, 0, length + 1);
-        result = vsnprintf(buffer, length, fmt, args_t);
-	// result wil be -1 if error, but if there is not enough space in
-	// buffer, result will contain the amount of bytes needed
-	if ( result == -1 ) {
-	    // we don't know exact size, so guess
-	    length *= 2;
-	    result = -1;
-	} else if ( result >= length ) {
-	    length = result + 1;
-	    result = -1;
-	}
-	// args_t is undefined after vsnprintf, if we are going to loop
-	// we will need pointer restored
-        *args_t = *args;
+    size = vsnprintf(buffer, size, fmt, args_t);
+
+    if ( size < 0 )
+	return std::string();
+
+    size++; // for '\0'
+    buffer = (char *) calloc(1, size);
+    if ( buffer == NULL )
+	return std::string();
+
+    *args_t = *args;
+    size = vsnprintf(buffer, size, fmt, args_t);
+
+    if ( size < 0 ) {
+	free(buffer);
+	return std::string();
     }
+
     std::string s(buffer);
-    delete [] buffer;
+    free(buffer);
     return s;
 }
 
