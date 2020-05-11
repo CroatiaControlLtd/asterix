@@ -172,7 +172,7 @@ DataRecord::DataRecord(Category* cat, int nID, unsigned long len, const unsigned
     m_nCrc = nCrc32;
 
     // build hexdata string
-    m_pHexData = (char *) calloc( (m_nLength + 3 /*cat + len*/)*2 + 1 /* null */, sizeof(unsigned char) );
+    m_pHexData = (char *) calloc( (m_nLength + 3 /*cat + len*/)*2 + 1 /* null */, sizeof(char) );
     snprintf(m_pHexData,                  3, "%02X", nCategory);
     snprintf(m_pHexData + sizeof(char)*2, 3, "%02X", nFirstByteLength);
     snprintf(m_pHexData + sizeof(char)*4, 3, "%02X", nSecondByteLength);

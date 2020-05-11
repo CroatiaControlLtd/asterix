@@ -36,7 +36,8 @@ std::string format_arg_list(const char *fmt, va_list args)
 	return std::string();
 
     size++; // for '\0'
-    buffer = (char *) calloc(1, size);
+    buffer = new char [size];
+    memset(buffer, 0, size);
     if ( buffer == NULL )
 	return std::string();
 
@@ -44,12 +45,12 @@ std::string format_arg_list(const char *fmt, va_list args)
     size = vsnprintf(buffer, size, fmt, args_t);
 
     if ( size < 0 ) {
-	free(buffer);
+	delete [] buffer;
 	return std::string();
     }
 
     std::string s(buffer);
-    free(buffer);
+    delete [] buffer;
     return s;
 }
 
