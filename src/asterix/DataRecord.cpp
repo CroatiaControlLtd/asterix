@@ -225,9 +225,17 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 		strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%ld,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n", m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EXML:
+	{
 		const int nXIDEFv = 1;
 		strNewResult = format("\n<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
 		break;
+	}
+	case CAsterixFormat::EXMLLines:
+	{
+		const int nXLINESIDEFv = 1;
+		strNewResult = format("<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXLINESIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+		break;
+	}
   }
 
   // go through all present data items in this block
@@ -273,6 +281,9 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 			break;
 		case CAsterixFormat::EXML:
 			strResult += "\n</ASTERIX>";
+			break;
+		case CAsterixFormat::EXMLLines:
+			strResult += "</ASTERIX>\n";
 			break;
     }
   }

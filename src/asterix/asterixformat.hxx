@@ -49,6 +49,7 @@ public:
   ETxt,           // textual output (human readable)
   EFinal,         // Final format
   EXML,           // XML
+  EXMLLines,      // Line-delimited XML (one record per line, suitable for parsing)
   EJSON,          // JSON (JavaScript Object Notation) format, compact form
   EJSONH,         // JSON (JavaScript Object Notation) format, human readable form
   EHDLC,          // HDLC format
