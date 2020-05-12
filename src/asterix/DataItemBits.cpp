@@ -441,6 +441,9 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	case CAsterixFormat::EXML:
 		strResult += format("\n<%s>", m_strShortName.c_str());
 		break;
+	case CAsterixFormat::EXMLLines:
+		strResult += format("<%s>", m_strShortName.c_str());
+		break;
 	}
 
 	switch(m_eEncoding)
@@ -720,6 +723,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 		strResult += format(",");
 		break;
 	case CAsterixFormat::EXML:
+	case CAsterixFormat::EXMLLines:
 		strResult += format("</%s>", m_strShortName.c_str());
 		break;
 	}

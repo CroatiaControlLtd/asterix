@@ -46,6 +46,7 @@ const char* CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
   "ASTERIX_TXT",
   "ASTERIX_FINAL",
   "ASTERIX_XML",
+  "ASTERIX_XML_LINES",
   "ASTERIX_JSON",
   "ASTERIX_JSONH",
   "ASTERIX_HDLC",
@@ -77,6 +78,7 @@ bool CAsterixFormat::ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDe
       case EGPS:
           return CAsterixGPSSubformat::ReadPacket(formatDescriptor, device, discard);
       case EXML:
+      case EXMLLines:
       case EJSON:
       case EJSONH:
           //todo not supported
@@ -119,6 +121,7 @@ bool CAsterixFormat::WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseD
 			}
       }
       /* no break */
+      case EXMLLines:
       case EJSON:
       case EJSONH:
       case ETxt:
@@ -172,6 +175,7 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBas
         return CAsterixGPSSubformat::ProcessPacket(formatDescriptor, device, discard);
       case ETxt:
       case EXML:
+      case EXMLLines:
       case EJSON:
       case EJSONH:
       case EOut:
@@ -206,6 +210,7 @@ bool CAsterixFormat::HeartbeatProcessing(
         return CAsterixGPSSubformat::Heartbeat(formatDescriptor, device);
     case ETxt:
     case EXML:
+    case EXMLLines:
     case EJSON:
     case EJSONH:
     case EOut:

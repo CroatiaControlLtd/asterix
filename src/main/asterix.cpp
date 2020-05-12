@@ -79,6 +79,7 @@ static void show_usage(std::string name)
 			  << "\n------------"
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
 			  << "\n\t-x,--xml\tOutput will be printed in XML format."
+			  << "\n\t-xl,--xmllines\tOutput will be printed in line-delimited XML format (one record per line, suitable for parsing)."
 			  << "\n\t-j,--json\tOutput will be printed in compact JSON format (one object per line)."
 			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (one item per line)."
 			  << "\n\nData source"
@@ -205,6 +206,15 @@ int main(int argc, const char *argv[])
 				return 1;
 			}
 			strOutputFormat = "ASTERIX_XML";
+		}
+		else if ((arg == "-xl") || (arg == "--xmllines"))
+		{
+			if (strOutputFormat != "ASTERIX_TXT")
+			{
+				std::cerr << "Error: Option -xl not allowed because output format already defined as "+strOutputFormat << std::endl;
+				return 1;
+			}
+			strOutputFormat = "ASTERIX_XML_LINES";
 		}
 		else if ((arg == "-j") || (arg == "--json"))
 		{
