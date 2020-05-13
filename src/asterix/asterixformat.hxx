@@ -48,7 +48,7 @@ public:
   EPcap,          // PCAP file format
   ETxt,           // textual output (human readable)
   EFinal,         // Final format
-  EXML,           // XML
+  EXML,           // XML format, human readable form
   EXMLLines,      // Line-delimited XML (one record per line, suitable for parsing)
   EJSON,          // JSON (JavaScript Object Notation) format, compact form
   EJSONH,         // JSON (JavaScript Object Notation) format, human readable form
