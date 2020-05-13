@@ -208,6 +208,7 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	}
 
 	std::string strNewResult;
+	std::string indent("  "); // Two spaces make an indent.
 
 	switch(formatType)
 	{
@@ -227,7 +228,8 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	case CAsterixFormat::EXML:
 	{
 		const int nXIDEFv = 1;
-		strNewResult = format("\n<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+		strNewResult += format("\n%s", indent.c_str()); // New line and indent 1 level (2 spaces).
+		strNewResult += format("<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
 		break;
 	}
 	case CAsterixFormat::EXMLLines:
@@ -280,7 +282,8 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 			strResult += "}},\n";
 			break;
 		case CAsterixFormat::EXML:
-			strResult += "\n</ASTERIX>";
+			strResult += format("\n%s", indent.c_str()); // New line and indent 1 level (2 spaces).
+			strResult += "</ASTERIX>";
 			break;
 		case CAsterixFormat::EXMLLines:
 			strResult += "</ASTERIX>\n";

@@ -78,7 +78,7 @@ static void show_usage(std::string name)
 			  << "\n\nOutput format"
 			  << "\n------------"
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
-			  << "\n\t-x,--xml\tOutput will be printed in XML format."
+			  << "\n\t-x,--xml\tOutput will be printed in human readable XML format."
 			  << "\n\t-xl,--xmllines\tOutput will be printed in line-delimited XML format (one record per line, suitable for parsing)."
 			  << "\n\t-j,--json\tOutput will be printed in compact JSON format (one object per line)."
 			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (one item per line)."

@@ -43,6 +43,7 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
 {
   std::string newHeader;
   std::string strNewResult;
+  std::string indent("  "); // Two spaces make an indent.
 
   switch(formatType)
   {
@@ -53,7 +54,8 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
 		  strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
 		  break;
 	  case CAsterixFormat::EXML:
-		  strNewResult = format("\n<I%s>", m_pDescription->m_strID.c_str());
+		  strNewResult += format("\n%s%s", indent.c_str(), indent.c_str()); // New line and indent 2 levels (4 spaces).
+		  strNewResult += format("<I%s>", m_pDescription->m_strID.c_str());
 		  break;
 	  case CAsterixFormat::EXMLLines:
 		  strNewResult = format("<I%s>", m_pDescription->m_strID.c_str());
@@ -81,7 +83,8 @@ bool DataItem::getText(std::string& strResult, std::string& strHeader, const uns
   switch(formatType)
 {
 	  case CAsterixFormat::EXML:
-		  strResult += format("\n</I%s>", m_pDescription->m_strID.c_str());
+		  strResult += format("\n%s%s", indent.c_str(), indent.c_str()); // New line and indent 2 levels (4 spaces).
+		  strResult += format("</I%s>", m_pDescription->m_strID.c_str());
 		  break;
 	  case CAsterixFormat::EXMLLines:
 		  strResult += format("</I%s>", m_pDescription->m_strID.c_str());
