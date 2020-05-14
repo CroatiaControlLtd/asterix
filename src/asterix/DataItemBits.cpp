@@ -430,7 +430,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 	else if (m_strShortName.empty())
 		m_strShortName = m_strName;
 
-	std::string indent("  "); // Two spaces make an indent.
+	std::string indent("    ");  // 4 spaces make an indent.
 
 	switch(formatType)
 	{
@@ -441,10 +441,10 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 		strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
 		break;
 	case CAsterixFormat::EXML:
-		strResult += format("\n%s%s%s", indent.c_str(), indent.c_str(), indent.c_str()); // New line and indent 3 levels (6 spaces).
 		strResult += format("<%s>", m_strShortName.c_str());
 		break;
-	case CAsterixFormat::EXMLLines:
+	case CAsterixFormat::EXMLH:
+		strResult += format("\n%s%s", indent.c_str(), indent.c_str());  // New line and indent 2 levels (8 spaces).
 		strResult += format("<%s>", m_strShortName.c_str());
 		break;
 	}
@@ -726,7 +726,7 @@ bool DataItemBits::getText(std::string& strResult, std::string& strHeader, const
 		strResult += format(",");
 		break;
 	case CAsterixFormat::EXML:
-	case CAsterixFormat::EXMLLines:
+	case CAsterixFormat::EXMLH:
 		strResult += format("</%s>", m_strShortName.c_str());
 		break;
 	}

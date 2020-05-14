@@ -208,7 +208,6 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 	}
 
 	std::string strNewResult;
-	std::string indent("  "); // Two spaces make an indent.
 
 	switch(formatType)
 	{
@@ -226,16 +225,10 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 		strNewResult = format("{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%ld,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n", m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
 		break;
 	case CAsterixFormat::EXML:
+	case CAsterixFormat::EXMLH:
 	{
 		const int nXIDEFv = 1;
-		strNewResult += format("\n%s", indent.c_str()); // New line and indent 1 level (2 spaces).
-		strNewResult += format("<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
-		break;
-	}
-	case CAsterixFormat::EXMLLines:
-	{
-		const int nXLINESIDEFv = 1;
-		strNewResult = format("<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXLINESIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+		strNewResult = format("<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">", nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
 		break;
 	}
   }
@@ -278,15 +271,16 @@ bool DataRecord::getText(std::string& strResult, std::string& strHeader, const u
 		switch(formatType)
     {
 		case CAsterixFormat::EJSON:
+			strResult += "}}\n";
+			break;
 		case CAsterixFormat::EJSONH:
 			strResult += "}},\n";
 			break;
 		case CAsterixFormat::EXML:
-			strResult += format("\n%s", indent.c_str()); // New line and indent 1 level (2 spaces).
-			strResult += "</ASTERIX>";
-			break;
-		case CAsterixFormat::EXMLLines:
 			strResult += "</ASTERIX>\n";
+			break;
+		case CAsterixFormat::EXMLH:
+			strResult += "\n</ASTERIX>\n";
 			break;
     }
   }
