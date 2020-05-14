@@ -48,10 +48,10 @@ public:
   EPcap,          // PCAP file format
   ETxt,           // textual output (human readable)
   EFinal,         // Final format
-  EXML,           // XML format, human readable form
-  EXMLLines,      // Line-delimited XML (one record per line, suitable for parsing)
-  EJSON,          // JSON (JavaScript Object Notation) format, compact form
-  EJSONH,         // JSON (JavaScript Object Notation) format, human readable form
+  EXML,           // XML (Extensible Markup Language) format, compact line-delimited form (suitable for parsing)
+  EXMLH,          // XML (Extensible Markup Language) format, human readable form (suitable for file storage)
+  EJSON,          // JSON (JavaScript Object Notation) format, compact line-delimited form (suitable for parsing)
+  EJSONH,         // JSON (JavaScript Object Notation) format, human readable form (suitable for file storage)
   EHDLC,          // HDLC format
   EOradisRaw,     // Raw Asterix format with ORADIS header
   EOradisPcap,    // PCAP file format with ORADIS header

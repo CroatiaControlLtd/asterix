@@ -78,10 +78,10 @@ static void show_usage(std::string name)
 			  << "\n\nOutput format"
 			  << "\n------------"
 			  << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
-			  << "\n\t-x,--xml\tOutput will be printed in human readable XML format."
-			  << "\n\t-xl,--xmllines\tOutput will be printed in line-delimited XML format (one record per line, suitable for parsing)."
-			  << "\n\t-j,--json\tOutput will be printed in compact JSON format (one object per line)."
-			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (one item per line)."
+			  << "\n\t-x,--xml\tOutput will be printed in compact line-delimited XML format (one object per line, suitable for parsing)."
+			  << "\n\t-xh,--xmlh\tOutput will be printed in human readable XML format (suitable for file storage)."
+			  << "\n\t-j,--json\tOutput will be printed in compact line-delimited JSON format (one object per line, suitable for parsing)."
+			  << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (suitable for file storage)."
 			  << "\n\nData source"
 			  << "\n------------"
 			  << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
@@ -207,14 +207,14 @@ int main(int argc, const char *argv[])
 			}
 			strOutputFormat = "ASTERIX_XML";
 		}
-		else if ((arg == "-xl") || (arg == "--xmllines"))
+		else if ((arg == "-xh") || (arg == "--xmlh"))
 		{
 			if (strOutputFormat != "ASTERIX_TXT")
 			{
-				std::cerr << "Error: Option -xl not allowed because output format already defined as "+strOutputFormat << std::endl;
+				std::cerr << "Error: Option -xh not allowed because output format already defined as "+strOutputFormat << std::endl;
 				return 1;
 			}
-			strOutputFormat = "ASTERIX_XML_LINES";
+			strOutputFormat = "ASTERIX_XMLH";
 		}
 		else if ((arg == "-j") || (arg == "--json"))
 		{
