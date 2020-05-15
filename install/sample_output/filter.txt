@@ -601,6 +601,38 @@ CAT011:I380:VDL                                              VDL
 CAT011:I380:MDS                                              MDS
 CAT011:I380:UAT                                              UAT
 CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I390:SAC                                              System Area Code
+CAT011:I390:SIC                                              System Identity Code
+CAT011:I390:CSN                                              Callsign
+CAT011:I390:TYP                                              TYP
+CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:NBR                                              Number from 0 to 99 999 999
+CAT011:I390:GAT/OAT                                          GAT/OAT
+CAT011:I390:FR1/FR2                                          FR1/FR2
+CAT011:I390:RVSM                                             RVSM
+CAT011:I390:HPR                                              HPR
+CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:TOA                                              Type of Aircraft
+CAT011:I390:WTC                                              Wake Turbulence Category
+CAT011:I390:ADEP                                             Departure AirportThe Airport Names are indicated in the ICAO Location Indicators book.
+CAT011:I390:ADES                                             Destination AirportThe Airport Names are indicated in the ICAO Location Indicators book.
+CAT011:I390:RRWY                                             Runway DesignationFor details refer to ICAO Annex 14, chapter 5.
+CAT011:I390:CFL                                              (LSB) = 1/4 FL
+CAT011:I390:Centre                                           8-bit group Identification code
+CAT011:I390:Position                                         8-bit Control Position identification code
+CAT011:I390:TYP                                              TYP
+CAT011:I390:DAY                                              DAY
+CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:HOR                                              Hours, from 0 to 23
+CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:MIN                                              Minutes, from 0 to 59
+CAT011:I390:AVS                                              AVS
+CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:SEC                                              Seconds, from 0 to 59
+CAT011:I390:STAND                                            Aircraft Stand
+CAT011:I390:EMP                                              EMP
+CAT011:I390:AVL                                              AVL
+CAT011:I390:spare                                            Spare bits set to 0
 CAT011:I430:FLS                                              Phase of flight
 CAT011:I500:APC_X                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
 CAT011:I500:APC_Y                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
@@ -1147,6 +1179,30 @@ CAT021:IRE:L                                                 Mode 2 code from tr
 CAT021:IRE:spare                                             Spare bits set to 0
 CAT021:IRE:M2CO                                              Mode-2 code in octal representation
 CAT021:ISP:SPval                                             
+CAT025:I000:Typ                                              Report Type
+CAT025:I000:RG                                               Report Generation
+CAT025:I010:SAC                                              System Area Code
+CAT025:I010:SIC                                              System Identification Code
+CAT025:I015:SID                                              Service Identification
+CAT025:I020:SD                                               Service Designator
+CAT025:I070:ToD                                              Time Of Day
+CAT025:I100:NOGO                                             Operational Release Status
+CAT025:I100:OPS                                              Operational Service Mode
+CAT025:I100:SSTAT                                            System and Service State
+CAT025:I100:FX                                               
+CAT025:I105:ERR                                              Warning and Error Code
+CAT025:I120:CID                                              Component ID
+CAT025:I120:ERR                                              Error Code
+CAT025:I120:CS                                               Component State
+CAT025:I140:TYPE                                             Type of Report Counter
+CAT025:I140:REF                                              Reference for counting messages
+CAT025:I140:spare                                            Spare bits set to 0
+CAT025:I140:CNT                                              Counter Value
+CAT025:I200:ID                                               Message Identification Number
+CAT025:I600:Lat                                              Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
+CAT025:I600:Lon                                              Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
+CAT025:I610:Hgh                                              Height above MSL.
+CAT025:ISP:SP                                                SP
 CAT030:I010:SAC                                              System Area Code
 CAT030:I010:SIC                                              System Identification Code
 CAT030:I015:UserN                                            User number
@@ -1515,8 +1571,8 @@ CAT048:I100:QB1
 CAT048:I100:QD1                                              
 CAT048:I100:QB2                                              
 CAT048:I100:QD2                                              
-CAT048:I100:QB1                                              
-CAT048:I100:QD1                                              
+CAT048:I100:QB4                                              
+CAT048:I100:QD4                                              
 CAT048:I110:spare                                            spare bits set to 0
 CAT048:I110:3D_Height                                        3D_Height
 CAT048:I120:D                                                Doppler Speed Validation
@@ -1717,8 +1773,8 @@ CAT062:I110:spare                                            spare bits set to 0
 CAT062:I110:NAT                                              National Origin
 CAT062:I110:spare                                            spare bits set to 0
 CAT062:I110:MIS                                              Mission Code
-CAT062:I110:Lat                                              Latitude in WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.
-CAT062:I110:Lon                                              Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude < 180 deg.
+CAT062:I110:Lat                                              Latitude in WGS.84 in two-s complement. Range -90 deg latitude deg 90 deg.
+CAT062:I110:Lon                                              Longitude in WGS.84 in two-s complement. Range -180 deg longitude < 180 deg.
 CAT062:I110:spare                                            spare bit set to 0
 CAT062:I110:RES                                              Resolution with which the GNSS-derived Altitude (GA) is reported.
 CAT062:I110:GA                                               GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.
@@ -1896,8 +1952,8 @@ CAT062:I380:WD_D                                             Wind Direction
 CAT062:I380:TMP_D                                            Temperature
 CAT062:I380:TRB_D                                            Turbulence
 CAT062:I380:ECAT                                             Emitter Category
-CAT062:I380:Lat                                              Latitude in WGS.84 in two’s complement. Range -90 ≤ Lat ≤ 90 deg.
-CAT062:I380:Lon                                              Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude < 180 deg.
+CAT062:I380:Lat                                              Latitude in WGS.84 in two's complement. Range -90 deg Lat deg 90 deg.
+CAT062:I380:Lon                                              Longitude in WGS.84 in two's complement. Range -180 deg longitude < 180 deg.
 CAT062:I380:GAL                                              Geometric Altitude
 CAT062:I380:spare                                            Spare bits set to zero
 CAT062:I380:PUN                                              Position Uncertainty
@@ -2027,12 +2083,26 @@ CAT062:I500:ATV_Y                                            Estimated Accuracy 
 CAT062:I500:AA_X                                             Estimated Accuracy Of Acceleration X_Cartesian
 CAT062:I500:AA_Y                                             Estimated Accuracy Of Acceleration Y_Cartesian
 CAT062:I500:ARC_Acc                                          Rate Of Climb/Descent Estimated accuracy
-CAT062:I510:SDPSUID                                          SDPS UNIT IDENTIFICATION
-CAT062:I510:STN                                              SYSTEM TRACK NUMBER
+CAT062:I510:SDPSUID                                          SDPS Unit Identification
+CAT062:I510:STN                                              System Track Number
 CAT062:I510:FX                                               
-CAT062:I510:SDPSUID                                          SDPS UNIT IDENTIFICATION
-CAT062:I510:STN                                              SYSTEM TRACK NUMBER
+CAT062:I510:SDPSUID                                          SDPS Unit Identification
+CAT062:I510:STN                                              System Track Number
 CAT062:I510:FX                                               
+CAT062:IRE:SAC                                               SAC of the sensor contributing to the track in the current update cycle
+CAT062:IRE:SIC                                               SIC of the sensor contributing to the track in the current update cycle
+CAT062:IRE:spare                                             spare bits set to 0
+CAT062:IRE:TYP                                               
+CAT062:IRE:LTN                                               Local Track Number
+CAT062:IRE:SAC                                               SAC of the sensor contributing to the track in the current update cycle
+CAT062:IRE:SIC                                               SIC of the sensor contributing to the track in the current update cycle
+CAT062:IRE:spare                                             spare bits set to 0
+CAT062:IRE:TYP                                               
+CAT062:IRE:Vx                                                Calculated track velocity in x-axis
+CAT062:IRE:Vy                                                Calculated track velocity in y-axis
+CAT062:IRE:FDR                                               Flight Data Retained
+CAT062:IRE:spare                                             spare bits set to 0
+CAT062:IRE:FX                                                Extension indicator
 CAT062:ISP:TRI                                               TargetReportIdentifier
 CAT063:I010:SAC                                              Source Area Code
 CAT063:I010:SIC                                              Source Identification Code
@@ -2075,6 +2145,33 @@ CAT065:I040:TSV                                              Time Source Status
 CAT065:I040:PSS                                              Processing System Status
 CAT065:I040:spare                                            Spare bits se to 0
 CAT065:I050:REPORT                                           Service Status Report
+CAT205:I000:Typ                                              Message Type
+CAT205:I010:SAC                                              System Area Code
+CAT205:I010:SIC                                              System Identification Code
+CAT205:I015:SID                                              Service Identification
+CAT205:I030:ToD                                              Time Of Message
+CAT205:I040:RNR                                              ReportNumber
+CAT205:I050:Lat                                              Latitude in WGS-84 in two's complement. Range -90 < latitude < 90 deg.
+CAT205:I050:Lon                                              Longitude in WGS-84 in two's complement. Range -180 < longitude < 180 deg.
+CAT205:I060:X                                                X
+CAT205:I060:Y                                                Y
+CAT205:I070:THETA                                            
+CAT205:I080:THETA                                            
+CAT205:I090:RCH                                              Radio Channel
+CAT205:I100:QUA                                              Quality
+CAT205:I110:RANGE                                            Range
+CAT205:I120:IDENT                                            Ident
+CAT205:I130:Lat                                              Latitude in WGS-84 in two's complement. Range -90 < latitude < 90 deg.
+CAT205:I130:Lon                                              Longitude in WGS-84 in two's complement. Range -180 < longitude < 180 deg.
+CAT205:I140:X                                                X
+CAT205:I140:Y                                                Y
+CAT205:I150:RANGE                                            Range
+CAT205:I160:TrkN                                             Track number
+CAT205:I170:Id                                               Ident
+CAT205:I180:Sig                                              Signal
+CAT205:I190:Qual                                             Quality
+CAT205:I200:Elv                                              Elevation
+CAT205:ISP:SP                                                SP
 CAT240:I000:TYP                                              Message Type
 CAT240:I010:SAC                                              System Area Code
 CAT240:I010:SIC                                              System Identification Code

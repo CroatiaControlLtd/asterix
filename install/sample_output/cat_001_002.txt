@@ -7,8 +7,9 @@ Len: 69
 -------------------------
 Data Record 1
 Len: 23
-CRC: F34C4219
+CRC: C3141406
 Timestamp: 45826414
+HexData: 01001AF7C619C9A00EB2767F189408AA42D8033405C8800D400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -75,8 +76,9 @@ Item 210 : Track Quality
 -------------------------
 Data Record 2
 Len: 23
-CRC: F1618F20
+CRC: 906485F6
 Timestamp: 45826414
+HexData: 01001AF7C619C9B00F7561EC1A14077EB5550E5205508014400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -143,8 +145,9 @@ Item 210 : Track Quality
 -------------------------
 Data Record 3
 Len: 23
-CRC: FF7EE4A2
+CRC: 646E354E
 Timestamp: 45826414
+HexData: 01001AF7C619C9B00DCA69DE1A7C07F011110E3006188016400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -216,8 +219,9 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
-CRC: E42AA613
+CRC: 7F3A77FF
 Timestamp: 45826414
+HexData: 01001AF7C619C9B00D685C881CE008424FA4004A04D88022400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -289,8 +293,9 @@ Len: 8
 -------------------------
 Data Record 1
 Len: 8
-CRC: 10732D75
+CRC: F99F71EB
 Timestamp: 45826414
+HexData: 02000BF019C90250598117
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -316,8 +321,9 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
-CRC: 1CA747DB
+CRC: 87B79637
 Timestamp: 45826414
+HexData: 01001AF7C619C9B00CE173571E28081DD1100AC405A08028400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -389,8 +395,9 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
-CRC: 9D4195F7
+CRC: 0651441B
 Timestamp: 45826414
+HexData: 01001AF7C619C9A00C10514C212C05DCE2D7059E025A8038400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -462,8 +469,9 @@ Len: 23
 -------------------------
 Data Record 1
 Len: 23
-CRC: 2077158E
+CRC: BB67C462
 Timestamp: 45826414
+HexData: 01001AF7C619C9B00F0D37FE21C80755D1C605A505A0803B400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
