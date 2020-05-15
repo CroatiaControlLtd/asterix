@@ -37,7 +37,8 @@ std::string format_arg_list(const char *fmt, int size, va_list args) {
 
 int get_format_len(const char *fmt, va_list args) {
     int size = 0;
-    size = vsnprintf(NULL, size, fmt, args);
+    char* buffer = NULL;
+    size = vsnprintf(buffer, size, fmt, args);
     return size;
 }
 
