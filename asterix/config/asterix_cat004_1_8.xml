@@ -13,10 +13,8 @@
 <Category id="4" name="Safety Net Messages" ver="1.8">
 
     <DataItem id="000" rule="mandatory">
-        <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
-            further defining the type of transaction.
-        </DataItemDefinition>
+        <DataItemName>Message Type</DataItemName>   
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -40,18 +38,15 @@
                     <BitsValue val="16">RIMCAS Stop Bar Overrun Alert (SBOA)</BitsValue>
                     <BitsValue val="17">End Of Conflict (EOC)</BitsValue>
                     <BitsValue val="18">ACAS Resolution Advisory (ACASRA)</BitsValue>
-                    <BitsValue val="19">Near Term Conflict Alert (NTCA)</BitsValue>
+                    <BitsValue val="19">Near Term Conflict Alert (NTCA)</BitsValue> 
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. In applications where transactions of various types are exchanged, the Message Type Data Item
-            facilitates the proper message handling at the receiver side. 2. All Message Type values are reserved for
-            common standard use.
-        </DataItemNote>
+        <DataItemNote>1. In applications where transactions of various types are exchanged, the Message Type Data Item facilitates the proper message handling at the receiver side. 2. All Message Type values are reserved for common standard use.</DataItemNote>
     </DataItem>
 
     <DataItem id="010" rule="mandatory">
-        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemName>Data Source Identifier</DataItemName> 
         <DataItemDefinition>Identification of the Safety Nets server sending the message.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
@@ -65,16 +60,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site
-            (http://www.eurocontrol.int/asterix).
-        </DataItemNote>
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
     </DataItem>
 
     <DataItem id="015" rule="optional">
         <DataItemName>SDPS Identifier</DataItemName>
         <DataItemDefinition>Identification of the SDPS providing data to the safety nets server.</DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one SDPS Identifier.">
+        <DataItemFormat desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one SDPS Identifier.">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="9">
@@ -88,15 +80,12 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>The up-to-date list of SACs is published on the Eurocontrol Web Site
-            (http://www.eurocontrol.int/asterix).
-        </DataItemNote>
+        <DataItemNote>The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
     </DataItem>
 
     <DataItem id="020" rule="mandatory">
         <DataItemName>Time of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight
-        </DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -106,10 +95,8 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This time is given at an application level (e.g. time at which a message is filled), and not at
-            the communication level (i.e. not the time at which the datablock containing the message is sent).
-        </DataItemNote>
-    </DataItem>
+        <DataItemNote>This time is given at an application level (e.g. time at which a message is filled), and not at the communication level (i.e. not the time at which the datablock containing the message is sent).</DataItemNote>
+    </DataItem> 
 
     <DataItem id="030" rule="optional">
         <DataItemName>Track Number 1</DataItemName>
@@ -122,11 +109,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. This is the track number of the first track involved in the conflict in case of an STCA or a
-            RIMCA or the track involved in case of one of the other Safety Net functions. 2. This track number is
-            distributed in this field exactly as it was received from the Radar Processor Unit (identified by I004/015)
-            and its range is depending on the range used by that unit
-        </DataItemNote>
+        <DataItemNote>1. This is the track number of the first track involved in the conflict in case of an STCA or a RIMCA or the track involved in case of one of the other Safety Net functions. 2. This track number is distributed in this field exactly as it was received from the Radar Processor Unit (identified by I004/015) and its range is depending on the range used by that unit</DataItemNote>
     </DataItem>
 
     <DataItem id="035" rule="optional">
@@ -140,11 +123,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. This is the track number of the second track involved in the conflict in case of an STCA or a
-            RIMCA. 2. For the other Safety Net functions, this item is not used. 3. This track number is distributed in
-            this field exactly as it was received from the Radar Processor Unit and its range is depending on the range
-            used by that unit
-        </DataItemNote>
+        <DataItemNote>1. This is the track number of the second track involved in the conflict in case of an STCA or a RIMCA. 2. For the other Safety Net functions, this item is not used. 3. This track number is distributed in this field exactly as it was received from the Radar Processor Unit and its range is depending on the range used by that unit</DataItemNote>
     </DataItem>
 
     <DataItem id="040" rule="optional">
@@ -158,10 +137,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. This item is the Alert Identification of the conflict in the system 2. This number shall be
-            assigned, by the Safety Net Server, incrementally to every new alert and restart on zero after reaching the
-            maximum value (65535)
-        </DataItemNote>
+        <DataItemNote>1. This item is the Alert Identification of the conflict in the system 2. This number shall be assigned, by the Safety Net Server, incrementally to every new alert and restart on zero after reaching the maximum value (65535)</DataItemNote>
     </DataItem>
 
     <DataItem id="045" rule="optional">
@@ -186,13 +162,12 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>The content of this item is implementation dependent.</DataItemNote>
-    </DataItem>
+    </DataItem> 
 
     <DataItem id="060" rule="optional">
         <DataItemName>Safety Net Function and System Status</DataItemName>
         <DataItemDefinition>Status of the Safety Nets functions handled by the system</DataItemDefinition>
-        <DataItemFormat
-                desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
+        <DataItemFormat desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits bit="8">
@@ -280,22 +255,13 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>1. This item only sent in alive messages to describe the status of the Safety Net functions,
-            handled by the system 2. Value 0 means either that the function is not managed by the system or has failed.
-            3. Value 1 means that the function is managed by the system and is running well 4. “Overflow” is defined as
-            a situation where the number of alerts in the system has exceeded the threshold for safe operation.
-            Potential prioritization of the alerts may lead to a loss of information. 5. “Overload” is defined as a
-            system status in which the number of alerts does not allow for a reliable performance. A correct calculation
-            and transmission cannot be guaranteed. 6. “System degraded” means that information from one or more sensors
-            is lost.
-        </DataItemNote>
+        <DataItemNote>1. This item only sent in alive messages to describe the status of the Safety Net functions, handled by the system 2. Value 0 means either that the function is not managed by the system or has failed. 3. Value 1 means that the function is managed by the system and is running well 4. “Overflow” is defined as a situation where the number of alerts in the system has exceeded the threshold for safe operation. Potential prioritization of the alerts may lead to a loss of information. 5. “Overload” is defined as a system status in which the number of alerts does not allow for a reliable performance. A correct calculation and transmission cannot be guaranteed. 6. “System degraded” means that information from one or more sensors is lost.</DataItemNote>
     </DataItem>
 
     <DataItem id="070" rule="optional">
         <DataItemName>Conflict Timing and Separation</DataItemName>
         <DataItemDefinition>Information on Timing and Aircraft Separation</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -390,8 +356,7 @@
 
     <DataItem id="074" rule="optional">
         <DataItemName>Longitudinal Deviation</DataItemName>
-        <DataItemDefinition>Longitudinal deviation for Route Adherence Monitoring, in two’s complement form.
-        </DataItemDefinition>
+        <DataItemDefinition>Longitudinal deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -401,15 +366,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Longitudinal deviation will be positive if the aircraft is ahead of its planned position.
-            Longitudinal deviation will be negative if the aircraft is behind its planned position.
-        </DataItemNote>
+        <DataItemNote>Longitudinal deviation will be positive if the aircraft is ahead of its planned position. Longitudinal deviation will be negative if the aircraft is behind its planned position.</DataItemNote>
     </DataItem>
 
     <DataItem id="075" rule="optional">
         <DataItemName>Transversal Distance Deviation</DataItemName>
-        <DataItemDefinition>Transversal distance deviation for Route Adherence Monitoring, in two’s complement form.
-        </DataItemDefinition>
+        <DataItemDefinition>Transversal distance deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length Data Item">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -419,9 +381,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Clockwise deviation will be coded as a positive value. Anticlockwise deviation will be coded as a
-            negative value.
-        </DataItemNote>
+        <DataItemNote>Clockwise deviation will be coded as a positive value. Anticlockwise deviation will be coded as a negative value.</DataItemNote>
     </DataItem>
 
     <DataItem id="076" rule="optional">
@@ -436,16 +396,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Positive value if aircraft is above planned altitude. Negative value if aircraft is below planned
-            altitude.
-        </DataItemNote>
+        <DataItemNote>Positive value if aircraft is above planned altitude. Negative value if aircraft is below planned altitude.</DataItemNote>
     </DataItem>
 
     <DataItem id="100" rule="optional">
         <DataItemName>Area Definition</DataItemName>
         <DataItemDefinition>Definition of Areas involved in a Safety Net Alert</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -534,11 +491,8 @@
 
     <DataItem id="110" rule="optional">
         <DataItemName>SFDPS Sector Control Identification</DataItemName>
-        <DataItemDefinition>Identification of a list of FDPS Sector Control Positions in charge of the involved targets,
-            as provided by the FDPS.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one FDPS Sector Control Position">
+        <DataItemDefinition>Identification of a list of FDPS Sector Control Positions in charge of the involved targets, as provided by the FDPS.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one FDPS Sector Control Position">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="9">
@@ -552,16 +506,13 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>The Centre identification code and the Control position identification code must be defined
-            between the communication partners.
-        </DataItemNote>
+        <DataItemNote>The Centre identification code and the Control position identification code must be defined between the communication partners.</DataItemNote>
     </DataItem>
 
     <DataItem id="120" rule="optional">
         <DataItemName>Conflict Characteristics</DataItemName>
-        <DataItemDefinition>Description of the Conflict Properties</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+        <DataItemDefinition>Description of the Conflict Properties </DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -717,10 +668,8 @@
 
     <DataItem id="170" rule="optional">
         <DataItemName>Aircraft Identification and Characteristics 1</DataItemName>
-        <DataItemDefinition>Identification and Characteristics of Aircraft 1 Involved in the Conflict.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
+        <DataItemDefinition>Identification and Characteristics of Aircraft 1 Involved in the Conflict.</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -815,14 +764,12 @@
                 <Fixed length="10">
                     <Bits from="80" to="49" encode="signed">
                         <BitsShortName>Latitude</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.
-                        </BitsName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="48" to="17" encode="signed">
                         <BitsShortName>Longitude</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.
-                        </BitsName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="16" to="1" encode="signed">
@@ -925,7 +872,7 @@
                             <BitsValue val="1">Extension into second extent</BitsValue>
                         </Bits>
                     </Fixed>
-                </Variable>
+                </Variable> 
                 <Fixed length="6">
                     <Bits from="48" to="1" encode="6bitschar">
                         <BitsShortName>MS1</BitsShortName>
@@ -956,10 +903,8 @@
 
     <DataItem id="171" rule="optional">
         <DataItemName>Aircraft Identification and Characteristics 2</DataItemName>
-        <DataItemDefinition>Identification and Characteristics of Aircraft 2 Involved in the Conflict.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
+        <DataItemDefinition>Identification and Characteristics of Aircraft 2 Involved in the Conflict.</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -1054,14 +999,12 @@
                 <Fixed length="10">
                     <Bits from="80" to="49" encode="signed">
                         <BitsShortName>Latitude</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.
-                        </BitsName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="48" to="17" encode="signed">
                         <BitsShortName>Longitude</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.
-                        </BitsName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="16" to="1" encode="signed">
@@ -1164,7 +1107,7 @@
                             <BitsValue val="1">Extension into second extent</BitsValue>
                         </Bits>
                     </Fixed>
-                </Variable>
+                </Variable> 
                 <Fixed length="6">
                     <Bits from="48" to="1" encode="6bitschar">
                         <BitsShortName>MS2</BitsShortName>
@@ -1193,7 +1136,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="SP">
+    <DataItem id="SP" >
 
         <DataItemName>SP Field</DataItemName>
         <DataItemDefinition>Sp Field</DataItemDefinition>
@@ -1201,8 +1144,8 @@
             <Explicit>
                 <Fixed length="1">
                     <Bits from="8" to="1" encode="hex">
-                        <BitsShortName>TRI</BitsShortName>
-                        <BitsName>TargetReportIdentifier</BitsName>
+                        <BitsShortName>TRI</BitsShortName>                      
+                        <BitsName>TargetReportIdentifier</BitsName>                     
                     </Bits>
                 </Fixed>
             </Explicit>
@@ -1211,8 +1154,7 @@
 
     <DataItem id="RE">
         <DataItemName>Reserved Expansion Data Field</DataItemName>
-        <DataItemDefinition>Field used to introduce intermediate changes for elementary surveillance
-        </DataItemDefinition>
+        <DataItemDefinition>Field used to introduce intermediate changes for elementary surveillance</DataItemDefinition>
         <DataItemFormat desc="One byte length field, followed by a two byte fixed length data item.">
             <Explicit>
                 <Compound>
@@ -1332,7 +1274,7 @@
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
                             </Bits>
                         </Fixed>
-                    </Compound>
+                    </Compound> 
                     <Compound>
                         <Variable>
                             <Fixed length="1">
@@ -1424,10 +1366,10 @@
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
                             </Bits>
                         </Fixed>
-                    </Compound>
+                    </Compound> 
                 </Compound>
             </Explicit>
-        </DataItemFormat>
+        </DataItemFormat>    
     </DataItem>
 
     <UAP>

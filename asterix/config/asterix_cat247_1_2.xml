@@ -7,7 +7,7 @@
     
     Author:   Planevision Systems LLC
     Created:  2015-10-11 (kr)
--->
+--> 
 
 <Category id="247" name="Version Number Exchange" ver="1.2">
 
@@ -41,11 +41,9 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="140">
+    <DataItem id="140" >
         <DataItemName>Time Of Day</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the information in the form of elapsed time since last midnight,
-            expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the information in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -55,20 +53,19 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem>
+    </DataItem>     
 
-    <DataItem id="550">
+    <DataItem id="550" >
         <DataItemName>Category Version Number Report</DataItemName>
         <DataItemDefinition>Version number of Categories used</DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Version number report for each Category used and comprising one octet CAT number and one two octets Version Number (Main/Sub).">
+        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Version number report for each Category used and comprising one octet CAT number and one two octets Version Number (Main/Sub).">
             <Repetitive>
                 <Fixed length="3">
                     <Bits from="24" to="17">
                         <BitsShortName>CAT</BitsShortName>
                         <BitsName>CAT</BitsName>
                     </Bits>
-                    <Bits from="16" to="9">
+                    <Bits from="16" to="9" >
                         <BitsShortName>VER</BitsShortName>
                         <BitsName>Main version</BitsName>
                     </Bits>
@@ -76,12 +73,12 @@
                         <BitsShortName>SUB</BitsShortName>
                         <BitsName>Sub version</BitsName>
                     </Bits>
-                </Fixed>
+                </Fixed>         
             </Repetitive>
         </DataItemFormat>
-    </DataItem>
+    </DataItem>     
 
-    <!--Transmission of Version Number -->
+    <!--Transmission of Version Number --> 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="1">015</UAPItem>

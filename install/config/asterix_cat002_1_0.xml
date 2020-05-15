@@ -9,15 +9,13 @@
     Created:  25.2.2009.
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
--->
+--> 
 
 <Category id="2" name="Transmission of Monoroadar Service Messages" ver="1.0">
 
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
-            further defining the type of transaction.
-        </DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -54,8 +52,7 @@
 
     <DataItem id="020">
         <DataItemName>Sector Number</DataItemName>
-        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.
-        </DataItemDefinition>
+        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -65,9 +62,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The use of the antenna azimuth as sector number has the advantage of being independent of the
-            number of sectors implemented.
-        </DataItemNote>
+        <DataItemNote>The use of the antenna azimuth as sector number has the advantage of being independent of the number of sectors implemented.</DataItemNote>
     </DataItem>
 
     <DataItem id="030">
@@ -82,19 +77,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. The time of day value is reset to zero each day at midnight. 2. For time management in radar
-            transmission applications, refer to Part 1, paragraph 5.4 [ Ref.2]. 3. Data Item I002/030 can have various
-            logical meanings. In a particular message, the logical meaning is implicit from its context (e.g. in a North
-            marker message it represents the antenna North crossing time; in a sector message it represents the antenna
-            sector crossing time).
-        </DataItemNote>
+        <DataItemNote>1. The time of day value is reset to zero each day at midnight. 2. For time management in radar transmission applications, refer to Part 1, paragraph 5.4 [ Ref.2]. 3. Data Item I002/030 can have various logical meanings. In a particular message, the logical meaning is implicit from its context (e.g. in a North marker message it represents the antenna North crossing time; in a sector message it represents the antenna sector crossing time).</DataItemNote>
     </DataItem>
 
     <DataItem id="041">
         <DataItemName>Antenna Rotation Speed</DataItemName>
-        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged
-            during a period of time.
-        </DataItemDefinition>
+        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -108,11 +96,8 @@
 
     <DataItem id="050">
         <DataItemName>Station Configuration Status</DataItemName>
-        <DataItemDefinition>Information concerning the use and status of some vital hardware components of the radar
-            system.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+        <DataItemDefinition>Information concerning the use and status of some vital hardware components of the radar system.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
@@ -128,17 +113,13 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it
-            is felt impractical to attempt to define the individual bits.
-        </DataItemNote>
-    </DataItem>
+        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
+    </DataItem>    
 
     <DataItem id="060">
         <DataItemName>Station Processing Mode</DataItemName>
-        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
@@ -154,21 +135,13 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Typical information conveyed within this Data Item includes inter alia type of polarisation in
-            use, Moving Target Indicator (MTI) in use and/or definition of the range to which MTI is applied, presence
-            of overload conditions and the type of load reduction measures in use. 2. Only the structure of this Data
-            Item is defined, no attempt is made to standardise its contents, in order not to hamper any application or
-            future development.
-        </DataItemNote>
+        <DataItemNote>Typical information conveyed within this Data Item includes inter alia type of polarisation in use, Moving Target Indicator (MTI) in use and/or definition of the range to which MTI is applied, presence of overload conditions and the type of load reduction measures in use. 2. Only the structure of this Data Item is defined, no attempt is made to standardise its contents, in order not to hamper any application or future development.</DataItemNote>
     </DataItem>
 
     <DataItem id="070">
         <DataItemName>Plot Count Values</DataItemName>
-        <DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna
-            scan or for the last sector processed.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
+        <DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna scan or for the last sector processed.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
             <Repetitive>
                 <Fixed length="2">
                     <Bits bit="16">
@@ -189,16 +162,14 @@
                         <BitsName>Counter value</BitsName>
                     </Bits>
                 </Fixed>
-            </Repetitive>
+            </Repetitive>            
         </DataItemFormat>
     </DataItem>
 
     <DataItem id="080">
         <DataItemName>Warning/Error Conditions</DataItemName>
-        <DataItemDefinition>Warning/error conditions affecting the functioning of the radar system itself.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary">
+        <DataItemDefinition>Warning/error conditions affecting the functioning of the radar system itself.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
@@ -214,16 +185,12 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Warning/error condition values 1-63 are reserved for common Standard use, whereas the values
-            64-127 are application dependent.
-        </DataItemNote>
+        <DataItemNote>Warning/error condition values 1-63 are reserved for common Standard use, whereas the values 64-127 are application dependent.</DataItemNote>            
     </DataItem>
 
     <DataItem id="090">
         <DataItemName>Collimation Error</DataItemName>
-        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to
-            the SSR target position as calculated by the radar station
-        </DataItemDefinition>
+        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
@@ -238,17 +205,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. A default quantisation unit of 0.022° and a range between -2.8125° and +2.7905° is obtained for
-            a value of f=2 . 2. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for
-            positive values and 1 for negative values.
-        </DataItemNote>
+        <DataItemNote>1. A default quantisation unit of 0.022° and a range between -2.8125° and +2.7905° is obtained for a value of f=2 . 2. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>        
     </DataItem>
 
     <DataItem id="100">
         <DataItemName>Dynamic Window - Type 1</DataItemName>
-        <DataItemDefinition>Signals the activation of a certain selective filtering function and in a polar coordinates
-            system the respective geographical areas.
-        </DataItemDefinition>
+        <DataItemDefinition>Signals the activation of a certain selective filtering function and in a polar coordinates system the respective geographical areas.</DataItemDefinition>
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="49">
@@ -273,9 +235,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The logical meaning of the polar window is defined by its context, given by the Message Type (Data
-            Item I002/000) in the record concerned.
-        </DataItemNote>
+        <DataItemNote>The logical meaning of the polar window is defined by its context, given by the Message Type (Data Item I002/000) in the record concerned.</DataItemNote>
     </DataItem>
 
     <UAP>
@@ -291,7 +251,7 @@
         <UAPItem bit="9" frn="9" len="8">100</UAPItem>
         <UAPItem bit="10" frn="10" len="2">090</UAPItem>
         <UAPItem bit="11" frn="11" len="1+">080</UAPItem>
-        <UAPItem bit="15" frn="FX">-</UAPItem>
+        <UAPItem bit="15" frn="FX">-</UAPItem>        
     </UAP>
 
 </Category>

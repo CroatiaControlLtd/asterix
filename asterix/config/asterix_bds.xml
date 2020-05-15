@@ -8,7 +8,7 @@
     Author:   dsalantic
     Created:  5.5.2016.
     Modified: 2.2.2018. 	dmarkus		BDS4,4 and BDS4,5 added
--->
+--> 
 
 <Category id="BDS" name="BDS" ver="1.0">
 
@@ -145,7 +145,7 @@
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
                 </Bits>
-
+				
                 <Bits from="40" to="31" encode="signed">
                     <BitsShortName>STATIC_AIR_TEMPERATURE</BitsShortName>
                     <BitsName>Static Air Temperature</BitsName>
@@ -157,20 +157,20 @@
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
                 </Bits>
-
+				
                 <Bits from="29" to="19" encode="unsigned">
                     <BitsShortName>AVERAGE_STATIC_PRESSURE</BitsShortName>
                     <BitsName>Status Average Static Pressure</BitsName>
                     <BitsUnit scale="1">hPa</BitsUnit>
                 </Bits>
-
+				
                 <Bits bit="18">
                     <BitsShortName>STATUS_TURBULENCE</BitsShortName>
                     <BitsName>Status Turbulence</BitsName>
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
                 </Bits>
-
+				
                 <Bits from="17" to="16" encode="unsigned">
                     <BitsShortName>TURBULENCE</BitsShortName>
                     <BitsName>Turbulence</BitsName>
@@ -179,20 +179,20 @@
                     <BitsValue val="2">Moderate</BitsValue>
                     <BitsValue val="3">Severe</BitsValue>
                 </Bits>
-
+				
                 <Bits bit="15">
                     <BitsShortName>STATUS_HUMIDITY</BitsShortName>
                     <BitsName>Status Humidity</BitsName>
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
                 </Bits>
-
+				
                 <Bits from="14" to="9" encode="unsigned">
                     <BitsShortName>HUMIDITY</BitsShortName>
                     <BitsName>Humidity</BitsName>
                     <BitsUnit scale="1.5625">%</BitsUnit>
                 </Bits>
-
+				
                 <Bits from="8" to="1" encode="hex">
                     <BitsShortName>BDS</BitsShortName>
                     <BitsName>BDS register</BitsName>
@@ -200,13 +200,11 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-
+	
 
     <DataItem id="45">
         <DataItemName>Meteorological hazard report</DataItemName>
-        <DataItemDefinition>To provide reports on the severity of meteorological hazards, in particular for low
-            flight.
-        </DataItemDefinition>
+        <DataItemDefinition>To provide reports on the severity of meteorological hazards, in particular for low flight.</DataItemDefinition>
         <DataItemFormat desc="Eight-octets fixed length data item.">
             <Fixed length="8">
                 <Bits bit="64">
@@ -222,7 +220,7 @@
                     <BitsValue val="1">LIGHT</BitsValue>
                     <BitsValue val="2">MODERATE</BitsValue>
                     <BitsValue val="3">SEVERE</BitsValue>
-                </Bits>
+                </Bits>								
                 <Bits bit="61">
                     <BitsShortName>STATUS_WIND_SHEAR</BitsShortName>
                     <BitsName>Status Wind Shear</BitsName>
@@ -236,7 +234,7 @@
                     <BitsValue val="1">LIGHT</BitsValue>
                     <BitsValue val="2">MODERATE</BitsValue>
                     <BitsValue val="3">SEVERE</BitsValue>
-                </Bits>
+                </Bits>								
                 <Bits bit="58">
                     <BitsShortName>STATUS_MICROBURST</BitsShortName>
                     <BitsName>Status Microburst</BitsName>
@@ -250,7 +248,7 @@
                     <BitsValue val="1">LIGHT</BitsValue>
                     <BitsValue val="2">MODERATE</BitsValue>
                     <BitsValue val="3">SEVERE</BitsValue>
-                </Bits>
+                </Bits>		
                 <Bits bit="55">
                     <BitsShortName>STATUS_ICING</BitsShortName>
                     <BitsName>Status Icing</BitsName>
@@ -264,7 +262,7 @@
                     <BitsValue val="1">LIGHT</BitsValue>
                     <BitsValue val="2">MODERATE</BitsValue>
                     <BitsValue val="3">SEVERE</BitsValue>
-                </Bits>
+                </Bits>									
                 <Bits bit="52">
                     <BitsShortName>STATUS_WAKE_VORTEX</BitsShortName>
                     <BitsName>Status Wake Vortex</BitsName>
@@ -278,13 +276,13 @@
                     <BitsValue val="1">LIGHT</BitsValue>
                     <BitsValue val="2">MODERATE</BitsValue>
                     <BitsValue val="3">SEVERE</BitsValue>
-                </Bits>
+                </Bits>	
                 <Bits bit="49">
                     <BitsShortName>STATUS_STATIC_AIR_TEMPERATURE</BitsShortName>
                     <BitsName>Status Static Air Temperature</BitsName>
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
-                </Bits>
+                </Bits>				
                 <Bits from="48" to="39" encode="signed">
                     <BitsShortName>STATIC_AIR_TEMPERATURE</BitsShortName>
                     <BitsName>Static Air Temperature</BitsName>
@@ -295,18 +293,18 @@
                     <BitsName>Status Average Static Pressure</BitsName>
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
-                </Bits>
+                </Bits>				
                 <Bits from="37" to="27" encode="unsigned">
                     <BitsShortName>AVERAGE_STATIC_PRESSURE</BitsShortName>
                     <BitsName>Status Average Static Pressure</BitsName>
                     <BitsUnit scale="1">hPa</BitsUnit>
-                </Bits>
+                </Bits>				
                 <Bits bit="26">
                     <BitsShortName>STATUS_RADIO_HEIGHT</BitsShortName>
                     <BitsName>Status Radio Height</BitsName>
                     <BitsValue val="0">Invalid</BitsValue>
                     <BitsValue val="1">Valid</BitsValue>
-                </Bits>
+                </Bits>				
                 <Bits from="25" to="14" encode="unsigned">
                     <BitsShortName>RADIO_HEIGHT</BitsShortName>
                     <BitsName>Radio Height</BitsName>
@@ -315,16 +313,18 @@
                 <Bits from="13" to="9" encode="hex">
                     <BitsShortName>RESERVED</BitsShortName>
                     <BitsName>Reserved</BitsName>
-                </Bits>
+                </Bits>				
                 <Bits from="8" to="1" encode="hex">
                     <BitsShortName>BDS</BitsShortName>
                     <BitsName>BDS register</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem>
-
-
+    </DataItem>	
+	
+	
+	
+	
     <DataItem id="50">
         <DataItemName>Track and turn report</DataItemName>
         <DataItemDefinition>Track and turn report</DataItemDefinition>

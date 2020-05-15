@@ -10,14 +10,12 @@
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
                17.2.2016. (dsalantic, reported by hubbiedihub) Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
                28.11.2016. (dsalantic) Implemented changes to 1.26 version 
--->
+--> 
 
 <Category id="34" name="Transmission of Monoroadar Service Messages" ver="1.0">
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
-            further defining the type of transaction.
-        </DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -26,7 +24,7 @@
                     <BitsValue val="1">North Marker message</BitsValue>
                     <BitsValue val="2">Sector crossing message</BitsValue>
                     <BitsValue val="3">Geographical filtering message</BitsValue>
-                    <BitsValue val="4">Jamming Strobe message</BitsValue>
+                    <BitsValue val="4">Jamming Strobe message</BitsValue>                
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -51,8 +49,7 @@
 
     <DataItem id="020">
         <DataItemName>Sector Number</DataItemName>
-        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.
-        </DataItemDefinition>
+        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -77,17 +74,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of
-            the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed
-            since last midnight.
-        </DataItemNote>
+        <DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed since last midnight. </DataItemNote>
     </DataItem>
 
     <DataItem id="041">
         <DataItemName>Antenna Rotation Speed</DataItemName>
-        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged
-            during a period of time.
-        </DataItemDefinition>
+        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -102,8 +94,7 @@
     <DataItem id="050">
         <DataItemName>System Configuration and Status</DataItemName>
         <DataItemDefinition>Information concerning the configuration and status of a System..</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
+        <DataItemFormat desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -116,7 +107,7 @@
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
                             <BitsConst>0</BitsConst>
-                        </Bits>
+                        </Bits>                         
                         <Bits bit="6">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
@@ -148,41 +139,39 @@
                             <BitsValue val="1">Extension into next extent</BitsValue>
                             <BitsValue val="0">End of Data Item</BitsValue>
                         </Bits>
-                    </Fixed>
+                    </Fixed>                
                 </Variable>
 
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>NOGO</BitsShortName>
                         <BitsName>Operational Release Status of the System</BitsName>
-                        <BitsValue val="1">Operational use of System is inhibited, i.e. the data shall be discarded by
-                            an operational SDPS
-                        </BitsValue>
-                        <BitsValue val="0">System is released for operational use</BitsValue>
+                        <BitsValue val="1">Operational use of System is inhibited, i.e. the data shall be discarded by an operational SDPS</BitsValue>
+                        <BitsValue val="0">System is released for operational use</BitsValue>   
                     </Bits>
                     <Bits bit="7">
                         <BitsShortName>RDPC</BitsShortName>
                         <BitsName>Radar Data Processor Chain Selection Status</BitsName>
                         <BitsValue val="1">RDPC-2 selected</BitsValue>
-                        <BitsValue val="0">RDPC-1 selected</BitsValue>
-                    </Bits>
+                        <BitsValue val="0">RDPC-1 selected</BitsValue>  
+                    </Bits>                         
                     <Bits bit="6">
                         <BitsShortName>RDPR</BitsShortName>
                         <BitsName>Event to signal a reset/restart of the selected Radar Data Processor Chain</BitsName>
                         <BitsValue val="1">Reset of RDPC</BitsValue>
-                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="0">Default</BitsValue>  
                     </Bits>
                     <Bits bit="5">
                         <BitsShortName>OVLRDP</BitsShortName>
                         <BitsName>Radar Data Processor Overload Indicator</BitsName>
                         <BitsValue val="1">Overload in RDP</BitsValue>
-                        <BitsValue val="0">No overload</BitsValue>
+                        <BitsValue val="0">No overload</BitsValue>  
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>OVLXMT</BitsShortName>
                         <BitsName>Transmission Subsystem Overload Status</BitsName>
                         <BitsValue val="1">Transmission Subsystem Overload</BitsValue>
-                        <BitsValue val="0">No overload</BitsValue>
+                        <BitsValue val="0">No overload</BitsValue>  
                     </Bits>
                     <Bits bit="3">
                         <BitsShortName>MSC</BitsShortName>
@@ -201,14 +190,14 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>                
 
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>PSRANT</BitsShortName>
                         <BitsName>Selected PSR antenna</BitsName>
                         <BitsValue val="1">antenna 2</BitsValue>
-                        <BitsValue val="0">antenna 1</BitsValue>
+                        <BitsValue val="0">antenna 1</BitsValue>    
                     </Bits>
                     <Bits from="7" to="6">
                         <BitsShortName>PSRCHAB</BitsShortName>
@@ -217,12 +206,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Diversity mode</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits bit="5">
                         <BitsShortName>PSROVL</BitsShortName>
                         <BitsName>PSSR Overload condition</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue>
+                        <BitsValue val="1">Overload</BitsValue> 
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>PSRMSC</BitsShortName>
@@ -235,14 +224,14 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>                
 
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>SSRANT</BitsShortName>
                         <BitsName>Selected SSR antenna</BitsName>
                         <BitsValue val="1">antenna 2</BitsValue>
-                        <BitsValue val="0">antenna 1</BitsValue>
+                        <BitsValue val="0">antenna 1</BitsValue>    
                     </Bits>
                     <Bits from="7" to="6">
                         <BitsShortName>SSRCHAB</BitsShortName>
@@ -251,12 +240,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Invalid combination</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits bit="5">
                         <BitsShortName>SSROVL</BitsShortName>
                         <BitsName>SSR Overload condition</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue>
+                        <BitsValue val="1">Overload</BitsValue> 
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>SSRMSC</BitsShortName>
@@ -276,7 +265,7 @@
                         <BitsShortName>MDSANT</BitsShortName>
                         <BitsName>Mode S Selected antenna</BitsName>
                         <BitsValue val="0">antenna 1</BitsValue>
-                        <BitsValue val="1">antenna 2</BitsValue>
+                        <BitsValue val="1">antenna 2</BitsValue>    
                     </Bits>
                     <Bits from="15" to="14">
                         <BitsShortName>MDSCHAB</BitsShortName>
@@ -285,12 +274,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Illegal combination</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits bit="13">
                         <BitsShortName>MDSOVLSUR</BitsShortName>
                         <BitsName>Mode S Overload condition</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue>
+                        <BitsValue val="1">Overload</BitsValue> 
                     </Bits>
                     <Bits bit="12">
                         <BitsShortName>MDSMSC</BitsShortName>
@@ -314,13 +303,13 @@
                         <BitsShortName>MDSOVLSCF</BitsShortName>
                         <BitsName>Mode S Overload in Surveillance Co-ordination Function</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue>
+                        <BitsValue val="1">Overload</BitsValue> 
                     </Bits>
                     <Bits bit="8">
                         <BitsShortName>MDSOVLDLF</BitsShortName>
                         <BitsName>Mode S Overload in Data Link Function</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue>
+                        <BitsValue val="1">Overload</BitsValue> 
                     </Bits>
                     <Bits from="7" to="1">
                         <BitsShortName>spare</BitsShortName>
@@ -328,19 +317,15 @@
                         <BitsConst>0</BitsConst>
                     </Bits>
                 </Fixed>
-            </Compound>
+            </Compound>     
         </DataItemFormat>
-        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it
-            is felt impractical to attempt to define the individual bits.
-        </DataItemNote>
-    </DataItem>
+        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
+    </DataItem>    
 
     <DataItem id="060">
         <DataItemName>System Processing Mode</DataItemName>
-        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -352,7 +337,7 @@
                         <Bits bit="7">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
-                        </Bits>
+                        </Bits>                         
                         <Bits bit="6">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
@@ -383,7 +368,7 @@
                             <BitsValue val="1">Extension into next extent</BitsValue>
                             <BitsValue val="0">End of Data Item</BitsValue>
                         </Bits>
-                    </Fixed>
+                    </Fixed>                
                 </Variable>
 
                 <Fixed length="1">
@@ -403,7 +388,7 @@
                         <BitsValue val="5">Reduction step 5 active</BitsValue>
                         <BitsValue val="6">Reduction step 6 active</BitsValue>
                         <BitsValue val="7">Reduction step 7 active</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits from="4" to="2">
                         <BitsShortName>REDXMT</BitsShortName>
                         <BitsName>Reduction Steps in use for an overload of the Transmission subsystem</BitsName>
@@ -421,7 +406,7 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>        
 
                 <Fixed length="1">
                     <Bits bit="8">
@@ -432,7 +417,7 @@
                     </Bits>
                     <Bits from="7" to="5">
                         <BitsShortName>PSRREDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use as result of an overload within the PSR subsystem</BitsName>
+                        <BitsName>Reduction Steps in use as result of an overload within the PSR subsystem</BitsName>           
                         <BitsValue val="0">No reduction active</BitsValue>
                         <BitsValue val="1">Reduction step 1 active</BitsValue>
                         <BitsValue val="2">Reduction step 2 active</BitsValue>
@@ -441,7 +426,7 @@
                         <BitsValue val="5">Reduction step 5 active</BitsValue>
                         <BitsValue val="6">Reduction step 6 active</BitsValue>
                         <BitsValue val="7">Reduction step 7 active</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits from="4" to="3">
                         <BitsShortName>STC</BitsShortName>
                         <BitsName>Sensitivity Time Control Map in use</BitsName>
@@ -455,13 +440,13 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>    
 
-                <Fixed length="1">
+                <Fixed length="1"> 
 
                     <Bits from="8" to="6">
                         <BitsShortName>SSRREDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use as result of an overload within the SSR subsystem</BitsName>
+                        <BitsName>Reduction Steps in use as result of an overload within the SSR subsystem</BitsName>           
                         <BitsValue val="0">No reduction active</BitsValue>
                         <BitsValue val="1">Reduction step 1 active</BitsValue>
                         <BitsValue val="2">Reduction step 2 active</BitsValue>
@@ -470,18 +455,18 @@
                         <BitsValue val="5">Reduction step 5 active</BitsValue>
                         <BitsValue val="6">Reduction step 6 active</BitsValue>
                         <BitsValue val="7">Reduction step 7 active</BitsValue>
-                    </Bits>
+                    </Bits>                         
                     <Bits from="5" to="1">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>    
 
-                <Fixed length="1">
+                <Fixed length="1"> 
                     <Bits from="8" to="6">
                         <BitsShortName>MDSREDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use as result of an overload within the Mode S subsystem</BitsName>
+                        <BitsName>Reduction Steps in use as result of an overload within the Mode S subsystem</BitsName>            
                         <BitsValue val="0">No reduction active</BitsValue>
                         <BitsValue val="1">Reduction step 1 active</BitsValue>
                         <BitsValue val="2">Reduction step 2 active</BitsValue>
@@ -490,7 +475,7 @@
                         <BitsValue val="5">Reduction step 5 active</BitsValue>
                         <BitsValue val="6">Reduction step 6 active</BitsValue>
                         <BitsValue val="7">Reduction step 7 active</BitsValue>
-                    </Bits>
+                    </Bits>         
                     <Bits bit="5">
                         <BitsShortName>CLU</BitsShortName>
                         <BitsName>Cluster State</BitsName>
@@ -502,7 +487,7 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>
+                </Fixed>    
             </Compound>
         </DataItemFormat>
         <DataItemNote>.</DataItemNote>
@@ -510,11 +495,8 @@
 
     <DataItem id="070">
         <DataItemName>Message Count Values</DataItemName>
-        <DataItemDefinition>Message Count values, according the various types of messages, for the last completed
-            antenna revolution, counted between two North crossings
-        </DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
+        <DataItemDefinition>Message Count values, according the various types of messages, for the last completed antenna revolution, counted between two North crossings</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="12">
@@ -535,9 +517,7 @@
                         <BitsValue val="12">Filter for SSR/Mode S+PSR data</BitsValue>
                         <BitsValue val="13">Filter for Enhanced Surveillance data</BitsValue>
                         <BitsValue val="14">Filter for PSR+Enhanced Surveillance</BitsValue>
-                        <BitsValue val="15">Filter for PSR+Enhanced Surveillance + SSR/Mode S data not in Area of Prime
-                            Interest
-                        </BitsValue>
+                        <BitsValue val="15">Filter for PSR+Enhanced Surveillance + SSR/Mode S data not in Area of Prime Interest</BitsValue>
                         <BitsValue val="16">Filter for PSR+Enhanced Surveillance + all SSR/Mode S data</BitsValue>
                     </Bits>
                     <Bits from="11" to="1">
@@ -545,15 +525,13 @@
                         <BitsName>Counter value</BitsName>
                     </Bits>
                 </Fixed>
-            </Repetitive>
+            </Repetitive>            
         </DataItemFormat>
     </DataItem>
 
     <DataItem id="090">
         <DataItemName>Collimation Error</DataItemName>
-        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to
-            the SSR target position as calculated by the radar station.
-        </DataItemDefinition>
+        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
@@ -597,9 +575,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This data item shall be sent when: indicating a geographical filtering, indicating a jamming
-            strobe area
-        </DataItemNote>
+        <DataItemNote>This data item shall be sent when: indicating a geographical filtering, indicating a jamming strobe area</DataItemNote>
     </DataItem>
 
     <DataItem id="110">
@@ -618,18 +594,12 @@
                     <BitsValue val="5">Filter for SSR/Mode S + PSR data</BitsValue>
                     <BitsValue val="6">Enhanced Surveillance data</BitsValue>
                     <BitsValue val="7">Filter for PSR+Enhanced Surveillance data</BitsValue>
-                    <BitsValue val="8">Filter for PSR+Enhanced Surveillance + SSR/Mode S data not in Area of Prime
-                        Interest
-                    </BitsValue>
+                    <BitsValue val="8">Filter for PSR+Enhanced Surveillance + SSR/Mode S data not in Area of Prime Interest</BitsValue>
                     <BitsValue val="9">Filter for PSR+Enhanced Surveillance + all SSR/Mode S data</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a Data Filter for a
-            specific geographical subarea. A Data Source may have zero, one or multiple data filters active at any
-            time.If I034/110 is not accompanied with I034/100, then the Data Filter is valid throughout the total area
-            of coverage.
-        </DataItemNote>
+        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a  Data Filter for a specific geographical subarea. A Data Source may have  zero, one or multiple data filters active at any time.If I034/110 is not accompanied with I034/100, then the Data Filter is valid throughout the total area of coverage.</DataItemNote>
     </DataItem>
 
     <DataItem id="120">
@@ -639,14 +609,13 @@
             <Fixed length="8">
                 <Bits from="64" to="49">
                     <BitsShortName>Height</BitsShortName>
-                    <BitsName>Signed Height of the Data Source, expressed in meters above WGS 84 reference ellipsoid.
-                    </BitsName>
-                    <BitsUnit scale="1">m</BitsUnit>
+                    <BitsName>Signed Height of the Data Source, expressed in meters above WGS 84 reference ellipsoid.</BitsName>
+                    <BitsUnit  scale="1">m</BitsUnit>
                 </Bits>
                 <Bits from="48" to="25" encode="signed">
                     <BitsShortName>LAT</BitsShortName>
                     <BitsName>Latitude in WGS-84</BitsName>
-                    <BitsUnit scale="0.00002145767">deg</BitsUnit>
+                    <BitsUnit  scale="0.00002145767">deg</BitsUnit>
                 </Bits>
                 <Bits from="24" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
@@ -657,8 +626,8 @@
         </DataItemFormat>
     </DataItem>
 
-    <!--Special Purpose Field - content unknown -->
-    <DataItem id="SP">
+    <!--Special Purpose Field - content unknown --> 	
+    <DataItem id="SP" >
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>SP</DataItemDefinition>
         <DataItemFormat desc="Explicit">
@@ -672,10 +641,10 @@
             </Explicit>
         </DataItemFormat>
         <DataItemNote/>
-    </DataItem>
+    </DataItem>		
 
-    <!--Reserved Field - content unknown -->
-    <DataItem id="RE">
+    <!--Reserved Field - content unknown --> 	
+    <DataItem id="RE" >
         <DataItemName>Reserved Field</DataItemName>
         <DataItemDefinition>RE</DataItemDefinition>
         <DataItemFormat desc="Explicit">
@@ -707,7 +676,7 @@
         <UAPItem bit="12" frn="12" len="2">090</UAPItem>
         <UAPItem bit="13" frn="13" len="1+1+">RE</UAPItem>
         <UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
-        <UAPItem bit="15" frn="FX">-</UAPItem>
+        <UAPItem bit="15" frn="FX">-</UAPItem>        
     </UAP>
 
 </Category>

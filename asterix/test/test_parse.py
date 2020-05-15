@@ -15,7 +15,7 @@ class AsterixParseTest(unittest.TestCase):
             self.assertTrue('I220' in packet[0])
             self.assertEqual(packet[0]['category'], 48)
             self.assertEqual(packet[0]['len'], 45)
-            self.assertEqual(packet[0]['crc'], 'C150ED0E')
+            self.assertEqual(packet[0]['crc'], 'E2693598')
             self.assertTrue('ts' in packet[0])
             self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
             self.assertEqual(packet[0]['I220']['ACAddr']['desc'], 'AircraftAddress')
@@ -106,7 +106,7 @@ class AsterixParseTest(unittest.TestCase):
             self.assertTrue('I220' in packet[0])
             self.assertEqual(packet[0]['category'], 48)
             self.assertEqual(packet[0]['len'], 45)
-            self.assertEqual(packet[0]['crc'], 'C150ED0E')
+            self.assertEqual(packet[0]['crc'], 'E2693598')
             self.assertTrue('ts' in packet[0])
             self.assertEqual(packet[0]['I220']['ACAddr']['val'], '3C660C')
             self.assertEqual(packet[0]['I010'], {'SAC': {'val': 25},
@@ -169,6 +169,7 @@ class AsterixParseTest(unittest.TestCase):
                                                  'SI': {'val': 0}})
 
     def test_ParseCAT062CAT065(self):
+        self.maxDiff = None
         sample_filename = asterix.get_sample_file('cat062cat065.raw')
         with open(sample_filename, "rb") as f:
             data = f.read()
@@ -179,13 +180,13 @@ class AsterixParseTest(unittest.TestCase):
             self.assertIs(len(packet), 3)
             self.assertIs(packet[0]['category'], 62)
             self.assertIs(packet[0]['len'], 66)
-            self.assertEqual(packet[0]['crc'], '9CB473BE')
+            self.assertEqual(packet[0]['crc'], '2D483649')
             self.assertIs(packet[1]['category'], 62)
             self.assertIs(packet[1]['len'], 114)
-            self.assertEqual(packet[1]['crc'], '5A6E1F96')
+            self.assertEqual(packet[1]['crc'], '9B67161C')
             self.assertIs(packet[2]['category'], 65)
             self.assertIs(packet[2]['len'], 9)
-            self.assertEqual(packet[2]['crc'], '8B7DA47A')
+            self.assertEqual(packet[2]['crc'], 'D6C0E322')
             self.assertEqual(packet[0]['I220'], {'RoC': {'val': -443.75, 'desc': 'Rate of Climb/Descent'}})
             self.assertEqual(packet[0]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
 
@@ -292,179 +293,178 @@ class AsterixParseTest(unittest.TestCase):
 
             self.assertEqual(packet[0]['I105'], {
                 'Lat': {'val': 44.73441302776337,
-                        'desc': 'Latitude in WGS.84 in two's complement.Range - 90 < latitude < 90 deg.'},
+                        'desc': 'Latitude in WGS.84 in two\'s complement. Range -90 < latitude < 90 deg.'},
                                                                                                        'Lon': {
                 'val': 13.0415278673172,
-                'desc': 'Longitude in WGS.84 in two's complement.Range - 180 < longitude < 180 deg.'}})
-                self.assertEqual(packet[0]['I040'], {'TrkN': {'val': 4980, 'desc': 'Track number'}})
-                    self.assertEqual(packet[0]['I210'],
-                                     {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
-                self.assertEqual(packet[1]['I220'], {'RoC': {'val': 0.0, 'desc': 'Rate of Climb/Descent'}})
-                    self.assertEqual(packet[1]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
+                'desc': 'Longitude in WGS.84 in two\'s complement. Range -180 < longitude < 180 deg.'}})
+            self.assertEqual(packet[0]['I040'], {'TrkN': {'val': 4980, 'desc': 'Track number'}})
+            self.assertEqual(packet[0]['I210'],
+                                 {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
+            self.assertEqual(packet[1]['I220'], {'RoC': {'val': 0.0, 'desc': 'Rate of Climb/Descent'}})
+            self.assertEqual(packet[1]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
 
-                self.assertEqual(packet[1]['I290']['MDS'], {
-                    'MDS': {'val': 0.0, 'desc': 'Age of the last Mode S detection used to update the track'}})
-                    self.assertEqual(packet[1]['I290']['SSR'], {
-                        'SSR': {'val': 0.0, 'desc': 'Age of the last secondary detection used to update the track'}})
+            self.assertEqual(packet[1]['I290']['MDS'], {
+                'MDS': {'val': 0.0, 'desc': 'Age of the last Mode S detection used to update the track'}})
+            self.assertEqual(packet[1]['I290']['SSR'], {
+                'SSR': {'val': 0.0, 'desc': 'Age of the last secondary detection used to update the track'}})
 
-                self.assertEqual(packet[1]['I135'], {
-                    'QNH': {'meaning': 'No QNH correction applied', 'val': 0, 'desc': 'QNH'},
-                    'CTBA': {'max': 150000.0, 'min': -1500.0, 'val': 35000.0,
-                             'desc': 'Calculated Track Barometric Alt'}})
-                    self.assertEqual(packet[1]['I136'], {
-                        'MFL': {'max': 150000.0, 'min': -1500.0, 'val': 35000.0,
-                                'desc': 'Measured Flight Level'}})
-                self.assertEqual(packet[1]['I185'], {'Vx': {'max': 8191.75, 'min': -8192.0, 'val': 141.5, 'desc': 'Vx'},
-                                                     'Vy': {'max': 8191.75, 'min': -8192.0, 'val': -170.75,
-                                                            'desc': 'Vy'}})
-                    self.assertEqual(packet[1]['I080'], {'STP': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'MD5': {'meaning': 'No Mode 5 interrogation', 'val': 0,
-                                                                 'desc': ''},
-                                                         'FPC': {'meaning': 'Flight plan correlated', 'val': 1,
-                                                                 'desc': ''},
-                                                         'AMA': {
-                                                             'meaning': 'track not resulting from amalgamation process',
-                                                             'val': 0, 'desc': ''},
-                                                         'CNF': {'meaning': 'Confirmed track', 'val': 0, 'desc': ''},
-                                                         'TSE': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'ME': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'FX': {'meaning': 'End of data item', 'val': 0, 'desc': ''},
-                                                         'CST': {'meaning': 'Default value', 'val': 0, 'desc': ''},
-                                                         'PSR': {'meaning': 'Default value', 'val': 0, 'desc': ''},
-                                                         'MDS': {'meaning': 'Default value', 'val': 0, 'desc': ''},
-                                                         'MI': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'SRC': {'meaning': 'triangulation', 'val': 3,
-                                                                 'desc': 'Source of calculated track altitude for I062/130'},
-                                                         'SIM': {'meaning': 'Actual track', 'val': 0, 'desc': ''},
-                                                         'KOS': {'meaning': 'Background service used', 'val': 1,
-                                                                 'desc': ''},
-                                                         'AFF': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'MRH': {
-                                                             'meaning': 'Barometric altitude (Mode C) more reliable',
-                                                             'val': 0, 'desc': 'Most Reliable Height'},
-                                                         'MON': {'meaning': 'Multisensor track', 'val': 0, 'desc': ''},
-                                                         'TSB': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'SUC': {'meaning': 'Default value', 'val': 0, 'desc': ''},
-                                                         'MD4': {'meaning': 'No Mode 4 interrogation', 'val': 0,
-                                                                 'desc': ''},
-                                                         'SPI': {'meaning': 'default value', 'val': 0, 'desc': ''},
-                                                         'ADS': {
-                                                             'meaning': 'Age of the last received ADS-B track update is higher than system dependent threshold',
-                                                             'val': 1, 'desc': ''},
-                                                         'AAC': {'meaning': 'Default value', 'val': 0, 'desc': ''},
-                                                         'SSR': {'meaning': 'Default value', 'val': 0, 'desc': ''}})
-                self.assertEqual(packet[1]['I070'], {'ToT': {'val': 30911.828125, 'desc': 'Time Of Track Information'}})
-                    self.assertEqual(packet[1]['I100'], {'Y': {'val': -36106.5, 'desc': 'Y'},
-                                                         'X': {'val': -72564.5, 'desc': 'X'}})
-                self.assertEqual(packet[1]['I200'], {'VERTA': {'meaning': 'Level', 'val': 0, 'desc': 'Vertical Rate'},
-                                                     'spare': {'const': 0, 'val': 0, 'desc': 'Spare bit set to zero'},
-                                                     'LONGA': {'meaning': 'Constant Groundspeed', 'val': 0,
-                                                               'desc': 'Longitudinal Acceleration'},
-                                                     'TRANSA': {'meaning': 'Constant Course', 'val': 0,
-                                                                'desc': 'Transversal Acceleration'},
-                                                     'ADF': {'meaning': 'No altitude discrepancy', 'val': 0,
-                                                             'desc': 'Altitude Discrepancy Flag'}})
-                    self.assertEqual(packet[1]['I130'], {
-                        'Alt': {'max': 150000.0, 'min': -1500.0, 'val': 35312.5, 'desc': 'Altitude'}})
-                self.assertEqual(packet[1]['I060'],
-                                 {'CH': {'meaning': 'No Change', 'val': 0, 'desc': 'Change in Mode 3/A'},
-                                  'G': {'desc': 'Change in Mode 3/A', 'meaning': 'Default', 'val': 0},
-                                  'V': {'desc': 'Change in Mode 3/A', 'meaning': 'Code validated',
-                                        'val': 0},
-                                  'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
-                                  'Mode3A': {'val': '2535',
-                                             'desc': 'Mode-3/A reply in octal representation'}})
+            self.assertEqual(packet[1]['I135'], {
+                'QNH': {'meaning': 'No QNH correction applied', 'val': 0, 'desc': 'QNH'},
+                'CTBA': {'max': 150000.0, 'min': -1500.0, 'val': 35000.0,
+                         'desc': 'Calculated Track Barometric Alt'}})
+            self.assertEqual(packet[1]['I136'], {
+                 'MFL': {'max': 150000.0, 'min': -1500.0, 'val': 35000.0,
+                        'desc': 'Measured Flight Level'}})
+            self.assertEqual(packet[1]['I185'], {'Vx': {'max': 8191.75, 'min': -8192.0, 'val': 141.5, 'desc': 'Vx'},
+                                                 'Vy': {'max': 8191.75, 'min': -8192.0, 'val': -170.75,
+                                                        'desc': 'Vy'}})
+            self.assertEqual(packet[1]['I080'], {'STP': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'MD5': {'meaning': 'No Mode 5 interrogation', 'val': 0,
+                                                             'desc': ''},
+                                                     'FPC': {'meaning': 'Flight plan correlated', 'val': 1,
+                                                             'desc': ''},
+                                                     'AMA': {
+                                                         'meaning': 'track not resulting from amalgamation process',
+                                                         'val': 0, 'desc': ''},
+                                                     'CNF': {'meaning': 'Confirmed track', 'val': 0, 'desc': ''},
+                                                     'TSE': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'ME': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'FX': {'meaning': 'End of data item', 'val': 0, 'desc': ''},
+                                                     'CST': {'meaning': 'Default value', 'val': 0, 'desc': ''},
+                                                     'PSR': {'meaning': 'Default value', 'val': 0, 'desc': ''},
+                                                     'MDS': {'meaning': 'Default value', 'val': 0, 'desc': ''},
+                                                     'MI': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'SRC': {'meaning': 'triangulation', 'val': 3,
+                                                             'desc': 'Source of calculated track altitude for I062/130'},
+                                                     'SIM': {'meaning': 'Actual track', 'val': 0, 'desc': ''},
+                                                     'KOS': {'meaning': 'Background service used', 'val': 1,
+                                                             'desc': ''},
+                                                     'AFF': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'MRH': {
+                                                         'meaning': 'Barometric altitude (Mode C) more reliable',
+                                                         'val': 0, 'desc': 'Most Reliable Height'},
+                                                     'MON': {'meaning': 'Multisensor track', 'val': 0, 'desc': ''},
+                                                     'TSB': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'SUC': {'meaning': 'Default value', 'val': 0, 'desc': ''},
+                                                     'MD4': {'meaning': 'No Mode 4 interrogation', 'val': 0,
+                                                             'desc': ''},
+                                                     'SPI': {'meaning': 'default value', 'val': 0, 'desc': ''},
+                                                     'ADS': {
+                                                         'meaning': 'Age of the last received ADS-B track update is higher than system dependent threshold',
+                                                         'val': 1, 'desc': ''},
+                                                     'AAC': {'meaning': 'Default value', 'val': 0, 'desc': ''},
+                                                     'SSR': {'meaning': 'Default value', 'val': 0, 'desc': ''}})
+            self.assertEqual(packet[1]['I070'], {'ToT': {'val': 30911.828125, 'desc': 'Time Of Track Information'}})
+            self.assertEqual(packet[1]['I100'], {'Y': {'val': -36106.5, 'desc': 'Y'},
+                                                     'X': {'val': -72564.5, 'desc': 'X'}})
+            self.assertEqual(packet[1]['I200'], {'VERTA': {'meaning': 'Level', 'val': 0, 'desc': 'Vertical Rate'},
+                                                 'spare': {'const': 0, 'val': 0, 'desc': 'Spare bit set to zero'},
+                                                 'LONGA': {'meaning': 'Constant Groundspeed', 'val': 0,
+                                                           'desc': 'Longitudinal Acceleration'},
+                                                 'TRANSA': {'meaning': 'Constant Course', 'val': 0,
+                                                            'desc': 'Transversal Acceleration'},
+                                                 'ADF': {'meaning': 'No altitude discrepancy', 'val': 0,
+                                                         'desc': 'Altitude Discrepancy Flag'}})
+            self.assertEqual(packet[1]['I130'], {
+                    'Alt': {'max': 150000.0, 'min': -1500.0, 'val': 35312.5, 'desc': 'Altitude'}})
+            self.assertEqual(packet[1]['I060'],
+                             {'CH': {'meaning': 'No Change', 'val': 0, 'desc': 'Change in Mode 3/A'},
+                              'G': {'desc': 'Change in Mode 3/A', 'meaning': 'Default', 'val': 0},
+                              'V': {'desc': 'Change in Mode 3/A', 'meaning': 'Code validated',
+                                    'val': 0},
+                              'spare': {'const': 0, 'val': 0, 'desc': 'Spare bits set to 0'},
+                              'Mode3A': {'val': '2535',
+                                         'desc': 'Mode-3/A reply in octal representation'}})
 
-                    self.assertEqual(packet[1]['I295']['MFL'], {'MFL': {'val': 0.0, 'desc': ''}})
+            self.assertEqual(packet[1]['I295']['MFL'], {'MFL': {'val': 0.0, 'desc': ''}})
 
-                self.assertEqual(packet[1]['I390']['DEP'], {'DEP': {'desc': 'Departure Airport', 'val': 'EDDL'}})
-                    self.assertEqual(packet[1]['I390']['TAC'], {'TYPE': {'desc': 'Type of Aircraft', 'val': 'B738'}})
-                self.assertEqual(packet[1]['I390']['DST'], {'DES': {'desc': 'Destination Airport', 'val': 'HELX'}})
+            self.assertEqual(packet[1]['I390']['DEP'], {'DEP': {'desc': 'Departure Airport', 'val': 'EDDL'}})
+            self.assertEqual(packet[1]['I390']['TAC'], {'TYPE': {'desc': 'Type of Aircraft', 'val': 'B738'}})
+            self.assertEqual(packet[1]['I390']['DST'], {'DES': {'desc': 'Destination Airport', 'val': 'HELX'}})
 
-                    self.assertEqual(packet[1]['I390']['IFI'], {
-                        'spare': {'const': 0, 'desc': 'spare bits set to zero', 'val': 0},
-                        'NBR': {'desc': '', 'val': 29233709},
-                        'TYP': {'meaning': 'Unit 1 internal flight number', 'desc': '', 'val': 1}})
+            self.assertEqual(packet[1]['I390']['IFI'], {
+                    'spare': {'const': 0, 'desc': 'spare bits set to zero', 'val': 0},
+                    'NBR': {'desc': '', 'val': 29233709},
+                    'TYP': {'meaning': 'Unit 1 internal flight number', 'desc': '', 'val': 1}})
 
-                self.assertEqual(packet[1]['I390']['RDS'], {'NU1': {'desc': 'First number', 'val': ' '},
-                                                            'LTR': {'desc': 'Letter', 'val': ' '},
-                                                            'NU2': {'desc': 'Second number', 'val': ' '}})
+            self.assertEqual(packet[1]['I390']['RDS'], {'NU1': {'desc': 'First number', 'val': ' '},
+                                                        'LTR': {'desc': 'Letter', 'val': ' '},
+                                                        'NU2': {'desc': 'Second number', 'val': ' '}})
 
-                    self.assertEqual(packet[1]['I390']['WTC'],
-                                     {'WTC': {'desc': 'Wake Turbulence Category', 'val': 'M'}})
+            self.assertEqual(packet[1]['I390']['WTC'],
+                                 {'WTC': {'desc': 'Wake Turbulence Category', 'val': 'M'}})
 
-                self.assertEqual(packet[1]['I390']['CSN'], {'CS': {'desc': 'Callsign', 'val': 'SXD4723'}})
-                    self.assertEqual(packet[1]['I390']['TAG'], {
-                        'SIC': {'desc': 'System Identification Code', 'val': 100},
-                        'SAC': {'desc': 'System Area Code', 'val': 25}})
+            self.assertEqual(packet[1]['I390']['CSN'], {'CS': {'desc': 'Callsign', 'val': 'SXD4723'}})
+            self.assertEqual(packet[1]['I390']['TAG'], {
+                    'SIC': {'desc': 'System Identification Code', 'val': 100},
+                    'SAC': {'desc': 'System Area Code', 'val': 25}})
 
-                self.assertEqual(packet[1]['I390']['FCT'], {
-                    'spare': {'const': 0, 'desc': 'spare bit set to zero', 'val': 0},
-                    'FR1FR2': {'meaning': 'Instrument Flight Rules', 'desc': '', 'val': 0},
-                    'RVSM': {'meaning': 'Approved', 'desc': '', 'val': 1},
-                    'GATOAT': {'meaning': 'General Air Traffic', 'desc': '', 'val': 1},
-                    'HPR': {'meaning': 'Normal Priority Flight', 'desc': '', 'val': 0}})
+            self.assertEqual(packet[1]['I390']['FCT'], {
+                'spare': {'const': 0, 'desc': 'spare bit set to zero', 'val': 0},
+                'FR1FR2': {'meaning': 'Instrument Flight Rules', 'desc': '', 'val': 0},
+                'RVSM': {'meaning': 'Approved', 'desc': '', 'val': 1},
+                'GATOAT': {'meaning': 'General Air Traffic', 'desc': '', 'val': 1},
+                'HPR': {'meaning': 'Normal Priority Flight', 'desc': '', 'val': 0}})
 
-                    self.assertEqual(packet[1]['I390']['CFL'],
-                                     {'CFL': {'desc': 'Current Cleared Flight Level', 'val': 350.0}})
-                self.assertEqual(packet[1]['I010'], {'SAC': {'val': 25, 'desc': 'System Area Code'},
-                                                     'SIC': {'val': 100, 'desc': 'System Identification Code'}})
+            self.assertEqual(packet[1]['I390']['CFL'],
+                                 {'CFL': {'desc': 'Current Cleared Flight Level', 'val': 350.0}})
+            self.assertEqual(packet[1]['I010'], {'SAC': {'val': 25, 'desc': 'System Area Code'},
+                                                 'SIC': {'val': 100, 'desc': 'System Identification Code'}})
 
-                    self.assertEqual(packet[1]['I340']['TYP'], {
-                        'TYP': {'desc': 'Report Type', 'meaning': 'Single ModeS Roll-Call', 'val': 5},
-                        'TST': {'desc': '', 'meaning': 'Real target report', 'val': 0},
-                        'SIM': {'desc': '', 'meaning': 'Actual target report', 'val': 0},
-                        'RAB': {'desc': '', 'meaning': 'Report from aircraft transponder', 'val': 0},
-                        'spare': {'desc': 'Spare bits set to zero', 'val': 0, 'const': 0}})
-                self.assertEqual(packet[1]['I340']['POS'], {
-                    'RHO': {'desc': 'Measured distance', 'val': 93.1953125, 'max': 256.0},
-                    'THETA': {'desc': 'Measured azimuth', 'val': 271.4666748046875}})
-                    self.assertEqual(packet[1]['I340']['MDA'], {
-                        'G': {'desc': '', 'meaning': 'Default', 'val': 0},
-                        'L': {'desc': '', 'meaning': 'MODE 3/A code as derived from the reply of the transponder',
-                              'val': 0},
-                        'V': {'desc': '', 'meaning': 'Code validated', 'val': 0},
-                        'Mode3A': {'desc': 'Mode 3/A reply under the form of 4 digits in octal representation',
-                                   'val': '2535'},
-                        'spare': {'desc': 'Spare bit set to zero', 'val': 0, 'const': 0}})
-                self.assertEqual(packet[1]['I340']['MDC'], {
-                    'ModeC': {'min': -12.0, 'desc': 'Last Measured Mode C Code', 'val': 350.0, 'max': 1270.0},
-                    'CG': {'desc': '', 'meaning': 'Default', 'val': 0},
-                    'CV': {'desc': '', 'meaning': 'Code validated', 'val': 0}})
-                    self.assertEqual(packet[1]['I340']['SID'], {
-                        'SIC': {'desc': 'System Identification Code', 'val': 13},
-                        'SAC': {'desc': 'System Area Code', 'val': 25}})
+            self.assertEqual(packet[1]['I340']['TYP'], {
+                    'TYP': {'desc': 'Report Type', 'meaning': 'Single ModeS Roll-Call', 'val': 5},
+                    'TST': {'desc': '', 'meaning': 'Real target report', 'val': 0},
+                    'SIM': {'desc': '', 'meaning': 'Actual target report', 'val': 0},
+                    'RAB': {'desc': '', 'meaning': 'Report from aircraft transponder', 'val': 0},
+                    'spare': {'desc': 'Spare bits set to zero', 'val': 0, 'const': 0}})
+            self.assertEqual(packet[1]['I340']['POS'], {
+                'RHO': {'desc': 'Measured distance', 'val': 93.1953125, 'max': 256.0},
+                'THETA': {'desc': 'Measured azimuth', 'val': 271.4666748046875}})
+            self.assertEqual(packet[1]['I340']['MDA'], {
+                    'G': {'desc': '', 'meaning': 'Default', 'val': 0},
+                    'L': {'desc': '', 'meaning': 'MODE 3/A code as derived from the reply of the transponder',
+                          'val': 0},
+                    'V': {'desc': '', 'meaning': 'Code validated', 'val': 0},
+                    'Mode3A': {'desc': 'Mode 3/A reply under the form of 4 digits in octal representation',
+                               'val': '2535'},
+                    'spare': {'desc': 'Spare bit set to zero', 'val': 0, 'const': 0}})
+            self.assertEqual(packet[1]['I340']['MDC'], {
+                'ModeC': {'min': -12.0, 'desc': 'Last Measured Mode C Code', 'val': 350.0, 'max': 1270.0},
+                'CG': {'desc': '', 'meaning': 'Default', 'val': 0},
+                'CV': {'desc': '', 'meaning': 'Code validated', 'val': 0}})
+            self.assertEqual(packet[1]['I340']['SID'], {
+                    'SIC': {'desc': 'System Identification Code', 'val': 13},
+                    'SAC': {'desc': 'System Area Code', 'val': 25}})
 
-                self.assertEqual(packet[1]['I380']['COM'], {
-                    'COM': {'val': 1, 'meaning': 'Comm. A and Comm. B capability',
-                            'desc': 'Communications capability of the transponder'},
-                    'SSC': {'val': 1, 'meaning': 'Yes', 'desc': 'Specific service capability'},
-                    'STAT': {'val': 0, 'meaning': 'No alert, no SPI, aircraft airborne', 'desc': 'Flight Status'},
-                    'spare': {'val': 0, 'const': 0, 'desc': 'Spare bits set to zero'},
-                    'B1A': {'val': 1, 'desc': 'BDS 1,0 bit 16'},
-                    'B1B': {'val': 6, 'desc': 'BDS 1,0 bits 37/40'},
-                    'ARC': {'val': 1, 'meaning': '25 ft resolution', 'desc': 'Altitude reporting capability'},
-                    'AIC': {'val': 1, 'meaning': 'Yes', 'desc': 'Aircraft identification capability'}})
-                    self.assertEqual(packet[1]['I380']['ADR'], {'ADR': {'val': '3C0A55', 'desc': 'Target Address'}})
-                self.assertEqual(packet[1]['I380']['ID'],
-                                 {'ACID': {'val': 'SXD4723 ', 'desc': 'Target Identification'}})
+            self.assertEqual(packet[1]['I380']['COM'], {
+                'COM': {'val': 1, 'meaning': 'Comm. A and Comm. B capability',
+                        'desc': 'Communications capability of the transponder'},
+                'SSC': {'val': 1, 'meaning': 'Yes', 'desc': 'Specific service capability'},
+                'STAT': {'val': 0, 'meaning': 'No alert, no SPI, aircraft airborne', 'desc': 'Flight Status'},
+                'spare': {'val': 0, 'const': 0, 'desc': 'Spare bits set to zero'},
+                'B1A': {'val': 1, 'desc': 'BDS 1,0 bit 16'},
+                'B1B': {'val': 6, 'desc': 'BDS 1,0 bits 37/40'},
+                'ARC': {'val': 1, 'meaning': '25 ft resolution', 'desc': 'Altitude reporting capability'},
+                'AIC': {'val': 1, 'meaning': 'Yes', 'desc': 'Aircraft identification capability'}})
+            self.assertEqual(packet[1]['I380']['ADR'], {'ADR': {'val': '3C0A55', 'desc': 'Target Address'}})
+            self.assertEqual(packet[1]['I380']['ID'],
+                             {'ACID': {'val': 'SXD4723 ', 'desc': 'Target Identification'}})
 
-                    self.assertEqual(packet[1]['I105'], {'Lat': {'val': 45.40080785751343,
-                                                                 'desc': 'Latitude in WGS.84 in two'
-                                                                 s complement.Range - 90 < latitude < 90 deg.'},
-                                                                                                             'Lon': {
-                'val': 15.13318419456482,
-                'desc': 'Longitude in WGS.84 in two's complement.Range - 180 < longitude < 180 deg.'}})
-                self.assertEqual(packet[1]['I040'], {'TrkN': {'val': 7977, 'desc': 'Track number'}})
-                    self.assertEqual(packet[1]['I210'],
-                                     {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
-                self.assertEqual(packet[2]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
-                    self.assertEqual(packet[2]['I020'], {'BTN': {'val': 24, 'desc': 'Batch Number'}})
-                self.assertEqual(packet[2]['I010'], {'SAC': {'val': 25, 'desc': 'Source Area Code'},
-                                                     'SIC': {'val': 100, 'desc': 'Source Identification Code'}})
-                    self.assertEqual(packet[2]['I030'], {'ToD': {'val': 30913.0546875, 'desc': 'Time Of Message'}})
-                self.assertEqual(packet[2]['I000'],
-                                 {'Typ': {'meaning': 'End of Batch', 'val': 2, 'desc': 'Message Type'}})
+            self.assertEqual(packet[1]['I105'], {'Lat': {'val': 45.40080785751343,
+                                                             'desc': 'Latitude in WGS.84 in two\'s complement. Range -90 < latitude < 90 deg.'},
+                                                                                                         'Lon': {
+            'val': 15.13318419456482,
+            'desc': 'Longitude in WGS.84 in two\'s complement. Range -180 < longitude < 180 deg.'}})
+            self.assertEqual(packet[1]['I040'], {'TrkN': {'val': 7977, 'desc': 'Track number'}})
+            self.assertEqual(packet[1]['I210'],
+                                 {'Ax': {'val': 0.0, 'desc': 'Ax'}, 'Ay': {'val': 0.0, 'desc': 'Ay'}})
+            self.assertEqual(packet[2]['I015'], {'SID': {'val': 4, 'desc': 'Service Identification'}})
+            self.assertEqual(packet[2]['I020'], {'BTN': {'val': 24, 'desc': 'Batch Number'}})
+            self.assertEqual(packet[2]['I010'], {'SAC': {'val': 25, 'desc': 'Source Area Code'},
+                                                 'SIC': {'val': 100, 'desc': 'Source Identification Code'}})
+            self.assertEqual(packet[2]['I030'], {'ToD': {'val': 30913.0546875, 'desc': 'Time Of Message'}})
+            self.assertEqual(packet[2]['I000'],
+                             {'Typ': {'meaning': 'End of Batch', 'val': 2, 'desc': 'Message Type'}})
 
 
 def main():

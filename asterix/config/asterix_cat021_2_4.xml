@@ -18,8 +18,7 @@
 
     <DataItem id="008" rule="optional">
         <DataItemName>Aircraft Operational Status</DataItemName>
-        <DataItemDefinition>Identification of the operational services available in the aircraft while airborne.
-        </DataItemDefinition>
+        <DataItemDefinition>Identification of the operational services available in the aircraft while airborne.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits bit="8">
@@ -85,9 +84,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL ASTERIX Web Site
-            (http://www.eurocontrol.int/services/system-area-code-list).
-        </DataItemNote>
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL ASTERIX Web Site (http://www.eurocontrol.int/services/system-area-code-list).</DataItemNote>
     </DataItem>
 
     <DataItem id="015" rule="optional">
@@ -102,15 +99,14 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1- The service identification is allocated by the system.
-            2- The service identification is also available in item I023/015 [Ref. 3].
+1- The service identification is allocated by the system.
+2- The service identification is also available in item I023/015 [Ref. 3].
         </DataItemNote>
     </DataItem>
 
     <DataItem id="016" rule="optional">
         <DataItemName>Service Management</DataItemName>
-        <DataItemDefinition>Identification of services offered by a ground station (identified by a SIC code).
-        </DataItemDefinition>
+        <DataItemDefinition>Identification of services offered by a ground station (identified by a SIC code).</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -120,11 +116,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. This item contains the same information as item I023/101 in ASTERIX category 023 [Ref. 3].
-            Since not all service users receive category 023 data, this information has to be conveyed in category 021
-            as well. 2. If this item is due to be sent according to the encoding rule above, it shall be sent with the
-            next target report
-        </DataItemNote>
+        <DataItemNote>1. This item contains the same information as item I023/101 in ASTERIX category 023 [Ref. 3]. Since not all service users receive category 023 data, this information has to be conveyed in category 021 as well. 2. If this item is due to be sent according to the encoding rule above, it shall be sent with the next target report</DataItemNote>
     </DataItem>
 
     <DataItem id="020" rule="optional">
@@ -141,9 +133,7 @@
                     <BitsValue val="3">75000 lbs &lt; medium a/c &lt; 300000 lbs</BitsValue>
                     <BitsValue val="4">High Vortex Large</BitsValue>
                     <BitsValue val="5">300000 lbs &lt;= heavy aircraft</BitsValue>
-                    <BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&gt;400 knots
-                        cruise)
-                    </BitsValue>
+                    <BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&gt;400 knots cruise)</BitsValue>
                     <BitsValue val="7">reserved</BitsValue>
                     <BitsValue val="8">reserved</BitsValue>
                     <BitsValue val="9">reserved</BitsValue>
@@ -170,8 +160,7 @@
     <DataItem id="040" rule="mandatory">
         <DataItemName>Target Report Descriptor</DataItemName>
         <DataItemDefinition>Type and characteristics of the data as transmitted by a system.</DataItemDefinition>
-        <DataItemFormat
-                desc="Variable Length Data Item, comprising a primary subfield of one octet, followed by one-octet extensions as necessary.">
+        <DataItemFormat desc="Variable Length Data Item, comprising a primary subfield of one octet, followed by one-octet extensions as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="6">
@@ -311,21 +300,11 @@
             </Variable>
         </DataItemFormat>
         <DataItemNote>
-            1. Bit 3 indicates that the position reported by the target is within a credible range from the ground
-            station. The range check is followed by the CPR validation to ensure that global and local position decoding
-            both indicate valid position information. Bit 3=1 indicates that the range check was done, but the CPR
-            validation is not yet completed. Once CPR validation is completed, Bit 3 will be reset to 0.
-            2. The second extension signals the reasons for which the report has been indicated as suspect (indication
-            Confidence Level (CL) in the first extension). Bit 2 indicates that the Range Check failed, i.e. the target
-            is reported outside the credible range for the Ground Station. For operational users such a target will be
-            suppressed. In services used for monitoring the Ground Station, the target will be transmitted with bit 2
-            indicating the fault condition.
-            3. Bit 6, if set to 1, indicates that the position reported by the target was validated by an independent
-            means and a discrepancy was ADS-B Target Reports EUROCONTROL-SPEC-0149-12 Edition : 2.4 Released Edition
-            Page 17 detected. If no independent position check is implemented, the default value '0' is to be used.
-            4. Bit 5 represents the setting of the GO/NOGO-bit as defined in item I023/100 of category 023 [Ref. 3].
-            5. Bit 7, if set to 1, indicates that a lookup in a Black-list/White-list failed, indicating that the target
-            may be suspect
+1. Bit 3 indicates that the position reported by the target is within a credible range from the ground station. The range check is followed by the CPR validation to ensure that global and local position decoding both indicate valid position information. Bit 3=1 indicates that the range check was done, but the CPR validation is not yet completed. Once CPR validation is completed, Bit 3 will be reset to 0.
+2. The second extension signals the reasons for which the report has been indicated as suspect (indication Confidence Level (CL) in the first extension). Bit 2 indicates that the Range Check failed, i.e. the target is reported outside the credible range for the Ground Station. For operational users such a target will be suppressed. In services used for monitoring the Ground Station, the target will be transmitted with bit 2 indicating the fault condition.
+3. Bit 6, if set to 1, indicates that the position reported by the target was validated by an independent means and a discrepancy was ADS-B Target Reports EUROCONTROL-SPEC-0149-12 Edition : 2.4 Released Edition Page 17 detected. If no independent position check is implemented, the default value '0' is to be used.
+4. Bit 5 represents the setting of the GO/NOGO-bit as defined in item I023/100 of category 023 [Ref. 3].
+5. Bit 7, if set to 1, indicates that a lookup in a Black-list/White-list failed, indicating that the target may be suspect
         </DataItemNote>
     </DataItem>
 
@@ -349,9 +328,7 @@
 
     <DataItem id="071" rule="optional">
         <DataItemName>Time of Applicability for Position</DataItemName>
-        <DataItemDefinition>Time of applicability of the reported position, in the form of elapsed time since last
-            midnight, expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Time of applicability of the reported position, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -361,16 +338,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. The time of applicability value is reset to zero at every midnight. 2. The time of
-            applicability indicates the exact time at which the position transmitted in the target report is valid.
-        </DataItemNote>
+        <DataItemNote>1. The time of applicability value is reset to zero at every midnight. 2. The time of applicability indicates the exact time at which the position transmitted in the target report is valid.</DataItemNote>
     </DataItem>
 
     <DataItem id="072" rule="optional">
         <DataItemName>Time of Applicability for Velocity</DataItemName>
-        <DataItemDefinition>Time of applicability (measurement) of the reported velocity, in the form of elapsed time
-            since last midnight, expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Time of applicability (measurement) of the reported velocity, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -380,17 +353,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. The time of applicability value is reset to zero at every midnight. 2. The time of
-            applicability indicates the exact time at which the velocity information transmitted in the target report is
-            valid. 3. This item will not be available in some ADS-B technologies.
-        </DataItemNote>
+        <DataItemNote>1. The time of applicability value is reset to zero at every midnight. 2. The time of applicability indicates the exact time at which the velocity information transmitted in the target report is valid. 3. This item will not be available in some ADS-B technologies.</DataItemNote>
     </DataItem>
 
     <DataItem id="073" rule="optional">
         <DataItemName>Time of Message Reception for Position</DataItemName>
-        <DataItemDefinition>Time of reception of the latest position squitter in the Ground Station, in the form of
-            elapsed time since last midnight, expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Time of reception of the latest position squitter in the Ground Station, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -405,9 +373,7 @@
 
     <DataItem id="074" rule="optional">
         <DataItemName>Time of Message Reception of Position-High Precision</DataItemName>
-        <DataItemDefinition>Time at which the latest ADS-B position information was received by the ground station,
-            expressed as fraction of the second of the UTC Time.
-        </DataItemDefinition>
+        <DataItemDefinition>Time at which the latest ADS-B position information was received by the ground station, expressed as fraction of the second of the UTC Time.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="31">
@@ -420,8 +386,7 @@
                 </Bits>
                 <Bits from="30" to="1">
                     <BitsShortName>time_reception_position_highprecision</BitsShortName>
-                    <BitsName>Fractional part of the time of message reception for position in the ground station.
-                    </BitsName>
+                    <BitsName>Fractional part of the time of message reception for position in the ground station.</BitsName>
                     <BitsUnit scale="0.9313225746154785">ns</BitsUnit>
                 </Bits>
             </Fixed>
@@ -430,9 +395,7 @@
 
     <DataItem id="075" rule="optional">
         <DataItemName>Time of Message Reception for Velocity</DataItemName>
-        <DataItemDefinition>Time of reception of the latest velocity squitter in the Ground Station, in the form of
-            elapsed time since last midnight, expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Time of reception of the latest velocity squitter in the Ground Station, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -447,9 +410,7 @@
 
     <DataItem id="076" rule="optional">
         <DataItemName>Time of Message Reception of Velocity-High Precision</DataItemName>
-        <DataItemDefinition>Time at which the latest ADS-B velocity information was received by the ground station,
-            expressed as fraction of the second of the UTC Time.
-        </DataItemDefinition>
+        <DataItemDefinition>Time at which the latest ADS-B velocity information was received by the ground station, expressed as fraction of the second of the UTC Time.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="31">
@@ -462,8 +423,7 @@
                 </Bits>
                 <Bits from="30" to="1">
                     <BitsShortName>time_reception_velocity_highprecision</BitsShortName>
-                    <BitsName>Fractional part of the time of message reception for velocity in the ground station.
-                    </BitsName>
+                    <BitsName>Fractional part of the time of message reception for velocity in the ground station.</BitsName>
                     <BitsUnit scale="0.9313225746154785">ns</BitsUnit>
                 </Bits>
             </Fixed>
@@ -472,9 +432,7 @@
 
     <DataItem id="077" rule="optional">
         <DataItemName>Time of ASTERIX Report Transmission</DataItemName>
-        <DataItemDefinition>Time of the transmission of the ASTERIX category 021 report in the form of elapsed time
-            since last midnight, expressed as UTC.
-        </DataItemDefinition>
+        <DataItemDefinition>Time of the transmission of the ASTERIX category 021 report in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
@@ -503,21 +461,16 @@
     <DataItem id="090" rule="mandatory">
         <DataItemName>Quality Indicators</DataItemName>
         <DataItemDefinition>ADS-B quality indicators transmitted by a/c according to MOPS version.</DataItemDefinition>
-        <DataItemFormat
-                desc="Variable Length Data Item, comprising a primary subfield of one- octet, followed by one-octet extents as necessary.">
+        <DataItemFormat desc="Variable Length Data Item, comprising a primary subfield of one- octet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="6">
                         <BitsShortName>NUCr_or_NACv</BitsShortName>
-                        <BitsName>Navigation Uncertainty Category for velocity or Navigation Accuracy Category for
-                            Velocity
-                        </BitsName>
+                        <BitsName>Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity</BitsName>
                     </Bits>
                     <Bits from="5" to="2">
                         <BitsShortName>NUCp_or_NIC</BitsShortName>
-                        <BitsName>Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category
-                            NIC.
-                        </BitsName>
+                        <BitsName>Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC.</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -592,24 +545,17 @@
             </Variable>
         </DataItemFormat>
         <DataItemNote>
-            1. The primary subfield is kept for backwards compatibility reasons. Version 2 NIC-values shall be mapped
-            accordingly. This is required to ensure that downstream systems, which are not capable of interpreting
-            extensions 2 and 3 (because they use an ASTERIX edition earlier than 2.0) still get the required information
-            2. 'Version 1' or 'Version 2' refers to the MOPS version as defined in data item I021/210, bits 6/4
-            3. PIC=0 is defined for completeness only. In this case the third extension shall not be generated.
-            4. For ED102A/DO260B PIC values of 7 and 9, the NIC supplements for airborne messages (NIC supplements A/B)
-            and surface messages (NIC supplements A/C) are listed. For ED102A/DO260B PIC=8, the NIC supplements A/B for
-            airborne messages are listed. For DO260A PIC values of 7 and 8, the NIC supplement for airborne messages is
-            shown in brackets. The aircraft air-ground status, and hence message type (airborne or surface), is derived
-            from the GBS-bit in I021/040, 1st extension
+1. The primary subfield is kept for backwards compatibility reasons. Version 2 NIC-values shall be mapped accordingly. This is required to ensure that downstream systems, which are not capable of interpreting extensions 2 and 3 (because they use an ASTERIX edition earlier than 2.0) still get the required information
+2. 'Version 1' or 'Version 2' refers to the MOPS version as defined in data item I021/210, bits 6/4
+3. PIC=0 is defined for completeness only. In this case the third extension shall not be generated.
+4. For ED102A/DO260B PIC values of 7 and 9, the NIC supplements for airborne messages (NIC supplements A/B) and surface messages (NIC supplements A/C) are listed. For ED102A/DO260B PIC=8, the NIC supplements A/B for airborne messages are listed. For DO260A PIC values of 7 and 8, the NIC supplement for airborne messages is shown in brackets. The aircraft air-ground status, and hence message type (airborne or surface), is derived from the GBS-bit in I021/040, 1st extension
         </DataItemNote>
     </DataItem>
 
     <DataItem id="110" rule="optional">
         <DataItemName>Trajectory Intent</DataItemName>
         <DataItemDefinition>Reports indicating the 4D intended trajectory of the aircraft.</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -743,12 +689,12 @@
             </Compound>
         </DataItemFormat>
         <DataItemNote>
-            1. NC is set to one when the aircraft will not fly the path described by the TCP data.
-            2. TCP numbers start from zero.
-            3. LT = Lateral Type
-            4. VT = Vertical Type
-            5. TOV gives the estimated time before reaching the point. It is defined as the absolute time from midnight.
-            6. TOV is meaningful only if TOA is set to 1.
+1. NC is set to one when the aircraft will not fly the path described by the TCP data.
+2. TCP numbers start from zero.
+3. LT = Lateral Type
+4. VT = Vertical Type
+5. TOV gives the estimated time before reaching the point. It is defined as the absolute time from midnight.
+6. TOV is meaningful only if TOA is set to 1.
         </DataItemNote>
     </DataItem>
 
@@ -764,8 +710,7 @@
                 </Bits>
                 <Bits from="1" to="24" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.
-                    </BitsName>
+                    <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -785,8 +730,7 @@
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.
-                    </BitsName>
+                    <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt;= longitude &lt; 180 deg.</BitsName>
                     <BitsUnit scale="0.00000016763806343078613">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -796,9 +740,7 @@
 
     <DataItem id="132" rule="optional">
         <DataItemName>Message Amplitude</DataItemName>
-        <DataItemDefinition>Amplitude, in dBm, of ADS-B messages received by the ground station, coded in two's
-            complement.
-        </DataItemDefinition>
+        <DataItemDefinition>Amplitude, in dBm, of ADS-B messages received by the ground station, coded in two's complement.</DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="signed">
@@ -812,9 +754,7 @@
 
     <DataItem id="140" rule="optional">
         <DataItemName>Geometric Height</DataItemName>
-        <DataItemDefinition>Minimum height from a plane tangent to the earth's ellipsoid, defined by WGS-84, in two's
-            complement form.
-        </DataItemDefinition>
+        <DataItemDefinition>Minimum height from a plane tangent to the earth's ellipsoid, defined by WGS-84, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -825,15 +765,14 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1. LSB is required to be less than 10 ft by ICAO.
-            2. A value of '0111111111111111' indicates that the aircraft transmits a 'greater than' indication.
+1. LSB is required to be less than 10 ft by ICAO.
+2. A value of '0111111111111111' indicates that the aircraft transmits a 'greater than' indication.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="145" rule="optional">
         <DataItemName>Flight Level</DataItemName>
-        <DataItemDefinition>Flight Level from barometric measurements, not QNH corrected, in two's complement form.
-        </DataItemDefinition>
+        <DataItemDefinition>Flight Level from barometric measurements, not QNH corrected, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -847,10 +786,7 @@
 
     <DataItem id="146" rule="optional">
         <DataItemName>Intermediate State Selected Altitude</DataItemName>
-        <DataItemDefinition>The Selected Altitude as provided by the avionics and corresponding either to the MCP/FCU
-            Selected Altitude (the ATC cleared altitude entered by the flight crew into the avionics) or to the FMS
-            Selected Altitude.
-        </DataItemDefinition>
+        <DataItemDefinition>The Selected Altitude as provided by the avionics and corresponding either to the MCP/FCU Selected Altitude (the ATC cleared altitude entered by the flight crew into the avionics) or to the FMS Selected Altitude.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -875,20 +811,15 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1. The Selected Altitude provided in this field is not necessarily the 'Target Altitude' as defined by ICAO.
-            2. The value of 'Source' (bits 15/14) indicating 'unknown' or 'Aircraft Altitude' is kept for backward
-            compatibility as these indications are not provided by 'version 2' systems as defined by data item I021/210,
-            bits 6/4.
-            3. Vertical mode indications supporting the determination of the nature of the Selected Altitude are
-            provided in the Reserved Expansion Field in the subfield NAV.
+1. The Selected Altitude provided in this field is not necessarily the 'Target Altitude' as defined by ICAO.
+2. The value of 'Source' (bits 15/14) indicating 'unknown' or 'Aircraft Altitude' is kept for backward compatibility as these indications are not provided by 'version 2' systems as defined by data item I021/210, bits 6/4.
+3. Vertical mode indications supporting the determination of the nature of the Selected Altitude are provided in the Reserved Expansion Field in the subfield NAV.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="148" rule="optional">
         <DataItemName>Final State Selected Altitude</DataItemName>
-        <DataItemDefinition>The vertical intent value that corresponds with the ATC cleared altitude, as derived from
-            the Altitude Control Panel (MCP/FCU).
-        </DataItemDefinition>
+        <DataItemDefinition>The vertical intent value that corresponds with the ATC cleared altitude, as derived from the Altitude Control Panel (MCP/FCU).</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -916,11 +847,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This item is kept for backward compatibility but shall not be used for 'version 2' ADS-B systems
-            (as defined by data item I021/210, bits 6/4) for which item 146 will be used to forward the MCP/FCU or the
-            FMS selected altitude information. For 'version 2' ADS-B systems, the vertical mode indications will be
-            provided through the Reserved Expansion Field in the subfield NAV .
-        </DataItemNote>
+        <DataItemNote>This item is kept for backward compatibility but shall not be used for 'version 2' ADS-B systems (as defined by data item I021/210, bits 6/4) for which item 146 will be used to forward the MCP/FCU or the FMS selected altitude information. For 'version 2' ADS-B systems, the vertical mode indications will be provided through the Reserved Expansion Field in the subfield NAV .</DataItemNote>
     </DataItem>
 
     <DataItem id="150" rule="optional">
@@ -960,11 +887,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for
-            this specific data item and the applied technology. In this case the True Air Speed contains the maximum
-            value that can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is
-            greater than the value contained in the field.
-        </DataItemNote>
+        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the True Air Speed contains the maximum value that can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is greater than the value contained in the field.</DataItemNote>
     </DataItem>
 
     <DataItem id="152" rule="optional">
@@ -1000,17 +923,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for
-            this specific data item and the applied technology. In this case the Barometric Vertical Rate contains the
-            maximum value that can be downloaded from the aircraft avionics and the RE-bit indicates that the actual
-            value is greater than the value contained in the field.
-        </DataItemNote>
+        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the Barometric Vertical Rate contains the maximum value that can be downloaded from the aircraft avionics and the RE-bit indicates that the actual value is greater than the value contained in the field.</DataItemNote>
     </DataItem>
 
     <DataItem id="157" rule="optional">
         <DataItemName>Geometric Vertical Rate</DataItemName>
-        <DataItemDefinition>Geometric Vertical Rate, in two's complement form, with reference to WGS-84.
-        </DataItemDefinition>
+        <DataItemDefinition>Geometric Vertical Rate, in two's complement form, with reference to WGS-84.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -1026,11 +944,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for
-            this specific data item and the applied technology. In this case the Geometric Vertical Rate contains the
-            maximum value that can be downloaded from the aircraft avionics and the RE-bit indicates that the actual
-            value is greater than the value contained in the field.
-        </DataItemNote>
+        <DataItemNote>The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the Geometric Vertical Rate contains the maximum value that can be downloaded from the aircraft avionics and the RE-bit indicates that the actual value is greater than the value contained in the field.</DataItemNote>
     </DataItem>
 
     <DataItem id="160" rule="optional">
@@ -1057,19 +971,14 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1. The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this
-            specific data item and the applied technology. In this case the Ground Speed contains the maximum value that
-            can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is greater than
-            the value contained in the field.
-            2. The Surface Ground Vector format is defined in the Reserved Expansion Field in the subfield SGV.
+1. The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the Ground Speed contains the maximum value that can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is greater than the value contained in the field.
+2. The Surface Ground Vector format is defined in the Reserved Expansion Field in the subfield SGV.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="161" rule="optional">
         <DataItemName>Track Number</DataItemName>
-        <DataItemDefinition>An integer value representing a unique reference to a track record within a particular track
-            file.
-        </DataItemDefinition>
+        <DataItemDefinition>An integer value representing a unique reference to a track record within a particular track file.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="13">
@@ -1103,24 +1012,20 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1. A positive value represents a right turn, whereas a negative value represents a left turn.
-            2. 'Maximum value' means Maximum value or above.
-            3. This item will not be transmitted for the technology '1090 MHz Extended Squitter'.
+1. A positive value represents a right turn, whereas a negative value represents a left turn.
+2. 'Maximum value' means Maximum value or above.
+3. This item will not be transmitted for the technology '1090 MHz Extended Squitter'.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="170" rule="optional">
         <DataItemName>Target Identification</DataItemName>
-        <DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters, as reported by the target.
-        </DataItemDefinition>
+        <DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters, as reported by the target.</DataItemDefinition>
         <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="48" to="1" encode="6bitschar">
                     <BitsShortName>TId</BitsShortName>
-                    <BitsName>Characters 1-8 (coded on 6 Bits each) defining target identification when flight plan is
-                        available or the registration marking when no flight plan is available. Coding rules are
-                        provided in [6] Section 3.1.2.9.1.2 and Table 3-9.
-                    </BitsName>
+                    <BitsName>Characters 1-8 (coded on 6 Bits each) defining target identification when flight plan is available or the registration marking when no flight plan is available. Coding rules are provided in [6] Section 3.1.2.9.1.2 and Table 3-9.</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -1170,15 +1075,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Bit-8 (ICF), when set to '1' indicates that new information is available in the Mode S GICB
-            registers 40, 41 or 42.
-        </DataItemNote>
+        <DataItemNote>Bit-8 (ICF), when set to '1' indicates that new information is available in the Mode S GICB registers 40, 41 or 42.</DataItemNote>
     </DataItem>
 
     <DataItem id="210" rule="optional">
         <DataItemName>MOPS Version</DataItemName>
-        <DataItemDefinition>Identification of the MOPS version used by a/c to supply ADS-B information.
-        </DataItemDefinition>
+        <DataItemDefinition>Identification of the MOPS version used by a/c to supply ADS-B information.</DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item">
             <Fixed length="1">
                 <Bits bit="8">
@@ -1213,18 +1115,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Bit 7 (VNS) when set to 1 indicates that the aircraft transmits a MOPS Version indication that is
-            not supported by the Ground Station. However, since MOPS versions are supposed to be backwards compatible,
-            the GS has attempted to interpret the message and achieved a credible result. The fact that the MOPS version
-            received is not supported by the GS is submitted as additional information to subsequent processing systems.
-        </DataItemNote>
+        <DataItemNote>Bit 7 (VNS) when set to 1 indicates that the aircraft transmits a MOPS Version indication that is not supported by the Ground Station. However, since MOPS versions are supposed to be backwards compatible, the GS has attempted to interpret the message and achieved a credible result. The fact that the MOPS version received is not supported by the GS is submitted as additional information to subsequent processing systems.</DataItemNote>
     </DataItem>
 
     <DataItem id="220" rule="optional">
         <DataItemName>Met Information</DataItemName>
         <DataItemDefinition>Meteorological information.</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound data item consisting of a one byte primary sub-field, followed by up to four fixed length data fields.">
+        <DataItemFormat desc="Compound data item consisting of a one byte primary sub-field, followed by up to four fixed length data fields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -1294,8 +1191,7 @@
 
     <DataItem id="230" rule="optional">
         <DataItemName>Roll Angle</DataItemName>
-        <DataItemDefinition>The roll angle, in two's complement form, of an aircraft executing a turn.
-        </DataItemDefinition>
+        <DataItemDefinition>The roll angle, in two's complement form, of an aircraft executing a turn.</DataItemDefinition>
         <DataItemFormat desc="A two byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -1305,31 +1201,26 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. Negative Value indicates 'Left Wing Down'. 2. Resolution provided by the technology '1090 MHz
-            Extended Squitter' is 1 degree.
-        </DataItemNote>
+        <DataItemNote>1. Negative Value indicates 'Left Wing Down'. 2. Resolution provided by the technology '1090 MHz Extended Squitter' is 1 degree.</DataItemNote>
     </DataItem>
 
     <DataItem id="250" rule="mandatory">
         <DataItemName>Mode S MB Data</DataItemName>
         <DataItemDefinition>Mode S Comm B data as extracted from the aircraft transponder.</DataItemDefinition>
-        <DataItemFormat
-                desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS message comprising one seven octet BDS register and one octet BDS code.">
+        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS message comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
                 <BDS/>
             </Repetitive>
         </DataItemFormat>
         <DataItemNote>
-            1. For the transmission of BDS20, item 170 should be used.
-            2. For the transmission of BDS30, item 260 is used.
+1. For the transmission of BDS20, item 170 should be used.
+2. For the transmission of BDS30, item 260 is used.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="260" rule="mandatory">
         <DataItemName>ACAS Resolution Advisory Report</DataItemName>
-        <DataItemDefinition>Currently active Resolution Advisory (RA), if any, generated by the ACAS associated with the
-            transponder transmitting the RA message and threat identity data.
-        </DataItemDefinition>
+        <DataItemDefinition>Currently active Resolution Advisory (RA), if any, generated by the ACAS associated with the transponder transmitting the RA message and threat identity data.</DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item.">
             <Fixed length="7">
                 <Bits from="56" to="52">
@@ -1367,18 +1258,17 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            1. Version denotes the MOPS version as defined in I021/210, bits 6/4
-            2. This data items copies the value of BDS register 6,1 for message type 28, subtype 2
-            3. The 'TYP' and 'STYP' items are implementation (i.e. link technology) dependent.
-            4. Refer to ICAO Annex 10 SARPs for detailed explanations [Ref. 10].
+1. Version denotes the MOPS version as defined in I021/210, bits 6/4
+2. This data items copies the value of BDS register 6,1 for message type 28, subtype 2
+3. The 'TYP' and 'STYP' items are implementation (i.e. link technology) dependent.
+4. Refer to ICAO Annex 10 SARPs for detailed explanations [Ref. 10].
         </DataItemNote>
     </DataItem>
 
     <DataItem id="271" rule="optional">
         <DataItemName>Surface Capabilities and Characteristics</DataItemName>
         <DataItemDefinition>Operational capabilities of the aircraft while on the ground.</DataItemDefinition>
-        <DataItemFormat
-                desc="Variable Length Data Item, comprising a primary subfield of one-octet, followed by an one-octet extents if necessary.">
+        <DataItemFormat desc="Variable Length Data Item, comprising a primary subfield of one-octet, followed by an one-octet extents if necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="7">
@@ -1443,18 +1333,15 @@
             </Variable>
         </DataItemFormat>
         <DataItemNote>
-            1. Version 2 (as defined in I021/210, bits 6/4) data technology protocols encode 'No Data or Unknown' with
-            value 0. In this case data item I021/271, first extension is not generated.
-            2. As of edition 2.2 the structure of this data item has been changed. Edition 2.2 is not backwards
-            compatible with previous editions.
+1. Version 2 (as defined in I021/210, bits 6/4) data technology protocols encode 'No Data or Unknown' with value 0. In this case data item I021/271, first extension is not generated.
+2. As of edition 2.2 the structure of this data item has been changed. Edition 2.2 is not backwards compatible with previous editions.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="295" rule="optional">
         <DataItemName>Data Ages</DataItemName>
         <DataItemDefinition>Ages of the data provided.</DataItemDefinition>
-        <DataItemFormat
-                desc="Compound Data Item, comprising a primary subfield of up to five octets, followed by the indicated subfields.">
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to five octets, followed by the indicated subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -1760,17 +1647,14 @@
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>ARA</BitsShortName>
-                        <BitsName>Age of the latest update of an active ACAS Resolution Advisory, item I021/260
-                        </BitsName>
+                        <BitsName>Age of the latest update of an active ACAS Resolution Advisory, item I021/260</BitsName>
                         <BitsUnit scale="0.1" max="25.5">s</BitsUnit>
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>SCC</BitsShortName>
-                        <BitsName>Age of the information on the surface capabilities and characteristics of the
-                            respective target, item I021/271
-                        </BitsName>
+                        <BitsName>Age of the information on the surface capabilities and characteristics of the respective target, item I021/271</BitsName>
                         <BitsUnit scale="0.1" max="25.5">s</BitsUnit>
                     </Bits>
                 </Fixed>
@@ -2157,8 +2041,7 @@
                         <Bits bit="5">
                             <BitsShortName>X5</BitsShortName>
                             <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.
-                            </BitsValue>
+                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
                             <BitsValue val="1">X-pulse set to one (present).</BitsValue>
                         </Bits>
                         <Bits bit="4">
@@ -2194,9 +2077,7 @@
                         </Bits>
                         <Bits bit="1">
                             <BitsShortName>FOM</BitsShortName>
-                            <BitsName>Figure of Merit Position Accuracy as extracted and provided by a Mode 5
-                                transponder
-                            </BitsName>
+                            <BitsName>Figure of Merit Position Accuracy as extracted and provided by a Mode 5 transponder</BitsName>
                         </Bits>
                     </Fixed>
                     <Fixed length="2">
@@ -2231,24 +2112,18 @@
             </Explicit>
         </DataItemFormat>
         <DataItemNote>
-            BPS
-            1. BPS is the barometric pressure setting of the aircraft minus 800 mb.
-            2. A value of "0" indicates that in the aircraft a value of 800mb or less has been selected.
-            3. A value of "409.5" indicates that in the aircraft a value of 1209.5mb or more has been selected.
-            SelH
-            1. On many aircraft, the ADS-B Transmitting Subsystem receives Selected Heading from a Mode Control Panel /
-            Flight Control Unit (MCP / FCU). Users of this data are cautioned that the Selected Heading value
-            transmitted by the ADS-B Transmitting Subsystem does not necessarily reflect the true intention of the
-            airplane during certain flight modes (e.g., during LNAV mode).
-            NAV
-            1. This data-item should only be transmitted if an ADS-B indication has been received that the mode bits
-            have been "actively populated" by the avionics (1090 ES version 2 (as defined in I021/210) BDS 6,2, subtype
-            1, bit 47: "Status of MCP / FCU Mode Bits")
-            GAO
-            1. The value of this field is copied from the respective bits 33-40 of version 2 (as defined in I021/210) of
-            1090 ES BDS register 6,5 (Aircraft Operational Status)
-            TNH
-            1. Magnetic Heading is defined in I021/152.
+BPS
+1. BPS is the barometric pressure setting of the aircraft minus 800 mb.
+2. A value of "0" indicates that in the aircraft a value of 800mb or less has been selected.
+3. A value of "409.5" indicates that in the aircraft a value of 1209.5mb or more has been selected.
+SelH
+1. On many aircraft, the ADS-B Transmitting Subsystem receives Selected Heading from a Mode Control Panel / Flight Control Unit (MCP / FCU). Users of this data are cautioned that the Selected Heading value transmitted by the ADS-B Transmitting Subsystem does not necessarily reflect the true intention of the airplane during certain flight modes (e.g., during LNAV mode).
+NAV
+1. This data-item should only be transmitted if an ADS-B indication has been received that the mode bits have been "actively populated" by the avionics (1090 ES version 2 (as defined in I021/210) BDS 6,2, subtype 1, bit 47: "Status of MCP / FCU Mode Bits")
+GAO
+1. The value of this field is copied from the respective bits 33-40 of version 2 (as defined in I021/210) of 1090 ES BDS register 6,5 (Aircraft Operational Status)
+TNH
+1. Magnetic Heading is defined in I021/152.
         </DataItemNote>
     </DataItem>
 
