@@ -25,7 +25,6 @@
 
 std::string format_arg_list(const char *fmt, int size, va_list args)
 {
-    va_list args_t;
     char *buffer = new char [++size];;
     size = vsnprintf(buffer, size, fmt, args);
     if ( size < 0 ) {
