@@ -1,174 +1,317 @@
 #
+
 # $Id: Makefile.nmake 17196 2006-02-07 09:12:43Z lroland $
 #
+
 # NSIS is a free packager/installer/uninstaller program for Win32.
 # It was originally written for the Winamp package, but various
 # freeware and non-freeware packages are using it, too.
 #
+
 # http://www.nullsoft.com/free/nsis/
 
-include ../../config.nmake
+include ../../config.
+nmake
 
-UNIX2DOS=$(PERL) ../../tools/unix2dos.pl
+        UNIX2DOS = $(PERL)../
+../tools/unix2dos.pl
 
-!IFDEF GTK1_ONLY
-# define installer name and undefine GTK2_DIR to get a separate 
+!
+IFDEF GTK1_ONLY
+# define installer name and undefine GTK2_DIR to get a separate
 # installer for ethereal GTK1 version
-DEST=ethereal-gtk1
-!IFDEF GTK2_DIR
-!UNDEF GTK2_DIR
+DEST = ethereal - gtk1
+!
+IFDEF GTK2_DIR
+!
+UNDEF GTK2_DIR
 !ENDIF
 !ENDIF
 
 
-!IFDEF GTK2_ONLY
-# define installer name and undefine GTK1_DIR to get a separate 
+!
+IFDEF GTK2_ONLY
+# define installer name and undefine GTK1_DIR to get a separate
 # installer for ethereal GTK2 version
-DEST=ethereal-gtk2
-!IFDEF GTK1_DIR
-!UNDEF GTK1_DIR
+DEST = ethereal - gtk2
+!
+IFDEF GTK1_DIR
+!
+UNDEF GTK1_DIR
 !ENDIF
 !ENDIF
 
-!IFNDEF DEST
+!
+IFNDEF DEST
 # define installer name for combined GTK1 and GTK2 installer package
-DEST=ethereal
+DEST = ethereal
+!
+ENDIF
+
+        EXE =
+../../tethereal.exe ../../editcap.exe \
+!
+IFDEF GTK1_DIR
+../../ethereal.exe \
 !ENDIF
-
-EXE=../../tethereal.exe ../../editcap.exe \
-!IFDEF GTK1_DIR
-	../../ethereal.exe \
+!
+IFDEF GTK2_DIR
+../../ethereal-gtk2.exe \
 !ENDIF
-!IFDEF GTK2_DIR
-	../../ethereal-gtk2.exe \
+../../text2pcap.exe ../../mergecap.exe ../../capinfos.
+exe WinPcap_3_1
+.
+exe
+        DLL =
+../../wiretap/wiretap-
+$(WTAP_VERSION)
+.
+dll
+        DOC =
+../../doc/ethereal.html        \
+    ../../doc/tethereal.html    \
+    ../../doc/ethereal-filter.html    \
+    ../../doc/editcap.html        \
+    ../../doc/text2pcap.html    \
+    ../../doc/mergecap.html    \
+    ../../doc/capinfos.html    \
+    ../../FAQ            \
+    ../../README            \
+    ../../README.
+win32
+        DOC_dos = NEWS.txt
+GPL =
+../../
+COPYING
+        HELP =
+../../help/toc \
+    ../../help/overview.txt \
+    ../../help/capture_filters.txt \
+    ../../help/display_filters.txt \
+    ../../help/faq.
+txt
+
+        PLUGINS =
+../../plugins/acn/acn.dll \
+    ../../plugins/agentx/agentx.dll \
+    ../../plugins/artnet/artnet.dll \
+    ../../plugins/asn1/asn1.dll \
+    ../../plugins/asterix/asterix.dll \
+    ../../plugins/ciscosm/ciscosm.dll \
+    ../../plugins/docsis/docsis.dll \
+    ../../plugins/enttec/enttec.dll \
+    ../../plugins/giop/coseventcomm.dll \
+    ../../plugins/giop/cosnaming.dll \
+    ../../plugins/giop/parlay.dll \
+    ../../plugins/giop/tango.dll \
+    ../../plugins/gryphon/gryphon.dll \
+    ../../plugins/h223/h223.dll \
+    ../../plugins/irda/irda.dll \
+!
+IFDEF LUA_DIR
+../../plugins/lua/lua.dll \
 !ENDIF
-	../../text2pcap.exe ../../mergecap.exe ../../capinfos.exe WinPcap_3_1.exe
-DLL=../../wiretap/wiretap-$(WTAP_VERSION).dll
-DOC=../../doc/ethereal.html		\
-	../../doc/tethereal.html	\
-	../../doc/ethereal-filter.html	\
-	../../doc/editcap.html 		\
-	../../doc/text2pcap.html 	\
-	../../doc/mergecap.html 	\
-	../../doc/capinfos.html 	\
-	../../FAQ			\
-	../../README			\
-	../../README.win32
-DOC_dos=NEWS.txt
-GPL=../../COPYING
-HELP=../../help/toc \
-	../../help/overview.txt \
-	../../help/capture_filters.txt \
-	../../help/display_filters.txt \
-	../../help/faq.txt
+../../plugins/lwres/lwres.dll \
+    ../../plugins/mate/mate.dll \
+    ../../plugins/megaco/megaco.dll \
+    ../../plugins/mgcp/mgcp.dll \
+    ../../plugins/opsi/opsi.dll \
+    ../../plugins/pcli/pcli.dll \
+    ../../plugins/rdm/rdm.dll \
+    ../../plugins/rlm/rlm.dll \
+    ../../plugins/rtnet/rtnet.dll \
+    ../../plugins/rudp/rudp.dll \
+    ../../plugins/stats_tree/stats_tree.dll \
+    ../../plugins/v5ua/v5ua.
+dll
 
-PLUGINS=../../plugins/acn/acn.dll \
-	../../plugins/agentx/agentx.dll \
-	../../plugins/artnet/artnet.dll \
-	../../plugins/asn1/asn1.dll \
-	../../plugins/asterix/asterix.dll \
-	../../plugins/ciscosm/ciscosm.dll \
-	../../plugins/docsis/docsis.dll \
-	../../plugins/enttec/enttec.dll \
-	../../plugins/giop/coseventcomm.dll \
-	../../plugins/giop/cosnaming.dll \
-	../../plugins/giop/parlay.dll \
-	../../plugins/giop/tango.dll \
-	../../plugins/gryphon/gryphon.dll \
-	../../plugins/h223/h223.dll \
-	../../plugins/irda/irda.dll \
-!IFDEF LUA_DIR
-    ../../plugins/lua/lua.dll \
-!ENDIF
-	../../plugins/lwres/lwres.dll \
-	../../plugins/mate/mate.dll \
-	../../plugins/megaco/megaco.dll \
-	../../plugins/mgcp/mgcp.dll \
-	../../plugins/opsi/opsi.dll \
-	../../plugins/pcli/pcli.dll \
-	../../plugins/rdm/rdm.dll \
-	../../plugins/rlm/rlm.dll \
-	../../plugins/rtnet/rtnet.dll \
-	../../plugins/rudp/rudp.dll \
-	../../plugins/stats_tree/stats_tree.dll \
-	../../plugins/v5ua/v5ua.dll
+        NSI = ethereal.nsi \
 
-NSI=ethereal.nsi \
-	GetWindowsVersion.nsh \
-	servicelib.nsh \
-	AdditionalTasksPage.ini \
-	WinPcapPage.ini
+GetWindowsVersion.
+nsh \
+ servicelib
+.
+nsh \
+ AdditionalTasksPage
+.
+ini \
+ WinPcapPage
+.
+ini
 
-DELIVERABLES=$(EXE) $(DLL) $(DOC) $(DOC_dos) $(GPL) $(HELP) $(PLUGINS)
+        DELIVERABLES = $(EXE)
+$(DLL)
+$(DOC)
+$(DOC_dos)
+$(GPL)
+$(HELP)
+$(PLUGINS)
 
-all: NEWS.txt $(DEST)-setup-$(VERSION).exe
+all: NEWS.
+txt $(DEST)
+-setup-
+$(VERSION)
+.
+exe
 
-NEWS.txt: ../../NEWS
-	$(UNIX2DOS) < ../../NEWS > NEWS.txt
+        NEWS
+.txt: ../../
+NEWS
+        $(UNIX2DOS)
+< ../../NEWS > NEWS.
+txt
 
-$(DEST)-setup-$(VERSION).exe : $(NSI) $(DELIVERABLES) Makefile.nmake
-	$(MAKENSIS) \
-	/DDEST=$(DEST) \
+        $(DEST)
+-setup-
+$(VERSION)
+.exe :
+$(NSI)
+$(DELIVERABLES)
+Makefile.
+
+nmake
+$(MAKENSIS) \
+
+
+/
+DDEST = $(DEST) \
+
 !IF "$(MAKENSIS_MODERN_UI)" != ""
-	/DMAKENSIS_MODERN_UI=$(MAKENSIS_MODERN_UI) \
+/
+DMAKENSIS_MODERN_UI = $(MAKENSIS_MODERN_UI) \
+
 !ENDIF
 !IF "$(ENABLE_LIBETHEREAL)" != ""
-	/DENABLE_LIBETHEREAL=$(ENABLE_LIBETHEREAL) \
+/
+DENABLE_LIBETHEREAL = $(ENABLE_LIBETHEREAL) \
+
 !ENDIF
-!IFDEF GTK1_DIR
-	/DGTK1_DIR=$(GTK1_DIR) \
+!
+IFDEF GTK1_DIR
+/
+DGTK1_DIR = $(GTK1_DIR) \
+
 !ENDIF
-!IFDEF GTK2_DIR
-	/DGTK2_DIR=$(GTK2_DIR) \
-	/DGTK2_LIB_DIR=$(GTK2_LIB_DIR) \
-	/DPANGO_LIB_DIR=$(PANGO_LIB_DIR) \
-!IFDEF NEED_LIBPNG_DLL
-	/DNEED_LIBPNG_DLL=$(NEED_LIBPNG_DLL) \
+!
+IFDEF GTK2_DIR
+/
+DGTK2_DIR = $(GTK2_DIR) \
+ / DGTK2_LIB_DIR = $(GTK2_LIB_DIR) \
+ / DPANGO_LIB_DIR = $(PANGO_LIB_DIR) \
+
+!
+IFDEF NEED_LIBPNG_DLL
+/
+DNEED_LIBPNG_DLL = $(NEED_LIBPNG_DLL) \
+
 !ENDIF
-!IFDEF NEED_CAIRO_DLL
-	/DNEED_CAIRO_DLL=$(NEED_CAIRO_DLL) \
+!
+IFDEF NEED_CAIRO_DLL
+/
+DNEED_CAIRO_DLL = $(NEED_CAIRO_DLL) \
+
 !ENDIF
-!ENDIF	
-!IFDEF GTK_WIMP_DIR
-	/DGTK_WIMP_DIR=$(GTK_WIMP_DIR) \
-	/DGTK_THEME_DIR=$(GTK_THEME_DIR) \
-!ENDIF	
-	/DGLIB_DIR=$(GLIB_DIR) \
-	/DICONV_DIR=$(ICONV_DIR) \
-	/DGETTEXT_DIR=$(GETTEXT_DIR) \
-	/DVERSION=$(VERSION) \
-	/DWTAP_VERSION=$(WTAP_VERSION) \
-	/DNET_SNMP_DIR=$(NET_SNMP_DIR) \
+!ENDIF
+!
+IFDEF GTK_WIMP_DIR
+/
+DGTK_WIMP_DIR = $(GTK_WIMP_DIR) \
+ / DGTK_THEME_DIR = $(GTK_THEME_DIR) \
+
+!ENDIF
+/
+DGLIB_DIR = $(GLIB_DIR) \
+ / DICONV_DIR = $(ICONV_DIR) \
+ / DGETTEXT_DIR = $(GETTEXT_DIR) \
+ / DVERSION = $(VERSION) \
+ / DWTAP_VERSION = $(WTAP_VERSION) \
+ / DNET_SNMP_DIR = $(NET_SNMP_DIR) \
+
 !IF "$(ADNS_DIR)" != ""
-	/DADNS_DIR=$(ADNS_DIR) \
+/
+DADNS_DIR = $(ADNS_DIR) \
+
 !ENDIF
 !IF "$(PCRE_DIR)" != ""
-	/DPCRE_DIR=$(PCRE_DIR) \
+/
+DPCRE_DIR = $(PCRE_DIR) \
+
 !ENDIF
 !IF "$(ZLIB_DIR)" != ""
-	/DZLIB_DIR=$(ZLIB_DIR) \
+/
+DZLIB_DIR = $(ZLIB_DIR) \
+
 !ENDIF
-!IFDEF LUA_DIR
-	/DLUA_DIR=$(LUA_DIR) \
-!ENDIF
-	ethereal.nsi
+!
+IFDEF LUA_DIR
+/
+DLUA_DIR = $(LUA_DIR) \
 
-clean:
-	rm -f ethereal-setup-$(VERSION).exe
-	rm -f ethereal-gtk1-setup-$(VERSION).exe
-	rm -f ethereal-gtk2-setup-$(VERSION).exe
-	rm -f NEWS.txt
+!
+ENDIF
+        ethereal
+.
+nsi
 
-distclean: clean
+        clean
+:
+rm -
+f ethereal
+-setup-
+$(VERSION)
+.
+exe
+        rm
+-
+f ethereal
+-gtk1-setup-
+$(VERSION)
+.
+exe
+        rm
+-
+f ethereal
+-gtk2-setup-
+$(VERSION)
+.
+exe
+        rm
+-
+f NEWS
+.
+txt
 
-maintainer-clean: distclean
+        distclean
+:
+clean
 
-$(DOC):
-	cd ../../doc
-	$(MAKE) -f makefile.nmake
-	cd ../packaging/nsis
+        maintainer
+-clean:
+distclean
 
-$(EXE) $(DLL):
-	cd ../..
-	$(MAKE) -f makefile.nmake
-	cd packaging/nsis
+        $(DOC)
+:
+cd ../../
+
+doc
+$(MAKE)
+
+-
+f makefile
+.
+nmake
+        cd
+../packaging/
+nsis
+
+        $(EXE)
+$(DLL)
+:
+cd ../..
+$(MAKE)
+-
+f makefile
+.
+nmake
+        cd
+packaging/nsis

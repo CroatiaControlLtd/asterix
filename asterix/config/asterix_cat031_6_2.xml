@@ -9,7 +9,7 @@
     Created:  9.2.2009.
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
---> 
+-->
 
 <Category id="31" name="Sensor Information Messages" ver="6.2">
 
@@ -38,15 +38,18 @@
                 <Bits from="1" to="16">
                     <BitsShortName>UserN</BitsShortName>
                     <BitsName>User number</BitsName>
-                </Bits> 
+                </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect.</DataItemNote>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the
+            User wants to connect.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="020">
         <DataItemName>Time Of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.
+        </DataItemDefinition>
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
@@ -56,12 +59,15 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This is the time at which a message is filled and not the time at which the data-block containing the tracks is sent. The time of the day value is reset to 0 at every midnight.</DataItemNote>
-    </DataItem>     
+        <DataItemNote>This is the time at which a message is filled and not the time at which the data-block containing
+            the tracks is sent. The time of the day value is reset to 0 at every midnight.
+        </DataItemNote>
+    </DataItem>
 
     <DataItem id="030">
         <DataItemName>Sensor Identification Tag</DataItemName>
-        <DataItemDefinition>Identification of the Sensor to which the provided information are related.</DataItemDefinition>
+        <DataItemDefinition>Identification of the Sensor to which the provided information are related.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
@@ -74,7 +80,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem> 
+    </DataItem>
 
     <DataItem id="040">
         <DataItemName>Sensor Status</DataItemName>
@@ -137,7 +143,7 @@
                     <BitsShortName>SSRRG</BitsShortName>
                     <BitsName>SSR range gain</BitsName>
                     <!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
-                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
+                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -176,7 +182,7 @@
                     <BitsShortName>PRRG</BitsShortName>
                     <BitsName>PR range gain</BitsName>
                     <!--                    <BitsUnit scale="0.000001" min="-0.5" max="0.5"></BitsUnit>    -->
-                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>    
+                    <BitsUnit scale="0.001" min="-500" max="500">/1000</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>

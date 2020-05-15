@@ -26,30 +26,34 @@
 
 #include "DataItemFormatFixed.h"
 
-class DataItemFormatBDS : public DataItemFormat
-{
+class DataItemFormatBDS : public DataItemFormat {
 public:
-  DataItemFormatBDS(int id=0);
-  DataItemFormatBDS(const DataItemFormatBDS& obj);
-  virtual
-  ~DataItemFormatBDS();
+    DataItemFormatBDS(int id = 0);
 
-  DataItemFormatBDS* clone() const { return new DataItemFormatBDS(*this); } // Return clone of object
-  long getLength(const unsigned char* pData);
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
-  std::string printDescriptors(std::string header); // print items format descriptors
-  bool filterOutItem(const char* name); // mark item for filtering
-  bool isFiltered(const char* name);
-  bool isBDS() 	{ return true; }; // true if this is BDS format
-  const char* getDescription(const char* field, const char* value ); // return description ef element
+    DataItemFormatBDS(const DataItemFormatBDS &obj);
+
+    virtual
+    ~DataItemFormatBDS();
+
+    DataItemFormatBDS *clone() const { return new DataItemFormatBDS(*this); } // Return clone of object
+    long getLength(const unsigned char *pData);
+
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength); // appends value description to strResult
+    std::string printDescriptors(std::string header); // print items format descriptors
+    bool filterOutItem(const char *name); // mark item for filtering
+    bool isFiltered(const char *name);
+
+    bool isBDS() { return true; }; // true if this is BDS format
+    const char *getDescription(const char *field, const char *value); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_definitions* getWiresharkDefinitions();
-  fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+    fulliautomatix_definitions* getWiresharkDefinitions();
+    fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getObject(unsigned char* pData, long nLength, int description);
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description);
+    PyObject* getObject(unsigned char* pData, long nLength, int description);
+    void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description);
 #endif
 };
 

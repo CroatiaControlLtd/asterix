@@ -36,110 +36,99 @@ class AsterixDefinition;
  * @brief Description of pcap Asterix format
  *
  */
-class CAsterixFormatDescriptor : public CBaseFormatDescriptor
-{
+class CAsterixFormatDescriptor : public CBaseFormatDescriptor {
 private:
 
 public:
     /**
      * Empty constructor
      */
-    CAsterixFormatDescriptor(AsterixDefinition* pDefinition) :
-      m_InputParser(pDefinition),
-      m_pAsterixData(NULL),
-      m_ePcapNetworkType(CAsterixFormatDescriptor::ePcapNetworkType(0)),
-      m_bInvertByteOrder(true),
-      m_pBuffer(NULL),
-      m_nBufferSize(0),
-      m_nDataSize(0),
-      m_nTimeStamp(0)
-    {
+    CAsterixFormatDescriptor(AsterixDefinition *pDefinition) :
+            m_InputParser(pDefinition),
+            m_pAsterixData(NULL),
+            m_ePcapNetworkType(CAsterixFormatDescriptor::ePcapNetworkType(0)),
+            m_bInvertByteOrder(true),
+            m_pBuffer(NULL),
+            m_nBufferSize(0),
+            m_nDataSize(0),
+            m_nTimeStamp(0) {
     }
 
     /**
      * Pure virtual destructor.
      */
-    virtual ~CAsterixFormatDescriptor()
-    {
-      if (m_pBuffer)
-      {
-        delete[] m_pBuffer;
-      }
-      if (m_pAsterixData)
-      {
-        delete m_pAsterixData;
-      }
+    virtual ~CAsterixFormatDescriptor() {
+        if (m_pBuffer) {
+            delete[] m_pBuffer;
+        }
+        if (m_pAsterixData) {
+            delete m_pAsterixData;
+        }
     }
 
     InputParser m_InputParser;
-    AsterixData* m_pAsterixData;
+    AsterixData *m_pAsterixData;
 
-    const unsigned char* GetNewBuffer(unsigned int len)
-    {
-      if (len > m_nBufferSize || m_nBufferSize > DELETE_BUFFER_IF_LARGER)
-      {
-        if (m_pBuffer)
-          delete[] m_pBuffer;
+    const unsigned char *GetNewBuffer(unsigned int len) {
+        if (len > m_nBufferSize || m_nBufferSize > DELETE_BUFFER_IF_LARGER) {
+            if (m_pBuffer)
+                delete[] m_pBuffer;
 
-        m_pBuffer = new unsigned char[len];
-      }
-      m_nBufferSize = len;
-      m_nDataSize = 0;
-      return m_pBuffer;
+            m_pBuffer = new unsigned char[len];
+        }
+        m_nBufferSize = len;
+        m_nDataSize = 0;
+        return m_pBuffer;
     }
 
-    const unsigned char* GetBuffer()
-    {
-      return m_pBuffer;
+    const unsigned char *GetBuffer() {
+        return m_pBuffer;
     }
 
-    unsigned int GetBufferLen()
-    {
-      return m_nBufferSize;
+    unsigned int GetBufferLen() {
+        return m_nBufferSize;
     }
 
-    void SetBufferLen(unsigned int len)
-    {
-      m_nBufferSize = len;
+    void SetBufferLen(unsigned int len) {
+        m_nBufferSize = len;
     }
 
-    unsigned int GetDataLen()
-    {
-      return m_nDataSize;
+    unsigned int GetDataLen() {
+        return m_nDataSize;
     }
 
-    void SetDataLen(unsigned int len)
-    {
-      m_nDataSize = len;
+    void SetDataLen(unsigned int len) {
+        m_nDataSize = len;
     }
 
     // used only when format is GPS
-    unsigned long GetTimeStamp()
-    {
-      return m_nTimeStamp;
+    unsigned long GetTimeStamp() {
+        return m_nTimeStamp;
     }
 
-    void SetTimeStamp(unsigned long ts)
-    {
-      m_nTimeStamp = ts;
+    void SetTimeStamp(unsigned long ts) {
+        m_nTimeStamp = ts;
     }
 
     // used only in PCAP (TODO)
-    typedef enum
-    {
-      NET_ETHERNET = 0,
-      NET_LINUX = 1
+    typedef enum {
+        NET_ETHERNET = 0,
+        NET_LINUX = 1
     } ePcapNetworkType;
 
     ePcapNetworkType m_ePcapNetworkType;
     bool m_bInvertByteOrder;
 
     std::string printDescriptor() { return m_InputParser.printDefinition(); }
-    bool filterOutItem(int cat, std::string item, const char* name) { return m_InputParser.filterOutItem(cat,item,name); }
-    bool isFiltered(int cat, std::string item, const char* name) { return m_InputParser.isFiltered(cat,item,name); }
+
+    bool filterOutItem(int cat, std::string item, const char *name) {
+        return m_InputParser.filterOutItem(cat, item, name);
+    }
+
+    bool isFiltered(int cat, std::string item, const char *name) { return m_InputParser.isFiltered(cat, item, name); }
 
 private:
-    const unsigned char* m_pBuffer; // input buffer
+    const unsigned char *m_pBuffer; // input buffer
     unsigned int m_nBufferSize; // input buffer size
     unsigned int m_nDataSize; // size of data in buffer
     unsigned long m_nTimeStamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT

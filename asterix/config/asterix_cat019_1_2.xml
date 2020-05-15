@@ -16,7 +16,9 @@
 
     <DataItem id="000" rule="mandatory">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of information.</DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
+            further defining the type of information.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -103,7 +105,8 @@
 
     <DataItem id="551" rule="optional">
         <DataItemName>Tracking Processor Detailed Status</DataItemName>
-        <DataItemDefinition>Information concerning the configuration and status of the Tracking processors.</DataItemDefinition>
+        <DataItemDefinition>Information concerning the configuration and status of the Tracking processors.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits bit="8">
@@ -160,8 +163,10 @@
 
     <DataItem id="552" rule="optional">
         <DataItemName>Remote Sensor Detailed Status</DataItemName>
-        <DataItemDefinition>Information concerning the configuration and status of the Remote Sensors (RS)</DataItemDefinition>
-        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one report comprising a status of one Remote Sensor (RS).">
+        <DataItemDefinition>Information concerning the configuration and status of the Remote Sensors (RS)
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one report comprising a status of one Remote Sensor (RS).">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="9">
@@ -183,8 +188,10 @@
 
     <DataItem id="553" rule="optional">
         <DataItemName>Reference Transponder Detailed Status</DataItemName>
-        <DataItemDefinition>Information concerning the configuration and status of the Reference Transponder.</DataItemDefinition>
-        <DataItemFormat desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary (depending on the number of Reference Transponders).">
+        <DataItemDefinition>Information concerning the configuration and status of the Reference Transponder.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary (depending on the number of Reference Transponders).">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="7">
@@ -244,7 +251,9 @@
 
     <DataItem id="610" rule="optional">
         <DataItemName>Height of the MLT System Reference Point</DataItemName>
-        <DataItemDefinition>Height of the MLT system reference point in two's complement form. The height shall use mean sea level as the zero reference level.</DataItemDefinition>
+        <DataItemDefinition>Height of the MLT system reference point in two's complement form. The height shall use mean
+            sea level as the zero reference level.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -258,7 +267,9 @@
 
     <DataItem id="620" rule="optional">
         <DataItemName>WGS-84 Undulation</DataItemName>
-        <DataItemDefinition>WGS-84 undulation value of the MLT system reference point, in meters. Geoid undulation value is the difference between the ellipsoidal height and the height above mean sea level</DataItemDefinition>
+        <DataItemDefinition>WGS-84 undulation value of the MLT system reference point, in meters. Geoid undulation value
+            is the difference between the ellipsoidal height and the height above mean sea level
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">

@@ -25,91 +25,71 @@
 #include "descriptor.hxx"
 
 
-
-CDescriptor::CDescriptor(const char *description, const char *delimiters, bool multiMode)
-{
+CDescriptor::CDescriptor(const char *description, const char *delimiters, bool multiMode) {
     unsigned int size = 0;
-    
+
     // 1. Allocate the memory for the description string and initialize it
-    if (description)
-    {
+    if (description) {
         size = strlen(description);
     }
-    
-    if (size != 0)
-    {
+
+    if (size != 0) {
         size++; // Null terminator
         _description = new char[size];
         strcpy(_description, description);
-    }
-    else
-    {
+    } else {
         // Make an empty string to avoid special handling with NULL pointers.
         _description = new char[1];
         _description[0] = '\0';
         size = 1;
     }
 
-    
+
     // 2. Initialize the rest of members    
-    _iterator  = _description;
-    _end       = _description+size;
-    *(_end - 1)= '\0'; // safety precaution
+    _iterator = _description;
+    _end = _description + size;
+    *(_end - 1) = '\0'; // safety precaution
     _bMultipleDelimiters = multiMode;
-    
-    
+
+
     // 3. Delimit parameters with '\0' to get a list of strings
-    if (delimiters)
-    {
-        do
-        {
-            if (strchr(delimiters, *_iterator))
-            {
+    if (delimiters) {
+        do {
+            if (strchr(delimiters, *_iterator)) {
                 *_iterator = '\0';
             }
-        }
-        while  (++_iterator < _end);
-        
+        } while (++_iterator < _end);
+
         _iterator = _description; // reset iterator
     }
 }
 
 
-
-CDescriptor::~CDescriptor()
-{
-    if (_description)
-    {
-        delete [] _description;
+CDescriptor::~CDescriptor() {
+    if (_description) {
+        delete[] _description;
     }
 }
 
 
-
-const char* CDescriptor::GetFirst(const char* empty_chars)
-{
+const char *CDescriptor::GetFirst(const char *empty_chars) {
     // Reset iterator first
     _iterator = _description;
 
-    
+
     // Advance the iterator over all NULL characters just before the next item
     // in case multiple delimiters are allowed
-    if (_bMultipleDelimiters)
-    {
-        while ((_iterator < _end) && (*_iterator == '\0'))
-        {
+    if (_bMultipleDelimiters) {
+        while ((_iterator < _end) && (*_iterator == '\0')) {
             _iterator++;
         }
     }
-        
+
     // Check for reaching the end
-    if (_iterator >= _end)
-    {
+    if (_iterator >= _end) {
         _iterator--; // Get back within boundary for the next call to GetNext()
         return NULL;
-    }
-    else
-    {
+    } else {
         // Removing empty chars allowed only in multiple delimiter mode
         if (_bMultipleDelimiters)
             RemoveEmptyChars(empty_chars);
@@ -118,39 +98,29 @@ const char* CDescriptor::GetFirst(const char* empty_chars)
 }
 
 
-
-const char* CDescriptor::GetNext(const char* empty_chars)
-{
+const char *CDescriptor::GetNext(const char *empty_chars) {
     // Advance the iterator till the first NULL character
-    while ((_iterator < _end) && (*_iterator != '\0'))
-    {
+    while ((_iterator < _end) && (*_iterator != '\0')) {
         _iterator++;
     }
 
     // Advance the iterator over all NULL characters just before the next item
     // in multiple delimiters mode
-    if (_bMultipleDelimiters)
-    {
-        while ((_iterator < _end) && (*_iterator == '\0'))
-        {
+    if (_bMultipleDelimiters) {
+        while ((_iterator < _end) && (*_iterator == '\0')) {
             _iterator++;
         }
-    } 
-    else
-    {
+    } else {
         // Advance to a start of new parameter
         _iterator++;
     }
-    
-    
+
+
     // Check for reaching the end
-    if (_iterator >= _end)
-    {
+    if (_iterator >= _end) {
         _iterator--; // Get back within boundary for the next call to GetNext()
         return NULL;
-    }
-    else
-    {
+    } else {
         // Removing empty chars allowed only in multiple delimiter mode
         if (_bMultipleDelimiters)
             RemoveEmptyChars(empty_chars);
@@ -159,28 +129,23 @@ const char* CDescriptor::GetNext(const char* empty_chars)
 }
 
 
-
-void CDescriptor::RemoveEmptyChars(const char* empty_chars)
-{
-    if (empty_chars)
-    {
+void CDescriptor::RemoveEmptyChars(const char *empty_chars) {
+    if (empty_chars) {
         // Ignore leading empty chars
-        while (strchr(empty_chars, *_iterator) && (*_iterator != '\0'))
-        {
+        while (strchr(empty_chars, *_iterator) && (*_iterator != '\0')) {
             _iterator++;
         }
-        
-        char* word_start = _iterator;
-        
+
+        char *word_start = _iterator;
+
         // Move to the end
         while (*_iterator++ != '\0');
-        
+
         // Remove trailing empty chars (up to the first null char)
-        while (strchr(empty_chars, *--_iterator))
-        {
+        while (strchr(empty_chars, *--_iterator)) {
             *_iterator = '\0';
         }
-        
+
         // Reset iterator
         _iterator = word_start;
     }

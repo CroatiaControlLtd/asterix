@@ -33,14 +33,14 @@
  *
  * @see   <CSingleton>
  */
-class CConverterEngine
-{
+class CConverterEngine {
 private:
 
     // Singleton pattern
-    static CSingleton< CConverterEngine > _Instance;
+    static CSingleton<CConverterEngine> _Instance;
+
     // To access private Ctor...
-    friend class CSingleton< CConverterEngine >;
+    friend class CSingleton<CConverterEngine>;
 
 public:
 
@@ -53,7 +53,7 @@ public:
      *
      * @see <CSingleton>::<instance>
      */
-    static CConverterEngine* Instance() { return _Instance.Instance(); }
+    static CConverterEngine *Instance() { return _Instance.Instance(); }
 
     /**
      * Deletes the one and only instance of the engine
@@ -62,22 +62,23 @@ public:
      * @see <CSingleton>::<deleteInstance>
      */
     static void DeleteInstance() { _Instance.DeleteInstance(); }
-    
-     /**
-     * Initializes the engine.
-     *  
-     * @param inputChannel 
-     * String description of input channel in the format
-     * <device_type> <device_descriptor> <data_format>
-     *
-     * @param outputChannel
-     * Array of string descriptions of output channels. 
-     *
-     * @return <true> on success, <false> otherwise
-     *
-     * @see <CConverterEngine>::<Start>
-     */
-    bool Initialize(const char *inputChannel, const char *outputChannel[], const unsigned int nOutput, const unsigned int chFailover);
+
+    /**
+    * Initializes the engine.
+    *
+    * @param inputChannel
+    * String description of input channel in the format
+    * <device_type> <device_descriptor> <data_format>
+    *
+    * @param outputChannel
+    * Array of string descriptions of output channels.
+    *
+    * @return <true> on success, <false> otherwise
+    *
+    * @see <CConverterEngine>::<Start>
+    */
+    bool Initialize(const char *inputChannel, const char *outputChannel[], const unsigned int nOutput,
+                    const unsigned int chFailover);
 
     /**
      * Starts the engine. Never returns. Must not be called if initialization
@@ -86,7 +87,7 @@ public:
      * @see <CConverterEngine>::<Initialize>
      */
     void Start();
-    
+
     int ProcessStatus();
 };
 

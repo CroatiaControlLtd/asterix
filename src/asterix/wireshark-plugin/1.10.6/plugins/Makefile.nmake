@@ -1,63 +1,145 @@
 #
+
 # $Id$
 #
 
 include ..\config.nmake
 
-## To add a plugin: Add entry to PLUGIN_LIST
+##
+To add
+a plugin
+:
+Add entry
+to PLUGIN_LIST
 
 PLUGIN_LIST = \
-	asn1        \
-	asterix     \
-	docsis      \
-	ethercat    \
-	gryphon     \
-	irda        \
-	m2m         \
-	mate        \
-	opcua       \
-	profinet    \
-	stats_tree  \
-	unistim     \
-	wimax       \
-	wimaxasncp  \
-	wimaxmacphy
+    asn1        \
+
+asterix     \
+ docsis      \
+
+ethercat    \
+ gryphon     \
+
+irda        \
+ m2m         \
+
+mate        \
+ opcua       \
+
+profinet    \
+ stats_tree  \
+
+unistim     \
+ wimax       \
+
+wimaxasncp  \
+ wimaxmacphy
 
 
 all:
-	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake PLUGIN_TARGET= process-plugins
+$(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Makefile
+.
+nmake PLUGIN_TARGET = process - plugins
 
-clean: clean-local
-	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake PLUGIN_TARGET=clean process-plugins
+clean: clean-
+local
+        $(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Makefile
+.
+nmake PLUGIN_TARGET = clean
+process-
+plugins
 
-distclean: distclean-local
-	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake PLUGIN_TARGET=distclean process-plugins
+        distclean
+: distclean-
+local
+        $(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Makefile
+.
+nmake PLUGIN_TARGET = distclean
+process-
+plugins
 
-maintainer-clean: maintainer-clean-local
-	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake PLUGIN_TARGET=maintainer-clean process-plugins
+        maintainer
+-clean: maintainer-clean-
+local
+        $(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Makefile
+.
+nmake PLUGIN_TARGET = maintainer - clean
+process-
+plugins
 
 
-clean-local:
-	rm -rf $(VERSION)
+        clean
+-local:
+rm -
 
-distclean-local: clean-local
+rf $(VERSION)
 
-maintainer-clean-local: distclean-local
+distclean-local: clean-
+local
 
-checkapi:
-	$(MAKE) -f Makefile.nmake PLUGIN_TARGET=checkapi process-plugins 
+        maintainer
+-clean-local: distclean-
+local
+
+        checkapi
+:
+$(MAKE)
+-
+f Makefile
+.
+nmake PLUGIN_TARGET = checkapi
+process-
+plugins
 
 
+        process
+-plugins :
+$(PLUGIN_LIST)
+custom
 
-process-plugins : $(PLUGIN_LIST) custom
-
-$(PLUGIN_LIST) : _FORCE_   # _FORCE_ req'd since each target actually exists
-	cd $@
-	$(MAKE) /$(MAKEFLAGS) -f Makefile.nmake $(PLUGIN_TARGET)
-	cd ..
+        $(PLUGIN_LIST)
+: _FORCE_   #
+_FORCE_ req
+'d since each target actually exists
+cd $
+@
+$(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Makefile
+.
+nmake $(PLUGIN_TARGET)
+cd ..
 
 custom :
-	if exist Custom.nmake $(MAKE) /$(MAKEFLAGS) -f Custom.nmake $(PLUGIN_TARGET)
+if
+exist Custom
+.
+nmake $(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Custom
+.
+nmake $(PLUGIN_TARGET)
 
 
 ################################################################################
@@ -66,13 +148,41 @@ custom :
 ################################################################################
 
 install-plugins:
-!IFDEF ENABLE_LIBWIRESHARK
-	cd ..
-	@for %f in ( $(PLUGIN_LIST) ) do xcopy plugins\%f\*.dll  $(INSTALL_DIR)\plugins\$(VERSION)\ /d
-	cd plugins
-	if exist Custom.nmake $(MAKE) /$(MAKEFLAGS) -f Custom.nmake install-plugins
+!
+IFDEF ENABLE_LIBWIRESHARK
+cd ..
+@for %
+f in($(PLUGIN_LIST))
+do
+xcopy plugins
+\%f\*.
+
+dll $(INSTALL_DIR)
+
+\plugins\
+$(VERSION)
+\ /
+d
+        cd
+plugins
+if
+exist Custom
+.
+nmake $(MAKE)
+/
+$(MAKEFLAGS)
+-
+f Custom
+.
+nmake install
+-plugins
 !ENDIF
 
 ####
-_FORCE_:  ## Assumption: no file named _FORCE_ exists in the current directory
+_FORCE_:  ## Assumption:
+no file
+named _FORCE_
+exists in
+the current
+directory
 

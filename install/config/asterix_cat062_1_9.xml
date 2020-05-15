@@ -12,302 +12,334 @@
 -->
 
 <Category id="62" name="SDPS Track Messages" ver="1.9">
-	<DataItem id="010" rule="mandatory">
-		<DataItemName>Data Source Identifier</DataItemName>	
-		<DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="2">
-				<Bits from="16" to="9">
-					<BitsShortName>SAC</BitsShortName>
-					<BitsName>System Area Code</BitsName>
-				</Bits>
-				<Bits from="8" to="1">
-					<BitsShortName>SIC</BitsShortName>
-					<BitsName>System Identification Code</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
-	</DataItem>
-	
-	<DataItem id="015" rule="optional">
-		<DataItemName>Service Identification</DataItemName>
-		<DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="1">
-				<Bits from="8" to="1">
-					<BitsName>Service Identification</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>the service identification is allocated by the system</DataItemNote>
-	</DataItem>
-	
-	<DataItem id="040" rule="mandatory">
-		<DataItemName>Track Number</DataItemName>
-		<DataItemDefinition>Identification of a track</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="2">
-				<Bits from="16" to="1">
-					<BitsName>Track number</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>
-	
-	<DataItem id="060" rule="optional">
-		<DataItemName>Track Mode 3/A Code</DataItemName>
-		<DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="2">
-				<Bits from="16" to="15">
-					<BitsName>Spare bits set to 0</BitsName>
-					<BitsConst>0</BitsConst>
-				</Bits>
-				<Bits bit="14">
-					<BitsShortName>CH</BitsShortName>
-					<BitsName>Change in Mode 3/A</BitsName>
-					<BitsValue val="0">No Change</BitsValue>
-					<BitsValue val="1">Mode 3/A has changed</BitsValue>
-				</Bits>
-				<Bits bit="13">
-					<BitsName>Spare bits set to 0</BitsName>
-					<BitsConst>0</BitsConst>
-				</Bits>
-				<Bits from="12" to="1">
-					<BitsName>Mode-3/A reply in octal representation</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>	
-				
-	<DataItem id="070" rule="mandatory">
-		<DataItemName>Time Of Track Information</DataItemName>
-		<DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="3">
-				<Bits from="24" to="1">
-					<BitsShortName>ToT</BitsShortName>
-					<BitsName>Time Of Track Information</BitsName>
-					<BitsUnit scale="0.0078125">s</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.</DataItemNote>
-	</DataItem>		
-				
-	<DataItem id="080" rule="mandatory">
-		<DataItemName>Track Status</DataItemName>
-		<DataItemDefinition>Status of a track.</DataItemDefinition>
-		<DataItemFormat>
-			<Variable>
-				<Fixed length="8">
-					<Bits bit="8">
-						<BitsShortName>MON</BitsShortName>
-						<BitsValue val="0">Multisensor track</BitsValue>
-						<BitsValue val="1">Monosensor track</BitsValue>
-					</Bits>
-					<Bits bit="7">
-						<BitsShortName>SPI</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">SPI present in the last report received from a sensor capable of decoding this data</BitsValue>
-					</Bits>
-					<Bits bit="6">
-						<BitsShortName>MRH</BitsShortName>
-						<BitsName>Most Reliable Height</BitsName>
-						<BitsValue val="0">Barometric altitude (Mode C) more reliable</BitsValue>
-						<BitsValue val="1">Geometric altitude more reliable</BitsValue>
-					</Bits>
-					<Bits from="3" to="5">
-						<BitsShortName>SRC</BitsShortName>
-						<BitsName>Source of calculated track altitude for I062/130</BitsName>
-						<BitsValue val="0">no source</BitsValue>
-						<BitsValue val="1">GNSS</BitsValue>
-						<BitsValue val="2">3D radar</BitsValue>
-						<BitsValue val="3">triangulation</BitsValue>
-						<BitsValue val="4">height from coverage</BitsValue>
-						<BitsValue val="5">speed look-up table</BitsValue>
-						<BitsValue val="6">default height</BitsValue>
-						<BitsValue val="7">multilateration</BitsValue>
-					</Bits>
-					<Bits bit="2">
-						<BitsShortName>CNF</BitsShortName>
-						<BitsValue val="0">Confirmed track</BitsValue>
-						<BitsValue val="1">Tentative track</BitsValue>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsShortName>FX</BitsShortName>
-						<BitsValue val="0">end of data item</BitsValue>
-						<BitsValue val="1">extension into first extent</BitsValue>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits bit="8">
-						<BitsShortName>SIM</BitsShortName>
-						<BitsValue val="0">Actual track</BitsValue>
-						<BitsValue val="1">Simulated track</BitsValue>
-					</Bits>
-					<Bits bit="7">
-						<BitsShortName>TSE</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">last message transmitted to the user for the track</BitsValue>
-					</Bits>
-					<Bits bit="6">
-						<BitsShortName>TSB</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">first message transmitted to the user for the track</BitsValue>
-					</Bits>
-					<Bits bit="5">
-						<BitsShortName>FPC</BitsShortName>
-						<BitsValue val="0">Not flight-plan correlated</BitsValue>
-						<BitsValue val="1">Flight plan correlated</BitsValue>
-					</Bits>
-					<Bits bit="4">
-						<BitsShortName>AFF</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">ADS-B data inconsistent with other surveillance information</BitsValue>
-					</Bits>
-					<Bits bit="3">
-						<BitsShortName>STP</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">Slave Track Promotion</BitsValue>
-					</Bits>
-					<Bits bit="2">
-						<BitsShortName>KOS</BitsShortName>
-						<BitsValue val="0">Complementary service used</BitsValue>
-						<BitsValue val="1">Background service used</BitsValue>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsShortName>FX</BitsShortName>
-						<BitsValue val="0">End of data item</BitsValue>
-						<BitsValue val="1">Extension into next extent</BitsValue>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits bit="8">
-						<BitsShortName>AMA</BitsShortName>
-						<BitsValue val="0">track not resulting from amalgamation process</BitsValue>
-						<BitsValue val="1">track resulting from amalgamation process</BitsValue>
-					</Bits>
-					<Bits from="6" to="7">
-						<BitsShortName>MD4</BitsShortName>
-						<BitsValue val="0">No Mode 4 interrogation</BitsValue>
-						<BitsValue val="1">Friendly target</BitsValue>
-						<BitsValue val="2">Unknown target</BitsValue>
-						<BitsValue val="3">No reply</BitsValue>
-					</Bits> 
-					<Bits bit="5">
-						<BitsShortName>ME</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">Military Emergency present in the last report received from a sensor capable of decoding this data</BitsValue>
-					</Bits>
-					<Bits bit="4">
-						<BitsShortName>MI</BitsShortName>
-						<BitsValue val="0">default value</BitsValue>
-						<BitsValue val="1">Military Identification present in the last report received from a sensor capable of decoding this data</BitsValue>
-					</Bits>
-					<Bits from="2" to="3">
-						<BitsShortName>MD5</BitsShortName>
-						<BitsValue val="0">No Mode 5 interrogation</BitsValue>
-						<BitsValue val="1">Friendly target</BitsValue>
-						<BitsValue val="2">Unknown target</BitsValue>
-						<BitsValue val="3">No reply</BitsValue>
-					</Bits> 
-					<Bits bit="1" fx="1">
-						<BitsShortName>FX</BitsShortName>
-						<BitsValue val="0">End of data item</BitsValue>
-						<BitsValue val="1">Extension into next extent</BitsValue>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits bit="8">
-						<BitsShortName>CST</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Age of the last received track update is higher than system dependent threshold (coasting)</BitsValue>
-					</Bits>
-					<Bits bit="7">
-						<BitsShortName>PSR</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Age of the last received PSR track update is higher than system dependent threshold</BitsValue>
-					</Bits>
-					<Bits bit="6">
-						<BitsShortName>SSR</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Age of the last received SSR track update is higher than system dependent threshold</BitsValue>
-					</Bits>
-					<Bits bit="5">
-						<BitsShortName>MDS</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Age of the last received Mode S track update is higher than system dependent threshold</BitsValue>
-					</Bits>
-					<Bits bit="4">
-						<BitsShortName>ADS</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Age of the last received ADS-B track update is higher than system dependent threshold</BitsValue>
-					</Bits>
-					<Bits bit="3">
-						<BitsShortName>SUC</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)</BitsValue>
-					</Bits>
-					<Bits bit="2">
-						<BitsShortName>AAC</BitsShortName>
-						<BitsValue val="0">Default value</BitsValue>
-						<BitsValue val="1">Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)</BitsValue>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsShortName>FX</BitsShortName>
-						<BitsValue val="0">End of data item</BitsValue>
-						<BitsValue val="1">Extension into next extent</BitsValue>
-					</Bits>
-				</Fixed>
-			</Variable>
-		</DataItemFormat>
-		<DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
-	</DataItem>
-	
-	<DataItem id="100" rule="optional">
-		<DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
-		<DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="6">
-				<Bits from="25" to="48">
-					<BitsName>X</BitsName>
-					<BitsUnit scale="0.5">m</BitsUnit>
-				</Bits>
-				<Bits from="1" to="24">
-					<BitsName>Y</BitsName>
-					<BitsUnit scale="0.5">m</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>
-		
-	<DataItem id="105" rule="optional">
-		<DataItemName>Calculated Position In WGS-84 Co-ordinates</DataItemName>
-		<DataItemDefinition>Calculated Position in WGS-84 Co-ordinates with a resolution of 180/225. degrees</DataItemDefinition>
-		<DataItemFormat>
-			<Fixed length="8">
-				<Bits from="33" to="64">
-					<BitsShortName>Lat</BitsShortName>
-					<BitsName>Latitude in WGS.84 in two's complement. Range -90 ≤ Latitude ≤ 90 deg.</BitsName>
-					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
-				</Bits>
-				<Bits from="1" to="32">
-					<BitsShortName>Lon</BitsShortName>
-					<BitsName>Longitude in WGS.84 in two's complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
-					<BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
-	</DataItem>
-	
-	<DataItem id="110" rule="optional">
-		<DataItemName>Mode 5 Data reports and Extended Mode 1 Code</DataItemName>
-		<DataItemDefinition>Mode 5 Data reports and Extended Mode 1 Code</DataItemDefinition>
-		<DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
-			<Compound>
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the system sending the data</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site
+            (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="015" rule="optional">
+        <DataItemName>Service Identification</DataItemName>
+        <DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsName>Service Identification</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>the service identification is allocated by the system</DataItemNote>
+    </DataItem>
+
+    <DataItem id="040" rule="mandatory">
+        <DataItemName>Track Number</DataItemName>
+        <DataItemDefinition>Identification of a track</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsName>Track number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="060" rule="optional">
+        <DataItemName>Track Mode 3/A Code</DataItemName>
+        <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="2">
+                <Bits from="16" to="15">
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="14">
+                    <BitsShortName>CH</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">No Change</BitsValue>
+                    <BitsValue val="1">Mode 3/A has changed</BitsValue>
+                </Bits>
+                <Bits bit="13">
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="12" to="1">
+                    <BitsName>Mode-3/A reply in octal representation</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="070" rule="mandatory">
+        <DataItemName>Time Of Track Information</DataItemName>
+        <DataItemDefinition>Absolute time stamping of the information provided in the track message, in the form of
+            elapsed time since last midnight, expressed as UTC.
+        </DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>ToT</BitsShortName>
+                    <BitsName>Time Of Track Information</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. This is the time of the track state vector. 2. The time is reset to zero at every midnight.
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="080" rule="mandatory">
+        <DataItemName>Track Status</DataItemName>
+        <DataItemDefinition>Status of a track.</DataItemDefinition>
+        <DataItemFormat>
+            <Variable>
+                <Fixed length="8">
+                    <Bits bit="8">
+                        <BitsShortName>MON</BitsShortName>
+                        <BitsValue val="0">Multisensor track</BitsValue>
+                        <BitsValue val="1">Monosensor track</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>SPI</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">SPI present in the last report received from a sensor capable of decoding
+                            this data
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>MRH</BitsShortName>
+                        <BitsName>Most Reliable Height</BitsName>
+                        <BitsValue val="0">Barometric altitude (Mode C) more reliable</BitsValue>
+                        <BitsValue val="1">Geometric altitude more reliable</BitsValue>
+                    </Bits>
+                    <Bits from="3" to="5">
+                        <BitsShortName>SRC</BitsShortName>
+                        <BitsName>Source of calculated track altitude for I062/130</BitsName>
+                        <BitsValue val="0">no source</BitsValue>
+                        <BitsValue val="1">GNSS</BitsValue>
+                        <BitsValue val="2">3D radar</BitsValue>
+                        <BitsValue val="3">triangulation</BitsValue>
+                        <BitsValue val="4">height from coverage</BitsValue>
+                        <BitsValue val="5">speed look-up table</BitsValue>
+                        <BitsValue val="6">default height</BitsValue>
+                        <BitsValue val="7">multilateration</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>CNF</BitsShortName>
+                        <BitsValue val="0">Confirmed track</BitsValue>
+                        <BitsValue val="1">Tentative track</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">end of data item</BitsValue>
+                        <BitsValue val="1">extension into first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>SIM</BitsShortName>
+                        <BitsValue val="0">Actual track</BitsValue>
+                        <BitsValue val="1">Simulated track</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>TSE</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">last message transmitted to the user for the track</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>TSB</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">first message transmitted to the user for the track</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>FPC</BitsShortName>
+                        <BitsValue val="0">Not flight-plan correlated</BitsValue>
+                        <BitsValue val="1">Flight plan correlated</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>AFF</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">ADS-B data inconsistent with other surveillance information</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>STP</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">Slave Track Promotion</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>KOS</BitsShortName>
+                        <BitsValue val="0">Complementary service used</BitsValue>
+                        <BitsValue val="1">Background service used</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of data item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>AMA</BitsShortName>
+                        <BitsValue val="0">track not resulting from amalgamation process</BitsValue>
+                        <BitsValue val="1">track resulting from amalgamation process</BitsValue>
+                    </Bits>
+                    <Bits from="6" to="7">
+                        <BitsShortName>MD4</BitsShortName>
+                        <BitsValue val="0">No Mode 4 interrogation</BitsValue>
+                        <BitsValue val="1">Friendly target</BitsValue>
+                        <BitsValue val="2">Unknown target</BitsValue>
+                        <BitsValue val="3">No reply</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>ME</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">Military Emergency present in the last report received from a sensor capable
+                            of decoding this data
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>MI</BitsShortName>
+                        <BitsValue val="0">default value</BitsValue>
+                        <BitsValue val="1">Military Identification present in the last report received from a sensor
+                            capable of decoding this data
+                        </BitsValue>
+                    </Bits>
+                    <Bits from="2" to="3">
+                        <BitsShortName>MD5</BitsShortName>
+                        <BitsValue val="0">No Mode 5 interrogation</BitsValue>
+                        <BitsValue val="1">Friendly target</BitsValue>
+                        <BitsValue val="2">Unknown target</BitsValue>
+                        <BitsValue val="3">No reply</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of data item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>CST</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Age of the last received track update is higher than system dependent
+                            threshold (coasting)
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>PSR</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Age of the last received PSR track update is higher than system dependent
+                            threshold
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>SSR</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Age of the last received SSR track update is higher than system dependent
+                            threshold
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>MDS</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Age of the last received Mode S track update is higher than system dependent
+                            threshold
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>ADS</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Age of the last received ADS-B track update is higher than system dependent
+                            threshold
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>SUC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Special Used Code (Mode A codes to be defined in the system to mark a track
+                            with special interest)
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>AAC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another
+                            track)
+                        </BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of data item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the
+            system supports the technology, default value (0) means that the technology was used to produce the report
+            3. If the system does not support the technology, default value is meaningless.
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="100" rule="optional">
+        <DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
+        <DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement
+            form.
+        </DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="6">
+                <Bits from="25" to="48">
+                    <BitsName>X</BitsName>
+                    <BitsUnit scale="0.5">m</BitsUnit>
+                </Bits>
+                <Bits from="1" to="24">
+                    <BitsName>Y</BitsName>
+                    <BitsUnit scale="0.5">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="105" rule="optional">
+        <DataItemName>Calculated Position In WGS-84 Co-ordinates</DataItemName>
+        <DataItemDefinition>Calculated Position in WGS-84 Co-ordinates with a resolution of 180/225. degrees
+        </DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="8">
+                <Bits from="33" to="64">
+                    <BitsShortName>Lat</BitsShortName>
+                    <BitsName>Latitude in WGS.84 in two's complement. Range -90 ≤ Latitude ≤ 90 deg.</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                </Bits>
+                <Bits from="1" to="32">
+                    <BitsShortName>Lon</BitsShortName>
+                    <BitsName>Longitude in WGS.84 in two's complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
+    </DataItem>
+
+    <DataItem id="110" rule="optional">
+        <DataItemName>Mode 5 Data reports and Extended Mode 1 Code</DataItemName>
+        <DataItemDefinition>Mode 5 Data reports and Extended Mode 1 Code</DataItemDefinition>
+        <DataItemFormat
+                desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+            <Compound>
                 <Variable>
                     <Fixed length="1">
                         <Bits bit="8">
@@ -365,7 +397,9 @@
                         <Bits bit="6">
                             <BitsShortName>DA</BitsShortName>
                             <BitsValue val="0">No authenticated Mode 5 Data reply or Report</BitsValue>
-                            <BitsValue val="1">Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply type other than ID)</BitsValue>
+                            <BitsValue val="1">Authenticated Mode 5 Data reply or Report (i.e any valid Mode 5 reply
+                                type other than ID)
+                            </BitsValue>
                         </Bits>
                         <Bits bit="5">
                             <BitsShortName>M1</BitsShortName>
@@ -390,7 +424,8 @@
                         <Bits bit="1">
                             <BitsShortName>X</BitsShortName>
                             <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
+                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.
+                            </BitsValue>
                             <BitsValue val="1">X-pulse set to one.</BitsValue>
                         </Bits>
                     </Fixed>
@@ -413,7 +448,7 @@
                             <BitsName>National Origin</BitsName>
                         </Bits>
                         <Bits from="7" to="8">
-							<BitsShortName>spare</BitsShortName>
+                            <BitsShortName>spare</BitsShortName>
                             <BitsName>spare bits set to 0</BitsName>
                             <BitsConst>0</BitsConst>
                         </Bits>
@@ -424,13 +459,14 @@
                     </Fixed>
                     <Fixed length="6">
                         <Bits from="25" to="48">
-							<BitsShortName>Lat</BitsShortName>
-							<BitsName>Latitude in WGS.84 in two's complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
+                            <BitsShortName>Lat</BitsShortName>
+                            <BitsName>Latitude in WGS.84 in two's complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
                             <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                         </Bits>
                         <Bits from="1" to="24">
-							<BitsShortName>Lon</BitsShortName>
-							<BitsName>Longitude in WGS.84 in two's complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+                            <BitsShortName>Lon</BitsShortName>
+                            <BitsName>Longitude in WGS.84 in two's complement. Range -180 ≤ longitude &lt; 180 deg.
+                            </BitsName>
                             <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                         </Bits>
                     </Fixed>
@@ -448,7 +484,8 @@
                         </Bits>
                         <Bits from="1" to="14">
                             <BitsShortName>GA</BitsShortName>
-                            <BitsName>GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.</BitsName>
+                            <BitsName>GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.
+                            </BitsName>
                         </Bits>
                     </Fixed>
                     <Fixed length="2">
@@ -465,8 +502,11 @@
                     <Fixed length="1">
                         <Bits from="1" to="8">
                             <BitsShortName>TOS</BitsShortName>
-                            <BitsName>Time Offset coded as a two's complement number with an LSB of 1/128 s. The time at which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.</BitsName>
-                            <BitsUnit scale="0.0078125">s</BitsUnit>						
+                            <BitsName>Time Offset coded as a two's complement number with an LSB of 1/128 s. The time at
+                                which the Mode 5 Reported Position (Subfield #3) and Mode 5 GNSSderived Altitude
+                                (Subfield #4) are valid is given by Time of Day (I048/140) plus Time Offset.
+                            </BitsName>
+                            <BitsUnit scale="0.0078125">s</BitsUnit>
                         </Bits>
                     </Fixed>
                     <Fixed length="1">
@@ -478,7 +518,8 @@
                         <Bits bit="5">
                             <BitsShortName>X5</BitsShortName>
                             <BitsName>X-pulse from Mode 5 Data reply or Report.</BitsName>
-                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.</BitsValue>
+                            <BitsValue val="0">X-pulse set to zero or no authenticated Data reply or Report received.
+                            </BitsValue>
                             <BitsValue val="1">X-pulse set to one (present).</BitsValue>
                         </Bits>
                         <Bits bit="4">
@@ -507,231 +548,256 @@
                         </Bits>
                     </Fixed>
                 </Variable>
-			</Compound>
-		</DataItemFormat>
-	</DataItem>
-	<DataItem id="120" rule="optional">
-		<DataItemName>Track Mode 2 Code</DataItemName>
-		<DataItemDefinition>Mode 2 code associated to the track</DataItemDefinition>
-		<DataItemFormat desc="Two-Octet fixed length data item">
-			<Fixed length="2">
-				<Bits from="13" to="16">
-					<BitsName>Spare bits set to zero</BitsName>
-					<BitsConst>0</BitsConst>
-				</Bits>
-				<Bits from="1" to="12">
-					<BitsName>Mode-2 code in octal representation</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>
-	<DataItem id="130" rule="optional">
-		<DataItemName>Calculated Track Geometric Altitude</DataItemName>
-		<DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84, in two’s complement form.</DataItemDefinition>
-		<DataItemFormat desc="Two-Octet fixed length data item">
-			<Fixed length="2">
-				<Bits from="1" to="16">
-					<BitsName>Alt</BitsName>
-					<BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>1. LSB is required to be less than 10 ft by ICAO 2. The source of altitude is identified in bits (SRC) of item I062/080 Track Status</DataItemNote>
-	</DataItem>	
-	<DataItem id="135" rule="optional">
-		<DataItemName>Calculated Track Barometric Altitude</DataItemName>
-		<DataItemDefinition>Calculated Barometric Altitude of the track, in two’s complement form.</DataItemDefinition>
-		<DataItemFormat desc="Two-Octet fixed length data item">
-			<Fixed length="2">
-				<Bits bit="16">
-					<BitsName>QNH</BitsName>
-					<BitsValue val="0">No QNH correction applied</BitsValue>
-					<BitsValue val="1">QNH correction applied</BitsValue>
-				</Bits>
-				<Bits from="1" to="15">
-					<BitsName>Calculated Track Barometric Altitude</BitsName>
-					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>ICAO specifies a range between –10 FL and 1267 FL for Mode C</DataItemNote>
-	</DataItem>	
-	<DataItem id="136" rule="optional">
-		<DataItemName>Measured Flight Level</DataItemName>
-		<DataItemDefinition>Last valid and credible flight level used to update the track, in two’s complement form,.</DataItemDefinition>
-		<DataItemFormat desc="Two-Octet fixed length data item">
-			<Fixed length="2">
-				<Bits from="1" to="16">
-					<BitsName>Measured Flight Level</BitsName>
-					<BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between –10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
-	</DataItem>	
-	<DataItem id="185" rule="optional">
-		<DataItemName>Calculated Track Velocity (Cartesian)</DataItemName>
-		<DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two’s complement form.</DataItemDefinition>
-		<DataItemFormat desc="Four-octet fixed length Data Item .">
-			<Fixed length="4">
-				<Bits from="17" to="32">
-					<BitsShortName>Vx</BitsShortName>
-					<BitsName>Vx</BitsName>
-					<BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
-				</Bits>
-				<Bits from="1" to="16">
-					<BitsShortName>Vy</BitsShortName>
-					<BitsName>Vy</BitsName>
-					<BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>The y-axis points to the Geographical North at the location of the target.</DataItemNote>
-	</DataItem>	
-	<DataItem id="200" rule="optional">
-		<DataItemName>Mode of Movement</DataItemName>
-		<DataItemDefinition>Calculated Mode of Movement of a target.</DataItemDefinition>
-		<DataItemFormat desc="One-Octet fixed length data item.">
-			<Fixed length="1">
-				<Bits from="7" to="8">
-					<BitsShortName>TRANS</BitsShortName>
-					<BitsName>Transversal Acceleration</BitsName>
-					<BitsValue val="0">Constant Course</BitsValue>
-					<BitsValue val="1">Right Turn</BitsValue>
-					<BitsValue val="2">Left Turn</BitsValue>
-					<BitsValue val="3">Undetermined</BitsValue>
-				</Bits>
-				<Bits from="5" to="6">
-					<BitsShortName>LONG</BitsShortName>
-					<BitsName>Longitudinal Acceleration</BitsName>
-					<BitsValue val="0">Constant Groundspeed</BitsValue>
-					<BitsValue val="1">Increasing Groundspeed</BitsValue>
-					<BitsValue val="2">Decreasing Groundspeed</BitsValue>
-					<BitsValue val="3">Undetermined</BitsValue>
-				</Bits>
-				<Bits from="3" to="4">
-					<BitsShortName>VERT</BitsShortName>
-					<BitsName>Vertical Rate</BitsName>
-					<BitsValue val="0">Level</BitsValue>
-					<BitsValue val="1">Climb</BitsValue>
-					<BitsValue val="2">Descent</BitsValue>
-					<BitsValue val="3">Undetermined</BitsValue>
-				</Bits>
-				<Bits bit="2">
-					<BitsShortName>ADF</BitsShortName>
-					<BitsName>Altitude Discrepancy Flag</BitsName>
-					<BitsValue val="0">No altitude discrepancy</BitsValue>
-					<BitsValue val="1">Altitude discrepancy</BitsValue>
-				</Bits>
-				<Bits bit="1">
-					<BitsShortName>spare</BitsShortName>
-					<BitsName>Spare bit set to zero</BitsName>
-					<BitsConst>0</BitsConst>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>The ADF, if set, indicates that a difference has been detected in the altitude information derived from radar as compared to other technologies (such as ADS-B).</DataItemNote>
-	</DataItem>	
-	<DataItem id="210" rule="optional">
-		<DataItemName>Calculated Acceleration (Cartesian)</DataItemName>
-		<DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two’s complement form.</DataItemDefinition>
-		<DataItemFormat desc="Two-octet fixed length Data Item .">
-			<Fixed length="2">
-				<Bits from="9" to="16">
-					<BitsShortName>Ax</BitsShortName>
-					<BitsName>Ax</BitsName>
-					<BitsUnit scale="0.25">m/s2</BitsUnit>
-				</Bits>
-				<Bits from="1" to="16">
-					<BitsShortName>Ay</BitsShortName>
-					<BitsName>Ay</BitsName>
-					<BitsUnit scale="0.25">m/s2</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>1. The y-axis points to the Geographical North at the location of the target. 2. Maximum value means maximum value or above.</DataItemNote>
-	</DataItem>	
-	<DataItem id="220" rule="optional">
-		<DataItemName>Calculated Rate Of Climb/Descent)</DataItemName>
-		<DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two’s complement form.</DataItemDefinition>
-		<DataItemFormat desc="Two-octet fixed length Data Item .">
-			<Fixed length="2">
-				<Bits from="1" to="16">
-					<BitsName>Rate of Climb/Descent</BitsName>
-					<BitsUnit scale="6.25">ft/min</BitsUnit>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>A positive value indicates a climb, whereas a negative value indicates a descent.</DataItemNote>
-	</DataItem>	
-	<DataItem id="245" rule="optional">
-		<DataItemName>Target Identification</DataItemName>
-		<DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters.</DataItemDefinition>
-		<DataItemFormat desc="Seven-octet fixed length Data Item.">
-			<Fixed length="7">
-				<Bits from="55" to="56">
-					<BitsShortName>STI</BitsShortName>
-					<BitsName>STI</BitsName>
-					<BitsValue val="0">Callsign or registration downlinked from target</BitsValue>
-					<BitsValue val="1">Callsign not downlinked from target</BitsValue>
-					<BitsValue val="2">Registration not downlinked from target</BitsValue>
-					<BitsValue val="3">Invalid</BitsValue>
-				</Bits>
-				<Bits from="49" to="54">
-					<BitsName>Spare bits set to zero</BitsName>
-					<BitsConst>0</BitsConst>
-				</Bits>
-				<Bits from="1" to="48" encode="6bitschar">
-					<BitsShortName>TId</BitsShortName>
-					<BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-		<DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user’s side, this item SHALL not be used.</DataItemNote>
-	</DataItem>	
-	<DataItem id="270" rule="optional">
-		<DataItemName>Target Size and Orientation</DataItemName>
-		<DataItemDefinition>Target size defined as length and width of the detected target, and orientation.</DataItemDefinition>
-		<DataItemFormat desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
-			<Variable>
-				<Fixed length="1">
-					<Bits from="2" to="8">
-						<BitsName>LENGTH</BitsName>
-						<BitsUnit scale="1">m</BitsUnit>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsValue val="0">End of Data Item</BitsValue>
-						<BitsValue val="1">Extension into first extent</BitsValue>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits from="2" to="8">
-						<BitsName>ORIENTATION</BitsName>
-						<BitsUnit scale="2.8125">deg</BitsUnit>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsValue val="0">End of Data Item</BitsValue>
-						<BitsValue val="1">Extension into next extent</BitsValue>
-					</Bits>
-				</Fixed>
-				<Fixed length="1">
-					<Bits from="2" to="8">
-						<BitsName>WIDTH</BitsName>
-						<BitsUnit scale="1">m</BitsUnit>
-					</Bits>
-					<Bits bit="1" fx="1">
-						<BitsValue val="0">End of Data Item</BitsValue>
-						<BitsValue val="1">Extension into next extent</BitsValue>
-					</Bits>
-				</Fixed>
-			</Variable>
-		</DataItemFormat>
-		<DataItemNote>1. The orientation gives the direction which the target nose is pointing to, relative to the Geographical North. 2. When the length only is sent, the largest dimension is provided.</DataItemNote>
-	</DataItem>	
-	
-	<UAP>
-		<UAPItem bit="0" frn="1" len="2">010</UAPItem>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+    <DataItem id="120" rule="optional">
+        <DataItemName>Track Mode 2 Code</DataItemName>
+        <DataItemDefinition>Mode 2 code associated to the track</DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length data item">
+            <Fixed length="2">
+                <Bits from="13" to="16">
+                    <BitsName>Spare bits set to zero</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="1" to="12">
+                    <BitsName>Mode-2 code in octal representation</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+    <DataItem id="130" rule="optional">
+        <DataItemName>Calculated Track Geometric Altitude</DataItemName>
+        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s
+            ellipsoid, as defined by WGS84, in two’s complement form.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length data item">
+            <Fixed length="2">
+                <Bits from="1" to="16">
+                    <BitsName>Alt</BitsName>
+                    <BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. LSB is required to be less than 10 ft by ICAO 2. The source of altitude is identified in bits
+            (SRC) of item I062/080 Track Status
+        </DataItemNote>
+    </DataItem>
+    <DataItem id="135" rule="optional">
+        <DataItemName>Calculated Track Barometric Altitude</DataItemName>
+        <DataItemDefinition>Calculated Barometric Altitude of the track, in two’s complement form.</DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length data item">
+            <Fixed length="2">
+                <Bits bit="16">
+                    <BitsName>QNH</BitsName>
+                    <BitsValue val="0">No QNH correction applied</BitsValue>
+                    <BitsValue val="1">QNH correction applied</BitsValue>
+                </Bits>
+                <Bits from="1" to="15">
+                    <BitsName>Calculated Track Barometric Altitude</BitsName>
+                    <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>ICAO specifies a range between –10 FL and 1267 FL for Mode C</DataItemNote>
+    </DataItem>
+    <DataItem id="136" rule="optional">
+        <DataItemName>Measured Flight Level</DataItemName>
+        <DataItemDefinition>Last valid and credible flight level used to update the track, in two’s complement form,.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length data item">
+            <Fixed length="2">
+                <Bits from="1" to="16">
+                    <BitsName>Measured Flight Level</BitsName>
+                    <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2.
+            Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies
+            a range between –10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from
+            ADS-B
+        </DataItemNote>
+    </DataItem>
+    <DataItem id="185" rule="optional">
+        <DataItemName>Calculated Track Velocity (Cartesian)</DataItemName>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two’s complement form.
+        </DataItemDefinition>
+        <DataItemFormat desc="Four-octet fixed length Data Item .">
+            <Fixed length="4">
+                <Bits from="17" to="32">
+                    <BitsShortName>Vx</BitsShortName>
+                    <BitsName>Vx</BitsName>
+                    <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
+                </Bits>
+                <Bits from="1" to="16">
+                    <BitsShortName>Vy</BitsShortName>
+                    <BitsName>Vy</BitsName>
+                    <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The y-axis points to the Geographical North at the location of the target.</DataItemNote>
+    </DataItem>
+    <DataItem id="200" rule="optional">
+        <DataItemName>Mode of Movement</DataItemName>
+        <DataItemDefinition>Calculated Mode of Movement of a target.</DataItemDefinition>
+        <DataItemFormat desc="One-Octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="7" to="8">
+                    <BitsShortName>TRANS</BitsShortName>
+                    <BitsName>Transversal Acceleration</BitsName>
+                    <BitsValue val="0">Constant Course</BitsValue>
+                    <BitsValue val="1">Right Turn</BitsValue>
+                    <BitsValue val="2">Left Turn</BitsValue>
+                    <BitsValue val="3">Undetermined</BitsValue>
+                </Bits>
+                <Bits from="5" to="6">
+                    <BitsShortName>LONG</BitsShortName>
+                    <BitsName>Longitudinal Acceleration</BitsName>
+                    <BitsValue val="0">Constant Groundspeed</BitsValue>
+                    <BitsValue val="1">Increasing Groundspeed</BitsValue>
+                    <BitsValue val="2">Decreasing Groundspeed</BitsValue>
+                    <BitsValue val="3">Undetermined</BitsValue>
+                </Bits>
+                <Bits from="3" to="4">
+                    <BitsShortName>VERT</BitsShortName>
+                    <BitsName>Vertical Rate</BitsName>
+                    <BitsValue val="0">Level</BitsValue>
+                    <BitsValue val="1">Climb</BitsValue>
+                    <BitsValue val="2">Descent</BitsValue>
+                    <BitsValue val="3">Undetermined</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>ADF</BitsShortName>
+                    <BitsName>Altitude Discrepancy Flag</BitsName>
+                    <BitsValue val="0">No altitude discrepancy</BitsValue>
+                    <BitsValue val="1">Altitude discrepancy</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bit set to zero</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The ADF, if set, indicates that a difference has been detected in the altitude information derived
+            from radar as compared to other technologies (such as ADS-B).
+        </DataItemNote>
+    </DataItem>
+    <DataItem id="210" rule="optional">
+        <DataItemName>Calculated Acceleration (Cartesian)</DataItemName>
+        <DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two’s
+            complement form.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item .">
+            <Fixed length="2">
+                <Bits from="9" to="16">
+                    <BitsShortName>Ax</BitsShortName>
+                    <BitsName>Ax</BitsName>
+                    <BitsUnit scale="0.25">m/s2</BitsUnit>
+                </Bits>
+                <Bits from="1" to="16">
+                    <BitsShortName>Ay</BitsShortName>
+                    <BitsName>Ay</BitsName>
+                    <BitsUnit scale="0.25">m/s2</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The y-axis points to the Geographical North at the location of the target. 2. Maximum value
+            means maximum value or above.
+        </DataItemNote>
+    </DataItem>
+    <DataItem id="220" rule="optional">
+        <DataItemName>Calculated Rate Of Climb/Descent)</DataItemName>
+        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two’s complement form.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item .">
+            <Fixed length="2">
+                <Bits from="1" to="16">
+                    <BitsName>Rate of Climb/Descent</BitsName>
+                    <BitsUnit scale="6.25">ft/min</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>A positive value indicates a climb, whereas a negative value indicates a descent.</DataItemNote>
+    </DataItem>
+    <DataItem id="245" rule="optional">
+        <DataItemName>Target Identification</DataItemName>
+        <DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters.</DataItemDefinition>
+        <DataItemFormat desc="Seven-octet fixed length Data Item.">
+            <Fixed length="7">
+                <Bits from="55" to="56">
+                    <BitsShortName>STI</BitsShortName>
+                    <BitsName>STI</BitsName>
+                    <BitsValue val="0">Callsign or registration downlinked from target</BitsValue>
+                    <BitsValue val="1">Callsign not downlinked from target</BitsValue>
+                    <BitsValue val="2">Registration not downlinked from target</BitsValue>
+                    <BitsValue val="3">Invalid</BitsValue>
+                </Bits>
+                <Bits from="49" to="54">
+                    <BitsName>Spare bits set to zero</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="1" to="48" encode="6bitschar">
+                    <BitsShortName>TId</BitsShortName>
+                    <BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be
+            transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield
+            #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user’s side, this
+            item SHALL not be used.
+        </DataItemNote>
+    </DataItem>
+    <DataItem id="270" rule="optional">
+        <DataItemName>Target Size and Orientation</DataItemName>
+        <DataItemDefinition>Target size defined as length and width of the detected target, and orientation.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits from="2" to="8">
+                        <BitsName>LENGTH</BitsName>
+                        <BitsUnit scale="1">m</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into first extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="2" to="8">
+                        <BitsName>ORIENTATION</BitsName>
+                        <BitsUnit scale="2.8125">deg</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="2" to="8">
+                        <BitsName>WIDTH</BitsName>
+                        <BitsUnit scale="1">m</BitsUnit>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>1. The orientation gives the direction which the target nose is pointing to, relative to the
+            Geographical North. 2. When the length only is sent, the largest dimension is provided.
+        </DataItemNote>
+    </DataItem>
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <!-- TODO -->
-	</UAP>			
-							
+    </UAP>
+
 </Category>

@@ -33,8 +33,7 @@
  * @see   <CDeviceFactory>
  *        <CBaseDevice>
  */
-class CStdDevice : public CBaseDevice
-{
+class CStdDevice : public CBaseDevice {
 private:
 
 public:
@@ -50,10 +49,15 @@ public:
     virtual ~CStdDevice();
 
     virtual bool Read(void *data, size_t len);
+
     virtual bool Write(const void *data, size_t len);
+
     virtual bool Select(const unsigned int secondsToWait);
-    virtual bool IoCtrl(const unsigned int command, const void *data=0, size_t len=0) { return false; }
+
+    virtual bool IoCtrl(const unsigned int command, const void *data = 0, size_t len = 0) { return false; }
+
     virtual bool IsPacketDevice() { return false; }
+
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
 };
 

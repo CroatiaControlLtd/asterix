@@ -63,7 +63,9 @@
 
 
 class CBaseDevice;
+
 class CAsterixFormatDescriptor;
+
 class InputParser;
 
 
@@ -75,8 +77,7 @@ class InputParser;
  * Specifies format of Asterix message.
  *
  */
-class CAsterixFinalSubformat
-{
+class CAsterixFinalSubformat {
 public:
 
     static bool ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard);
@@ -89,16 +90,15 @@ public:
 
 private:
 
-    struct sFinalRecordHeader
-    {
-      unsigned char m_nByteCountMSB;
-      unsigned char m_nByteCountLSB;
-      unsigned char m_nBoard;
-      unsigned char m_nLine;
-      unsigned char m_nRecordingDay;
-      unsigned char m_nTimeMMSB;
-      unsigned char m_nTimeMSB;
-      unsigned char m_nTimeLSB;
+    struct sFinalRecordHeader {
+        unsigned char m_nByteCountMSB;
+        unsigned char m_nByteCountLSB;
+        unsigned char m_nBoard;
+        unsigned char m_nLine;
+        unsigned char m_nRecordingDay;
+        unsigned char m_nTimeMMSB;
+        unsigned char m_nTimeMSB;
+        unsigned char m_nTimeLSB;
     };
 
 };

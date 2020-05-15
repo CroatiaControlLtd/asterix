@@ -20,7 +20,9 @@
 
     <DataItem id="000" rule="mandatory">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This data item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This data item allows for a more convenient handling of the messages at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -55,7 +57,8 @@
     <DataItem id="020" rule="mandatory">
         <DataItemName>Target Report Descriptor</DataItemName>
         <DataItemDefinition>Type and characteristics of the data as transmitted by a system.</DataItemDefinition>
-        <DataItemFormat desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary.">
+        <DataItemFormat
+                desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="6">
@@ -86,7 +89,7 @@
                         <BitsName>Ground Bit Setting</BitsName>
                         <BitsValue val="0">Ground Bit not set</BitsValue>
                         <BitsValue val="1">Ground Bit set</BitsValue>
-                    </Bits>         
+                    </Bits>
                     <Bits bit="2">
                         <BitsShortName>CRT</BitsShortName>
                         <BitsValue val="0">No Corrupted reply in multilateration</BitsValue>
@@ -141,7 +144,7 @@
                         <BitsValue val="0">Absence of SPI</BitsValue>
                         <BitsValue val="1">Special Position Identification</BitsValue>
                     </Bits>
-                    <Bits  from="7" to="2">
+                    <Bits from="7" to="2">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
@@ -251,7 +254,8 @@
 
     <DataItem id="090">
         <DataItemName>Flight Level in Binary Representation</DataItemName>
-        <DataItemDefinition>Flight Level (Mode S Altitude) converted into binary two's complement representation.</DataItemDefinition>
+        <DataItemDefinition>Flight Level (Mode S Altitude) converted into binary two's complement representation.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -275,7 +279,10 @@
 
     <DataItem id="091" rule="optional">
         <DataItemName>Measured Height (Local Cartesian Coordinates)</DataItemName>
-        <DataItemDefinition>Height above local 2D co-ordinate system in reference to the MLT System Reference Point as defined in item I019/610, in two’s complement form, based on a direct measurement not related to barometric pressure.</DataItemDefinition>
+        <DataItemDefinition>Height above local 2D co-ordinate system in reference to the MLT System Reference Point as
+            defined in item I019/610, in two’s complement form, based on a direct measurement not related to barometric
+            pressure.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -316,7 +323,9 @@
 
     <DataItem id="161" rule="optional">
         <DataItemName>Track Number</DataItemName>
-        <DataItemDefinition>An integer value representing a unique reference to a track record within a particular track file.</DataItemDefinition>
+        <DataItemDefinition>An integer value representing a unique reference to a track record within a particular track
+            file.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="13">
@@ -335,7 +344,8 @@
     <DataItem id="170" rule="optional">
         <DataItemName>Track Status</DataItemName>
         <DataItemDefinition>Status of track.</DataItemDefinition>
-        <DataItemFormat desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary.">
+        <DataItemFormat
+                desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits bit="8">
@@ -362,8 +372,12 @@
                     </Bits>
                     <Bits bit="3">
                         <BitsShortName>TCC</BitsShortName>
-                        <BitsValue val="0">Tracking performed in 'Sensore Plane', i.e. neither slant range correction nor projection was applied.</BitsValue>
-                        <BitsValue val="1">Slant range correction and a suitable projection technique are used to track in a 2D. referance plane, tangential to the earth model at the sensor Site co-ordinates. </BitsValue>
+                        <BitsValue val="0">Tracking performed in 'Sensore Plane', i.e. neither slant range correction
+                            nor projection was applied.
+                        </BitsValue>
+                        <BitsValue val="1">Slant range correction and a suitable projection technique are used to track
+                            in a 2D. referance plane, tangential to the earth model at the sensor Site co-ordinates.
+                        </BitsValue>
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>STH</BitsShortName>
@@ -449,7 +463,9 @@
 
     <DataItem id="202" rule="optional">
         <DataItemName>Calculated Track Velocity in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated track velocity expressed in Cartesian Coordinates, in two’s complement representation.</DataItemDefinition>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian Coordinates, in two’s complement
+            representation.
+        </DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
@@ -526,17 +542,20 @@
     <DataItem id="250" rule="optional">
         <DataItemName>Mode S MB Data</DataItemName>
         <DataItemDefinition>Mode S Comm B data as extracted from the aircraft transponder.</DataItemDefinition>
-        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code.">
+        <DataItemFormat
+                desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one BDS report comprising one seven octet BDS register and one octet BDS code.">
             <Repetitive>
-               <BDS/>
+                <BDS/>
             </Repetitive>
         </DataItemFormat>
     </DataItem>
 
     <DataItem id="270" rule="optional">
         <DataItemName>Target Size and Orientation</DataItemName>
-        <DataItemDefinition>Target size defined as length and with of the detected target, and orientation.</DataItemDefinition>
-        <DataItemFormat desc="Variable Data Item, comprising a first part of one octet, followed by one-octed as necessary.">
+        <DataItemDefinition>Target size defined as length and with of the detected target, and orientation.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Variable Data Item, comprising a first part of one octet, followed by one-octed as necessary.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2">
@@ -597,7 +616,7 @@
                         <BitsName>DTHETA</BitsName>
                         <BitsUnit scale="0.15" min="-19.05" max="19.05">deg</BitsUnit>
                     </Bits>
-                </Fixed>         
+                </Fixed>
             </Repetitive>
         </DataItemFormat>
     </DataItem>
@@ -634,7 +653,8 @@
 
     <DataItem id="310" rule="optional">
         <DataItemName>Pre-programmed Message</DataItemName>
-        <DataItemDefinition>Number related to a pre-programmed message that can be transmitted by a vehicle.</DataItemDefinition>
+        <DataItemDefinition>Number related to a pre-programmed message that can be transmitted by a vehicle.
+        </DataItemDefinition>
         <DataItemFormat desc="One octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits bit="8">
@@ -724,18 +744,18 @@
     </DataItem>
 
 
-    <DataItem id="SP" rule="optional"> 
+    <DataItem id="SP" rule="optional">
         <DataItemName>Special Purpose</DataItemName>
         <DataItemDefinition>Special information</DataItemDefinition>
         <DataItemFormat desc="Repetitive data length item">
-            <Explicit> 
-                <Fixed length="1"> 
-                    <Bits from="8" to="1"> 
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
                         <BitsShortName>SPval</BitsShortName>
-                    </Bits> 
-                </Fixed>          
-            </Explicit> 
-        </DataItemFormat> 
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
     </DataItem>
 
     <UAP>

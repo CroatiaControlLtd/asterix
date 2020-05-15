@@ -26,112 +26,96 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataItem::DataItem(DataItemDescription* pDesc)
-: m_pDescription(pDesc)
-, m_pData(NULL)
-, m_nLength(0)
-{
+DataItem::DataItem(DataItemDescription *pDesc)
+        : m_pDescription(pDesc), m_pData(NULL), m_nLength(0) {
 }
 
-DataItem::~DataItem()
-{
-  if (m_pData)
-    delete[] m_pData;
+DataItem::~DataItem() {
+    if (m_pData)
+        delete[] m_pData;
 }
 
-bool DataItem::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType)
-{
-  std::string newHeader;
-  std::string strNewResult;
-  std::string indent("    ");  // 4 spaces make an indent.
+bool DataItem::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType) {
+    std::string newHeader;
+    std::string strNewResult;
+    std::string indent("    ");  // 4 spaces make an indent.
 
-  switch(formatType)
-  {
-	  case CAsterixFormat::EJSON:
-		  strNewResult = format("\"I%s\":", m_pDescription->m_strID.c_str());
-		  break;
-	  case CAsterixFormat::EJSONH:
-		  strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
-		  break;
-	  case CAsterixFormat::EXML:
-		  strNewResult = format("<I%s>", m_pDescription->m_strID.c_str());
-		  break;
-	  case CAsterixFormat::EXMLH:
-		  strNewResult = format("\n%s", indent.c_str());  // New line and indent 1 level (4 spaces).
-		  strNewResult += format("<I%s>", m_pDescription->m_strID.c_str());
-		  break;
-	  case CAsterixFormat::ETxt:
-		  strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(), m_pDescription->m_strName.c_str());
-		  strNewResult += format("\n[ ");
-  for (int i=0; i<m_nLength; i++)
-  {
-			  strNewResult += format("%02X ", *(m_pData+i));
-  }
-		  strNewResult += format("]");
-		  break;
-	  case CAsterixFormat::EOut:
-			newHeader = format("%s.%s", strHeader.c_str(), m_pDescription->m_strID.c_str());
-		  break;
+    switch (formatType) {
+        case CAsterixFormat::EJSON:
+            strNewResult = format("\"I%s\":", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::EJSONH:
+            strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::EXML:
+            strNewResult = format("<I%s>", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::EXMLH:
+            strNewResult = format("\n%s", indent.c_str());  // New line and indent 1 level (4 spaces).
+            strNewResult += format("<I%s>", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::ETxt:
+            strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(),
+                                  m_pDescription->m_strName.c_str());
+            strNewResult += format("\n[ ");
+            for (int i = 0; i < m_nLength; i++) {
+                strNewResult += format("%02X ", *(m_pData + i));
+            }
+            strNewResult += format("]");
+            break;
+        case CAsterixFormat::EOut:
+            newHeader = format("%s.%s", strHeader.c_str(), m_pDescription->m_strID.c_str());
+            break;
+    }
+
+    if (false == m_pDescription->getText(strNewResult, newHeader, formatType, m_pData, m_nLength)) {
+        return false;
+    }
+    strResult += strNewResult;
+
+    switch (formatType) {
+        case CAsterixFormat::EXML:
+            strResult += format("</I%s>", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::EXMLH:
+            strResult += format("\n%s", indent.c_str());  // New line and indent 1 levels (4 spaces).
+            strResult += format("</I%s>", m_pDescription->m_strID.c_str());
+            break;
+        case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONH:
+            // replace last ',' with '}'
+            if (strResult[strResult.length() - 1] == ',') {
+                strResult[strResult.length() - 1] = '}';
+            }
+            break;
+    }
+
+    return true;
 }
 
-  if (false == m_pDescription->getText(strNewResult, newHeader, formatType, m_pData, m_nLength))
-{
-	  return false;
-}
-  strResult += strNewResult;
+long DataItem::parse(const unsigned char *pData, long len) {
+    if (m_pDescription == NULL || m_pDescription->m_pFormat == NULL) {
+        Tracer::Error("DataItem::parse NULL pointer");
+        return 0;
+    }
 
-  switch(formatType)
-{
-	  case CAsterixFormat::EXML:
-		  strResult += format("</I%s>", m_pDescription->m_strID.c_str());
-		  break;
-	  case CAsterixFormat::EXMLH:
-		  strResult += format("\n%s", indent.c_str());  // New line and indent 1 levels (4 spaces).
-		  strResult += format("</I%s>", m_pDescription->m_strID.c_str());
-		  break;
-  	  case CAsterixFormat::EJSON:
-  	  case CAsterixFormat::EJSONH:
-		  // replace last ',' with '}'
-		  if (strResult[strResult.length()-1] == ',')
-		  {
-			  strResult[strResult.length()-1] = '}';
-		  }
-  		  break;
-  }
+    m_nLength = m_pDescription->m_pFormat->getLength(pData);
 
-  return true;
-}
-
-long DataItem::parse(const unsigned char* pData, long len)
-{
-  if (m_pDescription == NULL || m_pDescription->m_pFormat == NULL)
-  {
-    Tracer::Error("DataItem::parse NULL pointer");
-    return 0;
-  }
-
-  m_nLength = m_pDescription->m_pFormat->getLength(pData);
-
-  if (m_nLength > len)
-  {
-    // Print unparsed bytes
-	std::string strNewResult;
-	for (int i=0; i<len; i++)
-	{
-	  strNewResult += format("%02X ", *(pData+i));
-	}
-    Tracer::Error("DataItem::parse needed length=%d , and there is only %d : [ %s ]", m_nLength, len, strNewResult.c_str());
-  }
-  else if (m_nLength>0)
-  {
-    m_pData = new unsigned char[m_nLength];
-    memcpy(m_pData, pData, m_nLength);
-  }
-  else
-  {
-    Tracer::Error("DataItem::parse length=0");
-  }
-  return m_nLength;
+    if (m_nLength > len) {
+        // Print unparsed bytes
+        std::string strNewResult;
+        for (int i = 0; i < len; i++) {
+            strNewResult += format("%02X ", *(pData + i));
+        }
+        Tracer::Error("DataItem::parse needed length=%d , and there is only %d : [ %s ]", m_nLength, len,
+                      strNewResult.c_str());
+    } else if (m_nLength > 0) {
+        m_pData = new unsigned char[m_nLength];
+        memcpy(m_pData, pData, m_nLength);
+    } else {
+        Tracer::Error("DataItem::parse length=0");
+    }
+    return m_nLength;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

@@ -59,85 +59,74 @@
  * 7. Move the rest of unparsed data to beginning of input buffer
  */
 
-bool CAsterixHDLCSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard)
-{
-  CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
+bool CAsterixHDLCSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard) {
+    CAsterixFormatDescriptor &Descriptor((CAsterixFormatDescriptor &) formatDescriptor);
 
-  // read available data to read buffer
-  size_t readSize = MAX_RXBUF;
+    // read available data to read buffer
+    size_t readSize = MAX_RXBUF;
 
-  if (!device.Read((void*)RxBuf, &readSize))
-  {
-    LOGERROR(1, "Couldn't read HDLC packet.\n");
-    return false;
-  }
-
-  // get output buffer
-  const unsigned char* pBuffer = Descriptor.GetNewBuffer(MAX_CBUF);
-  int nOutPos = 0;
-
-  // copy read buffer to circular buffer
-  copy_to_cbuf(RxBuf, readSize);
-
-  bool bufferDone = false;
-
-  while(!bufferDone && nOutPos < MAX_CBUF-MAX_FRM)
-  {
-    int len = 0;
-    unsigned char* ptrFrame = get_next_hdlc_frame(&len);
-
-    if (ptrFrame)
-    { // store packet in internal buffer
-      memcpy((void*)&pBuffer[nOutPos], ptrFrame, len);
-      nOutPos += len;
-      Descriptor.SetDataLen(Descriptor.GetDataLen()+len);
-    }
-    else
-    {
-      bufferDone = true;
+    if (!device.Read((void *) RxBuf, &readSize)) {
+        LOGERROR(1, "Couldn't read HDLC packet.\n");
+        return false;
     }
 
-    // print number of failed bytes to standard error output
-    int failedBytes = GetAndResetFailedBytes();
-    LOGERROR(failedBytes, "HDLC frame error. Ignored bytes = %d\n", failedBytes);
-  }
+    // get output buffer
+    const unsigned char *pBuffer = Descriptor.GetNewBuffer(MAX_CBUF);
+    int nOutPos = 0;
 
-  return true;
+    // copy read buffer to circular buffer
+    copy_to_cbuf(RxBuf, readSize);
+
+    bool bufferDone = false;
+
+    while (!bufferDone && nOutPos < MAX_CBUF - MAX_FRM) {
+        int len = 0;
+        unsigned char *ptrFrame = get_next_hdlc_frame(&len);
+
+        if (ptrFrame) { // store packet in internal buffer
+            memcpy((void *) &pBuffer[nOutPos], ptrFrame, len);
+            nOutPos += len;
+            Descriptor.SetDataLen(Descriptor.GetDataLen() + len);
+        } else {
+            bufferDone = true;
+        }
+
+        // print number of failed bytes to standard error output
+        int failedBytes = GetAndResetFailedBytes();
+        LOGERROR(failedBytes, "HDLC frame error. Ignored bytes = %d\n", failedBytes);
+    }
+
+    return true;
 }
 
-bool CAsterixHDLCSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard)
-{
-  return false; //TODO
+bool CAsterixHDLCSubformat::WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard) {
+    return false; //TODO
 }
 
 /*
  * Parse packet read from input channel and stored to Descriptor.m_pBuffer
  */
-bool CAsterixHDLCSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard)
-{
-  CAsterixFormatDescriptor& Descriptor((CAsterixFormatDescriptor&)formatDescriptor);
+bool CAsterixHDLCSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard) {
+    CAsterixFormatDescriptor &Descriptor((CAsterixFormatDescriptor &) formatDescriptor);
 
-  if (Descriptor.GetDataLen() < 3)
-  {
-	return true;
-  }
+    if (Descriptor.GetDataLen() < 3) {
+        return true;
+    }
 
-  // delete old data
-  if (Descriptor.m_pAsterixData)
-  {
-    delete Descriptor.m_pAsterixData;
-  }
+    // delete old data
+    if (Descriptor.m_pAsterixData) {
+        delete Descriptor.m_pAsterixData;
+    }
 
-  // parse packet
-  Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetDataLen());
-  
-  return true;
+    // parse packet
+    Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(), Descriptor.GetDataLen());
+
+    return true;
 }
 
-bool CAsterixHDLCSubformat::Heartbeat(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device)
-{
-  // nothing to do
-  return true;
+bool CAsterixHDLCSubformat::Heartbeat(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device) {
+    // nothing to do
+    return true;
 }
 
 /* convert textual hexadecimal file data to binary

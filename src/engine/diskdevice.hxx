@@ -35,35 +35,35 @@
 // otherwise, continue trying to read even on EOF (useful for pipes and tail-like operations)
 // Applies to single-file read operations only.
 // decimal value:                    1
-#define DD_MODE_READONCE	0x00000001
+#define DD_MODE_READONCE    0x00000001
 
 // if set, write file in create mode (i.e. erase previous file, if any, and start from scratch)
 // otherwise, append to an existing file, if any
 // Applies to single or multi-file write operations only.
 // decimal value:                    2
-#define DD_MODE_WRITENEW	0x00000002
+#define DD_MODE_WRITENEW    0x00000002
 
 // if set, file(s) successfully read will be renamed to <filename>.cvt_<pid>
 // otherwise, no action is performed
 // DD_MODE_READONCE must also be set. Applies to single or multi-file read operations only.
 // decimal value:                    4
-#define DD_MODE_MARKDONE	0x00000004
+#define DD_MODE_MARKDONE    0x00000004
 
 // if set, and the file does not exist, device will wait for the file to be created (uses delay parameter in descriptor)
 // otherwise, if not set, device will fail immediately
 // decimal value:                    8
-#define DD_MODE_WAITFILE	0x00000008
+#define DD_MODE_WAITFILE    0x00000008
 
 // if set, will force fflush() after each fwrite()
 // useful for debug/console output
 // decimal value:                   16
-#define DD_MODE_FLUSHWRITE	0x00000010
+#define DD_MODE_FLUSHWRITE    0x00000010
 
 // if set, each packet will be written in a separate file (supported for output only)
 // output files will be named base_nnnnnnnn.ext (or base_nnnnnnnn), where '_nnnnnnnn' will be inserted (or appended) as in examples
 // otherwise, a single file is used
 // decimal value:                   32
-#define DD_MODE_PACKETFILE	0x00000020
+#define DD_MODE_PACKETFILE    0x00000020
 
 // if set, the file will be read continuously, i.e. file pointer will be reset to 0 when reaching EOF
 // must not be used with DD_MODE_READONCE and DD_MODE_MARKDONE
@@ -86,18 +86,17 @@
  *        <CBaseDevice>
  *        <CDescriptor>
  */
-class CDiskDevice : public CBaseDevice
-{
+class CDiskDevice : public CBaseDevice {
 private:
-    FILE*          _fileStream;
-    bool           _input;
-    unsigned int   _inputDelay;
-    unsigned int   _mode;
-    char           _fileName[MAXPATHLEN];
-    char           _baseName[MAXPATHLEN];
-    char           _tempName[MAXPATHLEN];
-    unsigned int   _seqNo;
-    bool           _delayOpen;
+    FILE *_fileStream;
+    bool _input;
+    unsigned int _inputDelay;
+    unsigned int _mode;
+    char _fileName[MAXPATHLEN];
+    char _baseName[MAXPATHLEN];
+    char _tempName[MAXPATHLEN];
+    unsigned int _seqNo;
+    bool _delayOpen;
 
 public:
 
@@ -113,21 +112,33 @@ public:
     virtual ~CDiskDevice();
 
     virtual bool Read(void *data, size_t len);
+
     virtual bool Write(const void *data, size_t len);
+
     virtual bool Select(const unsigned int secondsToWait);
-    virtual bool IoCtrl(const unsigned int command, const void *data=0, size_t len=0);
+
+    virtual bool IoCtrl(const unsigned int command, const void *data = 0, size_t len = 0);
+
     virtual bool IsPacketDevice() { return false; };
+
     virtual bool IsOpened();
+
     virtual unsigned int BytesLeftToRead(); // return number of bytes left to read or 0 if unknown
 
 private:
     bool Init(const char *path);
-    bool OpenOutputFile(const char* path, bool openNow = false);
+
+    bool OpenOutputFile(const char *path, bool openNow = false);
+
     void Close();
+
     bool DoneWithFile(bool allDone = false);
+
     bool DoneAll();
+
     bool NextFile();
-    char* NextFileName();
+
+    char *NextFileName();
 };
 
 #endif

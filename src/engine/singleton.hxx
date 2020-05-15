@@ -22,18 +22,18 @@
  */
 #ifndef SINGLETON_HXX__
 #define SINGLETON_HXX__
+
 /**
  * A generic singleton pattern.
  */
-template< class T >
-class CSingleton
-{
-  public:
+template<class T>
+class CSingleton {
+public:
 
     /**
      * Class constructor.
      */
-    CSingleton() : _Instance( 0 ) { }
+    CSingleton() : _Instance(0) {}
 
 
     /**
@@ -43,10 +43,8 @@ class CSingleton
      *
      * @return The only instance of this class
      */
-    T *Instance()
-    {
-        if( _Instance == 0 )
-        {
+    T *Instance() {
+        if (_Instance == 0) {
             _Instance = new T();
         }
         return _Instance;
@@ -55,10 +53,8 @@ class CSingleton
     /**
      * Deletes the single and only instance of the class.
      */
-    void DeleteInstance()
-    {
-        if(_Instance)
-        {
+    void DeleteInstance() {
+        if (_Instance) {
             delete _Instance;
             _Instance = 0;
         }

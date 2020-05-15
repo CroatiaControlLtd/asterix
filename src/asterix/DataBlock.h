@@ -26,26 +26,27 @@
 #include "Category.h"
 #include "DataRecord.h"
 
-class DataBlock
-{
+class DataBlock {
 public:
-  DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp = 0);
-  virtual
-  ~DataBlock();
+    DataBlock(Category *cat, unsigned long len, const unsigned char *data, unsigned long nTimestamp = 0);
 
-  Category* m_pCategory;
-  unsigned long m_nLength;
-  unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
-  bool m_bFormatOK;
+    virtual
+    ~DataBlock();
 
-  std::list<DataRecord*> m_lDataRecords;
+    Category *m_pCategory;
+    unsigned long m_nLength;
+    unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    bool m_bFormatOK;
 
-  bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
+    std::list<DataRecord *> m_lDataRecords;
+
+    bool
+    getText(std::string &strResult, const unsigned int formatType); // appends value to strResult in formatType format
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_data* getData(int byteoffset);
+    fulliautomatix_data* getData(int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  void getData(PyObject* plist, int verbose);
+    void getData(PyObject* plist, int verbose);
 #endif
 
 };

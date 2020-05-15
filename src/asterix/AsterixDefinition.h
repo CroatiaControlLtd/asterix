@@ -29,25 +29,31 @@
 #define MAX_CATEGORIES  256+1
 
 // Special category ID for BDS register
-#define BDS_CAT_ID	256
+#define BDS_CAT_ID    256
 
-class AsterixDefinition
-{
+class AsterixDefinition {
 public:
-  AsterixDefinition();
-  virtual
-  ~AsterixDefinition();
+    AsterixDefinition();
 
-  Category* getCategory(int i);
-  void setCategory(Category* newCategory);
-  bool CategoryDefined(int i);
-  std::string printDescriptors();
-  bool filterOutItem(int cat, std::string item, const char* name);
-  bool isFiltered(int cat, std::string item, const char* name);
-  const char* getDescription(int category, const char* item, const char* field, const char* value);
+    virtual
+    ~AsterixDefinition();
+
+    Category *getCategory(int i);
+
+    void setCategory(Category *newCategory);
+
+    bool CategoryDefined(int i);
+
+    std::string printDescriptors();
+
+    bool filterOutItem(int cat, std::string item, const char *name);
+
+    bool isFiltered(int cat, std::string item, const char *name);
+
+    const char *getDescription(int category, const char *item, const char *field, const char *value);
 
 private:
-  Category *m_pCategory[MAX_CATEGORIES];
+    Category *m_pCategory[MAX_CATEGORIES];
 };
 
 #endif /* ASTERIXDEFINITION_H_ */

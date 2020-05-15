@@ -35,32 +35,31 @@ class CBaseDevice;
  *
  * @brief The Asterix formatter class.
  */
-class CAsterixFormat : public CBaseFormat
-{
+class CAsterixFormat : public CBaseFormat {
 public:
 
-  /**
-   * Public enumerator for supported formats identification. Should be used by
-   * public methods which require format type as a parameter.
-   */
-  enum {
-  ERaw=0,         // Raw Asterix format
-  EPcap,          // PCAP file format
-  ETxt,           // textual output (human readable)
-  EFinal,         // Final format
-  EXML,           // XML (Extensible Markup Language) format, compact line-delimited form (suitable for parsing)
-  EXMLH,          // XML (Extensible Markup Language) format, human readable form (suitable for file storage)
-  EJSON,          // JSON (JavaScript Object Notation) format, compact line-delimited form (suitable for parsing)
-  EJSONH,         // JSON (JavaScript Object Notation) format, human readable form (suitable for file storage)
-  EHDLC,          // HDLC format
-  EOradisRaw,     // Raw Asterix format with ORADIS header
-  EOradisPcap,    // PCAP file format with ORADIS header
-  EOut,           // textual output (one line text, easy for parsing)
-  EGPS,           // GPS (timestamped datablocks + 2200 bytes header)
-  ETotalFormats
-  };
+    /**
+     * Public enumerator for supported formats identification. Should be used by
+     * public methods which require format type as a parameter.
+     */
+    enum {
+        ERaw = 0,         // Raw Asterix format
+        EPcap,          // PCAP file format
+        ETxt,           // textual output (human readable)
+        EFinal,         // Final format
+        EXML,           // XML (Extensible Markup Language) format, compact line-delimited form (suitable for parsing)
+        EXMLH,          // XML (Extensible Markup Language) format, human readable form (suitable for file storage)
+        EJSON,          // JSON (JavaScript Object Notation) format, compact line-delimited form (suitable for parsing)
+        EJSONH,         // JSON (JavaScript Object Notation) format, human readable form (suitable for file storage)
+        EHDLC,          // HDLC format
+        EOradisRaw,     // Raw Asterix format with ORADIS header
+        EOradisPcap,    // PCAP file format with ORADIS header
+        EOut,           // textual output (one line text, easy for parsing)
+        EGPS,           // GPS (timestamped datablocks + 2200 bytes header)
+        ETotalFormats
+    };
 
- private:
+private:
 
     /**
      * Basic structure (packet) for all format conversions
@@ -72,44 +71,44 @@ public:
     /**
      * Default class constructor
      */
-    CAsterixFormat(): m_pFormatDescriptor(NULL) { }
+    CAsterixFormat() : m_pFormatDescriptor(NULL) {}
 
     /**
      * Default class destructor.
      */
     virtual ~CAsterixFormat() { if (m_pFormatDescriptor) delete m_pFormatDescriptor; }
 
-    virtual bool ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType, bool &discard);
+    virtual bool ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                            const unsigned int formatType, bool &discard);
 
-    virtual bool WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType, bool &discard);
+    virtual bool WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                             const unsigned int formatType, bool &discard);
 
-    virtual bool ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType, bool &discard);
+    virtual bool ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                               const unsigned int formatType, bool &discard);
 
-    virtual bool HeartbeatProcessing(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType);
+    virtual bool HeartbeatProcessing(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                                     const unsigned int formatType);
 
-    virtual CBaseFormatDescriptor* CreateFormatDescriptor
-        (const unsigned int formatType, const char* sFormatDescriptor);
+    virtual CBaseFormatDescriptor *CreateFormatDescriptor
+            (const unsigned int formatType, const char *sFormatDescriptor);
 
     virtual bool GetFormatNo(const char *formatName, unsigned int &formatNo);
 
     virtual int GetStatus(CBaseDevice &device,
-        const unsigned int formatType, int query = 0);
+                          const unsigned int formatType, int query = 0);
 
-    virtual bool OnResetInputChannel(CBaseFormatDescriptor& formatDescriptor);
+    virtual bool OnResetInputChannel(CBaseFormatDescriptor &formatDescriptor);
 
-    virtual bool OnResetOutputChannel(unsigned int channel, CBaseFormatDescriptor& formatDescriptor);
+    virtual bool OnResetOutputChannel(unsigned int channel, CBaseFormatDescriptor &formatDescriptor);
 
 
 private:
 
-  // Supported formats name string list
-  static const char* _FormatName[ETotalFormats];
+    // Supported formats name string list
+    static const char *_FormatName[ETotalFormats];
 
-  CBaseFormatDescriptor* m_pFormatDescriptor;
+    CBaseFormatDescriptor *m_pFormatDescriptor;
 
 
 };

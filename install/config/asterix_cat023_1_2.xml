@@ -12,12 +12,15 @@
 
 -->
 
-<Category id="023" name="Surveillance Data Exchange – Part 16 CNS/ATM Ground Station and Service Status Reports" ver="1.2">
+<Category id="023" name="Surveillance Data Exchange – Part 16 CNS/ATM Ground Station and Service Status Reports"
+          ver="1.2">
 
 
     <DataItem id="000" rule="mandatory">
         <DataItemName>Report Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the reports at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the reports at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -210,7 +213,8 @@
 
     <DataItem id="110" rule="optional">
         <DataItemName>Service Status</DataItemName>
-        <DataItemDefinition>Information concerning the status of the Service provided by a Ground Station.</DataItemDefinition>
+        <DataItemDefinition>Information concerning the status of the Service provided by a Ground Station.
+        </DataItemDefinition>
         <DataItemFormat desc="A one octet extensible field.">
             <Variable>
                 <Fixed length="1">
@@ -241,8 +245,11 @@
 
     <DataItem id="120" rule="optional">
         <DataItemName>Service Statistics</DataItemName>
-        <DataItemDefinition>Statistics concerning the service. Provides counts of various ADS-B message types that have been received since the report was last sent.</DataItemDefinition>
-        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one block of 6 octets.">
+        <DataItemDefinition>Statistics concerning the service. Provides counts of various ADS-B message types that have
+            been received since the report was last sent.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one block of 6 octets.">
             <Repetitive>
                 <Fixed length="7">
                     <Bits from="56" to="49">
@@ -305,8 +312,8 @@
         </DataItemFormat>
     </DataItem>
 
-    <!--Special Purpose Field - content unknown --> 	
-    <DataItem id="SP" >
+    <!--Special Purpose Field - content unknown -->
+    <DataItem id="SP">
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>SP</DataItemDefinition>
         <DataItemFormat desc="Explicit">
@@ -320,10 +327,10 @@
             </Explicit>
         </DataItemFormat>
         <DataItemNote/>
-    </DataItem>		
+    </DataItem>
 
-    <!--Reserved Field - content unknown --> 	
-    <DataItem id="RE" >
+    <!--Reserved Field - content unknown -->
+    <DataItem id="RE">
         <DataItemName>Reserved Field</DataItemName>
         <DataItemDefinition>RE</DataItemDefinition>
         <DataItemFormat desc="Explicit">

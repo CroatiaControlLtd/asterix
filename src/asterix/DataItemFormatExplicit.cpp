@@ -26,196 +26,170 @@
 #include "asterixformat.hxx"
 
 DataItemFormatExplicit::DataItemFormatExplicit(int id)
-: DataItemFormat(id)
-{
+        : DataItemFormat(id) {
 }
 
-DataItemFormatExplicit::DataItemFormatExplicit(const DataItemFormatExplicit& obj)
-: DataItemFormat(obj.m_nID)
-{
-	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+DataItemFormatExplicit::DataItemFormatExplicit(const DataItemFormatExplicit &obj)
+        : DataItemFormat(obj.m_nID) {
+    std::list<DataItemFormat *>::iterator it = ((DataItemFormat &) obj).m_lSubItems.begin();
 
-	while(it != obj.m_lSubItems.end())
-	{
-		DataItemFormat* di = (DataItemFormat*)(*it);
-		m_lSubItems.push_back(di->clone());
-		it++;
-	}
+    while (it != obj.m_lSubItems.end()) {
+        DataItemFormat *di = (DataItemFormat *) (*it);
+        m_lSubItems.push_back(di->clone());
+        it++;
+    }
 
-	m_pParentFormat = obj.m_pParentFormat;
+    m_pParentFormat = obj.m_pParentFormat;
 }
 
-DataItemFormatExplicit::~DataItemFormatExplicit()
-{
+DataItemFormatExplicit::~DataItemFormatExplicit() {
 }
 
-long DataItemFormatExplicit::getLength(const unsigned char* pData)
-{
-	return (long)(*pData);
+long DataItemFormatExplicit::getLength(const unsigned char *pData) {
+    return (long) (*pData);
 }
 
-bool DataItemFormatExplicit::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength)
-{
-	std::list<DataItemFormat*>::iterator it;
-	int bodyLength = 0;
-	bool ret = false;
+bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
+                                     unsigned char *pData, long nLength) {
+    std::list<DataItemFormat *>::iterator it;
+    int bodyLength = 0;
+    bool ret = false;
 
-	pData++; // skip explicit length byte (it is already in nLength)
+    pData++; // skip explicit length byte (it is already in nLength)
 
-	// calculate the size of all sub items
-	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-	{
-		DataItemFormat* di = (DataItemFormat*)(*it);
-		bodyLength += di->getLength(pData+bodyLength); // calculate length of body
-	}
+    // calculate the size of all sub items
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormat *di = (DataItemFormat *) (*it);
+        bodyLength += di->getLength(pData + bodyLength); // calculate length of body
+    }
 
-	int nFullLength = nLength - 1; // calculate full length
+    int nFullLength = nLength - 1; // calculate full length
 
-	// full length must be multiple of body length
-	if (bodyLength == 0 || nFullLength % bodyLength != 0)
-	{
-		Tracer::Error("Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
-	}
+    // full length must be multiple of body length
+    if (bodyLength == 0 || nFullLength % bodyLength != 0) {
+        Tracer::Error("Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
+    }
 
-	std::string tmpStr = "";
+    std::string tmpStr = "";
 
-	switch(formatType)
-	{
-	case CAsterixFormat::EJSON:
-	case CAsterixFormat::EJSONH:
-	{
-		tmpStr += format("[");
-	}
-	}
+    switch (formatType) {
+        case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONH: {
+            tmpStr += format("[");
+        }
+    }
 
-	for (int i=0; i<nFullLength; i+=bodyLength)
-	{
-		for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-		{
-			DataItemFormat* di = (DataItemFormat*)(*it);
-			ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
-			pData += bodyLength;
+    for (int i = 0; i < nFullLength; i += bodyLength) {
+        for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+            DataItemFormat *di = (DataItemFormat *) (*it);
+            ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
+            pData += bodyLength;
 
-			switch(formatType)
-			{
-			case CAsterixFormat::EJSON:
-			case CAsterixFormat::EJSONH:
-			{
-				tmpStr += format(",");
-			}
-			}
-		}
-	}
+            switch (formatType) {
+                case CAsterixFormat::EJSON:
+                case CAsterixFormat::EJSONH: {
+                    tmpStr += format(",");
+                }
+            }
+        }
+    }
 
-	switch(formatType)
-	{
-	case CAsterixFormat::EJSON:
-	case CAsterixFormat::EJSONH:
-	{
-		if (tmpStr[tmpStr.length()-1] == ',')
-		{
-			tmpStr[tmpStr.length()-1] = ']';
-		}
-		else
-		{
-			tmpStr += ']';
-		}
-	}
-	}
+    switch (formatType) {
+        case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONH: {
+            if (tmpStr[tmpStr.length() - 1] == ',') {
+                tmpStr[tmpStr.length() - 1] = ']';
+            } else {
+                tmpStr += ']';
+            }
+        }
+    }
 
-	strResult += tmpStr;
+    strResult += tmpStr;
 
-	return ret;
+    return ret;
 }
 
-std::string DataItemFormatExplicit::printDescriptors(std::string header)
-{
-	std::string strDef = "";
+std::string DataItemFormatExplicit::printDescriptors(std::string header) {
+    std::string strDef = "";
 
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
-	{
-		DataItemFormat* dip = (DataItemFormat*)(*it);
-		strDef += dip->printDescriptors(header);
-	}
-	return strDef;
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormat *dip = (DataItemFormat *) (*it);
+        strDef += dip->printDescriptors(header);
+    }
+    return strDef;
 }
 
-bool DataItemFormatExplicit::filterOutItem(const char* name)
-{
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
-	{
-		DataItemFormat* dip = (DataItemFormat*)(*it);
-		if (true == dip->filterOutItem(name))
-			return true;
-	}
-	return false;
+bool DataItemFormatExplicit::filterOutItem(const char *name) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormat *dip = (DataItemFormat *) (*it);
+        if (true == dip->filterOutItem(name))
+            return true;
+    }
+    return false;
 }
 
-bool DataItemFormatExplicit::isFiltered(const char* name)
-{
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin(); it != m_lSubItems.end(); it++ )
-	{
-		DataItemFormat* dip = (DataItemFormat*)(*it);
-		if (true == dip->isFiltered(name))
-			return true;
-	}
-	return false;
+bool DataItemFormatExplicit::isFiltered(const char *name) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormat *dip = (DataItemFormat *) (*it);
+        if (true == dip->isFiltered(name))
+            return true;
+    }
+    return false;
 }
 
-const char* DataItemFormatExplicit::getDescription(const char* field, const char* value = NULL )
-{
-  std::list<DataItemFormat*>::iterator it;
-  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-    DataItemBits* bv = (DataItemBits*)(*it);
-    const char* desc = bv->getDescription(field, value);
-    if (desc != NULL)
-        return desc;
-  }
-  return NULL;
+const char *DataItemFormatExplicit::getDescription(const char *field, const char *value = NULL) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemBits *bv = (DataItemBits *) (*it);
+        const char *desc = bv->getDescription(field, value);
+        if (desc != NULL)
+            return desc;
+    }
+    return NULL;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
 fulliautomatix_definitions* DataItemFormatExplicit::getWiresharkDefinitions()
 {
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-	{
-		Tracer::Error("Wrong format of explicit item");
-		return NULL;
-	}
-	return pFixed->getWiresharkDefinitions();
+    DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+    if (pFixed == NULL)
+    {
+        Tracer::Error("Wrong format of explicit item");
+        return NULL;
+    }
+    return pFixed->getWiresharkDefinitions();
 }
 
 fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long, int byteoffset)
 {
-	fulliautomatix_data *lastData = NULL, *firstData = NULL;
-	DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-	if (pFixed == NULL)
-	{
-		Tracer::Error("Wrong format of explicit item");
-		return NULL;
-	}
+    fulliautomatix_data *lastData = NULL, *firstData = NULL;
+    DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+    if (pFixed == NULL)
+    {
+        Tracer::Error("Wrong format of explicit item");
+        return NULL;
+    }
 
-	// TODO : fix this as it is in DataItemFormatExplicit::getText
-	int fixedLength = pFixed->getLength(pData);
-	unsigned char nFullLength = *pData;
+    // TODO : fix this as it is in DataItemFormatExplicit::getText
+    int fixedLength = pFixed->getLength(pData);
+    unsigned char nFullLength = *pData;
 
-	firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
-	byteoffset+=1;
+    firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
+    byteoffset+=1;
 
-	pData++;
+    pData++;
 
-	lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
-	while(lastData->next)
-		lastData = lastData->next;
+    lastData->next = pFixed->getData(pData, fixedLength, byteoffset);
+    while(lastData->next)
+        lastData = lastData->next;
 
-	byteoffset += nFullLength;
+    byteoffset += nFullLength;
 
-	return firstData;
+    return firstData;
 }
 #endif
 
@@ -223,9 +197,9 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
 
 PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, int verbose)
 {
-	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength, verbose);
-	return p;
+    PyObject* p = PyDict_New();
+    insertToDict(p, pData, nLength, verbose);
+    return p;
 }
 
 void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)

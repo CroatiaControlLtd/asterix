@@ -22,76 +22,76 @@
 #
 
 set(DISSECTOR_SRC
-	packet-asterix.c
-)
+        packet-asterix.c
+        )
 
 set(DISSECTOR_SUPPORT_SRC
-	xmlparse.c
-	xmlrole.c
-	xmltok.c
-	xmltok_impl.c
-	xmltok_ns.c
-	AsterixDefinition.cpp
-	AsterixData.cpp
-	Category.cpp
-	DataBlock.cpp
-	DataRecord.cpp
-	DataItem.cpp
-	DataItemBits.cpp
-	DataItemDescription.cpp
-	DataItemFormat.cpp
-	DataItemFormatCompound.cpp
-	DataItemFormatExplicit.cpp
-	DataItemFormatFixed.cpp
-	DataItemFormatRepetitive.cpp
-	DataItemFormatVariable.cpp
-	InputParser.cpp
-	Tracer.cpp
-	UAP.cpp
-	UAPItem.cpp
-	Utils.cpp
-	XMLParser.cpp
-	WiresharkWrapper.cpp
-)
+        xmlparse.c
+        xmlrole.c
+        xmltok.c
+        xmltok_impl.c
+        xmltok_ns.c
+        AsterixDefinition.cpp
+        AsterixData.cpp
+        Category.cpp
+        DataBlock.cpp
+        DataRecord.cpp
+        DataItem.cpp
+        DataItemBits.cpp
+        DataItemDescription.cpp
+        DataItemFormat.cpp
+        DataItemFormatCompound.cpp
+        DataItemFormatExplicit.cpp
+        DataItemFormatFixed.cpp
+        DataItemFormatRepetitive.cpp
+        DataItemFormatVariable.cpp
+        InputParser.cpp
+        Tracer.cpp
+        UAP.cpp
+        UAPItem.cpp
+        Utils.cpp
+        XMLParser.cpp
+        WiresharkWrapper.cpp
+        )
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(PLUGIN_FILES
-	plugin.c
-	${DISSECTOR_SRC}
-	${DISSECTOR_SUPPORT_SRC}
-)
+        plugin.c
+        ${DISSECTOR_SRC}
+        ${DISSECTOR_SUPPORT_SRC}
+        )
 
 set(CLEAN_FILES
-	plugin.c
-	${DISSECTOR_SRC}
-	${DISSECTOR_SUPPORT_CLEAN_SRC}
-)
+        plugin.c
+        ${DISSECTOR_SRC}
+        ${DISSECTOR_SUPPORT_CLEAN_SRC}
+        )
 
 if (WERROR)
-	set_source_files_properties(
-		${CLEAN_FILES}
-		PROPERTIES
-		COMPILE_FLAGS -Werror
-	)
-endif()
+    set_source_files_properties(
+            ${CLEAN_FILES}
+            PROPERTIES
+            COMPILE_FLAGS -Werror
+    )
+endif ()
 
 register_dissector_files(plugin.c
-	plugin
-	${DISSECTOR_SRC}
-)
+        plugin
+        ${DISSECTOR_SRC}
+        )
 
 add_library(asterix ${LINK_MODE_MODULE}
-	${PLUGIN_FILES}
-)
+        ${PLUGIN_FILES}
+        )
 set_target_properties(asterix PROPERTIES PREFIX "")
 set_target_properties(asterix PROPERTIES LINK_FLAGS "${WS_LINK_FLAGS}")
 
 target_link_libraries(asterix epan)
 
 install(TARGETS asterix
-	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION} NAMELINK_SKIP
-	RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION}
-	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION}
-)
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION} NAMELINK_SKIP
+        RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/@CPACK_PACKAGE_NAME@/plugins/${CPACK_PACKAGE_VERSION}
+        )
 

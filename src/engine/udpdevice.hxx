@@ -52,21 +52,21 @@
  *        <CBaseDevice>
  *        <CDescriptor>
  */
-class CUdpDevice : public CBaseDevice
-{
+class CUdpDevice : public CBaseDevice {
 private:
-    bool               _server;
+    bool _server;
     struct sockaddr_in _mcastAddr;
-    struct in_addr     _interfaceAddr;
-    struct in_addr     _sourceAddr;
-    int                _port;
-    std::vector<int>   _socketDesc;
-    fd_set             _descToRead;
-    int                _countToRead;
-    int                _maxValSocketDesc;
+    struct in_addr _interfaceAddr;
+    struct in_addr _sourceAddr;
+    int _port;
+    std::vector<int> _socketDesc;
+    fd_set _descToRead;
+    int _countToRead;
+    int _maxValSocketDesc;
 
 private:
     bool InitServer(int socketDesc);
+
     bool InitClient(int socketDesc);
 
 public:
@@ -82,16 +82,24 @@ public:
     virtual ~CUdpDevice();
 
     virtual bool Read(void *data, size_t len);
-    virtual bool Read(void *data, size_t* len);
+
+    virtual bool Read(void *data, size_t *len);
+
     virtual bool Write(const void *data, size_t len);
+
     virtual bool Select(const unsigned int secondsToWait);
-    virtual bool IoCtrl(const unsigned int command, const void *data=0, size_t len=0) { return false; }
+
+    virtual bool IoCtrl(const unsigned int command, const void *data = 0, size_t len = 0) { return false; }
+
     virtual bool IsPacketDevice() { return true; }
-    virtual unsigned int MaxPacketSize() { return MAX_UDP_PACKET_SIZE; } // return maximal packet size (only for packet devices)
+
+    virtual unsigned int
+    MaxPacketSize() { return MAX_UDP_PACKET_SIZE; } // return maximal packet size (only for packet devices)
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
 
 private:
-    void Init(const char *mcastAddress, const char *interfaceAddress, const char *srcAddress, const int port, const bool server);
+    void Init(const char *mcastAddress, const char *interfaceAddress, const char *srcAddress, const int port,
+              const bool server);
 
 };
 

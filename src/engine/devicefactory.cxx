@@ -33,90 +33,67 @@
 #include "serialdevice.hxx"
 
 
-CSingleton< CDeviceFactory > CDeviceFactory::_Instance;
+CSingleton<CDeviceFactory> CDeviceFactory::_Instance;
 
 
-
-CDeviceFactory::CDeviceFactory()
-{
-    for (unsigned int i=0; i<MAX_DEVICES; i++)
-    {
+CDeviceFactory::CDeviceFactory() {
+    for (unsigned int i = 0; i < MAX_DEVICES; i++) {
         _Device[i] = NULL;
     }
-    
+
     _nDevices = 0;
 }
 
 
-
-CDeviceFactory::~CDeviceFactory()
-{
-    for (unsigned int i=0; i<MAX_DEVICES; i++)
-    {
-        if (_Device[i])
-        {
+CDeviceFactory::~CDeviceFactory() {
+    for (unsigned int i = 0; i < MAX_DEVICES; i++) {
+        if (_Device[i]) {
             delete _Device[i];
         }
     }
-    
+
 }
 
 
-
-bool CDeviceFactory::CreateDevice(const char* deviceName, const char* deviceDescriptor, unsigned int &deviceNo)
-{
+bool CDeviceFactory::CreateDevice(const char *deviceName, const char *deviceDescriptor, unsigned int &deviceNo) {
     // Check for free slots
-    if (_nDevices >= MAX_DEVICES)
-    {
+    if (_nDevices >= MAX_DEVICES) {
         // No free slots
         LOGERROR(1, "Maximum number of devices has been reached. Cannot create new device slot.\n");
         return false;
     }
-    
+
     // Search for specified device and create it
-    if (strcasecmp(deviceName, "tcp") == 0)
-    {
+    if (strcasecmp(deviceName, "tcp") == 0) {
         CDescriptor descriptor(deviceDescriptor, ":");
         _Device[_nDevices] = new CTcpDevice(descriptor);
-    }
-    else if (strcasecmp(deviceName, "udp") == 0)
-    {
+    } else if (strcasecmp(deviceName, "udp") == 0) {
         CDescriptor descriptor(deviceDescriptor, "@");
         _Device[_nDevices] = new CUdpDevice(descriptor);
-    }
-    else if (strcasecmp(deviceName, "std") == 0)
-    {
+    } else if (strcasecmp(deviceName, "std") == 0) {
         _Device[_nDevices] = new CStdDevice();  // no need for descriptor currently
-    }
-    else if (strcasecmp(deviceName, "disk") == 0)
-    {
+    } else if (strcasecmp(deviceName, "disk") == 0) {
         CDescriptor descriptor(deviceDescriptor, "|");
         _Device[_nDevices] = new CDiskDevice(descriptor);
-    }
-    else if (strcasecmp(deviceName, "serial") == 0)
-    {
+    } else if (strcasecmp(deviceName, "serial") == 0) {
         CDescriptor descriptor(deviceDescriptor, ":");
         _Device[_nDevices] = new CSerialDevice(descriptor);
-    }
-    else 
-    {
+    } else {
         LOGERROR(1, "Unknown device '%s'\n", deviceName);
         _Device[_nDevices] = NULL; // redundant since it already must have that value
     }
-    
+
 
     // Check for memory allocation failure
-    if (_Device[_nDevices] == NULL)
-    {
+    if (_Device[_nDevices] == NULL) {
         return false;
     }
-    
+
     // Check if the device was properly initialized
-    if (!_Device[_nDevices]->IsOpened())
-    {
+    if (!_Device[_nDevices]->IsOpened()) {
         return false;
     }
-    
+
     // Device successfully installed
     deviceNo = _nDevices++;
     return true;

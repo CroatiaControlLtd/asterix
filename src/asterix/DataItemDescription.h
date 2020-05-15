@@ -26,40 +26,42 @@
 
 #include "DataItemFormat.h"
 
-class DataItemDescription
-{
+class DataItemDescription {
 public:
-  DataItemDescription(std::string id);
-  virtual
-  ~DataItemDescription();
+    DataItemDescription(std::string id);
 
-  std::string m_strID;
-  int m_nID; //! Data item ID in hexadecimal (this is used for BDS registers deconding)
+    virtual
+    ~DataItemDescription();
 
-  void setName(char* name) { m_strName = name; }
-  void setDefinition(char* definition) { m_strDefinition = definition; }
-  void setFormat(char* format) { m_strFormat = format; }
+    std::string m_strID;
+    int m_nID; //! Data item ID in hexadecimal (this is used for BDS registers deconding)
 
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength) // appends value to strResult
-  {
-    return m_pFormat->getText(strResult, strHeader, formatType, pData, nLength);
-  };
+    void setName(char *name) { m_strName = name; }
 
-  std::string m_strName;
-  std::string m_strDefinition;
-  std::string m_strFormat;
-  std::string m_strNote;
+    void setDefinition(char *definition) { m_strDefinition = definition; }
 
-  DataItemFormat* m_pFormat;
+    void setFormat(char *format) { m_strFormat = format; }
 
-  typedef enum
-  {
-    DATAITEM_UNKNOWN = 0,
-    DATAITEM_OPTIONAL,
-    DATAITEM_MANDATORY
-  } _eRule;
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength) // appends value to strResult
+    {
+        return m_pFormat->getText(strResult, strHeader, formatType, pData, nLength);
+    };
 
-  _eRule m_eRule;
+    std::string m_strName;
+    std::string m_strDefinition;
+    std::string m_strFormat;
+    std::string m_strNote;
+
+    DataItemFormat *m_pFormat;
+
+    typedef enum {
+        DATAITEM_UNKNOWN = 0,
+        DATAITEM_OPTIONAL,
+        DATAITEM_MANDATORY
+    } _eRule;
+
+    _eRule m_eRule;
 
 };
 

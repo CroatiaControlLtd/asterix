@@ -30,34 +30,32 @@
 #include "InputParser.h"
 #include <sys/time.h>
 
-static AsterixDefinition* pDefinition = NULL;
+static AsterixDefinition *pDefinition = NULL;
 static InputParser *inputParser = NULL;
 bool gFiltering = false;
 bool gSynchronous = false;
-const char* gAsterixDefinitionsFile = NULL;
+const char *gAsterixDefinitionsFile = NULL;
 bool gVerbose = false;
 bool gForceRouting = false;
 int gHeartbeat = 0;
 
-static void debug_trace(char const*format, ...)
-{
-  /* TODO
-  char buffer[1024];
-  va_list args;
-  va_start (args, format);
-  vsnprintf (buffer, 1023, format, args);
-  va_end (args);
-  strcat(buffer, "\n");
-  LOGERROR(1, "%s", buffer); // TODO
-  */
-  // TODO PyErr_SetString(PyExc_RuntimeError, buffer);
+static void debug_trace(char const *format, ...) {
+    /* TODO
+    char buffer[1024];
+    va_list args;
+    va_start (args, format);
+    vsnprintf (buffer, 1023, format, args);
+    va_end (args);
+    strcat(buffer, "\n");
+    LOGERROR(1, "%s", buffer); // TODO
+    */
+    // TODO PyErr_SetString(PyExc_RuntimeError, buffer);
 }
 
 /*
  * Initialize Asterix Python with XML configuration file
  */
-int python_init(const char* xml_config_file)
-{
+int python_init(const char *xml_config_file) {
     Tracer::Configure(debug_trace);
 
     if (!pDefinition)
@@ -66,16 +64,14 @@ int python_init(const char* xml_config_file)
     if (!inputParser)
         inputParser = new InputParser(pDefinition);
 
-    FILE* fp = fopen(xml_config_file, "rt");
-    if (!fp)
-    {
+    FILE *fp = fopen(xml_config_file, "rt");
+    if (!fp) {
         PyErr_SetString(PyExc_IOError, "Input file not found.");
         return -1;
     }
     // parse format file
     XMLParser Parser;
-    if (!Parser.Parse(fp, pDefinition, xml_config_file))
-    {
+    if (!Parser.Parse(fp, pDefinition, xml_config_file)) {
         fclose(fp);
         return -2;
     }
@@ -83,72 +79,66 @@ int python_init(const char* xml_config_file)
     return 0;
 }
 
-PyObject *python_parse(const unsigned char* pBuf, unsigned int len, int verbose)
-{
+PyObject *python_parse(const unsigned char *pBuf, unsigned int len, int verbose) {
     // get current timstamp in ms since epoch
-	struct timeval tp;
-	gettimeofday(&tp, NULL);
-	unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+    struct timeval tp;
+    gettimeofday(&tp, NULL);
+    unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 
-    if (inputParser)
-    {
-        AsterixData* pData = inputParser->parsePacket(pBuf, len, nTimestamp);
-        if (pData)
-        { // convert to Python format
-          PyObject *lst = pData->getData(verbose);
-          delete pData;
-          return lst;
+    if (inputParser) {
+        AsterixData *pData = inputParser->parsePacket(pBuf, len, nTimestamp);
+        if (pData) { // convert to Python format
+            PyObject *lst = pData->getData(verbose);
+            delete pData;
+            return lst;
         }
     }
     return NULL;
 }
 
-PyObject *python_parse_with_offset(const unsigned char* pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count, int verbose)
+PyObject *
+python_parse_with_offset(const unsigned char *pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count,
+                         int verbose)
 /* AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
 */
 {
     // get current timstamp in ms since epoch
-	struct timeval tp;
-	gettimeofday(&tp, NULL);
-	unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+    struct timeval tp;
+    gettimeofday(&tp, NULL);
+    unsigned long nTimestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 
-    if (inputParser)
-    {
-        AsterixData* pData = new AsterixData();
+    if (inputParser) {
+        AsterixData *pData = new AsterixData();
         unsigned int m_nPos = offset;
         unsigned int current_blocks_count = 0;
-        while (m_nPos < len && current_blocks_count < blocks_count)
-        {
+        while (m_nPos < len && current_blocks_count < blocks_count) {
             unsigned int m_nDataLength = len - m_nPos;
-            while (m_nDataLength > 3 && current_blocks_count < blocks_count)
-            {
-				const unsigned char* pBuf_offset = (pBuf + m_nPos);
-                DataBlock* block = inputParser->parse_next_data_block(
-                    pBuf_offset, m_nPos, len, nTimestamp, m_nDataLength);
+            while (m_nDataLength > 3 && current_blocks_count < blocks_count) {
+                const unsigned char *pBuf_offset = (pBuf + m_nPos);
+                DataBlock *block = inputParser->parse_next_data_block(
+                        pBuf_offset, m_nPos, len, nTimestamp, m_nDataLength);
                 if (block) {
                     pData->m_lDataBlocks.push_back(block);
                     current_blocks_count++;
                 }
             }
         }
-        if (pData)
-        { // convert to Python format
-          PyObject *lst = pData->getData(verbose);
-          delete pData;
-          PyObject* py_m_nPos = Py_BuildValue("l", m_nPos);
-          PyObject* py_output = PyTuple_Pack(2, lst, py_m_nPos);
-          return py_output;
+        if (pData) { // convert to Python format
+            PyObject *lst = pData->getData(verbose);
+            delete pData;
+            PyObject *py_m_nPos = Py_BuildValue("l", m_nPos);
+            PyObject *py_output = PyTuple_Pack(2, lst, py_m_nPos);
+            return py_output;
         }
     }
     return NULL;
 }
 
-PyObject *python_describe(int category, const char* item=NULL, const char* field=NULL, const char* value=NULL)
-{
+PyObject *python_describe(int category, const char *item = NULL, const char *field = NULL, const char *value = NULL) {
     if (!pDefinition)
         return Py_BuildValue("s", "Not initialized");
 
-    const char* description = pDefinition->getDescription(category, item, field, value);
+    const char *description = pDefinition->getDescription(category, item, field, value);
     if (description == NULL)
         return Py_BuildValue("s", "");
     return Py_BuildValue("s", description);

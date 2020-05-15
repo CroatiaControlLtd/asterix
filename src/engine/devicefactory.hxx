@@ -28,7 +28,6 @@
 class CBaseDevice;
 
 
-
 /**
  * @class CDeviceFactory
  * 
@@ -37,21 +36,21 @@ class CBaseDevice;
  *
  * @see   <CSingleton>
  */
-class CDeviceFactory
-{
+class CDeviceFactory {
 public:
 
     static const unsigned int MAX_DEVICES = 11;
-    
+
 private:
 
     // Singleton pattern
-    static CSingleton< CDeviceFactory > _Instance;
+    static CSingleton<CDeviceFactory> _Instance;
+
     // To access private Ctor...
-    friend class CSingleton< CDeviceFactory >;
-    
-    CBaseDevice*    _Device[MAX_DEVICES];
-    unsigned int    _nDevices;
+    friend class CSingleton<CDeviceFactory>;
+
+    CBaseDevice *_Device[MAX_DEVICES];
+    unsigned int _nDevices;
 
 public:
 
@@ -64,7 +63,7 @@ public:
      *
      * @see <CSingleton>::<Instance>
      */
-    static CDeviceFactory* Instance() { return _Instance.Instance(); }
+    static CDeviceFactory *Instance() { return _Instance.Instance(); }
 
     /**
      * Deletes the one and only instance of the Factory.
@@ -73,14 +72,16 @@ public:
      * @see <CSingleton>::<DeleteInstance>
      */
     static void DeleteInstance() { _Instance.DeleteInstance(); }
-    
+
     CDeviceFactory();
+
     ~CDeviceFactory();
 
     bool CreateDevice(const char *deviceName, const char *deviceDescriptor, unsigned int &deviceNo);
+
     unsigned int GetNDevices() { return _nDevices; }
-    CBaseDevice* GetDevice(unsigned int DeviceNo)
-       { return _Device[DeviceNo]; }
+
+    CBaseDevice *GetDevice(unsigned int DeviceNo) { return _Device[DeviceNo]; }
 
 };
 

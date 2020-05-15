@@ -195,3 +195,15 @@ Issue #113 Export undecoded asterix data in output
 2.5.6 (python_v0.5.14)
 10.4.2020.
 Added new categories: CAT025, CAT205
+
+2.6.0 (python_v0.5.15)
+15.5.2020.
+Issue #120 Add line-delimited XML output format and add indentation to standard XML output
+Issue #119 crc calculation not properly initialized
+Issue #118 format_arg_list truncates output if bigger than 256 bytes
+Issue #117 format_arg_list use fixed size, json corruption
+Issue #116 Error in decodification of I021/271 version 2.1
+Issue #114 use uniform spelling for twos and two's (in two's complement)
+Feature: Added CMake building mechanism
+Modifications in CAT011
+All code reformated using CLion automatic reformat

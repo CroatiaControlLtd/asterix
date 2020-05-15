@@ -56,11 +56,12 @@ import sys
 from datetime import datetime
 from .version import __version__
 
-#def set_callback(callback):
+
+# def set_callback(callback):
 #    return _asterix.set_callback(callback)
 
 
-#def hello(world):
+# def hello(world):
 #    return _asterix.hello(world)
 
 
@@ -153,14 +154,14 @@ def describe(parsed):
     i = 0
     txt = ''
     for record in parsed:
-        i+=1
+        i += 1
         txt += '\n\nAsterix record: %d ' % i
         len = record['len']
         txt += '\nLen: %ld' % (len)
         crc = record['crc']
         txt += '\nCRC: %s' % (crc)
         ts = record['ts']
-        strts = datetime.fromtimestamp(ts/1000.)
+        strts = datetime.fromtimestamp(ts / 1000.)
 
         txt += '\nTimestamp: %ld (%s)' % (ts, strts)
         cat = record['category']
@@ -172,15 +173,21 @@ def describe(parsed):
                 if isinstance(value, dict):
                     for ikey, ival in value.items():
                         if 'val' in ival:
-                            txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),_asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                            txt += '\n\t%s (%s): %s %s' % (
+                            ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),
+                            _asterix.describe(cat, str(key), ikey, str(ival['val'])))
                         else:
                             txt += '\n\t%s' % ikey
                             for ikey2, ival2 in ival.items():
-                                txt += '\n\t\t%s (%s): %s %s' % (ikey2, _asterix.describe(cat, str(key), ikey2), str(ival2['val']), _asterix.describe(cat, str(key), ikey2, str(ival2['val'])))
+                                txt += '\n\t\t%s (%s): %s %s' % (
+                                ikey2, _asterix.describe(cat, str(key), ikey2), str(ival2['val']),
+                                _asterix.describe(cat, str(key), ikey2, str(ival2['val'])))
                 elif isinstance(value, list):
                     for it in value:
                         for ikey, ival in it.items():
-                            txt += '\n\t%s (%s): %s %s' % (ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']), _asterix.describe(cat, str(key), ikey, str(ival['val'])))
+                            txt += '\n\t%s (%s): %s %s' % (
+                            ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),
+                            _asterix.describe(cat, str(key), ikey, str(ival['val'])))
                 else:
                     txt += str(value)
 
@@ -197,8 +204,8 @@ def list_sample_files():
     sample_files = []
     filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
     for fn in sorted(os.listdir(filepath)):
-         f = os.path.join(filepath, fn)
-         if os.path.isfile(f):
+        f = os.path.join(filepath, fn)
+        if os.path.isfile(f):
             sample_files.append(f)
     return sample_files
 
@@ -212,8 +219,8 @@ def get_sample_file(match):
     """
     filepath = os.path.join(os.path.dirname(__file__), 'sample_data')
     for fn in sorted(os.listdir(filepath)):
-         f = os.path.join(filepath, fn)
-         if os.path.isfile(f) and match in fn:
+        f = os.path.join(filepath, fn)
+        if os.path.isfile(f) and match in fn:
             return f
 
 
@@ -225,8 +232,8 @@ def list_configuration_files():
     sample_files = []
     filepath = os.path.join(os.path.dirname(__file__), 'config')
     for fn in sorted(os.listdir(filepath)):
-         f = os.path.join(filepath, fn)
-         if os.path.isfile(f):
+        f = os.path.join(filepath, fn)
+        if os.path.isfile(f):
             sample_files.append(f)
     return sample_files
 
@@ -240,13 +247,13 @@ def get_configuration_file(match):
     """
     filepath = os.path.join(os.path.dirname(__file__), 'config')
     for fn in sorted(os.listdir(filepath)):
-         f = os.path.join(filepath, fn)
-         if os.path.isfile(f) and match in fn:
+        f = os.path.join(filepath, fn)
+        if os.path.isfile(f) and match in fn:
             return f
 
 
 # default callback function
-#def callback(arg):
+# def callback(arg):
 #    for a in arg:
 #        print(a)
 
@@ -254,9 +261,9 @@ def get_configuration_file(match):
 
 filepath = os.path.join(os.path.dirname(__file__), 'config')
 for fn in sorted(os.listdir(filepath)):
-     f = os.path.join(filepath, fn)
-     if os.path.isfile(f) and f.endswith(".xml"):
+    f = os.path.join(filepath, fn)
+    if os.path.isfile(f) and f.endswith(".xml"):
         _asterix.init(f)
 
 # set default callback
-#_asterix.set_callback(callback)
+# _asterix.set_callback(callback)

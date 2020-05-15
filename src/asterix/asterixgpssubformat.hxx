@@ -22,6 +22,7 @@
  */
 #ifndef ASTERIXGPSSUBFORMAT_HXX__
 #define ASTERIXGPSSUBFORMAT_HXX__
+
 /*
 struct sFinalRecordHeaderGPS
 {
@@ -48,17 +49,19 @@ class CBaseDevice;
  * Specifies format of Asterix message.
  *
  */
-class CAsterixGPSSubformat
-{
+class CAsterixGPSSubformat {
 public:
 
-    static bool ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis=false);
+    static bool
+    ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis = false);
 
-    static bool WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis=false);
+    static bool
+    WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis = false);
 
-    static bool ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis=false);
+    static bool
+    ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard, bool oradis = false);
 
-    static bool Heartbeat(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool oradis=false);
+    static bool Heartbeat(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool oradis = false);
 
 private:
 

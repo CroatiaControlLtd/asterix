@@ -28,6 +28,7 @@
 
 
 class CBaseFormat;
+
 class CBaseFormatDescriptor;
 
 /**
@@ -37,8 +38,7 @@ class CBaseFormatDescriptor;
  *
  * @see   <CSingleton>
  */
-class CChannelFactory
-{
+class CChannelFactory {
 public:
 
     static const unsigned int MAX_OUTPUT_CHANNELS = 10;
@@ -46,15 +46,16 @@ public:
 private:
 
     // Singleton pattern
-    static CSingleton< CChannelFactory > _Instance;
-    // To access private Ctor...
-    friend class CSingleton< CChannelFactory >;
+    static CSingleton<CChannelFactory> _Instance;
 
-    CChannel*       _inputChannel;
-    CChannel*       _outputChannel[MAX_OUTPUT_CHANNELS];
-    unsigned int    _nOutputChannels;
-    CBaseFormat*    _formatEngine;
-    unsigned int    _activeFailoverOutputChannel;
+    // To access private Ctor...
+    friend class CSingleton<CChannelFactory>;
+
+    CChannel *_inputChannel;
+    CChannel *_outputChannel[MAX_OUTPUT_CHANNELS];
+    unsigned int _nOutputChannels;
+    CBaseFormat *_formatEngine;
+    unsigned int _activeFailoverOutputChannel;
 
 public:
 
@@ -67,7 +68,7 @@ public:
      *
      * @see <CSingleton>::<Instance>
      */
-    static CChannelFactory* Instance() { return _Instance.Instance(); }
+    static CChannelFactory *Instance() { return _Instance.Instance(); }
 
     /**
      * Deletes the one and only instance of the factory.
@@ -89,34 +90,46 @@ public:
      */
     ~CChannelFactory();
 
-    bool CreateInputChannel(const char* sDeviceName, const char* sDeviceDescriptor,
-        const char* sFormatName, const char* sFormatDescriptor);
-    bool CreateOutputChannel(const char* sDeviceName, const char* sDeviceDescriptor,
-        const char* sFormatName, const char* sFormatDescriptor,
-        const bool bFailover, const char* sHeartbeat);
+    bool CreateInputChannel(const char *sDeviceName, const char *sDeviceDescriptor,
+                            const char *sFormatName, const char *sFormatDescriptor);
 
-    CChannel*  GetInputChannel() { return _inputChannel; };
+    bool CreateOutputChannel(const char *sDeviceName, const char *sDeviceDescriptor,
+                             const char *sFormatName, const char *sFormatDescriptor,
+                             const bool bFailover, const char *sHeartbeat);
+
+    CChannel *GetInputChannel() { return _inputChannel; };
 
 
     unsigned int GetNOutputChannels() { return _nOutputChannels; }
+
     unsigned int GetActiveFailoverOutputChannel() { return _activeFailoverOutputChannel; };
+
     unsigned int GetNextFailoverOutputChannel();
+
     bool IsFailoverOutputChannel(const unsigned int ch);
 
     bool WaitForPacket(const unsigned int secondsToWait);
+
     bool ReadPacket();
+
     bool WritePacket(const unsigned int outputChannel);
+
     bool ProcessPacket(bool &discard);
+
     bool HeartbeatProcessing(const unsigned int outputChannel);
+
     int GetStatus(int query = 0);
+
     bool ResetInputChannel();
+
     bool ResetOutputChannel(const unsigned int outputChannel);
-    bool IoCtrl(const int channel, const unsigned int command, const void *data=0, size_t len=0);
+
+    bool IoCtrl(const int channel, const unsigned int command, const void *data = 0, size_t len = 0);
 
 private:
 
-    bool AttachFormatter(const char* sFormatName, const char* sFormatDescriptor,
-        unsigned int &formatNo, CBaseFormatDescriptor** formatDesc);
+    bool AttachFormatter(const char *sFormatName, const char *sFormatDescriptor,
+                         unsigned int &formatNo, CBaseFormatDescriptor **formatDesc);
 };
 
 #endif

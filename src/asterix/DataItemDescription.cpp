@@ -25,18 +25,13 @@
 #include <stdlib.h>
 
 DataItemDescription::DataItemDescription(std::string id)
-: m_strID(id)
-, m_pFormat(NULL)
-, m_eRule(DATAITEM_UNKNOWN)
-{
-	m_nID = strtol(id.c_str(), NULL, 16);
+        : m_strID(id), m_pFormat(NULL), m_eRule(DATAITEM_UNKNOWN) {
+    m_nID = strtol(id.c_str(), NULL, 16);
 }
 
-DataItemDescription::~DataItemDescription()
-{
-  if (m_pFormat != NULL)
-  {
-    delete m_pFormat;
-    m_pFormat = NULL;
-  }
+DataItemDescription::~DataItemDescription() {
+    if (m_pFormat != NULL) {
+        delete m_pFormat;
+        m_pFormat = NULL;
+    }
 }

@@ -9,13 +9,15 @@
     Created:  20.05.2019
     Modified: 31.01.2020
 
---> 
+-->
 
 <Category id="205" name="Radio Direction Finder System Reports" ver="1.0">
 
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -25,7 +27,7 @@
                     <BitsValue val="2">System Bearing Report</BitsValue>
                     <BitsValue val="3">System Position Report of conflicting transmission</BitsValue>
                     <BitsValue val="4">System Detection End Report</BitsValue>
-                    <BitsValue val="5">Sensor Data Report</BitsValue> 
+                    <BitsValue val="5">Sensor Data Report</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -56,7 +58,7 @@
                 <Bits from="8" to="1">
                     <BitsShortName>SID</BitsShortName>
                     <BitsName>Service Identification</BitsName>
-                </Bits> 
+                </Bits>
             </Fixed>
         </DataItemFormat>
         <DataItemNote>The service identification is allocated by the RDFS</DataItemNote>
@@ -64,7 +66,8 @@
 
     <DataItem id="030">
         <DataItemName>Time Of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.
+        </DataItemDefinition>
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
@@ -75,7 +78,7 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>The time of the day value is reset to zero at every midnight.</DataItemNote>
-    </DataItem>     
+    </DataItem>
 
     <DataItem id="040" rule="optional">
         <DataItemName>Report Number</DataItemName>
@@ -88,11 +91,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem> 
+    </DataItem>
 
     <DataItem id="050" rule="optional">
         <DataItemName>Position in WGS-84 Coordinates</DataItemName>
-        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees</DataItemDefinition>
+        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees
+        </DataItemDefinition>
         <DataItemFormat>
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
@@ -102,7 +106,8 @@
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.
+                    </BitsName>
                     <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -112,7 +117,9 @@
 
     <DataItem id="060" rule="optional">
         <DataItemName>Position in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian coordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated position in Cartesian coordinates with a resolution of 0.5m, in two’s complement
+            form.
+        </DataItemDefinition>
         <DataItemFormat>
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
@@ -129,9 +136,10 @@
         </DataItemFormat>
     </DataItem>
 
-   <DataItem id="070" rule="optional">
+    <DataItem id="070" rule="optional">
         <DataItemName>Local Bearing</DataItemName>
-        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/050.</DataItemDefinition>
+        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/050.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -142,9 +150,11 @@
         </DataItemFormat>
     </DataItem>
 
-   <DataItem id="080" rule="optional">
+    <DataItem id="080" rule="optional">
         <DataItemName>System Bearing</DataItemName>
-        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/060 with stereographic projection to the Cartesian Coordinate System.</DataItemDefinition>
+        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/060 with
+            stereographic projection to the Cartesian Coordinate System.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -155,15 +165,15 @@
         </DataItemFormat>
     </DataItem>
 
-   <DataItem id="090" rule="optional">
+    <DataItem id="090" rule="optional">
         <DataItemName>Radio Channel Name</DataItemName>
         <DataItemDefinition>Name of the channel the radio transmission is detected on.</DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item.">
             <Fixed length="7">
-               <Bits from="56" to="1" encode="ascii">
-                   <BitsShortName>RCH</BitsShortName>
-                   <BitsName>Radio Channel</BitsName>
-               </Bits>
+                <Bits from="56" to="1" encode="ascii">
+                    <BitsShortName>RCH</BitsShortName>
+                    <BitsName>Radio Channel</BitsName>
+                </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
@@ -180,10 +190,12 @@
             </Fixed>
         </DataItemFormat>
     </DataItem>
-             
+
     <DataItem id="110" rule="optional">
         <DataItemName>Estimated Uncertainty</DataItemName>
-        <DataItemDefinition>Uncertainty estimation of the RDF System. The transmitter is within the provided radius around the calculated position.</DataItemDefinition>
+        <DataItemDefinition>Uncertainty estimation of the RDF System. The transmitter is within the provided radius
+            around the calculated position.
+        </DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -212,7 +224,8 @@
 
     <DataItem id="130" rule="optional">
         <DataItemName>Conflicting Transmitter Position in WGS-84 Coordinates</DataItemName>
-        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees</DataItemDefinition>
+        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees
+        </DataItemDefinition>
         <DataItemFormat>
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
@@ -222,7 +235,8 @@
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.
+                    </BitsName>
                     <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                 </Bits>
             </Fixed>
@@ -232,7 +246,9 @@
 
     <DataItem id="140" rule="optional">
         <DataItemName>Conflicting Transmitter Position in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian Coordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated position in Cartesian Coordinates with a resolution of 0.5m, in two’s complement
+            form.
+        </DataItemDefinition>
         <DataItemFormat>
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
@@ -251,7 +267,9 @@
 
     <DataItem id="150" rule="optional">
         <DataItemName>Conflicting Transmitter Estimated Uncertainty</DataItemName>
-        <DataItemDefinition>Range uncertainty estimation of the RDF System. The transmitter is within the provided radius around the detected position.</DataItemDefinition>
+        <DataItemDefinition>Range uncertainty estimation of the RDF System. The transmitter is within the provided
+            radius around the detected position.
+        </DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -330,7 +348,7 @@
     </DataItem>
 
     <!--Special Purpose Field - content unknown -->
-    <DataItem id="SP" >
+    <DataItem id="SP">
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>SP</DataItemDefinition>
         <DataItemFormat desc="Explicit">

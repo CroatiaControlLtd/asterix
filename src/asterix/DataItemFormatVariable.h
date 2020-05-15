@@ -27,30 +27,34 @@
 #include "DataItemFormat.h"
 #include "DataItemFormatFixed.h"
 
-class DataItemFormatVariable : public DataItemFormat
-{
+class DataItemFormatVariable : public DataItemFormat {
 public:
-  DataItemFormatVariable(int id=0);
-  DataItemFormatVariable(const DataItemFormatVariable& obj);
-  virtual
-  ~DataItemFormatVariable();
+    DataItemFormatVariable(int id = 0);
 
-  DataItemFormatVariable* clone() const { return new DataItemFormatVariable(*this); } // Return clone of object
-  long getLength(const unsigned char* pData);
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
-  std::string printDescriptors(std::string header); // print items format descriptors
-  bool filterOutItem(const char* name); // mark item for filtering
-  bool isFiltered(const char* name);
-  bool isVariable() 	{ return true; }; // true if this is Variable format
-  const char* getDescription(const char* field, const char* value ); // return description ef element
+    DataItemFormatVariable(const DataItemFormatVariable &obj);
+
+    virtual
+    ~DataItemFormatVariable();
+
+    DataItemFormatVariable *clone() const { return new DataItemFormatVariable(*this); } // Return clone of object
+    long getLength(const unsigned char *pData);
+
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength); // appends value description to strResult
+    std::string printDescriptors(std::string header); // print items format descriptors
+    bool filterOutItem(const char *name); // mark item for filtering
+    bool isFiltered(const char *name);
+
+    bool isVariable() { return true; }; // true if this is Variable format
+    const char *getDescription(const char *field, const char *value); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_definitions* getWiresharkDefinitions();
-  fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+    fulliautomatix_definitions* getWiresharkDefinitions();
+    fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getObject(unsigned char* pData, long nLength, int verbose);
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose);
+    PyObject* getObject(unsigned char* pData, long nLength, int verbose);
+    void insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose);
 #endif
 };
 

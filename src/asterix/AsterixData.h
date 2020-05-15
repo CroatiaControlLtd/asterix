@@ -28,24 +28,25 @@
 #include "DataBlock.h"
 #include <map>
 
-class AsterixData
-{
+class AsterixData {
 public:
-  AsterixData();
-  virtual
-  ~AsterixData();
+    AsterixData();
 
-  std::list<DataBlock*> m_lDataBlocks;
+    virtual
+    ~AsterixData();
+
+    std::list<DataBlock *> m_lDataBlocks;
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_data* getData();
+    fulliautomatix_data* getData();
 #endif
 
 #if defined(PYTHON_WRAPPER)
-  PyObject* getData(int verbose);
+    PyObject* getData(int verbose);
 #endif
 
-  bool getText(std::string& strResult, const unsigned int formatType); // appends value to strResult in formatType format
+    bool
+    getText(std::string &strResult, const unsigned int formatType); // appends value to strResult in formatType format
 };
 
 #endif /* ASTERIXDATA_H_ */

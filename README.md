@@ -39,6 +39,12 @@ cd asterix/src
 make install 
 ```
 
+or if you have CMake installed, run:
+```console
+cmake .
+make 
+```
+
 Then run it from asterix/install folder:
 ```console
 ./asterix

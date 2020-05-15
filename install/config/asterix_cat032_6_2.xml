@@ -9,7 +9,7 @@
 	Created:  9.2.2009.
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
---> 
+-->
 
 <Category id="32" name="Messages Provided by Users to ARTAS" ver="6.2">
 
@@ -28,7 +28,9 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to the sender of the miniplan.</DataItemNote>
+        <DataItemNote>In the case of miniplan exchange between ARTAS units, the Server Identification Tag corresponds to
+            the sender of the miniplan.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="015">
@@ -39,15 +41,20 @@
                 <Bits from="16" to="1">
                     <BitsShortName>UserN</BitsShortName>
                     <BitsName>User number</BitsName>
-                </Bits> 
+                </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to the receiver of the miniplan.</DataItemNote>
+        <DataItemNote>The User numbers are predefined in the User registration data base of the ARTAS Unit to which the
+            User wants to connect. In the case of miniplan exchange between ARTAS units, the User Number corresponds to
+            the receiver of the miniplan.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="018">
         <DataItemName>Data Source Identification Tag</DataItemName>
-        <DataItemDefinition>Identification of the data source (system) from which the information contained in the message was originated.</DataItemDefinition>
+        <DataItemDefinition>Identification of the data source (system) from which the information contained in the
+            message was originated.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
@@ -60,12 +67,17 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This item will be used if the system sending the minipln information (i.e. the system which is identified in I032/015 : USER NUMBER) is another system than the FPPS from which the minipln information has been received. This will be the case of e.g. an ARTAS unit forwarding minipln information to an adjacent unit.</DataItemNote>
+        <DataItemNote>This item will be used if the system sending the minipln information (i.e. the system which is
+            identified in I032/015 : USER NUMBER) is another system than the FPPS from which the minipln information has
+            been received. This will be the case of e.g. an ARTAS unit forwarding minipln information to an adjacent
+            unit.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="020">
         <DataItemName>Time Of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.
+        </DataItemDefinition>
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
@@ -75,18 +87,23 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at which a served track is extrapolated), and not at the communication level (i.e. not the time at which the data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.</DataItemNote>
-    </DataItem>		
+        <DataItemNote>This time is given at an application level (e.g. time at which a message is filled, or time at
+            which a served track is extrapolated), and not at the communication level (i.e. not the time at which the
+            data-block containing the tracks is sent). The time of the day value is reset to 0 at every midnight.
+        </DataItemNote>
+    </DataItem>
 
     <DataItem id="035">
         <DataItemName>Type Of Message</DataItemName>
-        <DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This data item allows for a more convenient handling of the message at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-byte fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="5">
                     <BitsShortName>family</BitsShortName>
                     <BitsName>Familiy to which the message belongs</BitsName>
-                </Bits> 
+                </Bits>
                 <Bits from="4" to="1">
                     <BitsShortName>nature</BitsShortName>
                     <BitsName>Nature of the message (within its family)</BitsName>
@@ -94,7 +111,7 @@
                     <BitsValue val="2">Minipln update</BitsValue>
                     <BitsValue val="3">End of correlation</BitsValue>
                     <BitsValue val="4">Minipln Cancellation</BitsValue>
-                </Bits> 
+                </Bits>
             </Fixed>
         </DataItemFormat>
         <DataItemNote>The composition of the messages are described by the UAP attached to each FAMILY.</DataItemNote>
@@ -120,13 +137,16 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Unlike the ARTAS track number I032/050, the track number does not change when a track enters or leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.</DataItemNote>
+        <DataItemNote>Unlike the ARTAS track number I032/050, the track number does not change when a track enters or
+            leaves an ARTAS Domain of Cooperation. It remains unchanged as long as the track exists.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="050">
         <DataItemName>Artas Track Number</DataItemName>
         <DataItemDefinition>Identification of an ARTAS track</DataItemDefinition>
-        <DataItemFormat desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
+        <DataItemFormat
+                desc="Variable length data item comprising a first part of three bytes (Master Track Number), followed by up to 5 extents of three bytes (Slave Track Numbers).">
             <Variable>
                 <Fixed length="3">
                     <Bits from="24" to="17">
@@ -249,7 +269,8 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.</DataItemNote>
+        <DataItemNote>The ARTAS UNIT IDENTIFICATION NUMBERS will be given as soon as the systems will be implemented.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="060">
@@ -269,7 +290,7 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote/>
-    </DataItem>	
+    </DataItem>
 
     <DataItem id="400">
         <DataItemName>Callsign</DataItemName>
@@ -282,11 +303,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem>    
+    </DataItem>
 
     <DataItem id="410">
         <DataItemName>PLN Number</DataItemName>
-        <DataItemDefinition>The PLN NUMBER is an integer value representing a unique reference to a Flight-plan record within a particular FPPS (Information provided in the minipln).</DataItemDefinition>
+        <DataItemDefinition>The PLN NUMBER is an integer value representing a unique reference to a Flight-plan record
+            within a particular FPPS (Information provided in the minipln).
+        </DataItemDefinition>
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -329,7 +352,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-    </DataItem>        
+    </DataItem>
 
     <DataItem id="430">
         <DataItemName>Type Of Aircraft</DataItemName>
@@ -347,7 +370,8 @@
 
     <DataItem id="435">
         <DataItemName>Category of Turbulence</DataItemName>
-        <DataItemDefinition>Category of turbulence of an aircraft (information provided in the Minipln).</DataItemDefinition>
+        <DataItemDefinition>Category of turbulence of an aircraft (information provided in the Minipln).
+        </DataItemDefinition>
         <DataItemFormat desc="1-byte fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="ascii">
@@ -388,8 +412,10 @@
 
     <DataItem id="460">
         <DataItemName>Allocated SSR codes</DataItemName>
-        <DataItemDefinition>List of successive SSR codes allocated to a flight (Information provided in the minipln).</DataItemDefinition>
-        <DataItemFormat desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, ">
+        <DataItemDefinition>List of successive SSR codes allocated to a flight (Information provided in the minipln).
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Repetitive data item, starting with a one-byte Repetition Factor indicating the number of items, ">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="13">
@@ -422,7 +448,9 @@
 
     <DataItem id="490">
         <DataItemName>Current Control Position</DataItemName>
-        <DataItemDefinition>Identification of the Current Control Position in charge of an aircraft, as provided by a FPPS</DataItemDefinition>
+        <DataItemDefinition>Identification of the Current Control Position in charge of an aircraft, as provided by a
+            FPPS
+        </DataItemDefinition>
         <DataItemFormat desc="Two-byte fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
@@ -435,7 +463,9 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The centre and the control position identification codes have to be defined between communication partners.</DataItemNote>
+        <DataItemNote>The centre and the control position identification codes have to be defined between communication
+            partners.
+        </DataItemNote>
     </DataItem>
 
     <UAP>

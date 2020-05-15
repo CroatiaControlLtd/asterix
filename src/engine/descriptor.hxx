@@ -22,23 +22,22 @@
  */
 #ifndef DESCRIPTOR_HXX__
 #define DESCRIPTOR_HXX__
- 
+
 /**
  * @class CDescriptor
  * 
  * @brief The descriptor class for simplified parameters handling from string.
  *
  */
-class CDescriptor
-{
+class CDescriptor {
 private:
     char *_description;
     char *_iterator;
     char *_end;
-    int   _bMultipleDelimiters;
-    
-    void RemoveEmptyChars(const char* empty_chars);
-    
+    int _bMultipleDelimiters;
+
+    void RemoveEmptyChars(const char *empty_chars);
+
 public:
 
     /**
@@ -47,15 +46,16 @@ public:
      *        one. When <false> multiple consecutive delimiters are considered 
      *        each separately (single mode - default).
      */
-    CDescriptor(const char *description, const char* delimiters, bool multiMode = false);
+    CDescriptor(const char *description, const char *delimiters, bool multiMode = false);
 
     /**
      * Class destructor.
      */
     ~CDescriptor();
-    
-    const char* GetFirst(const char* empty_chars = NULL);
-    const char* GetNext(const char* empty_chars = NULL);
+
+    const char *GetFirst(const char *empty_chars = NULL);
+
+    const char *GetNext(const char *empty_chars = NULL);
 };
 
 #endif

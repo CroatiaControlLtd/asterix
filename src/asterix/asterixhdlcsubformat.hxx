@@ -22,6 +22,7 @@
  */
 #ifndef ASTERIXHDLCSUBFORMAT_HXX__
 #define ASTERIXHDLCSUBFORMAT_HXX__
+
 class CBaseDevice;
 
 /**
@@ -32,8 +33,7 @@ class CBaseDevice;
  * Specifies format of Asterix HDLC message.
  *
  */
-class CAsterixHDLCSubformat
-{
+class CAsterixHDLCSubformat {
 public:
 
     static bool ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device, bool &discard);

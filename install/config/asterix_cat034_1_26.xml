@@ -10,12 +10,14 @@
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
                17.2.2016. (dsalantic, reported by hubbiedihub) Issue #20 asterix_cat034_1_26.xml: Data item 050 SSR status: bit 4 read twice
 
---> 
+-->
 
 <Category id="34" name="Transmission of Monoroadar Service Messages" ver="1.0">
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -24,7 +26,7 @@
                     <BitsValue val="1">North marker message</BitsValue>
                     <BitsValue val="2">Sector crossing message</BitsValue>
                     <BitsValue val="3">Geographical filtering message</BitsValue>
-                    <BitsValue val="4">Jamming Strobe message</BitsValue>                
+                    <BitsValue val="4">Jamming Strobe message</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -49,7 +51,8 @@
 
     <DataItem id="020">
         <DataItemName>Sector Number</DataItemName>
-        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.</DataItemDefinition>
+        <DataItemDefinition>Eight most significant bits of the antenna azimuth defining a particular azimuth sector.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
@@ -74,12 +77,17 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed since last midnight. </DataItemNote>
+        <DataItemNote>The time information, coded in three octets, shall reflect the exact time of an event (crossing of
+            the azimuth defining the beginning of a sector by the antenna), expressed as a number of 1/128 s elapsed
+            since last midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="041">
         <DataItemName>Antenna Rotation Speed</DataItemName>
-        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged during a period of time.</DataItemDefinition>
+        <DataItemDefinition>Antenna rotation period as measured between two consecutive North crossings or as averaged
+            during a period of time.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="1">
@@ -94,7 +102,8 @@
     <DataItem id="050">
         <DataItemName>System Configuration and Status</DataItemName>
         <DataItemDefinition>Information concerning the configuration and status of a System..</DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
+        <DataItemFormat
+                desc="Compound Data Item, comprising an extensible primary subfield (initially one octet; one octet extents), followed by a variable number of secondary subfields.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -107,7 +116,7 @@
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
                             <BitsConst>0</BitsConst>
-                        </Bits>                         
+                        </Bits>
                         <Bits bit="6">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
@@ -139,7 +148,7 @@
                             <BitsValue val="1">Extension into next extent</BitsValue>
                             <BitsValue val="0">End of Data Item</BitsValue>
                         </Bits>
-                    </Fixed>                
+                    </Fixed>
                 </Variable>
 
                 <Fixed length="1">
@@ -147,31 +156,31 @@
                         <BitsShortName>NOGO</BitsShortName>
                         <BitsName>NOGO</BitsName>
                         <BitsValue val="1">NOGO</BitsValue>
-                        <BitsValue val="0">GO</BitsValue>   
+                        <BitsValue val="0">GO</BitsValue>
                     </Bits>
                     <Bits bit="7">
                         <BitsShortName>RDPC</BitsShortName>
                         <BitsName>RDPC</BitsName>
                         <BitsValue val="1">RDPC-2</BitsValue>
-                        <BitsValue val="0">RDPC-1</BitsValue>   
-                    </Bits>                         
+                        <BitsValue val="0">RDPC-1</BitsValue>
+                    </Bits>
                     <Bits bit="6">
                         <BitsShortName>RDPR</BitsShortName>
                         <BitsName>RDPR</BitsName>
                         <BitsValue val="1">Reset of RDPC</BitsValue>
-                        <BitsValue val="0">Default</BitsValue>  
+                        <BitsValue val="0">Default</BitsValue>
                     </Bits>
                     <Bits bit="5">
                         <BitsShortName>OVL RDP</BitsShortName>
                         <BitsName>OVL RDP</BitsName>
                         <BitsValue val="1">Overload in RDP</BitsValue>
-                        <BitsValue val="0">No overload</BitsValue>  
+                        <BitsValue val="0">No overload</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>OVL XMT</BitsShortName>
                         <BitsName>OVL XMT</BitsName>
                         <BitsValue val="1">Transmission Subsystem Overload</BitsValue>
-                        <BitsValue val="0">No overload</BitsValue>  
+                        <BitsValue val="0">No overload</BitsValue>
                     </Bits>
                     <Bits bit="3">
                         <BitsShortName>MSC</BitsShortName>
@@ -190,14 +199,14 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>                
+                </Fixed>
 
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>ANT</BitsShortName>
                         <BitsName>ANT</BitsName>
                         <BitsValue val="1">antenna 2</BitsValue>
-                        <BitsValue val="0">antenna 1</BitsValue>    
+                        <BitsValue val="0">antenna 1</BitsValue>
                     </Bits>
                     <Bits from="7" to="6">
                         <BitsShortName>CHAB</BitsShortName>
@@ -206,12 +215,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Diversity mode</BitsValue>
-                    </Bits>                         
+                    </Bits>
                     <Bits bit="5">
                         <BitsShortName>OVL</BitsShortName>
                         <BitsName>OVL</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue> 
+                        <BitsValue val="1">Overload</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>MSC</BitsShortName>
@@ -224,14 +233,14 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>                
+                </Fixed>
 
                 <Fixed length="1">
                     <Bits bit="8">
                         <BitsShortName>ANT</BitsShortName>
                         <BitsName>ANT</BitsName>
                         <BitsValue val="1">antenna 2</BitsValue>
-                        <BitsValue val="0">antenna 1</BitsValue>    
+                        <BitsValue val="0">antenna 1</BitsValue>
                     </Bits>
                     <Bits from="7" to="6">
                         <BitsShortName>CHAB</BitsShortName>
@@ -240,12 +249,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Invalid combination</BitsValue>
-                    </Bits>                         
+                    </Bits>
                     <Bits bit="5">
                         <BitsShortName>OVL</BitsShortName>
                         <BitsName>OVL</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue> 
+                        <BitsValue val="1">Overload</BitsValue>
                     </Bits>
                     <Bits bit="4">
                         <BitsShortName>MSC</BitsShortName>
@@ -265,7 +274,7 @@
                         <BitsShortName>ANT</BitsShortName>
                         <BitsName>ANT</BitsName>
                         <BitsValue val="0">antenna 1</BitsValue>
-                        <BitsValue val="1">antenna 2</BitsValue>    
+                        <BitsValue val="1">antenna 2</BitsValue>
                     </Bits>
                     <Bits from="15" to="14">
                         <BitsShortName>CHAB</BitsShortName>
@@ -274,12 +283,12 @@
                         <BitsValue val="1">Channel A only selected</BitsValue>
                         <BitsValue val="2">Channel B only selected</BitsValue>
                         <BitsValue val="3">Illegal combination</BitsValue>
-                    </Bits>                         
+                    </Bits>
                     <Bits bit="13">
                         <BitsShortName>OVL SUR</BitsShortName>
                         <BitsName>OVL SUR</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue> 
+                        <BitsValue val="1">Overload</BitsValue>
                     </Bits>
                     <Bits bit="12">
                         <BitsShortName>MSC</BitsShortName>
@@ -303,13 +312,13 @@
                         <BitsShortName>OVL SCF</BitsShortName>
                         <BitsName>OVL SCF</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue> 
+                        <BitsValue val="1">Overload</BitsValue>
                     </Bits>
                     <Bits bit="8">
                         <BitsShortName>OVL DLF</BitsShortName>
                         <BitsName>OVL DLF</BitsName>
                         <BitsValue val="0">No overload</BitsValue>
-                        <BitsValue val="1">Overload</BitsValue> 
+                        <BitsValue val="1">Overload</BitsValue>
                     </Bits>
                     <Bits from="7" to="1">
                         <BitsShortName>spare</BitsShortName>
@@ -318,15 +327,19 @@
                     </Bits>
                 </Fixed>
 
-            </Compound>     
+            </Compound>
         </DataItemFormat>
-        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it is felt impractical to attempt to define the individual bits.</DataItemNote>
-    </DataItem>    
+        <DataItemNote>Due to the diversity in hardware design and requirement of present and future radar stations, it
+            is felt impractical to attempt to define the individual bits.
+        </DataItemNote>
+    </DataItem>
 
     <DataItem id="060">
         <DataItemName>System Processing Mode</DataItemName>
-        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.</DataItemDefinition>
-        <DataItemFormat desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
+        <DataItemDefinition>Details concerning the present status with respect to processing parameters and options.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Variable length Data Item comprising a first part of oneoctet, followed by one-octet extents as necessary.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -338,7 +351,7 @@
                         <Bits bit="7">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
-                        </Bits>                         
+                        </Bits>
                         <Bits bit="6">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare</BitsName>
@@ -369,7 +382,7 @@
                             <BitsValue val="1">Extension into next extent</BitsValue>
                             <BitsValue val="0">End of Data Item</BitsValue>
                         </Bits>
-                    </Fixed>                
+                    </Fixed>
                 </Variable>
 
                 <Fixed length="1">
@@ -381,7 +394,7 @@
                     <Bits from="7" to="5">
                         <BitsShortName>REDRDP</BitsShortName>
                         <BitsName>RED-RDP</BitsName>
-                    </Bits>                         
+                    </Bits>
                     <Bits from="4" to="2">
                         <BitsShortName>REDXMT</BitsShortName>
                         <BitsName>RED-XMT</BitsName>
@@ -391,7 +404,7 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>        
+                </Fixed>
 
                 <Fixed length="1">
                     <Bits bit="8">
@@ -402,8 +415,8 @@
                     </Bits>
                     <Bits from="7" to="5">
                         <BitsShortName>REDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use</BitsName>         
-                    </Bits>                         
+                        <BitsName>Reduction Steps in use</BitsName>
+                    </Bits>
                     <Bits from="4" to="3">
                         <BitsShortName>STC</BitsShortName>
                         <BitsName>Sensitivity Time Control Map in use</BitsName>
@@ -413,25 +426,25 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>    
+                </Fixed>
 
-                <Fixed length="1"> 
+                <Fixed length="1">
                     <Bits from="8" to="6">
                         <BitsShortName>REDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use</BitsName>         
-                    </Bits>                         
+                        <BitsName>Reduction Steps in use</BitsName>
+                    </Bits>
                     <Bits from="5" to="1">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>    
+                </Fixed>
 
-                <Fixed length="1"> 
+                <Fixed length="1">
                     <Bits from="8" to="6">
                         <BitsShortName>REDRAD</BitsShortName>
-                        <BitsName>Reduction Steps in use</BitsName>         
-                    </Bits>         
+                        <BitsName>Reduction Steps in use</BitsName>
+                    </Bits>
                     <Bits bit="5">
                         <BitsShortName>CLU</BitsShortName>
                         <BitsName>Cluster State</BitsName>
@@ -443,7 +456,7 @@
                         <BitsName>spare bit set to 0</BitsName>
                         <BitsConst>0</BitsConst>
                     </Bits>
-                </Fixed>    
+                </Fixed>
             </Compound>
         </DataItemFormat>
         <DataItemNote>.</DataItemNote>
@@ -451,8 +464,11 @@
 
     <DataItem id="070">
         <DataItemName>Plot Count Values</DataItemName>
-        <DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna scan or for the last sector processed.</DataItemDefinition>
-        <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
+        <DataItemDefinition>Plot count values according to various plot categories, either for the last full antenna
+            scan or for the last sector processed.
+        </DataItemDefinition>
+        <DataItemFormat
+                desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one plot counter of two-octet length.">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="12">
@@ -464,13 +480,15 @@
                         <BitsName>Counter value</BitsName>
                     </Bits>
                 </Fixed>
-            </Repetitive>            
+            </Repetitive>
         </DataItemFormat>
     </DataItem>
 
     <DataItem id="090">
         <DataItemName>Collimation Error</DataItemName>
-        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to the SSR target position as calculated by the radar station</DataItemDefinition>
+        <DataItemDefinition>Averaged difference in range and in azimuth for the primary target position with respect to
+            the SSR target position as calculated by the radar station
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
@@ -485,12 +503,17 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. A default quantisation unit of 0.022° and a range between -2.8125° and +2.7905° is obtained for a value of f=2 . 2. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for positive values and 1 for negative values.</DataItemNote>        
+        <DataItemNote>1. A default quantisation unit of 0.022° and a range between -2.8125° and +2.7905° is obtained for
+            a value of f=2 . 2. Negative values are expressed in 2's complement form, bit-16 and bit-8 are set to 0 for
+            positive values and 1 for negative values.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="100">
         <DataItemName>Dynamic Window - Type 1</DataItemName>
-        <DataItemDefinition>Signals the activation of a certain selective filtering function and in a polar coordinates system the respective geographical areas.</DataItemDefinition>
+        <DataItemDefinition>Signals the activation of a certain selective filtering function and in a polar coordinates
+            system the respective geographical areas.
+        </DataItemDefinition>
         <DataItemFormat desc="Eight-octet fixed length Data Item">
             <Fixed length="8">
                 <Bits from="64" to="49">
@@ -515,7 +538,9 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The logical meaning of the polar window is defined by its context, given by the Message Type (Data Item I002/000) in the record concerned.</DataItemNote>
+        <DataItemNote>The logical meaning of the polar window is defined by its context, given by the Message Type (Data
+            Item I002/000) in the record concerned.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="110">
@@ -529,7 +554,9 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a  Data Filter for a specific geographical subarea. A Data Source may have  zero, one or multiple data filters active at any time.</DataItemNote>
+        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a Data Filter for a
+            specific geographical subarea. A Data Source may have zero, one or multiple data filters active at any time.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="120">
@@ -540,12 +567,12 @@
                 <Bits from="64" to="49">
                     <BitsShortName>Height</BitsShortName>
                     <BitsName>Height in WGS-84</BitsName>
-                    <BitsUnit  scale="1">m</BitsUnit>
+                    <BitsUnit scale="1">m</BitsUnit>
                 </Bits>
                 <Bits from="48" to="25" encode="signed">
                     <BitsShortName>LAT</BitsShortName>
                     <BitsName>Latitude in WGS-84</BitsName>
-                    <BitsUnit  scale="0.00002145767">deg</BitsUnit>
+                    <BitsUnit scale="0.00002145767">deg</BitsUnit>
                 </Bits>
                 <Bits from="24" to="1" encode="signed">
                     <BitsShortName>Lon</BitsShortName>
@@ -554,7 +581,9 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a  Data Filter for a specific geographical subarea. A Data Source may have  zero, one or multiple data filters active at any time.</DataItemNote>
+        <DataItemNote>This Data Item is often used in conjunction with I034/100 and represents a Data Filter for a
+            specific geographical subarea. A Data Source may have zero, one or multiple data filters active at any time.
+        </DataItemNote>
     </DataItem>
 
     <UAP>
@@ -573,7 +602,7 @@
         <UAPItem bit="12" frn="12" len="2">090</UAPItem>
         <UAPItem bit="13" frn="13" len="1+1+">RE</UAPItem>
         <UAPItem bit="14" frn="14" len="1+1+">SP</UAPItem>
-        <UAPItem bit="15" frn="FX">-</UAPItem>        
+        <UAPItem bit="15" frn="FX">-</UAPItem>
     </UAP>
 
 </Category>

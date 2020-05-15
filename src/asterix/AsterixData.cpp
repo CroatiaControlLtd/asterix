@@ -26,44 +26,37 @@
 #include <time.h>
 #include "asterixformat.hxx"
 
-AsterixData::AsterixData()
-{
+AsterixData::AsterixData() {
 }
 
-AsterixData::~AsterixData()
-{
-  // go through all present data blocks and delete them
-  std::list<DataBlock*>::iterator it = m_lDataBlocks.begin();
-  while(it != m_lDataBlocks.end())
-  {
-    delete (DataBlock*)(*it);
-    it = m_lDataBlocks.erase(it);
-  }
+AsterixData::~AsterixData() {
+    // go through all present data blocks and delete them
+    std::list<DataBlock *>::iterator it = m_lDataBlocks.begin();
+    while (it != m_lDataBlocks.end()) {
+        delete (DataBlock *) (*it);
+        it = m_lDataBlocks.erase(it);
+    }
 }
 
 /*
  * appends Asterix data description to strResult
  */
-bool AsterixData::getText(std::string& strResult, const unsigned int formatType)
-{
-  static int i = 1;
+bool AsterixData::getText(std::string &strResult, const unsigned int formatType) {
+    static int i = 1;
 
-  std::list<DataBlock*>::iterator it;
-  for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
-  {
-    DataBlock* db = (DataBlock*)(*it);
-    if (db != NULL)
-    {
-    	switch(formatType)
-  {
-    		case CAsterixFormat::ETxt:
-    			strResult += format("\n\n-------------------------\nData Block %d", i++);
-    			break;
+    std::list<DataBlock *>::iterator it;
+    for (it = m_lDataBlocks.begin(); it != m_lDataBlocks.end(); it++) {
+        DataBlock *db = (DataBlock *) (*it);
+        if (db != NULL) {
+            switch (formatType) {
+                case CAsterixFormat::ETxt:
+                    strResult += format("\n\n-------------------------\nData Block %d", i++);
+                    break;
+            }
+            db->getText(strResult, formatType);
+        }
     }
-    	db->getText(strResult, formatType);
-  }
-}
-  return true;
+    return true;
 }
 
 
@@ -101,17 +94,17 @@ fulliautomatix_data* AsterixData::getData()
 #if defined(PYTHON_WRAPPER)
 PyObject* AsterixData::getData(int verbose)
 {
-	PyObject* hp = PyList_New(0);
+    PyObject* hp = PyList_New(0);
 
-	std::list<DataBlock*>::iterator it;
-	for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
-	{
-		DataBlock* db = (DataBlock*)(*it);
-		if (db != NULL)
-		{
-			db->getData(hp, verbose);
-		}
-	}
-	return hp;
+    std::list<DataBlock*>::iterator it;
+    for ( it=m_lDataBlocks.begin() ; it != m_lDataBlocks.end(); it++ )
+    {
+        DataBlock* db = (DataBlock*)(*it);
+        if (db != NULL)
+        {
+            db->getData(hp, verbose);
+        }
+    }
+    return hp;
 }
 #endif

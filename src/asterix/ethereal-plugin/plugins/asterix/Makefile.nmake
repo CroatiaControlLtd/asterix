@@ -1,31 +1,74 @@
 #
+
 # $Id: Makefile.nmake 13596 2005-03-05 06:28:10Z lroland $
 #
 
 include ..\..\config.nmake
 
-############### no need to modify below this line #########
+###############
+no need
+to modify
+below this line #########
 
-CFLAGS=/DHAVE_CONFIG_H /I../.. /I../../wiretap $(GLIB_CFLAGS) \
-	/I$(PCAP_DIR)\include -D_U_="" $(LOCAL_CFLAGS)
+CFLAGS =
+/DHAVE_CONFIG_H /I../.. /I../../
 
-LDFLAGS = /NOLOGO /INCREMENTAL:no /MACHINE:I386 $(LOCAL_LDFLAGS)
+wiretap $(GLIB_CFLAGS) \
 
-!IFDEF ENABLE_LIBETHEREAL
-LINK_PLUGIN_WITH=..\..\epan\libethereal.lib
-CFLAGS=/DHAVE_WIN32_LIBETHEREAL_LIB /D_NEED_VAR_IMPORT_ $(CFLAGS)
 
-OBJECTS=packet-asterix.obj 
+/
+I$(PCAP_DIR)
+\include -
+D_U_ = ""
+$(LOCAL_CFLAGS)
 
-asterix.dll asterix.exp asterix.lib : $(OBJECTS) $(LINK_PLUGIN_WITH)
-	link -dll /out:asterix.dll $(LDFLAGS) $(OBJECTS) $(LINK_PLUGIN_WITH) \
-	$(GLIB_LIBS)
+LDFLAGS =
+/NOLOGO /INCREMENTAL:no /MACHINE:
 
-!ENDIF
+I386 $(LOCAL_LDFLAGS)
 
-clean:
-	rm -f $(OBJECTS) asterix.dll asterix.exp asterix.lib *.pdb
+!
+IFDEF ENABLE_LIBETHEREAL
+LINK_PLUGIN_WITH =
+..\..\epan\libethereal.
+lib
+        CFLAGS =
+/DHAVE_WIN32_LIBETHEREAL_LIB /
+D_NEED_VAR_IMPORT_ $(CFLAGS)
 
-distclean: clean
+OBJECTS = packet - asterix.obj
 
-maintainer-clean: distclean
+asterix.
+dll asterix
+.
+exp asterix
+.lib :
+$(OBJECTS)
+$(LINK_PLUGIN_WITH)
+link -dll /out:asterix.
+dll $(LDFLAGS)
+$(OBJECTS)
+$(LINK_PLUGIN_WITH) \
+
+$(GLIB_LIBS)
+
+!
+ENDIF
+
+        clean
+:
+rm -
+f $(OBJECTS)
+asterix.
+dll asterix
+.
+exp asterix
+.lib *.
+pdb
+
+        distclean
+:
+clean
+
+        maintainer
+-clean: distclean

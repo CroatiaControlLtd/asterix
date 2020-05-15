@@ -24,35 +24,28 @@
 #include "UAPItem.h"
 
 UAPItem::UAPItem()
-: m_nBit(0)
-, m_nFRN(0)
-, m_bFX(false)
-, m_nLen(0)
-{
+        : m_nBit(0), m_nFRN(0), m_bFX(false), m_nLen(0) {
 }
 
-UAPItem::UAPItem(const UAPItem& obj)
-: DataItemFormat(obj.m_nID)
-{
-	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+UAPItem::UAPItem(const UAPItem &obj)
+        : DataItemFormat(obj.m_nID) {
+    std::list<DataItemFormat *>::iterator it = ((DataItemFormat &) obj).m_lSubItems.begin();
 
-	while(it != obj.m_lSubItems.end())
-	{
-		DataItemFormat* di = (DataItemFormat*)(*it);
-		m_lSubItems.push_back(di->clone());
-		it++;
-	}
+    while (it != obj.m_lSubItems.end()) {
+        DataItemFormat *di = (DataItemFormat *) (*it);
+        m_lSubItems.push_back(di->clone());
+        it++;
+    }
 
-	m_pParentFormat = obj.m_pParentFormat;
-	m_nBit = obj.m_nBit;
-	m_nFRN = obj.m_nFRN;
-	m_bFX = obj.m_bFX;
-	m_nLen = obj.m_nLen;
-	m_strItemID = obj.m_strItemID;
+    m_pParentFormat = obj.m_pParentFormat;
+    m_nBit = obj.m_nBit;
+    m_nFRN = obj.m_nFRN;
+    m_bFX = obj.m_bFX;
+    m_nLen = obj.m_nLen;
+    m_strItemID = obj.m_strItemID;
 }
 
-UAPItem::~UAPItem()
-{
+UAPItem::~UAPItem() {
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

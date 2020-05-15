@@ -28,36 +28,55 @@
 #include "Tracer.h"
 
 
-class UAPItem : public DataItemFormat
-{
+class UAPItem : public DataItemFormat {
 public:
-  UAPItem();
-  UAPItem(const UAPItem& obj);
-  virtual
-  ~UAPItem();
+    UAPItem();
 
-  int m_nBit; // <!ATTLIST UAPItem bit CDATA #REQUIRED>
-  int m_nFRN; // <!ATTLIST UAPItem frn CDATA #REQUIRED>
-  bool m_bFX; // <!ATTLIST UAPItem fx CDATA "0">
-  int m_nLen; // <!ATTLIST UAPItem len CDATA "-">
-  std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
+    UAPItem(const UAPItem &obj);
 
-  UAPItem* clone() const { return new UAPItem(*this); } // Return clone of object
-  long getLength(const unsigned char*) { Tracer::Error("Function should not be called!"); return 0; }
-  bool getText(std::string&, std::string&, const unsigned int, unsigned char*, long)
-  { Tracer::Error("Function should not be called!"); return false;} // appends description to strDescription
- 	std::string printDescriptors(std::string) { Tracer::Error("Function should not be called!"); return ""; }; // print items format descriptors
-  bool filterOutItem(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
-  bool isFiltered(const char*) { Tracer::Error("Function should not be called!"); return false; }; // mark item for filtering
-  const char* getDescription(const char* field, const char* value ) { Tracer::Error("Function should not be called!"); return NULL; }; // return description ef element
+    virtual
+    ~UAPItem();
+
+    int m_nBit; // <!ATTLIST UAPItem bit CDATA #REQUIRED>
+    int m_nFRN; // <!ATTLIST UAPItem frn CDATA #REQUIRED>
+    bool m_bFX; // <!ATTLIST UAPItem fx CDATA "0">
+    int m_nLen; // <!ATTLIST UAPItem len CDATA "-">
+    std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
+
+    UAPItem *clone() const { return new UAPItem(*this); } // Return clone of object
+    long getLength(const unsigned char *) {
+        Tracer::Error("Function should not be called!");
+        return 0;
+    }
+
+    bool getText(std::string &, std::string &, const unsigned int, unsigned char *, long) {
+        Tracer::Error("Function should not be called!");
+        return false;
+    } // appends description to strDescription
+    std::string printDescriptors(std::string) {
+        Tracer::Error("Function should not be called!");
+        return "";
+    }; // print items format descriptors
+    bool filterOutItem(const char *) {
+        Tracer::Error("Function should not be called!");
+        return false;
+    }; // mark item for filtering
+    bool isFiltered(const char *) {
+        Tracer::Error("Function should not be called!");
+        return false;
+    }; // mark item for filtering
+    const char *getDescription(const char *field, const char *value) {
+        Tracer::Error("Function should not be called!");
+        return NULL;
+    }; // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_definitions* getWiresharkDefinitions();
-  fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+    fulliautomatix_definitions* getWiresharkDefinitions();
+    fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getObject(unsigned char* pData, long nLength, int description) { return NULL; };
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description) {};
+    PyObject* getObject(unsigned char* pData, long nLength, int description) { return NULL; };
+    void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description) {};
 #endif
 };
 

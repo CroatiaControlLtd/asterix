@@ -48,7 +48,7 @@ class SenderThread(threading.Thread):
         print("Exiting " + self.name)
 
 
-class ReceiverThread (threading.Thread):
+class ReceiverThread(threading.Thread):
 
     def __init__(self, threadID, name, counter):
         """
@@ -82,11 +82,12 @@ class ReceiverThread (threading.Thread):
             asterix_packet = self.sock.recv(10240)
             parsed = asterix.parse(asterix_packet)
 
-            #print('%d. Receiver received = %s' % (self.counter, parsed))
+            # print('%d. Receiver received = %s' % (self.counter, parsed))
             print(asterix.describe(parsed))
             self.counter -= 1
 
         print("Exiting " + self.name)
+
 
 # Create new threads
 repeat = 100000

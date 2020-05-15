@@ -1,29 +1,29 @@
 language: python
 python:
-- '2.7'
-- '3.4'
-- '3.5'
-- '3.6'
-- '3.7'
-- '3.8'
-- nightly
+  - '2.7'
+  - '3.4'
+  - '3.5'
+  - '3.6'
+  - '3.7'
+  - '3.8'
+  - nightly
 before_install:
-- sudo apt-get -qq update
-- sudo apt-get install valgrind
+  - sudo apt-get -qq update
+  - sudo apt-get install valgrind
 compiler:
-- gcc
+  - gcc
 install:
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then cd src;make;make MODE=DEBUG;make
-  test;cd ..; fi
-- python setup.py install
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then cd src;make;make MODE=DEBUG;make
+    test;cd ..; fi
+  - python setup.py install
 addons:
   sonarcloud:
     organization: "croatiacontrolltd"
 #    token:
 #      secure: ********* # encrypted value of your token
 script:
-- if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then python -m unittest discover; fi
-- if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '2*' ]]; then python -m unittest discover; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then python -m unittest; fi
 deploy:
   provider: pypi
   user: dsalantic

@@ -12,11 +12,10 @@ sock.bind(('', 21111))
 mreq = struct.pack("=4sl", socket.inet_aton("232.1.1.11"), socket.INADDR_ANY)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 
-counter=1
+counter = 1
 
 while True:
     asterix_packet = sock.recv(10240)
     parsed = asterix.parse(asterix_packet)
     print('%d. Receiver received = %s' % (counter, parsed))
     counter += 1
-

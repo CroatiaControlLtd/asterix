@@ -26,23 +26,24 @@
 
 #include "UAPItem.h"
 
-class UAP
-{
+class UAP {
 public:
-  UAP();
-  virtual
-  ~UAP();
+    UAP();
 
-  unsigned long m_nUseIfBitSet;
-  unsigned long m_nUseIfByteNr;
-  unsigned char m_nIsSetTo;
-  std::list<UAPItem*> m_lUAPItems;
+    virtual
+    ~UAP();
 
-  UAPItem* newUAPItem(); //!< creates and returns new UAP Item
+    unsigned long m_nUseIfBitSet;
+    unsigned long m_nUseIfByteNr;
+    unsigned char m_nIsSetTo;
+    std::list<UAPItem *> m_lUAPItems;
+
+    UAPItem *newUAPItem(); //!< creates and returns new UAP Item
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_definitions* getWiresharkDefinitions();
+    fulliautomatix_definitions* getWiresharkDefinitions();
 #endif
-  std::string getDataItemIDByUAPfrn(int uapfrn);
+
+    std::string getDataItemIDByUAPfrn(int uapfrn);
 };
 
 #endif /* UAP_H_ */

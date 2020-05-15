@@ -24,28 +24,22 @@
 #include "UAP.h"
 
 UAP::UAP()
-: m_nUseIfBitSet(0)
-, m_nUseIfByteNr(0)
-, m_nIsSetTo(0)
-{
+        : m_nUseIfBitSet(0), m_nUseIfByteNr(0), m_nIsSetTo(0) {
 }
 
-UAP::~UAP()
-{
-  // destroy UAP items
-  std::list<UAPItem*>::iterator it = m_lUAPItems.begin();
-  while(it != m_lUAPItems.end())
-  {
-    delete (UAPItem*)(*it);
-    it = m_lUAPItems.erase(it);
-  }
+UAP::~UAP() {
+    // destroy UAP items
+    std::list<UAPItem *>::iterator it = m_lUAPItems.begin();
+    while (it != m_lUAPItems.end()) {
+        delete (UAPItem *) (*it);
+        it = m_lUAPItems.erase(it);
+    }
 }
 
-UAPItem* UAP::newUAPItem()
-{
-  UAPItem* uap = new UAPItem();
-  m_lUAPItems.push_back(uap);
-  return uap;
+UAPItem *UAP::newUAPItem() {
+    UAPItem *uap = new UAPItem();
+    m_lUAPItems.push_back(uap);
+    return uap;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
@@ -75,16 +69,13 @@ fulliautomatix_definitions* UAP::getWiresharkDefinitions()
 }
 #endif
 
-std::string UAP::getDataItemIDByUAPfrn(int uapfrn)
-{
-  std::list<UAPItem*>::iterator uapit;
-  for ( uapit=m_lUAPItems.begin() ; uapit != m_lUAPItems.end(); uapit++ )
-  {
-    UAPItem* ui = (UAPItem*)(*uapit);
-    if (ui != NULL && ui->m_nFRN == uapfrn)
-    {
-      return ui->m_strItemID;
+std::string UAP::getDataItemIDByUAPfrn(int uapfrn) {
+    std::list<UAPItem *>::iterator uapit;
+    for (uapit = m_lUAPItems.begin(); uapit != m_lUAPItems.end(); uapit++) {
+        UAPItem *ui = (UAPItem *) (*uapit);
+        if (ui != NULL && ui->m_nFRN == uapfrn) {
+            return ui->m_strItemID;
+        }
     }
-  }
-  return "";
+    return "";
 }

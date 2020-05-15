@@ -33,101 +33,81 @@
 #include "stddevice.hxx"
 
 
-
-CStdDevice::CStdDevice()
-{
+CStdDevice::CStdDevice() {
     _opened = true;  // STDIO/STDOUT are always opened
-} 
-
-
-
-CStdDevice::~CStdDevice()
-{
 }
 
 
+CStdDevice::~CStdDevice() {
+}
 
-bool CStdDevice::Read(void *data, size_t len)
-{
+
+bool CStdDevice::Read(void *data, size_t len) {
     // Read a message from the standard input (blocking)
     ssize_t bytesRead = read(STDIN_FILENO, data, len);
-    if (bytesRead < 0)
-    {
+    if (bytesRead < 0) {
         LOGERROR(1, "Error reading from stdin.\n");
         CountReadError();
         return false;
-    }
-    else if (bytesRead == 0)
-    {
+    } else if (bytesRead == 0) {
         _opened = false;
-    	return false;
+        return false;
     }
 
-	_onstart = false;
+    _onstart = false;
 
     ResetReadErrors(true);
-    return true; 
+    return true;
 }
 
 
-
-bool CStdDevice::Write(const void *data, size_t len)
-{
+bool CStdDevice::Write(const void *data, size_t len) {
     // Write the message to the standard output (blocking)
-	size_t bytesLeft = len;
-	char *pData = (char*)data;
+    size_t bytesLeft = len;
+    char *pData = (char *) data;
 
-	while(bytesLeft > 0)
-	{
-		size_t bytesWrote = write(STDOUT_FILENO, pData, bytesLeft);
+    while (bytesLeft > 0) {
+        size_t bytesWrote = write(STDOUT_FILENO, pData, bytesLeft);
 
-		if (bytesWrote < 0)
-    {
-        LOGERROR(1, "Error writing to stdout.\n");
-        CountWriteError();
-        return false;
+        if (bytesWrote < 0) {
+            LOGERROR(1, "Error writing to stdout.\n");
+            CountWriteError();
+            return false;
+        }
+        bytesLeft -= bytesWrote;
+        pData += bytesWrote;
     }
-		bytesLeft -= bytesWrote;
-		pData += bytesWrote;
-	}
-    
+
     ResetWriteErrors(true);
     return true;
 }
 
 
-
-bool CStdDevice::Select(const unsigned int secondsToWait)
-{
+bool CStdDevice::Select(const unsigned int secondsToWait) {
     fd_set descToRead;
     int selectVal;
-  
-    while(1)
-    {
-		// Configure 'set' of single stdin file descriptor
-		FD_ZERO(&descToRead);
-		FD_SET(STDIN_FILENO, &descToRead);
 
-		if (secondsToWait)
-		{
-			// Set the timeout as specified
-			struct timeval timeout;
-			timeout.tv_sec  = secondsToWait;
-			timeout.tv_usec = 0;
+    while (1) {
+        // Configure 'set' of single stdin file descriptor
+        FD_ZERO(&descToRead);
+        FD_SET(STDIN_FILENO, &descToRead);
 
-			selectVal = select(STDIN_FILENO + 1, &descToRead,  NULL, NULL, &timeout);
-		}
-		else
-		{
-			// secondsToWait is zero => Wait indefinitely
-			selectVal = select(STDIN_FILENO + 1, &descToRead,  NULL, NULL, NULL);
-		}
+        if (secondsToWait) {
+            // Set the timeout as specified
+            struct timeval timeout;
+            timeout.tv_sec = secondsToWait;
+            timeout.tv_usec = 0;
 
-		if (selectVal <= 0 || FD_ISSET(STDIN_FILENO, &descToRead))
-		{
-			break;
-		}
+            selectVal = select(STDIN_FILENO + 1, &descToRead, NULL, NULL, &timeout);
+        } else {
+            // secondsToWait is zero => Wait indefinitely
+            selectVal = select(STDIN_FILENO + 1, &descToRead, NULL, NULL, NULL);
+        }
+
+        if (selectVal <= 0 || FD_ISSET(STDIN_FILENO, &descToRead)) {
+            break;
+        }
     }
-    
+
     return (selectVal == 1);
 }

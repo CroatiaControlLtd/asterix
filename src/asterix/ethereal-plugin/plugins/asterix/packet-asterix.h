@@ -31,6 +31,7 @@ extern "C" {
 #endif
 
 extern void proto_register_asterix(void);
+
 extern void proto_reg_handoff_asterix(void);
 
 #ifdef __cplusplus

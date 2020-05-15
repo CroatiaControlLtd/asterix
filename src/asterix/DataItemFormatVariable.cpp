@@ -26,189 +26,160 @@
 #include "asterixformat.hxx"
 
 DataItemFormatVariable::DataItemFormatVariable(int id)
-: DataItemFormat(id)
-{
+        : DataItemFormat(id) {
 }
 
-DataItemFormatVariable::DataItemFormatVariable(const DataItemFormatVariable& obj)
-: DataItemFormat(obj.m_nID)
-{
-	std::list<DataItemFormat*>::iterator it = ((DataItemFormat&)obj).m_lSubItems.begin();
+DataItemFormatVariable::DataItemFormatVariable(const DataItemFormatVariable &obj)
+        : DataItemFormat(obj.m_nID) {
+    std::list<DataItemFormat *>::iterator it = ((DataItemFormat &) obj).m_lSubItems.begin();
 
-	while(it != obj.m_lSubItems.end())
-	{
-		DataItemFormat* di = (DataItemFormat*)(*it);
-		m_lSubItems.push_back(di->clone());
-		it++;
-	}
-
-	m_pParentFormat = obj.m_pParentFormat;
-}
-
-DataItemFormatVariable::~DataItemFormatVariable()
-{
-  // destroy list items
-  std::list<DataItemFormat*>::iterator it = m_lSubItems.begin();
-  while(it != m_lSubItems.end())
-  {
-    delete (DataItemFormatFixed*)(*it);
-    it = m_lSubItems.erase(it);
-  }
-}
-
-long DataItemFormatVariable::getLength(const unsigned char* pData)
-{
-  long length = 0;
-  std::list<DataItemFormat*>::iterator it;
-  bool lastPart = false;
-  it=m_lSubItems.begin();
-
-  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-
-  do
-  {
-    lastPart = dip->isLastPart(pData);
-    long partlen = dip->getLength();
-
-    length += partlen;
-    pData += partlen;
-
-    if (it != m_lSubItems.end())
-    {
-      it++;
-      if (it != m_lSubItems.end())
-      {
-        dip = (DataItemFormatFixed*)(*it);
-      }
-    }
-  }
-  while(!lastPart);
-
-  return length;
-}
-
-bool DataItemFormatVariable::getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long)
-{
-  bool ret = false;
-
-  std::list<DataItemFormat*>::iterator it;
-  bool lastPart = false;
-  it=m_lSubItems.begin();
-  std::string tmpResult;
-
-  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-
-  switch(formatType)
-    {
-   	  case CAsterixFormat::EJSON:
-   	  case CAsterixFormat::EJSONH:
-      {
-   		strResult += '{';
-      }
-   	  break;
+    while (it != obj.m_lSubItems.end()) {
+        DataItemFormat *di = (DataItemFormat *) (*it);
+        m_lSubItems.push_back(di->clone());
+        it++;
     }
 
-  do
-  {
-    lastPart = dip->isLastPart(pData);
-
-    switch(formatType)
-    {
-  	  case CAsterixFormat::EJSON:
-  	  case CAsterixFormat::EJSONH:
-      {
-  		  tmpResult = "";
-  		  ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
-  		  if (tmpResult.length() > 2)
-  		  { // if result != {}
-			 strResult += tmpResult.substr(1, tmpResult.length()-2); // trim {}
-			 if (!lastPart)
-				strResult += ',';
-  		  }
-  }
-  	  break;
-  	  default:
-  		ret |= dip->getText(strResult, strHeader, formatType, pData, dip->getLength());
-  	  break;
+    m_pParentFormat = obj.m_pParentFormat;
 }
 
-    pData += dip->getLength();
-
-    if (it != m_lSubItems.end())
-    {
-      it++;
-      if (it != m_lSubItems.end())
-      {
-        dip = (DataItemFormatFixed*)(*it);
-      }
+DataItemFormatVariable::~DataItemFormatVariable() {
+    // destroy list items
+    std::list<DataItemFormat *>::iterator it = m_lSubItems.begin();
+    while (it != m_lSubItems.end()) {
+        delete (DataItemFormatFixed *) (*it);
+        it = m_lSubItems.erase(it);
     }
-  }
-  while(!lastPart);
-
-  switch(formatType)
-    {
-   	  case CAsterixFormat::EJSON:
-   	  case CAsterixFormat::EJSONH:
-      {
-		  if (strResult[strResult.length()-1] == ',')
-			  strResult[strResult.length()-1] = '}';
-		  else
-			  strResult += '}';
-      }
-   	  break;
-  }
-
-  return ret;
 }
 
-std::string DataItemFormatVariable::printDescriptors(std::string header)
-{
-	std::string strDef = "";
+long DataItemFormatVariable::getLength(const unsigned char *pData) {
+    long length = 0;
+    std::list<DataItemFormat *>::iterator it;
+    bool lastPart = false;
+    it = m_lSubItems.begin();
 
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-		strDef += dip->printDescriptors(header);
-	}
-	return strDef;
+    DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+
+    do {
+        lastPart = dip->isLastPart(pData);
+        long partlen = dip->getLength();
+
+        length += partlen;
+        pData += partlen;
+
+        if (it != m_lSubItems.end()) {
+            it++;
+            if (it != m_lSubItems.end()) {
+                dip = (DataItemFormatFixed *) (*it);
+            }
+        }
+    } while (!lastPart);
+
+    return length;
 }
 
-bool DataItemFormatVariable::filterOutItem(const char* name)
-    {
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-      {
-		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-		if (true == dip->filterOutItem(name))
-			return true;
-  }
-  return false;
+bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
+                                     unsigned char *pData, long) {
+    bool ret = false;
+
+    std::list<DataItemFormat *>::iterator it;
+    bool lastPart = false;
+    it = m_lSubItems.begin();
+    std::string tmpResult;
+
+    DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+
+    switch (formatType) {
+        case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONH: {
+            strResult += '{';
+        }
+            break;
+    }
+
+    do {
+        lastPart = dip->isLastPart(pData);
+
+        switch (formatType) {
+            case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONH: {
+                tmpResult = "";
+                ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
+                if (tmpResult.length() > 2) { // if result != {}
+                    strResult += tmpResult.substr(1, tmpResult.length() - 2); // trim {}
+                    if (!lastPart)
+                        strResult += ',';
+                }
+            }
+                break;
+            default:
+                ret |= dip->getText(strResult, strHeader, formatType, pData, dip->getLength());
+                break;
+        }
+
+        pData += dip->getLength();
+
+        if (it != m_lSubItems.end()) {
+            it++;
+            if (it != m_lSubItems.end()) {
+                dip = (DataItemFormatFixed *) (*it);
+            }
+        }
+    } while (!lastPart);
+
+    switch (formatType) {
+        case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONH: {
+            if (strResult[strResult.length() - 1] == ',')
+                strResult[strResult.length() - 1] = '}';
+            else
+                strResult += '}';
+        }
+            break;
+    }
+
+    return ret;
 }
 
-bool DataItemFormatVariable::isFiltered(const char* name)
-{
-	std::list<DataItemFormat*>::iterator it;
-	for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-		DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-		if (true == dip->isFiltered(name))
-      return true;
-  }
-  return false;
+std::string DataItemFormatVariable::printDescriptors(std::string header) {
+    std::string strDef = "";
+
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        strDef += dip->printDescriptors(header);
+    }
+    return strDef;
 }
 
-const char* DataItemFormatVariable::getDescription(const char* field, const char* value = NULL )
-{
-  std::list<DataItemFormat*>::iterator it;
-  for ( it=m_lSubItems.begin() ; it != m_lSubItems.end(); it++ )
-  {
-    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
-    const char* desc = dip->getDescription(field, value);
-    if (desc != NULL)
-        return desc;
-  }
-  return NULL;
+bool DataItemFormatVariable::filterOutItem(const char *name) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        if (true == dip->filterOutItem(name))
+            return true;
+    }
+    return false;
+}
+
+bool DataItemFormatVariable::isFiltered(const char *name) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        if (true == dip->isFiltered(name))
+            return true;
+    }
+    return false;
+}
+
+const char *DataItemFormatVariable::getDescription(const char *field, const char *value = NULL) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        const char *desc = dip->getDescription(field, value);
+        if (desc != NULL)
+            return desc;
+    }
+    return NULL;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
@@ -281,9 +252,9 @@ fulliautomatix_data* DataItemFormatVariable::getData(unsigned char* pData, long 
 #if defined(PYTHON_WRAPPER)
 PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength, int verbose)
 {
-	PyObject* p = PyDict_New();
-	insertToDict(p, pData, nLength, verbose);
-	return p;
+    PyObject* p = PyDict_New();
+    insertToDict(p, pData, nLength, verbose);
+    return p;
 }
 
 void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
@@ -299,7 +270,7 @@ void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, lon
   {
     lastPart = dip->isLastPart(pData);
 
-	dip->insertToDict(p, pData, dip->getLength(), verbose);
+    dip->insertToDict(p, pData, dip->getLength(), verbose);
 
     pData += dip->getLength();
     nLength -= dip->getLength();

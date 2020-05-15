@@ -28,8 +28,7 @@
  * 
  * @brief The base packet virtual class.
  */
-class CBasePacket
-{
+class CBasePacket {
 private:
 
 public:

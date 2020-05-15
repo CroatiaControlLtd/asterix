@@ -35,11 +35,15 @@
 extern "C" {
 #endif
 
-extern unsigned char  RxBuf [];       // buffer za ucitavanje podatka s COM
-extern int copy_to_cbuf( unsigned char* RxBuf, int Cnt );
-extern int get_hdlc_frame( int iF, int MinLen );
-extern unsigned short test_hdlc_fcs( int iF, int iL );
-extern unsigned char* get_next_hdlc_frame(int* len);
+extern unsigned char RxBuf[];       // buffer za ucitavanje podatka s COM
+extern int copy_to_cbuf(unsigned char *RxBuf, int Cnt);
+
+extern int get_hdlc_frame(int iF, int MinLen);
+
+extern unsigned short test_hdlc_fcs(int iF, int iL);
+
+extern unsigned char *get_next_hdlc_frame(int *len);
+
 extern int GetAndResetFailedBytes();
 
 #ifdef __cplusplus

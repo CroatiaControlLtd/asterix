@@ -36,12 +36,11 @@
  * @see   <CDeviceFactory>
  *        <CBaseDevice>
  */
-class CSerialDevice : public CBaseDevice
-{
+class CSerialDevice : public CBaseDevice {
 private:
-    int                _fileDesc;
-    static const int   _defaultBaudRate = 9600;
-    speed_t            _baudRate;
+    int _fileDesc;
+    static const int _defaultBaudRate = 9600;
+    speed_t _baudRate;
 
 public:
 
@@ -56,15 +55,22 @@ public:
     virtual ~CSerialDevice();
 
     virtual bool Read(void *data, size_t len);
-    virtual bool Read(void *data, size_t* len);
+
+    virtual bool Read(void *data, size_t *len);
+
     virtual bool Write(const void *data, size_t len);
+
     virtual bool Select(const unsigned int secondsToWait);
-    virtual bool IoCtrl(const unsigned int command, const void *data=0, size_t len=0);
+
+    virtual bool IoCtrl(const unsigned int command, const void *data = 0, size_t len = 0);
+
     virtual bool IsPacketDevice() { return false; }
+
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
 
 private:
     void Init(const char *device);
+
     static bool ConvertSpeed(int speed, speed_t &baudRate);
 };
 

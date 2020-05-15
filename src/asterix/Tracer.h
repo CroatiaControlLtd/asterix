@@ -26,23 +26,28 @@
 
 #include <stdlib.h>
 
-typedef int(*ptExtPrintf)(char const*, ...);
-typedef void(*ptExtVoidPrintf)(char const*, ...);
+typedef int(*ptExtPrintf)(char const *, ...);
 
-class Tracer
-{
+typedef void(*ptExtVoidPrintf)(char const *, ...);
+
+class Tracer {
 public:
-  Tracer();
-  static void Error(const char* format, ...);
-  static void Configure(ptExtPrintf pFunc);
-  static void Configure(ptExtVoidPrintf pFunc);
-  static void Delete();
+    Tracer();
 
-  static Tracer *g_TracerInstance;
-  static Tracer& instance();
+    static void Error(const char *format, ...);
 
-  ptExtPrintf pPrintFunc;
-  ptExtVoidPrintf pPrintFunc2;
+    static void Configure(ptExtPrintf pFunc);
+
+    static void Configure(ptExtVoidPrintf pFunc);
+
+    static void Delete();
+
+    static Tracer *g_TracerInstance;
+
+    static Tracer &instance();
+
+    ptExtPrintf pPrintFunc;
+    ptExtVoidPrintf pPrintFunc2;
 };
 
 #endif /* TRACER_H_ */

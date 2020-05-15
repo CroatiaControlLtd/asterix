@@ -26,30 +26,32 @@
 #include "DataItemDescription.h"
 #include <string>
 
-class DataItem
-{
+class DataItem {
 public:
-  DataItem(DataItemDescription* pDesc);
-  virtual
-  ~DataItem();
+    DataItem(DataItemDescription *pDesc);
 
-  DataItemDescription* m_pDescription;
+    virtual
+    ~DataItem();
 
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
+    DataItemDescription *m_pDescription;
 
-  long parse(const unsigned char* pData, long len);
+    bool getText(std::string &strResult, std::string &strHeader,
+                 const unsigned int formatType); // appends value to strResult in formatType format
 
-  long getLength() { return m_nLength; }
+    long parse(const unsigned char *pData, long len);
+
+    long getLength() { return m_nLength; }
+
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_data* getData(int byteoffset);
+    fulliautomatix_data* getData(int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getData(int verbose);
+    PyObject* getData(int verbose);
 #endif
 
 private:
-  unsigned char* m_pData;
-  long m_nLength;
+    unsigned char *m_pData;
+    long m_nLength;
 
 };
 

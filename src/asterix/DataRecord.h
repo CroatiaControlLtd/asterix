@@ -26,35 +26,36 @@
 
 #include "DataItem.h"
 
-class DataRecord
-{
+class DataRecord {
 public:
-  DataRecord(Category* cat, int id, unsigned long len, const unsigned char* data, unsigned long nTimestamp);
-  virtual
-  ~DataRecord();
+    DataRecord(Category *cat, int id, unsigned long len, const unsigned char *data, unsigned long nTimestamp);
 
-  Category* m_pCategory;
-  int           m_nID;
-  unsigned long m_nLength;
-  unsigned long m_nFSPECLength;
-  unsigned char* m_pFSPECData;
-  unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
-  uint32_t m_nCrc;
-  char* m_pHexData; // hexa conversion of data to display
-  bool m_bFormatOK;
-  std::list<DataItem*> m_lDataItems;
+    virtual
+    ~DataRecord();
 
-  int getCategory() { return (m_pCategory) ? m_pCategory->m_id : 0; }
+    Category *m_pCategory;
+    int m_nID;
+    unsigned long m_nLength;
+    unsigned long m_nFSPECLength;
+    unsigned char *m_pFSPECData;
+    unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    uint32_t m_nCrc;
+    char *m_pHexData; // hexa conversion of data to display
+    bool m_bFormatOK;
+    std::list<DataItem *> m_lDataItems;
 
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType); // appends value to strResult in formatType format
+    int getCategory() { return (m_pCategory) ? m_pCategory->m_id : 0; }
 
-  DataItem* getItem(std::string itemid);
+    bool getText(std::string &strResult, std::string &strHeader,
+                 const unsigned int formatType); // appends value to strResult in formatType format
+
+    DataItem *getItem(std::string itemid);
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_data* getData(int byteoffset);
+    fulliautomatix_data* getData(int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getData(int verbose);
+    PyObject* getData(int verbose);
 #endif
 };
 

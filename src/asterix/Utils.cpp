@@ -23,16 +23,15 @@
 
 #include "Utils.h"
 
-std::string format_arg_list(const char *fmt, int size, va_list args)
-{
-    char *buffer = new char [++size];;
+std::string format_arg_list(const char *fmt, int size, va_list args) {
+    char *buffer = new char[++size];;
     size = vsnprintf(buffer, size, fmt, args);
-    if ( size < 0 ) {
-        delete [] buffer;
+    if (size < 0) {
+        delete[] buffer;
         return std::string();
     }
     std::string s(buffer);
-    delete [] buffer;
+    delete[] buffer;
     return s;
 }
 
@@ -42,8 +41,7 @@ int get_format_len(const char *fmt, va_list args) {
     return size;
 }
 
-std::string format(const char *fmt, ...)
-{
+std::string format(const char *fmt, ...) {
     va_list args;
     int size = 0;
 
@@ -58,13 +56,12 @@ std::string format(const char *fmt, ...)
     return s;
 }
 
-uint32_t crc32(const void* pBuffer, size_t nLength, uint32_t nPreviousCrc32)
-{
+uint32_t crc32(const void *pBuffer, size_t nLength, uint32_t nPreviousCrc32) {
     uint32_t nCrc = ~nPreviousCrc32; // same as previousCrc32 ^ 0xFFFFFFFF
-    const uint8_t* pCurrent = (const uint8_t*) pBuffer;
+    const uint8_t *pCurrent = (const uint8_t *) pBuffer;
 
     while (nLength-- > 0) {
-    nCrc = (nCrc >> 8) ^ Crc32Lookup[(nCrc & 0xFF) ^ *pCurrent++];
+        nCrc = (nCrc >> 8) ^ Crc32Lookup[(nCrc & 0xFF) ^ *pCurrent++];
     }
 
     return ~nCrc; // same as crc ^ 0xFFFFFFFF

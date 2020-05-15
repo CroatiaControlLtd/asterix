@@ -39,40 +39,30 @@
 #include "serialdevice.hxx"
 
 
-
-CSerialDevice::CSerialDevice(CDescriptor &descriptor)
-{
-    const char *sdevice   = descriptor.GetFirst();
+CSerialDevice::CSerialDevice(CDescriptor &descriptor) {
+    const char *sdevice = descriptor.GetFirst();
     const char *sbaudRate = descriptor.GetNext();
     int speed;
 
 
     // Device name argument
-    if (sdevice == NULL)
-    {
+    if (sdevice == NULL) {
         LOGERROR(1, "Serial device name not specified\n");
-    }
-    else
-    {
+    } else {
         LOGINFO(gVerbose, "Opening serial device %s\n", sdevice);
     }
 
     // Baud rate argument
 
     ConvertSpeed(_defaultBaudRate, _baudRate);  // Firstly, set the baud rate to default
-    if (sbaudRate == NULL)
-    {
+    if (sbaudRate == NULL) {
         LOGWARNING(gVerbose, "Serial port baud rate not specified. Using default: %d\n", _defaultBaudRate);
-    }
-    else
-    {
+    } else {
         speed = atoi(sbaudRate);
-        if (!ConvertSpeed(speed, _baudRate))
-        {
-            LOGWARNING(1, "Specified baud rate (%d) is not valid. Using default baud rate: %d\n", speed, _defaultBaudRate);
-        }
-        else
-        {
+        if (!ConvertSpeed(speed, _baudRate)) {
+            LOGWARNING(1, "Specified baud rate (%d) is not valid. Using default baud rate: %d\n", speed,
+                       _defaultBaudRate);
+        } else {
             LOGINFO(gVerbose, "Serial port baud rate set to %d\n", speed);
         }
     }
@@ -81,52 +71,45 @@ CSerialDevice::CSerialDevice(CDescriptor &descriptor)
 }
 
 
-
-CSerialDevice::~CSerialDevice()
-{
-    if (_fileDesc >= 0)
-    {
+CSerialDevice::~CSerialDevice() {
+    if (_fileDesc >= 0) {
         close(_fileDesc);
     }
 
 }
+
 /* Read all available data but not moer than value in *len.
  * Return number of bytes read in *len
  */
-bool CSerialDevice::Read(void *data, size_t* len)
-{
-  // Check if interface was set-up correctly
-  if (!_opened)
-  {
-      LOGERROR(1, "Cannot read due to not properly initialized interface.\n");
-      CountReadError();
-      *len = 0;
-      return false;
-  }
+bool CSerialDevice::Read(void *data, size_t *len) {
+    // Check if interface was set-up correctly
+    if (!_opened) {
+        LOGERROR(1, "Cannot read due to not properly initialized interface.\n");
+        CountReadError();
+        *len = 0;
+        return false;
+    }
 
-  // Initialize
-  ssize_t bytesRead = 0;
+    // Initialize
+    ssize_t bytesRead = 0;
 
-  bytesRead = read(_fileDesc, data, *len);
-  if (bytesRead < 0)
-  {
-      LOGERROR(1, "Error %d reading from serial device (%s).\n",errno, strerror(errno));
-      CountReadError();
-      *len = 0;
-      return false;
-  }
+    bytesRead = read(_fileDesc, data, *len);
+    if (bytesRead < 0) {
+        LOGERROR(1, "Error %d reading from serial device (%s).\n", errno, strerror(errno));
+        CountReadError();
+        *len = 0;
+        return false;
+    }
 
-  *len = bytesRead;
+    *len = bytesRead;
 
-  ResetReadErrors(true);
-  return true;
+    ResetReadErrors(true);
+    return true;
 }
 
-bool CSerialDevice::Read(void *data, size_t len)
-{
+bool CSerialDevice::Read(void *data, size_t len) {
     // Check if interface was set-up correctly
-    if (!_opened)
-    {
+    if (!_opened) {
         LOGERROR(1, "Cannot read due to not properly initialized interface.\n");
         CountReadError();
         return false;
@@ -135,29 +118,24 @@ bool CSerialDevice::Read(void *data, size_t len)
     // Initialize
     ssize_t bytesRead = 0;
     size_t bytesLeft = len;
-    char *buffer = (char*) data;
+    char *buffer = (char *) data;
 
     // Read all required bytes (len) in a loop
-    do
-    {
+    do {
         bytesRead = read(_fileDesc, buffer, bytesLeft);
-        if (bytesRead < 0)
-        {
-            LOGERROR(1, "Error %d reading from serial device (%s).\n",errno, strerror(errno));
+        if (bytesRead < 0) {
+            LOGERROR(1, "Error %d reading from serial device (%s).\n", errno, strerror(errno));
             CountReadError();
             return false;
-        }
-        else
-        {
+        } else {
             bytesLeft -= bytesRead;
             buffer += bytesRead;
         }
         if (bytesLeft > 0)
-        // TODO: Solve this call to select with a more generic algorithm
-        // This is just workaround for testing purposes
+            // TODO: Solve this call to select with a more generic algorithm
+            // This is just workaround for testing purposes
             Select(0); // WARNING: Wait for some more characters
     } while (bytesLeft > 0);
-
 
 
     ResetReadErrors(true);
@@ -165,12 +143,9 @@ bool CSerialDevice::Read(void *data, size_t len)
 }
 
 
-
-bool CSerialDevice::Write(const void *data, size_t len)
-{
+bool CSerialDevice::Write(const void *data, size_t len) {
     // Check if interface was set-up correctly
-    if (!_opened)
-    {
+    if (!_opened) {
         LOGERROR(1, "Cannot write due to not properly initialized interface.\n");
         CountWriteError();
         return false;
@@ -178,8 +153,7 @@ bool CSerialDevice::Write(const void *data, size_t len)
 
     // Write the message to the standard output (blocking)
     size_t bytesWrote = write(_fileDesc, data, len);
-    if (bytesWrote != len)
-    {
+    if (bytesWrote != len) {
         LOGERROR(1, "Error writing to serial device.\n");
         CountWriteError();
         return false;
@@ -190,12 +164,9 @@ bool CSerialDevice::Write(const void *data, size_t len)
 }
 
 
-
-bool CSerialDevice::Select(const unsigned int secondsToWait)
-{
+bool CSerialDevice::Select(const unsigned int secondsToWait) {
     // Check if interface was set-up correctly
-    if (!_opened)
-    {
+    if (!_opened) {
         LOGERROR(1, "Cannot select due to not properly initialized interface.\n");
         return false;
     }
@@ -206,31 +177,26 @@ bool CSerialDevice::Select(const unsigned int secondsToWait)
     FD_ZERO(&descToRead);
     FD_SET(_fileDesc, &descToRead);
 
-    if (secondsToWait)
-    {
+    if (secondsToWait) {
         // Set the timeout as specified
         struct timeval timeout;
-        timeout.tv_sec  = secondsToWait;
+        timeout.tv_sec = secondsToWait;
         timeout.tv_usec = 0;
 
-        selectVal = select(_fileDesc + 1, &descToRead,  NULL, NULL, &timeout);
-    }
-    else
-    {
+        selectVal = select(_fileDesc + 1, &descToRead, NULL, NULL, &timeout);
+    } else {
         // secondsToWait is zero => Wait indefinitely
-        selectVal = select(_fileDesc + 1, &descToRead,  NULL, NULL, NULL);
+        selectVal = select(_fileDesc + 1, &descToRead, NULL, NULL, NULL);
     }
 
     return (selectVal == 1);
 }
 
 
-bool CSerialDevice::IoCtrl(const unsigned int command, const void *data, size_t len)
-{
+bool CSerialDevice::IoCtrl(const unsigned int command, const void *data, size_t len) {
     static bool result;
 
-    switch (command)
-    {
+    switch (command) {
         case EReset:
             result = false;
             break;
@@ -250,16 +216,14 @@ bool CSerialDevice::IoCtrl(const unsigned int command, const void *data, size_t 
 }
 
 
-void CSerialDevice::Init(const char *device)
-{
+void CSerialDevice::Init(const char *device) {
     _opened = false;
     _fileDesc = -1;
     ResetAllErrors();
 
     // Open the serial device
-    _fileDesc = open(device, O_RDWR | O_NOCTTY );
-    if (_fileDesc < 0)
-    {
+    _fileDesc = open(device, O_RDWR | O_NOCTTY);
+    if (_fileDesc < 0) {
         LOGERROR(1, "Cannot open serial device %s\n", device);
         return;
     }
@@ -273,8 +237,7 @@ void CSerialDevice::Init(const char *device)
 
     // Get the current termios settings
     struct termios my_termios;
-    if (tcgetattr(_fileDesc, &my_termios) < 0)
-    {
+    if (tcgetattr(_fileDesc, &my_termios) < 0) {
         LOGERROR(1, "Cannot get the termios attributes.\n");
         return;
     }
@@ -284,23 +247,20 @@ void CSerialDevice::Init(const char *device)
     LOGDEBUG(ZONE_SERIALDEVICE, "old lflag=%08x\n", my_termios.c_lflag);
 #ifndef __APPLE__
     // c_line is not defined on OS X
-    LOGDEBUG(ZONE_SERIALDEVICE, "old line=%02x\n",  my_termios.c_line);
+    LOGDEBUG(ZONE_SERIALDEVICE, "old line=%02x\n", my_termios.c_line);
 #endif
 
     // Flush the serial port
     tcflush(_fileDesc, TCIFLUSH);
 
     // Set required termios settings
-    my_termios.c_cflag = B9600 | CS8 |CREAD | CLOCAL | HUPCL;
+    my_termios.c_cflag = B9600 | CS8 | CREAD | CLOCAL | HUPCL;
     cfsetospeed(&my_termios, _baudRate);
     cfsetispeed(&my_termios, _baudRate);
-    if (tcsetattr(_fileDesc, TCSANOW, &my_termios) < 0)
-    {
+    if (tcsetattr(_fileDesc, TCSANOW, &my_termios) < 0) {
         LOGERROR(1, "Cannot set the termios attributes.\n");
         return;
-    }
-    else
-    {
+    } else {
         LOGINFO(gVerbose, "Serial port set to: 8 data-bits, no parity, 1 stop bit, no flow control.\n");
     }
     LOGDEBUG(ZONE_SERIALDEVICE, "new cflag=%08x\n", my_termios.c_cflag);
@@ -316,11 +276,8 @@ void CSerialDevice::Init(const char *device)
 }
 
 
-
-bool CSerialDevice::ConvertSpeed(int speed, speed_t &baudRate)
-{
-    switch (speed)
-    {
+bool CSerialDevice::ConvertSpeed(int speed, speed_t &baudRate) {
+    switch (speed) {
         case 600:
             baudRate = B600;
             break;

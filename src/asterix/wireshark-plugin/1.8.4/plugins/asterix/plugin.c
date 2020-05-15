@@ -13,19 +13,25 @@
 #include "moduleinfo.h"
 
 #ifndef ENABLE_STATIC
-G_MODULE_EXPORT const gchar version[] = VERSION;
+G_MODULE_EXPORT const gchar
+version[] = VERSION;
 
 /* Start the functions we need for the plugin stuff */
 
 G_MODULE_EXPORT void
-plugin_register (void)
-{
-  {extern void proto_register_asterix (void); proto_register_asterix ();}
+plugin_register(void) {
+    {
+        extern void proto_register_asterix(void);
+        proto_register_asterix();
+    }
 }
 
 G_MODULE_EXPORT void
-plugin_reg_handoff(void)
-{
-  {extern void proto_reg_handoff_asterix (void); proto_reg_handoff_asterix ();}
+plugin_reg_handoff(void) {
+    {
+        extern void proto_reg_handoff_asterix(void);
+        proto_reg_handoff_asterix();
+    }
 }
+
 #endif

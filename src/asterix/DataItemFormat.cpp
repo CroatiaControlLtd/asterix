@@ -28,21 +28,17 @@ int DataItemFormat::m_nLastPID = PID_LAST;
 #endif
 
 DataItemFormat::DataItemFormat(int id)
-: m_pParentFormat(NULL)
-, m_nID(id)
-{
+        : m_pParentFormat(NULL), m_nID(id) {
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  m_nPID = m_nLastPID++;
+    m_nPID = m_nLastPID++;
 #endif
 }
 
-DataItemFormat::~DataItemFormat()
-{
-	// destroy list items
-	std::list<DataItemFormat*>::iterator it = m_lSubItems.begin();
-	while(it != m_lSubItems.end())
-	{
-		delete (DataItemFormat*)(*it);
-		it = m_lSubItems.erase(it);
-	}
+DataItemFormat::~DataItemFormat() {
+    // destroy list items
+    std::list<DataItemFormat *>::iterator it = m_lSubItems.begin();
+    while (it != m_lSubItems.end()) {
+        delete (DataItemFormat *) (*it);
+        it = m_lSubItems.erase(it);
+    }
 }

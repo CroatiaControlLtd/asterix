@@ -27,37 +27,44 @@
 #include "DataItemFormat.h"
 #include "DataItemBits.h"
 
-class DataItemFormatFixed : public DataItemFormat
-{
+class DataItemFormatFixed : public DataItemFormat {
 public:
-  DataItemFormatFixed(int id=0);
-  DataItemFormatFixed(const DataItemFormatFixed& obj);
-  virtual
-  ~DataItemFormatFixed();
+    DataItemFormatFixed(int id = 0);
 
-  int m_nLength;
+    DataItemFormatFixed(const DataItemFormatFixed &obj);
 
-  DataItemFormatFixed* clone() const { return new DataItemFormatFixed(*this); } // Return clone of object
-  long getLength();
-  bool isLastPart(const unsigned char* pData);
-  bool isSecondaryPartPresent(const unsigned char* pData, int part);
-  std::string& getPartName(int part);
+    virtual
+    ~DataItemFormatFixed();
 
-  long getLength(const unsigned char* pData);
-  bool getText(std::string& strResult, std::string& strHeader, const unsigned int formatType, unsigned char* pData, long nLength); // appends value description to strResult
-  std::string printDescriptors(std::string header); // print items format descriptors
-  bool filterOutItem(const char* name); // mark item for filtering
-  bool isFiltered(const char* name);
-  bool isFixed() 		{ return true; }; // true if this is Fixed format
-  const char* getDescription(const char* field, const char* value ); // return description ef element
+    int m_nLength;
+
+    DataItemFormatFixed *clone() const { return new DataItemFormatFixed(*this); } // Return clone of object
+    long getLength();
+
+    bool isLastPart(const unsigned char *pData);
+
+    bool isSecondaryPartPresent(const unsigned char *pData, int part);
+
+    std::string &getPartName(int part);
+
+    long getLength(const unsigned char *pData);
+
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength); // appends value description to strResult
+    std::string printDescriptors(std::string header); // print items format descriptors
+    bool filterOutItem(const char *name); // mark item for filtering
+    bool isFiltered(const char *name);
+
+    bool isFixed() { return true; }; // true if this is Fixed format
+    const char *getDescription(const char *field, const char *value); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
-  fulliautomatix_definitions* getWiresharkDefinitions();
-  fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
+    fulliautomatix_definitions* getWiresharkDefinitions();
+    fulliautomatix_data* getData(unsigned char* pData, long len, int byteoffset);
 #endif
 #if defined(PYTHON_WRAPPER)
-  PyObject* getObject(unsigned char* pData, long nLength, int description);
-  void insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose);
+    PyObject* getObject(unsigned char* pData, long nLength, int description);
+    void insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose);
 #endif
 };
 

@@ -28,103 +28,85 @@
 
 extern bool gFiltering;
 
-DataBlock::DataBlock(Category* cat, unsigned long len, const unsigned char* data, unsigned long nTimestamp)
-: m_pCategory(cat)
-, m_nLength(len)
-, m_nTimestamp(nTimestamp)
-, m_bFormatOK(false)
-{
-  const unsigned char* m_pItemDataStart = data;
-  long nUnparsed = len;
-  int counter=1;
+DataBlock::DataBlock(Category *cat, unsigned long len, const unsigned char *data, unsigned long nTimestamp)
+        : m_pCategory(cat), m_nLength(len), m_nTimestamp(nTimestamp), m_bFormatOK(false) {
+    const unsigned char *m_pItemDataStart = data;
+    long nUnparsed = len;
+    int counter = 1;
 
-  if (gFiltering && !m_pCategory->m_bFiltered)
-  {
+    if (gFiltering && !m_pCategory->m_bFiltered) {
+        m_bFormatOK = true;
+        return;
+    }
+
+    while (nUnparsed > 0) {
+        DataRecord *dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, (unsigned long) nTimestamp);
+
+        if (!dr) {
+            Tracer::Error("Error DataBlock format.");
+            break;
+        }
+
+        m_lDataRecords.push_back(dr);
+
+        if (dr->m_nLength <= 0) {
+            Tracer::Error("Wrong length in DataBlock format.");
+            break;
+        }
+
+        m_pItemDataStart += dr->m_nLength;
+        nUnparsed -= dr->m_nLength;
+    }
+
+    if (nUnparsed > 0) {
+        m_nLength -= nUnparsed;
+    }
+
     m_bFormatOK = true;
-    return;
-  }
-
-  while(nUnparsed > 0)
-  {
-    DataRecord* dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, (unsigned long)nTimestamp);
-
-    if (!dr)
-    {
-      Tracer::Error("Error DataBlock format.");
-      break;
-    }
-
-    m_lDataRecords.push_back(dr);
-
-    if (dr->m_nLength <= 0)
-    {
-      Tracer::Error("Wrong length in DataBlock format.");
-      break;
-    }
-
-    m_pItemDataStart += dr->m_nLength;
-    nUnparsed -= dr->m_nLength;
-  }
-
-  if (nUnparsed > 0)
-  {
-    m_nLength -= nUnparsed;
-  }
-
-  m_bFormatOK = true;
 }
 
-DataBlock::~DataBlock()
-{
-  // go through all present data items in this block
-  std::list<DataRecord*>::iterator it = m_lDataRecords.begin();
-  while(it != m_lDataRecords.end())
-  {
-    delete (DataRecord*)(*it);
-    it = m_lDataRecords.erase(it);
-  }
-}
-
-bool DataBlock::getText(std::string& strResult, const unsigned int formatType)
-{
-	std::string strHeader;
-
-	if (gFiltering && !m_pCategory->m_bFiltered)
-	{
-		return false;
-	}
-
-	switch(formatType)
-{
-		case CAsterixFormat::ETxt:
-			strResult += format("\nCategory: %d", m_pCategory->m_id);
-			strResult += format("\nLen: %ld", m_nLength);
-			break;
-		case CAsterixFormat::EOut:
-  strHeader = format("Asterix.CAT%03d", m_pCategory->m_id);
-			break;
-}
-
-  if (!m_bFormatOK)
-  {
-    Tracer::Error("Block not parsed properly.");
-    return true;
-  }
-
-  if (m_lDataRecords.size() > 0)
-  {
+DataBlock::~DataBlock() {
     // go through all present data items in this block
-    std::list<DataRecord*>::iterator it;
-    for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
-    {
-      DataRecord* dr = (DataRecord*)(*it);
-      if (dr != NULL)
-      {
-    	  dr->getText(strResult, strHeader, formatType);
-      }
+    std::list<DataRecord *>::iterator it = m_lDataRecords.begin();
+    while (it != m_lDataRecords.end()) {
+        delete (DataRecord *) (*it);
+        it = m_lDataRecords.erase(it);
     }
-  }
-  return true;
+}
+
+bool DataBlock::getText(std::string &strResult, const unsigned int formatType) {
+    std::string strHeader;
+
+    if (gFiltering && !m_pCategory->m_bFiltered) {
+        return false;
+    }
+
+    switch (formatType) {
+        case CAsterixFormat::ETxt:
+            strResult += format("\nCategory: %d", m_pCategory->m_id);
+            strResult += format("\nLen: %ld", m_nLength);
+            break;
+        case CAsterixFormat::EOut:
+            strHeader = format("Asterix.CAT%03d", m_pCategory->m_id);
+            break;
+    }
+
+    if (!m_bFormatOK) {
+        Tracer::Error("Block not parsed properly.");
+        return true;
+    }
+
+    if (m_lDataRecords.size() > 0) {
+        // go through all present data items in this block
+        std::list<DataRecord *>::iterator it;
+        for (it = m_lDataRecords.begin(); it != m_lDataRecords.end(); it++) {
+            DataRecord *dr = (DataRecord *) (*it);
+            if (dr != NULL) {
+                dr->getText(strResult, strHeader, formatType);
+            }
+        }
+    }
+    return true;
 }
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
@@ -165,17 +147,17 @@ fulliautomatix_data* DataBlock::getData(int byteoffset)
 #if defined(PYTHON_WRAPPER)
 void DataBlock::getData(PyObject* plist, int verbose)
 {
-	// go through all present data items in this block and insert them to list
-	std::list<DataRecord*>::iterator it;
-	for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
-	{
-		DataRecord* dr = (DataRecord*)(*it);
-		if (dr != NULL)
-		{
-			PyObject* p = dr->getData(verbose);
-			PyList_Append(plist, p);
-			Py_DECREF(p);
-		}
-	}
+    // go through all present data items in this block and insert them to list
+    std::list<DataRecord*>::iterator it;
+    for ( it=m_lDataRecords.begin() ; it != m_lDataRecords.end(); it++ )
+    {
+        DataRecord* dr = (DataRecord*)(*it);
+        if (dr != NULL)
+        {
+            PyObject* p = dr->getData(verbose);
+            PyList_Append(plist, p);
+            Py_DECREF(p);
+        }
+    }
 }
 #endif

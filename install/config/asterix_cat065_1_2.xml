@@ -9,42 +9,44 @@
 	Created:  07.08.2012.
 	Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
 
---> 
+-->
 
 <Category id="65" name="SDPS Service Status Messages" ver="1.2">
 
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by
+            further defining the type of transaction.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length data item.">
-            <Fixed length="1">  
+            <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>type</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="0">SDPS Status</BitsValue>
                     <BitsValue val="2">End of Batch</BitsValue>
                     <BitsValue val="3">Service Status Report</BitsValue>
-                </Bits>                                                 
-            </Fixed>                                                                                                    
-        </DataItemFormat>                                                                                                               
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
     </DataItem>
 
-	<DataItem id="010">
-		<DataItemName>Data Source Identifier</DataItemName>
-		<DataItemDefinition>Identification of the SDPS sending the data.</DataItemDefinition>
-		<DataItemFormat desc="Two-octet fixed length data item.">
-			<Fixed length="2">
-				<Bits from="16" to="9">
-					<BitsShortName>SAC</BitsShortName>
-					<BitsName>System Area Code</BitsName>
-				</Bits>
-				<Bits from="8" to="1">
-					<BitsShortName>SIC</BitsShortName>
-					<BitsName>System Identification Code</BitsName>
-				</Bits>
-			</Fixed>
-		</DataItemFormat>
-	</DataItem>
+    <DataItem id="010">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the SDPS sending the data.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
 
     <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
@@ -53,7 +55,7 @@
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>service_id</BitsShortName>
-					<BitsName>Service Identification</BitsName>
+                    <BitsName>Service Identification</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -61,12 +63,14 @@
 
     <DataItem id="020">
         <DataItemName>Batch Number</DataItemName>
-        <DataItemDefinition>A number indicating the completion of a service for that batch of track data, from 0 to N-1, N being the number of batches used to make one complete processing cycle.</DataItemDefinition>
+        <DataItemDefinition>A number indicating the completion of a service for that batch of track data, from 0 to N-1,
+            N being the number of batches used to make one complete processing cycle.
+        </DataItemDefinition>
         <DataItemFormat desc="One-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>BTN</BitsShortName>
-					<BitsName>Batch Number</BitsName>
+                    <BitsName>Batch Number</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -74,11 +78,13 @@
 
     <DataItem id="030">
         <DataItemName>Time of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message, in the form of elapsed time since last midnight, expressed as UTC.</DataItemDefinition>
+        <DataItemDefinition>Absolute time stamping of the message, in the form of elapsed time since last midnight,
+            expressed as UTC.
+        </DataItemDefinition>
         <DataItemFormat desc="Three-byte fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-					<BitsShortName>ToM</BitsShortName>
+                    <BitsShortName>ToM</BitsShortName>
                     <BitsName>Time Of Message</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -117,7 +123,7 @@
                     <BitsValue val="3">SDPS-3 selected</BitsValue>
                 </Bits>
                 <Bits from="2" to="1">
-					<BitsShortName>spare</BitsShortName>
+                    <BitsShortName>spare</BitsShortName>
                     <BitsName>spare bits set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
@@ -143,8 +149,9 @@
                     <BitsValue val="8">failure of user main radar</BitsValue>
                     <BitsValue val="9">service restarted by the operator</BitsValue>
                     <BitsValue val="10">main radar becoming operational</BitsValue>
-                    <BitsValue val="11">main radar becoming  degraded</BitsValue>
-                    <BitsValue val="12">service continuity interrupted due to disconnection with adjacent unit</BitsValue>
+                    <BitsValue val="11">main radar becoming degraded</BitsValue>
+                    <BitsValue val="12">service continuity interrupted due to disconnection with adjacent unit
+                    </BitsValue>
                     <BitsValue val="13">service continuity restarted</BitsValue>
                     <BitsValue val="14">service synchronized on backup radar</BitsValue>
                     <BitsValue val="15">service synchronized on main radar</BitsValue>
@@ -164,5 +171,5 @@
         <UAPItem bit="6" frn="7" len="1">050</UAPItem>
         <UAPItem bit="7" frn="FX" len="-">FX</UAPItem>
     </UAP>
-    
- </Category>
+
+</Category>

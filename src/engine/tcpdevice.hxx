@@ -49,28 +49,33 @@
  *        <CBaseDevice>
  *        <CDescriptor>
  */
-class CTcpDevice : public CBaseDevice
-{
+class CTcpDevice : public CBaseDevice {
 public:
     static const unsigned int MAX_BACKLOG = 5;
 
 
 private:
-    bool                _server;
-    struct sockaddr_in  _clientAddr;
-    int                 _clientAddrLen;
-    struct sockaddr_in  _serverAddr;
-    int                 _socketDesc;
-    int                 _socketDescSession;
-    bool                _connected;
-    bool                _acceptPending;
+    bool _server;
+    struct sockaddr_in _clientAddr;
+    int _clientAddrLen;
+    struct sockaddr_in _serverAddr;
+    int _socketDesc;
+    int _socketDescSession;
+    bool _connected;
+    bool _acceptPending;
 
 private:
     bool InitServer(const char *serverAddress, const int serverPort);
+
     bool InitClient(const char *serverAddress, const int serverPort, const char *clientAddress, const int clientPort);
-    void Init(const char *serverAddress, const int serverPort, const char *clientAddress, const int clientPort, const bool server);
+
+    void Init(const char *serverAddress, const int serverPort, const char *clientAddress, const int clientPort,
+              const bool server);
+
     bool Connect();
+
     bool AcceptPending();
+
     bool Disconnect(bool bLinger = false);
 
 public:
@@ -86,11 +91,17 @@ public:
     virtual ~CTcpDevice();
 
     virtual bool Read(void *data, size_t len);
+
     virtual bool Write(const void *data, size_t len);
+
     virtual bool Select(const unsigned int secondsToWait);
-    virtual bool IoCtrl(const unsigned int command, const void *data=0, size_t len=0);
+
+    virtual bool IoCtrl(const unsigned int command, const void *data = 0, size_t len = 0);
+
     virtual bool IsPacketDevice() { return true; }
-    virtual unsigned int MaxPacketSize() { return MAX_TCP_PACKET_SIZE; } // return maximal packet size (only for packet devices
+
+    virtual unsigned int
+    MaxPacketSize() { return MAX_TCP_PACKET_SIZE; } // return maximal packet size (only for packet devices
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
 
 };

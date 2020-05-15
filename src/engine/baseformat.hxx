@@ -24,8 +24,9 @@
 #define BASEFORMAT_HXX__
 
 #include "basedevice.hxx"
- 
+
 class CBasePacket;
+
 class CBaseFormatDescriptor;
 
 /**
@@ -33,8 +34,7 @@ class CBaseFormatDescriptor;
  * 
  * @brief The base format virtual class.
  */
-class CBaseFormat
-{
+class CBaseFormat {
 
 public:
 
@@ -48,29 +48,29 @@ public:
      */
     virtual ~CBaseFormat() {}
 
-    virtual bool ReadPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device, 
-        const unsigned int formatType, bool &discard) = 0;
-        
-    virtual bool WritePacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device, 
-        const unsigned int formatType, bool &discard) = 0;
+    virtual bool ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                            const unsigned int formatType, bool &discard) = 0;
 
-    virtual bool ProcessPacket(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType, bool &discard) = 0;
-        
-    virtual bool HeartbeatProcessing(CBaseFormatDescriptor& formatDescriptor, CBaseDevice &device,
-        const unsigned int formatType) = 0;
-        
-    virtual CBaseFormatDescriptor* CreateFormatDescriptor
-        (const unsigned int formatNo, const char* sFormatDescriptor) = 0;
-        
+    virtual bool WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                             const unsigned int formatType, bool &discard) = 0;
+
+    virtual bool ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                               const unsigned int formatType, bool &discard) = 0;
+
+    virtual bool HeartbeatProcessing(CBaseFormatDescriptor &formatDescriptor, CBaseDevice &device,
+                                     const unsigned int formatType) = 0;
+
+    virtual CBaseFormatDescriptor *CreateFormatDescriptor
+            (const unsigned int formatNo, const char *sFormatDescriptor) = 0;
+
     virtual bool GetFormatNo(const char *formatName, unsigned int &formatNo) = 0;
-    
-    virtual int GetStatus(CBaseDevice &device, 
-        const unsigned int formatType, int query = 0) = 0;
-        
-    virtual bool OnResetInputChannel(CBaseFormatDescriptor& formatDescriptor) = 0;
 
-    virtual bool OnResetOutputChannel(unsigned int channel, CBaseFormatDescriptor& formatDescriptor) = 0;
+    virtual int GetStatus(CBaseDevice &device,
+                          const unsigned int formatType, int query = 0) = 0;
+
+    virtual bool OnResetInputChannel(CBaseFormatDescriptor &formatDescriptor) = 0;
+
+    virtual bool OnResetOutputChannel(unsigned int channel, CBaseFormatDescriptor &formatDescriptor) = 0;
 };
 
 #endif

@@ -22,7 +22,7 @@
  */
 #ifndef BASEFORMATDESCRIPTOR_HXX__
 #define BASEFORMATDESCRIPTOR_HXX__
- 
+
 #include <string>
 
 /**
@@ -36,8 +36,7 @@
  *  method requires specific parameters.
  *        
  */
-class CBaseFormatDescriptor
-{
+class CBaseFormatDescriptor {
 private:
 
 public:
@@ -55,8 +54,9 @@ public:
      * Print format description
      */
     virtual std::string printDescriptor() { return "Not available"; }
-    virtual bool filterOutItem(int cat, std::string item, const char* name) { return false; }
-    
+
+    virtual bool filterOutItem(int cat, std::string item, const char *name) { return false; }
+
 };
 
 #endif
