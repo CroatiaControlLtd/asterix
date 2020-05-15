@@ -9,11 +9,7 @@
 #  Asterix is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
-#  (
-at your
-option)
-any later
-version.
+#  (at your option) any later version.
 #
 
 #  Asterix is distributed in the hope that it will be useful,
@@ -39,20 +35,12 @@ version.
 # TOP and CUR_DIR must be defined for each makefile
 TOP             := ../..
 TOP_SED        := ..\/..
-CUR_DIR         :=
-main
-        include
-$(TOP)
-/src/makefile.
-include
+CUR_DIR         := main
+include $(TOP)/src/makefile.include
 
-        UNAME
-:=
-$(shell
-uname)
+UNAME := $(shell uname)
 
-ifeq ($(UNAME), Linux
-)
+ifeq ($(UNAME), Linux)
 TARGET_EXE = $(OBJ_DIR) / asterix
 TARGET_INSTALL = asterix
 else
@@ -66,96 +54,31 @@ endif
 
 OBJS = asterix.o
 
-OBJS_WITH_PATH:=
-$(patsubst
-%.o,
-$(OBJ_DIR)
-/%.o,
-$(OBJS)
-)
+OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
 DEPEND_LIBS = $(TOP) / lib / $(OBJ_DIR_SHORT) / libengine.a
-DEPEND_LIBS +=
-$(TOP)
-/lib/
-$(OBJ_DIR_SHORT)
-/libasterix.
-a
+DEPEND_LIBS += $(TOP)/lib/$(OBJ_DIR_SHORT)/libasterix.a
 
-        all
-:
-$(TARGET_EXE)
-$(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+all: $(TARGET_EXE)
+	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 
-debug:
-$(TARGET_EXE)
-$(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+debug: $(TARGET_EXE)
+        $(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
 
-install:
-all $(TARGET_INSTALL)
-$(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+install: all $(TARGET_INSTALL)
+	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 
 clean:
-rm -
-f $(TOP)
-/install/
-$(TARGET_INSTALL) \
-
+	rm -f $(TOP)/install/$(TARGET_INSTALL) \
 $(TARGET_EXE) \
+	$(DEPEND_FILES) $(OBJS_WITH_PATH)
+	@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi;
 
-$(DEPEND_FILES)
-$(OBJS_WITH_PATH)
-@if [ -
-d $(OBJ_DIR)
-];
-then rmdir
-$(OBJ_DIR);
-fi;
-
-$(TARGET_INSTALL)
-:
-$(TARGET_EXE)
+$(TARGET_INSTALL): $(TARGET_EXE)
 $(shell \
-
-if [ ! -
-d $(TOP)
-/install ]; \
-
-then mkdir
-$(TOP)
-/
-install;
-fi;
-)
-cp $(TARGET_EXE)
-$(TOP)
-/install/
-$(TARGET_INSTALL)
+	if [ ! -d $(TOP)/install ]; \
+	then mkdir $(TOP)/install; fi;)
+	cp $(TARGET_EXE) $(TOP)/install/$(TARGET_INSTALL)
 
 
-include $(TOP)
-/src/makefile.rules
+include $(TOP)/src/makefile.rules

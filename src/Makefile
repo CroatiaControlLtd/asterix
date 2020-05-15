@@ -9,11 +9,7 @@
 #  Asterix is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
-#  (
-at your
-option)
-any later
-version.
+#  (at your option) any later version.
 #
 
 #  Asterix is distributed in the hope that it will be useful,
@@ -36,78 +32,36 @@ version.
 
 #
 
-include makefile
-.
-include
+include makefile.include
 
         DIRS = engine \
 
 asterix \
  main
 
-all: makefile.
-include makefile
-.rules
-@for
-dir in
-$(DIRS);
-do\
+all: makefile.include makefile.rules
+	@for dir in $(DIRS); do\
         echo "=== making $$dir ===";\
-                if
-$(MAKE)
--r -
-C $$dir
-$@; then true; else exit 1;
-fi;
-\
-
+                if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
 done
 
-        install
-: makefile.
-include makefile
-.rules
-@for
-dir in
-$(DIRS);
-do\
+install: makefile.include makefile.rules
+	@for dir in $(DIRS); do\
         echo "=== installing $$dir ===";\
-                if
-$(MAKE)
--r -
-C $$dir
-$@; then true; else exit 1;
-fi;
-\
-
+                if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
 done
 
-        debug
-: makefile.
-include makefile
-.rules
-@for
-dir in
-$(DIRS);
-do\
+debug: makefile.include makefile.rules
+	@for dir in $(DIRS); do\
                 echo "=== making $$dir ===";\
-                if
-$(MAKE)
-MODE = DEBUG - r - C
-$$dir $
-@; then true; else exit 1;
-fi;
-\
-
+                if $(MAKE) MODE=DEBUG -r -C $$dir $@; then true; else exit 1; fi;\
 done
 
 #depend: $(DEPEND_FILES)
 #        find .. -name "*.d" | xargs cat > .depend
 
-        clean
-:
--@ rm -f ../lib/
-$(OBJ_DIR_SHORT)/*.a ../install/*.bin ../install/*.sre .depend
+clean:
+	-@ rm -f ../lib/$(OBJ_DIR_SHORT)/*.a ../install/*.bin ../install/*.sre .depend
 	@if [ -d ../lib/$(OBJ_DIR_SHORT) ]; then rmdir ../lib/$(OBJ_DIR_SHORT); fi;
 	@for dir in $(DIRS); do\
 		echo "=== cleaning $$dir ===";\

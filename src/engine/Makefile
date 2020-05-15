@@ -9,11 +9,7 @@
 #  Asterix is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
-#  (
-at your
-option)
-any later
-version.
+#  (at your option) any later version.
 #
 
 #  Asterix is distributed in the hope that it will be useful,
@@ -40,102 +36,39 @@ version.
 # TOP must be defined for each makefile
 TOP             := ../..
 TOP_SED        := ..\/..
-CUR_DIR         :=
-engine
-        include
-$(TOP)
-/src/makefile.
-include
+CUR_DIR         := engine
+include $(TOP)/src/makefile.include
 
 # Define the library to be made
         TARGET_LIB = $(OBJ_DIR) / libengine.a
 
 OBJS = converterengine.o \
-
-channelfactory.
-o \
- devicefactory
-.
-o \
- tcpdevice
-.
-o \
- udpdevice
-.
-o \
- serialdevice
-.
-o \
- diskdevice
-.
-o \
- stddevice
-.
-o \
- descriptor
-.
-o
+       channelfactory.o \
+       devicefactory.o \
+       tcpdevice.o \
+       udpdevice.o \
+       serialdevice.o \
+       diskdevice.o \
+       stddevice.o \
+       descriptor.o
 
 
-        OBJS_WITH_PATH
-:=
-$(patsubst
-%.o,
-$(OBJ_DIR)
-/%.o,
-$(OBJS)
-)
+OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
 
 # Standard targets
-all:
-$(TARGET_LIB)
-$(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+all: $(TARGET_LIB)
+	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 
-debug:
-$(TARGET_LIB)
-$(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+debug: $(TARGET_LIB)
+        $(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
 
-install:
-all
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
+install: all
+	$(shell	if [ ! -d $(OBJ_DIR) ];	then mkdir -p $(OBJ_DIR); fi;)
 
 clean:
-rm -
-f $(TARGET_LIB)
-$(OBJS_WITH_PATH)
-$(DEPEND_FILES)
-@if [ -
-d $(OBJ_DIR)
-];
-then rmdir
-$(OBJ_DIR);
-fi;
+	rm -f $(TARGET_LIB) $(OBJS_WITH_PATH) $(DEPEND_FILES)
+	@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi;
 
 
-include $(TOP)
-/src/makefile.rules
+include $(TOP)/src/makefile.rules

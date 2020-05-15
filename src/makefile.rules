@@ -9,11 +9,7 @@
 #  Asterix is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
-#  (
-at your
-option)
-any later
-version.
+#  (at your option) any later version.
 #
 
 #  Asterix is distributed in the hope that it will be useful,
@@ -38,273 +34,67 @@ version.
 
 
 #LIBS  += -Ttarget.ld -nostdlib
-DEPEND_FILES = $(patsubst %.o, $(OBJ_DIR)
-/%.d,
-$(OBJS)
-)
-DEPEND_FILES +=
-$(patsubst
-%.o,
-$(OBJ_DIR)
-/%.P,
-$(OBJS)
-)
+DEPEND_FILES = $(patsubst %.o,$(OBJ_DIR)/%.d,$(OBJS))
+DEPEND_FILES += $(patsubst %.o,$(OBJ_DIR)/%.P,$(OBJS))
 
 #depend: $(DEPEND_FILES)
 #        find .. -name "*.d" | xargs cat > $(OBJ_DIR)/.depend
 
-OBJS_WITH_PATH:=
-$(patsubst
-%.o,
-$(OBJ_DIR)
-/%.o,
-$(OBJS)
-)
+OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
 #
 
 #	Build archive of objects
 #
-
-$(TARGET_LIB)
-:
-$(OBJS_WITH_PATH)
-$(AR)
-$(ARFLAGS)
-$(TARGET_LIB)
-$?
-$(RANLIB)
-$(TARGET_LIB)
+$(TARGET_LIB): $(OBJS_WITH_PATH)
+	$(AR) $(ARFLAGS) $(TARGET_LIB) $?
+	$(RANLIB) $(TARGET_LIB)
 $(shell \
-
-if [ ! -
-
-d $(TOP)
-
-/lib ]; \
-
-then mkdir
-$(TOP)
-/
-lib;
-fi;
-)
+	if [ ! -d $(TOP)/lib ]; \
+	then mkdir $(TOP)/lib; fi;)
 $(shell \
+	if [ ! -d $(TOP)/lib/$(OBJ_DIR_SHORT) ]; \
+	then mkdir $(TOP)/lib/$(OBJ_DIR_SHORT); fi;)
+	cp $(TARGET_LIB) $(TOP)/lib/$(OBJ_DIR_SHORT)
 
-if [ ! -
-d $(TOP)
-/lib/
-$(OBJ_DIR_SHORT)
-]; \
-
-then mkdir
-$(TOP)
-/lib/
-$(OBJ_DIR_SHORT);
-fi;
-)
-cp $(TARGET_LIB)
-$(TOP)
-/lib/
-$(OBJ_DIR_SHORT)
-
-$(TARGET_EXE)
-:
-$(OBJS_WITH_PATH)
-$(DEPEND_LIBS)
-$(CC)
-$(LDFLAGS)
--
-o $(TARGET_EXE)
-$(OBJS_WITH_PATH)
-$(LIBS)
+$(TARGET_EXE): $(OBJS_WITH_PATH) $(DEPEND_LIBS)
+	$(CC) $(LDFLAGS) -o $(TARGET_EXE) $(OBJS_WITH_PATH) $(LIBS)
 
 #
 
 # Build rules
 #
+$(OBJ_DIR)/%.o: %.c
+	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+	$(CC) -c -o $(OBJ_DIR)/$*.o $(CFLAGS) $(EXTRACFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
+	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
+	@rm -f $(OBJ_DIR)/$*.P;
+#	[ -s $*.d ] || rm -f $*.d
 
-$(OBJ_DIR)
-/%.o: %.
-c
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
-$(CC)
--c -
-o $(OBJ_DIR)
-/$*.
-
-o $(CFLAGS)
-
-$(EXTRACFLAGS)
--Wp,-MD,
-$(OBJ_DIR)
-/$*.
-P $<
-@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' <
-$(OBJ_DIR)
-/$*.P >
-$(OBJ_DIR)
-/$*.
-d;
-@rm -
-f $(OBJ_DIR)
-/$*.
-P;
-#    [ -
-s $
-*.d ] || rm -
-f $
-*.
-d
-
-        $(OBJ_DIR)
-/%.o: %.
-cxx
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
-$(CXX)
--c -
-o $(OBJ_DIR)
-/$*.
-
-o $(CXXFLAGS)
-
-$(EXTRACXXFLAGS)
--Wp,-MD,
-$(OBJ_DIR)
-/$*.
-P $<
-@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' <
-$(OBJ_DIR)
-/$*.P >
-$(OBJ_DIR)
-/$*.
-d;
-@rm -
-f $(OBJ_DIR)
-/$*.
-P;
+$(OBJ_DIR)/%.o: %.cxx
+	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
+	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
+	@rm -f $(OBJ_DIR)/$*.P;
 
 
-$(OBJ_DIR)
-/%.o: %.
-cpp
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
-$(CXX)
--c -
-o $(OBJ_DIR)
-/$*.
+$(OBJ_DIR)/%.o: %.cpp
+	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
+	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
+	@rm -f $(OBJ_DIR)/$*.P;
 
-o $(CXXFLAGS)
+$(OBJ_DIR)/%.o: %.C
+	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
+	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
+	@rm -f $(OBJ_DIR)/$*.P;
 
-$(EXTRACXXFLAGS)
--Wp,-MD,
-$(OBJ_DIR)
-/$*.
-P $<
-@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' <
-$(OBJ_DIR)
-/$*.P >
-$(OBJ_DIR)
-/$*.
-d;
-@rm -
-f $(OBJ_DIR)
-/$*.
-P;
-
-$(OBJ_DIR)
-/%.o: %.
-C
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
-$(CXX)
--c -
-o $(OBJ_DIR)
-/$*.
-
-o $(CXXFLAGS)
-
-$(EXTRACXXFLAGS)
--Wp,-MD,
-$(OBJ_DIR)
-/$*.
-P $<
-@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' <
-$(OBJ_DIR)
-/$*.P >
-$(OBJ_DIR)
-/$*.
-d;
-@rm -
-f $(OBJ_DIR)
-/$*.
-P;
-
-$(OBJ_DIR)
-/%.o: %.
-cc
-        $(shell
-if [ ! -
-d $(OBJ_DIR)
-];
-then mkdir
--
-p $(OBJ_DIR);
-fi;
-)
-$(CXX)
--c -
-o $(OBJ_DIR)
-/$*.
-
-o $(CXXFLAGS)
-
-$(EXTRACXXFLAGS)
--Wp,-MD,
-$(OBJ_DIR)
-/$*.
-P $<
-@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' <
-$(OBJ_DIR)
-/$*.P >
-$(OBJ_DIR)
-/$*.
-d;
-@rm -
-f $(OBJ_DIR)
-/$*.
-P;
+$(OBJ_DIR)/%.o: %.cc
+	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
+	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
+	@rm -f $(OBJ_DIR)/$*.P;
 
 #%.d: %.c
 #	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
@@ -331,12 +121,6 @@ P;
 
 # Dependencies
 #
--
-include $(OBJS_WITH_PATH
-:.
-o =
-.d)
+-include $(OBJS_WITH_PATH:.o=.d)
 
-#-
-include $(TOP)
-/src/.depend
+#-include $(TOP)/src/.depend
