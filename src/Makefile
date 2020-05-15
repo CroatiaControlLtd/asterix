@@ -26,27 +26,27 @@
 
 include makefile.include
 
-        DIRS = engine \
-asterix \
- main
+DIRS =  engine \
+        asterix \
+        main
 
 all: makefile.include makefile.rules
 	@for dir in $(DIRS); do\
-        echo "=== making $$dir ===";\
+		echo "=== making $$dir ===";\
                 if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
-done
+	done
 
 install: makefile.include makefile.rules
 	@for dir in $(DIRS); do\
-        echo "=== installing $$dir ===";\
+		echo "=== installing $$dir ===";\
                 if $(MAKE) -r -C $$dir $@; then true; else exit 1; fi;\
-done
+	done
 
 debug: makefile.include makefile.rules
 	@for dir in $(DIRS); do\
                 echo "=== making $$dir ===";\
                 if $(MAKE) MODE=DEBUG -r -C $$dir $@; then true; else exit 1; fi;\
-done
+        done
 
 #depend: $(DEPEND_FILES)
 #        find .. -name "*.d" | xargs cat > .depend

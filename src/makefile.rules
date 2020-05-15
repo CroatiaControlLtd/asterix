@@ -40,10 +40,10 @@ OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 $(TARGET_LIB): $(OBJS_WITH_PATH)
 	$(AR) $(ARFLAGS) $(TARGET_LIB) $?
 	$(RANLIB) $(TARGET_LIB)
-$(shell \
+	$(shell \
 	if [ ! -d $(TOP)/lib ]; \
 	then mkdir $(TOP)/lib; fi;)
-$(shell \
+	$(shell \
 	if [ ! -d $(TOP)/lib/$(OBJ_DIR_SHORT) ]; \
 	then mkdir $(TOP)/lib/$(OBJ_DIR_SHORT); fi;)
 	cp $(TARGET_LIB) $(TOP)/lib/$(OBJ_DIR_SHORT)
@@ -87,24 +87,24 @@ $(OBJ_DIR)/%.o: %.cc
 	@rm -f $(OBJ_DIR)/$*.P;
 
 #%.d: %.c
-#	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
-#	$(CC) -E $(CFLAGS) $(EXTRACFLAGS) -Wp, -MD, $(OBJ_DIR)/$*.d $< >/dev/null
+#	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)
+#	$(CC) -E $(CFLAGS) $(EXTRACFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.d $< >/dev/null
 
 #%.d: %.cxx
-#	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
-#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp, -MD, $(OBJ_DIR)/$*.d $< >/dev/null
+#	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)
+#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.d $< >/dev/null
 
 #%.d: %.cpp
-#	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
-#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp, -MD, $(OBJ_DIR)/$*.d $< >/dev/null
+#	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)
+#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.d $< >/dev/null
 
 #%.d: %.C
-#	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
-#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp, -MD, $(OBJ_DIR)/$*.d $< >/dev/null
+#	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)
+#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.d $< >/dev/null
 
 #%.d: %.cc
-#	$(shell if[! -d $(OBJ_DIR)]; then mkdir $(OBJ_DIR); fi;)
-#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp, -MD, $(OBJ_DIR)/$*.d $< >/dev/null
+#	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)
+#	$(CXX) -E $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.d $< >/dev/null
 
 
 #

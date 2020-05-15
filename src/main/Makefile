@@ -26,29 +26,29 @@
 
 # TOP and CUR_DIR must be defined for each makefile
 TOP             := ../..
-TOP_SED        := ..\/..
+TOP_SED 		:= ..\/..
 CUR_DIR         := main
 include $(TOP)/src/makefile.include
 
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
-TARGET_EXE = $(OBJ_DIR) / asterix
+TARGET_EXE = $(OBJ_DIR)/asterix
 TARGET_INSTALL = asterix
 else
-TARGET_EXE = $(OBJ_DIR) / asterix.exe
+TARGET_EXE = $(OBJ_DIR)/asterix.exe
 TARGET_INSTALL = asterix.exe
 endif
 
 # Libraries
 
-        LIBS = -lengine - lasterix - lexpat
+LIBS = -lengine -lasterix -lexpat
 
 OBJS = asterix.o
 
 OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
-DEPEND_LIBS = $(TOP) / lib / $(OBJ_DIR_SHORT) / libengine.a
+DEPEND_LIBS = $(TOP)/lib/$(OBJ_DIR_SHORT)/libengine.a
 DEPEND_LIBS += $(TOP)/lib/$(OBJ_DIR_SHORT)/libasterix.a
 
 all: $(TARGET_EXE)
@@ -62,12 +62,12 @@ install: all $(TARGET_INSTALL)
 
 clean:
 	rm -f $(TOP)/install/$(TARGET_INSTALL) \
-$(TARGET_EXE) \
+	$(TARGET_EXE) \
 	$(DEPEND_FILES) $(OBJS_WITH_PATH)
 	@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi;
 
 $(TARGET_INSTALL): $(TARGET_EXE)
-$(shell \
+	$(shell \
 	if [ ! -d $(TOP)/install ]; \
 	then mkdir $(TOP)/install; fi;)
 	cp $(TARGET_EXE) $(TOP)/install/$(TARGET_INSTALL)

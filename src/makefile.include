@@ -40,15 +40,15 @@ endif
 
 # Export variables for sublevel makefiles
 export CC CFLAGS AS LD AR STRIP
-CC = g++
-AS = as
-LD = g++
-AR = ar
-STRIP = strip
-OBJCOPY = objcopy
-CXX = g++
-GDEBUG = gdb
-RANLIB = ranlib
+CC            = g++
+AS            = as
+LD            = g++
+AR            = ar
+STRIP         = strip
+OBJCOPY       = objcopy
+CXX           = g++
+GDEBUG        = gdb
+RANLIB        = ranlib
 
 # Default compiler defines
 #GLOBAL_DEFINES = -D_CONVERTER
@@ -59,24 +59,24 @@ CWARNING := -Wall
 DEBUGFLAGS := -g -O0
 CFLAGS := $(DEBUGFLAGS) $(CWARNING) -D_DEBUG $(GLOBAL_DEFINES)
 OBJ_DIR_SHORT = debug
-OBJ_DIR = $(TOP) / obj / $(CUR_DIR) / $(OBJ_DIR_SHORT)
+OBJ_DIR = $(TOP)/obj/$(CUR_DIR)/$(OBJ_DIR_SHORT)
 else
 # Retail version
 CWARNING := -Wall
 CFLAGS := $(CWARNING) -O2 $(GLOBAL_DEFINES)
 OBJ_DIR_SHORT = release
-OBJ_DIR = $(TOP) / obj / $(CUR_DIR) / $(OBJ_DIR_SHORT)
+OBJ_DIR = $(TOP)/obj/$(CUR_DIR)/$(OBJ_DIR_SHORT)
 endif
 
-        INCLUDEDIRS = -I$(TOP) / src / engine \
- - I$(TOP) / src / asterix \
- - I$(TOP) / src / main
+INCLUDEDIRS   = -I$(TOP)/src/engine \
+                -I$(TOP)/src/asterix \
+                -I$(TOP)/src/main
 
-LIBDIRS = -L$(TOP) / lib / $(OBJ_DIR_SHORT)
-ARFLAGS = rcs
-LDFLAGS = $(LIBDIRS)
-CXXFLAGS = $(CFLAGS)
-EXTRACFLAGS = $(INCLUDEDIRS)
+LIBDIRS       = -L$(TOP)/lib/$(OBJ_DIR_SHORT)
+ARFLAGS       = rcs
+LDFLAGS       = $(LIBDIRS)
+CXXFLAGS      = $(CFLAGS)
+EXTRACFLAGS   = $(INCLUDEDIRS)
 EXTRACXXFLAGS = $(EXTRACFLAGS)
 .PHONY: depend clean install all
 

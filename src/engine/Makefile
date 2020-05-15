@@ -27,12 +27,12 @@
 
 # TOP must be defined for each makefile
 TOP             := ../..
-TOP_SED        := ..\/..
+TOP_SED 		:= ..\/..
 CUR_DIR         := engine
 include $(TOP)/src/makefile.include
 
 # Define the library to be made
-        TARGET_LIB = $(OBJ_DIR) / libengine.a
+TARGET_LIB = $(OBJ_DIR)/libengine.a
 
 OBJS = converterengine.o \
        channelfactory.o \

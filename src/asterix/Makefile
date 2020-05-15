@@ -26,12 +26,12 @@
 
 # TOP and CUR_DIR must be defined for each makefile
 TOP             := ../..
-TOP_SED        := ..\/..
+TOP_SED 		:= ..\/..
 CUR_DIR         := asterix
 include $(TOP)/src/makefile.include
 
 # Define the library to be made
-        TARGET_LIB = $(OBJ_DIR) / libasterix.a
+TARGET_LIB = $(OBJ_DIR)/libasterix.a
 
 OBJS = AsterixData.o \
 	AsterixDefinition.o \
@@ -61,7 +61,7 @@ OBJS = AsterixData.o \
 	asterixhdlcsubformat.o \
 	asterixhdlcparsing.o \
 	asterixgpssubformat.o
-
+	
 OBJS_WITH_PATH:=$(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 
 

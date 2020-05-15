@@ -1,17 +1,5 @@
-## Makefile for
-building wireshark
-.
-exe with
-Microsoft C
-and nmake
-## Use:
-$(MAKE)
-/
-$(MAKEFLAGS)
--
-f makefile
-.
-nmake
+## Makefile for building wireshark.exe with Microsoft C and nmake
+## Use: $(MAKE) /$(MAKEFLAGS) -f makefile.nmake
 #
 
 # $Id$
@@ -19,1367 +7,473 @@ nmake
 # We "Deploy using XCopy," which is described at
 # http://msdn.microsoft.com/en-us/library/ms235291.aspx
 
-        include
-config.
-nmake
-        include<win32.mak>
+include config.nmake
+include <win32.mak>
 
-###############
-no need
-to modify
-below this line #########
+############### no need to modify below this line #########
 
 CC = cl
-LINK = link
-BSCMAKE = bscmake
+LINK= link
+BSCMAKE= bscmake
 
-WIN_SETUP = tools / $(WIRESHARK_TARGET_PLATFORM) - setup.sh
+WIN_SETUP=tools/$(WIRESHARK_TARGET_PLATFORM)-setup.sh
 
 # -------------
 # Checking  that the Wireshark Libraries are up-to-date:
-#  1. win??-setup.sh --
-checktag is
-invoked during
-nmake "preprocessing".
+#  1. win??-setup.sh --checktag is invoked during nmake "preprocessing".
 #     If an error status is returned (ie: the libraries are not up-to-date)
 #      then CHECK_TAG is defined as a non-null string.
-#  2.
-
-The $(LIBS_CHECK)
-
-target is
-invoked during
-the nmake
-:
+#  2. The $(LIBS_CHECK) target is invoked during the nmake:
 #     If $(CHECK_TAG) is non-null, then a "libraries not up to date" exit will occur.
 #     If $(CHECK_TAG) is null, but either config.nmake or Makefile.nmake
 #      are newer than the $(LIBS_CHECK) target, then a detailed verification
 #      as to the required library package files will be made.
 #
-
-LIBS_CHECK = _libs_check_
-!IF [
-$(SH)
-$(WIN_SETUP)
---checktag "$(WIRESHARK_LIB_DIR)"] != 0
-CHECK_TAG = _check_tag_
-!
-ELSE
-        CHECK_TAG =
-        !ENDIF
+LIBS_CHECK=_libs_check_
+!IF [$(SH) $(WIN_SETUP) --checktag "$(WIRESHARK_LIB_DIR)"] != 0
+CHECK_TAG=_check_tag_
+!ELSE
+CHECK_TAG=
+!ENDIF
 # -------------
 
-LDFLAGS =
-/NOLOGO /INCREMENTAL:
-
-NO $(LOCAL_LDFLAGS)
+LDFLAGS = /NOLOGO /INCREMENTAL:NO $(LOCAL_LDFLAGS)
 
 # We use GENERATED_CFLAGS to get around flex's non-LLP64-compliant output
-GENERATED_CFLAGS = \
-    $(STANDARD_CFLAGS) \
- / I./ Iwiretap
-$(GLIB_CFLAGS) \
-
-$(ZLIB_CFLAGS)
-/
-I$(PCAP_DIR)
-\
-
-include $(AIRPCAP_CFLAGS) \
-
-
-$(C_ARES_CFLAGS)
-$(ADNS_CFLAGS)
-$(GNUTLS_CFLAGS) \
-
-$(PYTHON_CFLAGS)
-$(SMI_CFLAGS)
-$(GEOIP_CFLAGS)
-$(WINSPARKLE_CFLAGS)
-
-CFLAGS = $(WARNINGS_ARE_ERRORS)
-$(GENERATED_CFLAGS)
-
-.c.
-obj::
-$(CC)
-$(CFLAGS)
--Fd.\ -
-c $<
-
-        PLATFORM_SRC = capture - wpcap.c
-capture_wpcap_packet.
-c capture_win_ifnames
-.
-c
-
-        WTAP_PLUGIN_SOURCES = \
-       epan / plugins.c \
-
-epan/report_err.
-c \
- epan
-/filesystem.
-c
-
-        include
-Makefile.
-common
-
-        wireshark_OBJECTS = $(wireshark_SOURCES
-:.
-c =
-.obj)
-tshark_OBJECTS = $(tshark_SOURCES
-:.
-c =
-.obj)
-rawshark_OBJECTS = $(rawshark_SOURCES
-:.
-c =
-.obj)
-###
-text2pcap_OBJECTS = $(text2pcap_SOURCES
-:.
-c =
-.obj)
-###
-mergecap_OBJECTS = $(mergecap_SOURCES
-:.
-c =
-.obj)
-editcap_OBJECTS = $(editcap_SOURCES
-:.
-c =
-.obj)
-capinfos_OBJECTS = $(capinfos_SOURCES
-:.
-c =
-.obj)
-dftest_OBJECTS = $(dftest_SOURCES
-:.
-c =
-.obj)
-dumpcap_OBJECTS = $(dumpcap_SOURCES
-:.
-c =
-.obj)
-randpkt_OBJECTS = $(randpkt_SOURCES
-:.
-c =
-.obj)
-
-wireshark_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-lib shell32
-.
-lib comctl32
-.
-lib ole32
-.
-
-lib \
- $(GTHREAD_LIBS) \
-
-
-$(HHC_LIBS) \
-
-wsutil\libwsutil.
-
-lib \
- $(GNUTLS_LIBS) \
-
-
-$(PYTHON_LIBS) \
-
-$(WINSPARKLE_LIBS) \
-
-!
-IFDEF ENABLE_LIBWIRESHARK
-epan\libwireshark.lib \
-!
-ELSE
-        epan
-\dissectors\dissectors.
-lib \
- epan
-\wireshark.
-lib \
- epan
-\crypt\airpdcap.
-lib \
- epan
-\dfilter\dfilter.
-lib \
- epan
-\ftypes\ftypes.
-
-lib \
- $(C_ARES_LIBS) \
-
-
-$(ADNS_LIBS) \
-
-$(ZLIB_LIBS)
-!
-ENDIF
-
-        tshark_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-
-lib \
- $(GLIB_LIBS) \
-
-
-$(GTHREAD_LIBS) \
-
-wsutil\libwsutil.
-
-lib \
- $(GNUTLS_LIBS) \
-
-
-$(PYTHON_LIBS) \
-
-!
-IFDEF ENABLE_LIBWIRESHARK
-epan\libwireshark.lib \
-!
-ELSE
-        epan
-\dissectors\dissectors.
-lib \
- epan
-\wireshark.
-lib \
- epan
-\crypt\airpdcap.
-lib \
- epan
-\dfilter\dfilter.
-lib \
- epan
-\ftypes\ftypes.
-
-lib \
- $(C_ARES_LIBS) \
-
-
-$(ADNS_LIBS) \
-
-$(ZLIB_LIBS)
-!
-ENDIF
-
-        rawshark_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-
-lib \
- $(GLIB_LIBS) \
-
-
-wsutil\libwsutil.
-
-lib \
- $(GNUTLS_LIBS) \
-
-
-$(PYTHON_LIBS) \
-
-!
-IFDEF ENABLE_LIBWIRESHARK
-epan\libwireshark.lib \
-!
-ELSE
-        epan
-\dissectors\dissectors.
-lib \
- epan
-\wireshark.
-lib \
- epan
-\crypt\airpdcap.
-lib \
- epan
-\dfilter\dfilter.
-lib \
- epan
-\ftypes\ftypes.
-
-lib \
- $(C_ARES_LIBS) \
-
-
-$(ADNS_LIBS) \
-
-$(ZLIB_LIBS)
-!
-ENDIF
-
-        capinfos_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-lib shell32
-.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS) \
-
-
-$(GCRYPT_LIBS)
-
-editcap_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-lib shell32
-.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS)
-
-mergecap_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS)
-
-reordercap_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS)
-
-text2pcap_LIBS = \
-    wsock32.lib
-user32.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS)
-
-dumpcap_LIBS = \
-    wsock32.lib
-user32.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS) \
-
-
-$(GTHREAD_LIBS)
-
-dftest_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- wsock32
-.
-lib user32
-.
-
-lib \
- $(GLIB_LIBS) \
-
-
-wsutil\libwsutil.
-
-lib \
- $(GNUTLS_LIBS) \
-
-
-!
-IFDEF ENABLE_LIBWIRESHARK
-epan\libwireshark.lib \
-!
-ELSE
-        epan
-\dissectors\dissectors.
-lib \
- epan
-\wireshark.
-lib \
- epan
-\dfilter\dfilter.
-lib epan
-\ftypes\ftypes.
-
-lib \
- $(C_ARES_LIBS) \
-
-
-$(ADNS_LIBS) \
-
-$(ZLIB_LIBS) \
-
-$(SMI_LIBS)
-!
-ENDIF
-
-        randpkt_LIBS = wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib \
- user32
-.
-lib \
- wsutil
-\libwsutil.
-
-lib \
- $(GLIB_LIBS)
-
-EXECUTABLES = wireshark.exe
-tshark.
-exe rawshark
-.
-exe \
- capinfos
-.
-exe editcap
-.
-exe mergecap
-.
-exe text2pcap
-.
-exe randpkt
-.
-exe reordercap
-.
-exe dumpcap
-.
-exe
-
-        RESOURCES = image
-\wireshark.
-res image
-\file_dlg_win32.
-res \
- image
-\libwireshark.
-res image
-\tshark.
-res image
-\capinfos.
-res \
- image
-\editcap.
-res image
-\mergecap.
-res image
-\text2pcap.
-res \
- image
-\wiretap.
-res image
-\dumpcap.
-res image
-\rawshark.
-res \
- image
-\reordercap.
-res image
-\libwsutil.
-res
-
-
-        all
-:
-$(LIBS_CHECK)
-config.
-h ui
-\qt\config.
-pri tools
-image codecs
-$(C_ARES_DLL)
-$(ADNS_DLL)
-$(ZLIB_DLL)
-wsutil wiretap
-epan $(EXECUTABLES)
-wireshark.
-bsc $(RESOURCES)
-doc help
-install-all
-
-!
-IFDEF MAKENSIS
-packaging:
-all
-        cd
-packaging
-        cd
-nsis
-        $(MAKE)
-/
-$(MAKEFLAGS)
--
-f makefile
-.
-nmake
-        cd
-..
-cd ..
-!
-ELSE
-        packaging
-: _FORCE_
-@echo \? NSIS not
-available (MAKENSIS
-not
-defined in
-config.nmake)
-@echo.
-@exit 1
-!
-ENDIF
-
-        packaging_u3
-:
-all
-        cd
-packaging
-        cd
-u3
-        cd
-win32
-        $(MAKE)
-/
-$(MAKEFLAGS)
--
-f makefile
-.
-nmake
-        cd
-..
-cd ..
-cd ..
-
-packaging_papps:
-all
-        cd
-packaging
-        cd
-portableapps
-        cd
-win32
-        $(MAKE)
-/
-$(MAKEFLAGS)
--
-f makefile
-.
-nmake
-        cd
-..
-cd ..
-cd ..
+GENERATED_CFLAGS=\
+	$(STANDARD_CFLAGS) \
+	/I.  /Iwiretap $(GLIB_CFLAGS) \
+	$(ZLIB_CFLAGS) /I$(PCAP_DIR)\include $(AIRPCAP_CFLAGS) \
+	$(C_ARES_CFLAGS) $(ADNS_CFLAGS) $(GNUTLS_CFLAGS) \
+	$(PYTHON_CFLAGS) $(SMI_CFLAGS) $(GEOIP_CFLAGS) $(WINSPARKLE_CFLAGS)
+
+CFLAGS=$(WARNINGS_ARE_ERRORS) $(GENERATED_CFLAGS)
+
+.c.obj::
+	$(CC) $(CFLAGS) -Fd.\ -c $<
+
+PLATFORM_SRC = capture-wpcap.c capture_wpcap_packet.c capture_win_ifnames.c
+
+WTAP_PLUGIN_SOURCES = \
+       epan/plugins.c \
+       epan/report_err.c \
+       epan/filesystem.c
+
+include Makefile.common
+
+wireshark_OBJECTS = $(wireshark_SOURCES:.c=.obj)
+tshark_OBJECTS = $(tshark_SOURCES:.c=.obj)
+rawshark_OBJECTS = $(rawshark_SOURCES:.c=.obj)
+###text2pcap_OBJECTS = $(text2pcap_SOURCES:.c=.obj)
+###mergecap_OBJECTS = $(mergecap_SOURCES:.c=.obj)
+editcap_OBJECTS = $(editcap_SOURCES:.c=.obj)
+capinfos_OBJECTS = $(capinfos_SOURCES:.c=.obj)
+dftest_OBJECTS = $(dftest_SOURCES:.c=.obj)
+dumpcap_OBJECTS = $(dumpcap_SOURCES:.c=.obj)
+randpkt_OBJECTS = $(randpkt_SOURCES:.c=.obj)
+
+wireshark_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib shell32.lib comctl32.lib ole32.lib \
+	$(GTHREAD_LIBS) \
+	$(HHC_LIBS) \
+	wsutil\libwsutil.lib \
+	$(GNUTLS_LIBS) \
+	$(PYTHON_LIBS) \
+	$(WINSPARKLE_LIBS) \
+!IFDEF ENABLE_LIBWIRESHARK
+	epan\libwireshark.lib \
+!ELSE
+	epan\dissectors\dissectors.lib \
+	epan\wireshark.lib \
+	epan\crypt\airpdcap.lib \
+	epan\dfilter\dfilter.lib \
+	epan\ftypes\ftypes.lib \
+	$(C_ARES_LIBS) \
+	$(ADNS_LIBS) \
+	$(ZLIB_LIBS)
+!ENDIF
+
+tshark_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib \
+	$(GLIB_LIBS) \
+	$(GTHREAD_LIBS) \
+	wsutil\libwsutil.lib \
+	$(GNUTLS_LIBS) \
+	$(PYTHON_LIBS) \
+!IFDEF ENABLE_LIBWIRESHARK
+	epan\libwireshark.lib \
+!ELSE
+	epan\dissectors\dissectors.lib \
+	epan\wireshark.lib \
+	epan\crypt\airpdcap.lib \
+	epan\dfilter\dfilter.lib \
+	epan\ftypes\ftypes.lib \
+	$(C_ARES_LIBS) \
+	$(ADNS_LIBS) \
+	$(ZLIB_LIBS)
+!ENDIF
+
+rawshark_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib \
+	$(GLIB_LIBS) \
+	wsutil\libwsutil.lib \
+	$(GNUTLS_LIBS) \
+	$(PYTHON_LIBS) \
+!IFDEF ENABLE_LIBWIRESHARK
+	epan\libwireshark.lib \
+!ELSE
+	epan\dissectors\dissectors.lib \
+	epan\wireshark.lib \
+	epan\crypt\airpdcap.lib \
+	epan\dfilter\dfilter.lib \
+	epan\ftypes\ftypes.lib \
+	$(C_ARES_LIBS) \
+	$(ADNS_LIBS) \
+	$(ZLIB_LIBS)
+!ENDIF
+
+capinfos_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib shell32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS) \
+	$(GCRYPT_LIBS)
+
+editcap_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib shell32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS)
+
+mergecap_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS)
+
+reordercap_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS)
+
+text2pcap_LIBS= \
+	wsock32.lib user32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS)
+
+dumpcap_LIBS= \
+	wsock32.lib user32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS) \
+	$(GTHREAD_LIBS)
+
+dftest_LIBS=  wiretap\wiretap-$(WTAP_VERSION).lib \
+	wsock32.lib user32.lib \
+	$(GLIB_LIBS) \
+	wsutil\libwsutil.lib \
+	$(GNUTLS_LIBS) \
+!IFDEF ENABLE_LIBWIRESHARK
+	epan\libwireshark.lib \
+!ELSE
+	epan\dissectors\dissectors.lib \
+	epan\wireshark.lib \
+	epan\dfilter\dfilter.lib epan\ftypes\ftypes.lib \
+	$(C_ARES_LIBS) \
+	$(ADNS_LIBS) \
+	$(ZLIB_LIBS) \
+	$(SMI_LIBS)
+!ENDIF
+
+randpkt_LIBS= wiretap\wiretap-$(WTAP_VERSION).lib \
+	user32.lib \
+	wsutil\libwsutil.lib \
+	$(GLIB_LIBS)
+
+EXECUTABLES=wireshark.exe tshark.exe rawshark.exe \
+	capinfos.exe editcap.exe mergecap.exe text2pcap.exe randpkt.exe reordercap.exe dumpcap.exe
+
+RESOURCES=image\wireshark.res image\file_dlg_win32.res \
+	image\libwireshark.res image\tshark.res image\capinfos.res \
+	image\editcap.res image\mergecap.res image\text2pcap.res \
+	image\wiretap.res image\dumpcap.res image\rawshark.res \
+	image\reordercap.res image\libwsutil.res
+
+
+all: $(LIBS_CHECK) config.h ui\qt\config.pri tools image codecs $(C_ARES_DLL) $(ADNS_DLL) $(ZLIB_DLL) wsutil wiretap epan $(EXECUTABLES) wireshark.bsc $(RESOURCES) doc help install-all
+
+!IFDEF MAKENSIS
+packaging: all
+	cd packaging
+	cd nsis
+	$(MAKE) /$(MAKEFLAGS) -f makefile.nmake
+	cd ..
+	cd ..
+!ELSE
+packaging: _FORCE_
+	@echo \? NSIS not available (MAKENSIS not defined in config.nmake)
+	@echo.
+	@exit 1
+!ENDIF
+
+packaging_u3: all
+	cd packaging
+	cd u3
+	cd win32
+	$(MAKE) /$(MAKEFLAGS) -f makefile.nmake
+	cd ..
+	cd ..
+	cd ..
+
+packaging_papps: all
+	cd packaging
+	cd portableapps
+	cd win32
+	$(MAKE) /$(MAKEFLAGS) -f makefile.nmake
+	cd ..
+	cd ..
+	cd ..
 
 # use (info-)zip from cygwin to pack things
 packaging_zip: all
-!
-IFDEF MSVCR_DLL
-xcopy "$(MSVCR_DLL)"
-$(INSTALL_DIR)
+!IFDEF MSVCR_DLL
+	xcopy "$(MSVCR_DLL)" $(INSTALL_DIR)
 !ENDIF
-!
-IFDEF VCREDIST_EXE
-@
-echo Including
-vcredist_$(TARGET_MACHINE)
-.exe --
-your recipient
-may need
-to run
-it!
-xcopy "$(VCREDIST_EXE)"
-$(INSTALL_DIR)
-!
-ENDIF
-        rm
--
-f wireshark
-.
-zip
-        zip
--r -9 wireshark.
-zip $(INSTALL_DIR)
-/
+!IFDEF VCREDIST_EXE
+	@echo Including vcredist_$(TARGET_MACHINE).exe -- your recipient may need to run it!
+	xcopy "$(VCREDIST_EXE)" $(INSTALL_DIR)
+!ENDIF
+	rm -f wireshark.zip
+	zip -r -9 wireshark.zip $(INSTALL_DIR)/
 
-!
-IFDEF WIRESHARK_GENERATE_BSC_FILE
+!IFDEF WIRESHARK_GENERATE_BSC_FILE
 # FIXME: Add epan\wspython\*.sbr when we support Python embedding
 # Note: Certain .sbr files cause bscmake warning "too many references... ignoring ..."
 # XXX: It seems that using .bsc files with VS2010 doesn't work (isn't supported ?)
 #      Using .bsc files with VS2008 may work
 #      See: http://ask.wireshark.org/questions/8660/wireshark-building-and-debugging-on-visual-c-or-visual-studio
 wireshark.bsc: \
-    *.
-sbr                \
- codecs
-\*.
-sbr            \
- epan
-\*.
-sbr            \
- epan
-\crypt\*.
-sbr        \
- epan
-\dfilter\*.
-sbr        \
- epan
-\dissectors\*.
-sbr        \
- epan
-\ftypes\*.
-sbr        \
- epan
-\wslua\*.
-sbr        \
- plugins
-\asn1\*.
-sbr        \
- plugins
-\docsis\*.
-sbr        \
- plugins
-\ethercat\*.
-sbr        \
- plugins
-\gryphon\*.
-sbr        \
- plugins
-\irda\*.
-sbr        \
- plugins
-\m2m\*.
-sbr        \
- plugins
-\mate\*.
-sbr        \
- plugins
-\opcua\*.
-sbr        \
- plugins
-\profinet\*.
-sbr        \
- plugins
-\stats_tree\*.
-sbr    \
- plugins
-\unistim\*.
-sbr        \
- plugins
-\wimax\*.
-sbr        \
- plugins
-\wimaxasncp\*.
-sbr    \
- plugins
-\wimaxmacphy\*.
-sbr    \
- plugins
-\asterix\*.
-sbr        \
- ui
-\*.
-sbr            \
- ui
-\cli\*.
-sbr            \
- ui
-\gtk\*.
-sbr            \
- ui
-\win32\*.
-sbr            \
- wiretap
-\*.
-sbr            \
- wsutil
-\*.
-sbr
-        $(BSCMAKE)
-@<<
-/
-o $
-@ $?
+	*.sbr				\
+	codecs\*.sbr			\
+	epan\*.sbr			\
+	epan\crypt\*.sbr		\
+	epan\dfilter\*.sbr		\
+	epan\dissectors\*.sbr		\
+	epan\ftypes\*.sbr		\
+	epan\wslua\*.sbr		\
+	plugins\asn1\*.sbr		\
+	plugins\docsis\*.sbr		\
+	plugins\ethercat\*.sbr		\
+	plugins\gryphon\*.sbr		\
+	plugins\irda\*.sbr		\
+	plugins\m2m\*.sbr		\
+	plugins\mate\*.sbr		\
+	plugins\opcua\*.sbr		\
+	plugins\profinet\*.sbr		\
+	plugins\stats_tree\*.sbr	\
+	plugins\unistim\*.sbr		\
+	plugins\wimax\*.sbr		\
+	plugins\wimaxasncp\*.sbr	\
+	plugins\wimaxmacphy\*.sbr	\
+	plugins\asterix\*.sbr		\
+	ui\*.sbr			\
+	ui\cli\*.sbr			\
+	ui\gtk\*.sbr			\
+	ui\win32\*.sbr			\
+	wiretap\*.sbr			\
+	wsutil\*.sbr
+	$(BSCMAKE) @<<
+		/o $@ $?
 <<
-!
-ELSE
-        wireshark
-.bsc:
-!
-ENDIF
+!ELSE
+wireshark.bsc:
+!ENDIF
 
-        pdb_zip
-:
-all
-        cd
-$(INSTALL_DIR)
-rm -f ../[Ww]ireshark-pdb-
-$(WIRESHARK_TARGET_PLATFORM)
--
-$(VERSION)
-.
-zip
-        zip
--9 ../Wireshark-pdb-
-$(WIRESHARK_TARGET_PLATFORM)
--
-$(VERSION)
-.zip *.pdb *.
-lib
-        cd
-..
+pdb_zip: all
+	cd $(INSTALL_DIR)
+	rm -f ../[Ww]ireshark-pdb-$(WIRESHARK_TARGET_PLATFORM)-$(VERSION).zip
+	zip -9 ../Wireshark-pdb-$(WIRESHARK_TARGET_PLATFORM)-$(VERSION).zip *.pdb *.lib
+	cd ..
 
-$(RESOURCES)
-: image
+$(RESOURCES): image
 
-## Note:
-The proper
-"SUBSYSTEM"
-link option
-to be
-used for
-linking each
-of the
-Wireshark executables
-##
-is specified
-in '$(guiflags)' or '$(conflags)'
-as used
-as part
-of the
-link options
-.
-##       (
-These variables
-are defined
-in win32
-.mak).
-wiretap\wiretap-
-$(WTAP_VERSION)
-.lib:
-image $(ZLIB_DLL)
-wiretap
+## Note: The proper "SUBSYSTEM" link option to be used for linking each of the Wireshark executables
+##       is specified in '$(guiflags)' or '$(conflags)' as used as part of the link options.
+##       (These variables are defined in win32.mak).
+wiretap\wiretap-$(WTAP_VERSION).lib: image $(ZLIB_DLL) wiretap
 
-        wireshark
-.exe    :
-$(LIBS_CHECK)
-config.
-h $(wireshark_OBJECTS)
-codecs epan
-ui gtk
-win32 image
-\wireshark.
-res image
-\file_dlg_win32.
-res wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib codecs
-\codecs.
-lib ui
-\libui.
-lib ui
-\gtk\libgtkui.
-lib ui
-\win32\libgtkui_win32.
-lib plugins
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:
-$(PROGRAM_NAME)
-.
-
-exe $(guiflags)
-
-$(guilibsdll)
-$(LDFLAGS)
-/
-LARGEADDRESSAWARE $(wireshark_LIBS)
-$(GTK_LIBS)
-codecs\codecs.
-lib ui
-\gtk\libgtkui.
-lib ui
-\win32\libgtkui_win32.
-lib ui
-\libui.
-lib $(wireshark_OBJECTS)
-image\wireshark.
-res image
-\file_dlg_win32.res
+wireshark.exe	: $(LIBS_CHECK) config.h $(wireshark_OBJECTS) codecs epan ui gtk win32 image\wireshark.res image\file_dlg_win32.res wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib codecs\codecs.lib ui\libui.lib ui\gtk\libgtkui.lib ui\win32\libgtkui_win32.lib plugins
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:$(PROGRAM_NAME).exe $(guiflags) $(guilibsdll) $(LDFLAGS) /LARGEADDRESSAWARE $(wireshark_LIBS) $(GTK_LIBS) codecs\codecs.lib ui\gtk\libgtkui.lib ui\win32\libgtkui_win32.lib ui\libui.lib $(wireshark_OBJECTS) image\wireshark.res image\file_dlg_win32.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "wireshark.exe.manifest" -outputresource:
-$(PROGRAM_NAME)
-.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "wireshark.exe.manifest" -outputresource:$(PROGRAM_NAME).exe;1
+!ENDIF
 
-        tshark
-.exe    :
-$(LIBS_CHECK)
-config.
-h $(tshark_OBJECTS)
-epan ui
-cli image
-\tshark.
-res wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib plugins
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:tshark.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-/
-LARGEADDRESSAWARE $(tshark_LIBS)
-$(tshark_OBJECTS)
-ui\cli\libcliui.
-lib ui
-\libui.
-lib image
-\tshark.res
+tshark.exe	: $(LIBS_CHECK) config.h $(tshark_OBJECTS) epan ui cli image\tshark.res wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib plugins
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:tshark.exe $(conflags) $(conlibsdll) $(LDFLAGS) /LARGEADDRESSAWARE $(tshark_LIBS) $(tshark_OBJECTS) ui\cli\libcliui.lib ui\libui.lib image\tshark.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "tshark.exe.manifest" -outputresource:tshark.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "tshark.exe.manifest" -outputresource:tshark.exe;1
+!ENDIF
 
-        rawshark
-.exe    :
-$(LIBS_CHECK)
-config.
-h $(rawshark_OBJECTS)
-epan ui
-image\rawshark.
-res wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib plugins
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:rawshark.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-/
-LARGEADDRESSAWARE $(rawshark_LIBS)
-$(rawshark_OBJECTS)
-ui\libui.
-lib image
-\rawshark.res
+rawshark.exe	: $(LIBS_CHECK) config.h $(rawshark_OBJECTS) epan ui image\rawshark.res wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib plugins
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:rawshark.exe $(conflags) $(conlibsdll) $(LDFLAGS) /LARGEADDRESSAWARE $(rawshark_LIBS) $(rawshark_OBJECTS) ui\libui.lib image\rawshark.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "rawshark.exe.manifest" -outputresource:rawshark.
-exe;
-1
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "rawshark.exe.manifest" -outputresource:rawshark.exe;1
 !ENDIF
 
 # XXX: This makefile does not properly handle doing a 'nmake ... capinfos.exe' directly since some of the .objs
-#      (e.g. epan\plugins.obj)
-must be
-built first
-using epan\Makefile.
-nmake (which
-happens for 'nmake ... all').
+#      (e.g. epan\plugins.obj) must be built first using epan\Makefile.nmake (which happens for 'nmake ... all').
 # Linking with setargv.obj enables "wildcard expansion" of command-line arguments
-capinfos.exe    :
-$(LIBS_CHECK)
-config.
-h $(capinfos_OBJECTS)
-wsutil\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib image
-\capinfos.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:capinfos.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-$(capinfos_OBJECTS)
-$(capinfos_LIBS)
-setargv.
-obj image
-\capinfos.res
+capinfos.exe	: $(LIBS_CHECK) config.h $(capinfos_OBJECTS) wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib image\capinfos.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:capinfos.exe $(conflags) $(conlibsdll) $(LDFLAGS) $(capinfos_OBJECTS) $(capinfos_LIBS) setargv.obj image\capinfos.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "capinfos.exe.manifest" -outputresource:capinfos.
-exe;
-1
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "capinfos.exe.manifest" -outputresource:capinfos.exe;1
 !ENDIF
 
 # XXX: This makefile does not properly handle doing a 'nmake ... editcap.exe' directly since some of the .objs
-#      (e.g. epan\plugins.obj)
-must be
-built first
-using epan\Makefile.
-nmake (which
-happens for 'nmake ... all').
-editcap.exe    :
-$(LIBS_CHECK)
-config.
-h $(editcap_OBJECTS)
-wsutil\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib image
-\editcap.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:editcap.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-$(editcap_OBJECTS)
-$(editcap_LIBS)
-image\editcap.res
+#      (e.g. epan\plugins.obj) must be built first using epan\Makefile.nmake (which happens for 'nmake ... all').
+editcap.exe	: $(LIBS_CHECK) config.h $(editcap_OBJECTS) wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib image\editcap.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:editcap.exe $(conflags) $(conlibsdll) $(LDFLAGS) $(editcap_OBJECTS) $(editcap_LIBS) image\editcap.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "editcap.exe.manifest" -outputresource:editcap.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "editcap.exe.manifest" -outputresource:editcap.exe;1
+!ENDIF
 
 # Linking with setargv.obj enables "wildcard expansion" of command-line arguments
-        mergecap
-.exe    :
-$(LIBS_CHECK)
-config.
-h mergecap
-.
-obj merge
-.
-obj wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib image
-\mergecap.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:mergecap.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-mergecap.
-obj merge
-.
-obj $(mergecap_LIBS)
-setargv.
-obj image
-\mergecap.res
+mergecap.exe	: $(LIBS_CHECK)  config.h mergecap.obj merge.obj wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib image\mergecap.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:mergecap.exe $(conflags) $(conlibsdll) $(LDFLAGS) mergecap.obj merge.obj $(mergecap_LIBS) setargv.obj image\mergecap.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "mergecap.exe.manifest" -outputresource:mergecap.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "mergecap.exe.manifest" -outputresource:mergecap.exe;1
+!ENDIF
 
-        reordercap
-.exe    :
-$(LIBS_CHECK)
-config.
-h reordercap
-.
-obj wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib image
-\reordercap.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:reordercap.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-reordercap.
-obj $(reordercap_LIBS)
-setargv.
-obj image
-\reordercap.res
+reordercap.exe	: $(LIBS_CHECK)  config.h reordercap.obj wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib image\reordercap.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:reordercap.exe $(conflags) $(conlibsdll) $(LDFLAGS) reordercap.obj $(reordercap_LIBS) setargv.obj image\reordercap.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "reordercap.exe.manifest" -outputresource:reordercap.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "reordercap.exe.manifest" -outputresource:reordercap.exe;1
+!ENDIF
 
-        text2pcap
-.exe    :
-$(LIBS_CHECK)
-config.
-h text2pcap
-.
-obj text2pcap
--scanner.
-obj pcapio
-.
-obj wsutil
-\libwsutil.
-lib wiretap
-\wiretap-
-$(WTAP_VERSION)
-.
-lib image
-\text2pcap.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:text2pcap.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-text2pcap.
-obj text2pcap
--scanner.
-obj pcapio
-.
-obj $(text2pcap_LIBS)
-image\text2pcap.res
+text2pcap.exe	: $(LIBS_CHECK) config.h text2pcap.obj text2pcap-scanner.obj pcapio.obj wsutil\libwsutil.lib wiretap\wiretap-$(WTAP_VERSION).lib image\text2pcap.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:text2pcap.exe $(conflags) $(conlibsdll) $(LDFLAGS) text2pcap.obj text2pcap-scanner.obj pcapio.obj $(text2pcap_LIBS) image\text2pcap.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "text2pcap.exe.manifest" -outputresource:text2pcap.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "text2pcap.exe.manifest" -outputresource:text2pcap.exe;1
+!ENDIF
 
-        dftest
-.exe    :
-$(dftest_OBJECTS)
-epan ui
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:dftest.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-$(dftest_LIBS)
-ui\libui.
-lib $(dftest_OBJECTS)
+dftest.exe	: $(dftest_OBJECTS) epan ui
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:dftest.exe $(conflags) $(conlibsdll) $(LDFLAGS) $(dftest_LIBS) ui\libui.lib $(dftest_OBJECTS)
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "dftest.exe.manifest" -outputresource:dftest.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "dftest.exe.manifest" -outputresource:dftest.exe;1
+!ENDIF
 
-        randpkt
-.exe    :
-$(randpkt_OBJECTS)
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:randpkt.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-$(randpkt_LIBS)
-$(randpkt_OBJECTS)
+randpkt.exe	: $(randpkt_OBJECTS)
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:randpkt.exe $(conflags) $(conlibsdll) $(LDFLAGS) $(randpkt_LIBS) $(randpkt_OBJECTS)
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "randpkt.exe.manifest" -outputresource:randpkt.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "randpkt.exe.manifest" -outputresource:randpkt.exe;1
+!ENDIF
 
-        dumpcap
-.exe    :
-$(LIBS_CHECK)
-config.
-h $(dumpcap_OBJECTS)
-wsutil\libwsutil.
-lib image
-\dumpcap.res
-@
-echo Linking
-$@
-$(LINK)
-@<<
-/OUT:dumpcap.
-
-exe $(conflags)
-
-$(conlibsdll)
-$(LDFLAGS)
-$(dumpcap_LIBS)
-$(dumpcap_OBJECTS)
-image\dumpcap.res
+dumpcap.exe	: $(LIBS_CHECK) config.h $(dumpcap_OBJECTS) wsutil\libwsutil.lib image\dumpcap.res
+	@echo Linking $@
+	$(LINK) @<<
+		/OUT:dumpcap.exe $(conflags) $(conlibsdll) $(LDFLAGS) $(dumpcap_LIBS) $(dumpcap_OBJECTS) image\dumpcap.res
 <<
-!
-IFDEF MANIFEST_INFO_REQUIRED
-mt.exe -nologo -manifest "dumpcap.exe.manifest" -outputresource:dumpcap.
-exe;
-1
-!
-ENDIF
+!IFDEF MANIFEST_INFO_REQUIRED
+	mt.exe -nologo -manifest "dumpcap.exe.manifest" -outputresource:dumpcap.exe;1
+!ENDIF
 
 
-        config
-.h    : config.h.
-win32 config
-.
-nmake
-        sed
--
-e s
-/@VERSION@/
-$(VERSION)
-/ \
-        -
-e s
-/@VERSION_MAJOR@/
-$(VERSION_MAJOR)
-/ \
-        -
-e s
-/@VERSION_MINOR@/
-$(VERSION_MINOR)
-/ \
-        -
-e s
-/@VERSION_MICRO@/
-$(VERSION_MICRO)
-/ \
-        -e "s/@HAVE_C_ARES@/$(C_ARES_CONFIG)/" \
-        -e "s/@HAVE_GNU_ADNS@/$(ADNS_CONFIG)/" \
-        -e "s/@HAVE_KFW@/$(KFW_CONFIG)/" \
-        -e "s/@HAVE_NETTLE@/$(NETTLE_CONFIG)/" \
-        -e "s/@HAVE_LIBZ@/$(ZLIB_CONFIG)/" \
-        -e "s/@HAVE_LIBPCAP@/$(WINPCAP_CONFIG)/" \
-        -e "s/@HAVE_PCAP_FINDALLDEVS@/$(PCAP_FINDALLDEVS_CONFIG)/" \
-        -e "s/@HAVE_PCAP_DATALINK_NAME_TO_VAL@/$(PCAP_DATALINK_NAME_TO_VAL_CONFIG)/" \
-        -e "s/@HAVE_PCAP_DATALINK_VAL_TO_NAME@/$(PCAP_DATALINK_VAL_TO_NAME_CONFIG)/" \
-        -e "s/@HAVE_PCAP_DATALINK_VAL_TO_DESCRIPTION@/$(PCAP_DATALINK_VAL_TO_DESCRIPTION_CONFIG)/" \
-        -e "s/@HAVE_PCAP_BREAKLOOP@/$(PCAP_BREAKLOOP_CONFIG)/" \
-        -e "s/@HAVE_REMOTE@/$(PCAP_HAVE_REMOTE_CONFIG)/" \
-        -e "s/@HAVE_PCAP_REMOTE@/$(PCAP_REMOTE_CONFIG)/" \
-        -e "s/@HAVE_PCAP_OPEN@/$(PCAP_OPEN_CONFIG)/" \
-        -e "s/@HAVE_PCAP_OPEN_DEAD@/$(PCAP_OPEN_DEAD_CONFIG)/" \
-        -e "s/@HAVE_PCAP_LIST_DATALINKS@/$(PCAP_LIST_DATALINKS_CONFIG)/" \
-        -e "s/@HAVE_PCAP_FREE_DATALINKS@/$(PCAP_FREE_DATALINKS_CONFIG)/" \
-        -e "s/@HAVE_PCAP_SET_DATALINK@/$(PCAP_SET_DATALINK_CONFIG)/" \
-        -e "s/@HAVE_PCAP_SETSAMPLING@/$(PCAP_SETSAMPLING_CONFIG)/" \
-        -e "s/@HAVE_BPF_IMAGE@/$(BPF_IMAGE_CONFIG)/" \
-        -e "s/@HAVE_LIBGNUTLS@/$(GNUTLS_CONFIG)/" \
-        -e "s/@HAVE_LIBGCRYPT@/$(LIBGCRYPT_CONFIG)/" \
-        -e "s/@HAVE_LUA@/$(LUA_CONFIG)/" \
-        -e "s/@HAVE_LUA@/$(LUA_VERSION)/" \
-        -e "s/@HAVE_PYTHON@/$(PYTHON_CONFIG)/" \
-        -e "s/@HAVE_AIRPCAP@/$(AIRPCAP_CONFIG)/" \
-        -e "s/@HAVE_AIRPDCAP@/$(AIRPDCAP_CONFIG)/" \
-        -e "s/@HAVE_LIBPORTAUDIO@/$(PORTAUDIO_CONFIG)/" \
-        -e "s/@PORTAUDIO_API_1@/$(PORTAUDIO_API_CONFIG)/" \
-        -e "s/@HAVE_SMI@/$(SMI_CONFIG)/" \
-        -e "s/@HAVE_GEOIP@/$(GEOIP_CONFIG)/" \
-        -e "s/@HAVE_GEOIP_V6@/$(GEOIP_V6_CONFIG)/" \
-        -e "s/@HAVE_SOFTWARE_UPDATE@/$(WINSPARKLE_CONFIG)/" \
-        -e "s/@INET6@/$(INET6_CONFIG)/" \
-        -e "s/@HAVE_NTDDNDIS_H@/$(NTDDNDIS_CONFIG)/" \
-        -e "s/@PCAP_NG_DEFAULT@/$(PCAP_NG_DEFAULT)/" \
-        -e "s/@WANT_PACKET_EDITOR@/$(WANT_PACKET_EDITOR)/" \
-        < config.h.win32 > $@
+config.h	: config.h.win32 config.nmake
+	sed -e s/@VERSION@/$(VERSION)/ \
+	    -e s/@VERSION_MAJOR@/$(VERSION_MAJOR)/ \
+	    -e s/@VERSION_MINOR@/$(VERSION_MINOR)/ \
+	    -e s/@VERSION_MICRO@/$(VERSION_MICRO)/ \
+	    -e "s/@HAVE_C_ARES@/$(C_ARES_CONFIG)/" \
+	    -e "s/@HAVE_GNU_ADNS@/$(ADNS_CONFIG)/" \
+ 	    -e "s/@HAVE_KFW@/$(KFW_CONFIG)/" \
+	    -e "s/@HAVE_NETTLE@/$(NETTLE_CONFIG)/" \
+	    -e "s/@HAVE_LIBZ@/$(ZLIB_CONFIG)/" \
+	    -e "s/@HAVE_LIBPCAP@/$(WINPCAP_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_FINDALLDEVS@/$(PCAP_FINDALLDEVS_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_DATALINK_NAME_TO_VAL@/$(PCAP_DATALINK_NAME_TO_VAL_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_DATALINK_VAL_TO_NAME@/$(PCAP_DATALINK_VAL_TO_NAME_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_DATALINK_VAL_TO_DESCRIPTION@/$(PCAP_DATALINK_VAL_TO_DESCRIPTION_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_BREAKLOOP@/$(PCAP_BREAKLOOP_CONFIG)/" \
+	    -e "s/@HAVE_REMOTE@/$(PCAP_HAVE_REMOTE_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_REMOTE@/$(PCAP_REMOTE_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_OPEN@/$(PCAP_OPEN_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_OPEN_DEAD@/$(PCAP_OPEN_DEAD_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_LIST_DATALINKS@/$(PCAP_LIST_DATALINKS_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_FREE_DATALINKS@/$(PCAP_FREE_DATALINKS_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_SET_DATALINK@/$(PCAP_SET_DATALINK_CONFIG)/" \
+	    -e "s/@HAVE_PCAP_SETSAMPLING@/$(PCAP_SETSAMPLING_CONFIG)/" \
+	    -e "s/@HAVE_BPF_IMAGE@/$(BPF_IMAGE_CONFIG)/" \
+	    -e "s/@HAVE_LIBGNUTLS@/$(GNUTLS_CONFIG)/" \
+	    -e "s/@HAVE_LIBGCRYPT@/$(LIBGCRYPT_CONFIG)/" \
+	    -e "s/@HAVE_LUA@/$(LUA_CONFIG)/" \
+	    -e "s/@HAVE_LUA@/$(LUA_VERSION)/" \
+	    -e "s/@HAVE_PYTHON@/$(PYTHON_CONFIG)/" \
+	    -e "s/@HAVE_AIRPCAP@/$(AIRPCAP_CONFIG)/" \
+	    -e "s/@HAVE_AIRPDCAP@/$(AIRPDCAP_CONFIG)/" \
+	    -e "s/@HAVE_LIBPORTAUDIO@/$(PORTAUDIO_CONFIG)/" \
+	    -e "s/@PORTAUDIO_API_1@/$(PORTAUDIO_API_CONFIG)/" \
+	    -e "s/@HAVE_SMI@/$(SMI_CONFIG)/" \
+	    -e "s/@HAVE_GEOIP@/$(GEOIP_CONFIG)/" \
+	    -e "s/@HAVE_GEOIP_V6@/$(GEOIP_V6_CONFIG)/" \
+	    -e "s/@HAVE_SOFTWARE_UPDATE@/$(WINSPARKLE_CONFIG)/" \
+	    -e "s/@INET6@/$(INET6_CONFIG)/" \
+	    -e "s/@HAVE_NTDDNDIS_H@/$(NTDDNDIS_CONFIG)/" \
+	    -e "s/@PCAP_NG_DEFAULT@/$(PCAP_NG_DEFAULT)/" \
+	    -e "s/@WANT_PACKET_EDITOR@/$(WANT_PACKET_EDITOR)/" \
+	    < config.h.win32 > $@
 
-ui\qt\config.pri: config.
-nmake Makefile
-.nmake
-@
-echo Creating
-<<ui\qt\config.
-pri
+ui\qt\config.pri: config.nmake Makefile.nmake
+	@echo Creating <<ui\qt\config.pri
 # Automatically generated from Makefile.nmake. Edit there, not here.
 # qmake apparently requires a three-part numeric VERSION.
-        PROGRAM_NAME = $(PROGRAM_NAME)
+PROGRAM_NAME = $(PROGRAM_NAME)
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_MICRO)
 VERSION_FULL = $(VERSION)
 WTAP_VERSION = $(WTAP_VERSION)
 INSTALL_DIR = $(INSTALL_DIR)
-!
-IFDEF MANIFEST_INFO_REQUIRED
+!IFDEF MANIFEST_INFO_REQUIRED
 CONFIG += wireshark_manifest_info_required
 !ENDIF
-!
-IFDEF KFW_DIR
+!IFDEF KFW_DIR
 CONFIG += wireshark_use_kfw
-!
-ENDIF
-        WIRESHARK_LIB_DIR = $(WIRESHARK_LIB_DIR
-:\=/)
-GLIB_DIR = $(GTK_DIR
-:\=/)
-C_ARES_DIR = $(C_ARES_DIR
-:\=/)
-ZLIB_DIR = $(ZLIB_DIR
-:\=/)
-GNUTLS_DIR = $(GNUTLS_DIR
-:\=/)
-SMI_DIR = $(SMI_DIR
-:\=/)
-KFW_DIR = $(KFW_DIR
-:\=/)
-LUA_DIR = $(LUA_DIR
-:\=/)
-PORTAUDIO_DIR = $(PORTAUDIO_DIR
-:\=/)
-GEOIP_DIR = $(GEOIP_DIR
-:\=/)
-WINSPARKLE_DIR = $(WINSPARKLE_DIR
-:\=/)
+!ENDIF
+WIRESHARK_LIB_DIR = $(WIRESHARK_LIB_DIR:\=/)
+GLIB_DIR = $(GTK_DIR:\=/)
+C_ARES_DIR = $(C_ARES_DIR:\=/)
+ZLIB_DIR = $(ZLIB_DIR:\=/)
+GNUTLS_DIR = $(GNUTLS_DIR:\=/)
+SMI_DIR = $(SMI_DIR:\=/)
+KFW_DIR = $(KFW_DIR:\=/)
+LUA_DIR = $(LUA_DIR:\=/)
+PORTAUDIO_DIR = $(PORTAUDIO_DIR:\=/)
+GEOIP_DIR = $(GEOIP_DIR:\=/)
+WINSPARKLE_DIR = $(WINSPARKLE_DIR:\=/)
 
 INTL_DLL = $(INTL_DLL)
 
@@ -1390,89 +484,39 @@ HHC_LIBS = $(HHC_LIBS)
 MSVC_VARIANT = $(MSVC_VARIANT)
 MSVCR_DLL = "$(MSVCR_DLL:\=/)"
 
-QMAKE_CFLAGS         *=
-$(STANDARD_CFLAGS)
-$(PORTAUDIO_CFLAGS
-:\=/)
-QMAKE_CXXFLAGS       *=
-$(STANDARD_CFLAGS)
-$(PORTAUDIO_CFLAGS
-:\=/)
-QMAKE_LFLAGS         *= /
-LARGEADDRESSAWARE $(LDFLAGS)
+QMAKE_CFLAGS         *= $(STANDARD_CFLAGS) $(PORTAUDIO_CFLAGS:\=/)
+QMAKE_CXXFLAGS       *= $(STANDARD_CFLAGS) $(PORTAUDIO_CFLAGS:\=/)
+QMAKE_LFLAGS         *= /LARGEADDRESSAWARE $(LDFLAGS)
 
-<<
-KEEP
+<<KEEP
 
-        ps
-.c: tools\rdps.
-py print
-.
-
-ps
-$(PYTHON)
-
-tools\rdps.
-py print
-.
-ps ps
-.c
+ps.c: tools\rdps.py print.ps
+	$(PYTHON) tools\rdps.py print.ps ps.c
 #
 
 # Build the version string
 #
 
 # XXX - Makefile.am uses FORCE for this.
-!
-IF EXIST(".git/index")
+!IF EXIST(".git/index")
+GITINDEX = .git/index
+!ELSE IF EXIST(".svn/wc.db")
+GITINDEX = .svn/wc.db
+!ELSE IF EXIST(".svn/entries")
+GITINDEX = .svn/entries
+!ELSE
 GITINDEX =
-.git/index
-!
-ELSE IF
-EXIST(".svn/wc.db")
-GITINDEX =
-.svn/wc.db
-!
-ELSE IF
-EXIST(".svn/entries")
-GITINDEX =
-.svn/entries
-!
-ELSE
-        GITINDEX =
-        !ENDIF
-version.h:
-$(GITINDEX)
-rm -
-f version
-.
-
-h
-$(PERL)
-
-make-version.
-pl
+!ENDIF
+version.h: $(GITINDEX)
+	rm -f version.h
+	$(PERL) make-version.pl
 
 
-        text2pcap
--scanner.c : text2pcap-scanner.
+text2pcap-scanner.c : text2pcap-scanner.l
+	$(LEX) -otext2pcap-scanner.c text2pcap-scanner.l
 
-l
-$(LEX)
-
--otext2pcap-scanner.
-c text2pcap
--scanner.
-l
-
-        text2pcap
--scanner.obj : text2pcap-scanner.
-c
-        $(CC)
-$(GENERATED_CFLAGS)
--Fd.\ -
-c $
-?
+text2pcap-scanner.obj : text2pcap-scanner.c
+	$(CC) $(GENERATED_CFLAGS) -Fd.\ -c $?
 
 #
 
