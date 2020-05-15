@@ -4,3 +4,5 @@
 /build
 *.bak
 *~
+/cmake-build-debug/
+/.idea/
