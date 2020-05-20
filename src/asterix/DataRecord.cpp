@@ -202,8 +202,8 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
         case CAsterixFormat::EXMLH: {
             const int nXIDEFv = 1;
             strNewResult = format(
-                    "<ASTERIX ver=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\" cat=\"%d\">",
-                    nXIDEFv, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+                    "<ASTERIX ver=\"%d\" cat=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\">",
+                    nXIDEFv, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData);
             break;
         }
     }
