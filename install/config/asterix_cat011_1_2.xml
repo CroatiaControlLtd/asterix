@@ -509,7 +509,7 @@
                         </Bits>
                         <Bits bit="6">
                             <BitsShortName>LOP</BitsShortName>
-                            <BitsName>Loop age</BitsName> 
+                            <BitsName>Loop age</BitsName>
                             
                         </Bits>
                         <Bits bit="5">
@@ -614,6 +614,7 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>                       
                     </Bits>
                 </Fixed>
+
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>MLT</BitsShortName>
@@ -621,6 +622,7 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>TRK</BitsShortName>
@@ -636,7 +638,7 @@
                         <BitsUnit scale="0.25">sec</BitsUnit>                       
                     </Bits>
                 </Fixed>
-           </Compound>
+            </Compound>
         </DataItemFormat>
     </DataItem> 
 
@@ -861,11 +863,11 @@
                     <Bits from="8" to="1">
                         <BitsShortName>ECAT</BitsShortName>
                         <BitsName>Emitter category</BitsName>
-                            <BitsValue val="1">light aircraft ≤ 7000 kg </BitsValue>
+                            <BitsValue val="1">light aircraft <= 7000 kg </BitsValue>
                             <BitsValue val="2">reserved </BitsValue>
                             <BitsValue val="3">7000 kg &lt; medium aircraft &lt; 136000 kg </BitsValue>
                             <BitsValue val="4">reserved </BitsValue>
-                            <BitsValue val="5">136000 kg ≤ heavy aircraft </BitsValue>
+                            <BitsValue val="5">136000 kg <= heavy aircraft </BitsValue>
                             <BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&gt;400 knots cruise) </BitsValue>
                             <BitsValue val="7">reserved </BitsValue>
                             <BitsValue val="8">reserved </BitsValue>
@@ -1127,6 +1129,7 @@
                         <BitsValue val="M">Medium</BitsValue>
                         <BitsValue val="H">Heavy</BitsValue>
                         <BitsValue val="J">Super</BitsValue>
+
                     </Bits>
                 </Fixed>
                 <Fixed length="4">
@@ -1170,63 +1173,77 @@
 
                     </Bits>
                 </Fixed>
-                    <Fixed length="4">
-                        <Bits from="32" to="28">
-                            <BitsShortName>TYP</BitsShortName>
+                <Fixed length="4">
+                    <Bits from="32" to="28">
+                        <BitsShortName>TYP</BitsShortName>
                         <BitsName>TYP</BitsName>
-                            <BitsValue val="0">Scheduled off-block time </BitsValue>
-                            <BitsValue val="1">Estimated off-block time </BitsValue>
-                            <BitsValue val="2">Estimated take-off time </BitsValue>
-                            <BitsValue val="3">Actual off-block time </BitsValue>
-                            <BitsValue val="4">Predicted time at runway hold </BitsValue>
-                            <BitsValue val="5">Actual time at runway hold </BitsValue>
-                            <BitsValue val="6">Actual line-up time </BitsValue>
-                            <BitsValue val="7">Actual take-off time </BitsValue>
-                            <BitsValue val="8">Estimated time of arrival </BitsValue>
-                            <BitsValue val="9">Predicted landing time </BitsValue>
-                            <BitsValue val="10">Actual landing time </BitsValue>
-                            <BitsValue val="11">Actual time off runway </BitsValue>
-                            <BitsValue val="12">Predicted time to gate </BitsValue>
-                            <BitsValue val="13">Actual on-block time </BitsValue>
-                        </Bits>
-                        <Bits from="27" to="26">
-                            <BitsShortName>DAY</BitsShortName>
+                        <BitsValue val="0">Scheduled off-block time </BitsValue>
+                        <BitsValue val="1">Estimated off-block time </BitsValue>
+                        <BitsValue val="2">Estimated take-off time </BitsValue>
+                        <BitsValue val="3">Actual off-block time </BitsValue>
+                        <BitsValue val="4">Predicted time at runway hold </BitsValue>
+                        <BitsValue val="5">Actual time at runway hold </BitsValue>
+                        <BitsValue val="6">Actual line-up time </BitsValue>
+                        <BitsValue val="7">Actual take-off time </BitsValue>
+                        <BitsValue val="8">Estimated time of arrival </BitsValue>
+                        <BitsValue val="9">Predicted landing time </BitsValue>
+                        <BitsValue val="10">Actual landing time </BitsValue>
+                        <BitsValue val="11">Actual time off runway </BitsValue>
+                        <BitsValue val="12">Predicted time to gate </BitsValue>
+                        <BitsValue val="13">Actual on-block time </BitsValue>
+
+                    </Bits>
+                    <Bits from="27" to="26">
+                        <BitsShortName>DAY</BitsShortName>
                         <BitsName>DAY</BitsName>
-                            <BitsValue val="0">Today</BitsValue>
-                            <BitsValue val="1">Yesterday</BitsValue>
-                            <BitsValue val="2">Tomorrow</BitsValue>
-                        </Bits>
-                        <Bits from="25" to="22">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to 0</BitsName>
-                        </Bits>
-                        <Bits from="21" to="17">
-                            <BitsShortName>HOR</BitsShortName>
-                            <BitsName>Hours, from 0 to 23</BitsName>
-                        </Bits>
-                        <Bits from="16" to="15">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to 0</BitsName>
-                        </Bits>
-                        <Bits from="14" to="9">
-                            <BitsShortName>MIN</BitsShortName>
-                            <BitsName>Minutes, from 0 to 59</BitsName>
-                        </Bits>
-                        <Bits bit="8">
-                            <BitsShortName>AVS</BitsShortName>
+                        <BitsValue val="0">Today</BitsValue>
+                        <BitsValue val="1">Yesterday</BitsValue>
+                        <BitsValue val="2">Tomorrow</BitsValue>
+
+                    </Bits>
+
+                    <Bits from="25" to="22">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                    </Bits>
+
+                    <Bits from="21" to="17">
+                        <BitsShortName>HOR</BitsShortName>
+                        <BitsName>Hours, from 0 to 23</BitsName>
+
+                    </Bits>
+
+                    <Bits from="16" to="15">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                    </Bits>
+
+                    <Bits from="14" to="9">
+                        <BitsShortName>MIN</BitsShortName>
+                        <BitsName>Minutes, from 0 to 59</BitsName>
+
+                    </Bits>
+
+                    <Bits bit="8">
+                        <BitsShortName>AVS</BitsShortName>
                         <BitsName>AVS</BitsName>
-                            <BitsValue val="0">Seconds available</BitsValue>
-                            <BitsValue val="1">Seconds not available</BitsValue>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to 0</BitsName>
-                        </Bits>
-                        <Bits from="6" to="1">
-                            <BitsShortName>SEC</BitsShortName>
-                            <BitsName>Seconds, from 0 to 59</BitsName>
-                        </Bits>
-                    </Fixed>
+                        <BitsValue val="0">Seconds available</BitsValue>
+                        <BitsValue val="1">Seconds not available</BitsValue>
+
+                    </Bits>
+
+                    <Bits bit="7">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                    </Bits>
+
+                    <Bits from="6" to="1">
+                        <BitsShortName>SEC</BitsShortName>
+                        <BitsName>Seconds, from 0 to 59</BitsName>
+
+                    </Bits>
+
+                </Fixed>
                 <Fixed length="6">
                     <Bits from="48" to="1" encode="ascii">
                         <BitsShortName>STAND</BitsShortName>
@@ -1319,7 +1336,7 @@
                             <BitsName>Estimated Accuracy Of Calculated Track Barometric Altitude</BitsName>
                             <BitsPresence>5</BitsPresence>
                         </Bits>
-                       <Bits bit="3">
+                        <Bits bit="3">
                             <BitsShortName>ATV</BitsShortName>
                             <BitsName>Estimated Accuracy Of Track Velocity Cartesian</BitsName>
                             <BitsPresence>6</BitsPresence>
@@ -1346,7 +1363,7 @@
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare bits set to 0</BitsName>
                             <BitsConst>0</BitsConst>
-                        </Bits>                         
+                        </Bits>
                         <Bits bit="1" fx="1">
                             <BitsShortName>FX</BitsShortName>
                             <BitsName>Extension indicator</BitsName>
@@ -1368,6 +1385,7 @@
                         <BitsUnit scale="0.5">m</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>COV_XY</BitsShortName>
@@ -1388,6 +1406,7 @@
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>AGA_Acc</BitsShortName>
@@ -1395,6 +1414,7 @@
                         <BitsUnit scale="6.25">ft</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="1">
                     <Bits from="1" to="8">
                         <BitsShortName>ABA_Acc</BitsShortName>
@@ -1459,6 +1479,7 @@
                     <BitsValue val="1">Pre-alarm</BitsValue>
                     <BitsValue val="2">Severe alert</BitsValue>
                 </Bits>
+
                 <Bits from="21" to="17" encode="hex">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare Bit set to zero</BitsName>
@@ -1471,6 +1492,7 @@
                     <BitsShortName>AN</BitsShortName>
                     <BitsName>Alert Number</BitsName>
                 </Bits>
+
             </Fixed>
         </DataItemFormat>
     </DataItem>
@@ -1479,20 +1501,21 @@
         <DataItemName>Tracks in Alert</DataItemName>
         <DataItemDefinition>List of track numbers of the targets concerned by the alert described in I011/600.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by two-octet track numbers. ">
-                <Fixed length="2">
+            <Fixed length="2">
                 <!--Bits from="24" to="17" encode="hex">
                     <BitsShortName>REP</BitsShortName>
                     <BitsName>Repetition Factor</BitsName>
                 </Bits-->
-                    <Bits from="16" to="13" encode="hex">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare Bit set to zero</BitsName>
-                    </Bits>
-                    <Bits from="12" to="1" encode="hex">
-                        <BitsShortName>FTN</BitsShortName>
-                        <BitsName>Fusion Track Number</BitsName>
-                    </Bits>
-                </Fixed>
+
+                <Bits from="16" to="13" encode="hex">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare Bit set to zero</BitsName>
+                </Bits>
+                <Bits from="12" to="1" encode="hex">
+                    <BitsShortName>FTN</BitsShortName>
+                    <BitsName>Fusion Track Number</BitsName>
+                </Bits>
+            </Fixed>
         </DataItemFormat>
     </DataItem>
 
@@ -1500,22 +1523,24 @@
         <DataItemName>Holdbar status</DataItemName>
         <DataItemDefinition>Status of up to sixteen banks of twelve indicators.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by two-octet track numbers. ">
-                <Fixed length="2">
+            <Fixed length="2">
                 <!--Bits from="24" to="17" encode="hex">
                     <BitsShortName>REP</BitsShortName>
                     <BitsName>Repetition Factor</BitsName>
                 </Bits-->
-                     <Bits from="16" to="13" encode="hex">
+
+                <Bits from="16" to="13" encode="hex">
                     <BitsShortName>spare</BitsShortName>
                     <BitsName>Spare Bit set to zero</BitsName>
-                    </Bits>
+                </Bits>
                 <Bits from="12" to="1" encode="hex">
                     <BitsShortName>li</BitsShortName>
                     <BitsName>Indicator</BitsName>
-                        <BitsValue val="0">Indicator on</BitsValue>
-                        <BitsValue val="1">Indicator off</BitsValue>
-                    </Bits>
-                 </Fixed>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+
+                </Bits>
+            </Fixed>
         </DataItemFormat>
     </DataItem>
 
