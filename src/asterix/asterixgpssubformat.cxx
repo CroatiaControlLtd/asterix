@@ -78,7 +78,7 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 LOGERROR(1, "Wrong ORADIS data length (%d)\n", dataLen);
                 return false;
             }
-            if (dataLen > leftBytes) {
+            if (leftBytes != 0 && dataLen > leftBytes) {
                 LOGERROR(1, "Not enough data for packet! Size = %d, left = %d.\n", dataLen, leftBytes);
                 return false;
             }
@@ -122,7 +122,7 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 LOGERROR(1, "Wrong Asterix data length (%d)\n", dataLen);
                 return false;
             }
-            if (dataLen > leftBytes) {
+            if (leftBytes != 0 && dataLen > leftBytes) {
                 LOGERROR(1, "Not enough data for packet! Size = %d, left = %d.\n", dataLen, leftBytes);
                 return false;
             }
@@ -139,7 +139,7 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 return false;
             }
 
-            if (10 > leftBytes) // size of GPS post bytes
+            if (leftBytes != 0 && 10 > leftBytes) // size of GPS post bytes
             {
                 LOGERROR(1, "Not enough data for GPS post bytes Size = 10, left = %d.\n", leftBytes);
                 return false;
