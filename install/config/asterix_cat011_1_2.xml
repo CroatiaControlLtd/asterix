@@ -930,50 +930,36 @@
                         <Bits bit="8">
                             <BitsShortName>TAG</BitsShortName>
                             <BitsName>FPPS Identification Tag </BitsName>
-                            <BitsValue val="0">Absence of Subfield #1</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #1</BitsValue>
                             <BitsPresence>1</BitsPresence>
                         </Bits>
                         <Bits bit="7">
                             <BitsShortName>CSN</BitsShortName>
                             <BitsName>Callsign</BitsName>
-                            <BitsValue val="0">Absence of Subfield #2</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #2</BitsValue>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">
                             <BitsShortName>IFI</BitsShortName>
                             <BitsName>IFPS_FLIGHT_ID</BitsName>
-                            <BitsValue val="0">Absence of Subfield #3</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #3</BitsValue>
                             <BitsPresence>3</BitsPresence>
                         </Bits>
                         <Bits bit="5">
                             <BitsShortName>FCT</BitsShortName>
                             <BitsName>Flight Category</BitsName>
-                            <BitsValue val="0">Absence of Subfield #4</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #4</BitsValue>
                             <BitsPresence>4</BitsPresence>
                         </Bits>
                         <Bits bit="4">
                             <BitsShortName>TAC</BitsShortName>
                             <BitsName>Type of aircraft</BitsName>
-                            <BitsValue val="0">Absence of Subfield #5</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #5</BitsValue>
                             <BitsPresence>5</BitsPresence>
                         </Bits>
                         <Bits bit="3">
                             <BitsShortName>WTC</BitsShortName>
                             <BitsName>Wake Turbuluence Category</BitsName>
-                            <BitsValue val="0">Absence of Subfield #6</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #6</BitsValue>
                             <BitsPresence>6</BitsPresence>
                         </Bits>
                         <Bits bit="2">
                             <BitsShortName>DEP</BitsShortName>
                             <BitsName>Departure Airport</BitsName>
-                            <BitsValue val="0">Absence of Subfield #7</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #7</BitsValue>
                             <BitsPresence>7</BitsPresence>
                         </Bits>
                         <Bits bit="1" fx="1">
@@ -987,50 +973,36 @@
                         <Bits bit="8">
                             <BitsShortName>DST</BitsShortName>
                             <BitsName>Destination Airport</BitsName>
-                            <BitsValue val="0">Absence of Subfield #8</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #8</BitsValue>
                             <BitsPresence>8</BitsPresence>
                         </Bits>
                         <Bits bit="7">
                             <BitsShortName>RDS</BitsShortName>
                             <BitsName>Runway designation</BitsName>
-                            <BitsValue val="0">Absence of Subfield #9</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #9</BitsValue>
                             <BitsPresence>9</BitsPresence>
                         </Bits>
                         <Bits bit="6">
                             <BitsShortName>CFL</BitsShortName>
                             <BitsName>Current Cleared Flight Level</BitsName>
-                            <BitsValue val="0">Absence of Subfield #10</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #10</BitsValue>
                             <BitsPresence>10</BitsPresence>
                         </Bits>
                         <Bits bit="5">
                             <BitsShortName>CTL</BitsShortName>
                             <BitsName>Current Control Position</BitsName>
-                            <BitsValue val="0">Absence of Subfield #11</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #11</BitsValue>
                             <BitsPresence>11</BitsPresence>
                         </Bits>
                         <Bits bit="4">
                             <BitsShortName>TOD</BitsShortName>
                             <BitsName>Time Of Departure</BitsName>
-                            <BitsValue val="0">Absence of Subfield #12</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #12</BitsValue>
                             <BitsPresence>12</BitsPresence>
                         </Bits>
                         <Bits bit="3">
                             <BitsShortName>AST</BitsShortName>
                             <BitsName>Aircraft Stand</BitsName>
-                            <BitsValue val="0">Absence of Subfield #13</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #13</BitsValue>
                             <BitsPresence>13</BitsPresence>
                         </Bits>
                         <Bits bit="2">
                             <BitsShortName>STS</BitsShortName>
                             <BitsName>Stand Status</BitsName>
-                            <BitsValue val="0">Absence of Subfield #14</BitsValue>
-                            <BitsValue val="1">Presence of Subfield #14</BitsValue>
                             <BitsPresence>14</BitsPresence>
                         </Bits>
                         <Bits bit="1">
@@ -1125,10 +1097,10 @@
                     <Bits from="8" to="1" encode="ascii">
                         <BitsShortName>WTC</BitsShortName>
                         <BitsName>Wake Turbulence Category</BitsName>
-                        <BitsValue val="L">Light</BitsValue>
-                        <BitsValue val="M">Medium</BitsValue>
-                        <BitsValue val="H">Heavy</BitsValue>
-                        <BitsValue val="J">Super</BitsValue>
+                        <BitsValue val="76">Light</BitsValue>
+                        <BitsValue val="77">Medium</BitsValue>
+                        <BitsValue val="72">Heavy</BitsValue>
+                        <BitsValue val="74">Super</BitsValue>
 
                     </Bits>
                 </Fixed>
