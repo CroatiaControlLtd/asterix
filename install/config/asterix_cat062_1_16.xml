@@ -2420,7 +2420,7 @@
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>GAL</BitsShortName>
                         <BitsName>Geometric Altitude</BitsName>
-                        <BitsUnit scale="6.25" min="'1500" max="150000">ft</BitsUnit>
+                        <BitsUnit scale="6.25" min="1500" max="150000">ft</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -2443,14 +2443,14 @@
                     <Bits from="16" to="1">
                         <BitsShortName>IAS</BitsShortName>
                         <BitsName>Indicated Air Speed</BitsName>
-                        <BitsUnit scale="1" min="'0" max="1100">kt</BitsUnit>
+                        <BitsUnit scale="1" min="0" max="1100">kt</BitsUnit>
                     </Bits>
                 </Fixed>                
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>MNO</BitsShortName>
                         <BitsName>Mach Number</BitsName>
-                        <BitsUnit scale="0.008" min="'0" max="4.096">Mach</BitsUnit>
+                        <BitsUnit scale="0.008" min="0" max="4.096">Mach</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -2463,7 +2463,7 @@
                     <Bits from="12" to="1">
                         <BitsShortName>BPS</BitsShortName>
                         <BitsName>Barometric Pressure Setting</BitsName>
-                        <BitsUnit scale="0.1" min="'0" max="409.6">mbar</BitsUnit>
+                        <BitsUnit scale="0.1" min="0" max="409.6">mbar</BitsUnit>
                     </Bits>
                 </Fixed>
 
