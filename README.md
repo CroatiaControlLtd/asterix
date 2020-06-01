@@ -53,12 +53,12 @@ Then run it from asterix/install folder:
 If you are using Windows install it through Cygwin terminal.
 ```console
 Install following cygwin packages:
-	binutils
-	cygwin-devel
-	gcc-core
-	gcc-g++
-	make
-	libexpat-devel
+    binutils
+    cygwin-devel
+    gcc-core
+    gcc-g++
+    make
+    libexpat-devel
 ```
 
 For more information about the tool or Asterix protocol feel free to contact the author:
