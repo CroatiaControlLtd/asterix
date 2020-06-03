@@ -311,12 +311,12 @@ int main(int argc, const char *argv[]) {
                 std::cerr << "Error: Filter file " + strFilterFile + " not found." << std::endl;
                 exit(2);
             }
-            char line[1024];
+            char line[1025];
             while (fgets(line, 1024, ff)) {
 
                 int cat = 0;
-                char item[128] = "";
-                char name[128] = "";
+                char item[129] = "";
+                char name[129] = "";
 
                 // skip commented lines
                 if (line[0] == '#' || strlen(line) <= 0)
