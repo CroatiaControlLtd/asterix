@@ -44,16 +44,22 @@ CStdDevice::~CStdDevice() {
 
 bool CStdDevice::Read(void *data, size_t len) {
     // Read a message from the standard input (blocking)
-    ssize_t bytesRead = read(STDIN_FILENO, data, len);
-    if (bytesRead < 0) {
-        LOGERROR(1, "Error reading from stdin.\n");
-        CountReadError();
-        return false;
-    } else if (bytesRead == 0) {
-        _opened = false;
-        return false;
-    }
+    ssize_t bytesLeftToRead = len;
+    char* pData = (char*)data;
 
+    while(bytesLeftToRead > 0) {
+        ssize_t bytesRead = read(STDIN_FILENO, pData, bytesLeftToRead);
+        if (bytesRead < 0) {
+            LOGERROR(1, "Error reading from stdin.\n");
+            CountReadError();
+            return false;
+        } else if (bytesRead == 0) {
+            _opened = false;
+            return false;
+        }
+        pData += bytesRead;
+        bytesLeftToRead -= bytesRead;
+    }
     _onstart = false;
 
     ResetReadErrors(true);
