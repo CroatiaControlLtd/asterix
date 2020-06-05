@@ -54,9 +54,9 @@ void findAndReplaceAll(std::string &data, std::string toSearch, std::string repl
 
 CDiskDevice::CDiskDevice(CDescriptor &descriptor)
         : _inputDelay(0), _mode(0), _seqNo(0) {
-    _fileName[0] = '\0';
-    _baseName[0] = '\0';
-    _tempName[0] = '\0';
+    memset(_fileName, 0, sizeof(_fileName));
+    memset(_baseName, 0, sizeof(_baseName));
+    memset(_tempName, 0, sizeof(_tempName));
 
     const char *spath = descriptor.GetFirst();
 
@@ -274,9 +274,9 @@ bool CDiskDevice::Init(const char *path) {
         {
             if( (_tempName == NULL) || (strlen(_tempName) == 0) )
             {
-                strcpy(_tempName, fname); // store actual name in _tempName
+                strncpy(_tempName, fname, MAXPATHLEN); // store actual name in _tempName
                 static char tn[MAXPATHLEN];
-                strcpy(tn, fname);
+                strncpy(tn, fname, MAXPATHLEN-11);
                 strcat(tn, ".tmp.XXXXXX");
                 fname = mktemp(tn);
                 if((fname == NULL) || (strlen(fname) == 0))
@@ -296,7 +296,7 @@ bool CDiskDevice::Init(const char *path) {
         // in this case we never fail here
         if (_input && (_mode & DD_MODE_WAITFILE)) {
             if (fname != _fileName)
-                strcpy(_fileName, fname);
+                strncpy(_fileName, fname, MAXPATHLEN);
 
             return true;
         }
@@ -310,7 +310,7 @@ bool CDiskDevice::Init(const char *path) {
 
     if (!(_mode & DD_MODE_PACKETFILE)) {
         if (fname != _fileName)
-            strcpy(_fileName, fname);
+            strncpy(_fileName, fname, MAXPATHLEN);
     }
 
     if (_input)
@@ -333,7 +333,7 @@ bool CDiskDevice::OpenOutputFile(const char *path, bool openNow) {
     if (_mode & DD_MODE_PACKETFILE) {
         if (_baseName[0] == '\0') {
             if (_baseName != fname)
-                strcpy(_baseName, fname);
+                strncpy(_baseName, fname, MAXPATHLEN);
             fname = NextFileName();
         }
     }
@@ -346,7 +346,7 @@ bool CDiskDevice::OpenOutputFile(const char *path, bool openNow) {
             return false;
         } else {
             if (fname != _fileName)
-                strcpy(_fileName, fname);
+                strncpy(_fileName, fname, MAXPATHLEN);
             LOGDEBUG(ZONE_DISKDEVICE, "Opened output file '%s'\n", _fileName);
             _opened = true;
             _onstart = true;
@@ -363,7 +363,7 @@ bool CDiskDevice::OpenOutputFile(const char *path, bool openNow) {
         }
 
         if (fname != _fileName)
-            strcpy(_fileName, fname);
+            strncpy(_fileName, fname, MAXPATHLEN);
 
         LOGDEBUG(ZONE_DISKDEVICE, "Output file '%s' will be opened on first write\n", _fileName);
         return true;
@@ -391,7 +391,7 @@ bool CDiskDevice::DoneWithFile(bool allDone) {
         ASSERT(!(_mode & DD_MODE_PACKETFILE)); // not compatible
 //        ASSERT( !(_mode & DD_MODE_TEMPNAME) ); // not compatible
 
-        char newName[MAXPATHLEN];
+        char newName[MAXPATHLEN+1];
         char sfxFormat[10];
         char suffix[32];
 
@@ -404,9 +404,10 @@ bool CDiskDevice::DoneWithFile(bool allDone) {
         struct tm *stm = gmtime(&t);
         strftime(suffix, 25, sfxFormat, stm);
 
-        strcpy(newName, _fileName);
+        strncpy(newName, _fileName, MAXPATHLEN-32);
         strcat(newName, suffix);
 
+        /* todo: Possible overflow!!
         struct stat fs;
         while (stat(newName, &fs) == 0) {
             // file already exists, append random suffix
@@ -420,6 +421,7 @@ bool CDiskDevice::DoneWithFile(bool allDone) {
                 strcat(newName, rs);
             }
         }
+        */
 
         if (rename(_fileName, newName)) {
             LOGERROR(1, "Rename of file failed\n");
@@ -485,17 +487,17 @@ char *CDiskDevice::NextFileName() {
     ASSERT(strlen(_baseName) > 0); // should have been set in Init()
 
     static char cnt[32];
-    static char newName[MAXPATHLEN];
+    static char newName[MAXPATHLEN+1];
 
     sprintf(cnt, "_%08d", _seqNo);
 
     char *posExt = strrchr(_baseName, '.');
     if (posExt) {
         strncpy(newName, _baseName, posExt - _baseName); // base name
-        strcpy(newName + (posExt - _baseName), cnt); // sequence counter
+        strncpy(newName + (posExt - _baseName), cnt, MAXPATHLEN-(posExt - _baseName)); // sequence counter
         strcat(newName, posExt); // extension
     } else {
-        strcpy(newName, _baseName);
+        strncpy(newName, _baseName, MAXPATHLEN-32);
         strcat(newName, cnt);
     }
 
@@ -626,15 +628,15 @@ bool CDiskDevice::DoneAll() {
         // reinitialise the device
         // _baseName must be empty for successful initialisation for DD_MODE_PACKETFILE
         // but we must keep the base name
-        char tmpName[MAXPATHLEN];
+        char tmpName[MAXPATHLEN+1];
 
         if (_mode & DD_MODE_PACKETFILE)
-            strcpy(tmpName, _baseName);
+            strncpy(tmpName, _baseName, MAXPATHLEN);
         else
-            strcpy(tmpName, _fileName);
+            strncpy(tmpName, _fileName, MAXPATHLEN);
 
-        _fileName[0] = '\0';
-        _baseName[0] = '\0';
+        memset(_fileName, 0, sizeof(_fileName));
+        memset(_baseName, 0, sizeof(_baseName));
         _seqNo = 0;
 
         if (tmpName[0] != '\0')
