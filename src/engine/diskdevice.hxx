@@ -92,9 +92,9 @@ private:
     bool _input;
     unsigned int _inputDelay;
     unsigned int _mode;
-    char _fileName[MAXPATHLEN];
-    char _baseName[MAXPATHLEN];
-    char _tempName[MAXPATHLEN];
+    char _fileName[MAXPATHLEN+1];
+    char _baseName[MAXPATHLEN+1];
+    char _tempName[MAXPATHLEN+1];
     unsigned int _seqNo;
     bool _delayOpen;
 
