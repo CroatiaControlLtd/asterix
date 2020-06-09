@@ -385,6 +385,9 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
         case CAsterixFormat::EJSONH:
             strResult += format("\n\t\t\"%s\":", m_strShortName.c_str());
             break;
+        case CAsterixFormat::EJSONE:
+            strResult += format("\n\t\t\"%s\":{", m_strShortName.c_str());
+            break;
         case CAsterixFormat::EXML:
             strResult += format("<%s>", m_strShortName.c_str());
             break;
@@ -463,6 +466,30 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                     }
                 }
                     break;
+                case CAsterixFormat::EJSONE:
+                    if (m_dScale != 0) {
+                        double scaled = value * m_dScale;
+                        strResult += format("\"val\"=%.7lf", scaled);
+                    } else {
+                        strResult += format("\"val\"=%ld", value);
+                    }
+                    strResult += format(", \"hex\"=\"%02X\"", value);
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
+
+                    if (!m_lValue.empty()) { // check values
+                        std::list<BitsValue *>::iterator it;
+                        for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
+                            BitsValue *bv = (BitsValue *) (*it);
+                            if (bv->m_nVal == (int) value) {
+                                strResult += format(", \"meaning\"=\"%s\"", bv->m_strDescription.c_str());
+                                break;
+                            }
+                        }
+                        if (it == m_lValue.end()) {
+                            strResult += format(" ( ?????? )");
+                        }
+                    }
+                    break;
                 default: {
                     if (m_dScale != 0) {
                         double scaled = value * m_dScale;
@@ -511,6 +538,30 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                     }
                 }
                     break;
+                case CAsterixFormat::EJSONE:
+                    if (m_dScale != 0) {
+                        double scaled = value * m_dScale;
+                        strResult += format("\"val\"=%.7lf", scaled);
+                    } else {
+                        strResult += format("\"val\"=%ld", value);
+                    }
+                    strResult += format(", \"hex\"=\"%02X\"", value);
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
+
+                    if (!m_lValue.empty()) { // check values
+                        std::list<BitsValue *>::iterator it;
+                        for (it = m_lValue.begin(); it != m_lValue.end(); it++) {
+                            BitsValue *bv = (BitsValue *) (*it);
+                            if (bv->m_nVal == (int) value) {
+                                strResult += format(", \"meaning\"=\"%s\"", bv->m_strDescription.c_str());
+                                break;
+                            }
+                        }
+                        if (it == m_lValue.end()) {
+                            strResult += format(" ( ?????? )");
+                        }
+                    }
+                    break;
                 default: {
                     if (m_dScale != 0) {
                         double scaled = (double) value * m_dScale;
@@ -537,6 +588,14 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
+                case CAsterixFormat::EJSONE:
+                    strResult += format("\"val\"=\"%s\"", str);
+                    strResult += format(", \"hex\"=\"");
+                    for (int i=0; i<nLength; ++i) {
+                        strResult += format("%02X", pData[i]);
+                    }
+                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    break;
                 default:
                     strResult += format("%s", str);
                     break;
@@ -559,6 +618,14 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
+                case CAsterixFormat::EJSONE:
+                    strResult += format("\"val\"=\"%s\"", str);
+                    strResult += format(", \"hex\"=\"");
+                    for (int i=0; i<nLength; ++i) {
+                        strResult += format("%02X", pData[i]);
+                    }
+                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    break;
                 default:
                     strResult += format("%s", str);
                     break;
@@ -580,6 +647,14 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
+                case CAsterixFormat::EJSONE:
+                    strResult += format("\"val\"=\"%s\"", str);
+                    strResult += format(", \"hex\"=\"");
+                    for (int i=0; i<nLength; ++i) {
+                        strResult += format("%02X", pData[i]);
+                    }
+                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    break;
                 default:
                     strResult += format("%s", str);
                     break;
@@ -600,6 +675,14 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", pStr);
                     break;
+                case CAsterixFormat::EJSONE:
+                    strResult += format("\"val\"=\"%s\"", pStr);
+                    strResult += format(", \"hex\"=\"");
+                    for (int i=0; i<nLength; ++i) {
+                        strResult += format("%02X", pData[i]);
+                    }
+                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    break;
                 default:
                     break;
             }
@@ -615,6 +698,9 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
         case CAsterixFormat::EJSON:
         case CAsterixFormat::EJSONH:
             strResult += format(",");
+            break;
+        case CAsterixFormat::EJSONE:
+            strResult += format("},");
             break;
         case CAsterixFormat::EXML:
         case CAsterixFormat::EXMLH:

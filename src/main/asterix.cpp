@@ -83,6 +83,7 @@ static void show_usage(std::string name) {
             << "\n\t-xh,--xmlh\tOutput will be printed in human readable XML format (suitable for file storage)."
             << "\n\t-j,--json\tOutput will be printed in compact line-delimited JSON format (one object per line, suitable for parsing)."
             << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (suitable for file storage)."
+            << "\n\t-je,--json-extensive\tOutput will be printed in JSON format (with both hex and scaled value and description of each item)."
             << "\n\nData source"
             << "\n------------"
             << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
@@ -198,6 +199,13 @@ int main(int argc, const char *argv[]) {
                 return 1;
             }
             strOutputFormat = "ASTERIX_JSONH";
+        } else if ((arg == "-je") || (arg == "--json-extensive")) {
+            if (strOutputFormat != "ASTERIX_TXT") {
+                std::cerr << "Error: Option -je not allowed because output format already defined as " + strOutputFormat
+                          << std::endl;
+                return 1;
+            }
+            strOutputFormat = "ASTERIX_JSONE";
         } else if ((arg == "-k") || (arg == "--kml")) {
             if (strOutputFormat != "ASTERIX_TXT") {
                 std::cerr << "Error: Option -k not allowed because output format already defined as " + strOutputFormat

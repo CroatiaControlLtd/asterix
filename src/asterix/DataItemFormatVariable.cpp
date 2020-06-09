@@ -90,7 +90,8 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH: {
+        case CAsterixFormat::EJSONH:
+        case CAsterixFormat::EJSONE: {
             strResult += '{';
         }
             break;
@@ -101,7 +102,8 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
         switch (formatType) {
             case CAsterixFormat::EJSON:
-            case CAsterixFormat::EJSONH: {
+            case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE: {
                 tmpResult = "";
                 ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
                 if (tmpResult.length() > 2) { // if result != {}
@@ -128,7 +130,8 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH: {
+        case CAsterixFormat::EJSONH:
+        case CAsterixFormat::EJSONE: {
             if (strResult[strResult.length() - 1] == ',')
                 strResult[strResult.length() - 1] = '}';
             else

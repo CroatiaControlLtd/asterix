@@ -51,6 +51,7 @@ public:
         EXMLH,          // XML (Extensible Markup Language) format, human readable form (suitable for file storage)
         EJSON,          // JSON (JavaScript Object Notation) format, compact line-delimited form (suitable for parsing)
         EJSONH,         // JSON (JavaScript Object Notation) format, human readable form (suitable for file storage)
+        EJSONE,         // JSON (JavaScript Object Notation) format, with both hex and scaled value and description of each item
         EHDLC,          // HDLC format
         EOradisRaw,     // Raw Asterix format with ORADIS header
         EOradisPcap,    // PCAP file format with ORADIS header
