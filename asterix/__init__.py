@@ -185,11 +185,12 @@ def describeXML(parsed):
 
         xml_Items = etree.SubElement(xml_Record, 'Items')
         for key, value in record.items():
-            if key != 'category':
+            if key[0] == 'I':
                 xml_Item = etree.SubElement(xml_Items, 'Item')
                 xml_Item.set('id', '%s' % str(key))
-                xml_Item.set('description',
-                             '%s' % _asterix.describe(cat, str(key)))
+                description = '%s' % _asterix.describe(cat, str(key))
+                if description:
+                    xml_Item.set('description', description)
                 if isinstance(value, dict):
                     for ikey, ival in value.items():
                         xml_Field = etree.SubElement(xml_Item, 'Field')
