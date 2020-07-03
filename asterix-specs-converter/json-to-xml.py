@@ -45,12 +45,12 @@ def getNumber(value):
         return Real(float(val))
     raise Exception('unexpected value type {}'.format(t))
 
-def renderRule(rule, caseUnspecified, caseContextFree, caseDependent):
+def renderRule(rule, subitem, caseUnspecified, caseContextFree, caseDependent):
     rule_type = rule['type']
     if rule_type == 'Unspecified':
         return caseUnspecified()
     elif rule_type == 'ContextFree':
-        return caseContextFree(rule)
+        return caseContextFree(rule, subitem)
     elif rule_type == 'Dependent':
         return caseDependent(rule)
     else:
@@ -103,33 +103,37 @@ def xmlquote(s):
         ">": "&gt;",
     })
 
+
 def itemLine(item):
     itemType = item['element']['type']
-    if itemType != 'Group':
-        return '<item name="{}" type="{}">'.format(item['name'], itemType)
+    if itemType == 'Fixed':
+        length = int(item['element']['size'] / 8)
+        return '<{} length="{:d}">'.format(itemType, length)
+    elif itemType != 'Group':
+        return '<DataItem id="{}" type="{}">'.format(item['name'], itemType)
     else:
-        return '<item name="{}">'.format(item['name'])
+        return '<DataItem id="{}">'.format(item['name'])
+
 
 def render(s):
     root = json.loads(s)
     category = root['number']
     edition = root['edition']
+    title = root['title']
     tell('<?xml version="1.0" encoding="UTF-8" ?>')
     tell('')
     tell('<!--')
     with indent:
+        tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
+
         tell('Do not edit directly!')
         tell('This file is auto-generated from the original json specs file.')
         tell('sha1sum of the json input: {}'.format(hashlib.sha1(s).hexdigest()))
     tell('-->')
     tell('')
-    tell('<category cat="{:03d}" edition="{}.{}">'.format(category, edition['major'], edition['minor']))
+    tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
     with indent:
-        tell('<dsc>Asterix Category {:03d}, edition {}.{}</dsc>'.format(category, edition['major'], edition['minor']))
-        tell('<items>')
-        with indent:
-            [renderItem(item) for item in root['catalogue']]
-        tell('</items>')
+        [renderItem(item) for item in root['catalogue']]
     with indent:
         renderUap(root['uap'])
     tell('</category>')
@@ -137,15 +141,26 @@ def render(s):
 
 def renderItem(item):
     subitem = item['subitem']
-    tell(itemLine(subitem))
+    rule = None
+    if 'encoding' in item and 'rule' in item['encoding']:
+        rule = item['encoding']['rule']
+        tell('<DataItem id="{}" rule="{}">'.format(subitem['name'], rule))
+    else:
+        tell('<DataItem id="{}">'.format(item['name']))
+
     with indent:
         title = subitem['title']
         if title:
-            tell('<dsc>{}</dsc>'.format(xmlquote(title)))
-        renderSubitem(subitem['element'])
-    tell('</item>')
+            tell('<DataItemName>{}</DataItemName>'.format(xmlquote(title)))
+        if 'definition' in item:
+            tell('<DataItemDefinition>{}</DataItemDefinition>'.format(xmlquote(item['definition'])))
+        tell('<DataItemFormat desc="TODO"')
+        renderSubitem(subitem)
+        tell('</DataItemFormat>')
+    tell('</DataItem>')
+    tell('')
 
-def renderSubitem(element):
+def renderSubitem(subitem):
 
     def renderInteger(value):
         tell('<convert>')
@@ -184,20 +199,27 @@ def renderSubitem(element):
         tell('</convert>')
 
     def renderFixed():
-        tell('<len>{}</len>'.format(element['size']))
+        element = subitem['element']
         def case0():
             pass
-        def case1(val):
+        def case1(val, subitem):
             rule = val['rule']
             t = rule['type']
             if t == 'Table':
-                tell('<values>')
+                from_bit = 8
+                to_bit = 1
                 with indent:
-                    for key,value in rule['values']:
-                        tell('<value val="{}" dsc="{}"/>'.format(key, xmlquote(value)))
-                tell('</values>')
+                    tell('<Bits from="{}" to="{}">'.format(from_bit, to_bit))
+                    with indent:
+                        if 'name' in subitem:
+                            tell('<BitsShortName>{}</BitsShortName>'.format(subitem['name']))
+                        if 'title' in subitem:
+                            tell('<BitsName>{}</BitsName>'.format(subitem['title']))
+                        for key,value in rule['values']:
+                            tell('<BitsValue val="{}">{}</BitsValue>'.format(key, xmlquote(value)))
+                    tell('</Bits>')
             elif t == 'String':
-                f = case('string variatioin', rule['variation'],
+                f = case('string variation', rule['variation'],
                     ('StringAscii', lambda: tell('<convert><type>string</type></convert>')),
                     ('StringICAO', lambda: None),
                     )
@@ -210,31 +232,41 @@ def renderSubitem(element):
                 raise Exception('unexpected value type {}'.format(t))
         def case2(val):
             pass
-        return renderRule(element['content'], case0, case1, case2)
+        return renderRule(element['content'], subitem, case0, case1, case2)
 
     def renderMaybeSubitem(n, subitem):
         if subitem['spare']:
             tell('<item name="spare{}" type="Spare"><len>{}</len></item>'.format(n, subitem['length']))
             return True
         else:
-            tell(itemLine(subitem))
-            with indent:
-                title = subitem['title']
-                if title:
-                    tell('<dsc>{}</dsc>'.format(xmlquote(title)))
-                renderSubitem(subitem['element'])
-            tell('</item>')
+            #tell(itemLine(subitem))
+            #with indent:
+                #title = subitem['title']
+                #if title:
+                #    tell('<dsc>{}</dsc>'.format(xmlquote(title)))
+            renderSubitem(subitem)
             return False
 
     def renderGroup():
-        tell('<items>')
         with indent:
+            tot_len = 0
+            for item in element['subitems']:
+                if item['spare']:
+                    tot_len = item['length']
+                else:
+                    tot_len += item['element']['size']
+
+            length = int(tot_len / 8)
+            tell('<Fixed length="{:d}">'.format(length))
+
             spareIndex = 1
             for item in element['subitems']:
                 isSpare = renderMaybeSubitem(spareIndex, item)
                 if isSpare:
                     spareIndex += 1
-        tell('</items>')
+
+            tell('</Fixed>')
+
 
     def renderExtended():
         n1 = element['first']
@@ -243,7 +275,7 @@ def renderSubitem(element):
         renderGroup()
 
     def renderRepetitive():
-        renderSubitem(element['element'])
+        renderSubitem(element)
 
     def renderExplicit():
         pass
@@ -261,6 +293,7 @@ def renderSubitem(element):
                         spareIndex += 1
         tell('</items>')
 
+    element = subitem['element']
     return locals()['render'+element['type']]()
 
 def renderUap(uap):
@@ -285,7 +318,7 @@ def renderUap(uap):
 # main
 parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
 parser.add_argument('infile', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer)
-parser.add_argument('outfile', nargs='?', type=argparse.FileType('w'), default=sys.stdout)
+parser.add_argument('outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
 
 args = parser.parse_args()
 

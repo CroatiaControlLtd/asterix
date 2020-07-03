@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Asterix Category 011 v1.2 definition
+    Do not edit directly!
+    This file is auto-generated from the original json specs file.
+    sha1sum of the json input: e02afe11f14b47a4b883a09639486b2b02a4443a
+-->
+
+<Category id="11" name="Transmission of A-SMGCS Data" ver="1.2">
+    <DataItem id="000" rule="mandatory">
+        <DataItemName>Message Type</DataItemName>
+        <DataItemDefinition>This data item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>MsgTyp</BitsShortName>
+                    <BitsName>Type of msg.</BitsName>
+                    <BitsValue val="1">Target reports, flight plan data and basic alerts</BitsValue>
+                    <BitsValue val="2">Manual attachment of flight plan to track</BitsValue>
+                    <BitsValue val="3">Manual detachment of flight plan to track</BitsValue>
+                    <BitsValue val="4">Insertion of flight plan data</BitsValue>
+                    <BitsValue val="5">Suppression of flight plan data</BitsValue>
+                    <BitsValue val="6">Modification of flight plan data</BitsValue>
+                    <BitsValue val="7">Holdbar status</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the system from which the data are received.</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="015" rule="mandatory">
+        <DataItemName>Service Identification</DataItemName>
+        <DataItemDefinition>Identification of the service provided to one or more users.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="1">
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="041" rule="mandatory">
+        <DataItemName>Position in WGS-84 Coordinates</DataItemName>
+        <DataItemDefinition>Position of a target in WGS-84 Coordinates.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="8">
+            <convert>
+                <type>decimal</type>
+                <lsb>180/2147483648</lsb>
+                <unit>deg</unit>
+                <min>-90</min>
+                <max>90</max>
+            </convert>
+            <convert>
+                <type>decimal</type>
+                <lsb>180/2147483648</lsb>
+                <unit>deg</unit>
+                <min>-90</min>
+                <max>90</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="042" rule="mandatory">
+        <DataItemName>Calculated Position in Cartesian Co-ordinates</DataItemName>
+        <DataItemDefinition>Calculated position of a target in Cartesian co-ordinates (two&apos;s complement form).
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="8">
+            <convert>
+                <type>decimal</type>
+                <lsb>180/2147483648</lsb>
+                <unit>m</unit>
+                <min>-32768</min>
+                <max>32768</max>
+            </convert>
+            <convert>
+                <type>decimal</type>
+                <lsb>180/2147483648</lsb>
+                <unit>m</unit>
+                <min>-32768</min>
+                <max>32768</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="060" rule="optional">
+        <DataItemName>Mode-3/A Code in Octal Representation</DataItemName>
+        <DataItemDefinition>Track Mode-3/A code converted into octal representation.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <item name="spare1" type="Spare"><len>4</len></item>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="090" rule="optional">
+        <DataItemName>Measured Flight Level</DataItemName>
+        <DataItemDefinition>Last valid and credible flight level used to update the track, in two&apos;s complement representation.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>FL</unit>
+                <min>-12</min>
+                <max>1500</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="092" rule="optional">
+        <DataItemName>Calculated Track Geometric Altitude</DataItemName>
+        <DataItemDefinition>Calculated Track Geometric Altitude Calculated geometric vertical distance above mean sea level, not related to barometric pressure.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <convert>
+                <type>decimal</type>
+                <lsb>6.25</lsb>
+                <unit>ft</unit>
+                <min>-1500</min>
+                <max>150000</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="093" rule="optional">
+        <DataItemName>Calculated Track Barometric Altitude</DataItemName>
+        <DataItemDefinition>Calculated Barometric Altitude of the track.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+                <Bits from="8" to="1">
+                    <BitsShortName>QNH</BitsShortName>
+                    <BitsName>QNH correction applied</BitsName>
+                    <BitsValue val="0">No QNH correction applied</BitsValue>
+                    <BitsValue val="1">QNH correction applied</BitsValue>
+                </Bits>
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>ft</unit>
+                <min>-15</min>
+                <max>1500</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="140" rule="mandatory">
+        <DataItemName>Time of Track Information</DataItemName>
+        <DataItemDefinition>Absolute time stamping expressed as UTC.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="3">
+            <convert>
+                <type>decimal</type>
+                <lsb>0.007812</lsb>
+                <unit>s</unit>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="161" rule="optional">
+        <DataItemName>Track Number</DataItemName>
+        <DataItemDefinition>Identification of a fusion track (single track number).
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <item name="spare1" type="Spare"><len>1</len></item>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="170" rule="optional">
+        <DataItemName>Track Status</DataItemName>
+        <DataItemDefinition>Status of track.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <len>(8,8)</len>
+            <Fixed length="0">
+                <Bits from="8" to="1">
+                    <BitsShortName>MON</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Multisensor Track</BitsValue>
+                    <BitsValue val="1">Monosensor Track</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>GBS</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Transponder Ground bit not set or unknown</BitsValue>
+                    <BitsValue val="1">Transponder Ground bit set</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>MRH</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Barometric altitude (Mode C) more reliable</BitsValue>
+                    <BitsValue val="1">Geometric altitude more reliable</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SRC</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">no source</BitsValue>
+                    <BitsValue val="1">GPS</BitsValue>
+                    <BitsValue val="2">3d radar</BitsValue>
+                    <BitsValue val="3">triangulation</BitsValue>
+                    <BitsValue val="4">height from coverage</BitsValue>
+                    <BitsValue val="5">speed look-up table</BitsValue>
+                    <BitsValue val="6">default height</BitsValue>
+                    <BitsValue val="7">multilateration</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>CNF</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Confirmed track</BitsValue>
+                    <BitsValue val="1">Tentative track</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIM</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Actual Track</BitsValue>
+                    <BitsValue val="1">Simulated track</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>TSE</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">track service end (i.e. last message transmitted to the user for the track).</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>TSB</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">track service begin (i.e. first message transmitted to the user for the track)</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>FRIFOE</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">No Mode 4 interrogationt</BitsValue>
+                    <BitsValue val="1">Friendly target</BitsValue>
+                    <BitsValue val="2">Unknown target</BitsValue>
+                    <BitsValue val="3">No reply</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>ME</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">Military Emergency present in the last report received from a sensor capable of decoding this data</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>MI</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">End of Data Item</BitsValue>
+                    <BitsValue val="1">Military Identification present in the last report received from a sensor capable of decoding this data</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>AMA</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">track not resulting from amalgamation process</BitsValue>
+                    <BitsValue val="1">track resulting from amalgamation process</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SPI</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">SPI present in the last report received from a sensor capable of decoding this data</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>CST</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">Age of the last received track update is higher than system dependent threshold (coasting)</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>FPC</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Not flight-plan correlated</BitsValue>
+                    <BitsValue val="1">Flight plan correlated</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>AFF</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">default value</BitsValue>
+                    <BitsValue val="1">ADS-B data inconsistent with other surveillance information</BitsValue>
+                </Bits>
+            <item name="spare1" type="Spare"><len>2</len></item>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="202" rule="optional">
+        <DataItemName>Calculated Track Velocity in Cartesian Coordinates</DataItemName>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="4">
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>m/s</unit>
+                <min>-8192</min>
+                <max>8192</max>
+            </convert>
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>m/s</unit>
+                <min>-8192</min>
+                <max>8192</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="210" rule="optional">
+        <DataItemName>Calculated Acceleration</DataItemName>
+        <DataItemDefinition>Calculated Acceleration of the target, in two&apos;s complement form.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>m/s2</unit>
+                <min>-31</min>
+                <max>31</max>
+            </convert>
+            <convert>
+                <type>decimal</type>
+                <lsb>0.25</lsb>
+                <unit>m/s2</unit>
+                <min>-31</min>
+                <max>31</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="215" rule="optional">
+        <DataItemName>Calculated Rate Of Climb/Descent</DataItemName>
+        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft, in two&apos;s complement form.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <convert>
+                <type>decimal</type>
+                <lsb>6.25</lsb>
+                <unit>ft/min</unit>
+                <min>-204800</min>
+                <max>204800</max>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="245" rule="optional">
+        <DataItemName>Target Identification</DataItemName>
+        <DataItemDefinition>Target (aircraft or vehicle) identification in 8 characters.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="6">
+                <Bits from="8" to="1">
+                    <BitsShortName>STI</BitsShortName>
+                    <BitsName></BitsName>
+                    <BitsValue val="0">Callsign or registration downlinked from transponde</BitsValue>
+                    <BitsValue val="1">Callsign not downlinked from transponder</BitsValue>
+                    <BitsValue val="2">Registration not downlinked from transponder</BitsValue>
+                </Bits>
+            <item name="spare1" type="Spare"><len>6</len></item>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="270" rule="optional">
+        <DataItemName>Target Size and Orientation</DataItemName>
+        <DataItemDefinition>Target size defined as length and with of the detected target, and orientation.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <len>(8,8)</len>
+            <Fixed length="2">
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>1</lsb>
+                <unit>m</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>2.8125</lsb>
+                <unit>deg</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>1</lsb>
+                <unit>m</unit>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="290" rule="optional">
+        <DataItemName>System Track Update Ages</DataItemName>
+        <DataItemDefinition>Ages of the last plot/local track, or the last valid mode-A/mode-C, used to update the system track.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <items>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>s</unit>
+            </convert>
+        </items>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="300" rule="optional">
+        <DataItemName>Vehicle Fleet Identification</DataItemName>
+        <DataItemDefinition>Vehicle fleet identification number.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>VFI</BitsShortName>
+                    <BitsName>Vehicle Fleet Identification</BitsName>
+                    <BitsValue val="0">Flyco (follow me)</BitsValue>
+                    <BitsValue val="1">ATC equipment maintenance</BitsValue>
+                    <BitsValue val="2">Airport maintenance</BitsValue>
+                    <BitsValue val="3">Fire</BitsValue>
+                    <BitsValue val="4">Bird scarer</BitsValue>
+                    <BitsValue val="5">Snow plough</BitsValue>
+                    <BitsValue val="6">Runway sweeper</BitsValue>
+                    <BitsValue val="7">Emergency</BitsValue>
+                    <BitsValue val="8">Police</BitsValue>
+                    <BitsValue val="9">Bus</BitsValue>
+                    <BitsValue val="10">Tug (push/tow)</BitsValue>
+                    <BitsValue val="11">Grass cutter</BitsValue>
+                    <BitsValue val="12">Fuel</BitsValue>
+                    <BitsValue val="13">Baggage</BitsValue>
+                    <BitsValue val="14">Catering</BitsValue>
+                    <BitsValue val="15">Aircraft maintenance</BitsValue>
+                    <BitsValue val="16">Unknown</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="310" rule="optional">
+        <DataItemName>Pre-programmed Message</DataItemName>
+        <DataItemDefinition>Number related to a pre-programmed message that can be transmitted by a vehicle.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>TRB</BitsShortName>
+                    <BitsName>In trouble</BitsName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">In Trouble</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>MSG</BitsShortName>
+                    <BitsName>Message</BitsName>
+                    <BitsValue val="1">Towing aircraft</BitsValue>
+                    <BitsValue val="2">&amp;quot;Follow me&amp;quot; operation</BitsValue>
+                    <BitsValue val="3">Runway check</BitsValue>
+                    <BitsValue val="4">Emergency operation (fire, medical...)</BitsValue>
+                    <BitsValue val="5">Work in progress (maintenance, birds scarer, sweepers...)</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="380" rule="optional">
+        <DataItemName>Mode-S / ADS-B Related Data</DataItemName>
+        <DataItemDefinition>Data specific to Mode-S ADS-B.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <items>
+                <Fixed length="1">
+                </Fixed>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            <item></item>
+                <Fixed length="0">
+                    <Bits from="8" to="1">
+                        <BitsShortName>COM</BitsShortName>
+                        <BitsName>Communications capability of the transponder</BitsName>
+                        <BitsValue val="0">No communications capability (surveillance only)</BitsValue>
+                        <BitsValue val="1">Comm. A and Comm. B capability</BitsValue>
+                        <BitsValue val="2">Comm. A, Comm. B and Uplink ELM</BitsValue>
+                        <BitsValue val="3">Comm. A, Comm. B, Uplink ELM and Downlink ELM</BitsValue>
+                        <BitsValue val="4">Level 5 Transponder capability</BitsValue>
+                        <BitsValue val="5">Not assigned</BitsValue>
+                        <BitsValue val="6">Not assigned</BitsValue>
+                        <BitsValue val="7">Not assigned</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>STAT</BitsShortName>
+                        <BitsName>Flight Status</BitsName>
+                        <BitsValue val="0">No alert, no SPI, aircraft airborne</BitsValue>
+                        <BitsValue val="1">No alert, no SPI, aircraft on ground</BitsValue>
+                        <BitsValue val="2">Alert, no SPI, aircraft airborne</BitsValue>
+                        <BitsValue val="3">Alert, no SPI, aircraft on ground</BitsValue>
+                        <BitsValue val="4">Alert, SPI, aircraft airborne or on ground</BitsValue>
+                        <BitsValue val="5">No alert, SPI, aircraft airborne or on ground</BitsValue>
+                        <BitsValue val="6">General Emergency</BitsValue>
+                        <BitsValue val="7">Lifeguard / medical</BitsValue>
+                        <BitsValue val="8">Minimum fuel</BitsValue>
+                        <BitsValue val="9">No communications</BitsValue>
+                        <BitsValue val="10">Unlawful</BitsValue>
+                    </Bits>
+                <item name="spare1" type="Spare"><len>1</len></item>
+                    <Bits from="8" to="1">
+                        <BitsShortName>SSC</BitsShortName>
+                        <BitsName>Specific service capability</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>ARC</BitsShortName>
+                        <BitsName>Altitude reporting capability</BitsName>
+                        <BitsValue val="0">100 ft resolution</BitsValue>
+                        <BitsValue val="1">25 ft resolution</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>AIC</BitsShortName>
+                        <BitsName>Aircraft identification capability</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                    <Bits from="8" to="1">
+                        <BitsShortName>AC</BitsShortName>
+                        <BitsName>ACAS operational</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>MN</BitsShortName>
+                        <BitsName>Multiple navigational aids operating</BitsName>
+                        <BitsValue val="0">No</BitsValue>
+                        <BitsValue val="1">Yes</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>DC</BitsShortName>
+                        <BitsName>Differential correction</BitsName>
+                        <BitsValue val="0">Yes</BitsValue>
+                        <BitsValue val="1">No</BitsValue>
+                    </Bits>
+                <item name="spare2" type="Spare"><len>5</len></item>
+                </Fixed>
+            <item></item>
+            <item></item>
+            <item></item>
+            <convert><type>string</type></convert>
+                <Bits from="8" to="1">
+                    <BitsShortName>ECAT</BitsShortName>
+                    <BitsName>Emitter category</BitsName>
+                    <BitsValue val="1">light aircraft &lt;= 7000 kg</BitsValue>
+                    <BitsValue val="2">reserved</BitsValue>
+                    <BitsValue val="3">7000 kg &amp;lt; medium aircraft &amp;lt; 136000 kg</BitsValue>
+                    <BitsValue val="4">reserved</BitsValue>
+                    <BitsValue val="5">136000 kg &lt;= heavy aircraft</BitsValue>
+                    <BitsValue val="6">highly manoeuvrable (5g acceleration capability) and high speed (&amp;gt;400 knots cruise)</BitsValue>
+                    <BitsValue val="7">reserved</BitsValue>
+                    <BitsValue val="8">reserved</BitsValue>
+                    <BitsValue val="9">reserved</BitsValue>
+                    <BitsValue val="10">rotocraft</BitsValue>
+                    <BitsValue val="11">glider / sailplane</BitsValue>
+                    <BitsValue val="12">lighter-than-air</BitsValue>
+                    <BitsValue val="13">unmanned aerial vehicle</BitsValue>
+                    <BitsValue val="14">space / transatmospheric vehicle</BitsValue>
+                    <BitsValue val="15">ultralight / handglider / paraglider</BitsValue>
+                    <BitsValue val="16">parachutist / skydiver</BitsValue>
+                    <BitsValue val="17">reserved</BitsValue>
+                    <BitsValue val="18">reserved</BitsValue>
+                    <BitsValue val="19">reserved</BitsValue>
+                    <BitsValue val="20">surface emergency vehicle</BitsValue>
+                    <BitsValue val="21">surface service vehicle</BitsValue>
+                    <BitsValue val="22">fixed ground or tethered obstruction</BitsValue>
+                    <BitsValue val="23">reserved</BitsValue>
+                    <BitsValue val="24">reserved</BitsValue>
+                </Bits>
+            <item></item>
+                <Fixed length="0">
+                    <Bits from="8" to="1">
+                        <BitsShortName>VDL</BitsShortName>
+                        <BitsName>VDL Mode 4</BitsName>
+                        <BitsValue val="0">VDL Mode 4 available</BitsValue>
+                        <BitsValue val="1">VDL Mode 4 not available</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>MDS</BitsShortName>
+                        <BitsName>Mode S</BitsName>
+                        <BitsValue val="0">Mode S available</BitsValue>
+                        <BitsValue val="1">Mode S not available</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>UAT</BitsShortName>
+                        <BitsName>UAT</BitsName>
+                        <BitsValue val="0">UAT available</BitsValue>
+                        <BitsValue val="1">UAT not available</BitsValue>
+                    </Bits>
+                <item name="spare1" type="Spare"><len>5</len></item>
+                </Fixed>
+            <item></item>
+        </items>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="390" rule="optional">
+        <DataItemName>Flight Plan Related Data</DataItemName>
+        <DataItemDefinition>All flight plan related information.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <items>
+                <Fixed length="2">
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                </Fixed>
+            <convert><type>string</type></convert>
+                <Fixed length="3">
+                    <Bits from="8" to="1">
+                        <BitsShortName>TYP</BitsShortName>
+                        <BitsName>IFPS Flight ID Type</BitsName>
+                        <BitsValue val="0">Plan number</BitsValue>
+                        <BitsValue val="1">Unit 1 internal flight number</BitsValue>
+                        <BitsValue val="2">Unit 2 internal flight number</BitsValue>
+                        <BitsValue val="3">Unit 3 internal flight number</BitsValue>
+                    </Bits>
+                <item name="spare1" type="Spare"><len>3</len></item>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                </Fixed>
+                <Fixed length="0">
+                    <Bits from="8" to="1">
+                        <BitsShortName>GAT_OAT</BitsShortName>
+                        <BitsName>Flight type</BitsName>
+                        <BitsValue val="0">Unknown</BitsValue>
+                        <BitsValue val="1">General Air Traffic</BitsValue>
+                        <BitsValue val="2">Operational Air Traffic</BitsValue>
+                        <BitsValue val="3">Not applicable</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>FR1_FR2</BitsShortName>
+                        <BitsName>Flight rules</BitsName>
+                        <BitsValue val="0">Instrument Flight Rules</BitsValue>
+                        <BitsValue val="1">Visual Flight rules</BitsValue>
+                        <BitsValue val="2">Not applicable</BitsValue>
+                        <BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>RVSM</BitsShortName>
+                        <BitsName>RVSM</BitsName>
+                        <BitsValue val="0">Unknown Instrument Flight Rules</BitsValue>
+                        <BitsValue val="1">Approved</BitsValue>
+                        <BitsValue val="2">Exempt</BitsValue>
+                        <BitsValue val="3">Not Approved</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>HPR</BitsShortName>
+                        <BitsName>Flight priority</BitsName>
+                        <BitsValue val="0">Normal Priority Flight</BitsValue>
+                        <BitsValue val="1">High Priority Flight</BitsValue>
+                    </Bits>
+                <item name="spare1" type="Spare"><len>1</len></item>
+                </Fixed>
+            <convert><type>string</type></convert>
+                <Bits from="8" to="1">
+                    <BitsShortName>WTC</BitsShortName>
+                    <BitsName>Wake Turbulence Category</BitsName>
+                    <BitsValue val="76">Light</BitsValue>
+                    <BitsValue val="77">Medium</BitsValue>
+                    <BitsValue val="72">Heavy</BitsValue>
+                    <BitsValue val="74">Super</BitsValue>
+                </Bits>
+            <convert><type>string</type></convert>
+            <convert><type>string</type></convert>
+            <convert><type>string</type></convert>
+            <convert>
+                <type>unsigned decimal</type>
+                <lsb>0.25</lsb>
+                <unit>FL</unit>
+            </convert>
+                <Fixed length="2">
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                </Fixed>
+                <Fixed length="0">
+                    <Bits from="8" to="1">
+                        <BitsShortName>TYP</BitsShortName>
+                        <BitsName>Time Type</BitsName>
+                        <BitsValue val="0">Scheduled off-block time</BitsValue>
+                        <BitsValue val="1">Estimated off-block time</BitsValue>
+                        <BitsValue val="2">Estimated take-off time</BitsValue>
+                        <BitsValue val="3">Actual off-block time</BitsValue>
+                        <BitsValue val="4">Predicted time at runway hold</BitsValue>
+                        <BitsValue val="5">Actual time at runway hold</BitsValue>
+                        <BitsValue val="6">Actual line-up time</BitsValue>
+                        <BitsValue val="7">Actual take-off time</BitsValue>
+                        <BitsValue val="8">Estimated time of arrival</BitsValue>
+                        <BitsValue val="9">Predicted landing time</BitsValue>
+                        <BitsValue val="10">Actual landing time</BitsValue>
+                        <BitsValue val="11">Actual time off runway</BitsValue>
+                        <BitsValue val="12">Predicted time to gate</BitsValue>
+                        <BitsValue val="13">Actual on-block time</BitsValue>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>DAY</BitsShortName>
+                        <BitsName>Day</BitsName>
+                        <BitsValue val="0">Today</BitsValue>
+                        <BitsValue val="1">Yesterday</BitsValue>
+                        <BitsValue val="2">Tomorrow</BitsValue>
+                    </Bits>
+                <item name="spare1" type="Spare"><len>4</len></item>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                <item name="spare2" type="Spare"><len>2</len></item>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                    <Bits from="8" to="1">
+                        <BitsShortName>AVS</BitsShortName>
+                        <BitsName>Seconds available</BitsName>
+                        <BitsValue val="0">Seconds available</BitsValue>
+                        <BitsValue val="1">Seconds not available</BitsValue>
+                    </Bits>
+                <item name="spare3" type="Spare"><len>1</len></item>
+                <convert>
+                    <type>unsigned integer</type>
+                </convert>
+                </Fixed>
+            <convert><type>string</type></convert>
+                <Bits from="8" to="1">
+                    <BitsShortName>EMP</BitsShortName>
+                    <BitsName>Stand empty</BitsName>
+                    <BitsValue val="0">Empty</BitsValue>
+                    <BitsValue val="1">Occupied</BitsValue>
+                    <BitsValue val="2">Unknown</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>AVL</BitsShortName>
+                    <BitsName>Stand available</BitsName>
+                    <BitsValue val="0">Available</BitsValue>
+                    <BitsValue val="1">Not available</BitsValue>
+                    <BitsValue val="2">Unknown</BitsValue>
+                </Bits>
+            <item name="spare1" type="Spare"><len>4</len></item>
+        </items>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="430" rule="optional">
+        <DataItemName>Phase of flight</DataItemName>
+        <DataItemDefinition>Current phase of the flight.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>FLS</BitsShortName>
+                    <BitsName>Phase of flight</BitsName>
+                    <BitsValue val="0">unknown</BitsValue>
+                    <BitsValue val="1">on stand</BitsValue>
+                    <BitsValue val="2">taxiing for departure</BitsValue>
+                    <BitsValue val="3">taxiing for arrival</BitsValue>
+                    <BitsValue val="4">runway for departure</BitsValue>
+                    <BitsValue val="5">runway for arrival</BitsValue>
+                    <BitsValue val="6">hold for departure</BitsValue>
+                    <BitsValue val="7">hold for arrival</BitsValue>
+                    <BitsValue val="8">push back</BitsValue>
+                    <BitsValue val="9">on finals</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="500" rule="optional">
+        <DataItemName>Estimated Accuracies</DataItemName>
+        <DataItemDefinition>Overview of all important accuracies (standard deviations).
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        <items>
+                <Fixed length="2">
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.25</lsb>
+                    <unit>m</unit>
+                </convert>
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.25</lsb>
+                    <unit>m</unit>
+                </convert>
+                </Fixed>
+                <Fixed length="4">
+                <convert>
+                    <type>decimal</type>
+                    <lsb>180/2147483648</lsb>
+                    <unit>deg</unit>
+                </convert>
+                <convert>
+                    <type>decimal</type>
+                    <lsb>180/2147483648</lsb>
+                    <unit>deg</unit>
+                </convert>
+                </Fixed>
+            <convert>
+                <type>decimal</type>
+                <lsb>0.5</lsb>
+                <unit>m</unit>
+            </convert>
+                <Fixed length="2">
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.1</lsb>
+                    <unit>m/s</unit>
+                </convert>
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.1</lsb>
+                    <unit>m/s</unit>
+                </convert>
+                </Fixed>
+            <convert>
+                <type>decimal</type>
+                <lsb>0.1</lsb>
+                <unit>m/s</unit>
+            </convert>
+                <Fixed length="2">
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.01</lsb>
+                    <unit>m/s2</unit>
+                </convert>
+                <convert>
+                    <type>unsigned decimal</type>
+                    <lsb>0.01</lsb>
+                    <unit>m/s2</unit>
+                </convert>
+                </Fixed>
+        </items>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="600" rule="optional">
+        <DataItemName>Alert messages</DataItemName>
+        <DataItemDefinition>Alert involving the targets indicated in I011/605.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+                <Bits from="8" to="1">
+                    <BitsShortName>ACK</BitsShortName>
+                    <BitsName>Alert acknowleged</BitsName>
+                    <BitsValue val="0">Alert acknowledged</BitsValue>
+                    <BitsValue val="1">Alert not acknowledged</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SVR</BitsShortName>
+                    <BitsName>Alert severity</BitsName>
+                    <BitsValue val="0">End fo alert</BitsValue>
+                    <BitsValue val="1">Pre-alarm</BitsValue>
+                    <BitsValue val="2">Severe alert</BitsValue>
+                </Bits>
+            <item name="spare1" type="Spare"><len>5</len></item>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="605" rule="optional">
+        <DataItemName>Tracks in Alert</DataItemName>
+        <DataItemDefinition>List of track numbers of the targets concerned by the alert described in I011/600.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <item name="spare1" type="Spare"><len>4</len></item>
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="610" rule="optional">
+        <DataItemName>Holdbar status</DataItemName>
+        <DataItemDefinition>LStatus of up to sixteen banks of twelve indicators.
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+            <Fixed length="2">
+            <convert>
+                <type>unsigned integer</type>
+            </convert>
+                <Bits from="8" to="1">
+                    <BitsShortName>I1</BitsShortName>
+                    <BitsName>Indicator 1</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I2</BitsShortName>
+                    <BitsName>Indicator 2</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I3</BitsShortName>
+                    <BitsName>Indicator 3</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I4</BitsShortName>
+                    <BitsName>Indicator 4</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I5</BitsShortName>
+                    <BitsName>Indicator 5</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I6</BitsShortName>
+                    <BitsName>Indicator 6</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I7</BitsShortName>
+                    <BitsName>Indicator 7</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I8</BitsShortName>
+                    <BitsName>Indicator 8</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I9</BitsShortName>
+                    <BitsName>Indicator 9</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I10</BitsShortName>
+                    <BitsName>Indicator 10</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I11</BitsShortName>
+                    <BitsName>Indicator 11</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>I12</BitsShortName>
+                    <BitsName>Indicator 12</BitsName>
+                    <BitsValue val="0">Indicator on</BitsValue>
+                    <BitsValue val="1">Indicator off</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="SP" rule="optional">
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>Special Purpose Field
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="RE" rule="optional">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>Expansion
+</DataItemDefinition>
+        <DataItemFormat desc="TODO"
+        </DataItemFormat>
+    </DataItem>
+
+    <uaps>
+        <uap>
+            <item>010</item>
+            <item>000</item>
+            <item>015</item>
+            <item>140</item>
+            <item>041</item>
+            <item>042</item>
+            <item>202</item>
+            <item></item>
+            <item>210</item>
+            <item>060</item>
+            <item>245</item>
+            <item>380</item>
+            <item>161</item>
+            <item>170</item>
+            <item>290</item>
+            <item></item>
+            <item>430</item>
+            <item>090</item>
+            <item>093</item>
+            <item>092</item>
+            <item>215</item>
+            <item>270</item>
+            <item>390</item>
+            <item></item>
+            <item>300</item>
+            <item>310</item>
+            <item>500</item>
+            <item>600</item>
+            <item>605</item>
+            <item>610</item>
+            <item>RE</item>
+            <item></item>
+            <item>SP</item>
+        </uap>
+    </uaps>
+</category>
