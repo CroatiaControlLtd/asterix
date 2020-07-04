@@ -3,7 +3,7 @@
 
 <!--  
 
-    Asterix Category 62 v1.17 definition 
+    Asterix Category 62 v1.18 definition 
     
     Author:   dmarkus
     Created:  5.11.2012.
@@ -20,11 +20,14 @@
     Modified:  29.05.2018. (railsGod) Updated from 1.16 to 1.17 (2 new bits in Data Item I062/060)
     Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
     Modified:  18.11.2019. (wojja000) Added RE field definition for Category 62+ format
-
+    Modified:  04.07.2020. (fjonckers) v1.18:   SFC Flag added to I062/080 5th ext.
+                                                IDD bit added to I062/080 5th extension
+                                                IEC bit added to I062/080 5th extension
+                                                I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
 -->
 
 
-<Category id="62" name="SDPS Track Messages" ver="1.17">
+<Category id="62" name="SDPS Track Messages" ver="1.18">
 
     <DataItem id="010" rule="mandatory" >
         <DataItemName>Data Source Identifier</DataItemName> 
@@ -288,7 +291,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="7">
                         <BitsShortName>SDS</BitsShortName>
@@ -340,7 +342,22 @@
                         <BitsValue val="0">Default value</BitsValue>
                         <BitsValue val="1">Duplicate Flight Plan due to manual correlation</BitsValue>
                     </Bits>
-                    <Bits from="5" to="2">
+                    <Bits bit="5">
+                        <BitsShortName>SFC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Surface target</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>IDD</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Duplicate Flight-ID</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>IEC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Inconsistent Emergency Code</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
@@ -351,8 +368,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
-
             </Variable>
         </DataItemFormat>
         <DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
@@ -2073,8 +2088,8 @@
                         <BitsValue val="3">Alert, no SPI, aircraft on ground</BitsValue>
                         <BitsValue val="4">Alert, SPI, aircraft airborne or on ground</BitsValue>
                         <BitsValue val="5">No alert, SPI, aircraft airborne or on ground</BitsValue>
-                        <BitsValue val="6">Not assigned</BitsValue>
-                        <BitsValue val="7">Not assigned</BitsValue>
+                        <BitsValue val="6">Not defined</BitsValue>
+                        <BitsValue val="7">Unknown or not yet extracted</BitsValue>
                     </Bits>
                     <Bits from="9" to="10">
                         <BitsShortName>spare</BitsShortName>
@@ -3286,5 +3301,4 @@
         <UAPItem bit="38" frn="35" len="1+">SP</UAPItem>
         <UAPItem bit="39" frn="FX" len="-">-</UAPItem>
     </UAP>
-
-</Category>         
+</Category>
