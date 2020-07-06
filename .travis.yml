@@ -15,8 +15,8 @@ compiler:
 install:
   - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then cd src;make;make MODE=DEBUG;make
     test;cd ..; fi
-    pip install lxml
   - python setup.py install
+  - pip install lxml
 addons:
   sonarcloud:
     organization: "croatiacontrolltd"
