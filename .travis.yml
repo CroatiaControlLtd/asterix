@@ -6,6 +6,8 @@ python:
   - '3.6'
   - '3.7'
   - '3.8'
+  - '3.9'
+  - '3.10'
   - nightly
 before_install:
   - sudo apt-get -qq update
@@ -16,7 +18,7 @@ install:
   - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then cd src;make;make MODE=DEBUG;make
     test;cd ..; fi
   - python setup.py install
-  - pip install lxml
+  - if [[ $TRAVIS_PYTHON_VERSION > '3.4' ]]; then pip install lxml
 addons:
   sonarcloud:
     organization: "croatiacontrolltd"
