@@ -51,7 +51,13 @@ Example:
 
 """
 import _asterix
-from lxml import etree
+
+try:
+    from lxml import etree
+    lxml_found = True
+except ImportError:
+    lxml_found = False
+
 import os
 import sys
 from datetime import datetime
@@ -170,62 +176,64 @@ def describeXML(parsed, descriptions=False):
         parsed: Parsed Asterix packet returned by asterix.parse
     Returns:
          lxml ElementTree describing all Asterix data
+         None if lxml module is not installed
     """
-    xml = etree.Element('ASTERIXSTART')
-    for record in parsed:
-        xml_Record = etree.SubElement(xml, 'ASTERIX')
-        cat = record['category']
-        ts = record['ts']
-        xml_Record.set('ver', '%d' % 1)
-        xml_Record.set('length', '%ld' % record['len'])
-        xml_Record.set('crc', '%s' % record['crc'])
-        xml_Record.set('timestamp', '%ld' % ts)
-        if 'hexdata' in record:
-            xml_Record.set('hexdata', record['hexdata'])
-        xml_Record.set('cat', '%03d' % cat)
-        if descriptions:
-            xml_Record.set('description', '%s' % _asterix.describe(cat))
+    if lxml_found:
+        xml = etree.Element('ASTERIXSTART')
+        for record in parsed:
+            xml_Record = etree.SubElement(xml, 'ASTERIX')
+            cat = record['category']
+            ts = record['ts']
+            xml_Record.set('ver', '%d' % 1)
+            xml_Record.set('length', '%ld' % record['len'])
+            xml_Record.set('crc', '%s' % record['crc'])
+            xml_Record.set('timestamp', '%ld' % ts)
+            if 'hexdata' in record:
+                xml_Record.set('hexdata', record['hexdata'])
+            xml_Record.set('cat', '%03d' % cat)
+            if descriptions:
+                xml_Record.set('description', '%s' % _asterix.describe(cat))
 
-        for key, value in record.items():
-            if key[0] == 'I':
-                xml_Item = etree.SubElement(xml_Record, key)
-                description = '%s' % _asterix.describe(cat, str(key))
-                if description and descriptions:
-                    xml_Item.set('description', description)
-                if isinstance(value, dict):
-                    for ikey, ival in value.items():
-                        xml_Field = etree.SubElement(xml_Item, ikey)
-                        if 'val' in ival:
-                            description1 = _asterix.describe(cat, str(key), ikey)
-                            description2 = _asterix.describe(cat, str(key), ikey,
-                                                             str(ival['val']))
-                            if description2 and descriptions:
-                                xml_Field.set('description', description2)
-                            xml_Field.text = str(ival['val'])
-                        else:
-                            for ikey2, ival2 in ival.items():
-                                xml_subItem = etree.SubElement(xml_Field, ikey2)
-                                description1 = _asterix.describe(cat, str(key), ikey2)
-                                description2 = _asterix.describe(cat, str(key), ikey2,
-                                                                 str(ival2['val']))
-                                if description2 and descriptions:
-                                    xml_subItem.set('description', description2)
-                                xml_subItem.text = str(ival2['val'])
-                elif isinstance(value, list):
-                    for it in value:
-                        for ikey, ival in it.items():
+            for key, value in record.items():
+                if key[0] == 'I':
+                    xml_Item = etree.SubElement(xml_Record, key)
+                    description = '%s' % _asterix.describe(cat, str(key))
+                    if description and descriptions:
+                        xml_Item.set('description', description)
+                    if isinstance(value, dict):
+                        for ikey, ival in value.items():
                             xml_Field = etree.SubElement(xml_Item, ikey)
-                            description1 = _asterix.describe(cat, str(key), ikey)
-                            description2 = _asterix.describe(cat, str(key), ikey,
-                                                             str(ival['val']))
-                            if description2 and descriptions:
-                                xml_Field.set('description', description2)
-                            xml_Field.text = str(ival['val'])
-                else:
-                    xml_Item.text = str(value)
+                            if 'val' in ival:
+                                description1 = _asterix.describe(cat, str(key), ikey)
+                                description2 = _asterix.describe(cat, str(key), ikey,
+                                                                 str(ival['val']))
+                                if description2 and descriptions:
+                                    xml_Field.set('description', description2)
+                                xml_Field.text = str(ival['val'])
+                            else:
+                                for ikey2, ival2 in ival.items():
+                                    xml_subItem = etree.SubElement(xml_Field, ikey2)
+                                    description1 = _asterix.describe(cat, str(key), ikey2)
+                                    description2 = _asterix.describe(cat, str(key), ikey2,
+                                                                     str(ival2['val']))
+                                    if description2 and descriptions:
+                                        xml_subItem.set('description', description2)
+                                    xml_subItem.text = str(ival2['val'])
+                    elif isinstance(value, list):
+                        for it in value:
+                            for ikey, ival in it.items():
+                                xml_Field = etree.SubElement(xml_Item, ikey)
+                                description1 = _asterix.describe(cat, str(key), ikey)
+                                description2 = _asterix.describe(cat, str(key), ikey,
+                                                                 str(ival['val']))
+                                if description2 and descriptions:
+                                    xml_Field.set('description', description2)
+                                xml_Field.text = str(ival['val'])
+                    else:
+                        xml_Item.text = str(value)
 
-    return xml
-
+        return xml
+    return None
 
 def describe(parsed):
     """ Describe all elements in Asterix data in textual format.
