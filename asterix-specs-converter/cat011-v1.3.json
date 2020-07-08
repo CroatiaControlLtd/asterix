@@ -539,7 +539,7 @@
             "definition": "Absolute time stamping expressed as UTC.\n",
             "description": null,
             "name": "140",
-            "remark": "Note:\n    The time of day value is reset to zero each day at midnight.\n",
+            "remark": "Note:\n    The Time of Track Information value is reset to zero each day at midnight.\n",
             "spare": false,
             "title": "Time of Track Information",
             "variation": {
@@ -4430,13 +4430,13 @@
         }
     ],
     "date": {
-        "day": 1,
+        "day": 11,
         "month": 5,
-        "year": 2008
+        "year": 2020
     },
     "edition": {
         "major": 1,
-        "minor": 2
+        "minor": 3
     },
     "number": 11,
     "preamble": "Surveillance data exchange.\n",
