@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-    Asterix Category 011 v1.2 definition
+    Asterix Category 011 v1.3 definition
     Do not edit directly!
     This file is auto-generated from the original json specs file.
-    sha1sum of the json input: dd7f68dfd814065105a40d8fdc39063908266da6
+    sha1sum of the json input: eb7d41308809d829be6f2d91e9048157484d12e2
 -->
 
-<Category id="11" name="Transmission of A-SMGCS Data" ver="1.2">
+<Category id="11" name="Transmission of A-SMGCS Data" ver="1.3">
 
     <DataItem id="000" rule="TO BE REMOVED">
         <DataItemName>Message Type</DataItemName>

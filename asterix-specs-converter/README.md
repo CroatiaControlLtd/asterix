@@ -1,4 +1,4 @@
-This directory contains example scripts to convert from .json to other text based formats.
+This directory contains a script to convert asterix definitions from .json to .xml format.
 
 Original asterix definition files are currently stored as .ast files
 (custom syntax) in this project: https://github.com/zoranbosnjak/asterix-specs
@@ -17,8 +17,6 @@ using scripts in this directory.
 Remarks:
 
 - Scripts require python36 or higher.
-- json-to-xml is currently targeting some other dialect of xml (not related to this project).
-- json-to-rst.py demonstrates the way to recalculate position of *FX* bits
 
 To run the script inside nix environment:
 
