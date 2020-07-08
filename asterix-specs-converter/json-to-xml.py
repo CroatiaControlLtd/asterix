@@ -5,6 +5,7 @@ import sys
 import argparse
 import json
 import hashlib
+from itertools import chain, repeat
 
 def getNumber(value):
     """Get Natural/Real/Rational number as an object."""
@@ -45,12 +46,12 @@ def getNumber(value):
         return Real(float(val))
     raise Exception('unexpected value type {}'.format(t))
 
-def renderRule(rule, subitem, caseUnspecified, caseContextFree, caseDependent):
+def renderRule(rule, caseUnspecified, caseContextFree, caseDependent):
     rule_type = rule['type']
     if rule_type == 'Unspecified':
         return caseUnspecified()
     elif rule_type == 'ContextFree':
-        return caseContextFree(rule, subitem)
+        return caseContextFree(rule)
     elif rule_type == 'Dependent':
         return caseDependent(rule)
     else:
@@ -61,6 +62,23 @@ def case(msg, val, *cases):
     for (a,b) in cases:
         if val == a: return b
     raise Exception('unexpected {}: {}'.format(msg, val))
+
+def getVariationSize(variation):
+    t = variation['type']
+    if t == 'Element':
+        return variation['size']
+    elif t == 'Group':
+        return sum([getItemSize(i) for i in variation['items']])
+    elif t == 'Repetitive':
+        return getVariationSize(variation['variation'])
+    else:
+        raise Exception('can not determine item size for type {}'.format(t))
+
+def getItemSize(item):
+    """Determine the size of an item with apriory known size."""
+    if item['spare']:
+        return item['length']
+    return getVariationSize(item['variation'])
 
 accumulator = []
 indentLevel = 0
@@ -103,217 +121,409 @@ def xmlquote(s):
         ">": "&gt;",
     })
 
+def makeVariation(item):
+    variation = item['variation']
+    vt = variation['type']
 
-def itemLine(item):
-    itemType = item['element']['type']
-    if itemType == 'Fixed':
-        length = int(item['element']['size'] / 8)
-        return '<{} length="{:d}">'.format(itemType, length)
-    elif itemType != 'Group':
-        return '<DataItem id="{}" type="{}">'.format(item['name'], itemType)
-    else:
-        return '<DataItem id="{}">'.format(item['name'])
+    # make a single item Fixed variation
+    if vt == 'Element':
+        size = getItemSize(item)
+        return Fixed(size, [item])
 
+    if vt == 'Group':
+        size = getItemSize(item)
+        items = variation['items']
+        return Fixed(size, items)
 
-def render(s):
-    root = json.loads(s)
-    category = root['number']
-    edition = root['edition']
-    title = root['title']
-    tell('<?xml version="1.0" encoding="UTF-8" ?>')
-    tell('')
-    tell('<!--')
-    with indent:
-        tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
+    if vt == 'Extended':
+        n1 = variation['first']
+        n2 = variation['extents']
+        items = variation['items']
+        return Variable(n1, n2, items)
 
-        tell('Do not edit directly!')
-        tell('This file is auto-generated from the original json specs file.')
-        tell('sha1sum of the json input: {}'.format(hashlib.sha1(s).hexdigest()))
-    tell('-->')
-    tell('')
-    tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
-    with indent:
-        [renderItem(item) for item in root['catalogue']]
-    with indent:
-        renderUap(root['uap'])
-    tell('</category>')
-    return ''.join([line+'\n' for line in accumulator])
+    if vt == 'Repetitive':
+        size = getVariationSize(variation)
+        variation2 = variation['variation']
+        items = variation2['items']
+        return Repetitive(size, items)
 
-def renderItem(item):
-    subitem = item['subitem']
-    rule = None
-    if 'encoding' in item and 'rule' in item['encoding']:
-        rule = item['encoding']['rule']
-        tell('<DataItem id="{}" rule="{}">'.format(subitem['name'], rule))
-    else:
-        tell('<DataItem id="{}">'.format(item['name']))
+    if vt == 'Explicit':
+        return Explicit()
 
-    with indent:
-        title = subitem['title']
-        if title:
-            tell('<DataItemName>{}</DataItemName>'.format(xmlquote(title)))
-        if 'definition' in item:
-            tell('<DataItemDefinition>{}</DataItemDefinition>'.format(xmlquote(item['definition'])))
-        tell('<DataItemFormat desc="TODO"')
-        renderSubitem(subitem)
-        tell('</DataItemFormat>')
-    tell('</DataItem>')
-    tell('')
+    if vt == 'Compound':
+        items = variation['items']
+        return Compound(items)
 
-def renderSubitem(subitem):
+    raise Exception('unexpected variation type {}'.format(vt))
 
-    def renderInteger(value):
-        tell('<convert>')
+class Fx(object):
+    def render(self):
+        tell('<Bits bit="1" fx="1">')
         with indent:
-            sig = '' if value['signed'] else 'unsigned '
-            tell('<type>{}</type>'.format(sig + 'integer'))
-            for i in value['constraints']:
-                if i['type'] in ['>', '>=']:
-                    tell('<min>{}</min>'.format(getNumber(i['value'])))
-                if i['type'] in ['<', '<=']:
-                    tell('<max>{}</max>'.format(getNumber(i['value'])))
-        tell('</convert>')
+            tell('<BitsShortName>FX</BitsShortName>')
+            tell('<BitsName>Extension Indicator</BitsName>')
+            tell('<BitsValue val="0">End of Data Item</BitsValue>')
+            tell('<BitsValue val="1">Extension</BitsValue>')
+        tell('</Bits>')
 
-    def renderQuantity(value):
-        tell('<convert>')
-        with indent:
-            sig = '' if value['signed'] else 'unsigned '
-            k = getNumber(value['scaling'])
-            tell('<type>{}</type>'.format(sig + 'decimal'))
+class Bits(object):
 
-            fract = value['fractionalBits']
-            if fract == 0:
-                tell('<lsb>{}</lsb>'.format(k))
+    def __init__(self, *args):
+        self.args = args
+
+    def render(self):
+        item, bitsFrom, bitsTo = self.args
+        if item['spare']:
+            if bitsFrom == bitsTo:
+                tell('<Bits bit="{}">'.format(bitsFrom))
             else:
-                tell('<lsb>{}/{}</lsb>'.format(k, pow(2,fract)))
+                tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
+            with indent:
+                tell('<BitsShortName>spare</BitsShortName>')
+                tell('<BitsName>Spare bit(s) set to 0</BitsName>')
+                tell('<BitsConst>0</BitsConst>')
+        else:
+            variation = item['variation']
+            assert variation['type'] == 'Element'
+            content = variation['content']
 
-            unit = value['unit']
-            if unit is not None:
-                tell('<unit>{}</unit>'.format(unit))
 
-            for i in value['constraints']:
-                if i['type'] in ['>', '>=']:
-                    tell('<min>{}</min>'.format(getNumber(i['value'])))
-                if i['type'] in ['<', '<=']:
-                    tell('<max>{}</max>'.format(getNumber(i['value'])))
-        tell('</convert>')
-
-    def renderFixed():
-        element = subitem['element']
-        def case0():
-            pass
-        def case1(val, subitem):
-            rule = val['rule']
-            t = rule['type']
-            if t == 'Table':
-                from_bit = 8
-                to_bit = 1
+            # unspecified content (just raw bits)
+            def case0():
+                if bitsFrom == bitsTo:
+                    tell('<Bits bit="{}">'.format(bitsFrom))
+                else:
+                    tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
                 with indent:
-                    tell('<Bits from="{}" to="{}">'.format(from_bit, to_bit))
+                    tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                    if item['title']:
+                        tell('<BitsName>{}</BitsName>'.format(item['title']))
+
+            # defined content
+            def case1(val):
+                rule = val['rule']
+                t = rule['type']
+
+                if t == 'Table':
+                    if bitsFrom == bitsTo:
+                        tell('<Bits bit="{}">'.format(bitsFrom))
+                    else:
+                        tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
                     with indent:
-                        if 'name' in subitem:
-                            tell('<BitsShortName>{}</BitsShortName>'.format(subitem['name']))
-                        if 'title' in subitem:
-                            tell('<BitsName>{}</BitsName>'.format(subitem['title']))
+                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
                         for key,value in rule['values']:
                             tell('<BitsValue val="{}">{}</BitsValue>'.format(key, xmlquote(value)))
-                    tell('</Bits>')
-            elif t == 'String':
-                f = case('string variation', rule['variation'],
-                    ('StringAscii', lambda: tell('<convert><type>string</type></convert>')),
-                    ('StringICAO', lambda: None),
+
+                elif t == 'String':
+                    variation = case('string variation', rule['variation'],
+                        ('StringAscii', 'ascii'),
+                        ('StringICAO', 'icao'),
+                        ('StringOctal', 'octal'),
                     )
-                f ()
-            elif t == 'Integer':
-                renderInteger(rule)
-            elif t == 'Quantity':
-                renderQuantity(rule)
-            else:
-                raise Exception('unexpected value type {}'.format(t))
-        def case2(val):
-            pass
-        return renderRule(element['content'], subitem, case0, case1, case2)
+                    assert bitsFrom != bitsTo
+                    tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, variation))
+                    with indent:
+                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
 
-    def renderMaybeSubitem(n, subitem):
-        if subitem['spare']:
-            tell('<item name="spare{}" type="Spare"><len>{}</len></item>'.format(n, subitem['length']))
-            return True
-        else:
-            #tell(itemLine(subitem))
-            #with indent:
-                #title = subitem['title']
-                #if title:
-                #    tell('<dsc>{}</dsc>'.format(xmlquote(title)))
-            renderSubitem(subitem)
-            return False
+                elif t == 'Integer':
+                    signed = 'signed' if rule['signed'] else 'unsigned'
+                    constraints = rule['constraints']
+                    if bitsFrom == bitsTo:
+                        tell('<Bits bit="{}">'.format(bitsFrom))
+                    else:
+                        tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, signed))
+                    with indent:
+                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
+                        msg = '<BitsInteger'
+                        for c in constraints:
+                            if c['type'] in ['>=', '>']:
+                                msg += ' min="{}"'.format(c['value']['value'])
+                                break
+                        for c in constraints:
+                            if c['type'] in ['<=', '<']:
+                                msg += ' max="{}"'.format(c['value']['value'])
+                                break
+                        msg +='></BitsInteger>'
 
-    def renderGroup():
-        with indent:
-            tot_len = 0
-            for item in element['subitems']:
-                if item['spare']:
-                    tot_len = item['length']
+                        tell(msg)
+
+                elif t == 'Quantity':
+                    signed = 'signed' if rule['signed'] else 'unsigned'
+                    k = getNumber(rule['scaling'])
+                    fract = rule['fractionalBits']
+                    unit = rule['unit']
+                    constraints = rule['constraints']
+                    scale = format(float(k) / (pow(2, fract)), '.29f')
+                    scale = scale.rstrip('0')
+                    if scale[-1] == '.':
+                        scale += '0'
+
+                    if bitsFrom == bitsTo:
+                        tell('<Bits bit="{}">'.format(bitsFrom))
+                    else:
+                        tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, signed))
+                    with indent:
+                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
+                        msg = '<BitsUnit scale="{}"'.format(scale)
+                        for c in constraints:
+                            if c['type'] in ['>=', '>']:
+                                msg += ' min="{}"'.format(c['value']['value'])
+                                break
+                        for c in constraints:
+                            if c['type'] in ['<=', '<']:
+                                msg += ' max="{}"'.format(c['value']['value'])
+                                break
+                        msg +='>{}</BitsUnit>'.format(unit)
+
+                        tell(msg)
+
                 else:
-                    tot_len += item['element']['size']
+                    raise Exception('unexpected value type {}'.format(t))
 
-            length = int(tot_len / 8)
-            tell('<Fixed length="{:d}">'.format(length))
-
-            spareIndex = 1
-            for item in element['subitems']:
-                isSpare = renderMaybeSubitem(spareIndex, item)
-                if isSpare:
-                    spareIndex += 1
-
-            tell('</Fixed>')
-
-
-    def renderExtended():
-        n1 = element['first']
-        n2 = element['extents']
-        tell('<len>({},{})</len>'.format(n1, n2))
-        renderGroup()
-
-    def renderRepetitive():
-        renderSubitem(element)
-
-    def renderExplicit():
-        pass
-
-    def renderCompound():
-        tell('<items>')
-        with indent:
-            spareIndex = 1
-            for item in element['subitems']:
-                if item is None:
-                    tell('<item></item>')
+            # complex content rule (process the same as raw)
+            def case2(val):
+                if bitsFrom == bitsTo:
+                    tell('<Bits bit="{}">'.format(bitsFrom))
                 else:
-                    isSpare = renderMaybeSubitem(spareIndex, item)
-                    if isSpare:
-                        spareIndex += 1
-        tell('</items>')
+                    tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
+                with indent:
+                    tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                    if item['title']:
+                        tell('<BitsName>{}</BitsName>'.format(item['title']))
 
-    element = subitem['element']
-    return locals()['render'+element['type']]()
+            renderRule(content, case0, case1, case2)
+        tell('</Bits>')
 
-def renderUap(uap):
-    ut = uap['type']
-    if ut == 'uap':
-        variations = [{'name': 'uap', 'items': uap['items']}]
-    elif ut == 'uaps':
-        variations = uap['variations']
-    else:
-        raise Exception('unexpected uap type {}'.format(ut))
-    tell('<uaps>')
-    with indent:
-        for var in variations:
-            name = var['name']
-            tell('<{}>'.format(name))
+class Variation(object):
+    def __init__(self, *args):
+        self.args = args
+        self.oldRender = self.render
+        self.render = self.realRender
+
+    def realRender(self):
+        name = self.__class__.__name__
+        tell('<DataItemFormat desc="{} data item.">'.format(name))
+        with indent:
+            self.oldRender()
+        tell('</DataItemFormat>')
+
+class Fixed(Variation):
+    def render(self):
+        bitSize, items = self.args
+        assert (bitSize % 8) == 0, "bit alignment error"
+        byteSize = bitSize // 8
+        tell('<Fixed length="{}">'.format(byteSize))
+        bitsFrom = bitSize
+        for item in items:
+            n = getItemSize(item)
+            bitsTo = bitsFrom - n + 1
             with indent:
-                for i in var['items']:
-                    tell('<item>{}</item>'.format(i or ''))
-            tell('</{}>'.format(name))
-    tell('</uaps>')
+                Bits(item, bitsFrom, bitsTo).render()
+            bitsFrom -= n
+        tell('</Fixed>')
+
+class Variable(Variation):
+    def render(self):
+        n1, n2, items = self.args
+        chunks = chain(repeat(n1,1), repeat(n2))
+        tell('<Variable>')
+        with indent:
+            while True:
+                bitSize = next(chunks)
+                assert (bitSize % 8) == 0, "bit alignment error"
+                byteSize = bitSize // 8
+                tell('<Fixed length="{}">'.format(byteSize))
+                bitsFrom = bitSize
+                with indent:
+                    while True:
+                        item = items[0]
+                        items = items[1:]
+                        n = getItemSize(item)
+                        bitsTo = bitsFrom - n + 1
+                        Bits(item, bitsFrom, bitsTo).render()
+                        bitsFrom -= n
+                        if bitsFrom <= 1:
+                            break
+                    Fx().render()
+                tell('</Fixed>')
+                if not items:
+                    break
+        tell('</Variable>')
+
+class Repetitive(Variation):
+    def render(self):
+        bitSize, items = self.args
+        assert (bitSize % 8) == 0, "bit alignment error"
+        byteSize = bitSize // 8
+        tell('<Repetitive length="{}">'.format(byteSize))
+        bitsFrom = bitSize
+        for item in items:
+            n = getItemSize(item)
+            bitsTo = bitsFrom - n + 1
+            with indent:
+                Bits(item, bitsFrom, bitsTo).render()
+            bitsFrom -= n
+        tell('</Repetitive>')
+
+class Explicit(Variation):
+    def render(self):
+        tell('<Explicit/>')
+
+class Compound(Variation):
+    def render(self):
+        (items,) = self.args
+        tell('<Compound>')
+
+        with indent:
+
+            # FSPEC
+            tell('<Variable>')
+            with indent:
+                bp = 1
+                while True:
+                    tell('<Fixed length="1">')
+                    n = 8
+                    while True:
+                        if items:
+                            item = items[0]
+                            items = items[1:]
+                        else:
+                            item = None
+                        with indent:
+                            if item:
+                                tell('<Bits bit="{}">'.format(n))
+                                with indent:
+                                    tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                                    tell('<BitsName>{}</BitsName>'.format(item['title']))
+                                    tell('<BitsPresence>{}</BitsPresence>'.format(bp))
+                                tell('</Bits>')
+                                bp += 1
+                            else:
+                                tell('<Bits bit="{}">'.format(n))
+                                with indent:
+                                    tell('<BitsShortName>spare</BitsShortName>')
+                                    tell('<BitsName>Spare bits set to 0</BitsName>')
+                                tell('</Bits>')
+                            n -= 1
+                            if n <= 1:
+                                tell('<Bits bit="1" fx="1">')
+                                with indent:
+                                    tell('<BitsShortName>FX</BitsShortName>')
+                                    tell('<BitsName>Extension indicator</BitsName>')
+                                    tell('<BitsValue val="0">no extension</BitsValue>')
+                                    tell('<BitsValue val="1">extension</BitsValue>')
+                                tell('</Bits>')
+                                break
+                    tell('</Fixed>')
+                    if not items:
+                        break
+            tell('</Variable>')
+
+            # item list
+            (items,) = self.args
+            for item in items:
+                tell('')
+                if item is not None:
+                    obj = makeVariation(item)
+                    obj.oldRender()
+        tell('</Compound>')
+
+class TopItem(object):
+    def __init__(self, item):
+        self.item = item
+        self.variation = makeVariation(item)
+
+    def render(self):
+        item = self.item
+        tell('')
+        tell('<DataItem id="{}" rule="TO BE REMOVED">'.format(item['name']))
+        title = item['title']
+        definition = item['definition']
+        with indent:
+            if title:
+                tell('<DataItemName>{}</DataItemName>'.format(xmlquote(title)))
+            if definition:
+                tell('<DataItemDefinition>')
+                with indent:
+                    for line in definition.splitlines():
+                        tell(line)
+                tell('</DataItemDefinition>')
+            self.variation.render()
+        tell('</DataItem>')
+
+class Category(object):
+    def __init__(self, root, cks):
+        self.root = root
+        self.cks = cks
+        self.items = [TopItem(item) for item in root['catalogue']]
+
+    def render(self):
+        category = self.root['number']
+        edition = self.root['edition']
+        title = self.root['title']
+        tell('<?xml version="1.0" encoding="UTF-8"?>')
+        tell('')
+        tell('<!--')
+        with indent:
+            tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
+
+            tell('Do not edit directly!')
+            tell('This file is auto-generated from the original json specs file.')
+            tell('sha1sum of the json input: {}'.format(self.cks))
+        tell('-->')
+        tell('')
+        tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
+        with indent:
+            for i in self.items:
+                i.render()
+        with indent:
+            self.renderUap()
+        tell('')
+        tell('</Category>')
+
+    def renderUap(self):
+        uap = self.root['uap']
+        ut = uap['type']
+        if ut == 'uap':
+            variations = [{'name': 'uap', 'items': uap['items']}]
+        elif ut == 'uaps':
+            variations = uap['variations']
+        else:
+            raise Exception('unexpected uap type {}'.format(ut))
+
+        for var in variations:
+            tell('')
+            tell('<UAP>')
+            name = var['name']
+            items = var['items']
+            with indent:
+                bit = 0
+                frn = 1
+                while True:
+                    chunk = items[0:7]
+                    items = items[7:]
+                    for i in chunk:
+                        tell('<UAPItem bit="{}" frn="{}" len="TO BE REMOVED">{}</UAPItem>'.format(bit,frn, i or '-'))
+                        bit += 1
+                        frn += 1
+                    if not items:
+                        while bit % 8 != 7:
+                            tell('<UAPItem bit="{}" frn="{}" len="TO BE REMOVED">-</UAPItem>'.format(bit,frn))
+                            bit += 1
+                            frn += 1
+                    tell('<UAPItem bit="{}" frn="FX" len="-">-</UAPItem>'.format(bit,frn))
+                    bit += 1
+                    if not items:
+                        break
+            tell('</UAP>')
 
 # main
 parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
@@ -323,6 +533,10 @@ parser.add_argument('outfile', nargs='?', type=argparse.FileType('wt'), default=
 args = parser.parse_args()
 
 s = args.infile.read()
-result = render(s)
+root = json.loads(s)
+cks = hashlib.sha1(s).hexdigest()
+cat = Category(root, cks)
+cat.render()
+result = ''.join([line+'\n' for line in accumulator])
 args.outfile.write(result)
 
