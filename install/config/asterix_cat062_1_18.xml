@@ -3,7 +3,7 @@
 
 <!--  
 
-    Asterix Category 62 v1.16 definition 
+    Asterix Category 62 v1.18 definition 
     
     Author:   dmarkus
     Created:  5.11.2012.
@@ -17,12 +17,17 @@
                                        Add missing fields to DataItem I062/390
     Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
     Modified:  05.05.2014. (dsalantic) Item 110 format fixed
+    Modified:  29.05.2018. (railsGod) Updated from 1.16 to 1.17 (2 new bits in Data Item I062/060)
     Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
-
+    Modified:  18.11.2019. (wojja000) Added RE field definition for Category 62+ format
+    Modified:  04.07.2020. (fjonckers) v1.18:   SFC Flag added to I062/080 5th ext.
+                                                IDD bit added to I062/080 5th extension
+                                                IEC bit added to I062/080 5th extension
+                                                I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
 -->
 
 
-<Category id="62" name="SDPS Track Messages" ver="1.16">
+<Category id="62" name="SDPS Track Messages" ver="1.18">
 
     <DataItem id="010" rule="mandatory" >
         <DataItemName>Data Source Identifier</DataItemName> 
@@ -75,10 +80,17 @@
         <DataItemDefinition>Mode-3/A code converted into octal representation.</DataItemDefinition>
         <DataItemFormat>
             <Fixed length="2">
-                <Bits from="16" to="15">
-                    <BitsShortName>spare</BitsShortName>
-                    <BitsName>Spare bits set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
+                <Bits bit="16">
+                    <BitsShortName>V</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Code validated</BitsValue>
+                    <BitsValue val="1">Code not validated</BitsValue>
+                </Bits>
+                <Bits bit="15">
+                    <BitsShortName>G</BitsShortName>
+                    <BitsName>Change in Mode 3/A</BitsName>
+                    <BitsValue val="0">Default</BitsValue>
+                    <BitsValue val="1">Garbled Code</BitsValue>
                 </Bits>
                 <Bits bit="14">
                     <BitsShortName>CH</BitsShortName>
@@ -279,7 +291,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="7">
                         <BitsShortName>SDS</BitsShortName>
@@ -331,7 +342,22 @@
                         <BitsValue val="0">Default value</BitsValue>
                         <BitsValue val="1">Duplicate Flight Plan due to manual correlation</BitsValue>
                     </Bits>
-                    <Bits from="5" to="2">
+                    <Bits bit="5">
+                        <BitsShortName>SFC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Surface target</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>IDD</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Duplicate Flight-ID</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>IEC</BitsShortName>
+                        <BitsValue val="0">Default value</BitsValue>
+                        <BitsValue val="1">Inconsistent Emergency Code</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
                         <BitsShortName>spare</BitsShortName>
                         <BitsName>Spare bits set to 0</BitsName>
                         <BitsConst>0</BitsConst>
@@ -342,8 +368,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
-
             </Variable>
         </DataItemFormat>
         <DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
@@ -351,7 +375,7 @@
 
     <DataItem id="100" rule="optional">
         <DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two's complement form.</DataItemDefinition>
         <DataItemFormat>
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
@@ -513,12 +537,12 @@
                 <Fixed length="6">
                     <Bits from="25" to="48" encode="signed">
                         <BitsShortName>Lat</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.</BitsName>
+                        <BitsName>Latitude in WGS.84 in two-s complement. Range -90 deg latitude deg 90 deg.</BitsName>
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                     <Bits from="1" to="24" encode="signed">
                         <BitsShortName>Lon</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+                        <BitsName>Longitude in WGS.84 in two-s complement. Range -180 deg longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
@@ -618,7 +642,7 @@
 
     <DataItem id="130" rule="optional">
         <DataItemName>Calculated Track Geometric Altitude</DataItemName>
-        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth's ellipsoid, as defined by WGS84, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -633,7 +657,7 @@
 
     <DataItem id="135" rule="optional">
         <DataItemName>Calculated Track Barometric Altitude</DataItemName>
-        <DataItemDefinition>Calculated Barometric Altitude of the track, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated Barometric Altitude of the track, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits bit="16">
@@ -649,12 +673,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>ICAO specifies a range between –10 FL and 1267 FL for Mode C</DataItemNote>
+        <DataItemNote>ICAO specifies a range between -10 FL and 1267 FL for Mode C</DataItemNote>
     </DataItem> 
 
     <DataItem id="136" rule="optional">
         <DataItemName>Measured Flight Level</DataItemName>
-        <DataItemDefinition>Last valid and credible flight level used to update the track, in two’s complement form,.</DataItemDefinition>
+        <DataItemDefinition>Last valid and credible flight level used to update the track, in two's complement form,.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -664,12 +688,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between –10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
+        <DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between -10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
     </DataItem> 
 
     <DataItem id="185" rule="optional">
         <DataItemName>Calculated Track Velocity (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item .">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
@@ -734,7 +758,7 @@
 
     <DataItem id="210" rule="optional">
         <DataItemName>Calculated Acceleration (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item .">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
@@ -754,7 +778,7 @@
 
     <DataItem id="220" rule="optional">
         <DataItemName>Calculated Rate Of Climb/Descent)</DataItemName>
-        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item .">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -791,7 +815,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user’s side, this item SHALL not be used.</DataItemNote>
+        <DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user's side, this item SHALL not be used.</DataItemNote>
     </DataItem> 
 
     <DataItem id="270" rule="optional">
@@ -2064,8 +2088,8 @@
                         <BitsValue val="3">Alert, no SPI, aircraft on ground</BitsValue>
                         <BitsValue val="4">Alert, SPI, aircraft airborne or on ground</BitsValue>
                         <BitsValue val="5">No alert, SPI, aircraft airborne or on ground</BitsValue>
-                        <BitsValue val="6">Not assigned</BitsValue>
-                        <BitsValue val="7">Not assigned</BitsValue>
+                        <BitsValue val="6">Not defined</BitsValue>
+                        <BitsValue val="7">Unknown or not yet extracted</BitsValue>
                     </Bits>
                     <Bits from="9" to="10">
                         <BitsShortName>spare</BitsShortName>
@@ -2145,7 +2169,7 @@
                         <BitsValue val="3">Minimum fuel</BitsValue>
                         <BitsValue val="4">No communications</BitsValue>
                         <BitsValue val="5">Unlawful interference</BitsValue>
-                        <BitsValue val="6">“Downed” Aircraft</BitsValue>
+                        <BitsValue val="6">Downed Aircraft</BitsValue>
                         <BitsValue val="7">Unknown</BitsValue>
                     </Bits>
                 </Fixed>
@@ -2406,12 +2430,12 @@
                 <Fixed length="6">
                     <Bits from="48" to="25" encode="signed">
                         <BitsShortName>Lat</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 deg Lat deg 90 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="24" to="1" encode="signed">
                         <BitsShortName>Lon</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 deg longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
@@ -3012,11 +3036,11 @@
                 <Fixed length="3">
                     <Bits from="17" to="24">
                         <BitsShortName>SDPSUID</BitsShortName>
-                        <BitsName>SDPS UNIT IDENTIFICATION</BitsName>
+                        <BitsName>SDPS Unit Identification</BitsName>
                     </Bits>
                     <Bits from="2" to="16">
                         <BitsShortName>STN</BitsShortName>
-                        <BitsName>SYSTEM TRACK NUMBER</BitsName>
+                        <BitsName>System Track Number</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -3027,11 +3051,11 @@
                 <Fixed length="3">
                     <Bits from="17" to="24">
                         <BitsShortName>SDPSUID</BitsShortName>
-                        <BitsName>SDPS UNIT IDENTIFICATION</BitsName>
+                        <BitsName>SDPS Unit Identification</BitsName>
                     </Bits>
                     <Bits from="2" to="16">
                         <BitsShortName>STN</BitsShortName>
-                        <BitsName>SYSTEM TRACK NUMBER</BitsName>
+                        <BitsName>System Track Number</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -3043,10 +3067,155 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="SP" >
-        <DataItemName>SP Field</DataItemName>
-        <DataItemDefinition>Sp Field</DataItemDefinition>
-        <DataItemFormat desc="Sp Field">
+    <!-- Content of the RE field is specified based on the ASTERIX Part 9 Category 062 Appendix A document in version 1.2 -->
+    <DataItem id="RE" rule="optional">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>Reserved Expansion Field</DataItemDefinition>
+        <DataItemFormat desc="Reserved Expansion Field">
+            <Explicit>
+                <Compound>
+                    <Variable>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>CST</BitsShortName>
+                                <BitsName>Contributing Sensors with local Tracknumber</BitsName>
+                                <BitsPresence>1</BitsPresence>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>CSN</BitsShortName>
+                                <BitsName>Contributing Sensors No local tracknumber</BitsName>
+                                <BitsPresence>2</BitsPresence>
+                            </Bits>
+                            <Bits bit="6">
+                                <BitsShortName>TVS</BitsShortName>
+                                <BitsName>Calculated Track Velocity relative to System Reference Point</BitsName>
+                                <BitsPresence>3</BitsPresence>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>STS</BitsShortName>
+                                <BitsName>Supplementary Track Status</BitsName>
+                                <BitsPresence>4</BitsPresence>
+                            </Bits>
+                            <Bits from ="1" to="4">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>spare bits set to 0</BitsName>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
+                    <Repetitive>
+                        <Fixed length="5">
+                            <Bits from="33" to="40">
+                                <BitsShortName>SAC</BitsShortName>
+                                <BitsName>SAC of the sensor contributing to the track in the current update cycle</BitsName>
+                            </Bits>
+                            <Bits from="25" to="32">
+                                <BitsShortName>SIC</BitsShortName>
+                                <BitsName>SIC of the sensor contributing to the track in the current update cycle</BitsName>
+                            </Bits>
+                            <Bits from="21" to="24">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>spare bits set to 0</BitsName>
+                            </Bits>
+                            <Bits from="17" to="20">
+                                <BitsShortName>TYP</BitsShortName>
+                                <BitsValue val="0">No detection</BitsValue>
+                                <BitsValue val="1">Single PSR detection</BitsValue>
+                                <BitsValue val="2">Single SSR detection</BitsValue>
+                                <BitsValue val="3">SSR+PSR detection</BitsValue>
+                                <BitsValue val="4">Single Mode S All-Call</BitsValue>
+                                <BitsValue val="5">Single Mode S Roll-Call</BitsValue>
+                                <BitsValue val="6">Mode S All-Call + PSR</BitsValue>
+                                <BitsValue val="7">Mode S Roll-Call + PSR</BitsValue>
+                                <BitsValue val="8">ADS-B</BitsValue>
+                                <BitsValue val="9">WAM</BitsValue>
+                                <BitsValue val="10">Reserved</BitsValue>
+                                <BitsValue val="11">Reserved</BitsValue>
+                                <BitsValue val="12">Reserved</BitsValue>
+                                <BitsValue val="13">Reserved</BitsValue>
+                                <BitsValue val="14">Reserved</BitsValue>
+                                <BitsValue val="15">Reserved</BitsValue>
+                            </Bits>
+                            <Bits from="1" to="16">
+                                <BitsShortName>LTN</BitsShortName>
+                                <BitsName>Local Track Number</BitsName>
+                            </Bits>
+                        </Fixed>
+                    </Repetitive>
+                    <Repetitive>
+                        <Fixed length="3">
+                            <Bits from="17" to="24">
+                                <BitsShortName>SAC</BitsShortName>
+                                <BitsName>SAC of the sensor contributing to the track in the current update cycle</BitsName>
+                            </Bits>
+                            <Bits from="9" to="16">
+                                <BitsShortName>SIC</BitsShortName>
+                                <BitsName>SIC of the sensor contributing to the track in the current update cycle</BitsName>
+                            </Bits>
+                            <Bits from="5" to="8">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>spare bits set to 0</BitsName>
+                            </Bits>
+                            <Bits from="1" to="4">
+                                <BitsShortName>TYP</BitsShortName>
+                                <BitsValue val="0">No detection</BitsValue>
+                                <BitsValue val="1">Single PSR detection</BitsValue>
+                                <BitsValue val="2">Single SSR detection</BitsValue>
+                                <BitsValue val="3">SSR+PSR detection</BitsValue>
+                                <BitsValue val="4">Single Mode S All-Call</BitsValue>
+                                <BitsValue val="5">Single Mode S Roll-Call</BitsValue>
+                                <BitsValue val="6">Mode S All-Call + PSR</BitsValue>
+                                <BitsValue val="7">Mode S Roll-Call + PSR</BitsValue>
+                                <BitsValue val="8">ADS-B</BitsValue>
+                                <BitsValue val="9">WAM</BitsValue>
+                                <BitsValue val="10">Reserved</BitsValue>
+                                <BitsValue val="11">Reserved</BitsValue>
+                                <BitsValue val="12">Reserved</BitsValue>
+                                <BitsValue val="13">Reserved</BitsValue>
+                                <BitsValue val="14">Reserved</BitsValue>
+                                <BitsValue val="15">Reserved</BitsValue>
+                            </Bits>
+                        </Fixed>
+                    </Repetitive>
+                    <Fixed length="4">
+                        <Bits from="17" to="32" encode="signed">
+                            <BitsShortName>Vx</BitsShortName>
+                            <BitsName>Calculated track velocity in x-axis</BitsName>
+                            <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
+                        </Bits>
+                        <Bits from="1" to="16" encode="signed">
+                            <BitsShortName>Vy</BitsShortName>
+                            <BitsName>Calculated track velocity in y-axis</BitsName>
+                            <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>FDR</BitsShortName>
+                            <BitsName>Flight Data Retained</BitsName>
+                            <BitsValue val="0">Flight plan data from active FDPS</BitsValue>
+                            <BitsValue val="1">Flight plan data retained from no longer active FDPS</BitsValue>
+                        </Bits>
+                        <Bits from="2" to="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>spare bits set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">end of data item</BitsValue>
+                            <BitsValue val="1">extension of data into next octet</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Compound>
+            </Explicit>
+        </DataItemFormat>
+    </DataItem> 
+
+    <!-- Content of the SP field is specified based on the UCON-Cat062/SP document in version 2.3 -->
+    <DataItem id="SP" rule="optional">
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>Special Purpose Field</DataItemDefinition>
+        <DataItemFormat desc="Special Purpose Field">
             <Explicit>
                 <Fixed length="1">
                     <Bits from="8" to="1" encode="hex">
@@ -3056,20 +3225,39 @@
                 </Fixed>
             </Explicit>
         </DataItemFormat>
-    </DataItem>     
-    <!--Special Purpose Field - ARTAS specific - [LEN-1Byte][RepetitionFactor-1Byte]*[TargetReportIdentifier-4Bytes]
-    <DataItem id="SP" >
-                <Explicit desc="SP Field">
-                    <Repetitive>
-                        <Fixed length="4">
-                            <Bits from="32" to="1" encode="hex">
-                                <BitsName>SP Byte</BitsName>                        
-                            </Bits>
-                        </Fixed>
-                    </Repetitive>
-                </Explicit>
-    </DataItem>             
--->     
+    </DataItem>    
+
+    <!-- Content of the SP field is specified based on the UCON-Cat062/SP document in version 2.3 -->
+    <!-- <DataItem id="SP" rule="optional">
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>Special Purpose Field</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>Length</BitsShortName>
+                    <BitsName>Length of SP field</BitsName>
+                </Bits>
+            </Fixed>
+            <Fixed length="2">
+                <Bits from="16" to="14">
+                    <BitsShortName>MIC</BitsShortName>
+                    <BitsName>Magic</BitsName>
+                </Bits>
+                <Bits from="13" to="9">
+                    <BitsShortName>VSN</BitsShortName>
+                    <BitsName>Version</BitsName>
+                </Bits>
+                <Bits from="8" to="5">
+                    <BitsShortName>OFL</BitsShortName>
+                    <BitsName>Length of the original Asterix record FSPEC</BitsName>
+                </Bits>
+                <Bits from="4" to="1">
+                    <BitsShortName>TYP</BitsShortName>
+                    <BitsName>PHX-Cat062/SP Type</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem> -->
 
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
@@ -3110,9 +3298,7 @@
         <UAPItem bit="35" frn="32" len="-">-</UAPItem>
         <UAPItem bit="36" frn="33" len="-">-</UAPItem>
         <UAPItem bit="37" frn="34" len="1+">RE</UAPItem>
-        <UAPItem bit="38" frn="35" len="1+1+">SP</UAPItem>
+        <UAPItem bit="38" frn="35" len="1+">SP</UAPItem>
         <UAPItem bit="39" frn="FX" len="-">-</UAPItem>
     </UAP>
-
-</Category>         
-
+</Category>
