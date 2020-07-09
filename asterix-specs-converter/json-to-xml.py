@@ -240,7 +240,7 @@ class Bits(object):
                         tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
-                        msg = '<BitsInteger'
+                        msg = '<BitsUnit'
                         for c in constraints:
                             if c['type'] in ['>=', '>']:
                                 msg += ' min="{}"'.format(c['value']['value'])
@@ -249,8 +249,7 @@ class Bits(object):
                             if c['type'] in ['<=', '<']:
                                 msg += ' max="{}"'.format(c['value']['value'])
                                 break
-                        msg +='></BitsInteger>'
-
+                        msg +='></BitsUnit>'
                         tell(msg)
 
                 elif t == 'Quantity':
@@ -259,8 +258,12 @@ class Bits(object):
                     fract = rule['fractionalBits']
                     unit = rule['unit']
                     constraints = rule['constraints']
-                    scale = format(float(k) / (pow(2, fract)), '.29f')
-                    scale = scale.rstrip('0')
+                    if fract > 0:
+                        scale = format(float(k) / (pow(2, fract)), '.29f')
+                        scale = scale.rstrip('0')
+                    else:
+                        scale = format(float(k))
+
                     if scale[-1] == '.':
                         scale += '0'
 
@@ -363,14 +366,17 @@ class Repetitive(Variation):
         bitSize, items = self.args
         assert (bitSize % 8) == 0, "bit alignment error"
         byteSize = bitSize // 8
-        tell('<Repetitive length="{}">'.format(byteSize))
-        bitsFrom = bitSize
-        for item in items:
-            n = getItemSize(item)
-            bitsTo = bitsFrom - n + 1
-            with indent:
-                Bits(item, bitsFrom, bitsTo).render()
-            bitsFrom -= n
+        tell('<Repetitive>'.format(byteSize))
+        with indent:
+            tell('<Fixed length="{}">'.format(byteSize))
+            bitsFrom = bitSize
+            for item in items:
+                n = getItemSize(item)
+                bitsTo = bitsFrom - n + 1
+                with indent:
+                    Bits(item, bitsFrom, bitsTo).render()
+                bitsFrom -= n
+            tell('</Fixed>')
         tell('</Repetitive>')
 
 class Explicit(Variation):
@@ -444,7 +450,7 @@ class TopItem(object):
     def render(self):
         item = self.item
         tell('')
-        tell('<DataItem id="{}" rule="TO BE REMOVED">'.format(item['name']))
+        tell('<DataItem id="{}">'.format(item['name']))
         title = item['title']
         definition = item['definition']
         with indent:
@@ -470,6 +476,7 @@ class Category(object):
         edition = self.root['edition']
         title = self.root['title']
         tell('<?xml version="1.0" encoding="UTF-8"?>')
+        tell('<!DOCTYPE Category SYSTEM "asterix.dtd">')
         tell('')
         tell('<!--')
         with indent:
@@ -511,12 +518,12 @@ class Category(object):
                     chunk = items[0:7]
                     items = items[7:]
                     for i in chunk:
-                        tell('<UAPItem bit="{}" frn="{}" len="TO BE REMOVED">{}</UAPItem>'.format(bit,frn, i or '-'))
+                        tell('<UAPItem bit="{}" frn="{}">{}</UAPItem>'.format(bit,frn, i or '-'))
                         bit += 1
                         frn += 1
                     if not items:
                         while bit % 8 != 7:
-                            tell('<UAPItem bit="{}" frn="{}" len="TO BE REMOVED">-</UAPItem>'.format(bit,frn))
+                            tell('<UAPItem bit="{}" frn="{}">-</UAPItem>'.format(bit,frn))
                             bit += 1
                             frn += 1
                     tell('<UAPItem bit="{}" frn="FX" len="-">-</UAPItem>'.format(bit,frn))
