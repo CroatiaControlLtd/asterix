@@ -1,6 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# item name changes, {category: { (name, name,...): new_name }}
+item_renames = {
+    11: {
+        ('000', '000'): 'MsgTyp',
+        ('015', '015'): 'SI',
+        ('090', '090'): 'MFL',
+        ('092', '092'): 'CTGA',
+        ('140', '140'): 'ToTI',
+        ('215', '215'): 'RoCD',
+        ('300', '300'): 'VFI',
+        ('430', '430'): 'FLS',
+    },
+    62: {
+        ('105', 'LAT'): 'Lat',
+        ('105', 'LON'): 'Lon',
+    },
+}
+
 import sys
 import argparse
 import json
@@ -121,41 +139,6 @@ def xmlquote(s):
         ">": "&gt;",
     })
 
-def makeVariation(item):
-    variation = item['variation']
-    vt = variation['type']
-
-    # make a single item Fixed variation
-    if vt == 'Element':
-        size = getItemSize(item)
-        return Fixed(size, [item])
-
-    if vt == 'Group':
-        size = getItemSize(item)
-        items = variation['items']
-        return Fixed(size, items)
-
-    if vt == 'Extended':
-        n1 = variation['first']
-        n2 = variation['extents']
-        items = variation['items']
-        return Variable(n1, n2, items)
-
-    if vt == 'Repetitive':
-        size = getVariationSize(variation)
-        variation2 = variation['variation']
-        items = variation2['items']
-        return Repetitive(size, items)
-
-    if vt == 'Explicit':
-        return Explicit()
-
-    if vt == 'Compound':
-        items = variation['items']
-        return Compound(items)
-
-    raise Exception('unexpected variation type {}'.format(vt))
-
 class Fx(object):
     def render(self):
         tell('<Bits bit="1" fx="1">')
@@ -168,11 +151,26 @@ class Fx(object):
 
 class Bits(object):
 
-    def __init__(self, *args):
-        self.args = args
+    def __init__(self, parent, item, bitsFrom, bitsTo):
+        self.parent = parent
+        self.item = item
+        self.bitsFrom = bitsFrom
+        self.bitsTo = bitsTo
+
+    @property
+    def cat(self):
+        return self.parent.cat
+
+    @property
+    def name(self):
+        old_name = self.item['name']
+        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
+        rename_map = item_renames.get(self.cat, {})
+        new_name = rename_map.get(full_name, old_name)
+        return(new_name)
 
     def render(self):
-        item, bitsFrom, bitsTo = self.args
+        item, bitsFrom, bitsTo = self.item, self.bitsFrom, self.bitsTo
         if item['spare']:
             if bitsFrom == bitsTo:
                 tell('<Bits bit="{}">'.format(bitsFrom))
@@ -182,22 +180,28 @@ class Bits(object):
                 tell('<BitsShortName>spare</BitsShortName>')
                 tell('<BitsName>Spare bit(s) set to 0</BitsName>')
                 tell('<BitsConst>0</BitsConst>')
+            tell('</Bits>')
         else:
             variation = item['variation']
-            assert variation['type'] == 'Element'
-            content = variation['content']
+            vt = variation['type']
+            if vt == 'Element':
+                content = variation['content']
+            elif vt == 'Repetitive':
+                content = variation['variation']['content']
+            else:
+                raise Exception('unexpected variation type {}'.format(vt))
 
-
-            # unspecified content (just raw bits)
+            # unspecified content (raw bits)
             def case0():
                 if bitsFrom == bitsTo:
                     tell('<Bits bit="{}">'.format(bitsFrom))
                 else:
                     tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
                 with indent:
-                    tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                    tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                     if item['title']:
                         tell('<BitsName>{}</BitsName>'.format(item['title']))
+                tell('</Bits>')
 
             # defined content
             def case1(val):
@@ -210,24 +214,26 @@ class Bits(object):
                     else:
                         tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
                     with indent:
-                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
                         for key,value in rule['values']:
                             tell('<BitsValue val="{}">{}</BitsValue>'.format(key, xmlquote(value)))
+                    tell('</Bits>')
 
                 elif t == 'String':
                     variation = case('string variation', rule['variation'],
                         ('StringAscii', 'ascii'),
-                        ('StringICAO', 'icao'),
+                        ('StringICAO', '6bitschar'),
                         ('StringOctal', 'octal'),
                     )
                     assert bitsFrom != bitsTo
                     tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, variation))
                     with indent:
-                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
+                    tell('</Bits>')
 
                 elif t == 'Integer':
                     signed = 'signed' if rule['signed'] else 'unsigned'
@@ -237,7 +243,7 @@ class Bits(object):
                     else:
                         tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, signed))
                     with indent:
-                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
                         msg = '<BitsUnit'
@@ -251,6 +257,7 @@ class Bits(object):
                                 break
                         msg +='></BitsUnit>'
                         tell(msg)
+                    tell('</Bits>')
 
                 elif t == 'Quantity':
                     signed = 'signed' if rule['signed'] else 'unsigned'
@@ -272,7 +279,7 @@ class Bits(object):
                     else:
                         tell('<Bits from="{}" to="{}" encode="{}">'.format(bitsFrom, bitsTo, signed))
                     with indent:
-                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
                         msg = '<BitsUnit scale="{}"'.format(scale)
@@ -287,6 +294,10 @@ class Bits(object):
                         msg +='>{}</BitsUnit>'.format(unit)
 
                         tell(msg)
+                    tell('</Bits>')
+
+                elif t == 'Bds':
+                    tell('<BDS/>')
 
                 else:
                     raise Exception('unexpected value type {}'.format(t))
@@ -298,27 +309,91 @@ class Bits(object):
                 else:
                     tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
                 with indent:
-                    tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                    tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                     if item['title']:
                         tell('<BitsName>{}</BitsName>'.format(item['title']))
+                tell('</Bits>')
 
             renderRule(content, case0, case1, case2)
-        tell('</Bits>')
 
 class Variation(object):
-    def __init__(self, *args):
+
+    @staticmethod
+    def create(parent, item):
+        variation = item['variation']
+        vt = variation['type']
+
+        # single item Fixed variation
+        if vt == 'Element':
+            size = getItemSize(item)
+            return Fixed(parent, item, size, [item])
+
+        if vt == 'Group':
+            size = getItemSize(item)
+            items = variation['items']
+            return Fixed(parent, item, size, items)
+
+        if vt == 'Extended':
+            n1 = variation['first']
+            n2 = variation['extents']
+            items = variation['items']
+            return Variable(parent, item, n1, n2, items)
+
+        if vt == 'Repetitive':
+            size = getVariationSize(variation)
+            return Repetitive(parent, item, size, variation['variation'])
+
+        if vt == 'Explicit':
+            return Explicit(parent, item)
+
+        if vt == 'Compound':
+            items = variation['items']
+            return Compound(parent, item, items)
+
+        raise Exception('unexpected variation type {}'.format(vt))
+
+    @property
+    def cat(self):
+        return self.parent.cat
+
+    @property
+    def full_name(self):
+        return tuple(list(self.parent.full_name) + [self.item['name']])
+
+    @property
+    def name(self):
+        old_name = self.item['name']
+        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
+        rename_map = item_renames.get(self.cat, {})
+        new_name = rename_map.get(full_name, old_name)
+        return(new_name)
+
+    def __init__(self, parent, item, *args):
+        self.parent = parent
+        self.item = item
         self.args = args
+
         self.oldRender = self.render
         self.render = self.realRender
 
+    @property
+    def desc(self):
+        return '{} data item.'.format(self.__class__.__name__)
+
     def realRender(self):
-        name = self.__class__.__name__
-        tell('<DataItemFormat desc="{} data item.">'.format(name))
+        tell('<DataItemFormat desc="{}">'.format(self.desc))
         with indent:
             self.oldRender()
         tell('</DataItemFormat>')
 
 class Fixed(Variation):
+
+    @property
+    def desc(self):
+        bitSize, items = self.args
+        byteSize = bitSize // 8
+        return '{}-octet fixed length data item.'.format(byteSize)
+
     def render(self):
         bitSize, items = self.args
         assert (bitSize % 8) == 0, "bit alignment error"
@@ -329,7 +404,7 @@ class Fixed(Variation):
             n = getItemSize(item)
             bitsTo = bitsFrom - n + 1
             with indent:
-                Bits(item, bitsFrom, bitsTo).render()
+                Bits(self, item, bitsFrom, bitsTo).render()
             bitsFrom -= n
         tell('</Fixed>')
 
@@ -351,7 +426,7 @@ class Variable(Variation):
                         items = items[1:]
                         n = getItemSize(item)
                         bitsTo = bitsFrom - n + 1
-                        Bits(item, bitsFrom, bitsTo).render()
+                        Bits(self, item, bitsFrom, bitsTo).render()
                         bitsFrom -= n
                         if bitsFrom <= 1:
                             break
@@ -363,20 +438,29 @@ class Variable(Variation):
 
 class Repetitive(Variation):
     def render(self):
-        bitSize, items = self.args
+        bitSize, variation = self.args
         assert (bitSize % 8) == 0, "bit alignment error"
         byteSize = bitSize // 8
-        tell('<Repetitive>'.format(byteSize))
-        with indent:
-            tell('<Fixed length="{}">'.format(byteSize))
+        tell('<Repetitive>')
+        items = variation.get('items')
+        if items is None:
+            item = self.item
+            bitSize = getItemSize(item)
             bitsFrom = bitSize
-            for item in items:
-                n = getItemSize(item)
-                bitsTo = bitsFrom - n + 1
-                with indent:
-                    Bits(item, bitsFrom, bitsTo).render()
-                bitsFrom -= n
-            tell('</Fixed>')
+            bitsTo = bitsFrom - bitSize + 1
+            with indent:
+                Bits(self, item, bitsFrom, bitsTo).render()
+        else:
+            with indent:
+                tell('<Fixed length="{}">'.format(byteSize))
+                bitsFrom = bitSize
+                for item in items:
+                    n = getItemSize(item)
+                    bitsTo = bitsFrom - n + 1
+                    with indent:
+                        Bits(self, item, bitsFrom, bitsTo).render()
+                    bitsFrom -= n
+                tell('</Fixed>')
         tell('</Repetitive>')
 
 class Explicit(Variation):
@@ -438,14 +522,22 @@ class Compound(Variation):
             for item in items:
                 tell('')
                 if item is not None:
-                    obj = makeVariation(item)
+                    obj = Variation.create(self, item)
                     obj.oldRender()
         tell('</Compound>')
 
 class TopItem(object):
-    def __init__(self, item):
+    def __init__(self, category, item):
+        self.category = category
         self.item = item
-        self.variation = makeVariation(item)
+
+    @property
+    def cat(self):
+        return self.category.cat
+
+    @property
+    def full_name(self):
+        return (self.item['name'],)
 
     def render(self):
         item = self.item
@@ -460,19 +552,23 @@ class TopItem(object):
                 tell('<DataItemDefinition>')
                 with indent:
                     for line in definition.splitlines():
-                        tell(line)
+                        tell(xmlquote(line))
                 tell('</DataItemDefinition>')
-            self.variation.render()
+            Variation.create(self, item).render()
         tell('</DataItem>')
 
 class Category(object):
     def __init__(self, root, cks):
         self.root = root
         self.cks = cks
-        self.items = [TopItem(item) for item in root['catalogue']]
+        self.items = [TopItem(self, item) for item in root['catalogue']]
+
+    @property
+    def cat(self):
+        return self.root['number']
 
     def render(self):
-        category = self.root['number']
+        category = self.cat
         edition = self.root['edition']
         title = self.root['title']
         tell('<?xml version="1.0" encoding="UTF-8"?>')
@@ -480,10 +576,10 @@ class Category(object):
         tell('')
         tell('<!--')
         with indent:
+            tell('')
             tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
-
-            tell('Do not edit directly!')
-            tell('This file is auto-generated from the original json specs file.')
+            tell('')
+            tell('This file is auto-generated from json specs file.')
             tell('sha1sum of the json input: {}'.format(self.cks))
         tell('-->')
         tell('')
