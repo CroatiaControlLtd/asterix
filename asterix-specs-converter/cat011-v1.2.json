@@ -99,24 +99,11 @@
             "spare": false,
             "title": "Service Identification",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "SI",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Service Identification",
-                        "variation": {
-                            "content": {
-                                "type": "Unspecified"
-                            },
-                            "size": 8,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                "content": {
+                    "type": "Unspecified"
+                },
+                "size": 8,
+                "type": "Element"
             }
         },
         {
@@ -353,50 +340,37 @@
             "spare": false,
             "title": "Measured Flight Level",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "MFL",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Measured Flight Level",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "constraints": [
-                                        {
-                                            "type": ">=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": -12
-                                            }
-                                        },
-                                        {
-                                            "type": "<=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": 1500
-                                            }
-                                        }
-                                    ],
-                                    "fractionalBits": 2,
-                                    "scaling": {
-                                        "type": "Integer",
-                                        "value": 1
-                                    },
-                                    "signed": true,
-                                    "type": "Quantity",
-                                    "unit": "FL"
-                                },
-                                "type": "ContextFree"
+                "content": {
+                    "rule": {
+                        "constraints": [
+                            {
+                                "type": ">=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": -12
+                                }
                             },
-                            "size": 16,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                            {
+                                "type": "<=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": 1500
+                                }
+                            }
+                        ],
+                        "fractionalBits": 2,
+                        "scaling": {
+                            "type": "Integer",
+                            "value": 1
+                        },
+                        "signed": true,
+                        "type": "Quantity",
+                        "unit": "FL"
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 16,
+                "type": "Element"
             }
         },
         {
@@ -407,50 +381,37 @@
             "spare": false,
             "title": "Calculated Track Geometric Altitude",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "CTGA",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Calculated Track Geometric Altitude",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "constraints": [
-                                        {
-                                            "type": ">=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": -1500
-                                            }
-                                        },
-                                        {
-                                            "type": "<=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": 150000
-                                            }
-                                        }
-                                    ],
-                                    "fractionalBits": 2,
-                                    "scaling": {
-                                        "type": "Integer",
-                                        "value": 25
-                                    },
-                                    "signed": true,
-                                    "type": "Quantity",
-                                    "unit": "ft"
-                                },
-                                "type": "ContextFree"
+                "content": {
+                    "rule": {
+                        "constraints": [
+                            {
+                                "type": ">=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": -1500
+                                }
                             },
-                            "size": 16,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                            {
+                                "type": "<=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": 150000
+                                }
+                            }
+                        ],
+                        "fractionalBits": 2,
+                        "scaling": {
+                            "type": "Integer",
+                            "value": 25
+                        },
+                        "signed": true,
+                        "type": "Quantity",
+                        "unit": "ft"
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 16,
+                "type": "Element"
             }
         },
         {
@@ -543,35 +504,22 @@
             "spare": false,
             "title": "Time of Track Information",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "ToTI",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Time of Track Information",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "constraints": [],
-                                    "fractionalBits": 7,
-                                    "scaling": {
-                                        "type": "Integer",
-                                        "value": 1
-                                    },
-                                    "signed": false,
-                                    "type": "Quantity",
-                                    "unit": "s"
-                                },
-                                "type": "ContextFree"
-                            },
-                            "size": 24,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                "content": {
+                    "rule": {
+                        "constraints": [],
+                        "fractionalBits": 7,
+                        "scaling": {
+                            "type": "Integer",
+                            "value": 1
+                        },
+                        "signed": false,
+                        "type": "Quantity",
+                        "unit": "s"
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 24,
+                "type": "Element"
             }
         },
         {
@@ -1303,50 +1251,37 @@
             "spare": false,
             "title": "Calculated Rate Of Climb/Descent",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "RoCD",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Rate of Climb Descent",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "constraints": [
-                                        {
-                                            "type": ">=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": -204800
-                                            }
-                                        },
-                                        {
-                                            "type": "<=",
-                                            "value": {
-                                                "type": "Integer",
-                                                "value": 204800
-                                            }
-                                        }
-                                    ],
-                                    "fractionalBits": 2,
-                                    "scaling": {
-                                        "type": "Integer",
-                                        "value": 25
-                                    },
-                                    "signed": true,
-                                    "type": "Quantity",
-                                    "unit": "ft/min"
-                                },
-                                "type": "ContextFree"
+                "content": {
+                    "rule": {
+                        "constraints": [
+                            {
+                                "type": ">=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": -204800
+                                }
                             },
-                            "size": 16,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                            {
+                                "type": "<=",
+                                "value": {
+                                    "type": "Integer",
+                                    "value": 204800
+                                }
+                            }
+                        ],
+                        "fractionalBits": 2,
+                        "scaling": {
+                            "type": "Integer",
+                            "value": 25
+                        },
+                        "signed": true,
+                        "type": "Quantity",
+                        "unit": "ft/min"
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 16,
+                "type": "Element"
             }
         },
         {
@@ -1403,7 +1338,11 @@
                         "title": "Target Identification",
                         "variation": {
                             "content": {
-                                "type": "Unspecified"
+                                "rule": {
+                                    "type": "String",
+                                    "variation": "StringICAO"
+                                },
+                                "type": "ContextFree"
                             },
                             "size": 48,
                             "type": "Element"
@@ -1839,97 +1778,84 @@
             "spare": false,
             "title": "Vehicle Fleet Identification",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "VFI",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Vehicle Fleet Identification",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "type": "Table",
-                                    "values": [
-                                        [
-                                            0,
-                                            "Flyco (follow me)"
-                                        ],
-                                        [
-                                            1,
-                                            "ATC equipment maintenance"
-                                        ],
-                                        [
-                                            2,
-                                            "Airport maintenance"
-                                        ],
-                                        [
-                                            3,
-                                            "Fire"
-                                        ],
-                                        [
-                                            4,
-                                            "Bird scarer"
-                                        ],
-                                        [
-                                            5,
-                                            "Snow plough"
-                                        ],
-                                        [
-                                            6,
-                                            "Runway sweeper"
-                                        ],
-                                        [
-                                            7,
-                                            "Emergency"
-                                        ],
-                                        [
-                                            8,
-                                            "Police"
-                                        ],
-                                        [
-                                            9,
-                                            "Bus"
-                                        ],
-                                        [
-                                            10,
-                                            "Tug (push/tow)"
-                                        ],
-                                        [
-                                            11,
-                                            "Grass cutter"
-                                        ],
-                                        [
-                                            12,
-                                            "Fuel"
-                                        ],
-                                        [
-                                            13,
-                                            "Baggage"
-                                        ],
-                                        [
-                                            14,
-                                            "Catering"
-                                        ],
-                                        [
-                                            15,
-                                            "Aircraft maintenance"
-                                        ],
-                                        [
-                                            16,
-                                            "Unknown"
-                                        ]
-                                    ]
-                                },
-                                "type": "ContextFree"
-                            },
-                            "size": 8,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                "content": {
+                    "rule": {
+                        "type": "Table",
+                        "values": [
+                            [
+                                0,
+                                "Flyco (follow me)"
+                            ],
+                            [
+                                1,
+                                "ATC equipment maintenance"
+                            ],
+                            [
+                                2,
+                                "Airport maintenance"
+                            ],
+                            [
+                                3,
+                                "Fire"
+                            ],
+                            [
+                                4,
+                                "Bird scarer"
+                            ],
+                            [
+                                5,
+                                "Snow plough"
+                            ],
+                            [
+                                6,
+                                "Runway sweeper"
+                            ],
+                            [
+                                7,
+                                "Emergency"
+                            ],
+                            [
+                                8,
+                                "Police"
+                            ],
+                            [
+                                9,
+                                "Bus"
+                            ],
+                            [
+                                10,
+                                "Tug (push/tow)"
+                            ],
+                            [
+                                11,
+                                "Grass cutter"
+                            ],
+                            [
+                                12,
+                                "Fuel"
+                            ],
+                            [
+                                13,
+                                "Baggage"
+                            ],
+                            [
+                                14,
+                                "Catering"
+                            ],
+                            [
+                                15,
+                                "Aircraft maintenance"
+                            ],
+                            [
+                                16,
+                                "Unknown"
+                            ]
+                        ]
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 8,
+                "type": "Element"
             }
         },
         {
@@ -2033,24 +1959,14 @@
                             "rep": 8,
                             "type": "Repetitive",
                             "variation": {
-                                "items": [
-                                    {
-                                        "definition": null,
-                                        "description": null,
-                                        "name": "MB",
-                                        "remark": null,
-                                        "spare": false,
-                                        "title": "Mode S MB Data",
-                                        "variation": {
-                                            "content": {
-                                                "type": "Unspecified"
-                                            },
-                                            "size": 8,
-                                            "type": "Element"
-                                        }
-                                    }
-                                ],
-                                "type": "Group"
+                                "content": {
+                                    "rule": {
+                                        "type": "Bds"
+                                    },
+                                    "type": "ContextFree"
+                                },
+                                "size": 8,
+                                "type": "Element"
                             }
                         }
                     },
@@ -3505,69 +3421,56 @@
             "spare": false,
             "title": "Phase of flight",
             "variation": {
-                "items": [
-                    {
-                        "definition": null,
-                        "description": null,
-                        "name": "FLS",
-                        "remark": null,
-                        "spare": false,
-                        "title": "Phase of flight",
-                        "variation": {
-                            "content": {
-                                "rule": {
-                                    "type": "Table",
-                                    "values": [
-                                        [
-                                            0,
-                                            "unknown"
-                                        ],
-                                        [
-                                            1,
-                                            "on stand"
-                                        ],
-                                        [
-                                            2,
-                                            "taxiing for departure"
-                                        ],
-                                        [
-                                            3,
-                                            "taxiing for arrival"
-                                        ],
-                                        [
-                                            4,
-                                            "runway for departure"
-                                        ],
-                                        [
-                                            5,
-                                            "runway for arrival"
-                                        ],
-                                        [
-                                            6,
-                                            "hold for departure"
-                                        ],
-                                        [
-                                            7,
-                                            "hold for arrival"
-                                        ],
-                                        [
-                                            8,
-                                            "push back"
-                                        ],
-                                        [
-                                            9,
-                                            "on finals"
-                                        ]
-                                    ]
-                                },
-                                "type": "ContextFree"
-                            },
-                            "size": 8,
-                            "type": "Element"
-                        }
-                    }
-                ],
-                "type": "Group"
+                "content": {
+                    "rule": {
+                        "type": "Table",
+                        "values": [
+                            [
+                                0,
+                                "unknown"
+                            ],
+                            [
+                                1,
+                                "on stand"
+                            ],
+                            [
+                                2,
+                                "taxiing for departure"
+                            ],
+                            [
+                                3,
+                                "taxiing for arrival"
+                            ],
+                            [
+                                4,
+                                "runway for departure"
+                            ],
+                            [
+                                5,
+                                "runway for arrival"
+                            ],
+                            [
+                                6,
+                                "hold for departure"
+                            ],
+                            [
+                                7,
+                                "hold for arrival"
+                            ],
+                            [
+                                8,
+                                "push back"
+                            ],
+                            [
+                                9,
+                                "on finals"
+                            ]
+                        ]
+                    },
+                    "type": "ContextFree"
+                },
+                "size": 8,
+                "type": "Element"
             }
         },
         {
