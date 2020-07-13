@@ -20,7 +20,7 @@
             This Data Item allows for a more convenient handling of the messages
             at the receiver side by further defining the type of transaction.
         </DataItemDefinition>
-        <DataItemFormat desc="One-octet fixed length Data Item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>MsgTyp</BitsShortName>
@@ -42,7 +42,7 @@
         <DataItemDefinition>
             Identification of the radar station from which the data are received.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
                     <BitsShortName>SAC</BitsShortName>
@@ -50,7 +50,7 @@
                 </Bits>
                 <Bits from="8" to="1">
                     <BitsShortName>SIC</BitsShortName>
-                    <BitsName>System Identification Code</BitsName>
+                    <BitsName>System Identification code</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -61,7 +61,7 @@
         <DataItemDefinition>
             Identification of the service provided to one or more users.
         </DataItemDefinition>
-        <DataItemFormat desc="One-octet fixed length Data Item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>SI</BitsShortName>
@@ -76,7 +76,7 @@
         <DataItemDefinition>
             Position of a target in WGS-84 Coordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Eight-octet fixed length Data Item">
+        <DataItemFormat desc="8-octet fixed length data item.">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Lat</BitsShortName>
@@ -95,9 +95,9 @@
     <DataItem id="042">
         <DataItemName>Calculated Position in Cartesian Co-ordinates</DataItemName>
         <DataItemDefinition>
-            Calculated position of a target in Cartesian co-ordinates (two's complement form).
+            Calculated position of a target in Cartesian co-ordinates (two&apos;s complement form).
         </DataItemDefinition>
-        <DataItemFormat desc="Four-octet fixed length Data Item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>X</BitsShortName>
@@ -118,7 +118,7 @@
         <DataItemDefinition>
             Track Mode-3/A code converted into octal representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="13">
                     <BitsShortName>spare</BitsShortName>
@@ -136,9 +136,9 @@
     <DataItem id="090">
         <DataItemName>Measured Flight Level</DataItemName>
         <DataItemDefinition>
-            Last valid and credible flight level used to update the track, in two's complement representation.
+            Last valid and credible flight level used to update the track, in two&apos;s complement representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>MFL</BitsShortName>
@@ -154,7 +154,7 @@
         <DataItemDefinition>
             Calculated Track Geometric Altitude Calculated geometric vertical distance above mean sea level, not related to barometric pressure.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>CTGA</BitsShortName>
@@ -170,7 +170,7 @@
         <DataItemDefinition>
             Calculated Barometric Altitude of the track.
         </DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>QNH</BitsShortName>
@@ -192,7 +192,7 @@
         <DataItemDefinition>
             Absolute time stamping expressed as UTC.
         </DataItemDefinition>
-        <DataItemFormat desc="Three-octet fixed length Data Item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
                     <BitsShortName>ToTI</BitsShortName>
@@ -208,7 +208,7 @@
         <DataItemDefinition>
             Identification of a fusion track (single track number).
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>spare</BitsShortName>
@@ -228,7 +228,7 @@
         <DataItemDefinition>
             Status of track.
         </DataItemDefinition>
-        <DataItemFormat desc="Variable length Data Item comprising a first part of one-octet, followed by one-octet extents as necessary.">
+        <DataItemFormat desc="Variable data item.">
             <Variable>
                 <Fixed length="1">
                     <Bits bit="8">
@@ -356,7 +356,7 @@
         <DataItemDefinition>
             Calculated track velocity expressed in Cartesian co-ordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Four-octet fixed length Data Item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>Vx</BitsShortName>
@@ -375,9 +375,9 @@
     <DataItem id="210">
         <DataItemName>Calculated Acceleration</DataItemName>
         <DataItemDefinition>
-            Calculated Acceleration of the target, in two's complement form.
+            Calculated Acceleration of the target, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-Octet fixed length data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
                     <BitsShortName>Ax</BitsShortName>
@@ -396,13 +396,13 @@
     <DataItem id="215">
         <DataItemName>Calculated Rate Of Climb/Descent</DataItemName>
         <DataItemDefinition>
-            Calculated rate of Climb/Descent of an aircraft, in two's complement form.
+            Calculated rate of Climb/Descent of an aircraft, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Two-octet fixed length Data Item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>RoCD</BitsShortName>
-                    <BitsName>Rate of Climb Descent</BitsName>
+                    <BitsName>Calculated Rate Of Climb/Descent</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft/min</BitsUnit>
                 </Bits>
             </Fixed>
@@ -414,7 +414,7 @@
         <DataItemDefinition>
             Target (aircraft or vehicle) identification in 8 characters.
         </DataItemDefinition>
-        <DataItemFormat desc="Seven-octet fixed length Data Item.">
+        <DataItemFormat desc="7-octet fixed length data item.">
             <Fixed length="7">
                 <Bits from="56" to="55">
                     <BitsShortName>STI</BitsShortName>
@@ -429,7 +429,7 @@
                 </Bits>
                 <Bits from="48" to="1" encode="6bitschar">
                     <BitsShortName>TId</BitsShortName>
-                    <BitsName>Characters 1-8 (coded on 6 bits each) defining target identification</BitsName>
+                    <BitsName>Target Identification</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -440,7 +440,7 @@
         <DataItemDefinition>
             Target size defined as length and with of the detected target, and orientation.
         </DataItemDefinition>
-        <DataItemFormat desc="Variable Data Item, comprising a first part of one octet, followed by one-octed as necessary.">
+        <DataItemFormat desc="Variable data item.">
             <Variable>
                 <Fixed length="1">
                     <Bits from="8" to="2" encode="unsigned">
@@ -490,7 +490,7 @@
         <DataItemDefinition>
             Ages of the last plot/local track, or the last valid mode-A/mode-C, used to update the system track.
         </DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
+        <DataItemFormat desc="Compound data item.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -683,7 +683,7 @@
         <DataItemDefinition>
             Vehicle fleet identification number.
         </DataItemDefinition>
-        <DataItemFormat desc="One octet fixed length Data Item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>VFI</BitsShortName>
@@ -715,7 +715,7 @@
         <DataItemDefinition>
             Number related to a pre-programmed message that can be transmitted by a vehicle.
         </DataItemDefinition>
-        <DataItemFormat desc="One octet fixed length Data Item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits bit="8">
                     <BitsShortName>TRB</BitsShortName>
@@ -741,7 +741,7 @@
         <DataItemDefinition>
             Data specific to Mode-S ADS-B.
         </DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to 11 subfields.">
+        <DataItemFormat desc="Compound data item.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -827,6 +827,7 @@
                 <Repetitive>
                     <BDS/>
                 </Repetitive>
+
                 <Fixed length="3">
                     <Bits from="24" to="1">
                         <BitsShortName>ADR</BitsShortName>
@@ -996,7 +997,7 @@
         <DataItemDefinition>
             All flight plan related information.
         </DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by 14 subfields.">
+        <DataItemFormat desc="Compound data item.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -1324,7 +1325,7 @@
         <DataItemDefinition>
             Current phase of the flight.
         </DataItemDefinition>
-        <DataItemFormat desc="One-octet fixed length Data Item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>FLS</BitsShortName>
@@ -1349,7 +1350,7 @@
         <DataItemDefinition>
             Overview of all important accuracies (standard deviations).
         </DataItemDefinition>
-        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of two octets, followed by up to eight subfields of predefined length.">
+        <DataItemFormat desc="Compound data item.">
             <Compound>
                 <Variable>
                     <Fixed length="1">
@@ -1472,7 +1473,7 @@
         <DataItemDefinition>
             Alert involving the targets indicated in I011/605.
         </DataItemDefinition>
-        <DataItemFormat desc="Three-octet fixed length Data Item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits bit="24">
                     <BitsShortName>ACK</BitsShortName>
@@ -1509,7 +1510,7 @@
         <DataItemDefinition>
             List of track numbers of the targets concerned by the alert described in I011/600.
         </DataItemDefinition>
-        <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by two-octet track numbers. ">
+        <DataItemFormat desc="Repetitive data item.">
             <Repetitive>
                 <Fixed length="2">
                     <Bits from="16" to="13">
