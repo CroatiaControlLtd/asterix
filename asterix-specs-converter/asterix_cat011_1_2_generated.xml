@@ -2,10 +2,11 @@
 <!DOCTYPE Category SYSTEM "asterix.dtd">
 
 <!--
+
     Asterix Category 011 v1.2 definition
-    Do not edit directly!
-    This file is auto-generated from the original json specs file.
-    sha1sum of the json input: a39d7dc631d594bcc114560f54604683cf97e3bb
+
+    This file is auto-generated from json specs file.
+    sha1sum of the json input: f1be15973029822f5de2e4215c676458d0a414d0
 -->
 
 <Category id="11" name="Transmission of A-SMGCS Data" ver="1.2">
@@ -16,10 +17,10 @@
             This Data Item allows for a more convenient handling of the messages
             at the receiver side by further defining the type of transaction.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>000</BitsShortName>
+                    <BitsShortName>MsgTyp</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">Target reports, flight plan data and basic alerts</BitsValue>
                     <BitsValue val="2">Manual attachment of flight plan to track</BitsValue>
@@ -38,7 +39,7 @@
         <DataItemDefinition>
             Identification of the radar station from which the data are received.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
                     <BitsShortName>SAC</BitsShortName>
@@ -57,7 +58,7 @@
         <DataItemDefinition>
             Identification of the service provided to one or more users.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>SI</BitsShortName>
@@ -72,7 +73,7 @@
         <DataItemDefinition>
             Position of a target in WGS-84 Coordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="8-octet fixed length data item.">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Lat</BitsShortName>
@@ -91,9 +92,9 @@
     <DataItem id="042">
         <DataItemName>Calculated Position in Cartesian Co-ordinates</DataItemName>
         <DataItemDefinition>
-            Calculated position of a target in Cartesian co-ordinates (two's complement form).
+            Calculated position of a target in Cartesian co-ordinates (two&apos;s complement form).
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>X</BitsShortName>
@@ -114,7 +115,7 @@
         <DataItemDefinition>
             Track Mode-3/A code converted into octal representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="13">
                     <BitsShortName>spare</BitsShortName>
@@ -132,9 +133,9 @@
     <DataItem id="090">
         <DataItemName>Measured Flight Level</DataItemName>
         <DataItemDefinition>
-            Last valid and credible flight level used to update the track, in two's complement representation.
+            Last valid and credible flight level used to update the track, in two&apos;s complement representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>MFL</BitsShortName>
@@ -150,7 +151,7 @@
         <DataItemDefinition>
             Calculated Track Geometric Altitude Calculated geometric vertical distance above mean sea level, not related to barometric pressure.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>CTGA</BitsShortName>
@@ -166,7 +167,7 @@
         <DataItemDefinition>
             Calculated Barometric Altitude of the track.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>QNH</BitsShortName>
@@ -188,7 +189,7 @@
         <DataItemDefinition>
             Absolute time stamping expressed as UTC.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
                     <BitsShortName>ToTI</BitsShortName>
@@ -204,7 +205,7 @@
         <DataItemDefinition>
             Identification of a fusion track (single track number).
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>spare</BitsShortName>
@@ -352,7 +353,7 @@
         <DataItemDefinition>
             Calculated track velocity expressed in Cartesian co-ordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>Vx</BitsShortName>
@@ -371,9 +372,9 @@
     <DataItem id="210">
         <DataItemName>Calculated Acceleration</DataItemName>
         <DataItemDefinition>
-            Calculated Acceleration of the target, in two's complement form.
+            Calculated Acceleration of the target, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
                     <BitsShortName>Ax</BitsShortName>
@@ -392,13 +393,13 @@
     <DataItem id="215">
         <DataItemName>Calculated Rate Of Climb/Descent</DataItemName>
         <DataItemDefinition>
-            Calculated rate of Climb/Descent of an aircraft, in two's complement form.
+            Calculated rate of Climb/Descent of an aircraft, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>RoCD</BitsShortName>
-                    <BitsName>Rate of Climb Descent</BitsName>
+                    <BitsName>Calculated Rate Of Climb/Descent</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft/min</BitsUnit>
                 </Bits>
             </Fixed>
@@ -410,7 +411,7 @@
         <DataItemDefinition>
             Target (aircraft or vehicle) identification in 8 characters.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="7-octet fixed length data item.">
             <Fixed length="7">
                 <Bits from="56" to="55">
                     <BitsShortName>STI</BitsShortName>
@@ -423,7 +424,7 @@
                     <BitsName>Spare bit(s) set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="48" to="1">
+                <Bits from="48" to="1" encode="6bitschar">
                     <BitsShortName>TId</BitsShortName>
                     <BitsName>Target Identification</BitsName>
                 </Bits>
@@ -679,7 +680,7 @@
         <DataItemDefinition>
             Vehicle fleet identification number.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>VFI</BitsShortName>
@@ -711,7 +712,7 @@
         <DataItemDefinition>
             Number related to a pre-programmed message that can be transmitted by a vehicle.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits bit="8">
                     <BitsShortName>TRB</BitsShortName>
@@ -821,12 +822,7 @@
                 </Variable>
 
                 <Repetitive>
-                    <Fixed length="1">
-                        <Bits from="8" to="1">
-                            <BitsShortName>MB</BitsShortName>
-                            <BitsName>Mode S MB Data</BitsName>
-                        </Bits>
-                    </Fixed>
+                    <BDS/>
                 </Repetitive>
 
                 <Fixed length="3">
@@ -1326,7 +1322,7 @@
         <DataItemDefinition>
             Current phase of the flight.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>FLS</BitsShortName>
@@ -1474,7 +1470,7 @@
         <DataItemDefinition>
             Alert involving the targets indicated in I011/605.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits bit="24">
                     <BitsShortName>ACK</BitsShortName>

@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
 
 <!--
+
     Asterix Category 011 v1.3 definition
-    Do not edit directly!
-    This file is auto-generated from the original json specs file.
-    sha1sum of the json input: eb7d41308809d829be6f2d91e9048157484d12e2
+
+    This file is auto-generated from json specs file.
+    sha1sum of the json input: d98830512cd7ead8533d55c4b3349b06c8b5f41b
 -->
 
 <Category id="11" name="Transmission of A-SMGCS Data" ver="1.3">
 
-    <DataItem id="000" rule="TO BE REMOVED">
+    <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
         <DataItemDefinition>
             This Data Item allows for a more convenient handling of the messages
             at the receiver side by further defining the type of transaction.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>000</BitsShortName>
+                    <BitsShortName>MsgTyp</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">Target reports, flight plan data and basic alerts</BitsValue>
                     <BitsValue val="2">Manual attachment of flight plan to track</BitsValue>
@@ -32,12 +34,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="010" rule="TO BE REMOVED">
+    <DataItem id="010">
         <DataItemName>Data Source Identifier</DataItemName>
         <DataItemDefinition>
             Identification of the radar station from which the data are received.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
                     <BitsShortName>SAC</BitsShortName>
@@ -51,12 +53,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="015" rule="TO BE REMOVED">
+    <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
         <DataItemDefinition>
             Identification of the service provided to one or more users.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>SI</BitsShortName>
@@ -66,12 +68,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="041" rule="TO BE REMOVED">
+    <DataItem id="041">
         <DataItemName>Position in WGS-84 Coordinates</DataItemName>
         <DataItemDefinition>
             Position of a target in WGS-84 Coordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="8-octet fixed length data item.">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
                     <BitsShortName>Lat</BitsShortName>
@@ -87,12 +89,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="042" rule="TO BE REMOVED">
+    <DataItem id="042">
         <DataItemName>Calculated Position in Cartesian Co-ordinates</DataItemName>
         <DataItemDefinition>
-            Calculated position of a target in Cartesian co-ordinates (two's complement form).
+            Calculated position of a target in Cartesian co-ordinates (two&apos;s complement form).
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>X</BitsShortName>
@@ -108,12 +110,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="060" rule="TO BE REMOVED">
+    <DataItem id="060">
         <DataItemName>Mode-3/A Code in Octal Representation</DataItemName>
         <DataItemDefinition>
             Track Mode-3/A code converted into octal representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="13">
                     <BitsShortName>spare</BitsShortName>
@@ -128,12 +130,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="090" rule="TO BE REMOVED">
+    <DataItem id="090">
         <DataItemName>Measured Flight Level</DataItemName>
         <DataItemDefinition>
-            Last valid and credible flight level used to update the track, in two's complement representation.
+            Last valid and credible flight level used to update the track, in two&apos;s complement representation.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>MFL</BitsShortName>
@@ -144,12 +146,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="092" rule="TO BE REMOVED">
+    <DataItem id="092">
         <DataItemName>Calculated Track Geometric Altitude</DataItemName>
         <DataItemDefinition>
             Calculated Track Geometric Altitude Calculated geometric vertical distance above mean sea level, not related to barometric pressure.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>CTGA</BitsShortName>
@@ -160,12 +162,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="093" rule="TO BE REMOVED">
+    <DataItem id="093">
         <DataItemName>Calculated Track Barometric Altitude</DataItemName>
         <DataItemDefinition>
             Calculated Barometric Altitude of the track.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>QNH</BitsShortName>
@@ -182,12 +184,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="140" rule="TO BE REMOVED">
+    <DataItem id="140">
         <DataItemName>Time of Track Information</DataItemName>
         <DataItemDefinition>
             Absolute time stamping expressed as UTC.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
                     <BitsShortName>ToTI</BitsShortName>
@@ -198,12 +200,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="161" rule="TO BE REMOVED">
+    <DataItem id="161">
         <DataItemName>Track Number</DataItemName>
         <DataItemDefinition>
             Identification of a fusion track (single track number).
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
                     <BitsShortName>spare</BitsShortName>
@@ -218,7 +220,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="170" rule="TO BE REMOVED">
+    <DataItem id="170">
         <DataItemName>Track Status</DataItemName>
         <DataItemDefinition>
             Status of track.
@@ -346,12 +348,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="202" rule="TO BE REMOVED">
+    <DataItem id="202">
         <DataItemName>Calculated Track Velocity in Cartesian Coordinates</DataItemName>
         <DataItemDefinition>
             Calculated track velocity expressed in Cartesian co-ordinates.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="4-octet fixed length data item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
                     <BitsShortName>Vx</BitsShortName>
@@ -367,12 +369,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="210" rule="TO BE REMOVED">
+    <DataItem id="210">
         <DataItemName>Calculated Acceleration</DataItemName>
         <DataItemDefinition>
-            Calculated Acceleration of the target, in two's complement form.
+            Calculated Acceleration of the target, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
                     <BitsShortName>Ax</BitsShortName>
@@ -388,28 +390,28 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="215" rule="TO BE REMOVED">
+    <DataItem id="215">
         <DataItemName>Calculated Rate Of Climb/Descent</DataItemName>
         <DataItemDefinition>
-            Calculated rate of Climb/Descent of an aircraft, in two's complement form.
+            Calculated rate of Climb/Descent of an aircraft, in two&apos;s complement form.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
                     <BitsShortName>RoCD</BitsShortName>
-                    <BitsName>Rate of Climb Descent</BitsName>
+                    <BitsName>Calculated Rate Of Climb/Descent</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft/min</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="245" rule="TO BE REMOVED">
+    <DataItem id="245">
         <DataItemName>Target Identification</DataItemName>
         <DataItemDefinition>
             Target (aircraft or vehicle) identification in 8 characters.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="7-octet fixed length data item.">
             <Fixed length="7">
                 <Bits from="56" to="55">
                     <BitsShortName>STI</BitsShortName>
@@ -422,7 +424,7 @@
                     <BitsName>Spare bit(s) set to 0</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="48" to="1">
+                <Bits from="48" to="1" encode="6bitschar">
                     <BitsShortName>TId</BitsShortName>
                     <BitsName>Target Identification</BitsName>
                 </Bits>
@@ -430,7 +432,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="270" rule="TO BE REMOVED">
+    <DataItem id="270">
         <DataItemName>Target Size and Orientation</DataItemName>
         <DataItemDefinition>
             Target size defined as length and with of the detected target, and orientation.
@@ -480,7 +482,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="290" rule="TO BE REMOVED">
+    <DataItem id="290">
         <DataItemName>System Track Update Ages</DataItemName>
         <DataItemDefinition>
             Ages of the last plot/local track, or the last valid mode-A/mode-C, used to update the system track.
@@ -673,12 +675,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="300" rule="TO BE REMOVED">
+    <DataItem id="300">
         <DataItemName>Vehicle Fleet Identification</DataItemName>
         <DataItemDefinition>
             Vehicle fleet identification number.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>VFI</BitsShortName>
@@ -705,12 +707,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="310" rule="TO BE REMOVED">
+    <DataItem id="310">
         <DataItemName>Pre-programmed Message</DataItemName>
         <DataItemDefinition>
             Number related to a pre-programmed message that can be transmitted by a vehicle.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits bit="8">
                     <BitsShortName>TRB</BitsShortName>
@@ -731,7 +733,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="380" rule="TO BE REMOVED">
+    <DataItem id="380">
         <DataItemName>Mode-S / ADS-B Related Data</DataItemName>
         <DataItemDefinition>
             Data specific to Mode-S ADS-B.
@@ -819,11 +821,8 @@
                     </Fixed>
                 </Variable>
 
-                <Repetitive length="1">
-                    <Bits from="8" to="1">
-                        <BitsShortName>MB</BitsShortName>
-                        <BitsName>Mode S MB Data</BitsName>
-                    </Bits>
+                <Repetitive>
+                    <BDS/>
                 </Repetitive>
 
                 <Fixed length="3">
@@ -990,7 +989,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="390" rule="TO BE REMOVED">
+    <DataItem id="390">
         <DataItemName>Flight Plan Related Data</DataItemName>
         <DataItemDefinition>
             All flight plan related information.
@@ -1220,68 +1219,70 @@
                     </Bits>
                 </Fixed>
 
-                <Repetitive length="4">
-                    <Bits from="32" to="28">
-                        <BitsShortName>TYP</BitsShortName>
-                        <BitsName>Time Type</BitsName>
-                        <BitsValue val="0">Scheduled off-block time</BitsValue>
-                        <BitsValue val="1">Estimated off-block time</BitsValue>
-                        <BitsValue val="2">Estimated take-off time</BitsValue>
-                        <BitsValue val="3">Actual off-block time</BitsValue>
-                        <BitsValue val="4">Predicted time at runway hold</BitsValue>
-                        <BitsValue val="5">Actual time at runway hold</BitsValue>
-                        <BitsValue val="6">Actual line-up time</BitsValue>
-                        <BitsValue val="7">Actual take-off time</BitsValue>
-                        <BitsValue val="8">Estimated time of arrival</BitsValue>
-                        <BitsValue val="9">Predicted landing time</BitsValue>
-                        <BitsValue val="10">Actual landing time</BitsValue>
-                        <BitsValue val="11">Actual time off runway</BitsValue>
-                        <BitsValue val="12">Predicted time to gate</BitsValue>
-                        <BitsValue val="13">Actual on-block time</BitsValue>
-                    </Bits>
-                    <Bits from="27" to="26">
-                        <BitsShortName>DAY</BitsShortName>
-                        <BitsName>Day</BitsName>
-                        <BitsValue val="0">Today</BitsValue>
-                        <BitsValue val="1">Yesterday</BitsValue>
-                        <BitsValue val="2">Tomorrow</BitsValue>
-                    </Bits>
-                    <Bits from="25" to="22">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit(s) set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="21" to="17" encode="unsigned">
-                        <BitsShortName>HOR</BitsShortName>
-                        <BitsName>Hours, from 0 to 23</BitsName>
-                        <BitsInteger min="0" max="23"></BitsInteger>
-                    </Bits>
-                    <Bits from="16" to="15">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit(s) set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="14" to="9" encode="unsigned">
-                        <BitsShortName>MIN</BitsShortName>
-                        <BitsName>Minutes, from 0 to 59</BitsName>
-                        <BitsInteger min="0" max="59"></BitsInteger>
-                    </Bits>
-                    <Bits bit="8">
-                        <BitsShortName>AVS</BitsShortName>
-                        <BitsName>Seconds available</BitsName>
-                        <BitsValue val="0">Seconds available</BitsValue>
-                        <BitsValue val="1">Seconds not available</BitsValue>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bit(s) set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits from="6" to="1" encode="unsigned">
-                        <BitsShortName>SEC</BitsShortName>
-                        <BitsName>Seconds, from 0 to 59</BitsName>
-                        <BitsInteger min="0" max="59"></BitsInteger>
-                    </Bits>
+                <Repetitive>
+                    <Fixed length="4">
+                        <Bits from="32" to="28">
+                            <BitsShortName>TYP</BitsShortName>
+                            <BitsName>Time Type</BitsName>
+                            <BitsValue val="0">Scheduled off-block time</BitsValue>
+                            <BitsValue val="1">Estimated off-block time</BitsValue>
+                            <BitsValue val="2">Estimated take-off time</BitsValue>
+                            <BitsValue val="3">Actual off-block time</BitsValue>
+                            <BitsValue val="4">Predicted time at runway hold</BitsValue>
+                            <BitsValue val="5">Actual time at runway hold</BitsValue>
+                            <BitsValue val="6">Actual line-up time</BitsValue>
+                            <BitsValue val="7">Actual take-off time</BitsValue>
+                            <BitsValue val="8">Estimated time of arrival</BitsValue>
+                            <BitsValue val="9">Predicted landing time</BitsValue>
+                            <BitsValue val="10">Actual landing time</BitsValue>
+                            <BitsValue val="11">Actual time off runway</BitsValue>
+                            <BitsValue val="12">Predicted time to gate</BitsValue>
+                            <BitsValue val="13">Actual on-block time</BitsValue>
+                        </Bits>
+                        <Bits from="27" to="26">
+                            <BitsShortName>DAY</BitsShortName>
+                            <BitsName>Day</BitsName>
+                            <BitsValue val="0">Today</BitsValue>
+                            <BitsValue val="1">Yesterday</BitsValue>
+                            <BitsValue val="2">Tomorrow</BitsValue>
+                        </Bits>
+                        <Bits from="25" to="22">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bit(s) set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="21" to="17" encode="unsigned">
+                            <BitsShortName>HOR</BitsShortName>
+                            <BitsName>Hours, from 0 to 23</BitsName>
+                            <BitsUnit min="0" max="23"></BitsUnit>
+                        </Bits>
+                        <Bits from="16" to="15">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bit(s) set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="14" to="9" encode="unsigned">
+                            <BitsShortName>MIN</BitsShortName>
+                            <BitsName>Minutes, from 0 to 59</BitsName>
+                            <BitsUnit min="0" max="59"></BitsUnit>
+                        </Bits>
+                        <Bits bit="8">
+                            <BitsShortName>AVS</BitsShortName>
+                            <BitsName>Seconds available</BitsName>
+                            <BitsValue val="0">Seconds available</BitsValue>
+                            <BitsValue val="1">Seconds not available</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bit(s) set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits from="6" to="1" encode="unsigned">
+                            <BitsShortName>SEC</BitsShortName>
+                            <BitsName>Seconds, from 0 to 59</BitsName>
+                            <BitsUnit min="0" max="59"></BitsUnit>
+                        </Bits>
+                    </Fixed>
                 </Repetitive>
 
                 <Fixed length="6">
@@ -1316,12 +1317,12 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="430" rule="TO BE REMOVED">
+    <DataItem id="430">
         <DataItemName>Phase of flight</DataItemName>
         <DataItemDefinition>
             Current phase of the flight.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
                     <BitsShortName>FLS</BitsShortName>
@@ -1341,7 +1342,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="500" rule="TO BE REMOVED">
+    <DataItem id="500">
         <DataItemName>Estimated Accuracies</DataItemName>
         <DataItemDefinition>
             Overview of all important accuracies (standard deviations).
@@ -1431,12 +1432,12 @@
                     <Bits from="16" to="9" encode="unsigned">
                         <BitsShortName>AVC_X</BitsShortName>
                         <BitsName>Estimated accuracy of the calculated velocity of X Component</BitsName>
-                        <BitsUnit scale="0.10000000000000000555111512313">m/s</BitsUnit>
+                        <BitsUnit scale="0.1">m/s</BitsUnit>
                     </Bits>
                     <Bits from="8" to="1" encode="unsigned">
                         <BitsShortName>AVC_Y</BitsShortName>
                         <BitsName>Estimated accuracy of the calculated velocity of Y Component</BitsName>
-                        <BitsUnit scale="0.10000000000000000555111512313">m/s</BitsUnit>
+                        <BitsUnit scale="0.1">m/s</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -1444,7 +1445,7 @@
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>ARC</BitsShortName>
                         <BitsName>Estimated Accuracy Of Rate Of Climb / Descent</BitsName>
-                        <BitsUnit scale="0.10000000000000000555111512313">m/s</BitsUnit>
+                        <BitsUnit scale="0.1">m/s</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -1452,24 +1453,24 @@
                     <Bits from="16" to="9" encode="unsigned">
                         <BitsShortName>AAC_X</BitsShortName>
                         <BitsName>Estimated Accuracy Of Acceleration of X Component</BitsName>
-                        <BitsUnit scale="0.01000000000000000020816681712">m/s2</BitsUnit>
+                        <BitsUnit scale="0.01">m/s2</BitsUnit>
                     </Bits>
                     <Bits from="8" to="1" encode="unsigned">
                         <BitsShortName>AAC_Y</BitsShortName>
                         <BitsName>Estimated Accuracy Of Acceleration of Y Component</BitsName>
-                        <BitsUnit scale="0.01000000000000000020816681712">m/s2</BitsUnit>
+                        <BitsUnit scale="0.01">m/s2</BitsUnit>
                     </Bits>
                 </Fixed>
             </Compound>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="600" rule="TO BE REMOVED">
+    <DataItem id="600">
         <DataItemName>Alert messages</DataItemName>
         <DataItemDefinition>
             Alert involving the targets indicated in I011/605.
         </DataItemDefinition>
-        <DataItemFormat desc="Fixed data item.">
+        <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits bit="24">
                     <BitsShortName>ACK</BitsShortName>
@@ -1501,114 +1502,118 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="605" rule="TO BE REMOVED">
+    <DataItem id="605">
         <DataItemName>Tracks in Alert</DataItemName>
         <DataItemDefinition>
             List of track numbers of the targets concerned by the alert described in I011/600.
         </DataItemDefinition>
         <DataItemFormat desc="Repetitive data item.">
-            <Repetitive length="2">
-                <Bits from="16" to="13">
-                    <BitsShortName>spare</BitsShortName>
-                    <BitsName>Spare bit(s) set to 0</BitsName>
-                    <BitsConst>0</BitsConst>
-                </Bits>
-                <Bits from="12" to="1">
-                    <BitsShortName>FTN</BitsShortName>
-                    <BitsName>Fusion Track Number</BitsName>
-                </Bits>
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bit(s) set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="12" to="1">
+                        <BitsShortName>FTN</BitsShortName>
+                        <BitsName>Fusion Track Number</BitsName>
+                    </Bits>
+                </Fixed>
             </Repetitive>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="610" rule="TO BE REMOVED">
+    <DataItem id="610">
         <DataItemName>Holdbar status</DataItemName>
         <DataItemDefinition>
             LStatus of up to sixteen banks of twelve indicators.
         </DataItemDefinition>
         <DataItemFormat desc="Repetitive data item.">
-            <Repetitive length="2">
-                <Bits from="16" to="13">
-                    <BitsShortName>BKN</BitsShortName>
-                    <BitsName>Bank Number</BitsName>
-                </Bits>
-                <Bits bit="12">
-                    <BitsShortName>I1</BitsShortName>
-                    <BitsName>Indicator 1</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="11">
-                    <BitsShortName>I2</BitsShortName>
-                    <BitsName>Indicator 2</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="10">
-                    <BitsShortName>I3</BitsShortName>
-                    <BitsName>Indicator 3</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="9">
-                    <BitsShortName>I4</BitsShortName>
-                    <BitsName>Indicator 4</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="8">
-                    <BitsShortName>I5</BitsShortName>
-                    <BitsName>Indicator 5</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="7">
-                    <BitsShortName>I6</BitsShortName>
-                    <BitsName>Indicator 6</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="6">
-                    <BitsShortName>I7</BitsShortName>
-                    <BitsName>Indicator 7</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="5">
-                    <BitsShortName>I8</BitsShortName>
-                    <BitsName>Indicator 8</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="4">
-                    <BitsShortName>I9</BitsShortName>
-                    <BitsName>Indicator 9</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="3">
-                    <BitsShortName>I10</BitsShortName>
-                    <BitsName>Indicator 10</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="2">
-                    <BitsShortName>I11</BitsShortName>
-                    <BitsName>Indicator 11</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
-                <Bits bit="1">
-                    <BitsShortName>I12</BitsShortName>
-                    <BitsName>Indicator 12</BitsName>
-                    <BitsValue val="0">Indicator on</BitsValue>
-                    <BitsValue val="1">Indicator off</BitsValue>
-                </Bits>
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+                        <BitsShortName>BKN</BitsShortName>
+                        <BitsName>Bank Number</BitsName>
+                    </Bits>
+                    <Bits bit="12">
+                        <BitsShortName>I1</BitsShortName>
+                        <BitsName>Indicator 1</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="11">
+                        <BitsShortName>I2</BitsShortName>
+                        <BitsName>Indicator 2</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="10">
+                        <BitsShortName>I3</BitsShortName>
+                        <BitsName>Indicator 3</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="9">
+                        <BitsShortName>I4</BitsShortName>
+                        <BitsName>Indicator 4</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="8">
+                        <BitsShortName>I5</BitsShortName>
+                        <BitsName>Indicator 5</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>I6</BitsShortName>
+                        <BitsName>Indicator 6</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>I7</BitsShortName>
+                        <BitsName>Indicator 7</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>I8</BitsShortName>
+                        <BitsName>Indicator 8</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>I9</BitsShortName>
+                        <BitsName>Indicator 9</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>I10</BitsShortName>
+                        <BitsName>Indicator 10</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>I11</BitsShortName>
+                        <BitsName>Indicator 11</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                    <Bits bit="1">
+                        <BitsShortName>I12</BitsShortName>
+                        <BitsName>Indicator 12</BitsName>
+                        <BitsValue val="0">Indicator on</BitsValue>
+                        <BitsValue val="1">Indicator off</BitsValue>
+                    </Bits>
+                </Fixed>
             </Repetitive>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="SP" rule="TO BE REMOVED">
+    <DataItem id="SP">
         <DataItemName>Special Purpose Field</DataItemName>
         <DataItemDefinition>
             Special Purpose Field
@@ -1618,7 +1623,7 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="RE" rule="TO BE REMOVED">
+    <DataItem id="RE">
         <DataItemName>Reserved Expansion Field</DataItemName>
         <DataItemDefinition>
             Expansion
@@ -1629,45 +1634,45 @@
     </DataItem>
 
     <UAP>
-        <UAPItem bit="0" frn="1" len="TO BE REMOVED">010</UAPItem>
-        <UAPItem bit="1" frn="2" len="TO BE REMOVED">000</UAPItem>
-        <UAPItem bit="2" frn="3" len="TO BE REMOVED">015</UAPItem>
-        <UAPItem bit="3" frn="4" len="TO BE REMOVED">140</UAPItem>
-        <UAPItem bit="4" frn="5" len="TO BE REMOVED">041</UAPItem>
-        <UAPItem bit="5" frn="6" len="TO BE REMOVED">042</UAPItem>
-        <UAPItem bit="6" frn="7" len="TO BE REMOVED">202</UAPItem>
+        <UAPItem bit="0" frn="1">010</UAPItem>
+        <UAPItem bit="1" frn="2">000</UAPItem>
+        <UAPItem bit="2" frn="3">015</UAPItem>
+        <UAPItem bit="3" frn="4">140</UAPItem>
+        <UAPItem bit="4" frn="5">041</UAPItem>
+        <UAPItem bit="5" frn="6">042</UAPItem>
+        <UAPItem bit="6" frn="7">202</UAPItem>
         <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
-        <UAPItem bit="8" frn="8" len="TO BE REMOVED">210</UAPItem>
-        <UAPItem bit="9" frn="9" len="TO BE REMOVED">060</UAPItem>
-        <UAPItem bit="10" frn="10" len="TO BE REMOVED">245</UAPItem>
-        <UAPItem bit="11" frn="11" len="TO BE REMOVED">380</UAPItem>
-        <UAPItem bit="12" frn="12" len="TO BE REMOVED">161</UAPItem>
-        <UAPItem bit="13" frn="13" len="TO BE REMOVED">170</UAPItem>
-        <UAPItem bit="14" frn="14" len="TO BE REMOVED">290</UAPItem>
+        <UAPItem bit="8" frn="8">210</UAPItem>
+        <UAPItem bit="9" frn="9">060</UAPItem>
+        <UAPItem bit="10" frn="10">245</UAPItem>
+        <UAPItem bit="11" frn="11">380</UAPItem>
+        <UAPItem bit="12" frn="12">161</UAPItem>
+        <UAPItem bit="13" frn="13">170</UAPItem>
+        <UAPItem bit="14" frn="14">290</UAPItem>
         <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
-        <UAPItem bit="16" frn="15" len="TO BE REMOVED">430</UAPItem>
-        <UAPItem bit="17" frn="16" len="TO BE REMOVED">090</UAPItem>
-        <UAPItem bit="18" frn="17" len="TO BE REMOVED">093</UAPItem>
-        <UAPItem bit="19" frn="18" len="TO BE REMOVED">092</UAPItem>
-        <UAPItem bit="20" frn="19" len="TO BE REMOVED">215</UAPItem>
-        <UAPItem bit="21" frn="20" len="TO BE REMOVED">270</UAPItem>
-        <UAPItem bit="22" frn="21" len="TO BE REMOVED">390</UAPItem>
+        <UAPItem bit="16" frn="15">430</UAPItem>
+        <UAPItem bit="17" frn="16">090</UAPItem>
+        <UAPItem bit="18" frn="17">093</UAPItem>
+        <UAPItem bit="19" frn="18">092</UAPItem>
+        <UAPItem bit="20" frn="19">215</UAPItem>
+        <UAPItem bit="21" frn="20">270</UAPItem>
+        <UAPItem bit="22" frn="21">390</UAPItem>
         <UAPItem bit="23" frn="FX" len="-">-</UAPItem>
-        <UAPItem bit="24" frn="22" len="TO BE REMOVED">300</UAPItem>
-        <UAPItem bit="25" frn="23" len="TO BE REMOVED">310</UAPItem>
-        <UAPItem bit="26" frn="24" len="TO BE REMOVED">500</UAPItem>
-        <UAPItem bit="27" frn="25" len="TO BE REMOVED">600</UAPItem>
-        <UAPItem bit="28" frn="26" len="TO BE REMOVED">605</UAPItem>
-        <UAPItem bit="29" frn="27" len="TO BE REMOVED">610</UAPItem>
-        <UAPItem bit="30" frn="28" len="TO BE REMOVED">SP</UAPItem>
+        <UAPItem bit="24" frn="22">300</UAPItem>
+        <UAPItem bit="25" frn="23">310</UAPItem>
+        <UAPItem bit="26" frn="24">500</UAPItem>
+        <UAPItem bit="27" frn="25">600</UAPItem>
+        <UAPItem bit="28" frn="26">605</UAPItem>
+        <UAPItem bit="29" frn="27">610</UAPItem>
+        <UAPItem bit="30" frn="28">SP</UAPItem>
         <UAPItem bit="31" frn="FX" len="-">-</UAPItem>
-        <UAPItem bit="32" frn="29" len="TO BE REMOVED">RE</UAPItem>
-        <UAPItem bit="33" frn="30" len="TO BE REMOVED">-</UAPItem>
-        <UAPItem bit="34" frn="31" len="TO BE REMOVED">-</UAPItem>
-        <UAPItem bit="35" frn="32" len="TO BE REMOVED">-</UAPItem>
-        <UAPItem bit="36" frn="33" len="TO BE REMOVED">-</UAPItem>
-        <UAPItem bit="37" frn="34" len="TO BE REMOVED">-</UAPItem>
-        <UAPItem bit="38" frn="35" len="TO BE REMOVED">-</UAPItem>
+        <UAPItem bit="32" frn="29">RE</UAPItem>
+        <UAPItem bit="33" frn="30">-</UAPItem>
+        <UAPItem bit="34" frn="31">-</UAPItem>
+        <UAPItem bit="35" frn="32">-</UAPItem>
+        <UAPItem bit="36" frn="33">-</UAPItem>
+        <UAPItem bit="37" frn="34">-</UAPItem>
+        <UAPItem bit="38" frn="35">-</UAPItem>
         <UAPItem bit="39" frn="FX" len="-">-</UAPItem>
     </UAP>
 
