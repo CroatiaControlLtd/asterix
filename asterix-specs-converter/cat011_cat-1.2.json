@@ -1453,6 +1453,7 @@
             "spare": false,
             "title": "System Track Update Ages",
             "variation": {
+                "fspec": null,
                 "items": [
                     {
                         "definition": null,
@@ -1947,6 +1948,7 @@
             "spare": false,
             "title": "Mode-S / ADS-B Related Data",
             "variation": {
+                "fspec": null,
                 "items": [
                     {
                         "definition": null,
@@ -2574,6 +2576,7 @@
             "spare": false,
             "title": "Flight Plan Related Data",
             "variation": {
+                "fspec": null,
                 "items": [
                     {
                         "definition": null,
@@ -3481,6 +3484,7 @@
             "spare": false,
             "title": "Estimated Accuracies",
             "variation": {
+                "fspec": null,
                 "items": [
                     {
                         "definition": null,
@@ -4344,6 +4348,7 @@
     "number": 11,
     "preamble": "Surveillance data exchange.\n",
     "title": "Transmission of A-SMGCS Data",
+    "type": "Basic",
     "uap": {
         "items": [
             "010",

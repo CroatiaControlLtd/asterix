@@ -6,7 +6,7 @@
     Asterix Category 011 v1.2 definition
 
     This file is auto-generated from json specs file.
-    sha1sum of the json input: c5ff35774a854c33782f764c98f676aa652cbdfa
+    sha1sum of concatinated json input(s): 91de78cefa11077dbfb872ec5755111d9ad3d1d8
 -->
 
 <Category id="11" name="Transmission of A-SMGCS Data" ver="1.2">
@@ -1172,10 +1172,10 @@
                     <Bits from="8" to="1">
                         <BitsShortName>WTC</BitsShortName>
                         <BitsName>Wake Turbulence Category</BitsName>
-                        <BitsValue val="76">Light</BitsValue>
-                        <BitsValue val="77">Medium</BitsValue>
                         <BitsValue val="72">Heavy</BitsValue>
                         <BitsValue val="74">Super</BitsValue>
+                        <BitsValue val="76">Light</BitsValue>
+                        <BitsValue val="77">Medium</BitsValue>
                     </Bits>
                 </Fixed>
 
@@ -1619,7 +1619,13 @@
             Special Purpose Field
         </DataItemDefinition>
         <DataItemFormat desc="Explicit data item.">
-            <Explicit/>
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>LEN</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
         </DataItemFormat>
     </DataItem>
 
@@ -1629,7 +1635,13 @@
             Expansion
         </DataItemDefinition>
         <DataItemFormat desc="Explicit data item.">
-            <Explicit/>
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>LEN</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
         </DataItemFormat>
     </DataItem>
 
