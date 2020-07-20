@@ -13,6 +13,10 @@ item_renames = {
         ('300', '300'): 'VFI',
         ('430', '430'): 'FLS',
     },
+    21: {
+        ('015', '015'): 'id',
+        ('020', '020'): 'ECAT',
+    },
     62: {
         ('105', 'LAT'): 'Lat',
         ('105', 'LON'): 'Lon',
@@ -135,6 +139,7 @@ def xmlquote(s):
         '"': "&quot;",
         "&": "&amp;",
         "'": "&apos;",
+        "’": "&apos;",
         "<":  "&lt;",
         ">": "&gt;",
     })
@@ -217,7 +222,7 @@ class Bits(object):
                         tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
                         if item['title']:
                             tell('<BitsName>{}</BitsName>'.format(item['title']))
-                        for key,value in rule['values']:
+                        for key,value in sorted(rule['values']):
                             tell('<BitsValue val="{}">{}</BitsValue>'.format(key, xmlquote(value)))
                     tell('</Bits>')
 
@@ -347,8 +352,9 @@ class Variation(object):
             return Explicit(parent, item)
 
         if vt == 'Compound':
+            fspec = variation['fspec']
             items = variation['items']
-            return Compound(parent, item, items)
+            return Compound(parent, item, fspec, items)
 
         raise Exception('unexpected variation type {}'.format(vt))
 
@@ -465,28 +471,46 @@ class Repetitive(Variation):
 
 class Explicit(Variation):
     def render(self):
-        tell('<Explicit/>')
+        definition = None
+        if self.parent.item['name'] == 'RE':
+            definition = self.parent.category.re
+            if definition:
+                definition['name'] = 'RE'
+        if self.parent.item['name'] == 'SP':
+            definition = self.parent.category.sp
+            if definition:
+                definition['name'] = 'SP'
+        tell('<Explicit>')
+        if definition:
+            Variation.create(self, definition).render()
+        else:
+            with indent:
+                tell('<Fixed length="1">')
+                with indent:
+                    tell('<Bits from="8" to="1">')
+                    with indent:
+                        tell('<BitsShortName>LEN</BitsShortName>')
+                    tell('</Bits>')
+                tell('</Fixed>')
+        tell('</Explicit>')
 
 class Compound(Variation):
     def render(self):
-        (items,) = self.args
+        (fspec, items) = self.args
         tell('<Compound>')
 
         with indent:
-
-            # FSPEC
             tell('<Variable>')
-            with indent:
-                bp = 1
-                while True:
-                    tell('<Fixed length="1">')
-                    n = 8
-                    while True:
-                        if items:
-                            item = items[0]
-                            items = items[1:]
-                        else:
-                            item = None
+
+            # FSPEC with predefined length
+            if fspec is not None:
+                assert (fspec % 8) == 0, "bit alignment error"
+                assert fspec == len(items), "item length mismatch"
+                with indent:
+                    tell('<Fixed length="{}">'.format(fspec // 8))
+                    n = len(items)
+                    bp = 1
+                    for item in items:
                         with indent:
                             if item:
                                 tell('<Bits bit="{}">'.format(n))
@@ -503,22 +527,54 @@ class Compound(Variation):
                                     tell('<BitsName>Spare bits set to 0</BitsName>')
                                 tell('</Bits>')
                             n -= 1
-                            if n <= 1:
-                                tell('<Bits bit="1" fx="1">')
-                                with indent:
-                                    tell('<BitsShortName>FX</BitsShortName>')
-                                    tell('<BitsName>Extension indicator</BitsName>')
-                                    tell('<BitsValue val="0">no extension</BitsValue>')
-                                    tell('<BitsValue val="1">extension</BitsValue>')
-                                tell('</Bits>')
-                                break
                     tell('</Fixed>')
-                    if not items:
-                        break
+
+            # FSPEC with FX extension
+            else:
+                with indent:
+                    bp = 1
+                    while True:
+                        tell('<Fixed length="1">')
+                        n = 8
+                        while True:
+                            if items:
+                                item = items[0]
+                                items = items[1:]
+                            else:
+                                item = None
+                            with indent:
+                                if item:
+                                    tell('<Bits bit="{}">'.format(n))
+                                    with indent:
+                                        tell('<BitsShortName>{}</BitsShortName>'.format(item['name']))
+                                        tell('<BitsName>{}</BitsName>'.format(item['title']))
+                                        tell('<BitsPresence>{}</BitsPresence>'.format(bp))
+                                    tell('</Bits>')
+                                    bp += 1
+                                else:
+                                    tell('<Bits bit="{}">'.format(n))
+                                    with indent:
+                                        tell('<BitsShortName>spare</BitsShortName>')
+                                        tell('<BitsName>Spare bits set to 0</BitsName>')
+                                    tell('</Bits>')
+                                n -= 1
+                                if n <= 1:
+                                    tell('<Bits bit="1" fx="1">')
+                                    with indent:
+                                        tell('<BitsShortName>FX</BitsShortName>')
+                                        tell('<BitsName>Extension indicator</BitsName>')
+                                        tell('<BitsValue val="0">no extension</BitsValue>')
+                                        tell('<BitsValue val="1">extension</BitsValue>')
+                                    tell('</Bits>')
+                                    break
+                        tell('</Fixed>')
+                        if not items:
+                            break
+
             tell('</Variable>')
 
             # item list
-            (items,) = self.args
+            (fspec,items) = self.args
             for item in items:
                 tell('')
                 if item is not None:
@@ -558,9 +614,11 @@ class TopItem(object):
         tell('</DataItem>')
 
 class Category(object):
-    def __init__(self, root, cks):
+    def __init__(self, root, cks, re=None, sp=None):
         self.root = root
         self.cks = cks
+        self.re = re
+        self.sp = sp
         self.items = [TopItem(self, item) for item in root['catalogue']]
 
     @property
@@ -580,7 +638,7 @@ class Category(object):
             tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
             tell('')
             tell('This file is auto-generated from json specs file.')
-            tell('sha1sum of the json input: {}'.format(self.cks))
+            tell('sha1sum of concatinated json input(s): {}'.format(self.cks))
         tell('-->')
         tell('')
         tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
@@ -630,15 +688,23 @@ class Category(object):
 
 # main
 parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
-parser.add_argument('infile', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer)
-parser.add_argument('outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
+parser.add_argument('--cat', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer, help="input CATegory JSON file")
+parser.add_argument('--ref', nargs='?', type=argparse.FileType('rb'), help="input REF JSON file")
+parser.add_argument('--outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
 
 args = parser.parse_args()
 
-s = args.infile.read()
-root = json.loads(s)
-cks = hashlib.sha1(s).hexdigest()
-cat = Category(root, cks)
+cat_input = args.cat.read()
+root = json.loads(cat_input)
+
+ref_input = b''
+ref = None
+if args.ref:
+    ref_input = args.ref.read()
+    ref = json.loads(ref_input)
+
+cks = hashlib.sha1(cat_input+ref_input).hexdigest()
+cat = Category(root, cks, re=ref)
 cat.render()
 result = ''.join([line+'\n' for line in accumulator])
 args.outfile.write(result)
