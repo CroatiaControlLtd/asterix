@@ -3,7 +3,7 @@
 This directory contains a script to convert asterix definitions from .json to .xml format.
 
 Original asterix definition files are currently stored as .ast files
-(custom syntax) in this project: 
+(custom syntax) in this project:
 
 https://github.com/zoranbosnjak/asterix-specs
 
@@ -30,14 +30,14 @@ To run the script inside nix environment:
 ```bash
 nix-shell -p python38
 python3 --version
-python3 json-to-xml.py {input.json}
+python3 json-to-xml.py < input.json
 # or
-curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/v1.18/cat062-v1.18.json | python3 json-to-xml.py
+curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/cats/cat1.18/definition.json | python3 json-to-xml.py
 ```
 
-To convert multiple json files:
+To combine CAT+REF definition:
 
 ```bash
-for i in $(ls | grep "\.json$"); do echo $i && python3 json-to-xml.py $i > $i.generated.xml; done
+python3 json-to-xml.py --cat category.json --ref ref.json --outfile out.xml
 ```
 
