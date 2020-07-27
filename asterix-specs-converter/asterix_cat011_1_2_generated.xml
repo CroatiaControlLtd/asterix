@@ -1622,7 +1622,7 @@
             <Explicit>
                 <Fixed length="1">
                     <Bits from="8" to="1">
-                        <BitsShortName>LEN</BitsShortName>
+                        <BitsShortName>VAL</BitsShortName>
                     </Bits>
                 </Fixed>
             </Explicit>
@@ -1638,7 +1638,7 @@
             <Explicit>
                 <Fixed length="1">
                     <Bits from="8" to="1">
-                        <BitsShortName>LEN</BitsShortName>
+                        <BitsShortName>VAL</BitsShortName>
                     </Bits>
                 </Fixed>
             </Explicit>

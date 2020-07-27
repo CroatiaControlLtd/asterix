@@ -489,7 +489,7 @@ class Explicit(Variation):
                 with indent:
                     tell('<Bits from="8" to="1">')
                     with indent:
-                        tell('<BitsShortName>LEN</BitsShortName>')
+                        tell('<BitsShortName>VAL</BitsShortName>')
                     tell('</Bits>')
                 tell('</Fixed>')
         tell('</Explicit>')
