@@ -45,8 +45,8 @@
                     <BitsUnit scale="0.1">mb</BitsUnit>
                 </Bits>
                 <Bits from="25" to="18">
-                    <BitsShortName>res</BitsShortName>
-                    <BitsName>Reserved</BitsName>
+                    <BitsShortName>res1</BitsShortName>
+                    <BitsName>Reserved 1</BitsName>
                 </Bits>
                 <Bits bit="17">
                     <BitsShortName>MODE_STATUS</BitsShortName>
@@ -71,8 +71,8 @@
                     <BitsValue val="1">Active</BitsValue>
                 </Bits>
                 <Bits from="13" to="12">
-                    <BitsShortName>res</BitsShortName>
-                    <BitsName>Reserved</BitsName>
+                    <BitsShortName>res2</BitsShortName>
+                    <BitsName>Reserved 2</BitsName>
                 </Bits>
                 <Bits bit="11">
                     <BitsShortName>TARGET_ALT_STATUS</BitsShortName>
