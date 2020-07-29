@@ -868,7 +868,7 @@
         <DataItemDefinition>Ground Speed and Track Angle elements of Ground Vector.</DataItemDefinition>
         <DataItemFormat desc="Four-Octet fixed length data item.">
             <Fixed length="4">
-                <Bits bit="16">
+                <Bits bit="32">
                     <BitsShortName>RE</BitsShortName>
                     <BitsName>Range Exceeded Indicator</BitsName>
                     <BitsValue val="0">Value in defined range</BitsValue>
