@@ -36,13 +36,13 @@ import asterix
 To install executable (c/c++) version run:
 ```console
 cd asterix/src
-make install 
+make install
 ```
 
 or if you have CMake installed, run:
 ```console
 cmake .
-make 
+make
 ```
 
 Then run it from asterix/install folder:
@@ -60,6 +60,8 @@ Install following cygwin packages:
     make
     libexpat-devel
 ```
+
+For asterix specification handling, see [asterix-specs-converter](./asterix-specs-converter/README.md#asterix-specifications) directory.
 
 For more information about the tool or Asterix protocol feel free to contact the author:
 <html>
