@@ -207,3 +207,8 @@ Issue #114 use uniform spelling for twos and two's (in two's complement)
 Feature: Added CMake building mechanism
 Modifications in CAT011
 All code reformated using CLion automatic reformat
+
+2.6.1 (python_v0.5.15)
+19.8.2020.
+Feature #135 Implement extensive JSON output format
+

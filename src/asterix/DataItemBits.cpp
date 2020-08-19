@@ -279,6 +279,74 @@ unsigned char *DataItemBits::getHexBitString(unsigned char *pData, int bytes, in
     return str;
 }
 
+unsigned char *DataItemBits::getHexBitStringFullByte(unsigned char *pData, int bytes, int frombit, int tobit) {
+    int numberOfBits = (tobit - frombit + 1);
+    if (!numberOfBits) {
+        Tracer::Error("Hex representation not valid");
+        return (unsigned char *) strdup("???");
+    }
+
+    if (tobit%8) {
+        tobit = (tobit/8 + 1)*8;
+    }
+    if ((frombit-1)%8) {
+        frombit = ((frombit-1)/8)*8+1;
+    }
+    numberOfBits = (tobit - frombit + 1);
+
+    unsigned char *pB = getBits(pData, bytes, frombit, tobit);
+
+    if (!pB) {
+        Tracer::Error("DATAITEM_ENCODING_HEX_BIT_CHAR : Error.");
+        return (unsigned char *) strdup("???");
+    }
+
+    int numberOfCharacters = numberOfBits / 4;
+    unsigned char *str = new unsigned char[numberOfCharacters + 1];
+
+    memset(str, 0, numberOfCharacters + 1);
+
+    int numberOfBytes = (numberOfCharacters + 1) / 2;
+    int i;
+    for (i = 0; i < numberOfBytes; i++) {
+        sprintf((char *) &str[i * 2], "%02X", pB[i]);
+    }
+
+    delete[] pB;
+    return str;
+}
+
+unsigned char *DataItemBits::getHexBitStringMask(int bytes, int frombit, int tobit) {
+    int numberOfBits = (tobit - frombit + 1);
+    if (!numberOfBits) {
+        Tracer::Error("Hex representation not valid");
+        return (unsigned char *) strdup("???");
+    }
+
+    int tobitStart = tobit;
+    if (tobitStart%8) {
+        tobitStart = (tobitStart/8 + 1)*8;
+    }
+    int frombitStart = frombit;
+    if ((frombitStart-1)%8) {
+        frombitStart = ((frombitStart-1)/8)*8+1;
+    }
+    numberOfBits = (tobitStart - frombitStart + 1);
+
+    unsigned char *str = new unsigned char[numberOfBits + 1];
+    unsigned char *p = str;
+    int indx = 0;
+    for (int i = tobitStart; i >= frombitStart; --i) {
+        if (i >= frombit && i <= tobit)
+            p[indx++] = '1';
+        else
+            p[indx++] = '0';
+    }
+    p[indx] = 0;
+    return str;
+}
+
+
 unsigned char *DataItemBits::getOctal(unsigned char *pData, int bytes, int frombit, int tobit) {
     int numberOfBits = (tobit - frombit + 1);
     if (!numberOfBits || numberOfBits % 3) {
@@ -466,14 +534,24 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                     }
                 }
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     if (m_dScale != 0) {
                         double scaled = value * m_dScale;
                         strResult += format("\"val\"=%.7lf", scaled);
                     } else {
                         strResult += format("\"val\"=%ld", value);
                     }
-                    strResult += format(", \"hex\"=\"%02X\"", value);
+
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
+                    }
+
                     strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
 
                     if (!m_lValue.empty()) { // check values
@@ -489,6 +567,7 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                             strResult += format(" ( ?????? )");
                         }
                     }
+                }
                     break;
                 default: {
                     if (m_dScale != 0) {
@@ -538,14 +617,24 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                     }
                 }
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     if (m_dScale != 0) {
                         double scaled = value * m_dScale;
                         strResult += format("\"val\"=%.7lf", scaled);
                     } else {
                         strResult += format("\"val\"=%ld", value);
                     }
-                    strResult += format(", \"hex\"=\"%02X\"", value);
+
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
+                    }
+
                     strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
 
                     if (!m_lValue.empty()) { // check values
@@ -561,6 +650,7 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                             strResult += format(" ( ?????? )");
                         }
                     }
+                }
                     break;
                 default: {
                     if (m_dScale != 0) {
@@ -588,14 +678,22 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     strResult += format("\"val\"=\"%s\"", str);
-                    strResult += format(", \"hex\"=\"");
-                    for (int i=0; i<nLength; ++i) {
-                        strResult += format("%02X", pData[i]);
+
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
                     }
-                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
                     break;
+                }
                 default:
                     strResult += format("%s", str);
                     break;
@@ -618,13 +716,19 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     strResult += format("\"val\"=\"%s\"", str);
-                    strResult += format(", \"hex\"=\"");
-                    for (int i=0; i<nLength; ++i) {
-                        strResult += format("%02X", pData[i]);
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
                     }
-                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
+                }
                     break;
                 default:
                     strResult += format("%s", str);
@@ -647,13 +751,19 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", str);
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     strResult += format("\"val\"=\"%s\"", str);
-                    strResult += format(", \"hex\"=\"");
-                    for (int i=0; i<nLength; ++i) {
-                        strResult += format("%02X", pData[i]);
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
                     }
-                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
+                }
                     break;
                 default:
                     strResult += format("%s", str);
@@ -675,13 +785,19 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
                 case CAsterixFormat::EJSONH:
                     strResult += format("\"%s\"", pStr);
                     break;
-                case CAsterixFormat::EJSONE:
+                case CAsterixFormat::EJSONE: {
                     strResult += format("\"val\"=\"%s\"", pStr);
-                    strResult += format(", \"hex\"=\"");
-                    for (int i=0; i<nLength; ++i) {
-                        strResult += format("%02X", pData[i]);
+                    unsigned char *hexstr = getHexBitStringFullByte(pData, nLength, m_nFrom, m_nTo);
+                    strResult += format(", \"hex\"=\"%s\"", hexstr);
+                    delete[] hexstr;
+
+                    if ((m_nTo - m_nFrom + 1) % 8) {
+                        unsigned char *maskstr = getHexBitStringMask(nLength, m_nFrom, m_nTo);
+                        strResult += format(", \"mask\"=\"%s\"", maskstr);
+                        delete[] maskstr;
                     }
-                    strResult += format("\", \"name\"=\"%s\"", m_strName.c_str());
+                    strResult += format(", \"name\"=\"%s\"", m_strName.c_str());
+                }
                     break;
                 default:
                     break;

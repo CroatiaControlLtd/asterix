@@ -115,6 +115,10 @@ private:
 
     unsigned char *getOctal(unsigned char *pData, int bytes, int frombit, int tobit);
 
+    unsigned char *getHexBitStringFullByte(unsigned char *pData, int bytes, int frombit, int tobit);
+
+    unsigned char *getHexBitStringMask(int bytes, int frombit, int tobit);
+
     char *getASCII(unsigned char *pData, int bytes, int frombit, int tobit);
 
 
