@@ -194,6 +194,7 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
                     m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
             break;
         case CAsterixFormat::EJSONH:
+        case CAsterixFormat::EJSONE:
             strNewResult = format(
                     "{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%ld,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n",
                     m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
@@ -224,6 +225,7 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
                             strResult += ",";
                             break;
                         case CAsterixFormat::EJSONH:
+                        case CAsterixFormat::EJSONE:
                             strResult += ",\n";
                             break;
                     }
@@ -240,6 +242,7 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
                 strResult += "}}\n";
                 break;
             case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE:
                 strResult += "}},\n";
                 break;
             case CAsterixFormat::EXML:

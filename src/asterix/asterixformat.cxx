@@ -49,6 +49,7 @@ const char *CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
                 "ASTERIX_XMLH",
                 "ASTERIX_JSON",
                 "ASTERIX_JSONH",
+                "ASTERIX_JSONE",
                 "ASTERIX_HDLC",
                 "ASTERIX_ORADIS_RAW",
                 "ASTERIX_ORADIS_PCAP",
@@ -81,6 +82,7 @@ CAsterixFormat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice 
         case EXMLH:
         case EJSON:
         case EJSONH:
+        case EJSONE:
             //todo not supported
             return false;
         default:
@@ -114,6 +116,7 @@ CAsterixFormat::WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice
         case EXMLH:
         case EJSON:
         case EJSONH:
+        case EJSONE:
         case ETxt:
         case EOut: {
             CAsterixFormatDescriptor &Descriptor((CAsterixFormatDescriptor &) formatDescriptor);
@@ -164,6 +167,7 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBas
         case EXMLH:
         case EJSON:
         case EJSONH:
+        case EJSONE:
         case EOut:
             return false;
         default:
@@ -197,6 +201,7 @@ bool CAsterixFormat::HeartbeatProcessing(
         case EXMLH:
         case EJSON:
         case EJSONH:
+        case EJSONE:
         case EOut:
             return false;
         default:

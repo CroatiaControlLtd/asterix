@@ -19,7 +19,8 @@
 #
 # AUTHOR:  Damir Salantic, Croatia Control Ltd.
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.4)
+
 project(asterix)
 
 set(EXECUTABLE_OUTPUT_PATH install)

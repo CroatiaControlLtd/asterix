@@ -165,7 +165,8 @@ bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH: {
+        case CAsterixFormat::EJSONH:
+        case CAsterixFormat::EJSONE: {
             strResult += '{';
         }
             break;
@@ -181,7 +182,8 @@ bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH: {
+        case CAsterixFormat::EJSONH:
+        case CAsterixFormat::EJSONE: {
             if (strResult[strResult.length() - 1] == ',')
                 strResult[strResult.length() - 1] = '}';
             else
