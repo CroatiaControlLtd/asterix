@@ -15,7 +15,7 @@ class AsterixInitTest(unittest.TestCase):
             return self.assertRaisesRegex(exc, text)
 
     def test_init_ok(self):
-        sample_init = os.path.join(os.path.dirname(__file__), '../config/asterix_cat062_1_17.xml')
+        sample_init = os.path.join(os.path.dirname(__file__), '../config/asterix_cat062_1_18.xml')
         ret = asterix.init(sample_init)
         self.assertIs(ret, 0)
 

@@ -372,6 +372,12 @@ PyObject* DataRecord::getData(int verbose)
     Py_DECREF(k4);
     Py_DECREF(v4);
 
+    PyObject* k5 = Py_BuildValue("s", "hexdata");
+    PyObject* v5 = Py_BuildValue("s", m_pHexData);
+    PyDict_SetItem(p, k5, v5);
+    Py_DECREF(k5);
+    Py_DECREF(v5);
+
     if (m_bFormatOK)
     {
         // go through all present data items in this record

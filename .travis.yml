@@ -6,7 +6,6 @@ python:
   - '3.6'
   - '3.7'
   - '3.8'
-  - nightly
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install valgrind
