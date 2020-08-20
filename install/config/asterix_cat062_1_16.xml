@@ -18,6 +18,8 @@
     Modified:  28.04.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
     Modified:  05.05.2014. (dsalantic) Item 110 format fixed
     Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
+    Modified: 20.08.2020. (tmartincevic) For latitude and longitude in I062/380 subfield #22 (Position), LSB is defined in the spec as 180/2^23 
+                                         In I062/380 subfield #9 (Trajectory Intent Data), longitude is clamped to +/- 90 deg, should be +/- 180 deg.
 
 -->
 
@@ -279,7 +281,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
                 <Fixed length="1">
                     <Bits from="8" to="7">
                         <BitsShortName>SDS</BitsShortName>
@@ -342,8 +343,6 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-
-
             </Variable>
         </DataItemFormat>
         <DataItemNote>1. Track type and coasting can also be derived from I062/290 System Track Update Ages 2. If the system supports the technology, default value (0) means that the technology was used to produce the report 3. If the system does not support the technology, default value is meaningless.</DataItemNote>
@@ -351,7 +350,7 @@
 
     <DataItem id="100" rule="optional">
         <DataItemName>Calculated Track Position. (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated position in Cartesian co-ordinates with a resolution of 0.5m, in two's complement form.</DataItemDefinition>
         <DataItemFormat>
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
@@ -513,12 +512,12 @@
                 <Fixed length="6">
                     <Bits from="25" to="48" encode="signed">
                         <BitsShortName>Lat</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ latitude ≤ 90 deg.</BitsName>
+                        <BitsName>Latitude in WGS.84 in two-s complement. Range -90 deg latitude deg 90 deg.</BitsName>
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                     <Bits from="1" to="24" encode="signed">
                         <BitsShortName>Lon</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
+                        <BitsName>Longitude in WGS.84 in two-s complement. Range -180 deg longitude &lt; 180 deg.</BitsName>
                         <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
@@ -618,7 +617,7 @@
 
     <DataItem id="130" rule="optional">
         <DataItemName>Calculated Track Geometric Altitude</DataItemName>
-        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth's ellipsoid, as defined by WGS84, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -633,7 +632,7 @@
 
     <DataItem id="135" rule="optional">
         <DataItemName>Calculated Track Barometric Altitude</DataItemName>
-        <DataItemDefinition>Calculated Barometric Altitude of the track, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated Barometric Altitude of the track, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits bit="16">
@@ -649,12 +648,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>ICAO specifies a range between –10 FL and 1267 FL for Mode C</DataItemNote>
+        <DataItemNote>ICAO specifies a range between -10 FL and 1267 FL for Mode C</DataItemNote>
     </DataItem> 
 
     <DataItem id="136" rule="optional">
         <DataItemName>Measured Flight Level</DataItemName>
-        <DataItemDefinition>Last valid and credible flight level used to update the track, in two’s complement form,.</DataItemDefinition>
+        <DataItemDefinition>Last valid and credible flight level used to update the track, in two's complement form,.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -664,12 +663,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between –10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
+        <DataItemNote>1. The criteria to determine the credibility of the flight level are Tracker dependent. 2. Credible means: within reasonable range of change with respect to the previous detection. 3. ICAO specifies a range between -10 FL and 1267 FL for Mode C 4. This item includes the barometric altitude received from ADS-B</DataItemNote>
     </DataItem> 
 
     <DataItem id="185" rule="optional">
         <DataItemName>Calculated Track Velocity (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian co-ordinates, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item .">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
@@ -734,7 +733,7 @@
 
     <DataItem id="210" rule="optional">
         <DataItemName>Calculated Acceleration (Cartesian)</DataItemName>
-        <DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated Acceleration of the target expressed in Cartesian coordinates, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item .">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
@@ -754,7 +753,7 @@
 
     <DataItem id="220" rule="optional">
         <DataItemName>Calculated Rate Of Climb/Descent)</DataItemName>
-        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated rate of Climb/Descent of an aircraft in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item .">
             <Fixed length="2">
                 <Bits from="1" to="16" encode="signed">
@@ -791,7 +790,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user’s side, this item SHALL not be used.</DataItemNote>
+        <DataItemNote>1. For coding, see section 3.8.2.9 of [Ref.3] 2. As the Callsign of the target can already be transmitted (thanks to I062/380 Subfield #25 if downlinked from the aircraft or thanks to I062/390 Subfield #2 if the target is correlated to a flight plan), and in order to avoid confusion at end user's side, this item SHALL not be used.</DataItemNote>
     </DataItem> 
 
     <DataItem id="270" rule="optional">
@@ -1853,12 +1852,14 @@
                         <BitsName>Target Address</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="6">
                     <Bits from="1" to="48" encode="6bitschar">
                         <BitsShortName>ACID</BitsShortName>
                         <BitsName>Target Identification</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>MAH</BitsShortName>
@@ -1866,6 +1867,7 @@
                         <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>IM</BitsShortName>
@@ -1879,6 +1881,7 @@
                         <BitsName>Air Speed</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>TAS</BitsShortName>
@@ -1886,6 +1889,7 @@
                         <BitsUnit scale="1" min="0" max="2046">knot</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>SAS</BitsShortName>
@@ -1908,6 +1912,7 @@
                         <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>MV</BitsShortName>
@@ -1935,7 +1940,6 @@
                 </Fixed>
 
                 <Fixed length="1">
-
                     <Bits bit="8">
                         <BitsShortName>NAV</BitsShortName>
                         <BitsName>TID available</BitsName>
@@ -1991,7 +1995,7 @@
                         <Bits from="72" to="49" encode="signed">
                             <BitsShortName>Lon</BitsShortName>
                             <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
-                            <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
+                            <BitsUnit scale="0.000021457672119140625" min="-180" max="180">deg</BitsUnit>
                         </Bits>
                         <Bits from="48" to="45">
                             <BitsShortName>PT</BitsShortName>
@@ -2145,11 +2149,11 @@
                         <BitsValue val="3">Minimum fuel</BitsValue>
                         <BitsValue val="4">No communications</BitsValue>
                         <BitsValue val="5">Unlawful interference</BitsValue>
-                        <BitsValue val="6">“Downed” Aircraft</BitsValue>
+                        <BitsValue val="6">Downed Aircraft</BitsValue>
                         <BitsValue val="7">Unknown</BitsValue>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="7">
                     <Bits from="56" to="49" encode="hex">
                         <BitsShortName>BDS30</BitsShortName>
@@ -2250,7 +2254,7 @@
                         <BitsName>Threat Identity Data</BitsName>                        
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>BVR</BitsShortName>
@@ -2258,7 +2262,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>GVR</BitsShortName>
@@ -2266,7 +2270,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>RAN</BitsShortName>
@@ -2406,13 +2410,13 @@
                 <Fixed length="6">
                     <Bits from="48" to="25" encode="signed">
                         <BitsShortName>Lat</BitsShortName>
-                        <BitsName>Latitude in WGS.84 in two’s complement. Range -90 ≤ Lat ≤ 90 deg.</BitsName>
-                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 deg Lat deg 90 deg.</BitsName>
+                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                     <Bits from="24" to="1" encode="signed">
                         <BitsShortName>Lon</BitsShortName>
-                        <BitsName>Longitude in WGS.84 in two’s complement. Range -180 ≤ longitude &lt; 180 deg.</BitsName>
-                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 deg longitude &lt; 180 deg.</BitsName>
+                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -2445,7 +2449,8 @@
                         <BitsName>Indicated Air Speed</BitsName>
                         <BitsUnit scale="1" min="0" max="1100">kt</BitsUnit>
                     </Bits>
-                </Fixed>                
+                </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>MNO</BitsShortName>
@@ -2466,7 +2471,6 @@
                         <BitsUnit scale="0.1" min="0" max="409.6">mbar</BitsUnit>
                     </Bits>
                 </Fixed>
-
 
             </Compound>
         </DataItemFormat>
@@ -3012,11 +3016,11 @@
                 <Fixed length="3">
                     <Bits from="17" to="24">
                         <BitsShortName>SDPSUID</BitsShortName>
-                        <BitsName>SDPS UNIT IDENTIFICATION</BitsName>
+                        <BitsName>SDPS Unit Identification</BitsName>
                     </Bits>
                     <Bits from="2" to="16">
                         <BitsShortName>STN</BitsShortName>
-                        <BitsName>SYSTEM TRACK NUMBER</BitsName>
+                        <BitsName>System Track Number</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -3027,11 +3031,11 @@
                 <Fixed length="3">
                     <Bits from="17" to="24">
                         <BitsShortName>SDPSUID</BitsShortName>
-                        <BitsName>SDPS UNIT IDENTIFICATION</BitsName>
+                        <BitsName>SDPS Unit Identification</BitsName>
                     </Bits>
                     <Bits from="2" to="16">
                         <BitsShortName>STN</BitsShortName>
-                        <BitsName>SYSTEM TRACK NUMBER</BitsName>
+                        <BitsName>System Track Number</BitsName>
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
@@ -3113,6 +3117,4 @@
         <UAPItem bit="38" frn="35" len="1+1+">SP</UAPItem>
         <UAPItem bit="39" frn="FX" len="-">-</UAPItem>
     </UAP>
-
-</Category>         
-
+</Category>

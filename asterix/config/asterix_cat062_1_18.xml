@@ -24,6 +24,8 @@
                                                 IDD bit added to I062/080 5th extension
                                                 IEC bit added to I062/080 5th extension
                                                 I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
+    Modified: 20.08.2020. (tmartincevic) For latitude and longitude in I062/380 subfield #22 (Position), LSB is defined in the spec as 180/2^23 
+                                         In I062/380 subfield #9 (Trajectory Intent Data), longitude is clamped to +/- 90 deg, should be +/- 180 deg.
 -->
 
 
@@ -1877,12 +1879,14 @@
                         <BitsName>Target Address</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="6">
                     <Bits from="1" to="48" encode="6bitschar">
                         <BitsShortName>ACID</BitsShortName>
                         <BitsName>Target Identification</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>MAH</BitsShortName>
@@ -1890,6 +1894,7 @@
                         <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>IM</BitsShortName>
@@ -1903,6 +1908,7 @@
                         <BitsName>Air Speed</BitsName>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>TAS</BitsShortName>
@@ -1910,6 +1916,7 @@
                         <BitsUnit scale="1" min="0" max="2046">knot</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>SAS</BitsShortName>
@@ -1932,6 +1939,7 @@
                         <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
                     </Bits>
                 </Fixed>
+
                 <Fixed length="2">
                     <Bits bit="16">
                         <BitsShortName>MV</BitsShortName>
@@ -1959,7 +1967,6 @@
                 </Fixed>
 
                 <Fixed length="1">
-
                     <Bits bit="8">
                         <BitsShortName>NAV</BitsShortName>
                         <BitsName>TID available</BitsName>
@@ -2015,7 +2022,7 @@
                         <Bits from="72" to="49" encode="signed">
                             <BitsShortName>Lon</BitsShortName>
                             <BitsName>Longitude In WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
-                            <BitsUnit scale="0.000021457672119140625" min="-90" max="90">deg</BitsUnit>
+                            <BitsUnit scale="0.000021457672119140625" min="-180" max="180">deg</BitsUnit>
                         </Bits>
                         <Bits from="48" to="45">
                             <BitsShortName>PT</BitsShortName>
@@ -2173,7 +2180,7 @@
                         <BitsValue val="7">Unknown</BitsValue>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="7">
                     <Bits from="56" to="49" encode="hex">
                         <BitsShortName>BDS30</BitsShortName>
@@ -2274,7 +2281,7 @@
                         <BitsName>Threat Identity Data</BitsName>                        
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>BVR</BitsShortName>
@@ -2282,7 +2289,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>GVR</BitsShortName>
@@ -2290,7 +2297,7 @@
                         <BitsUnit scale="6.25">ft/min</BitsUnit>
                     </Bits>
                 </Fixed>
-                
+
                 <Fixed length="2">
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>RAN</BitsShortName>
@@ -2431,12 +2438,12 @@
                     <Bits from="48" to="25" encode="signed">
                         <BitsShortName>Lat</BitsShortName>
                         <BitsName>Latitude in WGS.84 in two's complement. Range -90 deg Lat deg 90 deg.</BitsName>
-                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                     <Bits from="24" to="1" encode="signed">
                         <BitsShortName>Lon</BitsShortName>
                         <BitsName>Longitude in WGS.84 in two's complement. Range -180 deg longitude &lt; 180 deg.</BitsName>
-                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -2469,7 +2476,8 @@
                         <BitsName>Indicated Air Speed</BitsName>
                         <BitsUnit scale="1" min="0" max="1100">kt</BitsUnit>
                     </Bits>
-                </Fixed>                
+                </Fixed>
+
                 <Fixed length="2">
                     <Bits from="16" to="1">
                         <BitsShortName>MNO</BitsShortName>
@@ -2490,7 +2498,6 @@
                         <BitsUnit scale="0.1" min="0" max="409.6">mbar</BitsUnit>
                     </Bits>
                 </Fixed>
-
 
             </Compound>
         </DataItemFormat>
