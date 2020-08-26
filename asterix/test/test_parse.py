@@ -41,7 +41,8 @@ class AsterixParseTest(unittest.TestCase):
             self.assertEqual(packet[0]['I250'][0], {'TARGET_ALT_STATUS': {'desc': 'Status of Target ALT source bits',
                                                                           'meaning': 'No source information provided',
                                                                           'val': 0},
-                                                    'res': {'desc': 'Reserved', 'val': 0},
+                                                    'res1': {'desc': 'Reserved 1', 'val': 0},
+                                                    'res2': {'desc': 'Reserved 2', 'val': 0},
                                                     'FMS_ALT': {'desc': 'FMS Selected Altitude', 'val': 0.0},
                                                     'APP': {'desc': 'APPROACH Mode', 'meaning': 'Not active', 'val': 0},
                                                     'ALT_HOLD': {'desc': 'ALT HOLD Mode', 'meaning': 'Not active',
@@ -126,7 +127,8 @@ class AsterixParseTest(unittest.TestCase):
                                                  'CHdg': {'val': 124.002685546875}})
             self.assertEqual(packet[0]['I220'], {'ACAddr': {'val': '3C660C'}})
             self.assertEqual(packet[0]['I250'][0], {'TARGET_ALT_STATUS': {'val': 0},
-                                                    'res': {'val': 0},
+                                                    'res1': {'val': 0},
+                                                    'res2': {'val': 0},
                                                     'FMS_ALT': {'val': 0.0},
                                                     'APP': {'val': 0},
                                                     'ALT_HOLD': {'val': 0},
@@ -389,7 +391,7 @@ class AsterixParseTest(unittest.TestCase):
 
             self.assertEqual(packet[1]['I390']['RDS'], {'NU1': {'desc': 'First number', 'val': ' '},
                                                         'LTR': {'desc': 'Letter', 'val': ' '},
-                                                        'NU2': {'desc': 'Second number', 'val': ' '}})
+                                                        'NU2': {'desc': 'Second number', 'val': ''}})
 
             self.assertEqual(packet[1]['I390']['WTC'],
                                  {'WTC': {'desc': 'Wake Turbulence Category', 'val': 'M'}})
