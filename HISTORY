@@ -212,3 +212,10 @@ All code reformated using CLion automatic reformat
 19.8.2020.
 Feature #135 Implement extensive JSON output format
 
+2.6.2 (python_v0.5.16)
+26.8.2020.
+Issue #151 Scale does not match the spec for I062/380, subfield #22 (Position)
+Issue #152 Longitude min/max is +/- 90 deg in I062/380 subfield #9 (Trajectory Intent Data)
+Issue #153 Problem decoding Runway Designation in I062/390
+Issue #154 Scale does not match the spec for I062/500, subfield # 3
+Issue #155 Scale does not match the spec for I062/500, subfield # 5
