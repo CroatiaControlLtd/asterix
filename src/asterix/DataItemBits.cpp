@@ -404,20 +404,21 @@ char *DataItemBits::getASCII(unsigned char *pData, int bytes, int frombit, int t
         return strdup("???");
     }
 
+    unsigned char *pTmp = getBits(pData, bytes, frombit, tobit);
+    int numberOfBytes = numberOfBits/8;
 
-    char *pStr = new char[numberOfBits / 8 + 1];
+    char *pStr = new char[numberOfBytes + 1];
     char *ppStr = pStr;
 
-    pData += (frombit - 1) / 8;
-
-    // replace non alphabetic ASCII characters with ?
-    for (int i = (frombit - 1) / 8; i < tobit / 8; i++) {
+    // replace non alphabetic ASCII characters with empty string
+    for (int i = 0; i < numberOfBytes; i++) {
         if (*pData >= 32 && *pData <= 126)
-            *ppStr++ = *pData++;
+            *ppStr++ = pTmp[i];
         else
             *ppStr++ = ' ';
     }
 
+    delete[] pTmp;
     *ppStr = 0;
     return pStr;
 }

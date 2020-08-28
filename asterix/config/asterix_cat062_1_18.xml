@@ -26,6 +26,7 @@
                                                 I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
     Modified: 20.08.2020. (tmartincevic) For latitude and longitude in I062/380 subfield #22 (Position), LSB is defined in the spec as 180/2^23 
                                          In I062/380 subfield #9 (Trajectory Intent Data), longitude is clamped to +/- 90 deg, should be +/- 180 deg.
+	Modified: 26.08.2020. (tmartincevic) Scale does not match the spec for I062/500, subffield #3 and subfield #5
 -->
 
 
@@ -2972,12 +2973,12 @@
                     <Bits from="17" to="32">
                         <BitsShortName>APW_Lat</BitsShortName>
                         <BitsName>APW Latitude Component</BitsName>
-                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                     <Bits from="1" to="16">
                         <BitsShortName>APW_Long</BitsShortName>
                         <BitsName>APW Longitude Component</BitsName>
-                        <BitsUnit scale="0.000021457672119140625">deg</BitsUnit>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
                     </Bits>
                 </Fixed>
 
@@ -2993,7 +2994,7 @@
                     <Bits from="1" to="8">
                         <BitsShortName>ABA_Acc</BitsShortName>
                         <BitsName>Calculated Track Barometric Altitude Estimated accuracy</BitsName>
-                        <BitsUnit scale="6.25">ft</BitsUnit>
+                        <BitsUnit scale="25">ft</BitsUnit>
                     </Bits>
                 </Fixed>
 

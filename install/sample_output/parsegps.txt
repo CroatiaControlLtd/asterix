@@ -70,12 +70,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2130 (213.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40
@@ -402,12 +402,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2230 (223.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40
@@ -580,12 +580,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2130 (213.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40
@@ -901,12 +901,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2230 (223.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40
@@ -1127,12 +1127,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2130 (213.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40
@@ -1461,12 +1461,12 @@ Item 250 : Mode S Comm B data
 	FMS Selected Altitude: 0 (0.0000000 ft)
 	Barometric Pressure Status: 1
 	Barometric Pressure: 2230 (223.0000000 mb)
-	Reserved: 0
+	Reserved 1: 0
 	Status of MCP/FCU Mode Bits: 0
 	VNAV Mode: 0 (Not active)
 	ALT HOLD Mode: 0 (Not active)
 	APPROACH Mode: 0 (Not active)
-	Reserved: 0
+	Reserved 2: 0
 	Status of Target ALT source bits: 0 (No source information provided)
 	Target ALT source: 0 (Unknown)
 	BDS register: 40

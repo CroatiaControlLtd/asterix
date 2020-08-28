@@ -360,12 +360,12 @@ CAT010:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT010:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT010:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT010:I250:BDS40:BP                                         Barometric Pressure
-CAT010:I250:BDS40:res                                        Reserved
+CAT010:I250:BDS40:res1                                       Reserved 1
 CAT010:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT010:I250:BDS40:VNAV                                       VNAV Mode
 CAT010:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT010:I250:BDS40:APP                                        APPROACH Mode
-CAT010:I250:BDS40:res                                        Reserved
+CAT010:I250:BDS40:res2                                       Reserved 2
 CAT010:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT010:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT010:I250:BDS40:BDS                                        BDS register
@@ -445,51 +445,51 @@ CAT010:I550:DIV                                              Diversity indicator
 CAT010:I550:TTF                                              Test Target indicator
 CAT010:I550:spare                                            Spare bits set to zero
 CAT010:ISP:SPval                                             
-CAT011:I000:MsgTyp                                           Type of msg.
+CAT011:I000:MsgTyp                                           Message Type
 CAT011:I010:SAC                                              System Area Code fixed to zero
-CAT011:I010:SIC                                              System Identification Code
-CAT011:I015:SI                                               the service identification is allocated by the A-SMGCS
-CAT011:I041:Lat                                              Latitude in WGS-84 in two's complement.
-CAT011:I041:Lon                                              Longitude in WGS-84 in two's complement.
-CAT011:I042:X                                                X
-CAT011:I042:Y                                                Y
-CAT011:I060:spare                                            Spare bit set to 0
+CAT011:I010:SIC                                              System Identification code
+CAT011:I015:SI                                               Service Identification
+CAT011:I041:Lat                                              Latitude in WGS-84 in two's complement
+CAT011:I041:Lon                                              Longitude in WGS-84 in two's complement
+CAT011:I042:X                                                X-Component
+CAT011:I042:Y                                                X-Component
+CAT011:I060:spare                                            Spare bit(s) set to 0
 CAT011:I060:Mod3A                                            Mode-3/A reply in octal representation
 CAT011:I090:MFL                                              Measured Flight Level
 CAT011:I092:CTGA                                             Calculated Track Geometric Altitude
-CAT011:I093:QNH                                              Primary Plot Amplitude
-CAT011:I093:CalcQNH                                          Calculated Track Barometric Altitude
+CAT011:I093:QNH                                              QNH correction applied
+CAT011:I093:CTBA                                             Calculated Track Barometric Altitude
 CAT011:I140:ToTI                                             Time of Track Information
-CAT011:I161:spare                                            Spare bits set to zero
+CAT011:I161:spare                                            Spare bit(s) set to 0
 CAT011:I161:FTN                                              Fusion Track Number
 CAT011:I170:MON                                              
 CAT011:I170:GBS                                              
 CAT011:I170:MRH                                              
 CAT011:I170:SRC                                              
 CAT011:I170:CNF                                              
-CAT011:I170:FX                                               
+CAT011:I170:FX                                               Extension Indicator
 CAT011:I170:SIM                                              
 CAT011:I170:TSE                                              
 CAT011:I170:TSB                                              
-CAT011:I170:FRI/FOE                                          
+CAT011:I170:FRIFOE                                           
 CAT011:I170:ME                                               
 CAT011:I170:MI                                               
-CAT011:I170:FX                                               
+CAT011:I170:FX                                               Extension Indicator
 CAT011:I170:AMA                                              
 CAT011:I170:SPI                                              
 CAT011:I170:CST                                              
 CAT011:I170:FPC                                              
 CAT011:I170:AFF                                              
-CAT011:I170:spare                                            Spare bits set to zero
-CAT011:I170:FX                                               
+CAT011:I170:spare                                            Spare bit(s) set to 0
+CAT011:I170:FX                                               Extension Indicator
 CAT011:I202:Vx                                               Vx
 CAT011:I202:Vy                                               Vy
 CAT011:I210:Ax                                               Ax
 CAT011:I210:Ay                                               Ay
-CAT011:I215:RoCD                                             Rate of Climb/Descent
+CAT011:I215:RoCD                                             Calculated Rate Of Climb/Descent
 CAT011:I245:STI                                              
-CAT011:I245:spare                                            Spare bits set to zero
-CAT011:I245:TId                                              Characters 1-8 (coded on 6 bits each) defining target identification
+CAT011:I245:spare                                            Spare bit(s) set to 0
+CAT011:I245:TId                                              Target Identification
 CAT011:I270:Length                                           Length
 CAT011:I270:FX                                               Extension Indicator
 CAT011:I270:Ori                                              Orientation
@@ -506,24 +506,23 @@ CAT011:I290:ADB                                              Age of the last ADS
 CAT011:I290:MD1                                              Age of the last valid Mode 1 used to update the track
 CAT011:I290:MD2                                              Age of the last Mode 2 used to update the track
 CAT011:I290:LOP                                              Age of the last magentic loop detection
-CAT011:I290:MLT                                              Age of the last MLT detection 
 CAT011:I290:TRK                                              Actual track age since first occurrence
-CAT011:I290:MUL                                              Age of the last multilateration detection 
+CAT011:I290:MUL                                              Age of the last multilateration detection
 CAT011:I300:VFI                                              Vehicle Fleet Identification
-CAT011:I310:TRB                                              
-CAT011:I310:MSG                                              
+CAT011:I310:TRB                                              In trouble
+CAT011:I310:MSG                                              Message
 CAT011:I380:BDS40:MCP_ALT_STATUS                             MCP Altitude Status
 CAT011:I380:BDS40:MCP_ALT                                    MCP/FCU Selected Altitude
 CAT011:I380:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT011:I380:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT011:I380:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT011:I380:BDS40:BP                                         Barometric Pressure
-CAT011:I380:BDS40:res                                        Reserved
+CAT011:I380:BDS40:res1                                       Reserved 1
 CAT011:I380:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT011:I380:BDS40:VNAV                                       VNAV Mode
 CAT011:I380:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT011:I380:BDS40:APP                                        APPROACH Mode
-CAT011:I380:BDS40:res                                        Reserved
+CAT011:I380:BDS40:res2                                       Reserved 2
 CAT011:I380:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT011:I380:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT011:I380:BDS40:BDS                                        BDS register
@@ -582,10 +581,10 @@ CAT011:I380:BDS60:IVV                                        Inertial Vertical V
 CAT011:I380:BDS60:BDS                                        BDS register
 CAT011:I380:BDS0:VAL                                         BDS value
 CAT011:I380:BDS0:BDS                                         BDS register
-CAT011:I380:AircraftAdress                                   24 bits Aircraft address, A23 to A0 
+CAT011:I380:ADR                                              24 bits Aircraft address
 CAT011:I380:COM                                              Communications capability of the transponder
 CAT011:I380:STAT                                             Flight Status
-CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I380:spare                                            Spare bit(s) set to 0
 CAT011:I380:SSC                                              Specific service capability
 CAT011:I380:ARC                                              Altitude reporting capability
 CAT011:I380:AIC                                              Aircraft identification capability
@@ -594,69 +593,78 @@ CAT011:I380:B1B                                              BDS 1,0 bit 37/40
 CAT011:I380:AC                                               ACAS operational
 CAT011:I380:MN                                               Multiple navigational aids operating
 CAT011:I380:DC                                               Differential correction
-CAT011:I380:spare                                            Spare bits set to 0
-CAT011:I380:AircraftType                                     Aircraft Derived Aircraft Type
+CAT011:I380:spare                                            Spare bit(s) set to 0
+CAT011:I380:ACT                                              Aircraft Derived Aircraft Type
 CAT011:I380:ECAT                                             Emitter category
-CAT011:I380:VDL                                              VDL
-CAT011:I380:MDS                                              MDS
+CAT011:I380:VDL                                              VDL Mode 4
+CAT011:I380:MDS                                              Mode S
 CAT011:I380:UAT                                              UAT
-CAT011:I380:spare                                            Spare bits set to 0
+CAT011:I380:spare                                            Spare bit(s) set to 0
 CAT011:I390:SAC                                              System Area Code
 CAT011:I390:SIC                                              System Identity Code
 CAT011:I390:CSN                                              Callsign
-CAT011:I390:TYP                                              TYP
-CAT011:I390:spare                                            Spare bits set to 0
-CAT011:I390:NBR                                              Number from 0 to 99 999 999
-CAT011:I390:GAT/OAT                                          GAT/OAT
-CAT011:I390:FR1/FR2                                          FR1/FR2
+CAT011:I390:TYP                                              IFPS Flight ID Type
+CAT011:I390:spare                                            Spare bit(s) set to 0
+CAT011:I390:NBR                                              IFPS Flight ID Number
+CAT011:I390:GAT_OAT                                          Flight type
+CAT011:I390:FR1_FR2                                          Flight rules
 CAT011:I390:RVSM                                             RVSM
-CAT011:I390:HPR                                              HPR
-CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:HPR                                              Flight priority
+CAT011:I390:spare                                            Spare bit(s) set to 0
 CAT011:I390:TOA                                              Type of Aircraft
 CAT011:I390:WTC                                              Wake Turbulence Category
-CAT011:I390:ADEP                                             Departure AirportThe Airport Names are indicated in the ICAO Location Indicators book.
-CAT011:I390:ADES                                             Destination AirportThe Airport Names are indicated in the ICAO Location Indicators book.
-CAT011:I390:RRWY                                             Runway DesignationFor details refer to ICAO Annex 14, chapter 5.
-CAT011:I390:CFL                                              (LSB) = 1/4 FL
+CAT011:I390:ADEP                                             Departure Airport
+CAT011:I390:ADES                                             Destination Airport
+CAT011:I390:RWY                                              DRunway Designation
+CAT011:I390:CFL                                              Current Cleared Flight Level
 CAT011:I390:Centre                                           8-bit group Identification code
 CAT011:I390:Position                                         8-bit Control Position identification code
-CAT011:I390:TYP                                              TYP
-CAT011:I390:DAY                                              DAY
-CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:TYP                                              Time Type
+CAT011:I390:DAY                                              Day
+CAT011:I390:spare                                            Spare bit(s) set to 0
 CAT011:I390:HOR                                              Hours, from 0 to 23
-CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:spare                                            Spare bit(s) set to 0
 CAT011:I390:MIN                                              Minutes, from 0 to 59
-CAT011:I390:AVS                                              AVS
-CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:AVS                                              Seconds available
+CAT011:I390:spare                                            Spare bit(s) set to 0
 CAT011:I390:SEC                                              Seconds, from 0 to 59
-CAT011:I390:STAND                                            Aircraft Stand
-CAT011:I390:EMP                                              EMP
-CAT011:I390:AVL                                              AVL
-CAT011:I390:spare                                            Spare bits set to 0
+CAT011:I390:AST                                              Aircraft Stand
+CAT011:I390:EMP                                              Stand empty
+CAT011:I390:AVL                                              Stand available
+CAT011:I390:spare                                            Spare bit(s) set to 0
 CAT011:I430:FLS                                              Phase of flight
-CAT011:I500:APC_X                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
-CAT011:I500:APC_Y                                            Estimated accuracy i.e. standard deviation of the calculated position of an aircraft expressed in Cartesian co-ordinates
-CAT011:I500:COV_XY                                           XY covariance component
-CAT011:I500:APW_Lat                                          APW Latitude Component
-CAT011:I500:APW_Long                                         APW Longitude Component
-CAT011:I500:AGA_Acc                                          Calculated Track Geometric Altitude Estimated accuracy
-CAT011:I500:ABA_Acc                                          Calculated Track Barometric Altitude Estimated accuracy
-CAT011:I500:ATV_X                                            Estimated Accuracy Of Track Velocity X_Cartesian
-CAT011:I500:ATV_Y                                            Estimated Accuracy Of Track Velocity Y_Cartesian
-CAT011:I500:AA_X                                             Estimated Accuracy Of Acceleration X_Cartesian
-CAT011:I500:AA_Y                                             Estimated Accuracy Of Acceleration Y_Cartesian
-CAT011:I500:ARC_Acc                                          Rate Of Climb/Descent Estimated accuracy
-CAT011:I600:ACK                                              ACK
-CAT011:I600:SVR                                              SVR
-CAT011:I600:spare                                            Spare Bit set to zero
+CAT011:I500:APC_X                                            Estimated accuracy of the calculated position of X Component
+CAT011:I500:APC_Y                                            Estimated accuracy of the calculated position of Y Component
+CAT011:I500:APW_Lat                                          APW Latitude Component Accuracy
+CAT011:I500:APW_Lon                                          APW Longitude Component Accuracy
+CAT011:I500:ATH                                              Estimated Accuracy Of Track Height
+CAT011:I500:AVC_X                                            Estimated accuracy of the calculated velocity of X Component
+CAT011:I500:AVC_Y                                            Estimated accuracy of the calculated velocity of Y Component
+CAT011:I500:ARC                                              Estimated Accuracy Of Rate Of Climb / Descent
+CAT011:I500:AAC_X                                            Estimated Accuracy Of Acceleration of X Component
+CAT011:I500:AAC_Y                                            Estimated Accuracy Of Acceleration of Y Component
+CAT011:I600:ACK                                              Alert acknowleged
+CAT011:I600:SVR                                              Alert severity
+CAT011:I600:spare                                            Spare bit(s) set to 0
 CAT011:I600:AT                                               Alert Type
 CAT011:I600:AN                                               Alert Number
-CAT011:I605:spare                                            Spare Bit set to zero
+CAT011:I605:spare                                            Spare bit(s) set to 0
 CAT011:I605:FTN                                              Fusion Track Number
-CAT011:I610:spare                                            Spare Bit set to zero
-CAT011:I610:li                                               Indicator
-CAT011:ISP:SPval                                             
-CAT011:IRE:REval                                             
+CAT011:I610:BKN                                              Bank Number
+CAT011:I610:I1                                               Indicator 1
+CAT011:I610:I2                                               Indicator 2
+CAT011:I610:I3                                               Indicator 3
+CAT011:I610:I4                                               Indicator 4
+CAT011:I610:I5                                               Indicator 5
+CAT011:I610:I6                                               Indicator 6
+CAT011:I610:I7                                               Indicator 7
+CAT011:I610:I8                                               Indicator 8
+CAT011:I610:I9                                               Indicator 9
+CAT011:I610:I10                                              Indicator 10
+CAT011:I610:I11                                              Indicator 11
+CAT011:I610:I12                                              Indicator 12
+CAT011:ISP:VAL                                               
+CAT011:IRE:VAL                                               
 CAT019:I000:MsgTyp                                           Message Type
 CAT019:I010:SAC                                              System Area Code
 CAT019:I010:SIC                                              System Identification Code
@@ -770,12 +778,12 @@ CAT020:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT020:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT020:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT020:I250:BDS40:BP                                         Barometric Pressure
-CAT020:I250:BDS40:res                                        Reserved
+CAT020:I250:BDS40:res1                                       Reserved 1
 CAT020:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT020:I250:BDS40:VNAV                                       VNAV Mode
 CAT020:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT020:I250:BDS40:APP                                        APPROACH Mode
-CAT020:I250:BDS40:res                                        Reserved
+CAT020:I250:BDS40:res2                                       Reserved 2
 CAT020:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT020:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT020:I250:BDS40:BDS                                        BDS register
@@ -1008,12 +1016,12 @@ CAT021:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT021:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT021:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT021:I250:BDS40:BP                                         Barometric Pressure
-CAT021:I250:BDS40:res                                        Reserved
+CAT021:I250:BDS40:res1                                       Reserved 1
 CAT021:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT021:I250:BDS40:VNAV                                       VNAV Mode
 CAT021:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT021:I250:BDS40:APP                                        APPROACH Mode
-CAT021:I250:BDS40:res                                        Reserved
+CAT021:I250:BDS40:res2                                       Reserved 2
 CAT021:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT021:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT021:I250:BDS40:BDS                                        BDS register
@@ -1625,12 +1633,12 @@ CAT048:I250:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT048:I250:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT048:I250:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT048:I250:BDS40:BP                                         Barometric Pressure
-CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:res1                                       Reserved 1
 CAT048:I250:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT048:I250:BDS40:VNAV                                       VNAV Mode
 CAT048:I250:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT048:I250:BDS40:APP                                        APPROACH Mode
-CAT048:I250:BDS40:res                                        Reserved
+CAT048:I250:BDS40:res2                                       Reserved 2
 CAT048:I250:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT048:I250:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT048:I250:BDS40:BDS                                        BDS register
@@ -1753,6 +1761,9 @@ CAT062:I080:FX
 CAT062:I080:DUPT                                             
 CAT062:I080:DUPF                                             
 CAT062:I080:DUPM                                             
+CAT062:I080:SFC                                              
+CAT062:I080:IDD                                              
+CAT062:I080:IEC                                              
 CAT062:I080:spare                                            Spare bits set to 0
 CAT062:I080:FX                                               
 CAT062:I100:X                                                X
@@ -1963,12 +1974,12 @@ CAT062:I380:BDS40:FMS_ALT_STATUS                             FMS Altitude Status
 CAT062:I380:BDS40:FMS_ALT                                    FMS Selected Altitude
 CAT062:I380:BDS40:BP_STATUS                                  Barometric Pressure Status
 CAT062:I380:BDS40:BP                                         Barometric Pressure
-CAT062:I380:BDS40:res                                        Reserved
+CAT062:I380:BDS40:res1                                       Reserved 1
 CAT062:I380:BDS40:MODE_STATUS                                Status of MCP/FCU Mode Bits
 CAT062:I380:BDS40:VNAV                                       VNAV Mode
 CAT062:I380:BDS40:ALT_HOLD                                   ALT HOLD Mode
 CAT062:I380:BDS40:APP                                        APPROACH Mode
-CAT062:I380:BDS40:res                                        Reserved
+CAT062:I380:BDS40:res2                                       Reserved 2
 CAT062:I380:BDS40:TARGET_ALT_STATUS                          Status of Target ALT source bits
 CAT062:I380:BDS40:TARGET_ALT_SOURCE                          Target ALT source
 CAT062:I380:BDS40:BDS                                        BDS register
