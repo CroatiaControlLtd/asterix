@@ -97,7 +97,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 C8 92 3F ]
-	Calculated groundspeed: 2504 (550.8800000 kt)
+	Calculated groundspeed: 2504 (550.1953125 kt)
 	Calculated heading: 37439 (205.6585693 deg)
 
 Item 170 : Track Status
@@ -189,7 +189,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 01 2A 56 ]
-	Calculated groundspeed: 1 (0.2200000 kt)
+	Calculated groundspeed: 1 (0.2197266 kt)
 	Calculated heading: 10838 (59.5349121 deg)
 
 Item 170 : Track Status
@@ -429,7 +429,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 24 8F 17 ]
-	Calculated groundspeed: 1572 (345.8400000 kt)
+	Calculated groundspeed: 1572 (345.4101562 kt)
 	Calculated heading: 36631 (201.2200928 deg)
 
 Item 170 : Track Status
@@ -498,7 +498,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 01 A0 C9 C7 ]
-	Calculated groundspeed: 416 (91.5200000 kt)
+	Calculated groundspeed: 416 (91.4062500 kt)
 	Calculated heading: 51655 (283.7493896 deg)
 
 Item 170 : Track Status
@@ -596,7 +596,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 C3 92 5D ]
-	Calculated groundspeed: 2499 (549.7800000 kt)
+	Calculated groundspeed: 2499 (549.0966797 kt)
 	Calculated heading: 37469 (205.8233643 deg)
 
 Item 170 : Track Status
@@ -688,7 +688,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 01 FD 0A ]
-	Calculated groundspeed: 1 (0.2200000 kt)
+	Calculated groundspeed: 1 (0.2197266 kt)
 	Calculated heading: 64778 (355.8361816 deg)
 
 Item 170 : Track Status
@@ -928,7 +928,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 28 8F 3F ]
-	Calculated groundspeed: 1576 (346.7200000 kt)
+	Calculated groundspeed: 1576 (346.2890625 kt)
 	Calculated heading: 36671 (201.4398193 deg)
 
 Item 170 : Track Status
@@ -1045,7 +1045,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 01 4B AC BE ]
-	Calculated groundspeed: 331 (72.8200000 kt)
+	Calculated groundspeed: 331 (72.7294922 kt)
 	Calculated heading: 44222 (242.9187012 deg)
 
 Item 170 : Track Status
@@ -1154,7 +1154,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 C2 92 67 ]
-	Calculated groundspeed: 2498 (549.5600000 kt)
+	Calculated groundspeed: 2498 (548.8769531 kt)
 	Calculated heading: 37479 (205.8782959 deg)
 
 Item 170 : Track Status
@@ -1477,7 +1477,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 18 8F EE ]
-	Calculated groundspeed: 1560 (343.2000000 kt)
+	Calculated groundspeed: 1560 (342.7734375 kt)
 	Calculated heading: 36846 (202.4011230 deg)
 
 Item 170 : Track Status

@@ -80,7 +80,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 B9 58 2E ]
-	Calculated groundspeed: 1977 (434.9400000 kt)
+	Calculated groundspeed: 1977 (434.3994141 kt)
 	Calculated heading: 22574 (124.0026855 deg)
 
 Item 170 : Track Status
@@ -190,7 +190,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 B9 58 2E ]
-	Calculated groundspeed: 1977 (434.9400000 kt)
+	Calculated groundspeed: 1977 (434.3994141 kt)
 	Calculated heading: 22574 (124.0026855 deg)
 
 Item 170 : Track Status
@@ -311,7 +311,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 1E BB 73 ]
-	Calculated groundspeed: 2078 (457.1600000 kt)
+	Calculated groundspeed: 2078 (456.5917969 kt)
 	Calculated heading: 47987 (263.6004639 deg)
 
 Item 170 : Track Status
@@ -454,7 +454,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 1E BB 73 ]
-	Calculated groundspeed: 2078 (457.1600000 kt)
+	Calculated groundspeed: 2078 (456.5917969 kt)
 	Calculated heading: 47987 (263.6004639 deg)
 
 Item 170 : Track Status
@@ -667,7 +667,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 DC E1 B5 ]
-	Calculated groundspeed: 2012 (442.6400000 kt)
+	Calculated groundspeed: 2012 (442.0898438 kt)
 	Calculated heading: 57781 (317.4005127 deg)
 
 Item 170 : Track Status
@@ -777,7 +777,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 FC E2 FF ]
-	Calculated groundspeed: 2044 (449.6800000 kt)
+	Calculated groundspeed: 2044 (449.1210938 kt)
 	Calculated heading: 58111 (319.2132568 deg)
 
 Item 170 : Track Status
@@ -883,7 +883,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 EB E2 78 ]
-	Calculated groundspeed: 2027 (445.9400000 kt)
+	Calculated groundspeed: 2027 (445.3857422 kt)
 	Calculated heading: 57976 (318.4716797 deg)
 
 Item 170 : Track Status
@@ -1096,7 +1096,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 DC E1 B5 ]
-	Calculated groundspeed: 2012 (442.6400000 kt)
+	Calculated groundspeed: 2012 (442.0898438 kt)
 	Calculated heading: 57781 (317.4005127 deg)
 
 Item 170 : Track Status
@@ -1206,7 +1206,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 FC E2 FF ]
-	Calculated groundspeed: 2044 (449.6800000 kt)
+	Calculated groundspeed: 2044 (449.1210938 kt)
 	Calculated heading: 58111 (319.2132568 deg)
 
 Item 170 : Track Status
@@ -1312,7 +1312,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 EB E2 78 ]
-	Calculated groundspeed: 2027 (445.9400000 kt)
+	Calculated groundspeed: 2027 (445.3857422 kt)
 	Calculated heading: 57976 (318.4716797 deg)
 
 Item 170 : Track Status
@@ -1455,7 +1455,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 5D CD 83 ]
-	Calculated groundspeed: 2141 (471.0200000 kt)
+	Calculated groundspeed: 2141 (470.4345703 kt)
 	Calculated heading: 52611 (289.0008545 deg)
 
 Item 170 : Track Status
@@ -1581,7 +1581,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 5D CD 83 ]
-	Calculated groundspeed: 2141 (471.0200000 kt)
+	Calculated groundspeed: 2141 (470.4345703 kt)
 	Calculated heading: 52611 (289.0008545 deg)
 
 Item 170 : Track Status
@@ -1696,7 +1696,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 D1 79 9A ]
-	Calculated groundspeed: 1745 (383.9000000 kt)
+	Calculated groundspeed: 1745 (383.4228516 kt)
 	Calculated heading: 31130 (171.0021973 deg)
 
 Item 170 : Track Status
@@ -1811,7 +1811,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 D1 79 9A ]
-	Calculated groundspeed: 1745 (383.9000000 kt)
+	Calculated groundspeed: 1745 (383.4228516 kt)
 	Calculated heading: 31130 (171.0021973 deg)
 
 Item 170 : Track Status
@@ -1908,7 +1908,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 01 59 EB 61 ]
-	Calculated groundspeed: 345 (75.9000000 kt)
+	Calculated groundspeed: 345 (75.8056641 kt)
 	Calculated heading: 60257 (331.0015869 deg)
 
 Item 170 : Track Status
@@ -2000,7 +2000,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 01 59 EB 61 ]
-	Calculated groundspeed: 345 (75.9000000 kt)
+	Calculated groundspeed: 345 (75.8056641 kt)
 	Calculated heading: 60257 (331.0015869 deg)
 
 Item 170 : Track Status
@@ -2103,7 +2103,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 9D E7 82 ]
-	Calculated groundspeed: 1949 (428.7800000 kt)
+	Calculated groundspeed: 1949 (428.2470703 kt)
 	Calculated heading: 59266 (325.5578613 deg)
 
 Item 170 : Track Status
@@ -2209,7 +2209,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C7 5B 5E ]
-	Calculated groundspeed: 1991 (438.0200000 kt)
+	Calculated groundspeed: 1991 (437.4755859 kt)
 	Calculated heading: 23390 (128.4851074 deg)
 
 Item 170 : Track Status
@@ -2319,7 +2319,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 41 5E 21 ]
-	Calculated groundspeed: 2113 (464.8600000 kt)
+	Calculated groundspeed: 2113 (464.2822266 kt)
 	Calculated heading: 24097 (132.3687744 deg)
 
 Item 170 : Track Status
@@ -2410,7 +2410,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 11 DC A7 ]
-	Calculated groundspeed: 2065 (454.3000000 kt)
+	Calculated groundspeed: 2065 (453.7353516 kt)
 	Calculated heading: 56487 (310.2923584 deg)
 
 Item 170 : Track Status
@@ -2502,7 +2502,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 0A E3 E5 ]
-	Calculated groundspeed: 522 (114.8400000 kt)
+	Calculated groundspeed: 522 (114.6972656 kt)
 	Calculated heading: 58341 (320.4766846 deg)
 
 Item 170 : Track Status
@@ -2612,7 +2612,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A9 B1 0F ]
-	Calculated groundspeed: 1961 (431.4200000 kt)
+	Calculated groundspeed: 1961 (430.8837891 kt)
 	Calculated heading: 45327 (248.9886475 deg)
 
 Item 170 : Track Status
@@ -2704,7 +2704,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 4A 6B DC ]
-	Calculated groundspeed: 586 (128.9200000 kt)
+	Calculated groundspeed: 586 (128.7597656 kt)
 	Calculated heading: 27612 (151.6772461 deg)
 
 Item 170 : Track Status
@@ -2796,7 +2796,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 85 5B EF ]
-	Calculated groundspeed: 2181 (479.8200000 kt)
+	Calculated groundspeed: 2181 (479.2236328 kt)
 	Calculated heading: 23535 (129.2816162 deg)
 
 Item 170 : Track Status
@@ -2888,7 +2888,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 5A D8 60 ]
-	Calculated groundspeed: 1114 (245.0800000 kt)
+	Calculated groundspeed: 1114 (244.7753906 kt)
 	Calculated heading: 55392 (304.2773438 deg)
 
 Item 170 : Track Status
@@ -3013,7 +3013,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 9D E7 82 ]
-	Calculated groundspeed: 1949 (428.7800000 kt)
+	Calculated groundspeed: 1949 (428.2470703 kt)
 	Calculated heading: 59266 (325.5578613 deg)
 
 Item 170 : Track Status
@@ -3119,7 +3119,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C7 5B 5E ]
-	Calculated groundspeed: 1991 (438.0200000 kt)
+	Calculated groundspeed: 1991 (437.4755859 kt)
 	Calculated heading: 23390 (128.4851074 deg)
 
 Item 170 : Track Status
@@ -3229,7 +3229,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 41 5E 21 ]
-	Calculated groundspeed: 2113 (464.8600000 kt)
+	Calculated groundspeed: 2113 (464.2822266 kt)
 	Calculated heading: 24097 (132.3687744 deg)
 
 Item 170 : Track Status
@@ -3320,7 +3320,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 11 DC A7 ]
-	Calculated groundspeed: 2065 (454.3000000 kt)
+	Calculated groundspeed: 2065 (453.7353516 kt)
 	Calculated heading: 56487 (310.2923584 deg)
 
 Item 170 : Track Status
@@ -3412,7 +3412,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 0A E3 E5 ]
-	Calculated groundspeed: 522 (114.8400000 kt)
+	Calculated groundspeed: 522 (114.6972656 kt)
 	Calculated heading: 58341 (320.4766846 deg)
 
 Item 170 : Track Status
@@ -3522,7 +3522,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A9 B1 0F ]
-	Calculated groundspeed: 1961 (431.4200000 kt)
+	Calculated groundspeed: 1961 (430.8837891 kt)
 	Calculated heading: 45327 (248.9886475 deg)
 
 Item 170 : Track Status
@@ -3614,7 +3614,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 4A 6B DC ]
-	Calculated groundspeed: 586 (128.9200000 kt)
+	Calculated groundspeed: 586 (128.7597656 kt)
 	Calculated heading: 27612 (151.6772461 deg)
 
 Item 170 : Track Status
@@ -3706,7 +3706,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 85 5B EF ]
-	Calculated groundspeed: 2181 (479.8200000 kt)
+	Calculated groundspeed: 2181 (479.2236328 kt)
 	Calculated heading: 23535 (129.2816162 deg)
 
 Item 170 : Track Status
@@ -3798,7 +3798,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 5A D8 60 ]
-	Calculated groundspeed: 1114 (245.0800000 kt)
+	Calculated groundspeed: 1114 (244.7753906 kt)
 	Calculated heading: 55392 (304.2773438 deg)
 
 Item 170 : Track Status
@@ -3952,7 +3952,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 3C 51 A2 ]
-	Calculated groundspeed: 1852 (407.4400000 kt)
+	Calculated groundspeed: 1852 (406.9335938 kt)
 	Calculated heading: 20898 (114.7961426 deg)
 
 Item 170 : Track Status
@@ -4106,7 +4106,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 3C 51 A2 ]
-	Calculated groundspeed: 1852 (407.4400000 kt)
+	Calculated groundspeed: 1852 (406.9335938 kt)
 	Calculated heading: 20898 (114.7961426 deg)
 
 Item 170 : Track Status
@@ -4422,7 +4422,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 DE D6 C1 ]
-	Calculated groundspeed: 2014 (443.0800000 kt)
+	Calculated groundspeed: 2014 (442.5292969 kt)
 	Calculated heading: 54977 (301.9976807 deg)
 
 Item 170 : Track Status
@@ -4537,7 +4537,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 DE D6 C1 ]
-	Calculated groundspeed: 2014 (443.0800000 kt)
+	Calculated groundspeed: 2014 (442.5292969 kt)
 	Calculated heading: 54977 (301.9976807 deg)
 
 Item 170 : Track Status
@@ -4652,7 +4652,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F9 CD 83 ]
-	Calculated groundspeed: 2041 (449.0200000 kt)
+	Calculated groundspeed: 2041 (448.4619141 kt)
 	Calculated heading: 52611 (289.0008545 deg)
 
 Item 170 : Track Status
@@ -4762,7 +4762,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F9 CD 83 ]
-	Calculated groundspeed: 2041 (449.0200000 kt)
+	Calculated groundspeed: 2041 (448.4619141 kt)
 	Calculated heading: 52611 (289.0008545 deg)
 
 Item 170 : Track Status
@@ -4872,7 +4872,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 55 E0 00 ]
-	Calculated groundspeed: 1877 (412.9400000 kt)
+	Calculated groundspeed: 1877 (412.4267578 kt)
 	Calculated heading: 57344 (315.0000000 deg)
 
 Item 170 : Track Status
@@ -4987,7 +4987,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 55 E0 00 ]
-	Calculated groundspeed: 1877 (412.9400000 kt)
+	Calculated groundspeed: 1877 (412.4267578 kt)
 	Calculated heading: 57344 (315.0000000 deg)
 
 Item 170 : Track Status
@@ -5102,7 +5102,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 F3 69 F5 ]
-	Calculated groundspeed: 2291 (504.0200000 kt)
+	Calculated groundspeed: 2291 (503.3935547 kt)
 	Calculated heading: 27125 (149.0020752 deg)
 
 Item 170 : Track Status
@@ -5217,7 +5217,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 F3 69 F5 ]
-	Calculated groundspeed: 2291 (504.0200000 kt)
+	Calculated groundspeed: 2291 (503.3935547 kt)
 	Calculated heading: 27125 (149.0020752 deg)
 
 Item 170 : Track Status
@@ -5343,7 +5343,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 CF 7B BC ]
-	Calculated groundspeed: 2255 (496.1000000 kt)
+	Calculated groundspeed: 2255 (495.4833984 kt)
 	Calculated heading: 31676 (174.0014648 deg)
 
 Item 170 : Track Status
@@ -5469,7 +5469,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 CF 7B BC ]
-	Calculated groundspeed: 2255 (496.1000000 kt)
+	Calculated groundspeed: 2255 (495.4833984 kt)
 	Calculated heading: 31676 (174.0014648 deg)
 
 Item 170 : Track Status
@@ -5690,7 +5690,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 94 E3 37 ]
-	Calculated groundspeed: 1940 (426.8000000 kt)
+	Calculated groundspeed: 1940 (426.2695312 kt)
 	Calculated heading: 58167 (319.5208740 deg)
 
 Item 170 : Track Status
@@ -5782,7 +5782,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 D8 5A DE ]
-	Calculated groundspeed: 1240 (272.8000000 kt)
+	Calculated groundspeed: 1240 (272.4609375 kt)
 	Calculated heading: 23262 (127.7819824 deg)
 
 Item 170 : Track Status
@@ -5933,7 +5933,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 94 E3 37 ]
-	Calculated groundspeed: 1940 (426.8000000 kt)
+	Calculated groundspeed: 1940 (426.2695312 kt)
 	Calculated heading: 58167 (319.5208740 deg)
 
 Item 170 : Track Status
@@ -6025,7 +6025,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 D8 5A DE ]
-	Calculated groundspeed: 1240 (272.8000000 kt)
+	Calculated groundspeed: 1240 (272.4609375 kt)
 	Calculated heading: 23262 (127.7819824 deg)
 
 Item 170 : Track Status
@@ -6189,7 +6189,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 4B 5F AC ]
-	Calculated groundspeed: 1611 (354.4200000 kt)
+	Calculated groundspeed: 1611 (353.9794922 kt)
 	Calculated heading: 24492 (134.5385742 deg)
 
 Item 170 : Track Status
@@ -6299,7 +6299,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A6 63 46 ]
-	Calculated groundspeed: 1958 (430.7600000 kt)
+	Calculated groundspeed: 1958 (430.2246094 kt)
 	Calculated heading: 25414 (139.6032715 deg)
 
 Item 170 : Track Status
@@ -6463,7 +6463,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 4B 5F AC ]
-	Calculated groundspeed: 1611 (354.4200000 kt)
+	Calculated groundspeed: 1611 (353.9794922 kt)
 	Calculated heading: 24492 (134.5385742 deg)
 
 Item 170 : Track Status
@@ -6573,7 +6573,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A6 63 46 ]
-	Calculated groundspeed: 1958 (430.7600000 kt)
+	Calculated groundspeed: 1958 (430.2246094 kt)
 	Calculated heading: 25414 (139.6032715 deg)
 
 Item 170 : Track Status
@@ -6763,7 +6763,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 D2 B0 48 ]
-	Calculated groundspeed: 2002 (440.4400000 kt)
+	Calculated groundspeed: 2002 (439.8925781 kt)
 	Calculated heading: 45128 (247.8955078 deg)
 
 Item 170 : Track Status
@@ -6900,7 +6900,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 D2 B0 48 ]
-	Calculated groundspeed: 2002 (440.4400000 kt)
+	Calculated groundspeed: 2002 (439.8925781 kt)
 	Calculated heading: 45128 (247.8955078 deg)
 
 Item 170 : Track Status
@@ -7241,7 +7241,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 83 DB 61 ]
-	Calculated groundspeed: 1923 (423.0600000 kt)
+	Calculated groundspeed: 1923 (422.5341797 kt)
 	Calculated heading: 56161 (308.5015869 deg)
 
 Item 170 : Track Status
@@ -7378,7 +7378,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 83 DB 61 ]
-	Calculated groundspeed: 1923 (423.0600000 kt)
+	Calculated groundspeed: 1923 (422.5341797 kt)
 	Calculated heading: 56161 (308.5015869 deg)
 
 Item 170 : Track Status
@@ -7493,7 +7493,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 E1 69 3F ]
-	Calculated groundspeed: 2273 (500.0600000 kt)
+	Calculated groundspeed: 2273 (499.4384766 kt)
 	Calculated heading: 26943 (148.0023193 deg)
 
 Item 170 : Track Status
@@ -7619,7 +7619,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 E1 69 3F ]
-	Calculated groundspeed: 2273 (500.0600000 kt)
+	Calculated groundspeed: 2273 (499.4384766 kt)
 	Calculated heading: 26943 (148.0023193 deg)
 
 Item 170 : Track Status
@@ -7734,7 +7734,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 5D C4 44 ]
-	Calculated groundspeed: 605 (133.1000000 kt)
+	Calculated groundspeed: 605 (132.9345703 kt)
 	Calculated heading: 50244 (275.9985352 deg)
 
 Item 170 : Track Status
@@ -7849,7 +7849,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 5D C4 44 ]
-	Calculated groundspeed: 605 (133.1000000 kt)
+	Calculated groundspeed: 605 (132.9345703 kt)
 	Calculated heading: 50244 (275.9985352 deg)
 
 Item 170 : Track Status
@@ -7975,7 +7975,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 E2 CB 61 ]
-	Calculated groundspeed: 2018 (443.9600000 kt)
+	Calculated groundspeed: 2018 (443.4082031 kt)
 	Calculated heading: 52065 (286.0015869 deg)
 
 Item 170 : Track Status
@@ -8101,7 +8101,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 E2 CB 61 ]
-	Calculated groundspeed: 2018 (443.9600000 kt)
+	Calculated groundspeed: 2018 (443.4082031 kt)
 	Calculated heading: 52065 (286.0015869 deg)
 
 Item 170 : Track Status
@@ -8198,7 +8198,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 4F 5B 06 ]
-	Calculated groundspeed: 2127 (467.9400000 kt)
+	Calculated groundspeed: 2127 (467.3583984 kt)
 	Calculated heading: 23302 (128.0017090 deg)
 
 Item 170 : Track Status
@@ -8295,7 +8295,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 4F 5B 06 ]
-	Calculated groundspeed: 2127 (467.9400000 kt)
+	Calculated groundspeed: 2127 (467.3583984 kt)
 	Calculated heading: 23302 (128.0017090 deg)
 
 Item 170 : Track Status
@@ -8421,7 +8421,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 19 D3 E9 ]
-	Calculated groundspeed: 2073 (456.0600000 kt)
+	Calculated groundspeed: 2073 (455.4931641 kt)
 	Calculated heading: 54249 (297.9986572 deg)
 
 Item 170 : Track Status
@@ -8547,7 +8547,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 19 D3 E9 ]
-	Calculated groundspeed: 2073 (456.0600000 kt)
+	Calculated groundspeed: 2073 (455.4931641 kt)
 	Calculated heading: 54249 (297.9986572 deg)
 
 Item 170 : Track Status
@@ -8673,7 +8673,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 71 EB 61 ]
-	Calculated groundspeed: 1905 (419.1000000 kt)
+	Calculated groundspeed: 1905 (418.5791016 kt)
 	Calculated heading: 60257 (331.0015869 deg)
 
 Item 170 : Track Status
@@ -8799,7 +8799,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 71 EB 61 ]
-	Calculated groundspeed: 1905 (419.1000000 kt)
+	Calculated groundspeed: 1905 (418.5791016 kt)
 	Calculated heading: 60257 (331.0015869 deg)
 
 Item 170 : Track Status
@@ -8916,7 +8916,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 0F 85 B0 ]
-	Calculated groundspeed: 527 (115.9400000 kt)
+	Calculated groundspeed: 527 (115.7958984 kt)
 	Calculated heading: 34224 (187.9980469 deg)
 
 Item 170 : Track Status
@@ -9028,7 +9028,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 02 0F 85 B0 ]
-	Calculated groundspeed: 527 (115.9400000 kt)
+	Calculated groundspeed: 527 (115.7958984 kt)
 	Calculated heading: 34224 (187.9980469 deg)
 
 Item 170 : Track Status
@@ -9138,7 +9138,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C2 78 2E ]
-	Calculated groundspeed: 1986 (436.9200000 kt)
+	Calculated groundspeed: 1986 (436.3769531 kt)
 	Calculated heading: 30766 (169.0026855 deg)
 
 Item 170 : Track Status
@@ -9253,7 +9253,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C2 78 2E ]
-	Calculated groundspeed: 1986 (436.9200000 kt)
+	Calculated groundspeed: 1986 (436.3769531 kt)
 	Calculated heading: 30766 (169.0026855 deg)
 
 Item 170 : Track Status
@@ -9368,7 +9368,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 DF F8 E4 ]
-	Calculated groundspeed: 1759 (386.9800000 kt)
+	Calculated groundspeed: 1759 (386.4990234 kt)
 	Calculated heading: 63716 (350.0024414 deg)
 
 Item 170 : Track Status
@@ -9483,7 +9483,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 DF F8 E4 ]
-	Calculated groundspeed: 1759 (386.9800000 kt)
+	Calculated groundspeed: 1759 (386.4990234 kt)
 	Calculated heading: 63716 (350.0024414 deg)
 
 Item 170 : Track Status
@@ -9605,7 +9605,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F8 67 2B ]
-	Calculated groundspeed: 2040 (448.8000000 kt)
+	Calculated groundspeed: 2040 (448.2421875 kt)
 	Calculated heading: 26411 (145.0799561 deg)
 
 Item 170 : Track Status
@@ -9744,7 +9744,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F8 67 2B ]
-	Calculated groundspeed: 2040 (448.8000000 kt)
+	Calculated groundspeed: 2040 (448.2421875 kt)
 	Calculated heading: 26411 (145.0799561 deg)
 
 Item 170 : Track Status
@@ -9887,7 +9887,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 F1 E0 00 ]
-	Calculated groundspeed: 1777 (390.9400000 kt)
+	Calculated groundspeed: 1777 (390.4541016 kt)
 	Calculated heading: 57344 (315.0000000 deg)
 
 Item 170 : Track Status
@@ -10013,7 +10013,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 F1 E0 00 ]
-	Calculated groundspeed: 1777 (390.9400000 kt)
+	Calculated groundspeed: 1777 (390.4541016 kt)
 	Calculated heading: 57344 (315.0000000 deg)
 
 Item 170 : Track Status
@@ -10121,7 +10121,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 2D EE 92 ]
-	Calculated groundspeed: 1581 (347.8200000 kt)
+	Calculated groundspeed: 1581 (347.3876953 kt)
 	Calculated heading: 61074 (335.4895020 deg)
 
 Item 170 : Track Status
@@ -10231,7 +10231,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 CA E7 D0 ]
-	Calculated groundspeed: 1226 (269.7200000 kt)
+	Calculated groundspeed: 1226 (269.3847656 kt)
 	Calculated heading: 59344 (325.9863281 deg)
 
 Item 170 : Track Status
@@ -10356,7 +10356,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 2D EE 92 ]
-	Calculated groundspeed: 1581 (347.8200000 kt)
+	Calculated groundspeed: 1581 (347.3876953 kt)
 	Calculated heading: 61074 (335.4895020 deg)
 
 Item 170 : Track Status
@@ -10466,7 +10466,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 04 CA E7 D0 ]
-	Calculated groundspeed: 1226 (269.7200000 kt)
+	Calculated groundspeed: 1226 (269.3847656 kt)
 	Calculated heading: 59344 (325.9863281 deg)
 
 Item 170 : Track Status
@@ -10609,7 +10609,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 95 D1 C7 ]
-	Calculated groundspeed: 1941 (427.0200000 kt)
+	Calculated groundspeed: 1941 (426.4892578 kt)
 	Calculated heading: 53703 (294.9993896 deg)
 
 Item 170 : Track Status
@@ -10735,7 +10735,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 95 D1 C7 ]
-	Calculated groundspeed: 1941 (427.0200000 kt)
+	Calculated groundspeed: 1941 (426.4892578 kt)
 	Calculated heading: 53703 (294.9993896 deg)
 
 Item 170 : Track Status
@@ -10850,7 +10850,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 34 E0 B6 ]
-	Calculated groundspeed: 2100 (462.0000000 kt)
+	Calculated groundspeed: 2100 (461.4257812 kt)
 	Calculated heading: 57526 (315.9997559 deg)
 
 Item 170 : Track Status
@@ -10947,7 +10947,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 17 8E 39 ]
-	Calculated groundspeed: 23 (5.0600000 kt)
+	Calculated groundspeed: 23 (5.0537109 kt)
 	Calculated heading: 36409 (200.0006104 deg)
 
 Item 170 : Track Status
@@ -11057,7 +11057,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 34 E0 B6 ]
-	Calculated groundspeed: 2100 (462.0000000 kt)
+	Calculated groundspeed: 2100 (461.4257812 kt)
 	Calculated heading: 57526 (315.9997559 deg)
 
 Item 170 : Track Status
@@ -11172,7 +11172,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 48 D9 9A ]
-	Calculated groundspeed: 1864 (410.0800000 kt)
+	Calculated groundspeed: 1864 (409.5703125 kt)
 	Calculated heading: 55706 (306.0021973 deg)
 
 Item 170 : Track Status
@@ -11269,7 +11269,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 17 8E 39 ]
-	Calculated groundspeed: 23 (5.0600000 kt)
+	Calculated groundspeed: 23 (5.0537109 kt)
 	Calculated heading: 36409 (200.0006104 deg)
 
 Item 170 : Track Status
@@ -11379,7 +11379,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 48 D9 9A ]
-	Calculated groundspeed: 1864 (410.0800000 kt)
+	Calculated groundspeed: 1864 (409.5703125 kt)
 	Calculated heading: 55706 (306.0021973 deg)
 
 Item 170 : Track Status
@@ -11516,7 +11516,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A9 A4 C7 ]
-	Calculated groundspeed: 1961 (431.4200000 kt)
+	Calculated groundspeed: 1961 (430.8837891 kt)
 	Calculated heading: 42183 (231.7181396 deg)
 
 Item 170 : Track Status
@@ -11608,7 +11608,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 B7 65 A6 ]
-	Calculated groundspeed: 1975 (434.5000000 kt)
+	Calculated groundspeed: 1975 (433.9599609 kt)
 	Calculated heading: 26022 (142.9431152 deg)
 
 Item 170 : Track Status
@@ -11718,7 +11718,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 98 05 C0 ]
-	Calculated groundspeed: 1944 (427.6800000 kt)
+	Calculated groundspeed: 1944 (427.1484375 kt)
 	Calculated heading: 1472 (8.0859375 deg)
 
 Item 170 : Track Status
@@ -11810,7 +11810,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C9 35 E4 ]
-	Calculated groundspeed: 1993 (438.4600000 kt)
+	Calculated groundspeed: 1993 (437.9150391 kt)
 	Calculated heading: 13796 (75.7836914 deg)
 
 Item 170 : Track Status
@@ -11920,7 +11920,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 0A 05 F1 ]
-	Calculated groundspeed: 2058 (452.7600000 kt)
+	Calculated groundspeed: 2058 (452.1972656 kt)
 	Calculated heading: 1521 (8.3551025 deg)
 
 Item 170 : Track Status
@@ -12052,7 +12052,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F4 46 66 ]
-	Calculated groundspeed: 2036 (447.9200000 kt)
+	Calculated groundspeed: 2036 (447.3632812 kt)
 	Calculated heading: 18022 (98.9978027 deg)
 
 Item 170 : Track Status
@@ -12167,7 +12167,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 F4 46 66 ]
-	Calculated groundspeed: 2036 (447.9200000 kt)
+	Calculated groundspeed: 2036 (447.3632812 kt)
 	Calculated heading: 18022 (98.9978027 deg)
 
 Item 170 : Track Status
@@ -12304,7 +12304,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 A9 A4 C7 ]
-	Calculated groundspeed: 1961 (431.4200000 kt)
+	Calculated groundspeed: 1961 (430.8837891 kt)
 	Calculated heading: 42183 (231.7181396 deg)
 
 Item 170 : Track Status
@@ -12396,7 +12396,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 B7 65 A6 ]
-	Calculated groundspeed: 1975 (434.5000000 kt)
+	Calculated groundspeed: 1975 (433.9599609 kt)
 	Calculated heading: 26022 (142.9431152 deg)
 
 Item 170 : Track Status
@@ -12506,7 +12506,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 98 05 C0 ]
-	Calculated groundspeed: 1944 (427.6800000 kt)
+	Calculated groundspeed: 1944 (427.1484375 kt)
 	Calculated heading: 1472 (8.0859375 deg)
 
 Item 170 : Track Status
@@ -12598,7 +12598,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 C9 35 E4 ]
-	Calculated groundspeed: 1993 (438.4600000 kt)
+	Calculated groundspeed: 1993 (437.9150391 kt)
 	Calculated heading: 13796 (75.7836914 deg)
 
 Item 170 : Track Status
@@ -12708,7 +12708,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 0A 05 F1 ]
-	Calculated groundspeed: 2058 (452.7600000 kt)
+	Calculated groundspeed: 2058 (452.1972656 kt)
 	Calculated heading: 1521 (8.3551025 deg)
 
 Item 170 : Track Status
@@ -12851,7 +12851,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 73 50 29 ]
-	Calculated groundspeed: 1651 (363.2200000 kt)
+	Calculated groundspeed: 1651 (362.7685547 kt)
 	Calculated heading: 20521 (112.7252197 deg)
 
 Item 170 : Track Status
@@ -12961,7 +12961,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 3A E0 3F ]
-	Calculated groundspeed: 2106 (463.3200000 kt)
+	Calculated groundspeed: 2106 (462.7441406 kt)
 	Calculated heading: 57407 (315.3460693 deg)
 
 Item 170 : Track Status
@@ -13053,7 +13053,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 9C 5C 0F ]
-	Calculated groundspeed: 1948 (428.5600000 kt)
+	Calculated groundspeed: 1948 (428.0273438 kt)
 	Calculated heading: 23567 (129.4573975 deg)
 
 Item 170 : Track Status
@@ -13145,7 +13145,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 47 A0 6D ]
-	Calculated groundspeed: 1863 (409.8600000 kt)
+	Calculated groundspeed: 1863 (409.3505859 kt)
 	Calculated heading: 41069 (225.5987549 deg)
 
 Item 170 : Track Status
@@ -13288,7 +13288,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 73 50 29 ]
-	Calculated groundspeed: 1651 (363.2200000 kt)
+	Calculated groundspeed: 1651 (362.7685547 kt)
 	Calculated heading: 20521 (112.7252197 deg)
 
 Item 170 : Track Status
@@ -13398,7 +13398,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 3A E0 3F ]
-	Calculated groundspeed: 2106 (463.3200000 kt)
+	Calculated groundspeed: 2106 (462.7441406 kt)
 	Calculated heading: 57407 (315.3460693 deg)
 
 Item 170 : Track Status
@@ -13490,7 +13490,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 9C 5C 0F ]
-	Calculated groundspeed: 1948 (428.5600000 kt)
+	Calculated groundspeed: 1948 (428.0273438 kt)
 	Calculated heading: 23567 (129.4573975 deg)
 
 Item 170 : Track Status
@@ -13582,7 +13582,7 @@ Item 042 : Calculated Position in Cartesian Coordinates
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 47 A0 6D ]
-	Calculated groundspeed: 1863 (409.8600000 kt)
+	Calculated groundspeed: 1863 (409.3505859 kt)
 	Calculated heading: 41069 (225.5987549 deg)
 
 Item 170 : Track Status
@@ -13770,7 +13770,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 7B E7 1C ]
-	Calculated groundspeed: 1659 (364.9800000 kt)
+	Calculated groundspeed: 1659 (364.5263672 kt)
 	Calculated heading: 59164 (324.9975586 deg)
 
 Item 170 : Track Status
@@ -13880,7 +13880,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 06 7B E7 1C ]
-	Calculated groundspeed: 1659 (364.9800000 kt)
+	Calculated groundspeed: 1659 (364.5263672 kt)
 	Calculated heading: 59164 (324.9975586 deg)
 
 Item 170 : Track Status
@@ -13990,7 +13990,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 CA 54 9F ]
-	Calculated groundspeed: 2250 (495.0000000 kt)
+	Calculated groundspeed: 2250 (494.3847656 kt)
 	Calculated heading: 21663 (118.9984131 deg)
 
 Item 170 : Track Status
@@ -14105,7 +14105,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 CA 54 9F ]
-	Calculated groundspeed: 2250 (495.0000000 kt)
+	Calculated groundspeed: 2250 (494.3847656 kt)
 	Calculated heading: 21663 (118.9984131 deg)
 
 Item 170 : Track Status
@@ -14231,7 +14231,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 26 73 E9 ]
-	Calculated groundspeed: 2086 (458.9200000 kt)
+	Calculated groundspeed: 2086 (458.3496094 kt)
 	Calculated heading: 29673 (162.9986572 deg)
 
 Item 170 : Track Status
@@ -14357,7 +14357,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 08 26 73 E9 ]
-	Calculated groundspeed: 2086 (458.9200000 kt)
+	Calculated groundspeed: 2086 (458.3496094 kt)
 	Calculated heading: 29673 (162.9986572 deg)
 
 Item 170 : Track Status
@@ -14446,7 +14446,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 8D 24 FA ]
-	Calculated groundspeed: 2445 (537.9000000 kt)
+	Calculated groundspeed: 2445 (537.2314453 kt)
 	Calculated heading: 9466 (51.9982910 deg)
 
 Item 170 : Track Status
@@ -14523,7 +14523,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 8D 24 FA ]
-	Calculated groundspeed: 2445 (537.9000000 kt)
+	Calculated groundspeed: 2445 (537.2314453 kt)
 	Calculated heading: 9466 (51.9982910 deg)
 
 Item 170 : Track Status
@@ -14608,7 +14608,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 05 3D 28 ]
-	Calculated groundspeed: 5 (1.1000000 kt)
+	Calculated groundspeed: 5 (1.0986328 kt)
 	Calculated heading: 15656 (86.0009766 deg)
 
 Item 170 : Track Status
@@ -14700,7 +14700,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 00 05 3D 28 ]
-	Calculated groundspeed: 5 (1.1000000 kt)
+	Calculated groundspeed: 5 (1.0986328 kt)
 	Calculated heading: 15656 (86.0009766 deg)
 
 Item 170 : Track Status
@@ -14810,7 +14810,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 57 82 22 ]
-	Calculated groundspeed: 2391 (526.0200000 kt)
+	Calculated groundspeed: 2391 (525.3662109 kt)
 	Calculated heading: 33314 (182.9992676 deg)
 
 Item 170 : Track Status
@@ -14925,7 +14925,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 09 57 82 22 ]
-	Calculated groundspeed: 2391 (526.0200000 kt)
+	Calculated groundspeed: 2391 (525.3662109 kt)
 	Calculated heading: 33314 (182.9992676 deg)
 
 Item 170 : Track Status
@@ -15040,7 +15040,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 EB 60 B6 ]
-	Calculated groundspeed: 2027 (445.9400000 kt)
+	Calculated groundspeed: 2027 (445.3857422 kt)
 	Calculated heading: 24758 (135.9997559 deg)
 
 Item 170 : Track Status
@@ -15155,7 +15155,7 @@ Item 161 : Track Number
 
 Item 200 : Calculated Track Velocity in Polar Coordinates
 [ 07 EB 60 B6 ]
-	Calculated groundspeed: 2027 (445.9400000 kt)
+	Calculated groundspeed: 2027 (445.3857422 kt)
 	Calculated heading: 24758 (135.9997559 deg)
 
 Item 170 : Track Status
