@@ -945,7 +945,7 @@
                 <Bits from="32" to="17">
                     <BitsShortName>CGS</BitsShortName>
                     <BitsName>Calculated groundspeed</BitsName>
-                    <BitsUnit scale="0.22">kt</BitsUnit>
+                    <BitsUnit scale="0.2197265625">kt</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
                     <BitsShortName>CHdg</BitsShortName>
@@ -974,7 +974,7 @@
                 <Bits from="16" to="9">
                     <BitsShortName>SigmaV</BitsShortName>
                     <BitsName>Sigma Groundspeed</BitsName>
-                    <BitsUnit scale="0.22">Kt</BitsUnit>        
+                    <BitsUnit scale="0.2197265625">kt</BitsUnit>
                 </Bits>
                 <Bits from="8" to="1">
                     <BitsShortName>SigmaH</BitsShortName>

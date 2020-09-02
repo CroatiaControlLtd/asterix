@@ -934,7 +934,7 @@
                 <Bits from="32" to="17">
 					<BitsShortName>CGS</BitsShortName>
                     <BitsName>Calculated groundspeed</BitsName>
-                    <BitsUnit scale="0.22">kt</BitsUnit>
+                    <BitsUnit scale="0.2197265625">kt</BitsUnit>
                 </Bits>
                 <Bits from="16" to="1">
 					<BitsShortName>CHdg</BitsShortName>
@@ -963,7 +963,7 @@
 					<Bits from="16" to="9">
                         <BitsShortName>SigmaV</BitsShortName>
                         <BitsName>Sigma Groundspeed</BitsName>
-						<BitsUnit scale="0.22">Kt</BitsUnit>		
+                    <BitsUnit scale="0.2197265625">kt</BitsUnit>
                     </Bits>
 					<Bits from="8" to="1">
                         <BitsShortName>SigmaH</BitsShortName>
@@ -1053,8 +1053,10 @@
 	<DataItem id="250" >
 		<DataItemName>Mode S Comm B data</DataItemName>
 		<DataItemDefinition>Mode S Comm B data extracted from the aircraft transponder</DataItemDefinition>
-		<DataItemFormat desc="BDS">
+        <DataItemFormat desc="Repetitive 8 byte BDS registers">
+        <Repetitive>
 			<BDS/>
+        </Repetitive>
 		</DataItemFormat>
 		<DataItemNote/>
 	</DataItem>	
@@ -1090,10 +1092,9 @@
 		<DataItemNote/>
 	</DataItem>		
 	
-<!--Transmission of Track--> 
     <UAP>
-        	<UAPItem bit="0" frn="1" len="2">010</UAPItem>
-        	<UAPItem bit="1" frn="2" len="3">140</UAPItem>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="3">140</UAPItem>
 		<UAPItem bit="2" frn="3" len="1+">020</UAPItem>
 		<UAPItem bit="3" frn="4" len="4">040</UAPItem>
 		<UAPItem bit="4" frn="5" len="2">070</UAPItem>
