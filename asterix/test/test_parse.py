@@ -34,7 +34,7 @@ class AsterixParseTest(unittest.TestCase):
                                                  'DOU': {'desc': 'DOU', 'val': 0, 'meaning': 'Normal confidence'},
                                                  'MAH': {'desc': 'MAH', 'val': 0,
                                                          'meaning': 'No horizontal man. sensed'}})
-            self.assertEqual(packet[0]['I200'], {'CGS': {'desc': 'Calculated groundspeed', 'val': 434.94},
+            self.assertEqual(packet[0]['I200'], {'CGS': {'desc': 'Calculated groundspeed', 'val': 434.3994140625},
                                                  'CHdg': {'desc': 'Calculated heading', 'val': 124.002685546875}})
             self.assertEqual(packet[0]['I220'], {'ACAddr': {'desc': 'AircraftAddress', 'val': '3C660C'}})
 
@@ -123,7 +123,7 @@ class AsterixParseTest(unittest.TestCase):
                                                  'FX': {'val': 0},
                                                  'DOU': {'val': 0},
                                                  'MAH': {'val': 0}})
-            self.assertEqual(packet[0]['I200'], {'CGS': {'val': 434.94},
+            self.assertEqual(packet[0]['I200'], {'CGS': {'val': 434.3994140625},
                                                  'CHdg': {'val': 124.002685546875}})
             self.assertEqual(packet[0]['I220'], {'ACAddr': {'val': '3C660C'}})
             self.assertEqual(packet[0]['I250'][0], {'TARGET_ALT_STATUS': {'val': 0},
