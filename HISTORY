@@ -221,4 +221,6 @@ Issue #154 Scale does not match the spec for I062/500, subfield # 3
 Issue #155 Scale does not match the spec for I062/500, subfield # 5
 
 Development build
-#Issue 161 CAT021 - problem decoding Military Extended Squitter in Reserved Expansion Field
+Issue #159 Track Angle Rate should be encoded as signed in I021/165 
+Issue #160 Typos in bit value descriptions in asterix_cat021_2_4.xml
+Issue #161 CAT021 - problem decoding Military Extended Squitter in Reserved Expansion Field
