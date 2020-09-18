@@ -78,11 +78,23 @@ long DataItemFormatVariable::getLength(const unsigned char *pData) {
 }
 
 bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
-                                     unsigned char *pData, long) {
+                                     unsigned char *pData, long nLength) {
     bool ret = false;
 
     std::list<DataItemFormat *>::iterator it;
     bool lastPart = false;
+    bool listOfSubItems = false;
+
+    // Calculate length of available subitem extents
+    int subitemsLength = 0;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); ++it) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        subitemsLength += dip->getLength();
+    }
+    // If there are more bytes then subitems, put extents to list
+    if (subitemsLength < nLength)
+        listOfSubItems = true;
+
     it = m_lSubItems.begin();
     std::string tmpResult;
 
@@ -92,7 +104,10 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
         case CAsterixFormat::EJSON:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
-            strResult += '{';
+            if (listOfSubItems)
+                strResult += '[';
+            else
+                strResult += '{';
         }
             break;
     }
@@ -107,9 +122,14 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
                 tmpResult = "";
                 ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
                 if (tmpResult.length() > 2) { // if result != {}
+                    if (listOfSubItems)
+                        strResult += '{';
                     strResult += tmpResult.substr(1, tmpResult.length() - 2); // trim {}
-                    if (!lastPart)
+                    if (listOfSubItems)
+                        strResult += '}';
+                    if (!lastPart) {
                         strResult += ',';
+                    }
                 }
             }
                 break;
@@ -119,6 +139,7 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
         }
 
         pData += dip->getLength();
+        nLength -= dip->getLength();
 
         if (it != m_lSubItems.end()) {
             it++;
@@ -126,16 +147,23 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
                 dip = (DataItemFormatFixed *) (*it);
             }
         }
-    } while (!lastPart);
+    } while (!lastPart && nLength > 0);
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
-            if (strResult[strResult.length() - 1] == ',')
-                strResult[strResult.length() - 1] = '}';
-            else
-                strResult += '}';
+            if (strResult[strResult.length() - 1] == ',') {
+                if (listOfSubItems)
+                    strResult[strResult.length() - 1] = ']';
+                else
+                    strResult[strResult.length() - 1] = '}';
+            } else {
+                if (listOfSubItems)
+                    strResult += ']';
+                else
+                    strResult += '}';
+            }
         }
             break;
     }
@@ -255,38 +283,87 @@ fulliautomatix_data* DataItemFormatVariable::getData(unsigned char* pData, long 
 #if defined(PYTHON_WRAPPER)
 PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength, int verbose)
 {
-    PyObject* p = PyDict_New();
-    insertToDict(p, pData, nLength, verbose);
+    PyObject* p = NULL;
+    std::list<DataItemFormat*>::iterator it;
+    bool lastPart = false;
+    bool listOfSubItems = false;
+
+    // Calculate length of available subitem extents
+    int subitemsLength = 0;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); ++it) {
+        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
+        subitemsLength += dip->getLength();
+    }
+    // If there are more bytes then subitems, put extents to list
+    if (subitemsLength < nLength) {
+        listOfSubItems = true;
+        p = PyList_New(0);
+        listOfSubItems = true;
+    }
+    else {
+        // otherwise put directly to dictionary
+        p = PyDict_New();
+    }
+
+    it=m_lSubItems.begin();
+    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+    do
+    {
+        lastPart = dip->isLastPart(pData);
+
+        if (listOfSubItems) {
+            p1 = PyDict_New();
+            dip->insertToDict(p1, pData, dip->getLength(), verbose);
+            PyList_Append(p, p1);
+            Py_DECREF(p1);
+        }
+        else {
+            dip->insertToDict(p, pData, dip->getLength(), verbose);
+        }
+
+        pData += dip->getLength();
+        nLength -= dip->getLength();
+
+        if (it != m_lSubItems.end()) {
+            it++;
+            if (it != m_lSubItems.end()) {
+                dip = (DataItemFormatFixed*)(*it);
+            }
+        }
+    }
+    while(!lastPart && nLength > 0);
+
     return p;
 }
 
 void DataItemFormatVariable::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 {
-  std::list<DataItemFormat*>::iterator it;
-  bool lastPart = false;
+    return;
+    /*
+    std::list<DataItemFormat*>::iterator it;
+    bool lastPart = false;
 
-  it=m_lSubItems.begin();
+    it=m_lSubItems.begin();
 
-  DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
+    DataItemFormatFixed* dip = (DataItemFormatFixed*)(*it);
 
-  do
-  {
-    lastPart = dip->isLastPart(pData);
-
-    dip->insertToDict(p, pData, dip->getLength(), verbose);
-
-    pData += dip->getLength();
-    nLength -= dip->getLength();
-
-    if (it != m_lSubItems.end())
+    do
     {
-      it++;
-      if (it != m_lSubItems.end())
-      {
-        dip = (DataItemFormatFixed*)(*it);
-      }
+        lastPart = dip->isLastPart(pData);
+
+        dip->insertToDict(p, pData, dip->getLength(), verbose);
+
+        pData += dip->getLength();
+        nLength -= dip->getLength();
+
+        if (it != m_lSubItems.end()) {
+            it++;
+            if (it != m_lSubItems.end()) {
+                dip = (DataItemFormatFixed*)(*it);
+            }
+        }
     }
-  }
-  while(!lastPart && nLength > 0);
+    while(!lastPart && nLength > 0);
+     */
 }
 #endif
