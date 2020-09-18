@@ -312,7 +312,7 @@ PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength, 
         lastPart = dip->isLastPart(pData);
 
         if (listOfSubItems) {
-            p1 = PyDict_New();
+            PyObject* p1 = PyDict_New();
             dip->insertToDict(p1, pData, dip->getLength(), verbose);
             PyList_Append(p, p1);
             Py_DECREF(p1);

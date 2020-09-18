@@ -224,3 +224,5 @@ Development build
 Issue #159 Track Angle Rate should be encoded as signed in I021/165 
 Issue #160 Typos in bit value descriptions in asterix_cat021_2_4.xml
 Issue #161 CAT021 - problem decoding Military Extended Squitter in Reserved Expansion Field
+Issue #104 problem with Data Item I048/030, Warning/Error Conditions and Target Classification 
+Issue #156 Duplicate JSON keys for I062/510 Composed Track Number 
