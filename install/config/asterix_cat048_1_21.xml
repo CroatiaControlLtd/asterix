@@ -144,7 +144,7 @@
                 <Fixed length="1">
                     <Bits from="8" to="2">
                         <BitsShortName>WE</BitsShortName>
-                        <BitsName>First warning/error condition value</BitsName>
+                        <BitsName>Warning/error condition value</BitsName>
                         <BitsValue val="0">Not defined, never used</BitsValue>
                         <BitsValue val="1">Multipath Reply (Reflection)</BitsValue>
                         <BitsValue val="2">Sidelobe Reply</BitsValue>

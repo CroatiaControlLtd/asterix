@@ -192,7 +192,7 @@
                         <BitsShortName>FX</BitsShortName>
                         <BitsName>Field Extension</BitsName>
                         <BitsValue val="0">End of item</BitsValue>
-                        <BitsValue val="1">Entension into first extent</BitsValue>
+                        <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
@@ -238,7 +238,7 @@
                         <BitsShortName>FX</BitsShortName>
                         <BitsName>Field Extension</BitsName>
                         <BitsValue val="0">End of item</BitsValue>
-                        <BitsValue val="1">Entension into second extent</BitsValue>
+                        <BitsValue val="1">Extension into second extent</BitsValue>
                     </Bits>
                 </Fixed>
                 <Fixed length="1">
@@ -288,7 +288,7 @@
                         <BitsShortName>FX</BitsShortName>
                         <BitsName>Field Extension</BitsName>
                         <BitsValue val="0">End of data item</BitsValue>
-                        <BitsValue val="1">Entension into third extent</BitsValue>
+                        <BitsValue val="1">Extension into third extent</BitsValue>
                     </Bits>
                 </Fixed>
             </Variable>
@@ -462,6 +462,7 @@
                     </Bits>
                     <Bits bit="1" fx="1">
                         <BitsShortName>FX</BitsShortName>
+                        <BitsName>Extension Indicator</BitsName>
                         <BitsValue val="0">End of Data Item</BitsValue>
                         <BitsValue val="1">Extension into first extent</BitsValue>
                     </Bits>
@@ -737,7 +738,7 @@
 
     <DataItem id="148" rule="optional">
         <DataItemName>Final State Selected Altitude</DataItemName>
-        <DataItemDefinition>The vertical intent value that corresponds with the ATC cleared altitude, as derived from the Altitude Control Panel (FCU/MCP).</DataItemDefinition>
+        <DataItemDefinition>The vertical intent value that corresponds with the ATC cleared altitude, as derived from the Altitude Control Panel (MCP/FCU).</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits bit="16">
@@ -917,7 +918,7 @@
                     <BitsName>Spare bits set to zero</BitsName>
                     <BitsConst>0</BitsConst>
                 </Bits>
-                <Bits from="10" to="1">
+                <Bits from="10" to="1" encode="signed">
                     <BitsShortName>TA_rate</BitsShortName>
                     <BitsName>Track Angle Rate</BitsName>
                     <BitsUnit scale="0.03125">deg/s</BitsUnit>
@@ -1198,7 +1199,7 @@
                         </Bits>
                         <Bits bit="7">
                             <BitsShortName>TRD</BitsShortName>
-                            <BitsName>arget Report Descriptor age</BitsName>
+                            <BitsName>Target Report Descriptor age</BitsName>
                             <BitsPresence>2</BitsPresence>
                         </Bits>
                         <Bits bit="6">

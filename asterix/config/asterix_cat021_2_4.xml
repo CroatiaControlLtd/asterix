@@ -1302,7 +1302,7 @@
                     </Bits>
                     <Bits bit="2">
                         <BitsShortName>IDENT</BitsShortName>
-                        <BitsName>Setting of 'IDENT'-switch</BitsName>
+                        <BitsName>Setting of IDENT-switch</BitsName>
                         <BitsValue val="0">IDENT switch not active</BitsValue>
                         <BitsValue val="1">IDENT switch active</BitsValue>
                     </Bits>

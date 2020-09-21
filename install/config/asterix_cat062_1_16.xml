@@ -3028,21 +3028,6 @@
                         <BitsValue val="1">extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
-                <Fixed length="3">
-                    <Bits from="17" to="24">
-                        <BitsShortName>SDPSUID</BitsShortName>
-                        <BitsName>SDPS Unit Identification</BitsName>
-                    </Bits>
-                    <Bits from="2" to="16">
-                        <BitsShortName>STN</BitsShortName>
-                        <BitsName>System Track Number</BitsName>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
-                        <BitsValue val="0">end of data item</BitsValue>
-                        <BitsValue val="1">extension into next extent</BitsValue>
-                    </Bits>
-                </Fixed>
             </Variable>
         </DataItemFormat>
     </DataItem>
