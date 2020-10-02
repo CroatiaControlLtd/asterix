@@ -83,16 +83,10 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
     std::list<DataItemFormat *>::iterator it;
     bool lastPart = false;
-    bool listOfSubItems = false;
 
-    // Calculate length of available subitem extents
-    int subitemsLength = 0;
-    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); ++it) {
-        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
-        subitemsLength += dip->getLength();
-    }
-    // If there are more bytes then subitems, put extents to list
-    if (subitemsLength < nLength)
+    // If Variable item definition contains 1 Fixed subitem, show items in list
+    bool listOfSubItems = false;
+    if (m_lSubItems.size() == 1)
         listOfSubItems = true;
 
     it = m_lSubItems.begin();
@@ -286,21 +280,13 @@ PyObject* DataItemFormatVariable::getObject(unsigned char* pData, long nLength, 
     PyObject* p = NULL;
     std::list<DataItemFormat*>::iterator it;
     bool lastPart = false;
-    bool listOfSubItems = false;
 
-    // Calculate length of available subitem extents
-    int subitemsLength = 0;
-    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); ++it) {
-        DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
-        subitemsLength += dip->getLength();
-    }
-    // If there are more bytes then subitems, put extents to list
-    if (subitemsLength < nLength) {
+    // If Variable item definition contains 1 Fixed subitem, show items in list
+    bool listOfSubItems = false;
+    if (m_lSubItems.size() == 1) {
         listOfSubItems = true;
         p = PyList_New(0);
-        listOfSubItems = true;
-    }
-    else {
+    } else {
         // otherwise put directly to dictionary
         p = PyDict_New();
     }

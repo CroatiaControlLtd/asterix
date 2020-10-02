@@ -220,9 +220,13 @@ Issue #153 Problem decoding Runway Designation in I062/390
 Issue #154 Scale does not match the spec for I062/500, subfield # 3
 Issue #155 Scale does not match the spec for I062/500, subfield # 5
 
-Development build
+2.7.0 (python_v0.6.0)
 Issue #159 Track Angle Rate should be encoded as signed in I021/165 
 Issue #160 Typos in bit value descriptions in asterix_cat021_2_4.xml
 Issue #161 CAT021 - problem decoding Military Extended Squitter in Reserved Expansion Field
 Issue #104 problem with Data Item I048/030, Warning/Error Conditions and Target Classification 
-Issue #156 Duplicate JSON keys for I062/510 Composed Track Number 
+Issue #156 Duplicate JSON keys for I062/510 Composed Track Number
+Issue #162 No JSON array for I048/030 and I062/510 if only one extent is present in the data item
+Warning: with this update following items are changed in JSON and Python format
+001/030, 001/130, 001/210, 002/050, 002/060, 002/080, 008/100, 008/110, 019/553, 020/030, 021/110, 023/110, 025/100, 048/030, 062/510, 252/240
+Elements in those items (all variable items with only one extent) are now presented as list of dictionaries.
