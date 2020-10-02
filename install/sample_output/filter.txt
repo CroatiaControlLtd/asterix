@@ -1093,7 +1093,7 @@ CAT021:I271:POA                                              Position Offset App
 CAT021:I271:CDTI_S                                           Cockpit Display of Traffic Information Surface
 CAT021:I271:B2_low                                           Class B2 transmit power less than 70 Watts
 CAT021:I271:RAS                                              Receiving ATC Services
-CAT021:I271:IDENT                                            Setting of 'IDENT'-switch
+CAT021:I271:IDENT                                            Setting of IDENT-switch
 CAT021:I271:FX                                               FX Extension indicator
 CAT021:I271:LW                                               Length and width of the aircraft
 CAT021:I271:spare                                            Spare bits set to zero
@@ -1128,16 +1128,16 @@ CAT021:IRE:spare                                             Spare bits set to z
 CAT021:IRE:SelHHRD                                           SelH Horizontal Reference Direction
 CAT021:IRE:Stat                                              Selected Heading Status
 CAT021:IRE:SelH                                              Selected Heading
-CAT021:IRE:AP                                                Autopilot engaged
-CAT021:IRE:VN                                                VNAV Active (Vertical Navigation)
-CAT021:IRE:AH                                                Altitude Hold engaged
-CAT021:IRE:AM                                                Approach Mode active
+CAT021:IRE:AP                                                Autopilot
+CAT021:IRE:VN                                                VNAV (Vertical Navigation)
+CAT021:IRE:AH                                                Altitude Hold
+CAT021:IRE:AM                                                Approach Mode
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:GAO                                               GPS Antenna Offset
 CAT021:IRE:STP                                               Aircraft stopped
 CAT021:IRE:HTS                                               Heading/Ground Track
 CAT021:IRE:HTT                                               Heading/Ground data
-CAT021:IRE:SVGHRD                                            SVG Horizontal Reference Direction
+CAT021:IRE:HRD                                               SGV Horizontal Reference Direction
 CAT021:IRE:GSS                                               Ground Speed
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:HGT                                               Heading/Ground Track information
@@ -1146,22 +1146,14 @@ CAT021:IRE:ES                                                1090 ES IN capabili
 CAT021:IRE:UAT                                               UAT capability
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:FX                                                Extension indicator
-CAT021:IRE:TNH                                               True North Magnetic Heading
-CAT021:IRE:SUM                                               Mode 5 Summary
-CAT021:IRE:PNO                                               Mode 5 PIN/National Origin
-CAT021:IRE:EM1                                               Extended Mode 1 Code in Octal Representation
-CAT021:IRE:XP                                                X Pulse Presence
-CAT021:IRE:FOM                                               Figure of Merit
-CAT021:IRE:M2                                                Mode 2 Code
-CAT021:IRE:spare                                             Spare bit, set to “0”
-CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:TNH                                               True North Heading
 CAT021:IRE:M5                                                Mode 5 interrogation
 CAT021:IRE:ID                                                Authenticated Mode 5 ID
 CAT021:IRE:DA                                                Authenticated Mode 5 Data reply or Report
 CAT021:IRE:M1                                                Mode 1 code
 CAT021:IRE:M2                                                Mode 2 code
 CAT021:IRE:M3                                                Mode 3 code
-CAT021:IRE:MC                                                Flightlevel
+CAT021:IRE:MC                                                Flight Level
 CAT021:IRE:PO                                                Position from Mode 5 Report
 CAT021:IRE:spare                                             Spare bits set to 0
 CAT021:IRE:PIN                                               PIN Code
@@ -1185,7 +1177,7 @@ CAT021:IRE:V                                                 Code validated
 CAT021:IRE:spare                                             Spare bits set to 0
 CAT021:IRE:L                                                 Mode 2 code from transponder or smoothed
 CAT021:IRE:spare                                             Spare bits set to 0
-CAT021:IRE:M2CO                                              Mode-2 code in octal representation
+CAT021:IRE:M2                                                Mode-2 code in octal representation
 CAT021:ISP:SPval                                             
 CAT025:I000:Typ                                              Report Type
 CAT025:I000:RG                                               Report Generation
@@ -1509,7 +1501,7 @@ CAT048:I020:ME                                               ME
 CAT048:I020:MI                                               MI
 CAT048:I020:FOEFRI                                           FOE/FRI
 CAT048:I020:FX                                               FX
-CAT048:I030:WE                                               First warning/error condition value
+CAT048:I030:WE                                               Warning/error condition value
 CAT048:I030:FX                                               FX
 CAT048:I040:RHO                                              
 CAT048:I040:THETA                                            
@@ -2094,9 +2086,6 @@ CAT062:I500:ATV_Y                                            Estimated Accuracy 
 CAT062:I500:AA_X                                             Estimated Accuracy Of Acceleration X_Cartesian
 CAT062:I500:AA_Y                                             Estimated Accuracy Of Acceleration Y_Cartesian
 CAT062:I500:ARC_Acc                                          Rate Of Climb/Descent Estimated accuracy
-CAT062:I510:SDPSUID                                          SDPS Unit Identification
-CAT062:I510:STN                                              System Track Number
-CAT062:I510:FX                                               
 CAT062:I510:SDPSUID                                          SDPS Unit Identification
 CAT062:I510:STN                                              System Track Number
 CAT062:I510:FX                                               
