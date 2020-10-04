@@ -79,10 +79,11 @@ make
 USAGE
 =====
 
-asterix [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
+asterix [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
 
 Options:
    -h,--help    Show this help message
+   -V,--version Show version information and exit.
    -v,--verbose Show more information during program execution
    -d,--def     XML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini
    -L,--list    List all configured ASTERIX items. Mark which items are filtered.

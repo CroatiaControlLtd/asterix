@@ -49,19 +49,20 @@ static void DisplayCopyright() {
     std::cerr << " DEBUG version";
 #endif
     std::cerr
-            << "\n\nCopyright (c) 2013 Croatia Control Ltd. (www.crocontrol.hr)\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions. See COPYING file for details.";
+            << "\n\nCopyright (c) 2013 Croatia Control Ltd. (www.crocontrol.hr)\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions. See COPYING file for details.\n";
 }
 
 static void show_usage(std::string name) {
     DisplayCopyright();
 
     std::cerr
-            << "\n\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
+            << "\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
             << "Usage:\n"
             << name
-            << " [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i (mcastaddress:ipaddress:port[:srcaddress]@)+"
+            << " [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i (mcastaddress:ipaddress:port[:srcaddress]@)+"
             << "\n\nOptions:"
             << "\n\t-h,--help\tShow this help message."
+            << "\n\t-V,--version\tShow version information and exit."
             << "\n\t-v,--verbose\tShow more information during program execution."
             << "\n\t-d,--def\tXML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini"
             << "\n\t-L,--list\tList all configured ASTERIX items. Mark which items are filtered."
@@ -106,6 +107,9 @@ int main(int argc, const char *argv[]) {
         std::string arg = argv[i];
         if ((arg == "-h") || (arg == "--help")) {
             show_usage(argv[0]);
+            return 0;
+        } else if ((arg == "-V") || (arg == "--version")) {
+            DisplayCopyright();
             return 0;
         } else if ((arg == "-v") || (arg == "--verbose")) {
             gVerbose = true;
