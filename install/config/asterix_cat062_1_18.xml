@@ -26,7 +26,9 @@
                                                 I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
     Modified: 20.08.2020. (tmartincevic) For latitude and longitude in I062/380 subfield #22 (Position), LSB is defined in the spec as 180/2^23 
                                          In I062/380 subfield #9 (Trajectory Intent Data), longitude is clamped to +/- 90 deg, should be +/- 180 deg.
-	Modified: 26.08.2020. (tmartincevic) Scale does not match the spec for I062/500, subffield #3 and subfield #5
+    Modified: 26.08.2020. (tmartincevic) Scale does not match the spec for I062/500, subffield #3 and subfield #5
+    Modified: 30.10.2020. (tmartincevic) Scale added to Mode 5 GNSS-derived Altitude in I062/110
+
 -->
 
 
@@ -564,6 +566,7 @@
                     <Bits from="1" to="14" encode="signed">
                         <BitsShortName>GA</BitsShortName>
                         <BitsName>GNSS-derived Altitude of target, expressed as height above WGS 84 ellipsoid.</BitsName>
+                        <BitsUnit scale="25" min="-1000">ft</BitsUnit>
                     </Bits>
                 </Fixed>
                 <Fixed length="2">

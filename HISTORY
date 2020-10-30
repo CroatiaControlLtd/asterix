@@ -230,3 +230,7 @@ Issue #162 No JSON array for I048/030 and I062/510 if only one extent is present
 Warning: with this update following items are changed in JSON and Python format
 001/030, 001/130, 001/210, 002/050, 002/060, 002/080, 008/100, 008/110, 019/553, 020/030, 021/110, 023/110, 025/100, 048/030, 062/510, 252/240
 Elements in those items (all variable items with only one extent) are now presented as list of dictionaries.
+
+Not versioned yet
+Issue #166 Scale missing from Mode 5 GNSS-derived Altitude in I062/110
+
