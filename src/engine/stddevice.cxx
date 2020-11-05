@@ -69,11 +69,11 @@ bool CStdDevice::Read(void *data, size_t len) {
 
 bool CStdDevice::Write(const void *data, size_t len) {
     // Write the message to the standard output (blocking)
-    size_t bytesLeft = len;
+    ssize_t bytesLeft = (ssize_t)len;
     char *pData = (char *) data;
 
     while (bytesLeft > 0) {
-        size_t bytesWrote = write(STDOUT_FILENO, pData, bytesLeft);
+        ssize_t bytesWrote = write(STDOUT_FILENO, pData, bytesLeft);
 
         if (bytesWrote < 0) {
             LOGERROR(1, "Error writing to stdout.\n");
