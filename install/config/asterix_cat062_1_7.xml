@@ -8,10 +8,10 @@
     Author:   B.Bertrand
     Created:  11.09.2012
     Version:  1.0
-    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-    Modified:  16.10.2019. (dsalantic) Added BDS register definition in I380
+    Modified: 28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Modified: 16.10.2019. (dsalantic) Added BDS register definition in I380
     Modified: 30.10.2020. (tmartincevic) Scale added to Mode 5 GNSS-derived Altitude in I062/110
-
+    Modified: 05.11.2020. (tmartincevic) Subfield 8 of I062/380 (Trajectory Intent Status) defined as Variable
 
 -->
 
@@ -1792,28 +1792,30 @@
                         <BitsUnit scale="25" min="-1300" max="100000">ft</BitsUnit>
                     </Bits>
                 </Fixed>
-                <Fixed length="1">
-                    <Bits bit="8">
-                        <BitsShortName>NAV</BitsShortName>
-                        <BitsValue val="0">Trajectory Intent Data is available for this aircraft</BitsValue>
-                        <BitsValue val="1">Trajectory Intent Data is not available for this aircraft</BitsValue>
-                    </Bits>
-                    <Bits bit="7">
-                        <BitsShortName>NVB</BitsShortName>
-                        <BitsValue val="0">Trajectory Intent Data is valid</BitsValue>
-                        <BitsValue val="1">Trajectory Intent Data is not valid</BitsValue>
-                    </Bits>
-                    <Bits from="6" to="2">
-                        <BitsShortName>spare</BitsShortName>
-                        <BitsName>Spare bits set to 0</BitsName>
-                        <BitsConst>0</BitsConst>
-                    </Bits>
-                    <Bits bit="1" fx="1">
-                        <BitsShortName>FX</BitsShortName>
-                        <BitsValue val="0">end of data item</BitsValue>
-                        <BitsValue val="1">extension into next extent</BitsValue>
-                    </Bits>
-                </Fixed>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>NAV</BitsShortName>
+                            <BitsValue val="0">Trajectory Intent Data is available for this aircraft</BitsValue>
+                            <BitsValue val="1">Trajectory Intent Data is not available for this aircraft</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>NVB</BitsShortName>
+                            <BitsValue val="0">Trajectory Intent Data is valid</BitsValue>
+                            <BitsValue val="1">Trajectory Intent Data is not valid</BitsValue>
+                        </Bits>
+                        <Bits from="6" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">end of data item</BitsValue>
+                            <BitsValue val="1">extension into next extent</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
                 <Repetitive>
                     <Fixed length="15">
                         <Bits bit="120">
