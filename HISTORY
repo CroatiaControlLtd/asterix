@@ -235,3 +235,4 @@ Not versioned yet
 Issue #166 Scale missing from Mode 5 GNSS-derived Altitude in I062/110
 Issue #167 Subfield 8 of I062/380 (Trajectory Intent Status) should be defined as Variable in xml config
 Issue #168 Error codes from write are not detected
+Issue #169 Problem decoding BDS 4,5 reserved bits

@@ -310,7 +310,7 @@
                     <BitsName>Radio Height</BitsName>
                     <BitsUnit scale="16">ft</BitsUnit>
                 </Bits>
-                <Bits from="13" to="9" encode="hex">
+                <Bits from="13" to="9">
                     <BitsShortName>RESERVED</BitsShortName>
                     <BitsName>Reserved</BitsName>
                 </Bits>				
