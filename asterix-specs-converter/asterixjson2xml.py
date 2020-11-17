@@ -18,8 +18,10 @@ item_renames = {
         ('020', '020'): 'ECAT',
     },
     62: {
-        ('105', 'LAT'): 'Lat',
-        ('105', 'LON'): 'Lon',
+        ('015', '015'): 'SID',
+        ('040', '040'): 'TrkN',
+        ('070', '070'): 'ToT',
+
     },
 }
 
@@ -638,7 +640,7 @@ class Category(object):
             tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
             tell('')
             tell('This file is auto-generated from json specs file.')
-            tell('sha1sum of concatinated json input(s): {}'.format(self.cks))
+            tell('sha1sum of concatenated json input(s): {}'.format(self.cks))
         tell('-->')
         tell('')
         tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
@@ -686,26 +688,38 @@ class Category(object):
                         break
             tell('</UAP>')
 
+
+class AsterixJson2XML(object):
+    def __init__(self, root, cks, re=None, sp=None):
+        self.cat = Category(root, cks, re, sp)
+
+    def parse(self):
+        global accumulator
+        accumulator = []
+        self.cat.render()
+        result = ''.join([line + '\n' for line in accumulator])
+        return result
+
 # main
-parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
-parser.add_argument('--cat', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer, help="input CATegory JSON file")
-parser.add_argument('--ref', nargs='?', type=argparse.FileType('rb'), help="input REF JSON file")
-parser.add_argument('--outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
+    parser.add_argument('--cat', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer, help="input CATegory JSON file")
+    parser.add_argument('--ref', nargs='?', type=argparse.FileType('rb'), help="input REF JSON file")
+    parser.add_argument('--outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-cat_input = args.cat.read()
-root = json.loads(cat_input)
+    cat_input = args.cat.read()
+    root = json.loads(cat_input)
 
-ref_input = b''
-ref = None
-if args.ref:
-    ref_input = args.ref.read()
-    ref = json.loads(ref_input)
+    ref_input = b''
+    ref = None
+    if args.ref:
+        ref_input = args.ref.read()
+        ref = json.loads(ref_input)
 
-cks = hashlib.sha1(cat_input+ref_input).hexdigest()
-cat = Category(root, cks, re=ref)
-cat.render()
-result = ''.join([line+'\n' for line in accumulator])
-args.outfile.write(result)
+    cks = hashlib.sha1(cat_input+ref_input).hexdigest()
+    cat = AsterixJson2XML(root, cks, re=ref)
+    result = cat.parse()
+    args.outfile.write(result)
 
