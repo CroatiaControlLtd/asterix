@@ -25,7 +25,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>000</BitsShortName>
+                    <BitsShortName>MT</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">North Marker Message</BitsValue>
                     <BitsValue val="2">Sector crossing message</BitsValue>
@@ -63,7 +63,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="unsigned">
-                    <BitsShortName>020</BitsShortName>
+                    <BitsShortName>SN</BitsShortName>
                     <BitsName>Sector Number</BitsName>
                     <BitsUnit scale="1.40625">deg</BitsUnit>
                 </Bits>
@@ -79,7 +79,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>030</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -96,7 +96,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="unsigned">
-                    <BitsShortName>041</BitsShortName>
+                    <BitsShortName>ARS</BitsShortName>
                     <BitsName>Antenna Rotation Speed</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -608,7 +608,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>110</BitsShortName>
+                    <BitsShortName>DF</BitsShortName>
                     <BitsName>Data Filter</BitsName>
                     <BitsValue val="0">invalid value</BitsValue>
                     <BitsValue val="1">Filter for Weather data</BitsValue>

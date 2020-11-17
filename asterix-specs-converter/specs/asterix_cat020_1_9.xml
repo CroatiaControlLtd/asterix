@@ -460,7 +460,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>105</BitsShortName>
+                    <BitsShortName>GHW</BitsShortName>
                     <BitsName>Geometric Height (WGS-84)</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft</BitsUnit>
                 </Bits>
@@ -478,7 +478,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>110</BitsShortName>
+                    <BitsShortName>MHLCC</BitsShortName>
                     <BitsName>Measured Height (Local Cartesian Coordinates)</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft</BitsUnit>
                 </Bits>
@@ -494,7 +494,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>140</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -639,7 +639,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>220</BitsShortName>
+                    <BitsShortName>TA</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
@@ -775,7 +775,7 @@
         <DataItemFormat desc="7-octet fixed length data item.">
             <Fixed length="7">
                 <Bits from="56" to="1">
-                    <BitsShortName>260</BitsShortName>
+                    <BitsShortName>ARAR</BitsShortName>
                     <BitsName>ACAS Resolution Advisory Report</BitsName>
                 </Bits>
             </Fixed>
@@ -790,7 +790,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>300</BitsShortName>
+                    <BitsShortName>VFI</BitsShortName>
                     <BitsName>Vehicle Fleet Identification</BitsName>
                     <BitsValue val="0">Unknown</BitsValue>
                     <BitsValue val="1">ATC equipment maintenance</BitsValue>

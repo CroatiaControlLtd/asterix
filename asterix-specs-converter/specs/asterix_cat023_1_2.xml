@@ -25,7 +25,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>000</BitsShortName>
+                    <BitsShortName>RT</BitsShortName>
                     <BitsName>Report Type</BitsName>
                     <BitsValue val="1">Ground Station Status report</BitsValue>
                     <BitsValue val="2">Service Status report</BitsValue>
@@ -90,7 +90,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>070</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -318,7 +318,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="unsigned">
-                    <BitsShortName>200</BitsShortName>
+                    <BitsShortName>OR</BitsShortName>
                     <BitsName>Operational Range</BitsName>
                     <BitsUnit scale="1.0">NM</BitsUnit>
                 </Bits>

@@ -42,7 +42,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>SID</BitsShortName>
+                    <BitsShortName>SI</BitsShortName>
                     <BitsName>Service Identification</BitsName>
                 </Bits>
             </Fixed>
@@ -57,7 +57,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>TrkN</BitsShortName>
+                    <BitsShortName>TN</BitsShortName>
                     <BitsName>Track Number</BitsName>
                 </Bits>
             </Fixed>
@@ -112,7 +112,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>ToT</BitsShortName>
+                    <BitsShortName>TOTI</BitsShortName>
                     <BitsName>Time Of Track Information</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -667,7 +667,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="unsigned">
-                    <BitsShortName>130</BitsShortName>
+                    <BitsShortName>CTGA</BitsShortName>
                     <BitsName>Calculated Track Geometric Altitude</BitsName>
                     <BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
                 </Bits>
@@ -705,7 +705,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>136</BitsShortName>
+                    <BitsShortName>MFL</BitsShortName>
                     <BitsName>Measured Flight Level</BitsName>
                     <BitsUnit scale="0.25" min="-15" max="1500">FL</BitsUnit>
                 </Bits>
@@ -807,7 +807,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>220</BitsShortName>
+                    <BitsShortName>CROC</BitsShortName>
                     <BitsName>Calculated Rate Of Climb/Descent</BitsName>
                     <BitsUnit scale="6.25">ft/min</BitsUnit>
                 </Bits>
@@ -1537,7 +1537,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>300</BitsShortName>
+                    <BitsShortName>VFI</BitsShortName>
                     <BitsName>Vehicle Fleet Identification</BitsName>
                     <BitsValue val="0">Unknown</BitsValue>
                     <BitsValue val="1">ATC equipment maintenance</BitsValue>

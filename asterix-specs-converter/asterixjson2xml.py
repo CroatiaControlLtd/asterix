@@ -1,30 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# item name changes, {category: { (name, name,...): new_name }}
-item_renames = {
-    11: {
-        ('000', '000'): 'MsgTyp',
-        ('015', '015'): 'SI',
-        ('090', '090'): 'MFL',
-        ('092', '092'): 'CTGA',
-        ('140', '140'): 'ToTI',
-        ('215', '215'): 'RoCD',
-        ('300', '300'): 'VFI',
-        ('430', '430'): 'FLS',
-    },
-    21: {
-        ('015', '015'): 'id',
-        ('020', '020'): 'ECAT',
-    },
-    62: {
-        ('015', '015'): 'SID',
-        ('040', '040'): 'TrkN',
-        ('070', '070'): 'ToT',
-
-    },
-}
-
 import sys
 import argparse
 import json
@@ -172,10 +148,17 @@ class Bits(object):
     @property
     def name(self):
         old_name = self.item['name']
-        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
-        rename_map = item_renames.get(self.cat, {})
-        new_name = rename_map.get(full_name, old_name)
-        return(new_name)
+        try:
+            int(old_name)
+            words = self.parent.item['title'].split()
+            new_name = ''
+            for word in words:
+                new_name += word.strip('()')[0:1]
+            print('Renamed:%s  %s -> %s' % (self.parent.full_name, self.parent.item['title'], new_name))
+            return new_name
+        except ValueError:
+            pass
+        return old_name
 
     def render(self):
         item, bitsFrom, bitsTo = self.item, self.bitsFrom, self.bitsTo
@@ -368,14 +351,6 @@ class Variation(object):
     @property
     def full_name(self):
         return tuple(list(self.parent.full_name) + [self.item['name']])
-
-    @property
-    def name(self):
-        old_name = self.item['name']
-        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
-        rename_map = item_renames.get(self.cat, {})
-        new_name = rename_map.get(full_name, old_name)
-        return(new_name)
 
     def __init__(self, parent, item, *args):
         self.parent = parent

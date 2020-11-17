@@ -866,7 +866,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>140</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125" max="86400">s</BitsUnit>
                 </Bits>
@@ -1045,7 +1045,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>220</BitsShortName>
+                    <BitsShortName>AA</BitsShortName>
                     <BitsName>Aircraft Address</BitsName>
                 </Bits>
             </Fixed>
@@ -1130,7 +1130,7 @@
         <DataItemFormat desc="6-octet fixed length data item.">
             <Fixed length="6">
                 <Bits from="48" to="1" encode="6bitschar">
-                    <BitsShortName>240</BitsShortName>
+                    <BitsShortName>AI</BitsShortName>
                     <BitsName>Aircraft Identification</BitsName>
                 </Bits>
             </Fixed>
@@ -1173,7 +1173,7 @@
         <DataItemFormat desc="7-octet fixed length data item.">
             <Fixed length="7">
                 <Bits from="56" to="1">
-                    <BitsShortName>260</BitsShortName>
+                    <BitsShortName>ARAR</BitsShortName>
                     <BitsName>ACAS Resolution Advisory Report</BitsName>
                 </Bits>
             </Fixed>

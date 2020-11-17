@@ -25,7 +25,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>000</BitsShortName>
+                    <BitsShortName>MT</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">Start of Update Cycle</BitsValue>
                     <BitsValue val="2">Periodic Status Message</BitsValue>
@@ -62,7 +62,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>140</BitsShortName>
+                    <BitsShortName>ToD</BitsShortName>
                     <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -325,7 +325,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>610</BitsShortName>
+                    <BitsShortName>HotMSRP</BitsShortName>
                     <BitsName>Height of the MLT System Reference Point</BitsName>
                     <BitsUnit scale="0.25" min="-8192" max="8192">m</BitsUnit>
                 </Bits>
@@ -343,7 +343,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="signed">
-                    <BitsShortName>620</BitsShortName>
+                    <BitsShortName>WU</BitsShortName>
                     <BitsName>WGS-84 Undulation</BitsName>
                     <BitsUnit scale="1.0">m</BitsUnit>
                 </Bits>

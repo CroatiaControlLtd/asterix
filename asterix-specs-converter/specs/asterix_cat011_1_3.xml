@@ -24,7 +24,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>MsgTyp</BitsShortName>
+                    <BitsShortName>MT</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">Target reports, flight plan data and basic alerts</BitsValue>
                     <BitsValue val="2">Manual attachment of flight plan to track</BitsValue>
@@ -445,7 +445,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>RoCD</BitsShortName>
+                    <BitsShortName>CROC</BitsShortName>
                     <BitsName>Calculated Rate Of Climb/Descent</BitsName>
                     <BitsUnit scale="6.25" min="-204800" max="204800">ft/min</BitsUnit>
                 </Bits>
@@ -1372,7 +1372,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>FLS</BitsShortName>
+                    <BitsShortName>Pof</BitsShortName>
                     <BitsName>Phase of flight</BitsName>
                     <BitsValue val="0">unknown</BitsValue>
                     <BitsValue val="1">on stand</BitsValue>

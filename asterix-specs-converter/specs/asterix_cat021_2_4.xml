@@ -98,7 +98,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>id</BitsShortName>
+                    <BitsShortName>SI</BitsShortName>
                     <BitsName>Service Identification</BitsName>
                 </Bits>
             </Fixed>
@@ -113,7 +113,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="unsigned">
-                    <BitsShortName>016</BitsShortName>
+                    <BitsShortName>SM</BitsShortName>
                     <BitsName>Service Management</BitsName>
                     <BitsUnit scale="0.5">s</BitsUnit>
                 </Bits>
@@ -129,7 +129,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>ECAT</BitsShortName>
+                    <BitsShortName>EC</BitsShortName>
                     <BitsName>Emitter Category</BitsName>
                     <BitsValue val="0">No ADS-B Emitter Category Information</BitsValue>
                     <BitsValue val="1">light aircraft &lt;= 15500 lbs</BitsValue>
@@ -336,7 +336,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>071</BitsShortName>
+                    <BitsShortName>ToAfP</BitsShortName>
                     <BitsName>Time of Applicability for Position</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -353,7 +353,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>072</BitsShortName>
+                    <BitsShortName>ToAfV</BitsShortName>
                     <BitsName>Time of Applicability for Velocity</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -370,7 +370,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>073</BitsShortName>
+                    <BitsShortName>ToMRfP</BitsShortName>
                     <BitsName>Time of Message Reception for Position</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -412,7 +412,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>075</BitsShortName>
+                    <BitsShortName>ToMRfV</BitsShortName>
                     <BitsName>Time of Message Reception for Velocity</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -454,7 +454,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>077</BitsShortName>
+                    <BitsShortName>ToART</BitsShortName>
                     <BitsName>Time of ASTERIX Report Transmission</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
@@ -470,7 +470,7 @@
         <DataItemFormat desc="3-octet fixed length data item.">
             <Fixed length="3">
                 <Bits from="24" to="1">
-                    <BitsShortName>080</BitsShortName>
+                    <BitsShortName>TA</BitsShortName>
                     <BitsName>Target Address</BitsName>
                 </Bits>
             </Fixed>
@@ -772,7 +772,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="signed">
-                    <BitsShortName>132</BitsShortName>
+                    <BitsShortName>MA</BitsShortName>
                     <BitsName>Message Amplitude</BitsName>
                     <BitsUnit scale="1.0">dBm</BitsUnit>
                 </Bits>
@@ -789,7 +789,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>140</BitsShortName>
+                    <BitsShortName>GH</BitsShortName>
                     <BitsName>Geometric Height</BitsName>
                     <BitsUnit scale="6.25" min="-1500" max="150000">ft</BitsUnit>
                 </Bits>
@@ -806,7 +806,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>145</BitsShortName>
+                    <BitsShortName>FL</BitsShortName>
                     <BitsName>Flight Level</BitsName>
                     <BitsUnit scale="0.25" min="-15" max="1500">FL</BitsUnit>
                 </Bits>
@@ -931,7 +931,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="unsigned">
-                    <BitsShortName>152</BitsShortName>
+                    <BitsShortName>MH</BitsShortName>
                     <BitsName>Magnetic Heading</BitsName>
                     <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                 </Bits>
@@ -1061,7 +1061,7 @@
         <DataItemFormat desc="6-octet fixed length data item.">
             <Fixed length="6">
                 <Bits from="48" to="1" encode="6bitschar">
-                    <BitsShortName>170</BitsShortName>
+                    <BitsShortName>TI</BitsShortName>
                     <BitsName>Target Identification</BitsName>
                 </Bits>
             </Fixed>
@@ -1250,7 +1250,7 @@
         <DataItemFormat desc="2-octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>230</BitsShortName>
+                    <BitsShortName>RA</BitsShortName>
                     <BitsName>Roll Angle</BitsName>
                     <BitsUnit scale="0.01" min="-180" max="180">deg</BitsUnit>
                 </Bits>
@@ -1758,7 +1758,7 @@
         <DataItemFormat desc="1-octet fixed length data item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>400</BitsShortName>
+                    <BitsShortName>RI</BitsShortName>
                     <BitsName>Receiver ID</BitsName>
                 </Bits>
             </Fixed>
