@@ -269,22 +269,22 @@
                         <BitsShortName>TYPE</BitsShortName>
                         <BitsName>Type of report counter</BitsName>
                         <BitsValue val="0">Number of unknown messages received</BitsValue>
-                        <BitsValue val="1">Number of ‘too old&apos; messages received</BitsValue>
+                        <BitsValue val="1">Number of &apos;too old&apos; messages received</BitsValue>
                         <BitsValue val="2">Number of failed message conversions</BitsValue>
                         <BitsValue val="3">Total Number of messages received</BitsValue>
                         <BitsValue val="20">Number of TIS-B management messages received</BitsValue>
-                        <BitsValue val="21">Number of ‘Basic&apos; messages received</BitsValue>
-                        <BitsValue val="22">Number of ‘High Dynamic&apos; messages received</BitsValue>
-                        <BitsValue val="23">Number of ‘ Full Position&apos;messages received</BitsValue>
-                        <BitsValue val="24">Number of ‘Basic Ground ‘ messages received</BitsValue>
-                        <BitsValue val="25">Number of ‘TCP&apos; messages received</BitsValue>
-                        <BitsValue val="26">Number of ‘UTC time ‘ messages received</BitsValue>
+                        <BitsValue val="21">Number of &apos;Basic&apos; messages received</BitsValue>
+                        <BitsValue val="22">Number of &apos;High Dynamic&apos; messages received</BitsValue>
+                        <BitsValue val="23">Number of &apos; Full Position&apos;messages received</BitsValue>
+                        <BitsValue val="24">Number of &apos;Basic Ground &apos; messages received</BitsValue>
+                        <BitsValue val="25">Number of &apos;TCP&apos; messages received</BitsValue>
+                        <BitsValue val="26">Number of &apos;UTC time &apos; messages received</BitsValue>
                         <BitsValue val="27">Number of Data&apos; messages received</BitsValue>
-                        <BitsValue val="28">Number of ‘High Resolution&apos; messages received</BitsValue>
-                        <BitsValue val="29">Number of ‘Aircraft Target Airborne&apos; messages received.</BitsValue>
-                        <BitsValue val="30">Number of ‘Aircraft Target ‘Ground&apos; messages received.</BitsValue>
-                        <BitsValue val="31">Number of ‘Ground Vehicle Target&apos; messages received.</BitsValue>
-                        <BitsValue val="32">Number of ‘2 slots TCP messages received.</BitsValue>
+                        <BitsValue val="28">Number of &apos;High Resolution&apos; messages received</BitsValue>
+                        <BitsValue val="29">Number of &apos;Aircraft Target Airborne&apos; messages received.</BitsValue>
+                        <BitsValue val="30">Number of &apos;Aircraft Target &apos;Ground&apos; messages received.</BitsValue>
+                        <BitsValue val="31">Number of &apos;Ground Vehicle Target&apos; messages received.</BitsValue>
+                        <BitsValue val="32">Number of &apos;2 slots TCP messages received.</BitsValue>
                     </Bits>
                     <Bits bit="40">
                         <BitsShortName>REF</BitsShortName>

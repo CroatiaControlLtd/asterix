@@ -4,7 +4,7 @@
 [converter]: https://zoranbosnjak.github.io/asterix-specs/bin/converter-static
 [asterix-specs]: https://github.com/zoranbosnjak/asterix-specs
 [asterix-specs-out]: https://zoranbosnjak.github.io/asterix-specs/
-[syntax]: https://zoranbosnjak.github.io/asterix-specs/syntax/index.html
+[syntax]: https://zoranbosnjak.github.io/asterix-specs/syntax.html
 
 This project uses `.xml` files for asterix definitions. The `.xml` files
 can be created and maintained by editing the files directly, however a
@@ -61,7 +61,7 @@ curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/cats/cat1.18/defi
 python3 asterix2json.py --cat category.json --ref ref.json --outfile out.xml
 ```
 ## Running `update-specs.py` script
-This scripts autimatically reads latest Asterix specifications from 
+This scripts autimatically reads latest Asterix specifications from
 [asterix-specs-out] and creates all XML definitions in specs folder.
 
 
