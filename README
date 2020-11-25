@@ -79,16 +79,17 @@ make
 USAGE
 =====
 
-asterix [-h] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
+asterix [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh|-je] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
 
 Options:
-   -h,--help    Show this help message
-   -v,--verbose Show more information during program execution
-   -d,--def     XML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini
-   -L,--list    List all configured ASTERIX items. Mark which items are filtered.
-   -LF,--filter Printout only items listed in configured file
-   -o,--loop        Loop the input file. Only relevant when file is data source."
-   -s,--sync        Output will be printed synchronously with input file (with time delays between packets). This parameter is used only if input is from file."
+   -h,--help        Show this help message and exit.
+   -V,--version     Show version information and exit.
+   -v,--verbose     Show more information during program execution.
+   -d,--def         XML protocol definitions filenames are listed in specified filename. By default are listed in config/asterix.ini
+   -L,--list        List all configured ASTERIX items. Mark which items are filtered.
+   -LF,--filter     Printout only items listed in configured file.
+   -o,--loop        Loop the input file. Only relevant when file is data source.
+   -s,--sync        Output will be printed synchronously with input file (with time delays between packets). This parameter is used only if input is from file.
 
 Input format:
    -P,--pcap        Input is from PCAP file
@@ -99,11 +100,12 @@ Input format:
    -G,--gps         Asterix packet is encapsulated in GPS packet.
 
 Output format:
-   -l,--line        Output will be printed as one line per item. This format is suitable for parsing
-   -x,--xml         Output will be printed in compact line-delimited XML format (one object per line, suitable for parsing)
-   -xh,--xmlh       Output will be printed in human readable XML format (suitable for file storage)
-   -j,--json        Output will be printed in compact line-delimited JSON format (one object per line, suitable for parsing)
-   -jh,--jsonh      Output will be printed in human readable JSON format (suitable for file storage)
+   -l,--line             Output will be printed as one line per item. This format is suitable for parsing.
+   -x,--xml              Output will be printed in compact line-delimited XML format (one object per line, suitable for parsing).
+   -xh,--xmlh            Output will be printed in human readable XML format (suitable for file storage).
+   -j,--json             Output will be printed in compact line-delimited JSON format (one object per line, suitable for parsing).
+   -jh,--jsonh           Output will be printed in human readable JSON format (suitable for file storage).
+   -je,--json-extensive  Output will be printed in extensive JSON format (with both hex and scaled value and description of each item).
 
 
 Data source:
