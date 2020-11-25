@@ -231,8 +231,10 @@ Warning: with this update following items are changed in JSON and Python format
 001/030, 001/130, 001/210, 002/050, 002/060, 002/080, 008/100, 008/110, 019/553, 020/030, 021/110, 023/110, 025/100, 048/030, 062/510, 252/240
 Elements in those items (all variable items with only one extent) are now presented as list of dictionaries.
 
-Not versioned yet
+2.7.1 (python_v0.6.1)
 Issue #166 Scale missing from Mode 5 GNSS-derived Altitude in I062/110
 Issue #167 Subfield 8 of I062/380 (Trajectory Intent Status) should be defined as Variable in xml config
 Issue #168 Error codes from write are not detected
 Issue #169 Problem decoding BDS 4,5 reserved bits
+Issue #171 Hexdata presentation is not correct for multiple records in block
+RE item added to CAT010

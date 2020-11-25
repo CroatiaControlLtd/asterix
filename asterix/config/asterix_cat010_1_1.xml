@@ -723,6 +723,22 @@
         </DataItemFormat>
     </DataItem>
 
+    <DataItem id="RE">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>
+            Expansion
+        </DataItemDefinition>
+        <DataItemFormat desc="Explicit data item.">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>VAL</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+    </DataItem>
+
 
     <DataItem id="SP" rule="optional"> 
         <DataItemName>Special Purpose</DataItemName>
