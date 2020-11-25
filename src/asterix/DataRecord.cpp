@@ -133,26 +133,13 @@ DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned
         strNewResult += format("]");
         Tracer::Error(strNewResult.c_str());
     } else {
-        uint32_t nCrc32 = 0;
         unsigned int i;
-        unsigned char nCategory = m_pCategory->m_id & 0xff;
-        // some arithmetic to get m_nLength as individual bytes
-        // m_nLength is missing cat + len bytes (3 additional bytes)
-        unsigned char nFirstByteLength = ((m_nLength + 3) >> 8) & 0xff;
-        unsigned char nSecondByteLength = (m_nLength + 3) & 0xff;
-        nCrc32 = crc32(&nCategory, 1);
-        nCrc32 = crc32(&nFirstByteLength, 1, nCrc32);
-        nCrc32 = crc32(&nSecondByteLength, 1, nCrc32);
-        nCrc32 = crc32(data, m_nLength, nCrc32);
-        m_nCrc = nCrc32;
+        m_nCrc = crc32(data, m_nLength, 1);
 
         // build hexdata string
-        m_pHexData = (char *) calloc((m_nLength + 3 /*cat + len*/) * 2 + 1 /* null */, sizeof(char));
-        snprintf(m_pHexData, 3, "%02X", nCategory);
-        snprintf(m_pHexData + sizeof(char) * 2, 3, "%02X", nFirstByteLength);
-        snprintf(m_pHexData + sizeof(char) * 4, 3, "%02X", nSecondByteLength);
+        m_pHexData = (char *) calloc(m_nLength  * 2 + 1 /* null */, sizeof(char));
         for (i = 0; i < m_nLength; i++) {
-            snprintf(m_pHexData + sizeof(char) * (6 + i * 2), 3, "%02X", data[i]);
+            snprintf(m_pHexData + sizeof(char) * i * 2, 3, "%02X", data[i]);
         }
     }
 }
