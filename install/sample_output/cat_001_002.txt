@@ -4,12 +4,13 @@
 Data Block 1
 Category: 1
 Len: 69
+HexData: 010048
 -------------------------
 Data Record 1
 Len: 23
-CRC: C3141406
+CRC: 166B4DBF
 Timestamp: 45826414
-HexData: 01001AF7C619C9A00EB2767F189408AA42D8033405C8800D400E
+HexData: F7C619C9A00EB2767F189408AA42D8033405C8800D400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -76,9 +77,9 @@ Item 210 : Track Quality
 -------------------------
 Data Record 2
 Len: 23
-CRC: 906485F6
+CRC: 451BDC4F
 Timestamp: 45826414
-HexData: 01001AF7C619C9B00F7561EC1A14077EB5550E5205508014400E
+HexData: F7C619C9B00F7561EC1A14077EB5550E5205508014400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -145,9 +146,9 @@ Item 210 : Track Quality
 -------------------------
 Data Record 3
 Len: 23
-CRC: 646E354E
+CRC: B1116CF7
 Timestamp: 45826414
-HexData: 01001AF7C619C9B00DCA69DE1A7C07F011110E3006188016400E
+HexData: F7C619C9B00DCA69DE1A7C07F011110E3006188016400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -216,12 +217,13 @@ Item 210 : Track Quality
 Data Block 2
 Category: 1
 Len: 23
+HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
-CRC: 7F3A77FF
+CRC: AA452E46
 Timestamp: 45826414
-HexData: 01001AF7C619C9B00D685C881CE008424FA4004A04D88022400E
+HexData: F7C619C9B00D685C881CE008424FA4004A04D88022400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -290,12 +292,13 @@ Item 210 : Track Quality
 Data Block 3
 Category: 2
 Len: 8
+HexData: 02000B
 -------------------------
 Data Record 1
 Len: 8
-CRC: F99F71EB
+CRC: E1A938EC
 Timestamp: 45826414
-HexData: 02000BF019C90250598117
+HexData: F019C90250598117
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -318,12 +321,13 @@ Item 030 : Time of Day
 Data Block 4
 Category: 1
 Len: 23
+HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
-CRC: 87B79637
+CRC: 52C8CF8E
 Timestamp: 45826414
-HexData: 01001AF7C619C9B00CE173571E28081DD1100AC405A08028400E
+HexData: F7C619C9B00CE173571E28081DD1100AC405A08028400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -392,12 +396,13 @@ Item 210 : Track Quality
 Data Block 5
 Category: 1
 Len: 23
+HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
-CRC: 0651441B
+CRC: D32E1DA2
 Timestamp: 45826414
-HexData: 01001AF7C619C9A00C10514C212C05DCE2D7059E025A8038400E
+HexData: F7C619C9A00C10514C212C05DCE2D7059E025A8038400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
@@ -466,12 +471,13 @@ Item 210 : Track Quality
 Data Block 6
 Category: 1
 Len: 23
+HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
-CRC: BB67C462
+CRC: 6E189DDB
 Timestamp: 45826414
-HexData: 01001AF7C619C9B00F0D37FE21C80755D1C605A505A0803B400E
+HexData: F7C619C9B00F0D37FE21C80755D1C605A505A0803B400E
 
 Item 010 : Data Source Identifier
 [ 19 C9 ]
