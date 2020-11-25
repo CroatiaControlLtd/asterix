@@ -444,6 +444,7 @@ CAT010:I550:TSV                                              Time Source Validit
 CAT010:I550:DIV                                              Diversity indicator
 CAT010:I550:TTF                                              Test Target indicator
 CAT010:I550:spare                                            Spare bits set to zero
+CAT010:IRE:VAL                                               
 CAT010:ISP:SPval                                             
 CAT011:I000:MsgTyp                                           Message Type
 CAT011:I010:SAC                                              System Area Code fixed to zero
