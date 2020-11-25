@@ -257,12 +257,14 @@ def describe(parsed):
         txt += '\nTimestamp: %ld (%s)' % (ts, strts)
         cat = record['category']
         txt += '\nCategory: %d (%s)' % (cat, _asterix.describe(cat))
+        txt += '\nHexdata: %s' % record['hexdata']
 
         for key, value in record.items():
             if key != 'category':
-                txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
                 if isinstance(value, dict):
                     for ikey, ival in value.items():
+                        txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
+
                         if 'val' in ival:
                             txt += '\n\t%s (%s): %s %s' % (
                             ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),
@@ -274,13 +276,13 @@ def describe(parsed):
                                 ikey2, _asterix.describe(cat, str(key), ikey2), str(ival2['val']),
                                 _asterix.describe(cat, str(key), ikey2, str(ival2['val'])))
                 elif isinstance(value, list):
+                    txt += '\nItem: %s (%s)' % (str(key), _asterix.describe(cat, str(key)))
+
                     for it in value:
                         for ikey, ival in it.items():
                             txt += '\n\t%s (%s): %s %s' % (
                             ikey, _asterix.describe(cat, str(key), ikey), str(ival['val']),
                             _asterix.describe(cat, str(key), ikey, str(ival['val'])))
-                else:
-                    txt += str(value)
 
     return txt
 
