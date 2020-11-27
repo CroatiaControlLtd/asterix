@@ -33,12 +33,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>NOTES:
-    1. In applications where transactions of various types are exchanged, the
-       Report Type Data Item facilitates the proper report handling at the
-       receiver side.
-    2. All Report Type values are reserved for common standard use.
-</DataItemNote>
+        <DataItemNote>
+            NOTES:
+                1. In applications where transactions of various types are exchanged, the
+                   Report Type Data Item facilitates the proper report handling at the
+                   receiver side.
+                2. All Report Type values are reserved for common standard use.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="010">
@@ -58,10 +59,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    - The up-to-date list of SACs is published on the
-      EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                - The up-to-date list of SACs is published on the
+                  EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="015">
@@ -90,10 +92,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    - The service identification is allocated by the system.
-    - The service identification is also available in item I021/015.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                - The service identification is allocated by the system.
+                - The service identification is also available in item I021/015.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="070">
@@ -110,10 +113,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The time of day value is reset to zero each day at midnight.
-</DataItemNote>
+                1. The time of day value is reset to zero each day at midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="100">
@@ -188,16 +192,17 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. A time source is considered as valid when either externally
-       synchronised or running on a local oscillator within the
-       required accuracy of UTC.
-    2. Bit 8 (NOGO), when set to 1 indicates that the data transmitted
-       by the GS is not released for operational use.
-    3. Bit 2 indicates that the allocation of Track-IDs (Item I021/161)
-       was re-started.
-</DataItemNote>
+                1. A time source is considered as valid when either externally
+                   synchronised or running on a local oscillator within the
+                   required accuracy of UTC.
+                2. Bit 8 (NOGO), when set to 1 indicates that the data transmitted
+                   by the GS is not released for operational use.
+                3. Bit 2 indicates that the allocation of Track-IDs (Item I021/161)
+                   was re-started.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="101">
@@ -352,10 +357,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. Maximum value indicates maximum value or above.
-</DataItemNote>
+                1. Maximum value indicates maximum value or above.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="RE">

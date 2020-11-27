@@ -33,12 +33,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>NOTES:
-  1. In applications where data of various types is exchanged, the Message
-     Type Data Item facilitates the proper message handling at the receiver
-     side.
-  2. All Message Type values are reserved for common standard use.
-</DataItemNote>
+        <DataItemNote>
+            NOTES:
+              1. In applications where data of various types is exchanged, the Message
+                 Type Data Item facilitates the proper message handling at the receiver
+                 side.
+              2. All Message Type values are reserved for common standard use.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="010">
@@ -58,10 +59,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    - The up-to-date list of SACs is published on the
-      EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                - The up-to-date list of SACs is published on the
+                  EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="140">
@@ -78,10 +80,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
+        <DataItemNote>
+            Note:
 
-    The time of day value is reset to zero each day at midnight.
-</DataItemNote>
+                The time of day value is reset to zero each day at midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="550">
@@ -124,11 +127,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
+        <DataItemNote>
+            Note:
 
-    A time source is considered as valid when either externally synchronised
-    or running on a local oscillator within the required accuracy of UTC.
-</DataItemNote>
+                A time source is considered as valid when either externally synchronised
+                or running on a local oscillator within the required accuracy of UTC.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="551">
@@ -180,11 +184,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
+        <DataItemNote>
+            Note:
 
-    Both Bits of one TP set to zero means, that this TP is not used
-    in the system.
-</DataItemNote>
+                Both Bits of one TP set to zero means, that this TP is not used
+                in the system.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="552">

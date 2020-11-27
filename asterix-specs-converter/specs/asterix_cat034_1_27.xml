@@ -34,19 +34,20 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. In applications where transactions of various
-       types are exchanged, the Message Type Data Item facilitates the
-       proper message handling at the receiver side.
-    2. All Message Type values are reserved for common standard use.
-    3. The list of items present for the four message types is defined in
-       the following table.
+                1. In applications where transactions of various
+                   types are exchanged, the Message Type Data Item facilitates the
+                   proper message handling at the receiver side.
+                2. All Message Type values are reserved for common standard use.
+                3. The list of items present for the four message types is defined in
+                   the following table.
 
-       M stands for mandatory, O for optional, X for never present.
+                   M stands for mandatory, O for optional, X for never present.
 
-       TODO: message types table
-</DataItemNote>
+                   TODO: message types table
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="010">
@@ -66,10 +67,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    - The up-to-date list of SACs is published on the
-      EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                - The up-to-date list of SACs is published on the
+                  EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="020">
@@ -102,10 +104,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - The time of day value is reset to zero each day at midnight.
-</DataItemNote>
+                - The time of day value is reset to zero each day at midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="041">
@@ -123,13 +126,14 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - This item represents the antenna rotation period as measured by the
-      radar station between two consecutive North crossings, or a calculated
-      antenna rotation speed as averaged during a period of time, or during a
-      number of antenna rotation scans.
-</DataItemNote>
+                - This item represents the antenna rotation period as measured by the
+                  radar station between two consecutive North crossings, or a calculated
+                  antenna rotation speed as averaged during a period of time, or during a
+                  number of antenna rotation scans.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="050">
@@ -535,12 +539,13 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - Applicable to all defined secondary subfields. The actual mapping
-      between the up to seven data reduction steps and their associated
-      data reduction measures is not subject to standardisation.
-</DataItemNote>
+                - Applicable to all defined secondary subfields. The actual mapping
+                  between the up to seven data reduction steps and their associated
+                  data reduction measures is not subject to standardisation.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="070">
@@ -603,10 +608,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - Negative values are coded in two&apos;s complement form.
-</DataItemNote>
+                - Negative values are coded in two&apos;s complement form.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="100">
@@ -663,14 +669,15 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. This Data Item is often used in conjunction with I034/100 and
-       represents a Data Filter for a specific geographical subarea.
-       A Data Source may have zero, one or multiple data filters active at any time.
-    2. If I034/110 is not accompanied with I034/100, then the Data Filter
-       is valid throughout the total area of coverage.
-</DataItemNote>
+                1. This Data Item is often used in conjunction with I034/100 and
+                   represents a Data Filter for a specific geographical subarea.
+                   A Data Source may have zero, one or multiple data filters active at any time.
+                2. If I034/110 is not accompanied with I034/100, then the Data Filter
+                   is valid throughout the total area of coverage.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="120">

@@ -601,7 +601,11 @@ class TopItem(object):
                 tell('</DataItemDefinition>')
             Variation.create(self, item).render()
             if remark:
-                tell('<DataItemNote>{}</DataItemNote>'.format(xmlquote(remark)))
+                tell('<DataItemNote>')
+                with indent:
+                    for line in remark.splitlines():
+                        tell(xmlquote(line))
+                tell('</DataItemNote>')
         tell('</DataItem>')
 
 class Category(object):

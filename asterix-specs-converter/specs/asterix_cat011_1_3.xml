@@ -55,9 +55,10 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The SAC is fixed to zero to indicate a data flow local to the airport.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The SAC is fixed to zero to indicate a data flow local to the airport.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="015">
@@ -73,9 +74,10 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The service identification is allocated by the A-SMGCS
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The service identification is allocated by the A-SMGCS
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="041">
@@ -154,10 +156,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-     The criteria to determine the credibility of the flight level are Tracker dependent.
-     Credible means: within reasonable range of change with respect to the previous detection.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                 The criteria to determine the credibility of the flight level are Tracker dependent.
+                 Credible means: within reasonable range of change with respect to the previous detection.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="092">
@@ -174,9 +177,10 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-     The source of altitude is identified in bits (SRC) of item I011/170 Track Status.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                 The source of altitude is identified in bits (SRC) of item I011/170 Track Status.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="093">
@@ -215,9 +219,10 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The Time of Track Information value is reset to zero each day at midnight.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The Time of Track Information value is reset to zero each day at midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="161">
@@ -409,8 +414,9 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Track type and coasting can also be derived from Data Item I011/290 System Track Update Ages
-</DataItemNote>
+        <DataItemNote>
+            Track type and coasting can also be derived from Data Item I011/290 System Track Update Ages
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="202">
@@ -495,9 +501,10 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    Characters 1-8 (coded on 6 bits each) defining target identification
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                Characters 1-8 (coded on 6 bits each) defining target identification
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="270">
@@ -548,9 +555,10 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The orientation gives the direction to which the aircraft nose is pointing, relative to the Geographical North.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The orientation gives the direction to which the aircraft nose is pointing, relative to the Geographical North.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="290">
@@ -744,13 +752,14 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The ages are counted from Data Item I011/140, Time Of Track
-    Information, using the following formula:
-    Age = Time of track information - Time of last (valid) update
-    If the computed age is greater than the maximum value or if the
-    data has never been received, then the corresponding subfield is not sent.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The ages are counted from Data Item I011/140, Time Of Track
+                Information, using the following formula:
+                Age = Time of track information - Time of last (valid) update
+                If the computed age is greater than the maximum value or if the
+                data has never been received, then the corresponding subfield is not sent.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="300">

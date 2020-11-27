@@ -54,10 +54,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The defined SACs are on the EUROCONTROL ASTERIX website
-    (www.eurocontrol.int/asterix)
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The defined SACs are on the EUROCONTROL ASTERIX website
+                (www.eurocontrol.int/asterix)
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="020">
@@ -122,9 +123,10 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Note:
-    For polar vectors bits-4/2 are meaningless and are set to zero.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                For polar vectors bits-4/2 are meaningless and are set to zero.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="034">
@@ -151,9 +153,10 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>Note:
-    f is a parameter of the SOP message.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                f is a parameter of the SOP message.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="036">
@@ -180,13 +183,14 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>Note:
-    1. LSB of [X, Y, L] is calculated as :math:`2^{-6+f}`.
-    2. f is a parameter of the SOP message.
-    3. Negative values are expressed in 2&apos;s complement form, bit-24
-       and bit-16 are set to 0 for positive values and 1 for negative
-       values.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                1. LSB of [X, Y, L] is calculated as :math:`2^{-6+f}`.
+                2. f is a parameter of the SOP message.
+                3. Negative values are expressed in 2&apos;s complement form, bit-24
+                   and bit-16 are set to 0 for positive values and 1 for negative
+                   values.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="038">
@@ -217,13 +221,14 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>Note:
-    1. LSB of [X1, Y1, X2, Y2] is calculated as :math:`2^{-6+f}`.
-    2. f is a parameter of the SOP message.
-    3. Negative values are expressed in 2&apos;s complement form, bits-32,
-       24, 16 and 8 are set to 0 for positive values and 1 for negative
-       values.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                1. LSB of [X1, Y1, X2, Y2] is calculated as :math:`2^{-6+f}`.
+                2. f is a parameter of the SOP message.
+                3. Negative values are expressed in 2&apos;s complement form, bits-32,
+                   24, 16 and 8 are set to 0 for positive values and 1 for negative
+                   values.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="040">
@@ -261,11 +266,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    The Contour Serial Number provides an unambiguous identification
-    for each contour record. Within one update cycle, a serial number
-    shall never be assigned twice.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                The Contour Serial Number provides an unambiguous identification
+                for each contour record. Within one update cycle, a serial number
+                shall never be assigned twice.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="050">
@@ -285,13 +291,14 @@
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote>Note:
-    1. LSB of [X1, Y1] is calculated as :math:`2^{-6+f}`.
-    2. f is a parameter of the SOP message.
-    3. Negative values are expressed in 2&apos;s complement form, bit-16
-       and bit-8 shall be set to 0 for positive values and 1 for
-       negative values.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                1. LSB of [X1, Y1] is calculated as :math:`2^{-6+f}`.
+                2. f is a parameter of the SOP message.
+                3. Negative values are expressed in 2&apos;s complement form, bit-16
+                   and bit-8 shall be set to 0 for positive values and 1 for
+                   negative values.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="090">
@@ -308,11 +315,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
-    1. The time of day value is reset to zero each day at midnight.
-    2. For time management in radar transmission applications, refer
-       to Part 1, paragraph 5.4 [Ref. 1].
-</DataItemNote>
+        <DataItemNote>
+            Notes:
+                1. The time of day value is reset to zero each day at midnight.
+                2. For time management in radar transmission applications, refer
+                   to Part 1, paragraph 5.4 [Ref. 1].
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="100">
@@ -346,13 +354,14 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Note:
-    f: Scaling factor, negative values are represented in 2&apos;s complement
-    form, bit-24 is set to 0 for positive values and 1 for negative values.
-    R: Current reduction stage in use. Normal operation is indicated by a
-    value of zero. The actual bit signification is application dependent.
-    Q: Processing parameters. The actual bit signification isapplication dependent.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                f: Scaling factor, negative values are represented in 2&apos;s complement
+                form, bit-24 is set to 0 for positive values and 1 for negative values.
+                R: Current reduction stage in use. Normal operation is indicated by a
+                value of zero. The actual bit signification is application dependent.
+                Q: Processing parameters. The actual bit signification isapplication dependent.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="110">
@@ -377,11 +386,12 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Note:
-    Due to the diversity in hardware design and requirements of present
-    and future radar stations, it is felt impractical to attempt to
-    define individual bits.
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                Due to the diversity in hardware design and requirements of present
+                and future radar stations, it is felt impractical to attempt to
+                define individual bits.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="120">

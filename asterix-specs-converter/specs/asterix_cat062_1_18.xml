@@ -32,10 +32,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Note:
-    - The up-to-date list of SACs is published on the
-      EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
-</DataItemNote>
+        <DataItemNote>
+            Note:
+                - The up-to-date list of SACs is published on the
+                  EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="015">
@@ -122,11 +123,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. This is the time of the track state vector.
-    2. The time is reset to zero at every midnight.
-</DataItemNote>
+                1. This is the time of the track state vector.
+                2. The time is reset to zero at every midnight.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="080">
@@ -381,54 +383,55 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. Track type and coasting can also be derived from I062/290 System Track Update Ages
-    2. If the system supports the technology, default value (0) means that the technology was used to produce the report
-    3. If the system does not support the technology, default value is meaningless.
-    4. Bits (EMS): other than subfield #11 of data item I062/380, these
-       bits allow the SDPS to set the emergency indication as derived from
-       other sources than ADS-B (e.g. based on the Mode 3/A code).
-    5. Bit 3 (PFT): with this flag an SDPS can indicate that internal processing
-       points to the track being potentially false. Details on the internal
-       processing are system dependent. In order to improve security on
-       targets provided by ADS-B numerous validation functions have been
-       developed in the ADS-B ground domain. If any of these validation
-       functions show a potentially spoofed target, the PFT bit will be used to
-       convey this information to the CWP. If and how this information is
-       processed and displayed on the CWP is a local matter and not subject
-       to the category 062 specification.
-    6. Bit (FPLT): this bit - if set - indicates that the information contained
-       in the target report has been updated by flight plan related data
-       because no surveillance data was available for the target, or was
-       created based on flight plan related data in areas with no
-       surveillance.
-    7. Bit (DUPT) is set to 1 if the correlation between the target report and a flight
-       plan is not possible because the Mode 3/A code stated in the flight plan exists
-       more than once in the surveillance data.
-    8. Bit (DUPF) - if set to 1 - indicates that for a specific surveillance target more
-       than one flight plan exists which makes correlation impossible.
-    9. Bit (DUPM) is set to 1 if a target was correlated manually but also a regular
-       flight plan exists.
-    10. All tracks for which bits 8, 7 or 6 are set to 1 are marked on the CWP.
-    11. Bit 5 (SFC) is set to 1 when the SDPS considers the target to be on the Surface
-        (the actual meaning is implementation dependent - please refer to chapter 4.8
-        above).
-    12. Bit 4 (IDD) is set to 1 when the Flight ID is present more than once in the
-        surveillance area.
-    13. Bit 3 (IEC) is set to 1 when the comparison between various sources has
-        revealed an inconsistency in the information contained about emergency codes.
-    14. If I062/080 (MRH) indicates &amp;quot;Barometric altitude (Mode C) more
-        reliable&amp;quot;, and a calculated altitude is transmitted, it shall be transmitted
-        using data item I062/135 Calculated Track Barometric Altitude.
-    15. If I062/080 (MRH) indicates &amp;quot;Geometric altitude more reliable&amp;quot;, and a
-        calculated altitude is transmitted, it shall be transmitted using data item
-        I062/130 Calculated Track Geometric Altitude. In this case the source
-        for I062/130 is indicated by I062/080 (SRC).
-    16. Data Items I062/130, I062/135, and I062/136 may be transmitted in
-        parallel whenever the respective information is available. This is
-        independent from the value transmitted on I062/080 (MRH).
-</DataItemNote>
+                1. Track type and coasting can also be derived from I062/290 System Track Update Ages
+                2. If the system supports the technology, default value (0) means that the technology was used to produce the report
+                3. If the system does not support the technology, default value is meaningless.
+                4. Bits (EMS): other than subfield #11 of data item I062/380, these
+                   bits allow the SDPS to set the emergency indication as derived from
+                   other sources than ADS-B (e.g. based on the Mode 3/A code).
+                5. Bit 3 (PFT): with this flag an SDPS can indicate that internal processing
+                   points to the track being potentially false. Details on the internal
+                   processing are system dependent. In order to improve security on
+                   targets provided by ADS-B numerous validation functions have been
+                   developed in the ADS-B ground domain. If any of these validation
+                   functions show a potentially spoofed target, the PFT bit will be used to
+                   convey this information to the CWP. If and how this information is
+                   processed and displayed on the CWP is a local matter and not subject
+                   to the category 062 specification.
+                6. Bit (FPLT): this bit - if set - indicates that the information contained
+                   in the target report has been updated by flight plan related data
+                   because no surveillance data was available for the target, or was
+                   created based on flight plan related data in areas with no
+                   surveillance.
+                7. Bit (DUPT) is set to 1 if the correlation between the target report and a flight
+                   plan is not possible because the Mode 3/A code stated in the flight plan exists
+                   more than once in the surveillance data.
+                8. Bit (DUPF) - if set to 1 - indicates that for a specific surveillance target more
+                   than one flight plan exists which makes correlation impossible.
+                9. Bit (DUPM) is set to 1 if a target was correlated manually but also a regular
+                   flight plan exists.
+                10. All tracks for which bits 8, 7 or 6 are set to 1 are marked on the CWP.
+                11. Bit 5 (SFC) is set to 1 when the SDPS considers the target to be on the Surface
+                    (the actual meaning is implementation dependent - please refer to chapter 4.8
+                    above).
+                12. Bit 4 (IDD) is set to 1 when the Flight ID is present more than once in the
+                    surveillance area.
+                13. Bit 3 (IEC) is set to 1 when the comparison between various sources has
+                    revealed an inconsistency in the information contained about emergency codes.
+                14. If I062/080 (MRH) indicates &amp;quot;Barometric altitude (Mode C) more
+                    reliable&amp;quot;, and a calculated altitude is transmitted, it shall be transmitted
+                    using data item I062/135 Calculated Track Barometric Altitude.
+                15. If I062/080 (MRH) indicates &amp;quot;Geometric altitude more reliable&amp;quot;, and a
+                    calculated altitude is transmitted, it shall be transmitted using data item
+                    I062/130 Calculated Track Geometric Altitude. In this case the source
+                    for I062/130 is indicated by I062/080 (SRC).
+                16. Data Items I062/130, I062/135, and I062/136 may be transmitted in
+                    parallel whenever the respective information is available. This is
+                    independent from the value transmitted on I062/080 (MRH).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="100">
@@ -473,10 +476,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - The LSB provides a resolution at least better than 0.6m.
-</DataItemNote>
+                - The LSB provides a resolution at least better than 0.6m.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="110">
@@ -697,29 +701,30 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The flags M2, M3, MC refer to the contents of data subitems I062/120,
-       I062/060 and I062/135 respectively. The flag M1 refers to the contents
-       of the Subfield #5 (Extended Mode 1 Code in Octal Representation).
-    2. If an authenticated Mode 5 reply is received with the Emergency
-       bit set, then the Military Emergency bit (ME) in Data Item I062/080,
-       Track Status, shall be set.
-    3. If an authenticated Mode 5 reply is received with the Identification
-       of Position bit set, then the Special Position Identification
-       bit (SPI) in Data Item I062/080, Track Status, shall be set.
-    4. The resolution implied by the LSB is better than the resolution
-       with which Mode 5 position reports are transmitted from aircraft
-       transponders using currently defined formats.
-    5. GA is coded as a 14-bit two&apos;s complement binary number with
-       an LSB of 25 ft. irrespective of the setting of RES.
-    6. The minimum value of GA that can be reported is -1000 ft.
-    7. If Subfield #1 is present, the M1 bit in Subfield #1 indicates
-       whether the Extended Mode 1 Code is from a Mode 5 reply or
-       a Mode 1 reply. If Subfield #1 is not present, the Extended
-       Mode 1 Code is from a Mode 1 reply.
-    8. TOS shall be assumed to be zero if Subfield #6 is not present.
-</DataItemNote>
+                1. The flags M2, M3, MC refer to the contents of data subitems I062/120,
+                   I062/060 and I062/135 respectively. The flag M1 refers to the contents
+                   of the Subfield #5 (Extended Mode 1 Code in Octal Representation).
+                2. If an authenticated Mode 5 reply is received with the Emergency
+                   bit set, then the Military Emergency bit (ME) in Data Item I062/080,
+                   Track Status, shall be set.
+                3. If an authenticated Mode 5 reply is received with the Identification
+                   of Position bit set, then the Special Position Identification
+                   bit (SPI) in Data Item I062/080, Track Status, shall be set.
+                4. The resolution implied by the LSB is better than the resolution
+                   with which Mode 5 position reports are transmitted from aircraft
+                   transponders using currently defined formats.
+                5. GA is coded as a 14-bit two&apos;s complement binary number with
+                   an LSB of 25 ft. irrespective of the setting of RES.
+                6. The minimum value of GA that can be reported is -1000 ft.
+                7. If Subfield #1 is present, the M1 bit in Subfield #1 indicates
+                   whether the Extended Mode 1 Code is from a Mode 5 reply or
+                   a Mode 1 reply. If Subfield #1 is not present, the Extended
+                   Mode 1 Code is from a Mode 1 reply.
+                8. TOS shall be assumed to be zero if Subfield #6 is not present.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="120">
@@ -757,12 +762,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. LSB is required to be less than 10 ft by ICAO
-    2. The source of altitude is identified in bits (SRC) of item
-       I062/080 Track Status.
-</DataItemNote>
+                1. LSB is required to be less than 10 ft by ICAO
+                2. The source of altitude is identified in bits (SRC) of item
+                   I062/080 Track Status.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="135">
@@ -784,10 +790,11 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1) ICAO specifies a range between -10 FL and 1267 FL for Mode C
-</DataItemNote>
+                1) ICAO specifies a range between -10 FL and 1267 FL for Mode C
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="136">
@@ -805,15 +812,16 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The criteria to determine the credibility of the flight level
-       are Tracker dependent.
-    2. Credible means: within reasonable range of change with respect
-       to the previous detection.
-    3. ICAO specifies a range between -10 FL and 1267 FL for Mode C.
-    4. This item includes the barometric altitude received from ADS-B.
-</DataItemNote>
+                1. The criteria to determine the credibility of the flight level
+                   are Tracker dependent.
+                2. Credible means: within reasonable range of change with respect
+                   to the previous detection.
+                3. ICAO specifies a range between -10 FL and 1267 FL for Mode C.
+                4. This item includes the barometric altitude received from ADS-B.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="185">
@@ -836,11 +844,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - The y-axis points to the Geographical North at the location of
-      the target.
-</DataItemNote>
+                - The y-axis points to the Geographical North at the location of
+                  the target.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="200">
@@ -887,12 +896,13 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - The ADF, if set, indicates that a difference has been detected
-      in the altitude information derived from radar as compared to
-      other technologies (such as ADS-B).
-</DataItemNote>
+                - The ADF, if set, indicates that a difference has been detected
+                  in the altitude information derived from radar as compared to
+                  other technologies (such as ADS-B).
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="210">
@@ -913,11 +923,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The y-axis points to the Geographical North at the location of the target.
-    2. Maximum value means maximum value or above.
-</DataItemNote>
+                1. The y-axis points to the Geographical North at the location of the target.
+                2. Maximum value means maximum value or above.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="220">
@@ -934,11 +945,12 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. A positive value indicates a climb, whereas a negative value
-       indicates a descent.
-</DataItemNote>
+                1. A positive value indicates a climb, whereas a negative value
+                   indicates a descent.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="245">
@@ -966,15 +978,16 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. For coding, see section 3.1.2.9 of [Ref.3]
-    2. As the Callsign of the target can already be transmitted
-       (thanks to I062/380 Subfield #2 if downlinked from the
-       aircraft or thanks to I062/390 Subfield #2 if the target
-       is correlated to a flight plan), and in order to avoid
-       confusion at end user&apos;s side, this item SHALL not be used.
-</DataItemNote>
+                1. For coding, see section 3.1.2.9 of [Ref.3]
+                2. As the Callsign of the target can already be transmitted
+                   (thanks to I062/380 Subfield #2 if downlinked from the
+                   aircraft or thanks to I062/390 Subfield #2 if the target
+                   is correlated to a flight plan), and in order to avoid
+                   confusion at end user&apos;s side, this item SHALL not be used.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="270">
@@ -1025,12 +1038,13 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The orientation gives the direction which the target nose is
-       pointing to,relative to the Geographical North.
-    2. When the length only is sent, the largest dimension is provided.
-</DataItemNote>
+                1. The orientation gives the direction which the target nose is
+                   pointing to,relative to the Geographical North.
+                2. When the length only is sent, the largest dimension is provided.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="290">
@@ -1206,17 +1220,18 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. Except for Track Age, the ages are counted from Data Item I062/070,
-       Time Of Track Information, using the following formula:
-       Age = Time of track information - Time of last detection used
-       to update the track
-    2. The time of last detection is derived from monosensor category time of day
-    3. If the data has never been received, then the corresponding
-       subfield is not sent.
-    4. Maximum value means maximum value or above.
-</DataItemNote>
+                1. Except for Track Age, the ages are counted from Data Item I062/070,
+                   Time Of Track Information, using the following formula:
+                   Age = Time of track information - Time of last detection used
+                   to update the track
+                2. The time of last detection is derived from monosensor category time of day
+                3. If the data has never been received, then the corresponding
+                   subfield is not sent.
+                4. Maximum value means maximum value or above.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="295">
@@ -1689,16 +1704,17 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. Despite there are now two subfields (#29 and #30) reporting the ages
-       of, respectively, the Indicated Airspeed track data and the Mach
-       Number track data, the subfield #8 (and so its presence bit , bit-32) is
-       kept free in order to prevent a full incompatibility with previous
-       releases of ASTERIX Cat. 062 already implemented.
-    2. In all the subfields, the age is the time delay since the value was
-       measured
-</DataItemNote>
+                1. Despite there are now two subfields (#29 and #30) reporting the ages
+                   of, respectively, the Indicated Airspeed track data and the Mach
+                   Number track data, the subfield #8 (and so its presence bit , bit-32) is
+                   kept free in order to prevent a full incompatibility with previous
+                   releases of ASTERIX Cat. 062 already implemented.
+                2. In all the subfields, the age is the time delay since the value was
+                   measured
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="300">
@@ -1903,17 +1919,18 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. In case of a plot, the measured bias-corrected polar co-ordinates;
-    2. In case of a sensor local track, the measured bias-corrected
-       polar co-ordinates of the plot associated to the track;
-    3. In case of a local track without detection, the extrapolated
-       bias-corrected polar co-ordinates.
-    4. Smoothed MODE 3/A data (L = 1) will be used in case of absence of
-       MODE 3/A code information in the plot or in case of difference
-       between plot and sensor local track MODE 3/A code information.
-</DataItemNote>
+                1. In case of a plot, the measured bias-corrected polar co-ordinates;
+                2. In case of a sensor local track, the measured bias-corrected
+                   polar co-ordinates of the plot associated to the track;
+                3. In case of a local track without detection, the extrapolated
+                   bias-corrected polar co-ordinates.
+                4. Smoothed MODE 3/A data (L = 1) will be used in case of absence of
+                   MODE 3/A code information in the plot or in case of difference
+                   between plot and sensor local track MODE 3/A code information.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="380">
@@ -2626,27 +2643,28 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. NC is set to one when the aircraft will not fly the path described
-       by the TCP data.
-    2. TCP numbers start from zero.
-    3. LT = Lateral Type
-    4. VT = Vertical Type
-    5. TOV gives the estimated time before reaching the point. It is
-       defined as the absolute time from midnight.
-    6. TOV is meaningful only if TOA is set to 0
-    7. Refer to ICAO Draft SARPs for ACAS for detailed explanations.
-    8. A positive value represents a right turn, whereas a negative value
-       represents a left turn.
-    9. Value 15 means 15 degrees/s or above.
-    10. Velocity uncertainty category of the least accurate velocity component
-    11. Positive longitude indicates East. Positive latitude indicates North.
-    12. LSB is required to be thinner than 10 ft by ICAO
-    13. Only DAPs that can not be encoded into other subfields of this item
-        should be sent using subfield #25
-    14. BPS is the barometric pressure setting of the aircraft minus 800 mb.
-</DataItemNote>
+                1. NC is set to one when the aircraft will not fly the path described
+                   by the TCP data.
+                2. TCP numbers start from zero.
+                3. LT = Lateral Type
+                4. VT = Vertical Type
+                5. TOV gives the estimated time before reaching the point. It is
+                   defined as the absolute time from midnight.
+                6. TOV is meaningful only if TOA is set to 0
+                7. Refer to ICAO Draft SARPs for ACAS for detailed explanations.
+                8. A positive value represents a right turn, whereas a negative value
+                   represents a left turn.
+                9. Value 15 means 15 degrees/s or above.
+                10. Velocity uncertainty category of the least accurate velocity component
+                11. Positive longitude indicates East. Positive latitude indicates North.
+                12. LSB is required to be thinner than 10 ft by ICAO
+                13. Only DAPs that can not be encoded into other subfields of this item
+                    should be sent using subfield #25
+                14. BPS is the barometric pressure setting of the aircraft minus 800 mb.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="390">
@@ -3052,53 +3070,54 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. The up-to-date list of SACs is published on the Eurocontrol Web Site
-       (http://www.eurocontrol.int).
-    2. Each one of the seven Octets contains an ASCII Character.
-       TheCallsign is always left adjusted. It contains up to seven
-       upper-case alphanumeric characters, the remaining character
-       positions (if any)are padded with space characters.
-    3. Each one of the four Octets composing the type of an aircraft
-       contains an ASCII Character (upper-case alphanumeric characters
-       with trailing spaces).
-    4. The types of aircraft are defined in [Ref.4]
-    5. Each one of the four Octets composing the name of an airport
-       contains an ASCII Character (upper case alphabetic).
-    6. The Airport Names are indicated in the ICAO Location Indicators book.
-    7. Each one of the four Octets composing the name of an airport
-       contains an ASCII Character (upper case alphabetic).
-    8. The Airport Names are indicated in the ICAO Location Indicators book.
-    9. NU1, NU2 and LTR each contain an ASCII character
-    10. For details refer to.[5] Section 5
-    11. The centre and the control position identification codes have to be
-        defined between communication partners.
-    12. Estimated times are derived from flight plan systems. Predicted
-        times are derived by the fusion system, based on surveillance
-        data. For definitions, see [Ref.4]
-    13. Each one of the six Octets contains an ASCII Character. The Aircraft
-        Stand identification is always left adjusted. It contains up
-        to six upper-case alphanumeric characters, the remaining character
-        positions (if any) are padded with space characters.
-    14. Each one of the seven Octets contains an ASCII Character.
-        The SID is always left adjusted. It contains up to seven
-        alphanumeric characters, the remaining character positions
-        (if any) are padded with space characters.
-    15. Each one of the seven Octets contains an ASCII Character.
-        The STAR is always left adjusted. It contains up to seven
-        alphanumeric characters, the remaining character positions
-        (if any) are padded with space characters.
-    16. This subfield is used only when the aircraft is transmitting
-        an emergency Mode 3/A code
-    17. If VA = 0, the content of bits 12/1 is meaningless
-    18. Each one of the seven Octets contains an ASCII Character.
-        The Callsign is always left adjusted. It contains up to seven
-        upper-case alphanumeric characters, the remaining character
-        positions (if any) are padded with space characters
-    19. This subfield is used only when an emergency Mode 3/A is associated
-        with the track (I062/390 Subfield #17)
-</DataItemNote>
+                1. The up-to-date list of SACs is published on the Eurocontrol Web Site
+                   (http://www.eurocontrol.int).
+                2. Each one of the seven Octets contains an ASCII Character.
+                   TheCallsign is always left adjusted. It contains up to seven
+                   upper-case alphanumeric characters, the remaining character
+                   positions (if any)are padded with space characters.
+                3. Each one of the four Octets composing the type of an aircraft
+                   contains an ASCII Character (upper-case alphanumeric characters
+                   with trailing spaces).
+                4. The types of aircraft are defined in [Ref.4]
+                5. Each one of the four Octets composing the name of an airport
+                   contains an ASCII Character (upper case alphabetic).
+                6. The Airport Names are indicated in the ICAO Location Indicators book.
+                7. Each one of the four Octets composing the name of an airport
+                   contains an ASCII Character (upper case alphabetic).
+                8. The Airport Names are indicated in the ICAO Location Indicators book.
+                9. NU1, NU2 and LTR each contain an ASCII character
+                10. For details refer to.[5] Section 5
+                11. The centre and the control position identification codes have to be
+                    defined between communication partners.
+                12. Estimated times are derived from flight plan systems. Predicted
+                    times are derived by the fusion system, based on surveillance
+                    data. For definitions, see [Ref.4]
+                13. Each one of the six Octets contains an ASCII Character. The Aircraft
+                    Stand identification is always left adjusted. It contains up
+                    to six upper-case alphanumeric characters, the remaining character
+                    positions (if any) are padded with space characters.
+                14. Each one of the seven Octets contains an ASCII Character.
+                    The SID is always left adjusted. It contains up to seven
+                    alphanumeric characters, the remaining character positions
+                    (if any) are padded with space characters.
+                15. Each one of the seven Octets contains an ASCII Character.
+                    The STAR is always left adjusted. It contains up to seven
+                    alphanumeric characters, the remaining character positions
+                    (if any) are padded with space characters.
+                16. This subfield is used only when the aircraft is transmitting
+                    an emergency Mode 3/A code
+                17. If VA = 0, the content of bits 12/1 is meaningless
+                18. Each one of the seven Octets contains an ASCII Character.
+                    The Callsign is always left adjusted. It contains up to seven
+                    upper-case alphanumeric characters, the remaining character
+                    positions (if any) are padded with space characters
+                19. This subfield is used only when an emergency Mode 3/A is associated
+                    with the track (I062/390 Subfield #17)
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="500">
@@ -3276,18 +3295,19 @@
                 </Fixed>
             </Compound>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    1. Maximum value means maximum value or above.
-    2. XY covariance component = sign {Cov(X,Y)} * sqrt {abs [Cov (X,Y)]}
-    3. The maximum value for the (unsigned) XY covariance component is 16.383 km
-    4. Maximum value means maximum value or above.
-    5. Maximum value means maximum value or above.
-    6. Maximum value means maximum value or above.
-    7. Maximum value means maximum value or above.
-    8. Maximum value means maximum value or above.
-    9. Maximum value means maximum value or above.
-</DataItemNote>
+                1. Maximum value means maximum value or above.
+                2. XY covariance component = sign {Cov(X,Y)} * sqrt {abs [Cov (X,Y)]}
+                3. The maximum value for the (unsigned) XY covariance component is 16.383 km
+                4. Maximum value means maximum value or above.
+                5. Maximum value means maximum value or above.
+                6. Maximum value means maximum value or above.
+                7. Maximum value means maximum value or above.
+                8. Maximum value means maximum value or above.
+                9. Maximum value means maximum value or above.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="510">
@@ -3331,14 +3351,15 @@
                 </Fixed>
             </Variable>
         </DataItemFormat>
-        <DataItemNote>Notes:
+        <DataItemNote>
+            Notes:
 
-    - The composed track number is used by co-operating units to uniquely
-      identify a track. It consists of the unit identifier and system
-      track number for each unit involved in the co-operation. The first
-      unit identification identifies the unit that is responsible for the
-      track amalgamation.
-</DataItemNote>
+                - The composed track number is used by co-operating units to uniquely
+                  identify a track. It consists of the unit identifier and system
+                  track number for each unit involved in the co-operation. The first
+                  unit identification identifies the unit that is responsible for the
+                  track amalgamation.
+        </DataItemNote>
     </DataItem>
 
     <DataItem id="RE">
