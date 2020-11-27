@@ -154,7 +154,7 @@ class Bits(object):
             new_name = ''
             for word in words:
                 new_name += word.strip('()')[0:1]
-            print('Renamed:%s  %s -> %s' % (self.parent.full_name, self.parent.item['title'], new_name))
+            # print('Renamed:%s  %s -> %s' % (self.parent.full_name, self.parent.item['title'], new_name))
             return new_name
         except ValueError:
             pass
@@ -382,15 +382,24 @@ class Fixed(Variation):
         bitSize, items = self.args
         assert (bitSize % 8) == 0, "bit alignment error"
         byteSize = bitSize // 8
-        tell('<Fixed length="{}">'.format(byteSize))
         bitsFrom = bitSize
-        for item in items:
-            n = getItemSize(item)
+
+        if len(items) == 1 and \
+            'rule' in items[0]['variation']['content'] and \
+            items[0]['variation']['content']['rule']['type'] == 'Bds':
+            # Example: CAT062/I380/ACS/BDS
+            n = getItemSize(items[0])
             bitsTo = bitsFrom - n + 1
-            with indent:
-                Bits(self, item, bitsFrom, bitsTo).render()
-            bitsFrom -= n
-        tell('</Fixed>')
+            Bits(self, items[0], bitsFrom, bitsTo).render()
+        else:
+            tell('<Fixed length="{}">'.format(byteSize))
+            for item in items:
+                n = getItemSize(item)
+                bitsTo = bitsFrom - n + 1
+                with indent:
+                    Bits(self, item, bitsFrom, bitsTo).render()
+                bitsFrom -= n
+            tell('</Fixed>')
 
 class Variable(Variation):
     def render(self):
@@ -579,6 +588,8 @@ class TopItem(object):
         tell('<DataItem id="{}">'.format(item['name']))
         title = item['title']
         definition = item['definition']
+        remark = item['remark']
+
         with indent:
             if title:
                 tell('<DataItemName>{}</DataItemName>'.format(xmlquote(title)))
@@ -589,6 +600,8 @@ class TopItem(object):
                         tell(xmlquote(line))
                 tell('</DataItemDefinition>')
             Variation.create(self, item).render()
+            if remark:
+                tell('<DataItemNote>{}</DataItemNote>'.format(xmlquote(remark)))
         tell('</DataItem>')
 
 class Category(object):

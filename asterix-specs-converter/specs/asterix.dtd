@@ -61,7 +61,7 @@
         <!ELEMENT Variable (Fixed+)>
 
         <!-- Compund data fields -->
-        <!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable|Compound)*)>
+        <!ELEMENT Compound (Variable,(Fixed|Explicit|Repetitive|Variable|Compound|BDS)*)>
 
         <!-- BDS is defined in asterix_bds.xml -->
         <!ELEMENT BDS (#PCDATA)>
