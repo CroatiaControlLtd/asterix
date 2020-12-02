@@ -238,3 +238,6 @@ Issue #168 Error codes from write are not detected
 Issue #169 Problem decoding BDS 4,5 reserved bits
 Issue #171 Hexdata presentation is not correct for multiple records in block
 RE item added to CAT010
+
+Not versioned yet
+Issue #175 Cat021 Ed2.4 SelH is not reasonable

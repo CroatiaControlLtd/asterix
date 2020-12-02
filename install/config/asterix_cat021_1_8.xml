@@ -1603,7 +1603,7 @@
                             <BitsValue val="0">Data is either unavailable or invalid.</BitsValue>
                             <BitsValue val="1">Data is available and valid.</BitsValue>
                         </Bits>
-                        <Bits from="10" to="1">
+                        <Bits from="10" to="1" encode="signed">
                             <BitsShortName>SelH</BitsShortName>
                             <BitsName>Selected Heading</BitsName>
                             <BitsUnit scale="0.703125">deg</BitsUnit>
