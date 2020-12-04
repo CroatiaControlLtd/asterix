@@ -387,46 +387,30 @@ bool CDiskDevice::DoneWithFile(bool allDone) {
 
     if (_mode & DD_MODE_MARKDONE) {
         // rename the file that has been processed
-
-        ASSERT(!(_mode & DD_MODE_PACKETFILE)); // not compatible
-//        ASSERT( !(_mode & DD_MODE_TEMPNAME) ); // not compatible
-
-        char newName[MAXPATHLEN+1];
-        char sfxFormat[10];
-        char suffix[32];
-
-        const char *sfxBase = _input ? ".ci%d_%%y%%m%%d%%H%%M%%S"
-                                     : ".co%d_%%y%%m%%d%%H%%M%%S";
-
-        sprintf(sfxFormat, sfxBase, (int) getpid());
-
-        time_t t = time(NULL);
-        struct tm *stm = gmtime(&t);
-        strftime(suffix, 25, sfxFormat, stm);
-
-        strncpy(newName, _fileName, MAXPATHLEN-32);
-        strcat(newName, suffix);
-
-        /* todo: Possible overflow!!
-        struct stat fs;
-        while (stat(newName, &fs) == 0) {
-            // file already exists, append random suffix
-
-            strcat(newName, "_");
-
-            for (int r = 0; r < 4; r++) {
-                char rs[2];
-                rs[1] = '\0';
-                rs[0] = 'a' + (char) ((((double) rand()) / ((double) RAND_MAX)) * ('z' - 'a') + 0.5);
-                strcat(newName, rs);
-            }
+        if (strlen(_fileName) >= MAXPATHLEN-32) {
+            LOGERROR(1, "File path too long to be renamed.\n");
         }
-        */
+        else {
+            char newName[MAXPATHLEN+32+1];
+            char sfxFormat[10];
+            char suffix[32];
+            const char *sfxBase = _input ? ".ci%d_%%y%%m%%d%%H%%M%%S"
+                                         : ".co%d_%%y%%m%%d%%H%%M%%S";
 
-        if (rename(_fileName, newName)) {
-            LOGERROR(1, "Rename of file failed\n");
-        } else {
-            LOGINFO(ZONE_DISKDEVICE, "File '%s' renamed to '%s'\n", _fileName, newName);
+            sprintf(sfxFormat, sfxBase, (int) getpid());
+
+            time_t t = time(NULL);
+            struct tm *stm = gmtime(&t);
+            strftime(suffix, 25, sfxFormat, stm);
+
+            strncpy(newName, _fileName, MAXPATHLEN);
+            strcat(newName, suffix);
+
+            if (rename(_fileName, newName)) {
+                LOGERROR(1, "Rename of file failed\n");
+            } else {
+                LOGINFO(ZONE_DISKDEVICE, "File '%s' renamed to '%s'\n", _fileName, newName);
+            }
         }
     } else if ((!_input) && (_mode & DD_MODE_PACKETFILE)) {
         // delete output file if empty (the last file in sequence is open regardless of input availability)
@@ -441,7 +425,6 @@ bool CDiskDevice::DoneWithFile(bool allDone) {
     }
 
     // return true if there are more files to process
-
     return allDone ? DoneAll() : NextFile();
 }
 

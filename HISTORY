@@ -241,3 +241,4 @@ RE item added to CAT010
 
 Not versioned yet
 Issue #175 Cat021 Ed2.4 SelH is not reasonable
+Issue #174 Warning: ‘char* strncpy(char*, const char*, size_t)’ output may be truncated
