@@ -39,6 +39,11 @@ int get_format_len(const char *fmt, va_list args) {
     int size = 0;
     char* buffer = NULL;
     size = vsnprintf(buffer, size, fmt, args);
+    if (size < 0) {
+        // for glibc < 2.0.6 vsnprintf returns -1 when the output was truncated
+        // so we just put some maximal size and if the string is longer it will be discarded in format_arg_list
+        size = 4096;
+    }
     return size;
 }
 
