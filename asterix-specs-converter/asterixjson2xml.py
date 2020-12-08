@@ -46,11 +46,9 @@ def getNumber(value):
         return Real(float(val))
     raise Exception('unexpected value type {}'.format(t))
 
-def renderRule(rule, caseUnspecified, caseContextFree, caseDependent):
+def renderRule(rule, caseContextFree, caseDependent):
     rule_type = rule['type']
-    if rule_type == 'Unspecified':
-        return caseUnspecified()
-    elif rule_type == 'ContextFree':
+    if rule_type == 'ContextFree':
         return caseContextFree(rule)
     elif rule_type == 'Dependent':
         return caseDependent(rule)
@@ -182,24 +180,23 @@ class Bits(object):
             else:
                 raise Exception('unexpected variation type {}'.format(vt))
 
-            # unspecified content (raw bits)
-            def case0():
-                if bitsFrom == bitsTo:
-                    tell('<Bits bit="{}">'.format(bitsFrom))
-                else:
-                    tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
-                with indent:
-                    tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
-                    if item['title']:
-                        tell('<BitsName>{}</BitsName>'.format(item['title']))
-                tell('</Bits>')
-
             # defined content
             def case1(val):
                 rule = val['rule']
                 t = rule['type']
 
-                if t == 'Table':
+                if t == 'Raw':
+                    if bitsFrom == bitsTo:
+                        tell('<Bits bit="{}">'.format(bitsFrom))
+                    else:
+                        tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
+                    with indent:
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
+                    tell('</Bits>')
+
+                elif t == 'Table':
                     if bitsFrom == bitsTo:
                         tell('<Bits bit="{}">'.format(bitsFrom))
                     else:
@@ -305,7 +302,7 @@ class Bits(object):
                         tell('<BitsName>{}</BitsName>'.format(item['title']))
                 tell('</Bits>')
 
-            renderRule(content, case0, case1, case2)
+            renderRule(content, case1, case2)
 
 class Variation(object):
 
