@@ -1,0 +1,1713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+    Asterix Category 4 v1.12 definition 
+    
+    Author:   Ivana Zrinusic
+    Created:  24.11.2015.
+    Modified: 24.11.2015.
+	Modified: 25.1.20201. Damir Salantic - v1.12
+-->
+
+<Category id="4" name="Safety Net Messages" ver="1.12">
+
+    <DataItem id="000" rule="mandatory">
+        <DataItemName>Message Type</DataItemName>   
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>MessageType</BitsShortName>
+                    <BitsName>Message Type</BitsName>
+                    <BitsValue val="1">Alive Message (AM)</BitsValue>
+                    <BitsValue val="2">Route Adherence Monitor Longitudinal Deviation (RAMLD)</BitsValue>
+                    <BitsValue val="3">Route Adherence Monitor Heading Deviation (RAMHD)</BitsValue>
+                    <BitsValue val="4">Minimum Safe Altitude Warning (MSAW)</BitsValue>
+                    <BitsValue val="5">Area Proximity Warning (APW)</BitsValue>
+                    <BitsValue val="6">Clearance Level Adherence Monitor (CLAM)</BitsValue>
+                    <BitsValue val="7">Short Term Conflict Alert (STCA)</BitsValue>
+                    <BitsValue val="8">Approach Funnel Deviation Alert (APM)</BitsValue>
+                    <BitsValue val="9">RIMCAS Arrival / Landing Monitor (ALM)</BitsValue>
+                    <BitsValue val="10">RIMCAS Arrival / Departure Wrong Runway Alert (WRA)</BitsValue>
+                    <BitsValue val="11">RIMCAS Arrival / Departure Opposite Traffic Alert (OTA)</BitsValue>
+                    <BitsValue val="12">RIMCAS Departure Monitor (RDM)</BitsValue>
+                    <BitsValue val="13">RIMCAS Runway / Taxiway Crossing Monitor (RCM)</BitsValue>
+                    <BitsValue val="14">RIMCAS Taxiway Separation Monitor (TSM)</BitsValue>
+                    <BitsValue val="15">RIMCAS Unauthorized Taxiway Movement Monitor(UTMM)</BitsValue>
+                    <BitsValue val="16">RIMCAS Stop Bar Overrun Alert (SBOA)</BitsValue>
+                    <BitsValue val="17">End Of Conflict (EOC)</BitsValue>
+                    <BitsValue val="18">ACAS Resolution Advisory (ACASRA)</BitsValue>
+                    <BitsValue val="19">Near Term Conflict Alert (NTCA)</BitsValue> 
+                    <BitsValue val="20">Downlinked Barometric Pressure Setting Monitor (DBPSM)</BitsValue> 
+                    <BitsValue val="21">Speed Adherence Monitor (SAM)</BitsValue> 
+                    <BitsValue val="22">Outside Controlled Airspace Tool (OCAT)</BitsValue> 
+					<BitsValue val="23">Vertical Conflict Detection (VCD)</BitsValue> 
+					<BitsValue val="24">Vertical Rate Adherence Monitor (VRAM)</BitsValue> 
+					<BitsValue val="25">Cleared Heading Adherence Monitor (CHAM)</BitsValue> 
+					<BitsValue val="26">Downlinked Selected Altitude Monitor (DSAM)</BitsValue> 
+					<BitsValue val="27">Holding Adherence Monitor (HAM)</BitsValue> 
+					<BitsValue val="28">Vertical Path Monitor (VPM)</BitsValue> 
+					<BitsValue val="29">RIMCAS Taxiway Traffic Alert (TTA)</BitsValue> 
+					<BitsValue val="30">RIMCAS Arrival/Departure Close Runway Alert (CRA)</BitsValue> 
+					<BitsValue val="31">RIMCAS Arrival/Departure Aircraft Separation Monitor (ASM)</BitsValue> 
+					<BitsValue val="32">RIMCAS ILS Area Violation Monitor (IAVM)</BitsValue> 
+					<BitsValue val="33">Final Target Distance Indicator (FTD)</BitsValue> 
+					<BitsValue val="34">Initial Target Distance Indicator (ITD)</BitsValue> 
+					<BitsValue val="35">Wake Vortex Indicator Infringement Alert (IIA)</BitsValue> 
+					<BitsValue val="36">Sequence Warning (SQW)</BitsValue> 
+					<BitsValue val="37">Catch Up Warning (CUW)</BitsValue> 
+					<BitsValue val="38">Conflicting ATC Clearances (CATC)</BitsValue> 
+					<BitsValue val="39">No ATC Clearance (NOCLR)</BitsValue> 
+					<BitsValue val="40">Aircraft Not Moving despite ATC Clearance (NOMOV)</BitsValue> 
+					<BitsValue val="41">Aircraft leaving/entering the aerodrome area without proper handover (NOH)</BitsValue> 
+					<BitsValue val="42">Wrong Runway or Taxiway Type (WRTY)</BitsValue> 
+					<BitsValue val="43">Stand Occupied (STOCC)</BitsValue> 
+					<BitsValue val="44">Ongoing Alert (ONGOING)</BitsValue> 
+					<BitsValue val="97">Lost Track Warning (LTW)</BitsValue> 
+					<BitsValue val="98">Holding Volume Infringement (HVI)</BitsValue> 
+					<BitsValue val="99">Airspace Infringement Warning (AIW)</BitsValue> 						
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. In applications where transactions of various types are exchanged, the Message Type Data Item facilitates the proper message handling at the receiver side. 2. All Message Type values are reserved for common standard use.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName> 
+        <DataItemDefinition>Identification of the Safety Nets server sending the message.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
+    </DataItem>
+
+    <DataItem id="015" rule="optional">
+        <DataItemName>SDPS Identifier</DataItemName>
+        <DataItemDefinition>Identification of the SDPS providing data to the safety nets server.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one SDPS Identifier.">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="9">
+                        <BitsShortName>SAC</BitsShortName>
+                        <BitsName>System Area Code</BitsName>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>SIC</BitsShortName>
+                        <BitsName>System Identification Code</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>The up-to-date list of SACs is published on the Eurocontrol Web Site (http://www.eurocontrol.int/asterix).</DataItemNote>
+    </DataItem>
+
+    <DataItem id="020" rule="mandatory">
+        <DataItemName>Time of Message</DataItemName>
+        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item.">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>ToM</BitsShortName>
+                    <BitsName>Time Of Message</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>This time is given at an application level (e.g. time at which a message is filled), and not at the communication level (i.e. not the time at which the datablock containing the message is sent).</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="030" rule="optional">
+        <DataItemName>Track Number 1</DataItemName>
+        <DataItemDefinition>Identification of a track number related to conflict</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>TrkN</BitsShortName>
+                    <BitsName>Track number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>
+		1. This is the track number of the first track involved in the conflict in case of an STCA or a RIMCA or the track involved in case of one of the other Safety Net functions. 
+		2. This track number is distributed in this field exactly as it was received from the Radar Processor Unit (identified by I004/015) and its range is depending on the range used by that unit. 
+		3. In case of Message Type = 33 (Final Target Distance Indicator - FTD) this represents the Track Number of the following aircraft. 
+		4. In case of Message Type = 34 (Initial Target Distance Indicator - ITD) this represents the Track Number of the following aircraft. 
+		5. In case of Message Type = 35 (Wake Vortex Indicator Infringement Alert - IIA) this represents the track number of the following aircraft. 
+		6. In case of Message Type = 37 (Catch-Up Warning - CUW) this represents the track number of the following aircraft (i.e. the one catching up).</DataItemNote>
+    </DataItem>
+
+    <DataItem id="035" rule="optional">
+        <DataItemName>Track Number 2</DataItemName>
+        <DataItemDefinition>Together with I004/030, this item defines the track pair in conflict.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>TrkN</BitsShortName>
+                    <BitsName>Track number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. This is the track number of the second track involved in the conflict in case of an STCA, a RIMCA, a NTCA, a VCD or in message types 33 to 35 and 37.
+		2. For the other Safety Net functions, this item is not used.
+		3. This track number is distributed in this field exactly as it was received from the Radar Processor Unit and its range is depending on the range used by that unit.
+		4. In case of Message Type = 33 (Final Target Distance Indicator - FTD) this represents the Track Number of the leading aircraft
+		5. In case of Message Type = 34 (Initial Target Distance Indicator - ITD) this represents the Track Number of the leading aircraft.
+		6. In case of Message Type = 35 (Wake Vortex Indicator Infringement Alert - IIA) this represents the track number of the leading aircraft.
+		7. In case of Message Type = 37 (Catch-Up Warning - CUW) this represents the track number of the leading aircraft.
+		8. In case of Message Type = 38 (Conflicting ATC Clearances - CATC) this represents the track number of the aircraft to which the first ATC	Clearance was issued.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="040" rule="optional">
+        <DataItemName>Alert Identifier</DataItemName>
+        <DataItemDefinition>Identification of an alert (Alert number)</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>AlrtI</BitsShortName>
+                    <BitsName>Alert Identifier</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. This item is the Alert Identification of the conflict in the system 2. This number shall be assigned, by the Safety Net Server, incrementally to every new alert and restart on zero after reaching the maximum value (65535)</DataItemNote>
+    </DataItem>
+
+    <DataItem id="045" rule="optional">
+        <DataItemName>Alert Status</DataItemName>
+        <DataItemDefinition>Information concerning status of the alert</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="5">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="4" to="2">
+                    <BitsShortName>STAT</BitsShortName>
+                    <BitsName>Status of the alert</BitsName>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The content of this item is implementation dependent.</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="060" rule="optional">
+        <DataItemName>Safety Net Function and System Status</DataItemName>
+        <DataItemDefinition>Status of the Safety Nets functions handled by the system</DataItemDefinition>
+        <DataItemFormat desc="Variable length Data Item comprising a first part of one octet, followed by one-octet extents as necessary.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>MRVA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">MRVA function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>RAMLD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">RAMLD function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>RAMHD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">RAMHD function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>MSAW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">MSAW function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>APW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">APW function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>CLAM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">CLAM function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>STCA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">STCA function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>APM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">APM function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>RIMCA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">RIMCA function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>ACASRA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">ACAS RA function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>NTCA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">NTCA function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>DG</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">System degraded</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>OF</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">Overflow error</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>OL</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">Overload error</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+				<Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>AIW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">AIW function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>PAIW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">šAIW function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>OCAT</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">OCAT function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>SAM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">SAM function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>VCD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">VCD function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>CHAM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">CHAM function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>DSAM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">DSAM function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+				<Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>DBPSMARR</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">DBPSM ARR sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>DBPSMDEP</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">DBPSM DEP sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>DBPSMTL</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">DBPSM TL sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>VRAMCRM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">VRAM CRM sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>VRAMVTM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">VRAM VTM sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>VRAMVRM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">RAM VRM sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>HAMHD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">HAM HD sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>	
+				<Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>HAMRD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">HAM RD sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>HAMVD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">HAM VD sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>HVI</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">HVI function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>LTW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">LTW function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>VPM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">VPM function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>TTA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">TTA function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>CRA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">CRA function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+				<Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>ASM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">ASM sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>IAVM</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">IAVM sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>FTD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">FTD function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>ITD</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">ITD function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>IIA</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">IIA function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>SQW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">SQW function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>CUW</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">CUW function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+				<Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>CATS</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">CATC function</BitsValue>
+                    </Bits>
+                    <Bits bit="7">
+                        <BitsShortName>NOCLR</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">NOCLR sub-function</BitsValue>
+                    </Bits>
+                    <Bits bit="6">
+                        <BitsShortName>NOMOV</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">NOMOV function</BitsValue>
+                    </Bits>
+                    <Bits bit="5">
+                        <BitsShortName>NOH</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">NOH function</BitsValue>
+                    </Bits>
+                    <Bits bit="4">
+                        <BitsShortName>WRTY</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">WRTY function</BitsValue>
+                    </Bits>
+                    <Bits bit="3">
+                        <BitsShortName>STOCC</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">STOCC function</BitsValue>
+                    </Bits>
+                    <Bits bit="2">
+                        <BitsShortName>ONGOING</BitsShortName>
+                        <BitsValue val="0">Default</BitsValue>
+                        <BitsValue val="1">ONGOING function</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>							
+            </Variable>
+        </DataItemFormat>
+        <DataItemNote>1. This item only sent in “alive messages” to describe the status of the Safety Net functions, handled by the system
+		2. Value 0 means either that the function is not managed by the system or has failed.
+		3. Value 1 means that the function is managed by the system and is running well
+		4. “Overflow” is defined as a situation where the number of alerts in the system has exceeded the threshold for safe operation. Potential prioritization of the alerts may lead to a loss of information.
+		5. “Overload” is defined as a system status in which the number of alerts does not allow for a reliable performance. A correct calculation and transmission cannot be guaranteed.
+		6. “System degraded” means that information from one or more sensors is lost. </DataItemNote>
+    </DataItem>
+
+    <DataItem id="070" rule="optional">
+        <DataItemName>Conflict Timing and Separation</DataItemName>
+        <DataItemDefinition>Information on Timing and Aircraft Separation</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>TCP</BitsShortName>
+                            <BitsName>Time to Conflict Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>TCAP</BitsShortName>
+                            <BitsName>Time to Closest Approach Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CHSP</BitsShortName>
+                            <BitsName>Current Horizontal Separation Presence</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>MHSP</BitsShortName>
+                            <BitsName>Estimated Minimum Horizontal Separation Presence</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>CVSP</BitsShortName>
+                            <BitsName>Current Vertical Separation Presence</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>MVSP</BitsShortName>
+                            <BitsName>Estimated Minimum Vertical Separation Presence</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+                        <BitsShortName>TC</BitsShortName>
+                        <BitsName>Time to Conflict</BitsName>
+                        <BitsUnit scale="0.0078125">s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+                        <BitsShortName>TCA</BitsShortName>
+                        <BitsName>Time to Closest Approach</BitsName>
+                        <BitsUnit scale="0.0078125">s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+                        <BitsShortName>CHS</BitsShortName>
+                        <BitsName>Current Horizontal Separation</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1">
+                        <BitsShortName>MHS</BitsShortName>
+                        <BitsName>Estimated Minimun Horizontal Separation</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1">
+                        <BitsShortName>CVS</BitsShortName>
+                        <BitsName>Current Vertical Separation</BitsName>
+                        <BitsUnit scale="25">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1">
+                        <BitsShortName>MVS</BitsShortName>
+                        <BitsName>Estimated Minimun Vertical Separation</BitsName>
+                        <BitsUnit scale="25">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="074" rule="optional">
+        <DataItemName>Longitudinal Deviation</DataItemName>
+        <DataItemDefinition>Longitudinal deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length Data Item">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>LD</BitsShortName>
+                    <BitsName>Longitudinal deviation</BitsName>
+                    <BitsUnit scale="32">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>Longitudinal deviation will be positive if the aircraft is ahead of its planned position. Longitudinal deviation will be negative if the aircraft is behind its planned position.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="075" rule="optional">
+        <DataItemName>Transversal Distance Deviation</DataItemName>
+        <DataItemDefinition>Transversal distance deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
+        <DataItemFormat desc="Three-Octet fixed length Data Item">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>TDD</BitsShortName>
+                    <BitsName>Transversal Distance Deviation</BitsName>
+                    <BitsUnit scale="0.5">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>Deviation to the right of the track will be coded as a positive value. Deviation to the left of the track will be coded as a negative value</DataItemNote>
+    </DataItem>
+
+    <DataItem id="076" rule="optional">
+        <DataItemName>Vertical Deviation</DataItemName>
+        <DataItemDefinition>Vertical Deviation from planned altitude, in two’s complement form.</DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length Data Item">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>VD</BitsShortName>
+                    <BitsName>Vertical deviation</BitsName>
+                    <BitsUnit scale="25">ft</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>Positive value if aircraft is above planned altitude. Negative value if aircraft is below planned altitude.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="100" rule="optional">
+        <DataItemName>Area Definition</DataItemName>
+        <DataItemDefinition>Definition of Areas involved in a Safety Net Alert</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>ANP</BitsShortName>
+                            <BitsName>Area Name Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>CANP</BitsShortName>
+                            <BitsName>Crossing Area Name Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>RT1P</BitsShortName>
+                            <BitsName>Runway/Taxiway Designator 1 Presence</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>RT2P</BitsShortName>
+                            <BitsName>Runway/Taxiway Designator 2 Presence</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>SBP</BitsShortName>
+                            <BitsName>Stop Bar Designator Presence</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>GP</BitsShortName>
+                            <BitsName>Gate Designator Presence</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0 Presence</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="6">
+                    <Bits from="48" to="1" encode="6bitschar">
+                        <BitsShortName>AN</BitsShortName>
+                        <BitsName>Area name</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>CAN</BitsShortName>
+                        <BitsName>Crossing area name</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>RT1</BitsShortName>
+                        <BitsName>Runway/Taxiway Designator 1</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>RT2</BitsShortName>
+                        <BitsName>Runway/Taxiway Designator 2</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>SB</BitsShortName>
+                        <BitsName>Stop Bar Designator</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>G</BitsShortName>
+                        <BitsName>Gate Designator</BitsName>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="110" rule="optional">
+        <DataItemName>SFDPS Sector Control Identification</DataItemName>
+        <DataItemDefinition>Identification of a list of FDPS Sector Control Positions in charge of the involved targets, as provided by the FDPS.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Data Item starting with one-octet Field Repetition Indicator (REP) followed by at least one FDPS Sector Control Position">
+            <Repetitive>
+                <Fixed length="2">
+                    <Bits from="16" to="9">
+                        <BitsShortName>Centre</BitsShortName>
+                        <BitsName>Centre identification code</BitsName>
+                    </Bits>
+                    <Bits from="8" to="1">
+                        <BitsShortName>Position</BitsShortName>
+                        <BitsName>Control position identification code</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>The Centre identification code and the Control position identification code must be defined between the communication partners.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="120" rule="optional">
+        <DataItemName>Conflict Characteristics</DataItemName>
+        <DataItemDefinition>Description of the Conflict Properties </DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of one octet, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>CNP</BitsShortName>
+                            <BitsName>Conflict Nature Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>CCP</BitsShortName>
+                            <BitsName>Conflict Classification Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CPP</BitsShortName>
+                            <BitsName>Conflict Probability Presence</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>CDP</BitsShortName>
+                            <BitsName>Conflict Duration Presence</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits from="4" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>MAS</BitsShortName>
+                            <BitsName>Conflict location in military airspace</BitsName>
+                            <BitsValue val="0">conflict not predicted to occur in military airspace</BitsValue>
+                            <BitsValue val="1">conflict predicted to occur in military airspace</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>CAS</BitsShortName>
+                            <BitsName>Conflict location in civil airspace</BitsName>
+                            <BitsValue val="0">conflict not predicted to occur in civil airspace</BitsValue>
+                            <BitsValue val="1">conflict predicted to occur in civil airspace</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>FLD</BitsShortName>
+                            <BitsName>Fast lateral divergence</BitsName>
+                            <BitsValue val="0">Aircraft are not fast diverging laterally at current time</BitsValue>
+                            <BitsValue val="1">Aircraft are fast diverging laterally at current time</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>FVD</BitsShortName>
+                            <BitsName>Fast vertical divergence</BitsName>
+                            <BitsValue val="0">Aircraft are not fast diverging vertically at current time</BitsValue>
+                            <BitsValue val="1">Aircraft are fast diverging vertically at current time</BitsValue>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>Type</BitsShortName>
+                            <BitsName>Type of separation infringement</BitsName>
+                            <BitsValue val="0">Minor separation infringement</BitsValue>
+                            <BitsValue val="1">Major separation infringement</BitsValue>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>Cross</BitsShortName>
+                            <BitsName>Crossing test</BitsName>
+                            <BitsValue val="0">Aircraft have not crossed at starting time of conflict</BitsValue>
+                            <BitsValue val="1">Aircraft have crossed at starting time of conflict</BitsValue>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>Div</BitsShortName>
+                            <BitsName>Divergence test</BitsName>
+                            <BitsValue val="0">Aircraft are not diverging at starting time of conflict</BitsValue>
+                            <BitsValue val="1">Aircraft are diverging at starting time of conflict</BitsValue>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Field extension indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>RRC</BitsShortName>
+                            <BitsName>Runway/Runway crossing in RIMCAS</BitsName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Runway/Runway Crossing</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>RTC</BitsShortName>
+                            <BitsName>Runway/Taxiway Crossing in RIMCAS</BitsName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Runway/Taxiway Crossing</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>MRVA</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 4 (MSAW) indicates MRVA</BitsValue>
+                        </Bits>
+						<Bits bit="5">
+                            <BitsShortName>VRAMCRM</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 25 (VRAM) indicates CRM</BitsValue>
+                        </Bits>
+						<Bits bit="4">
+                            <BitsShortName>VRAMVRM</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 25 (VRAM) indicates VRM</BitsValue>
+                        </Bits>
+						<Bits bit="3">
+                            <BitsShortName>VRAMVTM</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 25 (VRAM) indicates VTM</BitsValue>
+                        </Bits>						
+						<Bits bit="2">
+                            <BitsShortName>HAMHD</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 29 (HAM) indicates HD</BitsValue>
+                        </Bits>		
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+					<Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>HAMRD</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 29 (HAM) indicates RD</BitsValue>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>HAMVD</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 29 (HAM) indicates VD</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>DBPSMARR</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 20 (DBPSM) indicates ARR</BitsValue>
+                        </Bits>
+						<Bits bit="5">
+                            <BitsShortName>DBPSMDEP</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 20 (DBPSM) indicates DEP</BitsValue>
+                        </Bits>
+						<Bits bit="4">
+                            <BitsShortName>DBPSMTL</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 20 (DBPSM) indicates above TL</BitsValue>
+                        </Bits>
+						<Bits bit="3">
+                            <BitsShortName>AIW</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Msg Type 99 (AIW) indicates pAIW Alert</BitsValue>
+                        </Bits>						
+						<Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>	
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>					
+                </Variable>
+                <Fixed length="1">
+                    <Bits from="8" to="5">
+                        <BitsShortName>TableId</BitsShortName>
+                        <BitsName>Identification of conflict categories definition table</BitsName>
+                    </Bits>
+                    <Bits from="4" to="2">
+                        <BitsShortName>CPC</BitsShortName>
+                        <BitsName>Conflict Properties Class</BitsName>
+                    </Bits>
+                    <Bits bit="1">
+                        <BitsShortName>CS</BitsShortName>
+                        <BitsName>Conflict severity</BitsName>
+                        <BitsValue val="0">LOW</BitsValue>
+                        <BitsValue val="1">HIGH</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>CP</BitsShortName>
+                        <BitsName>Probability of the conflict</BitsName>
+                        <BitsUnit scale="0.5">%</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="1">
+                        <BitsShortName>CD</BitsShortName>
+                        <BitsName>Conflict duration</BitsName>
+                        <BitsUnit scale="0.007825">s</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="170" rule="optional">
+        <DataItemName>Aircraft Identification and Characteristics 1</DataItemName>
+        <DataItemDefinition>Identification and Characteristics of Aircraft 1 Involved in the Conflict.</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>AI1</BitsShortName>
+                            <BitsName>Aircraft Identifier 1</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>M31</BitsShortName>
+                            <BitsName>Mode 3/A Code Aircraft 1</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CPW</BitsShortName>
+                            <BitsName>Predicted Conflict Position 1 (WGS84)</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>CPC</BitsShortName>
+                            <BitsName>Predicted Conflict Position 1 (Cartesian Coordinates)</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>TT1</BitsShortName>
+                            <BitsName>Time to Threshold Aircraft 1</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>DT1</BitsShortName>
+                            <BitsName>Distance to Threshold Aircraft 1</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>AC1</BitsShortName>
+                            <BitsName>Aircraft Characteristics Aircraft 1</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>MS1</BitsShortName>
+                            <BitsName>Mode S Identifier Aircraft 1</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>FP1</BitsShortName>
+                            <BitsName>Flight Plan Number Aircraft 1</BitsName>
+                            <BitsPresence>9</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CF1</BitsShortName>
+                            <BitsName>Cleared Flight Level Aircraft 1</BitsName>
+                            <BitsPresence>10</BitsPresence>
+                        </Bits>
+                        <Bits from="5" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>AI1</BitsShortName>
+                        <BitsName>Aircraft Identifier 1</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="12" to="1" encode="octal">
+                        <BitsShortName>M31</BitsShortName>
+                        <BitsName>Mode 3/A Code Aircraft 1</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="10">
+                    <Bits from="80" to="49" encode="signed">
+                        <BitsShortName>Latitude</BitsShortName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="48" to="17" encode="signed">
+                        <BitsShortName>Longitude</BitsShortName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>Altitude</BitsShortName>
+                        <BitsName>Altitude of predicted conflict</BitsName>
+                        <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="8">
+                    <Bits from="64" to="41" encode="signed">
+                        <BitsShortName>X</BitsShortName>
+                        <BitsName>Starting X-position of the conflict</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                    <Bits from="40" to="17" encode="signed">
+                        <BitsShortName>Y</BitsShortName>
+                        <BitsName>Starting Y-position of the conflict</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>Z</BitsShortName>
+                        <BitsName>Starting Z-position of the conflict</BitsName>
+                        <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="1" encode="signed">
+                        <BitsShortName>TTA1</BitsShortName>
+                        <BitsName>Time to Threshold Aircraft 1</BitsName>
+                        <BitsUnit scale="0.0078125">s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>DTA1</BitsShortName>
+                        <BitsName>Distance to Threshold Aircraft 1</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits from="8" to="7">
+                            <BitsShortName>GATOAT</BitsShortName>
+                            <BitsValue val="0">Unknown</BitsValue>
+                            <BitsValue val="1">General Air Traffic</BitsValue>
+                            <BitsValue val="2">Operational Air Traffic</BitsValue>
+                            <BitsValue val="3">Not applicable</BitsValue>
+                        </Bits>
+                        <Bits from="6" to="5">
+                            <BitsShortName>FR1FR2</BitsShortName>
+                            <BitsValue val="0">Instrument Flight Rules</BitsValue>
+                            <BitsValue val="1">Visual Flight rules</BitsValue>
+                            <BitsValue val="2">Not applicable</BitsValue>
+                            <BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
+                        </Bits>
+                        <Bits from="4" to="3">
+                            <BitsShortName>RVSM</BitsShortName>
+                            <BitsValue val="0">Unknown</BitsValue>
+                            <BitsValue val="1">Approved</BitsValue>
+                            <BitsValue val="2">Exempt</BitsValue>
+                            <BitsValue val="3">Not Approved</BitsValue>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>HPR</BitsShortName>
+                            <BitsValue val="0">Normal Priority Flight</BitsValue>
+                            <BitsValue val="1">High Priority Flight</BitsValue>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                            <BitsValue val="1">Extension into first extent</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits from="8" to="7">
+                            <BitsShortName>CDM</BitsShortName>
+                            <BitsValue val="0">Maintaining</BitsValue>
+                            <BitsValue val="1">Climbing</BitsValue>
+                            <BitsValue val="2">Descending</BitsValue>
+                            <BitsValue val="3">Invalid</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>PRI</BitsShortName>
+                            <BitsValue val="0">Non primary target</BitsValue>
+                            <BitsValue val="1">Primary target</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>GV</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Ground Vehicle</BitsValue>
+                        </Bits>
+                        <Bits from="4" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                            <BitsValue val="1">Extension into second extent</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable> 
+                <Fixed length="6">
+                    <Bits from="48" to="1" encode="6bitschar">
+                        <BitsShortName>MS1</BitsShortName>
+                        <BitsName>Mode-S Identifier Aircraft 1</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="32" to="28">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="27" to="1">
+                        <BitsShortName>NBR</BitsShortName>
+                        <BitsName>Number of the Flight Plan Correlated to Aircraft 1 Involved in the Conflict</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>CFL</BitsShortName>
+                        <BitsName>Cleared Flight Level</BitsName>
+                        <BitsUnit scale="0.25">FL</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="171" rule="optional">
+        <DataItemName>Aircraft Identification and Characteristics 2</DataItemName>
+        <DataItemDefinition>Identification and Characteristics of Aircraft 2 Involved in the Conflict.</DataItemDefinition>
+        <DataItemFormat desc="Compound Data Item, comprising a primary subfield of up to two octets, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>AI2P</BitsShortName>
+                            <BitsName>Aircraft Identifier 2 Presence</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>M32P</BitsShortName>
+                            <BitsName>Mode 3/A Code Aircraft 2 Presence</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CPWP</BitsShortName>
+                            <BitsName>Predicted Conflict Position 2 (WGS84) Presence</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>CPLP</BitsShortName>
+                            <BitsName>Predicted Conflict Position 2 (Cartesian Coordinates) Presence</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>TT2P</BitsShortName>
+                            <BitsName>Time to Threshold Aircraft 2 Presence</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>DT2P</BitsShortName>
+                            <BitsName>Distance to Threshold Aircraft 2 Presence</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>AC2P</BitsShortName>
+                            <BitsName>Aircraft Characteristics Aircraft 2 Presence</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>MS2P</BitsShortName>
+                            <BitsName>Mode S Identifier Aircraft 2 Presence</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>FP2P</BitsShortName>
+                            <BitsName>Flight Plan Number Aircraft 2 Presence</BitsName>
+                            <BitsPresence>9</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>CF2P</BitsShortName>
+                            <BitsName>Cleared Flight Level Aircraft 2 Presence</BitsName>
+                            <BitsPresence>10</BitsPresence>
+                        </Bits>
+                        <Bits from="5" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension Indicator</BitsName>
+                            <BitsValue val="0">No extension</BitsValue>
+                            <BitsValue val="1">Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="7">
+                    <Bits from="56" to="1" encode="ascii">
+                        <BitsShortName>AI2</BitsShortName>
+                        <BitsName>Aircraft Identifier 2</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="13">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="12" to="1" encode="octal">
+                        <BitsShortName>M32</BitsShortName>
+                        <BitsName>Mode 3/A Code Aircraft 2</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="10">
+                    <Bits from="80" to="49" encode="signed">
+                        <BitsShortName>Latitude</BitsShortName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="48" to="17" encode="signed">
+                        <BitsShortName>Longitude</BitsShortName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                        <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>Altitude</BitsShortName>
+                        <BitsName>Altitude of predicted conflict</BitsName>
+                        <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="8">
+                    <Bits from="64" to="41" encode="signed">
+                        <BitsShortName>X</BitsShortName>
+                        <BitsName>Starting X-position of the conflict</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                    <Bits from="40" to="17" encode="signed">
+                        <BitsShortName>Y</BitsShortName>
+                        <BitsName>Starting Y-position of the conflict</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>Z</BitsShortName>
+                        <BitsName>Starting Z-position of the conflict</BitsName>
+                        <BitsUnit scale="25" min="-1500" max="150000">ft</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="1" encode="signed">
+                        <BitsShortName>TTA2</BitsShortName>
+                        <BitsName>Time to Threshold Aircraft 2</BitsName>
+                        <BitsUnit scale="0.0078125">s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>DTA2</BitsShortName>
+                        <BitsName>Distance to Threshold Aircraft 2</BitsName>
+                        <BitsUnit scale="0.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits from="8" to="7">
+                            <BitsShortName>GATOAT</BitsShortName>
+                            <BitsValue val="0">Unknown</BitsValue>
+                            <BitsValue val="1">General Air Traffic</BitsValue>
+                            <BitsValue val="2">Operational Air Traffic</BitsValue>
+                            <BitsValue val="3">Not applicable</BitsValue>
+                        </Bits>
+                        <Bits from="6" to="5">
+                            <BitsShortName>FR1FR2</BitsShortName>
+                            <BitsValue val="0">Instrument Flight Rules</BitsValue>
+                            <BitsValue val="1">Visual Flight rules</BitsValue>
+                            <BitsValue val="2">Not applicable</BitsValue>
+                            <BitsValue val="3">Controlled Visual Flight Rules</BitsValue>
+                        </Bits>
+                        <Bits from="4" to="3">
+                            <BitsShortName>RVSM</BitsShortName>
+                            <BitsValue val="0">Unknown</BitsValue>
+                            <BitsValue val="1">Approved</BitsValue>
+                            <BitsValue val="2">Exempt</BitsValue>
+                            <BitsValue val="3">Not Approved</BitsValue>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>HPR</BitsShortName>
+                            <BitsValue val="0">Normal Priority Flight</BitsValue>
+                            <BitsValue val="1">High Priority Flight</BitsValue>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                            <BitsValue val="1">Extension into first extent</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits from="8" to="7">
+                            <BitsShortName>CDM</BitsShortName>
+                            <BitsValue val="0">Maintaining</BitsValue>
+                            <BitsValue val="1">Climbing</BitsValue>
+                            <BitsValue val="2">Descending</BitsValue>
+                            <BitsValue val="3">Invalid</BitsValue>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>PRI</BitsShortName>
+                            <BitsValue val="0">Non primary target</BitsValue>
+                            <BitsValue val="1">Primary target</BitsValue>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>GV</BitsShortName>
+                            <BitsValue val="0">Default</BitsValue>
+                            <BitsValue val="1">Ground Vehicle</BitsValue>
+                        </Bits>
+                        <Bits from="4" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                            <BitsConst>0</BitsConst>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Data Item</BitsValue>
+                            <BitsValue val="1">Extension into second extent</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable> 
+                <Fixed length="6">
+                    <Bits from="48" to="1" encode="6bitschar">
+                        <BitsShortName>MS2</BitsShortName>
+                        <BitsName>Mode-S Identifier Aircraft 2</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="32" to="28">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="27" to="1">
+                        <BitsShortName>NBR</BitsShortName>
+                        <BitsName>Number of the Flight Plan Correlated to Aircraft 2 Involved in the Conflict</BitsName>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="1" encode="signed">
+                        <BitsShortName>CFL</BitsShortName>
+                        <BitsName>Cleared Flight Level</BitsName>
+                        <BitsUnit scale="0.25">FL</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="SP" >
+        <DataItemName>SP Field</DataItemName>
+        <DataItemDefinition>Sp Field</DataItemDefinition>
+        <DataItemFormat desc="Sp Field">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1" encode="hex">
+                        <BitsShortName>val</BitsShortName>                      
+                        <BitsName>SP value</BitsName>                     
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="RE">
+        <DataItemName>Reserved Expansion Data Field</DataItemName>
+        <DataItemDefinition>Field used to introduce intermediate changes for elementary surveillance</DataItemDefinition>
+        <DataItemFormat desc="One byte length field, followed by a two byte fixed length data item.">
+            <Explicit>
+                <Compound>
+                    <Variable>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>TI1</BitsShortName>
+                                <BitsName>Information Target 1</BitsName>
+                                <BitsPresence>1</BitsPresence>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>TI2</BitsShortName>
+                                <BitsName>Information Target 2</BitsName>
+                                <BitsPresence>2</BitsPresence>
+                            </Bits>
+                            <Bits from="6" to="2">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>Spare bits set to 0</BitsName>
+                                <BitsConst>0</BitsConst>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension Indicator</BitsName>
+                                <BitsValue val="0">No extension</BitsValue>
+                                <BitsValue val="1">Extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
+                    <Compound>
+                        <Variable>
+                            <Fixed length="1">
+                                <Bits bit="8">
+                                    <BitsShortName>PW1</BitsShortName>
+                                    <BitsName>Current Position Target 1 (WGS84)</BitsName>
+                                    <BitsPresence>1</BitsPresence>
+                                </Bits>
+                                <Bits bit="7">
+                                    <BitsShortName>PC1</BitsShortName>
+                                    <BitsName>Current Position Target 1 (Cartesian Coordinates)</BitsName>
+                                    <BitsPresence>2</BitsPresence>
+                                </Bits>
+                                <Bits bit="6">
+                                    <BitsShortName>MC1</BitsShortName>
+                                    <BitsName>Current Mode C Target 1</BitsName>
+                                    <BitsPresence>3</BitsPresence>
+                                </Bits>
+                                <Bits bit="5">
+                                    <BitsShortName>V1</BitsShortName>
+                                    <BitsName>Current Velocity Target 1</BitsName>
+                                    <BitsPresence>4</BitsPresence>
+                                </Bits>
+                                <Bits from="4" to="2">
+                                    <BitsShortName>spare</BitsShortName>
+                                    <BitsName>Spare bits set to 0</BitsName>
+                                    <BitsConst>0</BitsConst>
+                                </Bits>
+                                <Bits bit="1" fx="1">
+                                    <BitsShortName>FX</BitsShortName>
+                                    <BitsName>Extension Indicator</BitsName>
+                                    <BitsValue val="0">No extension</BitsValue>
+                                    <BitsValue val="1">Extension</BitsValue>
+                                </Bits>
+                            </Fixed>
+                        </Variable>
+                        <Fixed length="8">
+                            <Bits from="64" to="33">
+                                <BitsShortName>Lat</BitsShortName>
+                                <BitsName>Latitude</BitsName>
+                                <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                            </Bits>
+                            <Bits from="32" to="1">
+                                <BitsShortName>Lon</BitsShortName>
+                                <BitsName>Longitude</BitsName>
+                                <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="6">
+                            <Bits from="48" to="25">
+                                <BitsShortName>X</BitsShortName>
+                                <BitsName>X-Coordinate</BitsName>
+                                <BitsUnit scale="0.5">m</BitsUnit>
+                            </Bits>
+                            <Bits from="24" to="1">
+                                <BitsShortName>Y</BitsShortName>
+                                <BitsName>Y-Coordinate</BitsName>
+                                <BitsUnit scale="0.5">m</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="2">
+                            <Bits bit="16">
+                                <BitsShortName>V</BitsShortName>
+                                <BitsName>Validation</BitsName>
+                                <BitsValue val="0">Code validated</BitsValue>
+                                <BitsValue val="1">Code not validated</BitsValue>
+                            </Bits>
+                            <Bits bit="15">
+                                <BitsShortName>G</BitsShortName>
+                                <BitsName>Garbled</BitsName>
+                                <BitsValue val="0">Default</BitsValue>
+                                <BitsValue val="1">Code garbled</BitsValue>
+                            </Bits>
+                            <Bits from="14" to="1">
+                                <BitsShortName>MC</BitsShortName>
+                                <BitsName>Last measured Mode C</BitsName>
+                                <BitsUnit scale="0.25">FL</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="4">
+                            <Bits from="32" to="17">
+                                <BitsShortName>Vx</BitsShortName>
+                                <BitsName>Velocity, x-component</BitsName>
+                                <BitsUnit scale="0.25">m/s</BitsUnit>
+                            </Bits>
+                            <Bits from="16" to="1">
+                                <BitsShortName>Vy</BitsShortName>
+                                <BitsName>Velocity, y-component</BitsName>
+                                <BitsUnit scale="0.25">m/s</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                    </Compound> 
+                    <Compound>
+                        <Variable>
+                            <Fixed length="1">
+                                <Bits bit="8">
+                                    <BitsShortName>PW2</BitsShortName>
+                                    <BitsName>Current Position Target 2 (WGS84)</BitsName>
+                                    <BitsPresence>1</BitsPresence>
+                                </Bits>
+                                <Bits bit="7">
+                                    <BitsShortName>PC2</BitsShortName>
+                                    <BitsName>Current Position Target 2 (Cartesian Coordinates)</BitsName>
+                                    <BitsPresence>2</BitsPresence>
+                                </Bits>
+                                <Bits bit="6">
+                                    <BitsShortName>MC2</BitsShortName>
+                                    <BitsName>Current Mode C Target 2</BitsName>
+                                    <BitsPresence>3</BitsPresence>
+                                </Bits>
+                                <Bits bit="5">
+                                    <BitsShortName>V2</BitsShortName>
+                                    <BitsName>Current Velocity Target 2</BitsName>
+                                    <BitsPresence>4</BitsPresence>
+                                </Bits>
+                                <Bits from="4" to="2">
+                                    <BitsShortName>spare</BitsShortName>
+                                    <BitsName>Spare bits set to 0</BitsName>
+                                    <BitsConst>0</BitsConst>
+                                </Bits>
+                                <Bits bit="1" fx="1">
+                                    <BitsShortName>FX</BitsShortName>
+                                    <BitsName>Extension Indicator</BitsName>
+                                    <BitsValue val="0">No extension</BitsValue>
+                                    <BitsValue val="1">Extension</BitsValue>
+                                </Bits>
+                            </Fixed>
+                        </Variable>
+                        <Fixed length="8">
+                            <Bits from="64" to="33">
+                                <BitsShortName>Lat</BitsShortName>
+                                <BitsName>Latitude</BitsName>
+                                <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                            </Bits>
+                            <Bits from="32" to="1">
+                                <BitsShortName>Lon</BitsShortName>
+                                <BitsName>Longitude</BitsName>
+                                <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="6">
+                            <Bits from="48" to="25">
+                                <BitsShortName>X</BitsShortName>
+                                <BitsName>X-Coordinate</BitsName>
+                                <BitsUnit scale="0.5">m</BitsUnit>
+                            </Bits>
+                            <Bits from="24" to="1">
+                                <BitsShortName>Y</BitsShortName>
+                                <BitsName>Y-Coordinate</BitsName>
+                                <BitsUnit scale="0.5">m</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="2">
+                            <Bits bit="16">
+                                <BitsShortName>V</BitsShortName>
+                                <BitsName>Validation</BitsName>
+                                <BitsValue val="0">Code validated</BitsValue>
+                                <BitsValue val="1">Code not validated</BitsValue>
+                            </Bits>
+                            <Bits bit="15">
+                                <BitsShortName>G</BitsShortName>
+                                <BitsName>Garbled</BitsName>
+                                <BitsValue val="0">Default</BitsValue>
+                                <BitsValue val="1">Code garbled</BitsValue>
+                            </Bits>
+                            <Bits from="14" to="1">
+                                <BitsShortName>MC</BitsShortName>
+                                <BitsName>Last measured Mode C</BitsName>
+                                <BitsUnit scale="0.25">FL</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="4">
+                            <Bits from="32" to="17">
+                                <BitsShortName>Vx</BitsShortName>
+                                <BitsName>Velocity, x-component</BitsName>
+                                <BitsUnit scale="0.25">m/s</BitsUnit>
+                            </Bits>
+                            <Bits from="16" to="1">
+                                <BitsShortName>Vy</BitsShortName>
+                                <BitsName>Velocity, y-component</BitsName>
+                                <BitsUnit scale="0.25">m/s</BitsUnit>
+                            </Bits>
+                        </Fixed>
+                    </Compound> 
+                </Compound>
+            </Explicit>
+        </DataItemFormat>    
+    </DataItem>
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="1+">015</UAPItem>
+        <UAPItem bit="3" frn="4" len="3">020</UAPItem>
+        <UAPItem bit="4" frn="5" len="2">040</UAPItem>
+        <UAPItem bit="5" frn="6" len="1">045</UAPItem>
+        <UAPItem bit="6" frn="7" len="1+">060</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="2">030</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">170</UAPItem>
+        <UAPItem bit="10" frn="10" len="1+">120</UAPItem>
+        <UAPItem bit="11" frn="11" len="1+">070</UAPItem>
+        <UAPItem bit="12" frn="12" len="2">076</UAPItem>
+        <UAPItem bit="13" frn="13" len="2">074</UAPItem>
+        <UAPItem bit="14" frn="14" len="3">075</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="16" frn="15" len="1+">100</UAPItem>
+        <UAPItem bit="17" frn="16" len="2">035</UAPItem>
+        <UAPItem bit="18" frn="17" len="1+">171</UAPItem>
+        <UAPItem bit="19" frn="18" len="1+">110</UAPItem>
+        <UAPItem bit="20" frn="19" len="-">-</UAPItem>
+        <UAPItem bit="21" frn="20" len="1+">RE</UAPItem>
+        <UAPItem bit="22" frn="21" len="1+">SP</UAPItem>
+        <UAPItem bit="23" frn="FX" len="-">-</UAPItem>
+    </UAP>
+
+</Category>
