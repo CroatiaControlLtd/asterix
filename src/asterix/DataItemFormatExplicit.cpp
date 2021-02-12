@@ -72,11 +72,13 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
 
     std::string tmpStr = "";
 
-    switch (formatType) {
-        case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH:
-        case CAsterixFormat::EJSONE: {
-            tmpStr += format("[");
+    if (nFullLength != bodyLength) {
+        switch (formatType) {
+            case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE: {
+                tmpStr += format("[");
+            }
         }
     }
 
@@ -86,24 +88,28 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
             ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
             pData += bodyLength;
 
-            switch (formatType) {
-                case CAsterixFormat::EJSON:
-                case CAsterixFormat::EJSONH:
-                case CAsterixFormat::EJSONE: {
-                    tmpStr += format(",");
+            if (nFullLength != bodyLength) {
+                switch (formatType) {
+                    case CAsterixFormat::EJSON:
+                    case CAsterixFormat::EJSONH:
+                    case CAsterixFormat::EJSONE: {
+                        tmpStr += format(",");
+                    }
                 }
             }
         }
     }
 
-    switch (formatType) {
-        case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH:
-        case CAsterixFormat::EJSONE: {
-            if (tmpStr[tmpStr.length() - 1] == ',') {
-                tmpStr[tmpStr.length() - 1] = ']';
-            } else {
-                tmpStr += ']';
+    if (nFullLength != bodyLength) {
+        switch (formatType) {
+            case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE: {
+                if (tmpStr[tmpStr.length() - 1] == ',') {
+                    tmpStr[tmpStr.length() - 1] = ']';
+                } else {
+                    tmpStr += ']';
+                }
             }
         }
     }
