@@ -145,13 +145,53 @@ CAT004:I060:APW
 CAT004:I060:CLAM                                             
 CAT004:I060:STCA                                             
 CAT004:I060:FX                                               
-CAT004:I060:AFDA                                             
+CAT004:I060:APM                                              
 CAT004:I060:RIMCA                                            
 CAT004:I060:ACASRA                                           
 CAT004:I060:NTCA                                             
 CAT004:I060:DG                                               
 CAT004:I060:OF                                               
 CAT004:I060:OL                                               
+CAT004:I060:FX                                               
+CAT004:I060:AIW                                              
+CAT004:I060:PAIW                                             
+CAT004:I060:OCAT                                             
+CAT004:I060:SAM                                              
+CAT004:I060:VCD                                              
+CAT004:I060:CHAM                                             
+CAT004:I060:DSAM                                             
+CAT004:I060:FX                                               
+CAT004:I060:DBPSMARR                                         
+CAT004:I060:DBPSMDEP                                         
+CAT004:I060:DBPSMTL                                          
+CAT004:I060:VRAMCRM                                          
+CAT004:I060:VRAMVTM                                          
+CAT004:I060:VRAMVRM                                          
+CAT004:I060:HAMHD                                            
+CAT004:I060:FX                                               
+CAT004:I060:HAMRD                                            
+CAT004:I060:HAMVD                                            
+CAT004:I060:HVI                                              
+CAT004:I060:LTW                                              
+CAT004:I060:VPM                                              
+CAT004:I060:TTA                                              
+CAT004:I060:CRA                                              
+CAT004:I060:FX                                               
+CAT004:I060:ASM                                              
+CAT004:I060:IAVM                                             
+CAT004:I060:FTD                                              
+CAT004:I060:ITD                                              
+CAT004:I060:IIA                                              
+CAT004:I060:SQW                                              
+CAT004:I060:CUW                                              
+CAT004:I060:FX                                               
+CAT004:I060:CATS                                             
+CAT004:I060:NOCLR                                            
+CAT004:I060:NOMOV                                            
+CAT004:I060:NOH                                              
+CAT004:I060:WRTY                                             
+CAT004:I060:STOCC                                            
+CAT004:I060:ONGOING                                          
 CAT004:I060:FX                                               
 CAT004:I070:TC                                               Time to Conflict
 CAT004:I070:TCA                                              Time to Closest Approach
@@ -160,10 +200,10 @@ CAT004:I070:MHS                                              Estimated Minimun H
 CAT004:I070:CVS                                              Current Vertical Separation
 CAT004:I070:MVS                                              Estimated Minimun Vertical Separation
 CAT004:I074:LD                                               Longitudinal deviation
-CAT004:I075:CHS                                              Current horizontal separation)
-CAT004:I076:LD                                               Longitudinal deviation
-CAT004:I100:AN                                               Characters 1-8 (coded on 6 Bits each) defining the name of the area.
-CAT004:I100:CAN                                              Crossing area name.
+CAT004:I075:TDD                                              Transversal Distance Deviation
+CAT004:I076:VD                                               Vertical deviation
+CAT004:I100:AN                                               Area name
+CAT004:I100:CAN                                              Crossing area name
 CAT004:I100:RT1                                              Runway/Taxiway Designator 1
 CAT004:I100:RT2                                              Runway/Taxiway Designator 2
 CAT004:I100:SB                                               Stop Bar Designator
@@ -181,12 +221,23 @@ CAT004:I120:FX                                               Field extension ind
 CAT004:I120:RRC                                              Runway/Runway crossing in RIMCAS
 CAT004:I120:RTC                                              Runway/Taxiway Crossing in RIMCAS
 CAT004:I120:MRVA                                             
+CAT004:I120:VRAMCRM                                          
+CAT004:I120:VRAMVRM                                          
+CAT004:I120:VRAMVTM                                          
+CAT004:I120:HAMHD                                            
+CAT004:I120:FX                                               
+CAT004:I120:HAMRD                                            
+CAT004:I120:HAMVD                                            
+CAT004:I120:DBPSMARR                                         
+CAT004:I120:DBPSMDEP                                         
+CAT004:I120:DBPSMTL                                          
+CAT004:I120:AIW                                              
 CAT004:I120:spare                                            Spare bits set to 0
 CAT004:I120:FX                                               
-CAT004:I120:TableId                                          Table Id
-CAT004:I120:SeverityClass                                    Conflict severity class
+CAT004:I120:TableId                                          Identification of conflict categories definition table
+CAT004:I120:CPC                                              Conflict Properties Class
 CAT004:I120:CS                                               Conflict severity
-CAT004:I120:Probability                                      Probability of the conflict
+CAT004:I120:CP                                               Probability of the conflict
 CAT004:I120:CD                                               Conflict duration
 CAT004:I170:AI1                                              Aircraft Identifier 1
 CAT004:I170:spare                                            Spare bits set to 0
@@ -199,8 +250,8 @@ CAT004:I170:Y                                                Starting Y-position
 CAT004:I170:Z                                                Starting Z-position of the conflict
 CAT004:I170:TTA1                                             Time to Threshold Aircraft 1
 CAT004:I170:DTA1                                             Distance to Threshold Aircraft 1
-CAT004:I170:GAT/OAT                                          
-CAT004:I170:FR1/FR2                                          
+CAT004:I170:GATOAT                                           
+CAT004:I170:FR1FR2                                           
 CAT004:I170:RVSM                                             
 CAT004:I170:HPR                                              
 CAT004:I170:FX                                               
@@ -224,8 +275,8 @@ CAT004:I171:Y                                                Starting Y-position
 CAT004:I171:Z                                                Starting Z-position of the conflict
 CAT004:I171:TTA2                                             Time to Threshold Aircraft 2
 CAT004:I171:DTA2                                             Distance to Threshold Aircraft 2
-CAT004:I171:GAT/OAT                                          
-CAT004:I171:FR1/FR2                                          
+CAT004:I171:GATOAT                                           
+CAT004:I171:FR1FR2                                           
 CAT004:I171:RVSM                                             
 CAT004:I171:HPR                                              
 CAT004:I171:FX                                               
@@ -238,7 +289,7 @@ CAT004:I171:MS2                                              Mode-S Identifier A
 CAT004:I171:spare                                            Spare bits set to 0
 CAT004:I171:NBR                                              Number of the Flight Plan Correlated to Aircraft 2 Involved in the Conflict
 CAT004:I171:CFL                                              Cleared Flight Level
-CAT004:ISP:TRI                                               TargetReportIdentifier
+CAT004:ISP:val                                               SP value
 CAT004:IRE:Lat                                               Latitude
 CAT004:IRE:Lon                                               Longitude
 CAT004:IRE:X                                                 X-Coordinate
