@@ -72,11 +72,13 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
 
     std::string tmpStr = "";
 
-    switch (formatType) {
-        case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH:
-        case CAsterixFormat::EJSONE: {
-            tmpStr += format("[");
+    if (nFullLength != bodyLength) {
+        switch (formatType) {
+            case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE: {
+                tmpStr += format("[");
+            }
         }
     }
 
@@ -86,24 +88,28 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
             ret |= di->getText(tmpStr, strHeader, formatType, pData, bodyLength);
             pData += bodyLength;
 
-            switch (formatType) {
-                case CAsterixFormat::EJSON:
-                case CAsterixFormat::EJSONH:
-                case CAsterixFormat::EJSONE: {
-                    tmpStr += format(",");
+            if (nFullLength != bodyLength) {
+                switch (formatType) {
+                    case CAsterixFormat::EJSON:
+                    case CAsterixFormat::EJSONH:
+                    case CAsterixFormat::EJSONE: {
+                        tmpStr += format(",");
+                    }
                 }
             }
         }
     }
 
-    switch (formatType) {
-        case CAsterixFormat::EJSON:
-        case CAsterixFormat::EJSONH:
-        case CAsterixFormat::EJSONE: {
-            if (tmpStr[tmpStr.length() - 1] == ',') {
-                tmpStr[tmpStr.length() - 1] = ']';
-            } else {
-                tmpStr += ']';
+    if (nFullLength != bodyLength) {
+        switch (formatType) {
+            case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONH:
+            case CAsterixFormat::EJSONE: {
+                if (tmpStr[tmpStr.length() - 1] == ',') {
+                    tmpStr[tmpStr.length() - 1] = ']';
+                } else {
+                    tmpStr += ']';
+                }
             }
         }
     }
@@ -200,24 +206,50 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
 
 PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, int verbose)
 {
-    PyObject* p = PyDict_New();
-    insertToDict(p, pData, nLength, verbose);
-    return p;
+    std::list<DataItemFormat *>::iterator it;
+    int bodyLength = 0;
+
+    pData++; // skip explicit length byte (it is already in nLength)
+
+    // calculate the size of all sub items
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemFormat *di = (DataItemFormat *) (*it);
+        bodyLength += di->getLength(pData + bodyLength); // calculate length of body
+    }
+
+    int nFullLength = nLength - 1; // calculate full length
+
+    // full length must be multiple of body length
+    if (bodyLength == 0 || nFullLength % bodyLength != 0) {
+        //TODO Tracer::Error("Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
+        return NULL;
+    }
+
+    if (nFullLength == bodyLength) {
+        PyObject* p = PyDict_New();
+        DataItemFormat *di = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
+        if (di != NULL) {
+            di->insertToDict(p, pData, bodyLength, verbose);
+        }
+        return p;
+    }
+    else {
+        PyObject* p = PyList_New(0);
+        for (int i = 0; i < nFullLength; i += bodyLength) {
+            for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+                DataItemFormat *di = (DataItemFormat *) (*it);
+                PyObject* p1 = di->getObject(pData, bodyLength, verbose);
+                PyList_Append(p, p1);
+                Py_DECREF(p1);
+                pData += bodyLength;
+            }
+        }
+        return p;
+    }
 }
 
 void DataItemFormatExplicit::insertToDict(PyObject* p, unsigned char* pData, long nLength, int verbose)
 {
-  DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
-  if (pFixed == NULL)
-  {
-    //TODO Tracer::Error("Wrong format of explicit item");
-    return;
-  }
-
-  int fixedLength = pFixed->getLength(pData);
-  //unsigned char nFullLength = *pData;
-  pData++;
-
-  pFixed->insertToDict(p, pData, fixedLength, verbose);
+ // Not supported
 }
 #endif
