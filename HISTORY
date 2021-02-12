@@ -239,7 +239,7 @@ Issue #169 Problem decoding BDS 4,5 reserved bits
 Issue #171 Hexdata presentation is not correct for multiple records in block
 RE item added to CAT010
 
-Not versioned yet
+2.8.0 (python_v0.7.0)
 Issue #175 Cat021 Ed2.4 SelH is not reasonable
 Issue #174 Warning: ‘char* strncpy(char*, const char*, size_t)’ output may be truncated
 Issue #122 glibc version 2.1 behaves diffrently than glibc 2.0.6
