@@ -58,8 +58,10 @@
                     <BitsValue val="1">TCAS not installed or not operational</BitsValue>
                 </Bits>
                 <Bits bit="1">
-                    <BitsShortName>spare</BitsShortName>
-                    <BitsName>spare bit, set to 0</BitsName>
+                    <BitsShortName>SA</BitsShortName>
+                    <BitsName>Single Antenna</BitsName>
+                    <BitsValue val="0">Antenna Diversity</BitsValue>
+                    <BitsValue val="1">Single Antenna only</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
