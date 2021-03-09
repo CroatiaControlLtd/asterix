@@ -27,7 +27,7 @@
                 </Bits>
                 <Bits from="7" to="6">
                     <BitsShortName>TC</BitsShortName>
-                    <BitsName>Target Change Report Capability</BitsName>
+                    <BitsName>Target Trajectory Change Report Capability</BitsName>
                     <BitsValue val="0">no capability for Trajectory Change Reports</BitsValue>
                     <BitsValue val="1">support for TC+0 reports only</BitsValue>
                     <BitsValue val="2">support for multiple TC reports</BitsValue>
