@@ -739,7 +739,6 @@
         </DataItemFormat>
     </DataItem>
 
-
     <DataItem id="SP" rule="optional"> 
         <DataItemName>Special Purpose</DataItemName>
         <DataItemDefinition>Special information</DataItemDefinition>

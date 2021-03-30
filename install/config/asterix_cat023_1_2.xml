@@ -244,11 +244,7 @@
         <DataItemDefinition>Statistics concerning the service. Provides counts of various ADS-B message types that have been received since the report was last sent.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item, starting with a one-octet Field Repetition Indicator (REP) followed by at least one block of 6 octets.">
             <Repetitive>
-                <Fixed length="7">
-                    <Bits from="56" to="49">
-                        <BitsShortName>REP</BitsShortName>
-                        <BitsName>Number of counters following</BitsName>
-                    </Bits>
+                <Fixed length="6">
                     <Bits from="48" to="41">
                         <BitsShortName>TYPE</BitsShortName>
                         <BitsName>Type of report counter</BitsName>

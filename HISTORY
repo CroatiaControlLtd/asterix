@@ -245,3 +245,6 @@ Issue #174 Warning: ‘char* strncpy(char*, const char*, size_t)’ output may b
 Issue #122 glibc version 2.1 behaves diffrently than glibc 2.0.6
 Added CAT004 v1.12
 Issue #178 Explicit items with more elements then in definition should be put to list
+
+Not versioned yet
+Issue #180 Problem decoding repetitive data item I023/120 Service Statistics
