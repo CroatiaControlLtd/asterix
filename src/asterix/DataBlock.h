@@ -28,14 +28,14 @@
 
 class DataBlock {
 public:
-    DataBlock(Category *cat, unsigned long len, const unsigned char *data, unsigned long nTimestamp = 0);
+    DataBlock(Category *cat, unsigned long len, const unsigned char *data, double nTimestamp = 0.0);
 
     virtual
     ~DataBlock();
 
     Category *m_pCategory;
     unsigned long m_nLength;
-    unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    double m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
     bool m_bFormatOK;
 
     std::list<DataRecord *> m_lDataRecords;

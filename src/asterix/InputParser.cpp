@@ -35,7 +35,7 @@ InputParser::InputParser(AsterixDefinition *pDefinition)
  * Parse data
  */
 AsterixData *
-InputParser::parsePacket(const unsigned char *m_pBuffer, unsigned int m_nBufferSize, unsigned long nTimestamp) {
+InputParser::parsePacket(const unsigned char *m_pBuffer, unsigned int m_nBufferSize, double nTimestamp) {
     AsterixData *pAsterixData = new AsterixData();
     unsigned int m_nPos = 0;
     unsigned int m_nDataLength = 0;
@@ -116,7 +116,7 @@ InputParser::parsePacket(const unsigned char *m_pBuffer, unsigned int m_nBufferS
 
 DataBlock *
 InputParser::parse_next_data_block(const unsigned char *m_pData, unsigned int &m_nPos, unsigned int m_nBufferSize,
-                                   unsigned long nTimestamp, unsigned int &m_nDataLength)
+                                   double nTimestamp, unsigned int &m_nDataLength)
 /*  parse next data block
  *  AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
  */
