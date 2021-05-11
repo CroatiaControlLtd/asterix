@@ -172,19 +172,18 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
             strNewResult = format("\n-------------------------\nData Record %d", m_nID);
             strNewResult += format("\nLen: %ld", m_nLength);
             strNewResult += format("\nCRC: %08X", m_nCrc);
-            strNewResult += format("\nTimestamp: %lf", m_nTimestamp);
             strNewResult += format("\nHexData: %s", m_pHexData);
             break;
         case CAsterixFormat::EJSON:
             strNewResult = format(
-                    "{\"id\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%lf,\"hexdata\":\"%s\",\"CAT%03d\":{",
-                    m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+                    "{\"id\":%d,\"cat\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%lf,\"hexdata\":\"%s\",\"CAT%03d\":{",
+                    m_nID, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
             break;
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE:
             strNewResult = format(
-                    "{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%lf,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n",
-                    m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+                    "{\"id\":%d,\n\"cat\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%lf,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n",
+                    m_nID, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
             break;
         case CAsterixFormat::EXML:
         case CAsterixFormat::EXMLH: {

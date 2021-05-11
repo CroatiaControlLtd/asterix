@@ -85,6 +85,7 @@ bool DataBlock::getText(std::string &strResult, const unsigned int formatType) {
         case CAsterixFormat::ETxt:
             strResult += format("\nCategory: %d", m_pCategory->m_id);
             strResult += format("\nLen: %ld", m_nLength);
+            strResult += format("\nTimestamp: %lf", m_nTimestamp);
             strResult += format("\nHexData: %02X%02X%02X", m_pCategory->m_id, ((m_nLength + 3) >> 8) & 0xff, (m_nLength + 3) & 0xff);
             break;
         case CAsterixFormat::EOut:
