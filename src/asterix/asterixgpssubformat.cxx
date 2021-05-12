@@ -153,15 +153,14 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 return false;
             }
 
-            float fTimeStamp = ((GPSPost[6] << 16) + (GPSPost[7] << 8) + (GPSPost[8])) / 128.0;
-            unsigned long nTimeStamp = ((long) fTimeStamp) * 1000 + (fTimeStamp - ((long) fTimeStamp)) * 1000;
+            double dTimeStamp = ((GPSPost[6] << 16) + (GPSPost[7] << 8) + (GPSPost[8])) / 128.0;
 #ifdef _DEBUG
             LOGDEBUG(1, "GPS Bytes [%02X %02X %02X %02X %02X %02X %02X %02X %02X %02X]\n", GPSPost[0], GPSPost[1],
                 GPSPost[2], GPSPost[3], GPSPost[4], GPSPost[5], GPSPost[6], GPSPost[7],
                 GPSPost[8], GPSPost[9]);
-            LOGDEBUG(1, "GPS Timestamp [%3.4f]\n", fTimeStamp);
+            LOGDEBUG(1, "GPS Timestamp [%lf]\n", dTimeStamp);
 #endif
-            Descriptor.SetTimeStamp(nTimeStamp);
+            Descriptor.SetTimeStamp(dTimeStamp);
 
         }
     }
@@ -198,7 +197,7 @@ bool CAsterixGPSSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
         // get current timstamp in ms since midnight
         struct timeval tp;
         gettimeofday(&tp, NULL);
-        unsigned long nTimestamp = (tp.tv_sec % 86400) * 1000 + tp.tv_usec / 1000;
+	double dTimestamp = tp.tv_sec + (1.0/1000000) * tp.tv_usec;
 
         unsigned char *pPacketPtr = (unsigned char *) Descriptor.GetBuffer();
         int m_nDataLength = Descriptor.GetBufferLen();
@@ -226,7 +225,7 @@ bool CAsterixGPSSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
 
             // Parse ASTERIX data
             AsterixData *m_ptmpAsterixData = Descriptor.m_InputParser.parsePacket(pPacketPtr, byteCount - 6,
-                                                                                  nTimestamp);
+                                                                                  dTimestamp);
 
             if (Descriptor.m_pAsterixData == NULL) {
                 Descriptor.m_pAsterixData = m_ptmpAsterixData;
@@ -239,9 +238,9 @@ bool CAsterixGPSSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
             m_nDataLength -= byteCount;
         }
     } else {
-        unsigned long nTimeStamp = Descriptor.GetTimeStamp();
+        double dTimeStamp = Descriptor.GetTimeStamp();
         Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(),
-                                                                         Descriptor.GetBufferLen(), nTimeStamp);
+                                                                         Descriptor.GetBufferLen(), dTimeStamp);
     }
 
     return true;

@@ -27,7 +27,7 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
-DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned char *data, unsigned long nTimestamp)
+DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned char *data, double nTimestamp)
         : m_pCategory(cat), m_nID(nID), m_nLength(len), m_nFSPECLength(0), m_pFSPECData(NULL), m_nTimestamp(nTimestamp),
           m_nCrc(0), m_pHexData(NULL), m_bFormatOK(false) {
     const unsigned char *m_pItemDataStart = data;
@@ -172,25 +172,24 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
             strNewResult = format("\n-------------------------\nData Record %d", m_nID);
             strNewResult += format("\nLen: %ld", m_nLength);
             strNewResult += format("\nCRC: %08X", m_nCrc);
-            strNewResult += format("\nTimestamp: %ld", m_nTimestamp);
             strNewResult += format("\nHexData: %s", m_pHexData);
             break;
         case CAsterixFormat::EJSON:
             strNewResult = format(
-                    "{\"id\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%ld,\"hexdata\":\"%s\",\"CAT%03d\":{",
-                    m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+                    "{\"id\":%d,\"cat\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%lf,\"hexdata\":\"%s\",\"CAT%03d\":{",
+                    m_nID, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
             break;
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE:
             strNewResult = format(
-                    "{\"id\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%ld,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n",
-                    m_nID, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
+                    "{\"id\":%d,\n\"cat\":%d,\n\"length\":%ld,\n\"crc\":\"%08X\",\n\"timestamp\":%lf,\n\"hexdata\":\"%s\",\n\"CAT%03d\":{\n",
+                    m_nID, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData, m_pCategory->m_id);
             break;
         case CAsterixFormat::EXML:
         case CAsterixFormat::EXMLH: {
             const int nXIDEFv = 1;
             strNewResult = format(
-                    "<ASTERIX ver=\"%d\" cat=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%ld\" hexdata=\"%s\">",
+                    "<ASTERIX ver=\"%d\" cat=\"%d\" length=\"%ld\" crc=\"%08X\" timestamp=\"%lf\" hexdata=\"%s\">",
                     nXIDEFv, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, m_pHexData);
             break;
         }

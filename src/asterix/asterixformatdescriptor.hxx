@@ -102,11 +102,11 @@ public:
     }
 
     // used only when format is GPS
-    unsigned long GetTimeStamp() {
+    double GetTimeStamp() {
         return m_nTimeStamp;
     }
 
-    void SetTimeStamp(unsigned long ts) {
+    void SetTimeStamp(double ts) {
         m_nTimeStamp = ts;
     }
 
@@ -131,7 +131,7 @@ private:
     const unsigned char *m_pBuffer; // input buffer
     unsigned int m_nBufferSize; // input buffer size
     unsigned int m_nDataSize; // size of data in buffer
-    unsigned long m_nTimeStamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    double m_nTimeStamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
 };
 
 #endif

@@ -28,7 +28,7 @@
 
 class DataRecord {
 public:
-    DataRecord(Category *cat, int id, unsigned long len, const unsigned char *data, unsigned long nTimestamp);
+    DataRecord(Category *cat, int id, unsigned long len, const unsigned char *data, double nTimestamp);
 
     virtual
     ~DataRecord();
@@ -38,7 +38,7 @@ public:
     unsigned long m_nLength;
     unsigned long m_nFSPECLength;
     unsigned char *m_pFSPECData;
-    unsigned long m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    double m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
     uint32_t m_nCrc;
     char *m_pHexData; // hexa conversion of data to display
     bool m_bFormatOK;
