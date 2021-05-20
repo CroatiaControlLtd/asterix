@@ -246,7 +246,7 @@ Issue #122 glibc version 2.1 behaves diffrently than glibc 2.0.6
 Added CAT004 v1.12
 Issue #178 Explicit items with more elements then in definition should be put to list
 
-Not versioned yet
+2.8.1 (python_v0.7.1)
 Issue #180 Problem decoding repetitive data item I023/120 Service Statistics
 Issue #181 Add missing Single Antenna (SA) element in Data Item I021/008 for CAT021 v2.1 
 Issue #182 convert timestamp to double, improves precision 
