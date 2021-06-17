@@ -1,28 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# item name changes, {category: { (name, name,...): new_name }}
-item_renames = {
-    11: {
-        ('000', '000'): 'MsgTyp',
-        ('015', '015'): 'SI',
-        ('090', '090'): 'MFL',
-        ('092', '092'): 'CTGA',
-        ('140', '140'): 'ToTI',
-        ('215', '215'): 'RoCD',
-        ('300', '300'): 'VFI',
-        ('430', '430'): 'FLS',
-    },
-    21: {
-        ('015', '015'): 'id',
-        ('020', '020'): 'ECAT',
-    },
-    62: {
-        ('105', 'LAT'): 'Lat',
-        ('105', 'LON'): 'Lon',
-    },
-}
-
 import sys
 import argparse
 import json
@@ -68,11 +46,9 @@ def getNumber(value):
         return Real(float(val))
     raise Exception('unexpected value type {}'.format(t))
 
-def renderRule(rule, caseUnspecified, caseContextFree, caseDependent):
+def renderRule(rule, caseContextFree, caseDependent):
     rule_type = rule['type']
-    if rule_type == 'Unspecified':
-        return caseUnspecified()
-    elif rule_type == 'ContextFree':
+    if rule_type == 'ContextFree':
         return caseContextFree(rule)
     elif rule_type == 'Dependent':
         return caseDependent(rule)
@@ -140,6 +116,7 @@ def xmlquote(s):
         "&": "&amp;",
         "'": "&apos;",
         "’": "&apos;",
+        "‘": "&apos;",
         "<":  "&lt;",
         ">": "&gt;",
     })
@@ -169,10 +146,17 @@ class Bits(object):
     @property
     def name(self):
         old_name = self.item['name']
-        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
-        rename_map = item_renames.get(self.cat, {})
-        new_name = rename_map.get(full_name, old_name)
-        return(new_name)
+        try:
+            int(old_name)
+            words = self.parent.item['title'].split()
+            new_name = ''
+            for word in words:
+                new_name += word.strip('()')[0:1]
+            # print('Renamed:%s  %s -> %s' % (self.parent.full_name, self.parent.item['title'], new_name))
+            return new_name
+        except ValueError:
+            pass
+        return old_name
 
     def render(self):
         item, bitsFrom, bitsTo = self.item, self.bitsFrom, self.bitsTo
@@ -196,24 +180,23 @@ class Bits(object):
             else:
                 raise Exception('unexpected variation type {}'.format(vt))
 
-            # unspecified content (raw bits)
-            def case0():
-                if bitsFrom == bitsTo:
-                    tell('<Bits bit="{}">'.format(bitsFrom))
-                else:
-                    tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
-                with indent:
-                    tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
-                    if item['title']:
-                        tell('<BitsName>{}</BitsName>'.format(item['title']))
-                tell('</Bits>')
-
             # defined content
             def case1(val):
                 rule = val['rule']
                 t = rule['type']
 
-                if t == 'Table':
+                if t == 'Raw':
+                    if bitsFrom == bitsTo:
+                        tell('<Bits bit="{}">'.format(bitsFrom))
+                    else:
+                        tell('<Bits from="{}" to="{}">'.format(bitsFrom, bitsTo))
+                    with indent:
+                        tell('<BitsShortName>{}</BitsShortName>'.format(self.name))
+                        if item['title']:
+                            tell('<BitsName>{}</BitsName>'.format(item['title']))
+                    tell('</Bits>')
+
+                elif t == 'Table':
                     if bitsFrom == bitsTo:
                         tell('<Bits bit="{}">'.format(bitsFrom))
                     else:
@@ -319,7 +302,7 @@ class Bits(object):
                         tell('<BitsName>{}</BitsName>'.format(item['title']))
                 tell('</Bits>')
 
-            renderRule(content, case0, case1, case2)
+            renderRule(content, case1, case2)
 
 class Variation(object):
 
@@ -366,14 +349,6 @@ class Variation(object):
     def full_name(self):
         return tuple(list(self.parent.full_name) + [self.item['name']])
 
-    @property
-    def name(self):
-        old_name = self.item['name']
-        full_name = tuple(list(self.parent.full_name[1:]) + [old_name])
-        rename_map = item_renames.get(self.cat, {})
-        new_name = rename_map.get(full_name, old_name)
-        return(new_name)
-
     def __init__(self, parent, item, *args):
         self.parent = parent
         self.item = item
@@ -404,15 +379,24 @@ class Fixed(Variation):
         bitSize, items = self.args
         assert (bitSize % 8) == 0, "bit alignment error"
         byteSize = bitSize // 8
-        tell('<Fixed length="{}">'.format(byteSize))
         bitsFrom = bitSize
-        for item in items:
-            n = getItemSize(item)
+
+        if len(items) == 1 and \
+            'rule' in items[0]['variation']['content'] and \
+            items[0]['variation']['content']['rule']['type'] == 'Bds':
+            # Example: CAT062/I380/ACS/BDS
+            n = getItemSize(items[0])
             bitsTo = bitsFrom - n + 1
-            with indent:
-                Bits(self, item, bitsFrom, bitsTo).render()
-            bitsFrom -= n
-        tell('</Fixed>')
+            Bits(self, items[0], bitsFrom, bitsTo).render()
+        else:
+            tell('<Fixed length="{}">'.format(byteSize))
+            for item in items:
+                n = getItemSize(item)
+                bitsTo = bitsFrom - n + 1
+                with indent:
+                    Bits(self, item, bitsFrom, bitsTo).render()
+                bitsFrom -= n
+            tell('</Fixed>')
 
 class Variable(Variation):
     def render(self):
@@ -601,6 +585,8 @@ class TopItem(object):
         tell('<DataItem id="{}">'.format(item['name']))
         title = item['title']
         definition = item['definition']
+        remark = item['remark']
+
         with indent:
             if title:
                 tell('<DataItemName>{}</DataItemName>'.format(xmlquote(title)))
@@ -611,6 +597,12 @@ class TopItem(object):
                         tell(xmlquote(line))
                 tell('</DataItemDefinition>')
             Variation.create(self, item).render()
+            if remark:
+                tell('<DataItemNote>')
+                with indent:
+                    for line in remark.splitlines():
+                        tell(xmlquote(line))
+                tell('</DataItemNote>')
         tell('</DataItem>')
 
 class Category(object):
@@ -637,8 +629,12 @@ class Category(object):
             tell('')
             tell('Asterix Category {:03d} v{}.{} definition'.format(category, edition['major'], edition['minor']))
             tell('')
+            tell('Do not edit this file!')
+            tell('')
             tell('This file is auto-generated from json specs file.')
-            tell('sha1sum of concatinated json input(s): {}'.format(self.cks))
+            tell('sha1sum of concatenated json input(s): {}'.format(self.cks))
+            tell('')
+            tell('See asterix-specs-converter/README.md for details.')
         tell('-->')
         tell('')
         tell('<Category id="{:d}" name="{}" ver="{}.{}">'.format(category, title, edition['major'], edition['minor']))
@@ -686,26 +682,38 @@ class Category(object):
                         break
             tell('</UAP>')
 
+
+class AsterixJson2XML(object):
+    def __init__(self, root, cks, re=None, sp=None):
+        self.cat = Category(root, cks, re, sp)
+
+    def parse(self):
+        global accumulator
+        accumulator = []
+        self.cat.render()
+        result = ''.join([line + '\n' for line in accumulator])
+        return result
+
 # main
-parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
-parser.add_argument('--cat', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer, help="input CATegory JSON file")
-parser.add_argument('--ref', nargs='?', type=argparse.FileType('rb'), help="input REF JSON file")
-parser.add_argument('--outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Render asterix specs from json to custom xml.')
+    parser.add_argument('--cat', nargs='?', type=argparse.FileType('rb'), default=sys.stdin.buffer, help="input CATegory JSON file")
+    parser.add_argument('--ref', nargs='?', type=argparse.FileType('rb'), help="input REF JSON file")
+    parser.add_argument('--outfile', nargs='?', type=argparse.FileType('wt'), default=sys.stdout)
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-cat_input = args.cat.read()
-root = json.loads(cat_input)
+    cat_input = args.cat.read()
+    root = json.loads(cat_input)
 
-ref_input = b''
-ref = None
-if args.ref:
-    ref_input = args.ref.read()
-    ref = json.loads(ref_input)
+    ref_input = b''
+    ref = None
+    if args.ref:
+        ref_input = args.ref.read()
+        ref = json.loads(ref_input)
 
-cks = hashlib.sha1(cat_input+ref_input).hexdigest()
-cat = Category(root, cks, re=ref)
-cat.render()
-result = ''.join([line+'\n' for line in accumulator])
-args.outfile.write(result)
+    cks = hashlib.sha1(cat_input+ref_input).hexdigest()
+    cat = AsterixJson2XML(root, cks, re=ref)
+    result = cat.parse()
+    args.outfile.write(result)
 

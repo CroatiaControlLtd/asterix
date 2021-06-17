@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+    Mode S BDS registers definition 
+    
+    Author:   dsalantic
+    Created:  5.5.2016.
+    Modified: 2.2.2018. 	dmarkus		BDS4,4 and BDS4,5 added
+--> 
+
+<Category id="BDS" name="BDS" ver="1.0">
+
+    <DataItem id="40">
+        <DataItemName>Selected vertical intention</DataItemName>
+        <DataItemDefinition>Selected vertical intention</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
+                    <BitsShortName>MCP_ALT_STATUS</BitsShortName>
+                    <BitsName>MCP Altitude Status</BitsName>
+                </Bits>
+                <Bits from="63" to="52" encode="unsigned">
+                    <BitsShortName>MCP_ALT</BitsShortName>
+                    <BitsName>MCP/FCU Selected Altitude</BitsName>
+                    <BitsUnit scale="16">ft</BitsUnit>
+                </Bits>
+                <Bits bit="51">
+                    <BitsShortName>FMS_ALT_STATUS</BitsShortName>
+                    <BitsName>FMS Altitude Status</BitsName>
+                </Bits>
+                <Bits from="50" to="39" encode="unsigned">
+                    <BitsShortName>FMS_ALT</BitsShortName>
+                    <BitsName>FMS Selected Altitude</BitsName>
+                    <BitsUnit scale="16">ft</BitsUnit>
+                </Bits>
+                <Bits bit="38">
+                    <BitsShortName>BP_STATUS</BitsShortName>
+                    <BitsName>Barometric Pressure Status</BitsName>
+                </Bits>
+                <Bits from="37" to="26" encode="unsigned">
+                    <BitsShortName>BP</BitsShortName>
+                    <BitsName>Barometric Pressure</BitsName>
+                    <BitsUnit scale="0.1">mb</BitsUnit>
+                </Bits>
+                <Bits from="25" to="18">
+                    <BitsShortName>res1</BitsShortName>
+                    <BitsName>Reserved 1</BitsName>
+                </Bits>
+                <Bits bit="17">
+                    <BitsShortName>MODE_STATUS</BitsShortName>
+                    <BitsName>Status of MCP/FCU Mode Bits</BitsName>
+                </Bits>
+                <Bits bit="16">
+                    <BitsShortName>VNAV</BitsShortName>
+                    <BitsName>VNAV Mode</BitsName>
+                    <BitsValue val="0">Not active</BitsValue>
+                    <BitsValue val="1">Active</BitsValue>
+                </Bits>
+                <Bits bit="15">
+                    <BitsShortName>ALT_HOLD</BitsShortName>
+                    <BitsName>ALT HOLD Mode</BitsName>
+                    <BitsValue val="0">Not active</BitsValue>
+                    <BitsValue val="1">Active</BitsValue>
+                </Bits>
+                <Bits bit="14">
+                    <BitsShortName>APP</BitsShortName>
+                    <BitsName>APPROACH Mode</BitsName>
+                    <BitsValue val="0">Not active</BitsValue>
+                    <BitsValue val="1">Active</BitsValue>
+                </Bits>
+                <Bits from="13" to="12">
+                    <BitsShortName>res2</BitsShortName>
+                    <BitsName>Reserved 2</BitsName>
+                </Bits>
+                <Bits bit="11">
+                    <BitsShortName>TARGET_ALT_STATUS</BitsShortName>
+                    <BitsName>Status of Target ALT source bits</BitsName>
+                    <BitsValue val="0">No source information provided</BitsValue>
+                    <BitsValue val="1">Source information deliberately provided</BitsValue>
+                </Bits>
+                <Bits from="10" to="9">
+                    <BitsShortName>TARGET_ALT_SOURCE</BitsShortName>
+                    <BitsName>Target ALT source</BitsName>
+                    <BitsValue val="0">Unknown</BitsValue>
+                    <BitsValue val="1">Aircraft Altitude</BitsValue>
+                    <BitsValue val="2">FCU/MCP selected altitude</BitsValue>
+                    <BitsValue val="3">FMS selected altitude</BitsValue>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="44">
+        <DataItemName>Meteorological routine air report</DataItemName>
+        <DataItemDefinition>To allow meteorological data to be collected by ground system</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits from="64" to="61">
+                    <BitsShortName>FOM_SOURCE</BitsShortName>
+                    <BitsName>Figure of Merit</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">INS</BitsValue>
+                    <BitsValue val="2">GNSS</BitsValue>
+                    <BitsValue val="3">DME/DME</BitsValue>
+                    <BitsValue val="4">VOR/DME</BitsValue>
+                    <BitsValue val="5">Reserved</BitsValue>
+                    <BitsValue val="6">Reserved</BitsValue>
+                    <BitsValue val="7">Reserved</BitsValue>
+                    <BitsValue val="8">Reserved</BitsValue>
+                    <BitsValue val="9">Reserved</BitsValue>
+                    <BitsValue val="10">Reserved</BitsValue>
+                    <BitsValue val="11">Reserved</BitsValue>
+                    <BitsValue val="12">Reserved</BitsValue>
+                    <BitsValue val="13">Reserved</BitsValue>
+                    <BitsValue val="14">Reserved</BitsValue>
+                    <BitsValue val="15">Reserved</BitsValue>
+                </Bits>
+
+                <Bits bit="60">
+                    <BitsShortName>STATUS_WIND</BitsShortName>
+                    <BitsName>Status Wind speed and Direction</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+
+                <Bits from="59" to="51" encode="unsigned">
+                    <BitsShortName>WIND_SPEED</BitsShortName>
+                    <BitsName>Wind speed</BitsName>
+                    <BitsUnit scale="1">kt</BitsUnit>
+                </Bits>
+                <Bits from="50" to="42" encode="unsigned">
+                    <BitsShortName>WIND_DIRECTION</BitsShortName>
+                    <BitsName>Wind direction (True)</BitsName>
+                    <BitsUnit scale="0.703125">deg</BitsUnit>
+                </Bits>
+                <Bits bit="41">
+                    <BitsShortName>STATUS_STATIC_AIR_TEMPERATURE</BitsShortName>
+                    <BitsName>Status Static Air Temperature</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+				
+                <Bits from="40" to="31" encode="signed">
+                    <BitsShortName>STATIC_AIR_TEMPERATURE</BitsShortName>
+                    <BitsName>Static Air Temperature</BitsName>
+                    <BitsUnit scale="0.25">deg_C</BitsUnit>
+                </Bits>
+                <Bits bit="30">
+                    <BitsShortName>STATUS_AVERAGE_STATIC_PRESSURE</BitsShortName>
+                    <BitsName>Status Average Static Pressure</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+				
+                <Bits from="29" to="19" encode="unsigned">
+                    <BitsShortName>AVERAGE_STATIC_PRESSURE</BitsShortName>
+                    <BitsName>Status Average Static Pressure</BitsName>
+                    <BitsUnit scale="1">hPa</BitsUnit>
+                </Bits>
+				
+                <Bits bit="18">
+                    <BitsShortName>STATUS_TURBULENCE</BitsShortName>
+                    <BitsName>Status Turbulence</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+				
+                <Bits from="17" to="16" encode="unsigned">
+                    <BitsShortName>TURBULENCE</BitsShortName>
+                    <BitsName>Turbulence</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">Light</BitsValue>
+                    <BitsValue val="2">Moderate</BitsValue>
+                    <BitsValue val="3">Severe</BitsValue>
+                </Bits>
+				
+                <Bits bit="15">
+                    <BitsShortName>STATUS_HUMIDITY</BitsShortName>
+                    <BitsName>Status Humidity</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+				
+                <Bits from="14" to="9" encode="unsigned">
+                    <BitsShortName>HUMIDITY</BitsShortName>
+                    <BitsName>Humidity</BitsName>
+                    <BitsUnit scale="1.5625">%</BitsUnit>
+                </Bits>
+				
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+	
+
+    <DataItem id="45">
+        <DataItemName>Meteorological hazard report</DataItemName>
+        <DataItemDefinition>To provide reports on the severity of meteorological hazards, in particular for low flight.</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
+                    <BitsShortName>STATUS_TURBULENCE</BitsShortName>
+                    <BitsName>Status Turbulence</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+                <Bits from="63" to="62">
+                    <BitsShortName>TURBULENCE</BitsShortName>
+                    <BitsName>Turbulence</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">LIGHT</BitsValue>
+                    <BitsValue val="2">MODERATE</BitsValue>
+                    <BitsValue val="3">SEVERE</BitsValue>
+                </Bits>								
+                <Bits bit="61">
+                    <BitsShortName>STATUS_WIND_SHEAR</BitsShortName>
+                    <BitsName>Status Wind Shear</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+                <Bits from="60" to="59">
+                    <BitsShortName>WIND_SHEAR</BitsShortName>
+                    <BitsName>Wind Shear</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">LIGHT</BitsValue>
+                    <BitsValue val="2">MODERATE</BitsValue>
+                    <BitsValue val="3">SEVERE</BitsValue>
+                </Bits>								
+                <Bits bit="58">
+                    <BitsShortName>STATUS_MICROBURST</BitsShortName>
+                    <BitsName>Status Microburst</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+                <Bits from="57" to="56">
+                    <BitsShortName>MICROBURST</BitsShortName>
+                    <BitsName>Microburst</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">LIGHT</BitsValue>
+                    <BitsValue val="2">MODERATE</BitsValue>
+                    <BitsValue val="3">SEVERE</BitsValue>
+                </Bits>		
+                <Bits bit="55">
+                    <BitsShortName>STATUS_ICING</BitsShortName>
+                    <BitsName>Status Icing</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+                <Bits from="54" to="53">
+                    <BitsShortName>ICING</BitsShortName>
+                    <BitsName>Icing</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">LIGHT</BitsValue>
+                    <BitsValue val="2">MODERATE</BitsValue>
+                    <BitsValue val="3">SEVERE</BitsValue>
+                </Bits>									
+                <Bits bit="52">
+                    <BitsShortName>STATUS_WAKE_VORTEX</BitsShortName>
+                    <BitsName>Status Wake Vortex</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>
+                <Bits from="51" to="50">
+                    <BitsShortName>WAKE_VORTEX</BitsShortName>
+                    <BitsName>Wake Vortex</BitsName>
+                    <BitsValue val="0">NIL</BitsValue>
+                    <BitsValue val="1">LIGHT</BitsValue>
+                    <BitsValue val="2">MODERATE</BitsValue>
+                    <BitsValue val="3">SEVERE</BitsValue>
+                </Bits>	
+                <Bits bit="49">
+                    <BitsShortName>STATUS_STATIC_AIR_TEMPERATURE</BitsShortName>
+                    <BitsName>Status Static Air Temperature</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>				
+                <Bits from="48" to="39" encode="signed">
+                    <BitsShortName>STATIC_AIR_TEMPERATURE</BitsShortName>
+                    <BitsName>Static Air Temperature</BitsName>
+                    <BitsUnit scale="0.25">deg_C</BitsUnit>
+                </Bits>
+                <Bits bit="38">
+                    <BitsShortName>STATUS_AVERAGE_STATIC_PRESSURE</BitsShortName>
+                    <BitsName>Status Average Static Pressure</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>				
+                <Bits from="37" to="27" encode="unsigned">
+                    <BitsShortName>AVERAGE_STATIC_PRESSURE</BitsShortName>
+                    <BitsName>Status Average Static Pressure</BitsName>
+                    <BitsUnit scale="1">hPa</BitsUnit>
+                </Bits>				
+                <Bits bit="26">
+                    <BitsShortName>STATUS_RADIO_HEIGHT</BitsShortName>
+                    <BitsName>Status Radio Height</BitsName>
+                    <BitsValue val="0">Invalid</BitsValue>
+                    <BitsValue val="1">Valid</BitsValue>
+                </Bits>				
+                <Bits from="25" to="14" encode="unsigned">
+                    <BitsShortName>RADIO_HEIGHT</BitsShortName>
+                    <BitsName>Radio Height</BitsName>
+                    <BitsUnit scale="16">ft</BitsUnit>
+                </Bits>
+                <Bits from="13" to="9">
+                    <BitsShortName>RESERVED</BitsShortName>
+                    <BitsName>Reserved</BitsName>
+                </Bits>				
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>	
+	
+	
+	
+	
+    <DataItem id="50">
+        <DataItemName>Track and turn report</DataItemName>
+        <DataItemDefinition>Track and turn report</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
+                    <BitsShortName>RA_STATUS</BitsShortName>
+                    <BitsName>Roll Angle Status</BitsName>
+                </Bits>
+                <Bits from="63" to="54" encode="signed">
+                    <BitsShortName>RA</BitsShortName>
+                    <BitsName>Roll Angle</BitsName>
+                    <BitsUnit scale="0.17578125">deg</BitsUnit>
+                </Bits>
+                <Bits bit="53">
+                    <BitsShortName>TTA_STATUS</BitsShortName>
+                    <BitsName>True Track Angle Status</BitsName>
+                </Bits>
+                <Bits from="52" to="42" encode="signed">
+                    <BitsShortName>TTA</BitsShortName>
+                    <BitsName>True Track Angle</BitsName>
+                    <BitsUnit scale="0.17578125">deg</BitsUnit>
+                </Bits>
+                <Bits bit="41">
+                    <BitsShortName>GS_STATUS</BitsShortName>
+                    <BitsName>Ground Speed Status</BitsName>
+                </Bits>
+                <Bits from="40" to="31" encode="unsigned">
+                    <BitsShortName>GS</BitsShortName>
+                    <BitsName>Ground Speed</BitsName>
+                    <BitsUnit scale="2">kt</BitsUnit>
+                </Bits>
+                <Bits bit="30">
+                    <BitsShortName>TAR_STATUS</BitsShortName>
+                    <BitsName>Track Angle Rate Status</BitsName>
+                </Bits>
+                <Bits from="29" to="20" encode="signed">
+                    <BitsShortName>TAR</BitsShortName>
+                    <BitsName>Track Angle Rate</BitsName>
+                    <BitsUnit scale="0.03125">deg/sec</BitsUnit>
+                </Bits>
+                <Bits bit="19">
+                    <BitsShortName>TAS_STATUS</BitsShortName>
+                    <BitsName>True Airspeed Status</BitsName>
+                </Bits>
+                <Bits from="18" to="9" encode="signed">
+                    <BitsShortName>TAS</BitsShortName>
+                    <BitsName>True Airspeed</BitsName>
+                    <BitsUnit scale="2">kt</BitsUnit>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="60">
+        <DataItemName>Heading and Speed Report</DataItemName>
+        <DataItemDefinition>Heading and Speed Report</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits bit="64">
+                    <BitsShortName>HDG_STATUS</BitsShortName>
+                    <BitsName>Heading Status</BitsName>
+                </Bits>
+                <Bits from="63" to="53" encode="signed">
+                    <BitsShortName>HDG</BitsShortName>
+                    <BitsName>Magnetic Heading</BitsName>
+                    <BitsUnit scale="0.17578125">deg</BitsUnit>
+                </Bits>
+                <Bits bit="52">
+                    <BitsShortName>IAS_STAT</BitsShortName>
+                    <BitsName>Indicated Airspeed Status</BitsName>
+                </Bits>
+                <Bits from="51" to="42">
+                    <BitsShortName>IAS</BitsShortName>
+                    <BitsName>Indicated Airspeed</BitsName>
+                    <BitsUnit scale="1">kt</BitsUnit>
+                </Bits>
+                <Bits bit="41">
+                    <BitsShortName>MACH_STATUS</BitsShortName>
+                    <BitsName>Mach Speed Status</BitsName>
+                </Bits>
+                <Bits from="40" to="31">
+                    <BitsShortName>MACH</BitsShortName>
+                    <BitsName>Mach Speed</BitsName>
+                    <BitsUnit scale=".004">MACH</BitsUnit>
+                </Bits>
+                <Bits bit="30">
+                    <BitsShortName>BAR_STATUS</BitsShortName>
+                    <BitsName>Barometric Altitude Rate Status</BitsName>
+                </Bits>
+                <Bits from="29" to="20" encode="signed">
+                    <BitsShortName>BAR</BitsShortName>
+                    <BitsName>Barometric Altitude Rate</BitsName>
+                    <BitsUnit scale="32">ft/min</BitsUnit>
+                </Bits>
+                <Bits bit="19">
+                    <BitsShortName>IVV_STATUS</BitsShortName>
+                    <BitsName>Inertial Vertical Velocity Status</BitsName>
+                </Bits>
+                <Bits from="18" to="9" encode="signed">
+                    <BitsShortName>IVV</BitsShortName>
+                    <BitsName>Inertial Vertical Velocity</BitsName>
+                    <BitsUnit scale="32">ft/min</BitsUnit>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="00">
+        <!-- This must be last item  -->
+        <DataItemName>BDS register</DataItemName>
+        <DataItemDefinition>BDS register</DataItemDefinition>
+        <DataItemFormat desc="Eight-octets fixed length data item.">
+            <Fixed length="8">
+                <Bits from="64" to="9" encode="hex">
+                    <BitsShortName>VAL</BitsShortName>
+                    <BitsName>BDS value</BitsName>
+                </Bits>
+                <Bits from="8" to="1" encode="hex">
+                    <BitsShortName>BDS</BitsShortName>
+                    <BitsName>BDS register</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+</Category>
