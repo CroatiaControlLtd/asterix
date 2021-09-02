@@ -35,3 +35,14 @@ with urllib.request.urlopen(upstream_repo+'/manifest.json') as url:
                 outfilename = 'specs/asterix_cat%s_%s_%s.xml' % (category['category'], vermajor, verminor)
                 with open(outfilename, 'wt') as jsf:
                     jsf.write(result)
+
+with urllib.request.urlopen(upstream_repo+'/gitrev.txt') as url:
+    rev = url.read().decode()[0:7]
+    print('Done!')
+    print('You might want to examine the changed, then proceed with:')
+    print('')
+    print('git add specs/*xml')
+    print('git status specs')
+    print('git commit -m "synced with asterix-specs upstream, revision #'+rev+'"')
+    print('git push')
+

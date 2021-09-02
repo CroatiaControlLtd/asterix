@@ -174,15 +174,15 @@ class Bits(object):
             variation = item['variation']
             vt = variation['type']
             if vt == 'Element':
-                content = variation['content']
+                content = variation['rule']
             elif vt == 'Repetitive':
-                content = variation['variation']['content']
+                content = variation['variation']['rule']
             else:
                 raise Exception('unexpected variation type {}'.format(vt))
 
             # defined content
             def case1(val):
-                rule = val['rule']
+                rule = val['content']
                 t = rule['type']
 
                 if t == 'Raw':
@@ -382,8 +382,8 @@ class Fixed(Variation):
         bitsFrom = bitSize
 
         if len(items) == 1 and \
-            'rule' in items[0]['variation']['content'] and \
-            items[0]['variation']['content']['rule']['type'] == 'Bds':
+            'content' in items[0]['variation']['rule'] and \
+            items[0]['variation']['rule']['content']['type'] == 'Bds':
             # Example: CAT062/I380/ACS/BDS
             n = getItemSize(items[0])
             bitsTo = bitsFrom - n + 1

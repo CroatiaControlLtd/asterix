@@ -64,6 +64,9 @@ python3 asterix2json.py --cat category.json --ref ref.json --outfile out.xml
 This scripts autimatically reads latest Asterix specifications from
 [asterix-specs-out] and creates all XML definitions in specs folder.
 
+```bash
+python3 update-specs.py
+```
 
 ## Conversion workflow when .json file is available
 
