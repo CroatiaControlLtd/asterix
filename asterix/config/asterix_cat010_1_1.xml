@@ -592,7 +592,7 @@
                         <BitsName>DRHO</BitsName>
                         <BitsUnit scale="1" min="-127" max="127">m</BitsUnit>
                     </Bits>
-                    <Bits bit="8" to="1" encode="signed">
+                    <Bits from="8" to="1" encode="signed">
                         <BitsShortName>DTHETA</BitsShortName>
                         <BitsName>DTHETA</BitsName>
                         <BitsUnit scale="0.15" min="-19.05" max="19.05">deg</BitsUnit>
