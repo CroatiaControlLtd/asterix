@@ -3095,7 +3095,7 @@
                                 <BitsName>Supplementary Track Status</BitsName>
                                 <BitsPresence>4</BitsPresence>
                             </Bits>
-                            <Bits from ="1" to="4">
+                            <Bits from="1" to="4">
                                 <BitsShortName>spare</BitsShortName>
                                 <BitsName>spare bits set to 0</BitsName>
                             </Bits>
