@@ -457,7 +457,7 @@
                     <BitsName>Vx</BitsName>
                     <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
                 </Bits>
-                <Bits from="1" to="16" encode="signed">
+                <Bits from="16" to="1" encode="signed">
                     <BitsShortName>Vy</BitsShortName>
                     <BitsName>Vy</BitsName>
                     <BitsUnit scale="0.25" min="-8192" max="8191.75">m/s</BitsUnit>
