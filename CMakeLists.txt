@@ -27,6 +27,9 @@ set(EXECUTABLE_OUTPUT_PATH install)
 
 set(CMAKE_CXX_STANDARD 11)
 
+#set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+#set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+
 include_directories(src/asterix)
 include_directories(src/engine)
 include_directories(src/main)

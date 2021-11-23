@@ -250,3 +250,6 @@ Issue #178 Explicit items with more elements then in definition should be put to
 Issue #180 Problem decoding repetitive data item I023/120 Service Statistics
 Issue #181 Add missing Single Antenna (SA) element in Data Item I021/008 for CAT021 v2.1 
 Issue #182 convert timestamp to double, improves precision 
+
+2.8.2 (python_v0.7.2)
+Issue #183 Potential Heap-based Buffer Overflow
