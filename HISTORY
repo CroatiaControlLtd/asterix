@@ -253,3 +253,6 @@ Issue #182 convert timestamp to double, improves precision
 
 2.8.2 (python_v0.7.2)
 Issue #183 Potential Heap-based Buffer Overflow
+
+2.8.3 (python_v0.7.3)
+Issue #202 Segmentation fault in python when explicit item is wrong

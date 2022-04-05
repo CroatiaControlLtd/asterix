@@ -354,7 +354,7 @@ void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, lon
     it2++;
     if (it2 == m_lSubItems.end())
     {
-        Tracer::Error("Missing secondary subfields of Compund");
+        Tracer::Error("Missing secondary subfields of Compound");
         return;
     }
 

@@ -374,6 +374,9 @@ PyObject* DataRecord::getData(int verbose)
             if (di)
             {
                 PyObject* v1 = di->getData(verbose);
+                if (v1 == NULL) {
+                    v1 = Py_BuildValue("s", "Error");
+                }
                 char tmp[20];
                 snprintf(tmp, 20, "I%s", di->m_pDescription->m_strID.c_str());
                 PyObject* k1 = Py_BuildValue("s", tmp);

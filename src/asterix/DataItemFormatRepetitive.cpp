@@ -205,8 +205,10 @@ PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength
      DataItemFormatFixed* pFixed = m_lSubItems.size() ? (DataItemFormatFixed*)m_lSubItems.front() : NULL;
       if (!pFixed)
       {
-        // TODO Tracer::Error("Wrong format of repetitive item");
-        return NULL;
+        PyObject* p1 = Py_BuildValue("s", "Wrong format of Repetitive item");
+        PyList_Append(p, p1);
+        Py_DECREF(p1);
+        return p;
       }
 
       int fixedLength = pFixed->getLength(pData);
@@ -214,8 +216,10 @@ PyObject* DataItemFormatRepetitive::getObject(unsigned char* pData, long nLength
 
       if (1+nRepetition*fixedLength != nLength)
       {
-        //TODO Tracer::Error("Wrong length in Repetitive");
-        return NULL;
+        PyObject* p1 = Py_BuildValue("s", "Wrong length in Repetitive item");
+        PyList_Append(p, p1);
+        Py_DECREF(p1);
+        return p;
       }
 
       pData++;

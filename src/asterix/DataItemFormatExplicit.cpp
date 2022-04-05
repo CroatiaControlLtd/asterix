@@ -55,6 +55,11 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
     int bodyLength = 0;
     bool ret = false;
 
+    if (nLength <= 1) {
+        Tracer::Error("Not enough data in Explicit. There is %d byte.", nLength);
+        return false;
+    }
+
     pData++; // skip explicit length byte (it is already in nLength)
 
     // calculate the size of all sub items
@@ -210,6 +215,12 @@ PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, 
     std::list<DataItemFormat *>::iterator it;
     int bodyLength = 0;
 
+    if (nLength <= 1) {
+        char errorText[256];
+        snprintf(errorText, 255, "Not enough data in Explicit. There is %d byte.", nLength);
+        return Py_BuildValue("s", errorText);
+    }
+
     pData++; // skip explicit length byte (it is already in nLength)
 
     // calculate the size of all sub items
@@ -222,8 +233,9 @@ PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, 
 
     // full length must be multiple of body length
     if (bodyLength == 0 || nFullLength % bodyLength != 0) {
-        //TODO Tracer::Error("Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
-        return NULL;
+        char errorText[256];
+        snprintf(errorText, 255, "Wrong data length in Explicit. Needed=%d and there is %d bytes.", bodyLength, nFullLength);
+        return Py_BuildValue("s", errorText);
     }
 
     if (nFullLength == bodyLength) {
