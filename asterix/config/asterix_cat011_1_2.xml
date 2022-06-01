@@ -1481,7 +1481,7 @@
                 <Bits from="23" to="22">
                     <BitsShortName>SVR</BitsShortName>
                     <BitsName>Alert severity</BitsName>
-                    <BitsValue val="0">End fo alert</BitsValue>
+                    <BitsValue val="0">End of alert</BitsValue>
                     <BitsValue val="1">Pre-alarm</BitsValue>
                     <BitsValue val="2">Severe alert</BitsValue>
                 </Bits>
