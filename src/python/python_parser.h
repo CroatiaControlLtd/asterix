@@ -33,9 +33,9 @@ extern "C" {
 int python_start(const char *ini_file_path);
 int python_init(const char *ini_file_path);
 PyObject *python_describe(int category, const char *item, const char *field, const char *value);
-PyObject *python_parse(const unsigned char *pBuf, unsigned int len, int verbose);
+PyObject *python_parse(const unsigned char *pBuf, Py_ssize_t len, int verbose);
 PyObject *
-python_parse_with_offset(const unsigned char *pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count,
+python_parse_with_offset(const unsigned char *pBuf, Py_ssize_t len, unsigned int offset, unsigned int blocks_count,
                          int verbose);
 void asterix_start(const char *ini_filename, const char *filename);
 

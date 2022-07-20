@@ -353,7 +353,7 @@ PyObject* DataRecord::getData(int verbose)
     Py_DECREF(v3);
 
     PyObject* k4 = Py_BuildValue("s", "ts");
-    PyObject* v4 = Py_BuildValue("l", m_nTimestamp);
+    PyObject* v4 = Py_BuildValue("d", m_nTimestamp);
     PyDict_SetItem(p, k4, v4);
     Py_DECREF(k4);
     Py_DECREF(v4);

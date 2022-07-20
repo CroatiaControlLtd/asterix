@@ -256,3 +256,6 @@ Issue #183 Potential Heap-based Buffer Overflow
 
 2.8.3 (python_v0.7.3)
 Issue #202 Segmentation fault in python when explicit item is wrong
+
+2.8.4 (python_v0.7.4)
+Issue #207 Timestamp not created correctly
