@@ -25,7 +25,9 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8'
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10'
 ]
 
 try:
@@ -101,7 +103,7 @@ setup(name='asterix_decoder',
       zip_safe=False,
       #       eager_resources = eager_files,
       author="Damir Salantic",
-      author_email="damir.salantic@crocontrol.hr",
+      author_email="damir.salantic@gmail.com",
       download_url="https://github.com/CroatiaControlLtd/asterix",
       license="GPL",
       platforms=['any'],
