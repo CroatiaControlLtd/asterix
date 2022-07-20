@@ -217,7 +217,7 @@ PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, 
 
     if (nLength <= 1) {
         char errorText[256];
-        snprintf(errorText, 255, "Not enough data in Explicit. There is %d byte.", nLength);
+        snprintf(errorText, 255, "Not enough data in Explicit. There is %ld byte.", nLength);
         return Py_BuildValue("s", errorText);
     }
 

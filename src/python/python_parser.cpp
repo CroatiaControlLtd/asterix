@@ -79,7 +79,7 @@ int python_init(const char *xml_config_file) {
     return 0;
 }
 
-PyObject *python_parse(const unsigned char *pBuf, unsigned int len, int verbose) {
+PyObject *python_parse(const unsigned char *pBuf, Py_ssize_t len, int verbose) {
     // get current timstamp in ms since epoch
     struct timeval tp;
     gettimeofday(&tp, NULL);
@@ -97,7 +97,7 @@ PyObject *python_parse(const unsigned char *pBuf, unsigned int len, int verbose)
 }
 
 PyObject *
-python_parse_with_offset(const unsigned char *pBuf, unsigned int len, unsigned int offset, unsigned int blocks_count,
+python_parse_with_offset(const unsigned char *pBuf, Py_ssize_t len, unsigned int offset, unsigned int blocks_count,
                          int verbose)
 /* AUTHOR: Krzysztof Rutkowski, ICM UW, krutk@icm.edu.pl
 */
