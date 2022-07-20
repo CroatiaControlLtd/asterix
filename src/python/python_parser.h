@@ -24,6 +24,7 @@
 #ifndef PYTHONPARSER_H_
 #define PYTHONPARSER_H_
 
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
 #ifdef __cplusplus
