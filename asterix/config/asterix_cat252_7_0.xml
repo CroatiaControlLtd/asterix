@@ -396,7 +396,7 @@
                         <BitsValue val="1">Yes</BitsValue>
                     </Bits>
                     <Bits bit="5">
-                        <BitsShortName>C4</BitsShortName>
+                        <BitsShortName>C5</BitsShortName>
                         <BitsName>Complementary service 5</BitsName>
                         <BitsValue val="0">No</BitsValue>
                         <BitsValue val="1">Yes</BitsValue>
