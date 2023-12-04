@@ -262,4 +262,7 @@ Issue #207 Timestamp not created correctly
 Added support for python 3.10
 
 2.8.5 (python_v0.7.5)
+Issue #209 replace asterix2json with asterixjson2xml in documentation 
+Issue #211 asterix-specs conversion fix 
+Issue #213 Fixed duplicate field names in I001/060 and I252/110 
 Issue #220 Correct CAT205 and CAT025
