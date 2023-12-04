@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: asterix-decoder
+Version: 0.7.4
+Summary: ASTERIX decoder in Python
+Home-page: https://github.com/CroatiaControlLtd/asterix
+Download-URL: https://github.com/CroatiaControlLtd/asterix
+Author: Damir Salantic
+Author-email: damir.salantic@gmail.com
+License: GPL
+Keywords: asterix,eurocontrol,radar,track,croatiacontrol
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE
+License-File: COPYING
+
+asterix
+=======
+
+Asterix is Python module used for parsing of EUROCONTROL ASTERIX protocol data.
+
+ASTERIX stands for All Purpose STructured EUROCONTROL SuRveillance Information EXchange.
+It is an ATM Surveillance Data Binary Messaging Format which allows transmission of harmonised information between any surveillance and automation system.
+ASTERIX defines the structure of the data to be exchanged over a communication medium, from the encoding of every bit of information up to the organisation of the data within a block of data - without any loss of information during the whole process.
+More about ASTERIX protocol you can find here: http://www.eurocontrol.int/services/asterix
+
+Asterix application was developed by Croatia Control Ltd.
+Python module developed by Damir Salantic.
+
+This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.
+
+

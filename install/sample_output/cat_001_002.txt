@@ -4,12 +4,12 @@
 Data Block 1
 Category: 1
 Len: 69
+Timestamp: 45826414.000000
 HexData: 010048
 -------------------------
 Data Record 1
 Len: 23
 CRC: 166B4DBF
-Timestamp: 45826414
 HexData: F7C619C9A00EB2767F189408AA42D8033405C8800D400E
 
 Item 010 : Data Source Identifier
@@ -78,7 +78,6 @@ Item 210 : Track Quality
 Data Record 2
 Len: 23
 CRC: 451BDC4F
-Timestamp: 45826414
 HexData: F7C619C9B00F7561EC1A14077EB5550E5205508014400E
 
 Item 010 : Data Source Identifier
@@ -147,7 +146,6 @@ Item 210 : Track Quality
 Data Record 3
 Len: 23
 CRC: B1116CF7
-Timestamp: 45826414
 HexData: F7C619C9B00DCA69DE1A7C07F011110E3006188016400E
 
 Item 010 : Data Source Identifier
@@ -217,12 +215,12 @@ Item 210 : Track Quality
 Data Block 2
 Category: 1
 Len: 23
+Timestamp: 45826414.000000
 HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
 CRC: AA452E46
-Timestamp: 45826414
 HexData: F7C619C9B00D685C881CE008424FA4004A04D88022400E
 
 Item 010 : Data Source Identifier
@@ -292,12 +290,12 @@ Item 210 : Track Quality
 Data Block 3
 Category: 2
 Len: 8
+Timestamp: 45826414.000000
 HexData: 02000B
 -------------------------
 Data Record 1
 Len: 8
 CRC: E1A938EC
-Timestamp: 45826414
 HexData: F019C90250598117
 
 Item 010 : Data Source Identifier
@@ -321,12 +319,12 @@ Item 030 : Time of Day
 Data Block 4
 Category: 1
 Len: 23
+Timestamp: 45826414.000000
 HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
 CRC: 52C8CF8E
-Timestamp: 45826414
 HexData: F7C619C9B00CE173571E28081DD1100AC405A08028400E
 
 Item 010 : Data Source Identifier
@@ -396,12 +394,12 @@ Item 210 : Track Quality
 Data Block 5
 Category: 1
 Len: 23
+Timestamp: 45826414.000000
 HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
 CRC: D32E1DA2
-Timestamp: 45826414
 HexData: F7C619C9A00C10514C212C05DCE2D7059E025A8038400E
 
 Item 010 : Data Source Identifier
@@ -471,12 +469,12 @@ Item 210 : Track Quality
 Data Block 6
 Category: 1
 Len: 23
+Timestamp: 45826414.000000
 HexData: 01001A
 -------------------------
 Data Record 1
 Len: 23
 CRC: 6E189DDB
-Timestamp: 45826414
 HexData: F7C619C9B00F0D37FE21C80755D1C605A505A0803B400E
 
 Item 010 : Data Source Identifier
