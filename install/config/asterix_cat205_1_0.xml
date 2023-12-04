@@ -53,10 +53,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>
-            Note:
-                The up-to-date list of SACs is published on the
-                EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
         </DataItemNote>
     </DataItem>
 
@@ -73,10 +70,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>
-            Note:
-                The service identification is allocated by the system.
-        </DataItemNote>
+        <DataItemNote>The service identification is allocated by the system.</DataItemNote>
     </DataItem>
 
     <DataItem id="030">
@@ -93,10 +87,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>
-            Note:
-                The TOD value is reset to zero at every midnight UTC.
-        </DataItemNote>
+        <DataItemNote>The TOD value is reset to zero at every midnight UTC.</DataItemNote>
     </DataItem>
 
     <DataItem id="040">
@@ -113,7 +104,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The number is incremented if there is a new position or bearing detected, independent
                 from the respective channel. The report number shall also be incremented if, during
                 the ongoing position or bearing detection, the position or bearing value is deviating by
@@ -143,7 +133,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The LSB provides a resolution at least better than 0.6 meters.
                 For reports of Message Type 001 and 003, the item shall contain the estimated
                 position of the transmitting aircraft.
@@ -172,7 +161,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The Cartesian coordinates are relative to an agreed System Reference Point. The
                 System Reference Point may be communicated in ASTERIX category 025, item 600.
                 For reports of Message Type 001 and 003, the item shall contain the estimated
@@ -198,7 +186,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The angle is given in degrees, in clock-wise notation,
                 starting with 0 degrees for the geographical North.
         </DataItemNote>
@@ -221,7 +208,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The angle is given in degrees, in clock-wise notation,
                 starting with 0 degrees for the geographical North.
         </DataItemNote>
@@ -241,7 +227,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 NU1 till NU7 contain digits or a decimal point in ASCII representation, specifying the
                 name of the radio channel. Channel names that could be provided with less than 6
                 digits shall be filled with trailing zeroes (e.g. 121.100).
@@ -263,7 +248,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The actual meanings of the bits are application dependent.
         </DataItemNote>
     </DataItem>
@@ -277,7 +261,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="unsigned">
-                    <BitsShortName>RANGE</BitsShortName>
+                    <BitsShortName>Range</BitsShortName>
                     <BitsName>Range of Estimated Uncertainty</BitsName>
                     <BitsUnit scale="100.0" min="0" max="25500">m</BitsUnit>
                 </Bits>
@@ -300,7 +284,6 @@
             </Repetitive>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The actual identification of the receivers is application dependent.
         </DataItemNote>
     </DataItem>
@@ -327,7 +310,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The LSB provides a resolution at least better than 0.6 meters.
         </DataItemNote>
     </DataItem>
@@ -354,7 +336,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 The Cartesian coordinates are relative to an agreed System Reference Point. The
                 System Reference Point may be communicated in ASTERIX category 025, item 600.
         </DataItemNote>
@@ -371,7 +352,7 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1" encode="unsigned">
-                    <BitsShortName>RANGE</BitsShortName>
+                    <BitsShortName>Range</BitsShortName>
                     <BitsName>Range of Conflicting Transmitter Estimated Uncertainty</BitsName>
                     <BitsUnit scale="100.0" min="0" max="25500">m</BitsUnit>
                 </Bits>
@@ -408,7 +389,6 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 For Message Type 5 (Sensor Data Report) in I205/000, the item has to be used if
                 there is no unique SAC/SIC defined for each RDF Sensor.
                 The actual identification number is application dependent
@@ -439,13 +419,12 @@
         <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>QUALITY</BitsShortName>
+                    <BitsShortName>Quality</BitsShortName>
                     <BitsName>Signal Quality</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-            Note:
                 255 corresponds to the best quality,
                 0 to the worst quality
         </DataItemNote>
