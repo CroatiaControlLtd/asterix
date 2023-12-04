@@ -35,9 +35,9 @@ using a script from this directory.
 In case of problems in asterix definitions, users of this project are
 encouraged to report problems upstream.
 
-## Running `asterix2json.py` script
+## Running `asterixjson2xml.py` script
 
-> **_NOTE:_** `asterix2json.py` script requires `python36` or higher.
+> **_NOTE:_** `asterixjson2xml.py` script requires `python36` or higher.
 
 ### Basic conversion example:
 
@@ -49,16 +49,16 @@ python3 --version
 curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/cats/cat1.18/definition.json > input.json
 
 # convert json to xml
-python3 asterix2json.py < input.json > output.xml
+python3 asterixjson2xml.py < input.json > output.xml
 
 # or directly
-curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/cats/cat1.18/definition.json | python3 asterix2json.py
+curl https://zoranbosnjak.github.io/asterix-specs/specs/cat062/cats/cat1.18/definition.json | python3 asterixjson2xml.py
 ```
 
 ### Combine CAT+REF definition to a single xml:
 
 ```bash
-python3 asterix2json.py --cat category.json --ref ref.json --outfile out.xml
+python3 asterixjson2xml.py --cat category.json --ref ref.json --outfile out.xml
 ```
 ## Running `update-specs.py` script
 This scripts autimatically reads latest Asterix specifications from
@@ -77,7 +77,7 @@ python3 update-specs.py
 - commit new/changed `.xml` file to this repository;
 
 > **_NOTE:_** If the resulting `.xml` file in not as expected, check/modify
-the `asterix2json.py` script.
+the `asterixjson2xml.py` script.
 
 > **_NOTE:_** Do not manually edit converted `.xml` files if possible.
 
