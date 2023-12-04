@@ -1,7 +1,7 @@
 Version History for Asterix 
 ===========================
-0			
-2005-2013	
+0
+2005-2013
 Converter project.
 
 1.0.0
@@ -260,3 +260,6 @@ Issue #202 Segmentation fault in python when explicit item is wrong
 2.8.4 (python_v0.7.4)
 Issue #207 Timestamp not created correctly
 Added support for python 3.10
+
+2.8.5 (python_v0.7.5)
+Issue #220 Correct CAT205 and CAT025
