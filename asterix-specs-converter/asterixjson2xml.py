@@ -5,6 +5,7 @@ import sys
 import argparse
 import json
 import hashlib
+from copy import copy
 from itertools import chain, repeat
 
 def getNumber(value):
@@ -102,7 +103,7 @@ def replaceOutput(s):
         u'–': '-',
         u'“': '',
         u'”': '',
-        u'°': ' deg',
+        u'°': 'deg',
     })
 
 def tell(s):
@@ -304,6 +305,27 @@ class Bits(object):
 
             renderRule(content, case1, case2)
 
+def get_bit_size(item):
+    """Return bit size of a (spare) item."""
+    if item['spare']:
+        return item['length']
+    else:
+        return item['variation']['size']
+
+def ungroup(item):
+    """Convert group of items of known size to element"""
+    n = sum([get_bit_size(i) for i in item['variation']['items']])
+    result = copy(item)
+    result['variation'] = {
+        'rule': {
+            'content': {'type': 'Raw'},
+            'type': 'ContextFree',
+        },
+        'size': n,
+        'type': 'Element',
+    }
+    return result
+
 class Variation(object):
 
     @staticmethod
@@ -324,7 +346,12 @@ class Variation(object):
         if vt == 'Extended':
             n1 = variation['first']
             n2 = variation['extents']
-            items = variation['items']
+            items = []
+            for i in variation['items']:
+                if i.get('variation') is not None:
+                    if i['variation']['type'] == 'Group':
+                        i = ungroup(i)
+                items.append(i)
             return Variable(parent, item, n1, n2, items)
 
         if vt == 'Repetitive':
