@@ -4,12 +4,12 @@
 Data Block 1
 Category: 48
 Len: 56
+Timestamp: 2.179688
 HexData: 30003B
 -------------------------
 Data Record 1
 Len: 56
 CRC: B7648B14
-Timestamp: 2179
 HexData: FFF70214C10000BEA83D64A8DC0B0E0500E01102C3E48BA7501378C38D6002BE800030A4000040CC3A5F33FFE4006006DC09C8923F4620FD
 
 Item 010 : Data Source Identifier
@@ -126,12 +126,12 @@ Item 230 : Comm capability
 Data Block 2
 Category: 48
 Len: 62
+Timestamp: 2.679688
 HexData: 300041
 -------------------------
 Data Record 1
 Len: 39
 CRC: 27DF1200
-Timestamp: 2679
 HexData: FFD70214C1000100A83115C9AB0FFF00F0E01804BB344041DF7DF76070CE030A00012A564620A0
 
 Item 010 : Data Source Identifier
@@ -218,7 +218,6 @@ Item 230 : Comm capability
 Data Record 2
 Len: 23
 CRC: D5A98C8A
-Timestamp: 2679
 HexData: F31614C100012421800F00DC8B18140000170000000020
 
 Item 010 : Data Source Identifier
@@ -278,12 +277,12 @@ Item 170 : Track Status
 Data Block 3
 Category: 34
 Len: 16
+Timestamp: 2.882812
 HexData: 220013
 -------------------------
 Data Record 1
 Len: 16
 CRC: A9B4D46A
-Timestamp: 2882
 HexData: EE14C10100016E020198404040900088
 
 Item 010 : Data Source Identifier
@@ -339,12 +338,12 @@ Item 060 : System Processing Mode
 Data Block 4
 Category: 48
 Len: 56
+Timestamp: 4.132812
 HexData: 30003B
 -------------------------
 Data Record 1
 Len: 56
 CRC: D254BF2A
-Timestamp: 4132
 HexData: FFF70214C10001BCA8822427CC01160197E0560ABA4CA9EC4994B25C182002848000316C000040CFCA0B1DBF2FE860062106248F174E20FD
 
 Item 010 : Data Source Identifier
@@ -461,12 +460,12 @@ Item 230 : Comm capability
 Data Block 5
 Category: 48
 Len: 22
+Timestamp: 4.484375
 HexData: 300019
 -------------------------
 Data Record 1
 Len: 22
 CRC: 8B99C068
-Timestamp: 4484
 HexData: F31614C10001E520063B3CE618182A07DA01A0C9C720
 
 Item 010 : Data Source Identifier
@@ -519,12 +518,12 @@ Item 170 : Track Status
 Data Block 6
 Category: 48
 Len: 48
+Timestamp: 6.187500
 HexData: 300033
 -------------------------
 Data Record 1
 Len: 48
 CRC: 6BB3CBF7
-Timestamp: 6187
 HexData: FFF70214C10002BFA83DE8A8AF0B0E0500E01102C4E48BA7501378C38D6001BE800030A400004006DC09C3925D4620FD
 
 Item 010 : Data Source Identifier
@@ -630,12 +629,12 @@ Item 230 : Comm capability
 Data Block 7
 Category: 48
 Len: 62
+Timestamp: 6.687500
 HexData: 300041
 -------------------------
 Data Record 1
 Len: 39
 CRC: D1827E34
-Timestamp: 6687
 HexData: FFD70214C1000301A83117C9AC0FFF00F0E01003BB344041DF7DF76070CE030A0001FD0A4620A0
 
 Item 010 : Data Source Identifier
@@ -722,7 +721,6 @@ Item 230 : Comm capability
 Data Record 2
 Len: 23
 CRC: 438513CF
-Timestamp: 6687
 HexData: F31614C100032421800F00DC8418140000170000000020
 
 Item 010 : Data Source Identifier
@@ -782,12 +780,12 @@ Item 170 : Track Status
 Data Block 8
 Category: 34
 Len: 16
+Timestamp: 6.882812
 HexData: 220013
 -------------------------
 Data Record 1
 Len: 16
 CRC: 1E1A0695
-Timestamp: 6882
 HexData: EE14C10100036F020198404040900088
 
 Item 010 : Data Source Identifier
@@ -843,12 +841,12 @@ Item 060 : System Processing Mode
 Data Block 9
 Category: 48
 Len: 56
+Timestamp: 8.132812
 HexData: 30003B
 -------------------------
 Data Record 1
 Len: 56
 CRC: A6AA4B31
-Timestamp: 8132
 HexData: FFF70214C10003BDA881CF27DD01160196E04E09B94CA9EC4994B25C182002848000316C0000408039AD273FFC9850062106288F3F4620FD
 
 Item 010 : Data Source Identifier
@@ -965,12 +963,12 @@ Item 230 : Comm capability
 Data Block 10
 Category: 48
 Len: 12
+Timestamp: 8.132812
 HexData: 30000F
 -------------------------
 Data Record 1
 Len: 12
 CRC: 6D1997FD
-Timestamp: 8132
 HexData: E11214C100040A0007DA2180
 
 Item 010 : Data Source Identifier
@@ -1014,12 +1012,12 @@ Item 170 : Track Status
 Data Block 11
 Category: 48
 Len: 22
+Timestamp: 9.382812
 HexData: 300019
 -------------------------
 Data Record 1
 Len: 22
 CRC: 2C6FF70C
-Timestamp: 9382
 HexData: F31614C10004542016F1749318054305D5014BACBEA0
 
 Item 010 : Data Source Identifier
@@ -1072,12 +1070,12 @@ Item 170 : Track Status
 Data Block 12
 Category: 48
 Len: 56
+Timestamp: 10.179688
 HexData: 30003B
 -------------------------
 Data Record 1
 Len: 56
 CRC: 9B0A787D
-Timestamp: 10179
 HexData: FFF70214C10004BFA83E6EA87D0B0E0500E01904C2E48BA7501378C38D6002BE800030A4000040803929444004F75006DC09C292674620FD
 
 Item 010 : Data Source Identifier
@@ -1194,12 +1192,12 @@ Item 230 : Comm capability
 Data Block 13
 Category: 48
 Len: 62
+Timestamp: 10.679688
 HexData: 300041
 -------------------------
 Data Record 1
 Len: 39
 CRC: B9148BDC
-Timestamp: 10679
 HexData: FFD70214C1000502A83117C9AA0FFF00F0E01003BB344041DF7DF76070CE030A0000C2F24620A0
 
 Item 010 : Data Source Identifier
@@ -1286,7 +1284,6 @@ Item 230 : Comm capability
 Data Record 2
 Len: 23
 CRC: 9AD948AB
-Timestamp: 10679
 HexData: F31614C100052521800F00DCCE18130000170000000020
 
 Item 010 : Data Source Identifier
@@ -1346,12 +1343,12 @@ Item 170 : Track Status
 Data Block 14
 Category: 34
 Len: 16
+Timestamp: 10.882812
 HexData: 220013
 -------------------------
 Data Record 1
 Len: 16
 CRC: 3A05CC48
-Timestamp: 10882
 HexData: EE14C10100056F020098404040900088
 
 Item 010 : Data Source Identifier
@@ -1407,12 +1404,12 @@ Item 060 : System Processing Mode
 Data Block 15
 Category: 48
 Len: 56
+Timestamp: 12.132812
 HexData: 30003B
 -------------------------
 Data Record 1
 Len: 56
 CRC: 57BC499B
-Timestamp: 12132
 HexData: FFF70214C10005BEA8817D27E701160195E04E0AB24CA9EC4994B25C18200210010680ED000010848000316C000040062106188FEE4620FD
 
 Item 010 : Data Source Identifier

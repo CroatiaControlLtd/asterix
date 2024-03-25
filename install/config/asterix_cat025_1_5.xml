@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+    Asterix Category 025 v1.5 definition 
+    
+    Author:   tdoernbach
+    Created:  31.01.2020
+    Modified: 10.02.2020
+              04.12.2023. dsalantic names changed to match document
+
+--> 
+
+<Category id="025" name="CNS/ATM Ground System Status Reports" ver="1.5">
+
+    <DataItem id="000">
+        <DataItemName>Report Type</DataItemName>
+        <DataItemDefinition>This Data Item allows for a more convenient handling of the reports at the receiver side by further defining the type of transaction.</DataItemDefinition>
+        <DataItemFormat desc="One-Octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="2">
+                    <BitsShortName>Typ</BitsShortName>
+                    <BitsName>Report Type</BitsName>
+                    <BitsValue val="1">Service and System Status Report</BitsValue>
+                    <BitsValue val="2">Component Status Report</BitsValue>
+                    <BitsValue val="3">Service Statistics Report</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>RG</BitsShortName>
+                    <BitsName>Report Generation</BitsName>
+                    <BitsValue val="0">Periodic</BitsValue>
+                    <BitsValue val="1">Event Driven</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="010">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the Ground System sending the data.</DataItemDefinition>
+        <DataItemFormat desc="Two-Octet fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="015" rule="optional">
+        <DataItemName>Service Identification</DataItemName>
+        <DataItemDefinition>Identifies the service being reported.</DataItemDefinition>
+        <DataItemFormat desc="One-Octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>SID</BitsShortName>
+                    <BitsName>Service Identification</BitsName>
+                </Bits> 
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The service identification is allocated by the system</DataItemNote>
+    </DataItem>
+
+    <DataItem id="020" rule="optional">
+        <DataItemName>Service Designator</DataItemName>
+        <DataItemDefinition>Designator of the service being reported.</DataItemDefinition>
+        <DataItemFormat desc="Six-Octet fixed length data item.">
+            <Fixed length="6">
+                <Bits from="48" to="1" encode="6bitschar">
+                    <BitsShortName>SD</BitsShortName>
+                    <BitsName>Service Designator</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="070">
+        <DataItemName>Time Of Day</DataItemName>
+        <DataItemDefinition>Absolute time stamping of the message (UTC) in the form of elapsed time since last midnight.</DataItemDefinition>
+        <DataItemFormat desc="Three-byte fixed length data item.">
+            <Fixed length="3">
+                <Bits from="24" to="1" encode="unsigned">
+                    <BitsShortName>ToD</BitsShortName>
+                    <BitsName>Time Of Day</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>The time of the day value is reset to zero each day at midnight.</DataItemNote>
+    </DataItem>     
+
+    <DataItem id="100" rule="optional">
+        <DataItemName>System and Service Status</DataItemName>
+        <DataItemDefinition>Information concerning the status of the Service Volume.</DataItemDefinition>
+        <DataItemFormat desc="One-Octet extensible data item.">
+            <Variable>
+                <Fixed length="1">
+                    <Bits bit="8"> 
+                        <BitsShortName>NOGO</BitsShortName>
+                        <BitsName>Operational Release Status of the Data</BitsName>
+                        <BitsValue val="0">Data is released for operational use</BitsValue>
+                        <BitsValue val="1">Data must not be used operationally</BitsValue>
+                    </Bits>
+                    <Bits from="7" to="6" encode="unsigned">
+                        <BitsShortName>OPS</BitsShortName>
+                        <BitsName>Operational Service Mode</BitsName>
+                        <BitsValue val="0">Operational</BitsValue>
+                        <BitsValue val="1">Standby</BitsValue>
+                        <BitsValue val="2">Maintenance</BitsValue>
+                        <BitsValue val="3">reserved</BitsValue>
+                    </Bits>
+                    <Bits from="5" to="2" encode="unsigned">
+                        <BitsShortName>SSTAT</BitsShortName>
+                        <BitsName>System and Service State</BitsName>
+                        <BitsValue val="0">Running</BitsValue>
+                        <BitsValue val="1">Failed</BitsValue>
+                        <BitsValue val="2">Degraded</BitsValue>
+                        <BitsValue val="3">Undefined</BitsValue>
+                    </Bits>                                    
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="7" to="5" encode="unsigned">
+                        <BitsShortName>SysSTAT</BitsShortName>
+                        <BitsName>System Status</BitsName>
+                        <BitsValue val="0">Running</BitsValue>
+                        <BitsValue val="1">Failed</BitsValue>
+                        <BitsValue val="2">Degraded</BitsValue>
+                        <BitsValue val="3">Undefined</BitsValue>
+                    </Bits>
+                    <Bits from="4" to="2" encode="unsigned">
+                        <BitsShortName>SeStTAT</BitsShortName>
+                        <BitsName>Service Performance Status</BitsName>
+                        <BitsValue val="0">OK</BitsValue>
+                        <BitsValue val="1">Failed</BitsValue>
+                        <BitsValue val="2">Degraded</BitsValue>
+                        <BitsValue val="3">Undefined</BitsValue>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">No extension</BitsValue>
+                        <BitsValue val="1">Extension</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Variable>
+        </DataItemFormat>
+    </DataItem> 
+
+    <DataItem id="105" rule="optional">
+        <DataItemName>System and Service Eror Codes</DataItemName>
+        <DataItemDefinition>Erros Status of the System and the Service</DataItemDefinition>
+        <DataItemFormat desc="Repetitive One-Octet data item">
+            <Repetitive>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>ERR</BitsShortName>
+                        <BitsName>Warning and Error Code</BitsName>
+                        <BitsValue val="0">No error detected</BitsValue>
+                        <BitsValue val="1">Error Code Undefined</BitsValue>
+                        <BitsValue val="2">Time Source Invalid</BitsValue>
+                        <BitsValue val="3">Time Source Coasting</BitsValue>
+                        <BitsValue val="4">Track ID numbering has restarted</BitsValue>
+                        <BitsValue val="5">Data Processor Overload</BitsValue>
+                        <BitsValue val="6">Ground Interface Data Comm Overload</BitsValue>
+                        <BitsValue val="7">System stopped by operator</BitsValue>
+                        <BitsValue val="8">CBIT failed</BitsValue>
+                        <BitsValue val="9">Test Target Failure</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="120" rule="optional">
+        <DataItemName>Component Status</DataItemName>
+        <DataItemDefinition>Status of various system components and, when applicable, error codes.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Three-Octets data item">
+            <Repetitive>
+                <Fixed length="3">
+                    <Bits from="24" to="9">
+                        <BitsShortName>CID</BitsShortName>
+                        <BitsName>Component ID</BitsName>
+                    </Bits>
+                    <Bits from="8" to="3">
+                        <BitsShortName>ERR</BitsShortName>
+                        <BitsName>Error Code</BitsName>
+                    </Bits>
+                    <Bits from="2" to="1">
+                        <BitsShortName>CS</BitsShortName>
+                        <BitsName>Component State</BitsName>
+                        <BitsValue val="0">Running</BitsValue>
+                        <BitsValue val="1">Failed</BitsValue>
+                        <BitsValue val="2">Maintenance</BitsValue>
+                        <BitsValue val="3">reserved</BitsValue>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="140" rule="optional">
+        <DataItemName>Service Statistics</DataItemName>
+        <DataItemDefinition>Statistics concerning the service.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive Six-Octets data item">
+            <Repetitive>
+                <Fixed length="6">
+                    <Bits from="48" to="41">
+                        <BitsShortName>TYPE</BitsShortName>
+                        <BitsName>Type of Report Counter</BitsName>
+                        <BitsValue val="0">Number of unknown messages received</BitsValue>
+                        <BitsValue val="1">Number of too old messages received</BitsValue>
+                        <BitsValue val="2">Number of failed message conversions</BitsValue>
+                        <BitsValue val="3">Total Number of messages received</BitsValue>
+                        <BitsValue val="4">Total number of messages transmitted</BitsValue>
+                    </Bits>
+                    <Bits bit="40">
+                        <BitsShortName>REF</BitsShortName>
+                        <BitsName>Reference for counting messages</BitsName>
+                        <BitsValue val="0">From UTC midnight</BitsValue>
+                        <BitsValue val="1">From the previous report</BitsValue>
+                    </Bits>
+                    <Bits from="39" to="33">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="32" to="1">
+                        <BitsShortName>CNT</BitsShortName>
+                        <BitsName>Counter Value</BitsName>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="200">
+        <DataItemName>Message Identification</DataItemName>
+        <DataItemDefinition>Identification of a unique message.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length data item.">
+            <Fixed length="3">
+                <Bits from="24" to="1" encode="unsigned">
+                    <BitsShortName>ID</BitsShortName>
+                    <BitsName>Message Identification Number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="600" rule="optional">
+        <DataItemName>Position of the System Reference Point</DataItemName>
+        <DataItemDefinition>Position of the reference point in WGS-84 Coordinates</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="8">
+                <Bits from="64" to="33" encode="signed">
+                    <BitsShortName>Lat</BitsShortName>
+                    <BitsName>Latitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000004190951586" min="-90" max="90"> deg</BitsUnit>
+                </Bits>
+                <Bits from="32" to="1" encode="signed">
+                    <BitsShortName>Lon</BitsShortName>
+                    <BitsName>Longitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000008381903172" min="-180" max="180"> deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="610" rule="optional">
+        <DataItemName>Height of the System Reference Point</DataItemName>
+        <DataItemDefinition>Height of the reference point relative to Mean Sea Level</DataItemDefinition>
+        <DataItemFormat>
+            <Fixed length="2">
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>Height</BitsShortName>
+                    <BitsName>Height above MSL.</BitsName>
+                    <BitsUnit scale="0.25" min="-8192" max="8191.75">m</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <!--Special Purpose Field - content unknown -->
+    <DataItem id="SP" >
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>SP</DataItemDefinition>
+        <DataItemFormat desc="Explicit">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SP</BitsShortName>
+                        <BitsName>SP</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="3">200</UAPItem>
+        <UAPItem bit="3" frn="4" len="1">015</UAPItem>
+        <UAPItem bit="4" frn="5" len="6">020</UAPItem>
+        <UAPItem bit="5" frn="6" len="3">070</UAPItem>
+        <UAPItem bit="6" frn="7" len="1+">100</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1+">105</UAPItem>
+        <UAPItem bit="9" frn="9" len="1+">120</UAPItem>
+        <UAPItem bit="10" frn="10" len="1+">140</UAPItem>
+        <UAPItem bit="11" frn="11" len="1+1+">SP</UAPItem>
+        <UAPItem bit="12" frn="12" len="8">600</UAPItem>
+        <UAPItem bit="13" frn="13" len="2">610</UAPItem>
+        <UAPItem bit="14" frn="14" len="-">-</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+    </UAP>
+
+</Category>
+

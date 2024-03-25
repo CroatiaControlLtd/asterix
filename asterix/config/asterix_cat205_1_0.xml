@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Category SYSTEM "asterix.dtd">
-
-<!--  
-
-    Asterix Category 205 v1.0 definition 
     
+<!--
+
+    Asterix Category 205 v1.0 definition
+
     Author:   tdoernbach
     Created:  20.05.2019
     Modified: 31.01.2020
+              04.12.2023 dsalantic - Names and comments modified to exactly match specification document
+-->
 
---> 
-
-<Category id="205" name="Radio Direction Finder System Reports" ver="1.0">
+<Category id="205" name="Radio Direction Finder Reports" ver="1.0">
 
     <DataItem id="000">
         <DataItemName>Message Type</DataItemName>
-        <DataItemDefinition>This Data Item allows for a more convenient handling of the messages at the receiver side by further defining the type of transaction.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemDefinition>
+            This Data Item allows for a more convenient handling of the
+            messages at the receiver side by further defining the type of
+            transaction.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>Typ</BitsShortName>
+                    <BitsShortName>TYP</BitsShortName>
                     <BitsName>Message Type</BitsName>
                     <BitsValue val="1">System Position Report</BitsValue>
                     <BitsValue val="2">System Bearing Report</BitsValue>
                     <BitsValue val="3">System Position Report of conflicting transmission</BitsValue>
                     <BitsValue val="4">System Detection End Report</BitsValue>
-                    <BitsValue val="5">Sensor Data Report</BitsValue> 
+                    <BitsValue val="5">Sensor Data Report</BitsValue>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -33,8 +37,11 @@
 
     <DataItem id="010">
         <DataItemName>Data Source Identifier</DataItemName>
-        <DataItemDefinition>Identification of the RDFS or Sensor sending the data.</DataItemDefinition>
-        <DataItemFormat desc="Two-byte fixed length data item.">
+        <DataItemDefinition>
+            Identification of the Radio Direction Finder System or Sensor from which the
+            report is received.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="9">
                     <BitsShortName>SAC</BitsShortName>
@@ -46,304 +53,415 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>The up-to-date list of SACs is published on the EUROCONTROL Web Site (http://www.eurocontrol.int/asterix).
+        </DataItemNote>
     </DataItem>
 
-    <DataItem id="015" rule="optional">
+    <DataItem id="015">
         <DataItemName>Service Identification</DataItemName>
-        <DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemDefinition>
+            Identification of the service provided to one or more users.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>SID</BitsShortName>
+                    <BitsShortName>SRV</BitsShortName>
                     <BitsName>Service Identification</BitsName>
-                </Bits> 
+                </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The service identification is allocated by the RDFS</DataItemNote>
+        <DataItemNote>The service identification is allocated by the system.</DataItemNote>
     </DataItem>
 
     <DataItem id="030">
-        <DataItemName>Time Of Message</DataItemName>
-        <DataItemDefinition>Absolute time stamping of the message in the form of elapsed time since last midnight.</DataItemDefinition>
-        <DataItemFormat desc="Three-byte fixed length data item.">
+        <DataItemName>Time of Day</DataItemName>
+        <DataItemDefinition>
+            UTC time of transmission of this ASTERIX message.
+        </DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="unsigned">
-                    <BitsShortName>ToD</BitsShortName>
-                    <BitsName>Time Of Message</BitsName>
+                    <BitsShortName>TOD</BitsShortName>
+                    <BitsName>Time of Day</BitsName>
                     <BitsUnit scale="0.0078125">s</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The time of the day value is reset to zero at every midnight.</DataItemNote>
-    </DataItem>     
-
-    <DataItem id="040" rule="optional">
-        <DataItemName>Report Number</DataItemName>
-        <DataItemDefinition>Sequential and cyclic number of position detection reports.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>RNR</BitsShortName>
-                    <BitsName>ReportNumber</BitsName>
-                </Bits>
-            </Fixed>
-        </DataItemFormat>
-    </DataItem> 
-
-    <DataItem id="050" rule="optional">
-        <DataItemName>Position in WGS-84 Coordinates</DataItemName>
-        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees</DataItemDefinition>
-        <DataItemFormat>
-            <Fixed length="8">
-                <Bits from="64" to="33" encode="signed">
-                    <BitsShortName>Lat</BitsShortName>
-                    <BitsName>Latitude in WGS-84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
-                </Bits>
-                <Bits from="32" to="1" encode="signed">
-                    <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
-                </Bits>
-            </Fixed>
-        </DataItemFormat>
-        <DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
+        <DataItemNote>The TOD value is reset to zero at every midnight UTC.</DataItemNote>
     </DataItem>
 
-    <DataItem id="060" rule="optional">
+    <DataItem id="040">
+        <DataItemName>Report Number</DataItemName>
+        <DataItemDefinition>
+            Sequential and cyclic number of position detection reports.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>RN</BitsShortName>
+                    <BitsName>Report Number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>
+                The number is incremented if there is a new position or bearing detected, independent
+                from the respective channel. The report number shall also be incremented if, during
+                the ongoing position or bearing detection, the position or bearing value is deviating by
+                a system-defined threshold from the previous one. If the message type (I205/000)
+                changes to another Detection Report, the report number is incremented as well.
+                to detect lost messages.
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="050">
+        <DataItemName>Position in WGS-84 Coordinates</DataItemName>
+        <DataItemDefinition>
+            Calculated position in WGS-84 Coordinates.
+        </DataItemDefinition>
+        <DataItemFormat desc="Eight-octet fixed length Data Item.">
+            <Fixed length="8">
+                <Bits from="64" to="33" encode="signed">
+                    <BitsShortName>LAT</BitsShortName>
+                    <BitsName>Latitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625" min="-90" max="90"> deg</BitsUnit>
+                </Bits>
+                <Bits from="32" to="1" encode="signed">
+                    <BitsShortName>LON</BitsShortName>
+                    <BitsName>Longitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625" min="-180" max="180"> deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>
+                The LSB provides a resolution at least better than 0.6 meters.
+                For reports of Message Type 001 and 003, the item shall contain the estimated
+                position of the transmitting aircraft.
+                For reports of Message Type 002, the item shall contain the position of the bearing
+                starting point, i.e. the position of the respective RDF sensor.
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="060">
         <DataItemName>Position in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian coordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
-        <DataItemFormat>
+        <DataItemDefinition>
+            Calculated position in Cartesian Coordinates.
+        </DataItemDefinition>
+        <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
                     <BitsShortName>X</BitsShortName>
-                    <BitsName>X</BitsName>
-                    <BitsUnit scale="0.5">m</BitsUnit>
+                    <BitsName>X-coordinate</BitsName>
+                    <BitsUnit scale="0.5" min="-4194300" max="4194300">m</BitsUnit>
                 </Bits>
                 <Bits from="24" to="1" encode="signed">
                     <BitsShortName>Y</BitsShortName>
-                    <BitsName>Y</BitsName>
-                    <BitsUnit scale="0.5">m</BitsUnit>
+                    <BitsName>Y-coordinate</BitsName>
+                    <BitsUnit scale="0.5" min="-4194300" max="4194300">m</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                The Cartesian coordinates are relative to an agreed System Reference Point. The
+                System Reference Point may be communicated in ASTERIX category 025, item 600.
+                For reports of Message Type 001 and 003, the item shall contain the estimated
+                position of the transmitting aircraft.
+                For reports of Message Type 002, the item shall contain the position of the bearing
+                starting point, i.e. the position of the respective RDF sensor.
+        </DataItemNote>
     </DataItem>
 
-   <DataItem id="070" rule="optional">
+    <DataItem id="070">
         <DataItemName>Local Bearing</DataItemName>
-        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/050.</DataItemDefinition>
+        <DataItemDefinition>
+            Bearing of the detected radio transmission, starting at the position contained in
+            I205/050 and given relative to this position.
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="unsigned">
                     <BitsShortName>THETA</BitsShortName>
-                    <BitsUnit scale="0.01">deg</BitsUnit>
+                    <BitsName>Local Bearing</BitsName>
+                    <BitsUnit scale="0.01" min="0" max="360"> deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                The angle is given in degrees, in clock-wise notation,
+                starting with 0 degrees for the geographical North.
+        </DataItemNote>
     </DataItem>
 
-   <DataItem id="080" rule="optional">
+    <DataItem id="080">
         <DataItemName>System Bearing</DataItemName>
-        <DataItemDefinition>Bearing of detected radio transmission, starting at the position contained in I205/060 with stereographic projection to the Cartesian Coordinate System.</DataItemDefinition>
+        <DataItemDefinition>
+            Bearing of the detected radio transmission, starting at the position contained in
+            I205/060, projected to the Cartesian Coordinate System relative to the System
+            Reference Point (as used for I205/ 060).
+        </DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="unsigned">
                     <BitsShortName>THETA</BitsShortName>
-                    <BitsUnit scale="0.01">deg</BitsUnit>
+                    <BitsName>System Bearing</BitsName>
+                    <BitsUnit scale="0.01" min="0" max="360"> deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                The angle is given in degrees, in clock-wise notation,
+                starting with 0 degrees for the geographical North.
+        </DataItemNote>
     </DataItem>
 
-   <DataItem id="090" rule="optional">
+    <DataItem id="090">
         <DataItemName>Radio Channel Name</DataItemName>
-        <DataItemDefinition>Name of the channel the radio transmission is detected on.</DataItemDefinition>
+        <DataItemDefinition>
+            Name of the channel the radio transmission is detected on.
+        </DataItemDefinition>
         <DataItemFormat desc="Seven-octet fixed length Data Item.">
             <Fixed length="7">
-               <Bits from="56" to="1" encode="ascii">
-                   <BitsShortName>RCH</BitsShortName>
-                   <BitsName>Radio Channel</BitsName>
-               </Bits>
-            </Fixed>
-        </DataItemFormat>
-    </DataItem>
-
-    <DataItem id="100" rule="optional">
-        <DataItemName>Quality</DataItemName>
-        <DataItemDefinition>Quality of measurement provided by the Radio Direction Finder system.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>QUA</BitsShortName>
-                    <BitsName>Quality</BitsName>
+                <Bits from="56" to="1" encode="ascii">
+                    <BitsShortName>RCN</BitsShortName>
+                    <BitsName>Radio Channel Name</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                NU1 till NU7 contain digits or a decimal point in ASCII representation, specifying the
+                name of the radio channel. Channel names that could be provided with less than 6
+                digits shall be filled with trailing zeroes (e.g. 121.100).
+                This channel name is not identical with the actual physical frequency.
+        </DataItemNote>
     </DataItem>
-             
-    <DataItem id="110" rule="optional">
+
+    <DataItem id="100">
+        <DataItemName>Quality of Measurement</DataItemName>
+        <DataItemDefinition>
+            Quality of the measurement provided by the Radio Direction Finder system.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>Quality</BitsShortName>
+                    <BitsName>Quality of Measurement</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>
+                The actual meanings of the bits are application dependent.
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="110">
         <DataItemName>Estimated Uncertainty</DataItemName>
-        <DataItemDefinition>Uncertainty estimation of the RDF System. The transmitter is within the provided radius around the calculated position.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemDefinition>
+            Uncertainty estimation of the RDF System. The transmitter is expected to be
+            within the provided radius around the calculated position.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>RANGE</BitsShortName>
-                    <BitsName>Range</BitsName>
+                <Bits from="8" to="1" encode="unsigned">
+                    <BitsShortName>Range</BitsShortName>
+                    <BitsName>Range of Estimated Uncertainty</BitsName>
+                    <BitsUnit scale="100.0" min="0" max="25500">m</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="120" rule="optional">
+    <DataItem id="120">
         <DataItemName>Contributing Sensors</DataItemName>
-        <DataItemDefinition>The sensors that contributed to the detection of the radio transmitter.</DataItemDefinition>
-        <DataItemFormat desc="Repetitive 1 byte data item">
+        <DataItemDefinition>
+            The identification of the RDF sensors that contributed to the detection of the radio
+            transmitter.
+        </DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item.">
             <Repetitive>
                 <Fixed length="1">
                     <Bits from="8" to="1">
                         <BitsShortName>IDENT</BitsShortName>
-                        <BitsName>Ident</BitsName>
+                        <BitsName>Identification</BitsName>
                     </Bits>
                 </Fixed>
             </Repetitive>
         </DataItemFormat>
-        <DataItemNote/>
+        <DataItemNote>
+                The actual identification of the receivers is application dependent.
+        </DataItemNote>
     </DataItem>
 
-    <DataItem id="130" rule="optional">
+    <DataItem id="130">
         <DataItemName>Conflicting Transmitter Position in WGS-84 Coordinates</DataItemName>
-        <DataItemDefinition>Calculated Position in WGS-84 Coordinates with a resolution of 180/2^25 degrees</DataItemDefinition>
-        <DataItemFormat>
+        <DataItemDefinition>
+            Calculated position in WGS-84 Coordinates. This is the position of a second
+            transmitter on the same frequency and overlapping in time with the transmitter
+            position communicated in data item I205/050.
+        </DataItemDefinition>
+        <DataItemFormat desc="Eight-octet fixed length Data Item.">
             <Fixed length="8">
                 <Bits from="64" to="33" encode="signed">
-                    <BitsShortName>Lat</BitsShortName>
-                    <BitsName>Latitude in WGS-84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    <BitsShortName>LAT</BitsShortName>
+                    <BitsName>Latitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625" min="-90" max="90"> deg</BitsUnit>
                 </Bits>
                 <Bits from="32" to="1" encode="signed">
-                    <BitsShortName>Lon</BitsShortName>
-                    <BitsName>Longitude in WGS-84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
-                    <BitsUnit scale="0.00000536441802978515625">deg</BitsUnit>
+                    <BitsShortName>LON</BitsShortName>
+                    <BitsName>Longitude in WGS-84</BitsName>
+                    <BitsUnit scale="0.00000536441802978515625" min="-180" max="180"> deg</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
-        <DataItemNote>The LSB provides a resolution at least better than 0.6m</DataItemNote>
+        <DataItemNote>
+                The LSB provides a resolution at least better than 0.6 meters.
+        </DataItemNote>
     </DataItem>
 
-    <DataItem id="140" rule="optional">
+    <DataItem id="140">
         <DataItemName>Conflicting Transmitter Position in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian Coordinates with a resolution of 0.5m, in two’s complement form.</DataItemDefinition>
-        <DataItemFormat>
+        <DataItemDefinition>
+            Calculated position in Cartesian Coordinates. This is the position of a second
+            transmitter on the same frequency and overlapping in time with the transmitter
+            position communicated in data item I205/060.
+        </DataItemDefinition>
+        <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
                     <BitsShortName>X</BitsShortName>
-                    <BitsName>X</BitsName>
-                    <BitsUnit scale="0.5">m</BitsUnit>
+                    <BitsName>X-coordinate</BitsName>
+                    <BitsUnit scale="0.5" min="-4194300" max="4194300">m</BitsUnit>
                 </Bits>
                 <Bits from="24" to="1" encode="signed">
                     <BitsShortName>Y</BitsShortName>
-                    <BitsName>Y</BitsName>
-                    <BitsUnit scale="0.5">m</BitsUnit>
+                    <BitsName>Y-coordinate</BitsName>
+                    <BitsUnit scale="0.5" min="-4194300" max="4194300">m</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                The Cartesian coordinates are relative to an agreed System Reference Point. The
+                System Reference Point may be communicated in ASTERIX category 025, item 600.
+        </DataItemNote>
     </DataItem>
 
-    <DataItem id="150" rule="optional">
+    <DataItem id="150">
         <DataItemName>Conflicting Transmitter Estimated Uncertainty</DataItemName>
-        <DataItemDefinition>Range uncertainty estimation of the RDF System. The transmitter is within the provided radius around the detected position.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemDefinition>
+            Range uncertainty estimation of the RDF System for the Conflicting Transmitter,
+            i.e. a transmitter on the same frequency and with a timely overlapping
+            transmission. The transmitter is estimated to be within the provided radius around
+            the detected position.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>RANGE</BitsShortName>
-                    <BitsName>Range</BitsName>
+                <Bits from="8" to="1" encode="unsigned">
+                    <BitsShortName>Range</BitsShortName>
+                    <BitsName>Range of Conflicting Transmitter Estimated Uncertainty</BitsName>
+                    <BitsUnit scale="100.0" min="0" max="25500">m</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="160" rule="optional">
+    <DataItem id="160">
         <DataItemName>Track Number</DataItemName>
-        <DataItemDefinition>Unique identification of a track at the calculated RDF position.</DataItemDefinition>
-        <DataItemFormat desc="Two-Octet fixed length data item.">
+        <DataItemDefinition>
+            Unique identification of a track at the calculated RDF position.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1">
-                    <BitsShortName>TrkN</BitsShortName>
-                    <BitsName>Track number</BitsName>
+                    <BitsShortName>TN</BitsShortName>
+                    <BitsName>Track Number</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="170" rule="optional">
+    <DataItem id="170">
         <DataItemName>Sensor Identification</DataItemName>
-        <DataItemDefinition>Unique identification of an RDF sensor.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
+        <DataItemDefinition>
+            Unique identification of an RDF sensor.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
             <Fixed length="1">
                 <Bits from="8" to="1">
-                    <BitsShortName>Id</BitsShortName>
-                    <BitsName>Ident</BitsName>
+                    <BitsShortName>IDENT</BitsShortName>
+                    <BitsName>Sensor Identification</BitsName>
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>
+                For Message Type 5 (Sensor Data Report) in I205/000, the item has to be used if
+                there is no unique SAC/SIC defined for each RDF Sensor.
+                The actual identification number is application dependent
+        </DataItemNote>
     </DataItem>
 
-    <DataItem id="180" rule="optional">
-        <DataItemName>Signal Strength</DataItemName>
-        <DataItemDefinition>Strength of the signal received by an RDF sensor.</DataItemDefinition>
-        <DataItemFormat desc="Two-Octet fixed length data item.">
-            <Fixed length="2">
-                <Bits from="16" to="1">
-                    <BitsShortName>Sig</BitsShortName>
-                    <BitsName>Signal</BitsName>
-                    <BitsUnit scale="0.01">dBuV</BitsUnit>
-                </Bits>
-            </Fixed>
-        </DataItemFormat>
-    </DataItem>
-
-    <DataItem id="190" rule="optional">
-        <DataItemName>Signal Quality</DataItemName>
-        <DataItemDefinition>Relative quality of the received singal, 255=best.</DataItemDefinition>
-        <DataItemFormat desc="One-Octet fixed length data item.">
-            <Fixed length="1">
-                <Bits from="8" to="1">
-                    <BitsShortName>Qual</BitsShortName>
-                    <BitsName>Quality</BitsName>
-                </Bits>
-            </Fixed>
-        </DataItemFormat>
-    </DataItem>
-
-    <DataItem id="200" rule="optional">
-        <DataItemName>Signal Elevation</DataItemName>
-        <DataItemDefinition>Elevation of the signal received by an RDF sensor.</DataItemDefinition>
-        <DataItemFormat desc="Two-Octet fixed length data item.">
+    <DataItem id="180">
+        <DataItemName>Signal Level</DataItemName>
+        <DataItemDefinition>
+            The level of the signal received by an RDF sensor.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
-                    <BitsShortName>Elv</BitsShortName>
-                    <BitsName>Elevation</BitsName>
-                    <BitsUnit scale="0.01">deg</BitsUnit>
+                    <BitsShortName>SIGNAL</BitsShortName>
+                    <BitsName>Signal Level</BitsName>
+                    <BitsUnit scale="0.01">dBµV</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
     </DataItem>
 
-    <!--Special Purpose Field - content unknown -->
-    <DataItem id="SP" >
+    <DataItem id="190">
+        <DataItemName>Signal Quality</DataItemName>
+        <DataItemDefinition>
+            Relative quality of the received signal as estimated by the RDF sensor.
+        </DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length Data Item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>Quality</BitsShortName>
+                    <BitsName>Signal Quality</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>
+                255 corresponds to the best quality,
+                0 to the worst quality
+        </DataItemNote>
+    </DataItem>
+
+    <DataItem id="200">
+        <DataItemName>Signal Elevation</DataItemName>
+        <DataItemDefinition>
+            The elevation of the signal received by an RDF sensor.
+        </DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length Data Item.">
+            <Fixed length="2">
+                <Bits from="16" to="1" encode="signed">
+                    <BitsShortName>ELEVATION</BitsShortName>
+                    <BitsName>Signal Elevation</BitsName>
+                    <BitsUnit scale="0.01" min="-90" max="90"> deg</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="SP">
         <DataItemName>Special Purpose Field</DataItemName>
-        <DataItemDefinition>SP</DataItemDefinition>
-        <DataItemFormat desc="Explicit">
+        <DataItemDefinition>
+            Special Purpose Field
+        </DataItemDefinition>
+        <DataItemFormat desc="Explicit data item.">
             <Explicit>
                 <Fixed length="1">
                     <Bits from="8" to="1">
-                        <BitsShortName>SP</BitsShortName>
-                        <BitsName>SP</BitsName>
+                        <BitsShortName>VAL</BitsShortName>
                     </Bits>
                 </Fixed>
             </Explicit>
         </DataItemFormat>
-        <DataItemNote/>
     </DataItem>
 
     <UAP>
@@ -382,4 +500,3 @@
     </UAP>
 
 </Category>
-

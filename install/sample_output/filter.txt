@@ -943,7 +943,7 @@ CAT020:IRE:VI                                                Vehicle Fleet Ident
 CAT020:IRE:MSG                                               Pre-programmed Message Age
 CAT020:ISP:SP                                                SP
 CAT021:I008:RA                                               TCAS Resolution Advisory active
-CAT021:I008:TC                                               Target Change Report Capability
+CAT021:I008:TC                                               Target Trajectory Change Report Capability
 CAT021:I008:TS                                               Target State Report Capability
 CAT021:I008:ARV                                              Air-Referenced Velocity Report Capability
 CAT021:I008:CDTI_A                                           Cockpit Display of Traffic Information airborne
@@ -1231,6 +1231,38 @@ CAT021:IRE:L                                                 Mode 2 code from tr
 CAT021:IRE:spare                                             Spare bits set to 0
 CAT021:IRE:M2                                                Mode-2 code in octal representation
 CAT021:ISP:SPval                                             
+CAT023:I000:report_type                                      Report Type
+CAT023:I010:SAC                                              System Area Code
+CAT023:I010:SIC                                              System Identification Code
+CAT023:I015:SID                                              Service Identification
+CAT023:I015:STYP                                             Type of Service
+CAT023:I070:ToD                                              Time Of Day
+CAT023:I100:NOGO                                             Operational Release Status of the Data
+CAT023:I100:ODP                                              Data Processor Overload Indicator
+CAT023:I100:OXT                                              Ground Interface Data Communications
+CAT023:I100:MSC                                              Monitoring System Connected Status
+CAT023:I100:TSV                                              Time Source Validity
+CAT023:I100:SPO                                              Indication of spoofing attack
+CAT023:I100:RN                                               Renumbering Indication for Track ID
+CAT023:I100:FX                                               
+CAT023:I100:GSSP                                             Ground Station Status Reporting
+CAT023:I100:FX                                               
+CAT023:I101:RP                                               Report Period for Category 021 Reports
+CAT023:I101:SC                                               Service Class
+CAT023:I101:spare                                            Spare bit set to zero
+CAT023:I101:FX                                               
+CAT023:I101:SSRP                                             Service Status Reporting Period
+CAT023:I101:FX                                               
+CAT023:I110:spare                                            Spare bit set to 0
+CAT023:I110:STAT                                             Status of the Service
+CAT023:I110:FX                                               
+CAT023:I120:TYPE                                             Type of report counter
+CAT023:I120:REF                                              Reference from which the messages are countered
+CAT023:I120:spare                                            Spare bits set to 0
+CAT023:I120:counter                                          32-bit counter value
+CAT023:I200:Range                                            Operational range of the GS
+CAT023:ISP:SP                                                SP
+CAT023:IRE:RE                                                RE
 CAT025:I000:Typ                                              Report Type
 CAT025:I000:RG                                               Report Generation
 CAT025:I010:SAC                                              System Area Code
@@ -1238,9 +1270,13 @@ CAT025:I010:SIC                                              System Identificati
 CAT025:I015:SID                                              Service Identification
 CAT025:I020:SD                                               Service Designator
 CAT025:I070:ToD                                              Time Of Day
-CAT025:I100:NOGO                                             Operational Release Status
+CAT025:I100:NOGO                                             Operational Release Status of the Data
 CAT025:I100:OPS                                              Operational Service Mode
 CAT025:I100:SSTAT                                            System and Service State
+CAT025:I100:FX                                               
+CAT025:I100:spare                                            Spare bits set to 0
+CAT025:I100:SysSTAT                                          System Status
+CAT025:I100:SeStTAT                                          Service Performance Status
 CAT025:I100:FX                                               
 CAT025:I105:ERR                                              Warning and Error Code
 CAT025:I120:CID                                              Component ID
@@ -1251,9 +1287,9 @@ CAT025:I140:REF                                              Reference for count
 CAT025:I140:spare                                            Spare bits set to 0
 CAT025:I140:CNT                                              Counter Value
 CAT025:I200:ID                                               Message Identification Number
-CAT025:I600:Lat                                              Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
-CAT025:I600:Lon                                              Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
-CAT025:I610:Hgh                                              Height above MSL.
+CAT025:I600:Lat                                              Latitude in WGS-84
+CAT025:I600:Lon                                              Longitude in WGS-84
+CAT025:I610:Height                                           Height above MSL.
 CAT025:ISP:SP                                                SP
 CAT030:I010:SAC                                              System Area Code
 CAT030:I010:SIC                                              System Identification Code
@@ -2197,33 +2233,33 @@ CAT065:I040:TSV                                              Time Source Status
 CAT065:I040:PSS                                              Processing System Status
 CAT065:I040:spare                                            Spare bits se to 0
 CAT065:I050:REPORT                                           Service Status Report
-CAT205:I000:Typ                                              Message Type
+CAT205:I000:TYP                                              Message Type
 CAT205:I010:SAC                                              System Area Code
 CAT205:I010:SIC                                              System Identification Code
-CAT205:I015:SID                                              Service Identification
-CAT205:I030:ToD                                              Time Of Message
-CAT205:I040:RNR                                              ReportNumber
-CAT205:I050:Lat                                              Latitude in WGS-84 in two's complement. Range -90 < latitude < 90 deg.
-CAT205:I050:Lon                                              Longitude in WGS-84 in two's complement. Range -180 < longitude < 180 deg.
-CAT205:I060:X                                                X
-CAT205:I060:Y                                                Y
-CAT205:I070:THETA                                            
-CAT205:I080:THETA                                            
-CAT205:I090:RCH                                              Radio Channel
-CAT205:I100:QUA                                              Quality
-CAT205:I110:RANGE                                            Range
-CAT205:I120:IDENT                                            Ident
-CAT205:I130:Lat                                              Latitude in WGS-84 in two's complement. Range -90 < latitude < 90 deg.
-CAT205:I130:Lon                                              Longitude in WGS-84 in two's complement. Range -180 < longitude < 180 deg.
-CAT205:I140:X                                                X
-CAT205:I140:Y                                                Y
-CAT205:I150:RANGE                                            Range
-CAT205:I160:TrkN                                             Track number
-CAT205:I170:Id                                               Ident
-CAT205:I180:Sig                                              Signal
-CAT205:I190:Qual                                             Quality
-CAT205:I200:Elv                                              Elevation
-CAT205:ISP:SP                                                SP
+CAT205:I015:SRV                                              Service Identification
+CAT205:I030:TOD                                              Time of Day
+CAT205:I040:RN                                               Report Number
+CAT205:I050:LAT                                              Latitude in WGS-84
+CAT205:I050:LON                                              Longitude in WGS-84
+CAT205:I060:X                                                X-coordinate
+CAT205:I060:Y                                                Y-coordinate
+CAT205:I070:THETA                                            Local Bearing
+CAT205:I080:THETA                                            System Bearing
+CAT205:I090:RCN                                              Radio Channel Name
+CAT205:I100:Quality                                          Quality of Measurement
+CAT205:I110:Range                                            Range of Estimated Uncertainty
+CAT205:I120:IDENT                                            Identification
+CAT205:I130:LAT                                              Latitude in WGS-84
+CAT205:I130:LON                                              Longitude in WGS-84
+CAT205:I140:X                                                X-coordinate
+CAT205:I140:Y                                                Y-coordinate
+CAT205:I150:Range                                            Range of Conflicting Transmitter Estimated Uncertainty
+CAT205:I160:TN                                               Track Number
+CAT205:I170:IDENT                                            Sensor Identification
+CAT205:I180:SIGNAL                                           Signal Level
+CAT205:I190:Quality                                          Signal Quality
+CAT205:I200:ELEVATION                                        Signal Elevation
+CAT205:ISP:VAL                                               
 CAT240:I000:TYP                                              Message Type
 CAT240:I010:SAC                                              System Area Code
 CAT240:I010:SIC                                              System Identification Code
