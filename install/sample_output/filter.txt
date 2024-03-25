@@ -726,26 +726,148 @@ CAT019:I550:OVL                                              Overload indicator
 CAT019:I550:TSV                                              Time Source Validity
 CAT019:I550:TTF                                              Test Target Failure
 CAT019:I550:spare                                            Spare bits set to zero
-CAT019:I551:TP1_mode                                         TP 1
-CAT019:I551:TP1_status                                       TP 1
-CAT019:I551:TP2_mode                                         TP 2
-CAT019:I551:TP2_status                                       TP 2
-CAT019:I551:TP3_mode                                         TP 3
-CAT019:I551:TP3_status                                       TP 3
-CAT019:I551:TP4_mode                                         TP 4
-CAT019:I551:TP4_status                                       TP 4
+CAT019:I551:TP1_mode                                         TP 1 mode
+CAT019:I551:TP1_status                                       TP 1 status
+CAT019:I551:TP2_mode                                         TP 2 mode
+CAT019:I551:TP2_status                                       TP 2 status
+CAT019:I551:TP3_mode                                         TP 3 mode
+CAT019:I551:TP3_status                                       TP 3 status
+CAT019:I551:TP4_mode                                         TP 4 mode
+CAT019:I551:TP4_status                                       TP 4 status
 CAT019:I552:RS_id                                            RS Identification 8-bit Identification number of RS
 CAT019:I552:RS_type                                          RS Type 4-bit Type of RS
 CAT019:I552:Stat                                             Status
-CAT019:I553:ref_trans_1                                      Ref Trans 1 Status
+CAT019:I553:RT1                                              Reference Transponder 1 Status
 CAT019:I553:spare                                            Spare bit set to zero
-CAT019:I553:ref_trans_2                                      Ref Trans 2 Status
+CAT019:I553:RT2                                              Reference Transponder 2 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT3                                              Reference Transponder 3 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT4                                              Reference Transponder 4 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT5                                              Reference Transponder 5 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT6                                              Reference Transponder 6 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT7                                              Reference Transponder 7 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT8                                              Reference Transponder 8 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT9                                              Reference Transponder 9 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT10                                             Reference Transponder 10 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT11                                             Reference Transponder 11 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT12                                             Reference Transponder 12 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT13                                             Reference Transponder 13 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT14                                             Reference Transponder 14 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT15                                             Reference Transponder 15 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT16                                             Reference Transponder 16 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT17                                             Reference Transponder 17 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT18                                             Reference Transponder 18 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT19                                             Reference Transponder 19 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT20                                             Reference Transponder 20 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT21                                             Reference Transponder 21 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT22                                             Reference Transponder 22 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT23                                             Reference Transponder 23 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT24                                             Reference Transponder 24 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT25                                             Reference Transponder 25 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT26                                             Reference Transponder 26 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT27                                             Reference Transponder 27 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT28                                             Reference Transponder 28 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT29                                             Reference Transponder 29 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT30                                             Reference Transponder 30 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT31                                             Reference Transponder 31 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT32                                             Reference Transponder 32 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT33                                             Reference Transponder 33 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT34                                             Reference Transponder 34 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT35                                             Reference Transponder 35 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT36                                             Reference Transponder 36 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT37                                             Reference Transponder 37 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT38                                             Reference Transponder 38 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT39                                             Reference Transponder 39 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT40                                             Reference Transponder 40 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT41                                             Reference Transponder 41 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT42                                             Reference Transponder 42 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT43                                             Reference Transponder 43 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT44                                             Reference Transponder 44 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT45                                             Reference Transponder 45 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT46                                             Reference Transponder 46 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT47                                             Reference Transponder 47 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT48                                             Reference Transponder 48 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:FX                                               
+CAT019:I553:RT49                                             Reference Transponder 49 Status
+CAT019:I553:spare                                            Spare bit set to zero
+CAT019:I553:RT50                                             Reference Transponder 50 Status
 CAT019:I553:spare                                            Spare bit set to zero
 CAT019:I553:FX                                               
 CAT019:I600:Lat                                              Latitude in WGS-84 in two's complement.
 CAT019:I600:Lon                                              Longitude in WGS-84 in two's complement.
 CAT019:I610:height                                           Height (WGS-84) above MSL
 CAT019:I620:undulation                                       WGS-84 Undulation value (MSL)
+CAT019:ISP:SP                                                SP value
+CAT019:IRE:RE                                                RE value
 CAT020:I010:SAC                                              System Area Code
 CAT020:I010:SIC                                              System Identification Code
 CAT020:I020:SSR                                              
@@ -763,6 +885,9 @@ CAT020:I020:GBS
 CAT020:I020:CRT                                              
 CAT020:I020:SIM                                              
 CAT020:I020:TST                                              
+CAT020:I020:FX                                               
+CAT020:I020:CF                                               
+CAT020:I020:spare                                            Spare bits set to 0
 CAT020:I020:FX                                               
 CAT020:I030:W_E                                              (W/E Value) Warning/error condition value
 CAT020:I030:FX                                               
@@ -792,7 +917,7 @@ CAT020:I100:G
 CAT020:I100:spare                                            Spare bits set to 0
 CAT020:I100:ModeC                                            Mode-C reply in Gray notation
 CAT020:I100:spare                                            Spare bits set to 0
-CAT020:I100:QXi                                              
+CAT020:I100:QXi                                              Quality pulse Xi
 CAT020:I105:geometric_height                                 Geometric Height (WGS-84)
 CAT020:I110:MHeight                                          Measured Height
 CAT020:I140:ToD                                              Time of Day
@@ -894,7 +1019,23 @@ CAT020:I250:BDS60:IVV                                        Inertial Vertical V
 CAT020:I250:BDS60:BDS                                        BDS register
 CAT020:I250:BDS0:VAL                                         BDS value
 CAT020:I250:BDS0:BDS                                         BDS register
-CAT020:I260:MB_Data                                          (MB Data) 56-bit message conveying Mode S Comm B message data of BDS Register 3,0.
+CAT020:I260:BDS30                                            BDS code 3,0
+CAT020:I260:ARA41                                            Active Resolution Advisories bit 41
+CAT020:I260:ARA42                                            Active Resolution Advisories bit 42
+CAT020:I260:ARA43                                            Active Resolution Advisories bit 43
+CAT020:I260:ARA44                                            Active Resolution Advisories bit 44
+CAT020:I260:ARA45                                            Active Resolution Advisories bit 45
+CAT020:I260:ARA46                                            Active Resolution Advisories bit 46
+CAT020:I260:ARA47                                            Active Resolution Advisories bit 47
+CAT020:I260:ACAS3                                            Reserved for ACAS III
+CAT020:I260:RAC55                                            Resolution Advisory Complement bit 55
+CAT020:I260:RAC56                                            Resolution Advisory Complement bit 56
+CAT020:I260:RAC57                                            Resolution Advisory Complement bit 57
+CAT020:I260:RAC58                                            Resolution Advisory Complement bit 58
+CAT020:I260:RAT                                              RA Terminated
+CAT020:I260:MTE                                              Multiple Threat Encounter
+CAT020:I260:TTI                                              Threat Type Indicator
+CAT020:I260:TID                                              Threat Identity Data
 CAT020:I300:VFI                                              Vehicle Fleet Identification
 CAT020:I310:TRB                                              
 CAT020:I310:MSG                                              
@@ -904,21 +1045,21 @@ CAT020:I500:DOPy                                             DOP along y axis
 CAT020:I500:DOPxy                                            p(X,Y)
 CAT020:I500:SDPx                                             Standard Deviation of X component
 CAT020:I500:SDPy                                             Standard Deviation of Y component
-CAT020:I500:SDPxy                                            Correlation coefficient in two’s complement
+CAT020:I500:SDPxy                                            Correlation coefficient in two's complement
 CAT020:I500:STD_GH                                           Standard Deviation of Geometric Height
 CAT020:IRE:DOPx                                              DOP along x axis
 CAT020:IRE:DOPy                                              DOP along y axis
-CAT020:IRE:DOPxy                                             DOP Covariance Component in two’s complement form
+CAT020:IRE:DOPxy                                             DOP Covariance Component in two's complement form
 CAT020:IRE:SDCx                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (X component)
 CAT020:IRE:SDCy                                              Standard Deviation of Position of the target expressed in Cartesian coordinates (Y component)
-CAT020:IRE:COVxy                                             XY Covariance Component in two’s complement form
+CAT020:IRE:COVxy                                             XY Covariance Component in two's complement form
 CAT020:IRE:SDH                                               Standard Deviation of Geometric Height of the target expressed in WGS-84
 CAT020:IRE:SDWlat                                            Standard Deviation of Position of the target expressed in WGS-84 (Latitude component)
 CAT020:IRE:SDWlong                                           Standard Deviation of Position of the target expressed in WGS-84 (Longitude component)
-CAT020:IRE:COV_WGS                                           Lat/Long Covariance Component in two’s complement form
+CAT020:IRE:COV_WGS                                           Lat/Long Covariance Component in two's complement form
 CAT020:IRE:RE                                                Range Exceeded Indicator
 CAT020:IRE:GS                                                Ground Speed referenced to WGS-84
-CAT020:IRE:TA                                                Track Angle clockwise reference to “True North”
+CAT020:IRE:TA                                                Track Angle clockwise reference to True North
 CAT020:IRE:GSSD                                              Standard deviation of the Ground Speed
 CAT020:IRE:TASD                                              Standard deviation of the Track Angle
 CAT020:IRE:TRT                                               Time of ASTERIX Report Transmission
@@ -926,7 +1067,7 @@ CAT020:IRE:SPI                                               Special Position Id
 CAT020:IRE:TI                                                Target Identification Age
 CAT020:IRE:BDS1                                              Comm B Data Buffer Store 1 Address
 CAT020:IRE:BDS2                                              Comm B Data Buffer Store 2 Address
-CAT020:IRE:MBA                                               Age of the information in the BDS report indicated in bits 16/9
+CAT020:IRE:BDSA                                              Age of the information in the BDS report indicated in bits 16/9
 CAT020:IRE:M3A                                               Mode-3/A Code Age
 CAT020:IRE:FL                                                Flight Level Age
 CAT020:IRE:STAT                                              Flight Status Age
@@ -941,6 +1082,9 @@ CAT020:IRE:M1                                                Mode-1 Code Age
 CAT020:IRE:ARA                                               ACAS Resolution Advisory Age
 CAT020:IRE:VI                                                Vehicle Fleet Identification Age
 CAT020:IRE:MSG                                               Pre-programmed Message Age
+CAT020:IRE:HPDOPx                                            HPDOP along x axis
+CAT020:IRE:HPDOPy                                            HPDOP along y axis
+CAT020:IRE:HPDOPxy                                           HPDOP Pearson Correlation Coefficient in two's complement form
 CAT020:ISP:SP                                                SP
 CAT021:I008:RA                                               TCAS Resolution Advisory active
 CAT021:I008:TC                                               Target Trajectory Change Report Capability
@@ -973,6 +1117,12 @@ CAT021:I040:NOGO                                             No-go Bit Status
 CAT021:I040:CPR                                              Compact Position Reporting
 CAT021:I040:LDPJ                                             Local Decoding Position Jump
 CAT021:I040:RCF                                              Range Check
+CAT021:I040:FX                                               Field Extension
+CAT021:I040:TBC_EP                                           TBC Element Populated
+CAT021:I040:TBC_VAL                                          Total Bits Corrected
+CAT021:I040:FX                                               Field Extension
+CAT021:I040:MBC_EP                                           MBC Element Populated
+CAT021:I040:MBC_VAL                                          Maximum Bits Corrected
 CAT021:I040:FX                                               Field Extension
 CAT021:I070:spare                                            Spare bits set to 0
 CAT021:I070:Mode3A                                           Mode-3/A reply in octal
@@ -1133,9 +1283,19 @@ CAT021:I250:BDS60:BDS                                        BDS register
 CAT021:I250:BDS0:VAL                                         BDS value
 CAT021:I250:BDS0:BDS                                         BDS register
 CAT021:I260:TYP                                              Message Type
-CAT021:I260:STYP                                             Message Sub-Type
-CAT021:I260:ARA                                              Active Resolution Advisories
-CAT021:I260:RAC                                              RAC (RA Complement) Record
+CAT021:I260:STYP                                             Message Sub-type
+CAT021:I260:ARA41                                            Active Resolution Advisories bit 41
+CAT021:I260:ARA42                                            Active Resolution Advisories bit 42
+CAT021:I260:ARA43                                            Active Resolution Advisories bit 43
+CAT021:I260:ARA44                                            Active Resolution Advisories bit 44
+CAT021:I260:ARA45                                            Active Resolution Advisories bit 45
+CAT021:I260:ARA46                                            Active Resolution Advisories bit 46
+CAT021:I260:ARA47                                            Active Resolution Advisories bit 47
+CAT021:I260:ACAS3                                            Reserved for ACAS III
+CAT021:I260:RAC55                                            Resolution Advisory Complement bit 55
+CAT021:I260:RAC56                                            Resolution Advisory Complement bit 56
+CAT021:I260:RAC57                                            Resolution Advisory Complement bit 57
+CAT021:I260:RAC58                                            Resolution Advisory Complement bit 58
 CAT021:I260:RAT                                              RA Terminated
 CAT021:I260:MTE                                              Multiple Threat Encounter
 CAT021:I260:TTI                                              Threat Type Indicator
@@ -1184,8 +1344,11 @@ CAT021:IRE:AP                                                Autopilot
 CAT021:IRE:VN                                                VNAV (Vertical Navigation)
 CAT021:IRE:AH                                                Altitude Hold
 CAT021:IRE:AM                                                Approach Mode
+CAT021:IRE:MFM_EP                                            MFM Element Populated
+CAT021:IRE:MFM_VAL                                           Status of MCP/FCU Mode
 CAT021:IRE:spare                                             Spare bits set to zero
-CAT021:IRE:GAO                                               GPS Antenna Offset
+CAT021:IRE:GAOlat                                            GPS Antenna Offset on Lateral axis
+CAT021:IRE:GAOlon                                            GPS Antenna Offset on Longitudal axis
 CAT021:IRE:STP                                               Aircraft stopped
 CAT021:IRE:HTS                                               Heading/Ground Track
 CAT021:IRE:HTT                                               Heading/Ground data
@@ -1196,6 +1359,34 @@ CAT021:IRE:HGT                                               Heading/Ground Trac
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:ES                                                1090 ES IN capability
 CAT021:IRE:UAT                                               UAT capability
+CAT021:IRE:RCE_EP                                            RCE Element Populated
+CAT021:IRE:RCE_VAL                                           Reduced Capability Equipment
+CAT021:IRE:RRL                                               Reply Rate Limiting
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:PS3_EP                                            PS3 Element Populated
+CAT021:IRE:PS3_VAL                                           Priority Status for Version 3 ADS-B Systems
+CAT021:IRE:TPW_EP                                            TPW Element Populated
+CAT021:IRE:TPW_VAL                                           Transmit Power
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:TSI_EP                                            TSI Element Populated
+CAT021:IRE:TSI_VAL                                           Transponder Side Indication
+CAT021:IRE:MUO_EP                                            MUO Element Populated
+CAT021:IRE:MUO_VAL                                           Manned / Unmanned Operation
+CAT021:IRE:RWC_EP                                            RWC Element Populated
+CAT021:IRE:RWCVAL                                            Remain Well Clear Corrective Alert
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:DAA_EP                                            DAA Element Populated
+CAT021:IRE:DAA_VAL                                           Detect and Avoid Capabilities
+CAT021:IRE:DFC17CA_EP                                        DFC17CA Element Populated
+CAT021:IRE:DFC17CA_VAL                                       Transponder Capability
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:SVH_EP                                            SVH Element Populated
+CAT021:IRE:SVH_VAL                                           Sense Vertical and Horizontal
+CAT021:IRE:CATC_EP                                           CATC Element Populated
+CAT021:IRE:CATC_VAL                                          CAS Type and Capability
+CAT021:IRE:FX                                                Extension indicator
+CAT021:IRE:TAO_EP                                            TAO Element Populated
+CAT021:IRE:TAO_VAL                                           Transponder Antenna Offset
 CAT021:IRE:spare                                             Spare bits set to zero
 CAT021:IRE:FX                                                Extension indicator
 CAT021:IRE:TNH                                               True North Heading
