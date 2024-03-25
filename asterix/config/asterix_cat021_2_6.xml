@@ -3,7 +3,7 @@
 
 <!--
 
-    Asterix Category 021 v2.4 definition
+    Asterix Category 021 v2.6 definition
 
     Author:   B.Bertrand
     Created:  2012-12-17
@@ -11,10 +11,12 @@
     Modified:  23.2.2016. (ifsnop) Added RE dataitem from "ASTERIX Part 12 Category 021 Appendix A Coding rules for Reserved Expansion Field v1.1"
     Modified:  21.1.2019. (Michael Thibeault) Version 2.4 created
     Modified:  15.9.2020. (tmartincevic ) Fixed decoding Military Extended Squitter in Reserved Expansion Field
+    Modified:  25.3.2024. (dsalantic) Updated to v2.6
+                                      Changed I260 to be in line with same item in other categories
+                                      Update RE field to v1.5
 -->
 
-<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="2.4">
-
+<Category id="021" name="Surveillance Data Exchange - Part 12 ADS-B Reports" ver="2.6">
 
     <DataItem id="008" rule="optional">
         <DataItemName>Aircraft Operational Status</DataItemName>
@@ -99,8 +101,8 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-1- The service identification is allocated by the system.
-2- The service identification is also available in item I023/015 [Ref. 3].
+            1- The service identification is allocated by the system.
+            2- The service identification is also available in item I023/015 [Ref. 3].
         </DataItemNote>
     </DataItem>
 
@@ -297,14 +299,52 @@
                         <BitsValue val="1">Extension into third extent</BitsValue>
                     </Bits>
                 </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>TBC_EP</BitsShortName>
+                        <BitsName>TBC Element Populated</BitsName>
+                        <BitsValue val="0">Element not populated</BitsValue>
+                        <BitsValue val="1">Element populated</BitsValue>
+                    </Bits>
+                    <Bits from="7" to="2">
+                        <BitsShortName>TBC_VAL</BitsShortName>
+                        <BitsName>Total Bits Corrected</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field Extension</BitsName>
+                        <BitsValue val="0">End of data item</BitsValue>
+                        <BitsValue val="1">Extension into third extent</BitsValue>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits bit="8">
+                        <BitsShortName>MBC_EP</BitsShortName>
+                        <BitsName>MBC Element Populated</BitsName>
+                        <BitsValue val="0">Element not populated</BitsValue>
+                        <BitsValue val="1">Element populated</BitsValue>
+                    </Bits>
+                    <Bits from="7" to="2">
+                        <BitsShortName>MBC_VAL</BitsShortName>
+                        <BitsName>Maximum Bits Corrected</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsName>Field Extension</BitsName>
+                        <BitsValue val="0">End of data item</BitsValue>
+                        <BitsValue val="1">Extension into third extent</BitsValue>
+                    </Bits>
+                </Fixed>
             </Variable>
         </DataItemFormat>
         <DataItemNote>
-1. Bit 3 indicates that the position reported by the target is within a credible range from the ground station. The range check is followed by the CPR validation to ensure that global and local position decoding both indicate valid position information. Bit 3=1 indicates that the range check was done, but the CPR validation is not yet completed. Once CPR validation is completed, Bit 3 will be reset to 0.
-2. The second extension signals the reasons for which the report has been indicated as suspect (indication Confidence Level (CL) in the first extension). Bit 2 indicates that the Range Check failed, i.e. the target is reported outside the credible range for the Ground Station. For operational users such a target will be suppressed. In services used for monitoring the Ground Station, the target will be transmitted with bit 2 indicating the fault condition.
-3. Bit 6, if set to 1, indicates that the position reported by the target was validated by an independent means and a discrepancy was ADS-B Target Reports EUROCONTROL-SPEC-0149-12 Edition : 2.4 Released Edition Page 17 detected. If no independent position check is implemented, the default value '0' is to be used.
-4. Bit 5 represents the setting of the GO/NOGO-bit as defined in item I023/100 of category 023 [Ref. 3].
-5. Bit 7, if set to 1, indicates that a lookup in a Black-list/White-list failed, indicating that the target may be suspect
+            1. Bit 3 indicates that the position reported by the target is within a credible range from the ground station. The range check is followed by the CPR validation to ensure that global and local position decoding both indicate valid position information. Bit 3=1 indicates that the range check was done, but the CPR validation is not yet completed. Once CPR validation is completed, Bit 3 will be reset to 0.
+            2. The second extension signals the reasons for which the report has been indicated as suspect (indication Confidence Level (CL) in the first extension). Bit 2 indicates that the Range Check failed, i.e. the target is reported outside the credible range for the Ground Station. For operational users such a target will be suppressed. In services used for monitoring the Ground Station, the target will be transmitted with bit 2 indicating the fault condition.
+            3. Bit 6, if set to 1, indicates that the position reported by the target was validated by an independent means and a discrepancy was ADS-B Target Reports EUROCONTROL-SPEC-0149-12 Edition : 2.4 Released Edition Page 17 detected. If no independent position check is implemented, the default value '0' is to be used.
+            4. Bit 5 represents the setting of the GO/NOGO-bit as defined in item I023/100 of category 023 [Ref. 3].
+            5. Bit 7, if set to 1, indicates that a lookup in a Black-list/White-list failed, indicating that the target may be suspect
         </DataItemNote>
     </DataItem>
 
@@ -765,8 +805,8 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-1. LSB is required to be less than 10 ft by ICAO.
-2. A value of '0111111111111111' indicates that the aircraft transmits a 'greater than' indication.
+            1. LSB is required to be less than 10 ft by ICAO.
+            2. A value of '0111111111111111' indicates that the aircraft transmits a 'greater than' indication.
         </DataItemNote>
     </DataItem>
 
@@ -811,9 +851,9 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-1. The Selected Altitude provided in this field is not necessarily the 'Target Altitude' as defined by ICAO.
-2. The value of 'Source' (bits 15/14) indicating 'unknown' or 'Aircraft Altitude' is kept for backward compatibility as these indications are not provided by 'version 2' systems as defined by data item I021/210, bits 6/4.
-3. Vertical mode indications supporting the determination of the nature of the Selected Altitude are provided in the Reserved Expansion Field in the subfield NAV.
+            1. The Selected Altitude provided in this field is not necessarily the 'Target Altitude' as defined by ICAO.
+            2. The value of 'Source' (bits 15/14) indicating 'unknown' or 'Aircraft Altitude' is kept for backward compatibility as these indications are not provided by 'version 2' systems as defined by data item I021/210, bits 6/4.
+            3. Vertical mode indications supporting the determination of the nature of the Selected Altitude are provided in the Reserved Expansion Field in the subfield NAV.
         </DataItemNote>
     </DataItem>
 
@@ -971,8 +1011,8 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-1. The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the Ground Speed contains the maximum value that can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is greater than the value contained in the field.
-2. The Surface Ground Vector format is defined in the Reserved Expansion Field in the subfield SGV.
+            1. The RE-Bit, if set, indicates that the value to be transmitted is beyond the range defined for this specific data item and the applied technology. In this case the Ground Speed contains the maximum value that can be downloaded from the aircraft avionics and the RE- bit indicates that the actual value is greater than the value contained in the field.
+            2. The Surface Ground Vector format is defined in the Reserved Expansion Field in the subfield SGV.
         </DataItemNote>
     </DataItem>
 
@@ -1012,9 +1052,9 @@
             </Fixed>
         </DataItemFormat>
         <DataItemNote>
-1. A positive value represents a right turn, whereas a negative value represents a left turn.
-2. 'Maximum value' means Maximum value or above.
-3. This item will not be transmitted for the technology '1090 MHz Extended Squitter'.
+            1. A positive value represents a right turn, whereas a negative value represents a left turn.
+            2. 'Maximum value' means Maximum value or above.
+            3. This item will not be transmitted for the technology '1090 MHz Extended Squitter'.
         </DataItemNote>
     </DataItem>
 
@@ -1097,9 +1137,10 @@
                 <Bits from="6" to="4">
                     <BitsShortName>VN</BitsShortName>
                     <BitsName>Version Number</BitsName>
-                    <BitsValue val="0">DO-260 [Ref. 8]</BitsValue>
+                    <BitsValue val="0">ED102/DO-260 [Ref. 8]</BitsValue>
                     <BitsValue val="1">DO-260A [Ref. 9]</BitsValue>
-                    <BitsValue val="2">DO-260B</BitsValue>
+                    <BitsValue val="2">ED102A/DO-260B [Ref. 10]</BitsValue>
+                    <BitsValue val="3">ED-102B/DO-260C [Ref. 11]</BitsValue>
                 </Bits>
                 <Bits from="3" to="1">
                     <BitsShortName>LTT</BitsShortName>
@@ -1213,47 +1254,117 @@
             </Repetitive>
         </DataItemFormat>
         <DataItemNote>
-1. For the transmission of BDS20, item 170 should be used.
-2. For the transmission of BDS30, item 260 is used.
+            1. For the transmission of BDS20, item 170 should be used.
+            2. For the transmission of BDS30, item 260 is used.
         </DataItemNote>
     </DataItem>
 
     <DataItem id="260" rule="mandatory">
         <DataItemName>ACAS Resolution Advisory Report</DataItemName>
-        <DataItemDefinition>Currently active Resolution Advisory (RA), if any, generated by the ACAS associated with the transponder transmitting the RA message and threat identity data.</DataItemDefinition>
-        <DataItemFormat desc="Seven-octet fixed length Data Item.">
+        <DataItemDefinition>RA</DataItemDefinition>
+        <DataItemFormat desc="Seven-octet fixed length Data Item">
             <Fixed length="7">
                 <Bits from="56" to="52">
                     <BitsShortName>TYP</BitsShortName>
-                    <BitsName>Message Type</BitsName>
+                    <BitsName>Message Type</BitsName>                        
                 </Bits>
                 <Bits from="51" to="49">
                     <BitsShortName>STYP</BitsShortName>
-                    <BitsName>Message Sub-Type</BitsName>
+                    <BitsName>Message Sub-type</BitsName>                        
                 </Bits>
-                <Bits from="48" to="35">
-                    <BitsShortName>ARA</BitsShortName>
-                    <BitsName>Active Resolution Advisories</BitsName>
+                <Bits bit="48">
+                    <BitsShortName>ARA41</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 41</BitsName>
+                    <BitsValue val="0">There is more than one threat and the RA is intended to provide separation below some threat(s) and above some other threat(s) or no RA has been generated (when MTE = 0)</BitsValue>
+                    <BitsValue val="1">Either there is only one threat or the RA is intended to provide separation in the same direction for all threats</BitsValue>
                 </Bits>
-                <Bits from="34" to="31">
-                    <BitsShortName>RAC</BitsShortName>
-                    <BitsName>RAC (RA Complement) Record</BitsName>
+                <Bits bit="47">
+                    <BitsShortName>ARA42</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 42</BitsName>
+                    <BitsValue val="0">RA is preventive or RA does not require a correction in the upward sense</BitsValue>
+                    <BitsValue val="1">RA is corrective or RA requires a correction in the upward sense</BitsValue>
+                </Bits>
+                <Bits bit="46">
+                    <BitsShortName>ARA43</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 43</BitsName>
+                    <BitsValue val="0">Upward sense RA has been generated or RA does not require a positive climb</BitsValue>
+                    <BitsValue val="1">Downward sense RA has been generated or RA requires a positive climb</BitsValue>
+                </Bits>
+                <Bits bit="45">
+                    <BitsShortName>ARA44</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 44</BitsName>
+                    <BitsValue val="0">RA is not increased rate or RA does not require a correction in the downward sense</BitsValue>
+                    <BitsValue val="1">RA is increased rate or RA requires a correction in the downward sense</BitsValue>
+                </Bits>
+                <Bits bit="44">
+                    <BitsShortName>ARA45</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 45</BitsName>
+                    <BitsValue val="0">RA is not a sense reversal or RA does not require a positive descend</BitsValue>
+                    <BitsValue val="1">RA is a sense reversal or RA requires a positive descend</BitsValue>
+                </Bits>
+                <Bits bit="43">
+                    <BitsShortName>ARA46</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 46</BitsName>
+                    <BitsValue val="0">RA is not altitude crossing or RA does not require a crossing</BitsValue>
+                    <BitsValue val="1">RA is altitude crossing or RA requires a crossing</BitsValue>
+                </Bits>
+                <Bits bit="42">
+                    <BitsShortName>ARA47</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 47</BitsName>
+                    <BitsValue val="0">RA is vertical speed limit or RA is not a sense reversal</BitsValue>
+                    <BitsValue val="1">RA is positive or RA is a sense reversal</BitsValue>
+                </Bits>
+                <Bits from="41" to="35">
+                    <BitsShortName>ACAS3</BitsShortName>
+                    <BitsName>Reserved for ACAS III</BitsName>                        
+                </Bits>
+                <Bits bit="34">
+                    <BitsShortName>RAC55</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 55</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass below</BitsValue>
+                </Bits>
+                <Bits bit="33">
+                    <BitsShortName>RAC56</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 56</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass above</BitsValue>
+                </Bits>
+                <Bits bit="32">
+                    <BitsShortName>RAC57</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 57</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn left</BitsValue>
+                </Bits>
+                <Bits bit="31">
+                    <BitsShortName>RAC58</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 58</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn right</BitsValue>
                 </Bits>
                 <Bits bit="30">
                     <BitsShortName>RAT</BitsShortName>
-                    <BitsName>RA Terminated</BitsName>
+                    <BitsName>RA Terminated</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
                 </Bits>
                 <Bits bit="29">
                     <BitsShortName>MTE</BitsShortName>
-                    <BitsName>Multiple Threat Encounter</BitsName>
+                    <BitsName>Multiple Threat Encounter</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
                 </Bits>
                 <Bits from="28" to="27">
                     <BitsShortName>TTI</BitsShortName>
-                    <BitsName>Threat Type Indicator</BitsName>
+                    <BitsName>Threat Type Indicator</BitsName>     
+                    <BitsValue val="0">No identity data in TID</BitsValue>
+                    <BitsValue val="1">TID contains a Mode S transponder address</BitsValue>
+                    <BitsValue val="2">TID contains altitude, range and bearing data</BitsValue>
+                    <BitsValue val="3">Not assigned</BitsValue>
                 </Bits>
                 <Bits from="26" to="1">
                     <BitsShortName>TID</BitsShortName>
-                    <BitsName>Threat Identity Data</BitsName>
+                    <BitsName>Threat Identity Data</BitsName>                        
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -1317,6 +1428,22 @@
                     <Bits from="8" to="5">
                         <BitsShortName>LW</BitsShortName>
                         <BitsName>Length and width of the aircraft</BitsName>
+                        <BitsValue val="0">L&lt;15 W&lt;11.5</BitsValue>
+                        <BitsValue val="1">L&lt;15 W&lt;23</BitsValue>
+                        <BitsValue val="2">L&lt;25 W&lt;28.5</BitsValue>
+                        <BitsValue val="3">L&lt;25 W&lt;34</BitsValue>
+                        <BitsValue val="4">L&lt;35 W&lt;33</BitsValue>
+                        <BitsValue val="5">L&lt;35 W&lt;38</BitsValue>
+                        <BitsValue val="6">L&lt;45 W&lt;39.5</BitsValue>
+                        <BitsValue val="7">L&lt;45 W&lt;45</BitsValue>
+                        <BitsValue val="8">L&lt;55 W&lt;45</BitsValue>
+                        <BitsValue val="9">L&lt;55 W&lt;52</BitsValue>
+                        <BitsValue val="10">L&lt;65 W&lt;59.5</BitsValue>
+                        <BitsValue val="11">L&lt;65 W&lt;67</BitsValue>
+                        <BitsValue val="12">L&lt;75 W&lt;72.5</BitsValue>
+                        <BitsValue val="13">L&lt;75 W&lt;80</BitsValue>
+                        <BitsValue val="14">L&lt;85 W&lt;80</BitsValue>
+                        <BitsValue val="15">L&gt;85 or W&gt;80</BitsValue>
                     </Bits>
                     <Bits from="4" to="2">
                         <BitsShortName>spare</BitsShortName>
@@ -1333,8 +1460,8 @@
             </Variable>
         </DataItemFormat>
         <DataItemNote>
-1. Version 2 (as defined in I021/210, bits 6/4) data technology protocols encode 'No Data or Unknown' with value 0. In this case data item I021/271, first extension is not generated.
-2. As of edition 2.2 the structure of this data item has been changed. Edition 2.2 is not backwards compatible with previous editions.
+            1. Version 2 (as defined in I021/210, bits 6/4) data technology protocols encode 'No Data or Unknown' with value 0. In this case data item I021/271, first extension is not generated.
+            2. As of edition 2.2 the structure of this data item has been changed. Edition 2.2 is not backwards compatible with previous editions.
         </DataItemNote>
     </DataItem>
 
@@ -1678,7 +1805,7 @@
 
     <DataItem id="RE">
         <DataItemName>Reserved Expansion Field</DataItemName>
-        <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 021 (ADS-B Reports), Edition 1.4</DataItemDefinition>
+        <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 021 (ADS-B Reports), Edition 1.5</DataItemDefinition>
         <DataItemFormat desc="One byte length field, followed by a one byte items indicator and the encoded items.">
             <Explicit>
                 <Compound>
@@ -1787,16 +1914,34 @@
                             <BitsValue val="0">Approach Mode not active</BitsValue>
                             <BitsValue val="1">Approach Mode active</BitsValue>
                         </Bits>
-                        <Bits from="4" to="1">
+                        <Bits bit="4">
+                            <BitsShortName>MFM_EP</BitsShortName>
+                            <BitsName>MFM Element Populated</BitsName>
+                            <BitsValue val="0">Element not populated</BitsValue>
+                            <BitsValue val="1">Element populated</BitsValue>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>MFM_VAL</BitsShortName>
+                            <BitsName>Status of MCP/FCU Mode</BitsName>
+                            <BitsValue val="0">MCP/FCU Mode Bits not populated</BitsValue>
+                            <BitsValue val="1">MCP/FCU Mode Bits populated</BitsValue>
+                        </Bits>
+                        <Bits from="2" to="1">
                             <BitsShortName>spare</BitsShortName>
                             <BitsName>Spare bits set to zero</BitsName>
                             <BitsConst>0</BitsConst>
                         </Bits>
                     </Fixed>
                     <Fixed length="1">
-                        <Bits from="8" to="1">
-                            <BitsShortName>GAO</BitsShortName>
-                            <BitsName>GPS Antenna Offset</BitsName>
+                        <Bits from="8" to="6">
+                            <BitsShortName>GAOlat</BitsShortName>
+                            <BitsName>GPS Antenna Offset on Lateral axis</BitsName>
+                                <BitsUnit scale="2">m</BitsUnit>
+                        </Bits>
+                        <Bits from="5" to="1">
+                            <BitsShortName>GAOlon</BitsShortName>
+                            <BitsName>GPS Antenna Offset on Longitudal axis</BitsName>
+                                <BitsUnit scale="2">m</BitsUnit>
                         </Bits>
                     </Fixed>
                     <Variable>
@@ -1851,31 +1996,263 @@
                             </Bits>
                         </Fixed>
                     </Variable>
-                    <Fixed length="1">
-                        <Bits bit="8">
-                            <BitsShortName>ES</BitsShortName>
-                            <BitsName>1090 ES IN capability</BitsName>
-                            <BitsValue val="0">Target is not 1090 ES IN capable</BitsValue>
-                            <BitsValue val="1">Target is 1090 ES IN capable</BitsValue>
-                        </Bits>
-                        <Bits bit="7">
-                            <BitsShortName>UAT</BitsShortName>
-                            <BitsName>UAT capability</BitsName>
-                            <BitsValue val="0">Target is not UAT IN capable</BitsValue>
-                            <BitsValue val="1">Target is UAT IN capable</BitsValue>
-                        </Bits>
-                        <Bits from="6" to="2">
-                            <BitsShortName>spare</BitsShortName>
-                            <BitsName>Spare bits set to zero</BitsName>
-                            <BitsConst>0</BitsConst>
-                        </Bits>
-                        <Bits bit="1" fx="1">
-                            <BitsShortName>FX</BitsShortName>
-                            <BitsName>Extension indicator</BitsName>
-                            <BitsValue val="0">no extension</BitsValue>
-                            <BitsValue val="1">extension</BitsValue>
-                        </Bits>
-                    </Fixed>
+                    <Variable>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>ES</BitsShortName>
+                                <BitsName>1090 ES IN capability</BitsName>
+                                <BitsValue val="0">Target is not 1090 ES IN capable</BitsValue>
+                                <BitsValue val="1">Target is 1090 ES IN capable</BitsValue>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>UAT</BitsShortName>
+                                <BitsName>UAT capability</BitsName>
+                                <BitsValue val="0">Target is not UAT IN capable</BitsValue>
+                                <BitsValue val="1">Target is UAT IN capable</BitsValue>
+                            </Bits>
+                            <Bits bit="6">
+                                <BitsShortName>RCE_EP</BitsShortName>
+                                <BitsName>RCE Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="5" to="4">
+                                <BitsShortName>RCE_VAL</BitsShortName>
+                                <BitsName>Reduced Capability Equipment</BitsName>
+                                <BitsValue val="0">Not RCE</BitsValue>
+                                <BitsValue val="1">Traffic Awareness Beacon System</BitsValue>
+                                <BitsValue val="2">Reserved for future use</BitsValue>
+                                <BitsValue val="3">Other RCE</BitsValue>
+                            </Bits>
+                            <Bits from="3" to="2">
+                                <BitsShortName>RRL</BitsShortName>
+                                <BitsName>Reply Rate Limiting</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element not populated</BitsValue>
+                                <BitsValue val="2">Reply Rate Limiting is not active</BitsValue>
+                                <BitsValue val="3">Reply Rate Limiting is active</BitsValue>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>PS3_EP</BitsShortName>
+                                <BitsName>PS3 Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="5">
+                                <BitsShortName>PS3_VAL</BitsShortName>
+                                <BitsName>Priority Status for Version 3 ADS-B Systems</BitsName>
+                                <BitsValue val="0">No emergency / not reported</BitsValue>
+                                <BitsValue val="1">General emergency</BitsValue>
+                                <BitsValue val="2">UAS/RPAS - Lost Link</BitsValue>
+                                <BitsValue val="3">Minimum fuel</BitsValue>
+                                <BitsValue val="4">No communications</BitsValue>
+                                <BitsValue val="5">Unlawful interference</BitsValue>
+                                <BitsValue val="6">Aircraft in Distress Automatic Activation</BitsValue>
+                                <BitsValue val="7">Aircraft in Distress Manual Activation</BitsValue>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>TPW_EP</BitsShortName>
+                                <BitsName>TPW Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="5">
+                                <BitsShortName>TPW_VAL</BitsShortName>
+                                <BitsName>Transmit Power</BitsName>
+                                <BitsValue val="0">Unavailable, Unknown, or less than 70 W</BitsValue>
+                                <BitsValue val="1">70 W</BitsValue>
+                                <BitsValue val="2">125 W</BitsValue>
+                                <BitsValue val="3">200W</BitsValue>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>TSI_EP</BitsShortName>
+                                <BitsName>TSI Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="6">
+                                <BitsShortName>TSI_VAL</BitsShortName>
+                                <BitsName>Transponder Side Indication</BitsName>
+                                <BitsValue val="0">Unknown</BitsValue>
+                                <BitsValue val="1">Transponder #1 (left/pilot side or single)</BitsValue>
+                                <BitsValue val="2">Transponder #2 (right/co-pilot side)</BitsValue>
+                                <BitsValue val="3">Transponder #3 (auxiliary or Backup)</BitsValue>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>MUO_EP</BitsShortName>
+                                <BitsName>MUO Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>MUO_VAL</BitsShortName>
+                                <BitsName>Manned / Unmanned Operation</BitsName>
+                                <BitsValue val="0">Manned Operation</BitsValue>
+                                <BitsValue val="1">Unmanned Operation</BitsValue>
+                            </Bits>
+                            <Bits bit="3">
+                                <BitsShortName>RWC_EP</BitsShortName>
+                                <BitsName>RWC Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>RWCVAL</BitsShortName>
+                                <BitsName>Remain Well Clear Corrective Alert</BitsName>
+                                <BitsValue val="0">RWC Corrective Alert not active</BitsValue>
+                                <BitsValue val="1">RWC Corrective Alert active</BitsValue>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>DAA_EP</BitsShortName>
+                                <BitsName>DAA Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="6">
+                                <BitsShortName>DAA_VAL</BitsShortName>
+                                <BitsName>Detect and Avoid Capabilities</BitsName>
+                                <BitsValue val="0">No RWC Capability</BitsValue>
+                                <BitsValue val="1">RWC/RA/OCM Capability</BitsValue>
+                                <BitsValue val="2">RWC/OCM Capability</BitsValue>
+                                <BitsValue val="3">Invalid ASTERIX Value</BitsValue>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>DFC17CA_EP</BitsShortName>
+                                <BitsName>DFC17CA Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="4" to="2">
+                                <BitsShortName>DFC17CA_VAL</BitsShortName>
+                                <BitsName>Transponder Capability</BitsName>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>SVH_EP</BitsShortName>
+                                <BitsName>SVH Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="6">
+                                <BitsShortName>SVH_VAL</BitsShortName>
+                                <BitsName>Sense Vertical and Horizontal</BitsName>
+                                <BitsValue val="0">Vertical Only</BitsValue>
+                                <BitsValue val="1">Horizontal Only</BitsValue>
+                                <BitsValue val="2">Blended</BitsValue>
+                                <BitsValue val="3">Vertical Only or Horizontal Only per intruder</BitsValue>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>CATC_EP</BitsShortName>
+                                <BitsName>CATC Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="4" to="2">
+                                <BitsShortName>CATC_VAL</BitsShortName>
+                                <BitsName>CAS Type and Capability</BitsName>
+                                <BitsValue val="0">Active CAS (TCAS II) or no CAS</BitsValue>
+                                <BitsValue val="1">Active CAS (not TCAS II)</BitsValue>
+                                <BitsValue val="2">Active CAS (not TCAS II) with OCM transmit capability</BitsValue>
+                                <BitsValue val="3">Active CAS of Junior Status</BitsValue>
+                                <BitsValue val="4">Passive CAS with 1030 TCAS Resolution Message receive capability</BitsValue>
+                                <BitsValue val="5">Passive CAS with only OCM receive capability</BitsValue>
+                                <BitsValue val="6">Reserved for future use</BitsValue>
+                                <BitsValue val="7">Reserved for future use</BitsValue>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>TAO_EP</BitsShortName>
+                                <BitsName>TAO Element Populated</BitsName>
+                                <BitsValue val="0">Element not populated</BitsValue>
+                                <BitsValue val="1">Element populated</BitsValue>
+                            </Bits>
+                            <Bits from="7" to="3">
+                                <BitsShortName>TAO_VAL</BitsShortName>
+                                <BitsName>Transponder Antenna Offset</BitsName>
+                                <BitsValue val="0">No Data</BitsValue>
+                                <BitsValue val="1">0&lt;=TAO&lt;=1</BitsValue>
+                                <BitsValue val="2">1&lt;TAO&lt;=2</BitsValue>
+                                <BitsValue val="3">2&lt;TAO&lt;=4</BitsValue>
+                                <BitsValue val="4">4&lt;TAO&lt;=6</BitsValue>
+                                <BitsValue val="5">6&lt;TAO&lt;=8</BitsValue>
+                                <BitsValue val="6">8&lt;TAO&lt;=10</BitsValue>
+                                <BitsValue val="7">10&lt;TAO&lt;=12</BitsValue>
+                                <BitsValue val="8">12&lt;TAO&lt;=14</BitsValue>
+                                <BitsValue val="9">14&lt;TAO&lt;=16</BitsValue>
+                                <BitsValue val="10">16&lt;TAO&lt;=18</BitsValue>
+                                <BitsValue val="11">18&lt;TAO&lt;=20</BitsValue>
+                                <BitsValue val="12">20&lt;TAO&lt;=22</BitsValue>
+                                <BitsValue val="13">22&lt;TAO&lt;=24</BitsValue>
+                                <BitsValue val="14">24&lt;TAO&lt;=26</BitsValue>
+                                <BitsValue val="15">26&lt;TAO&lt;=28</BitsValue>
+                                <BitsValue val="16">28&lt;TAO&lt;=30</BitsValue>
+                                <BitsValue val="17">30&lt;TAO&lt;=32</BitsValue>
+                                <BitsValue val="18">32&lt;TAO&lt;=34</BitsValue>
+                                <BitsValue val="19">34&lt;TAO&lt;=36</BitsValue>
+                                <BitsValue val="20">36&lt;TAO&lt;=38</BitsValue>
+                                <BitsValue val="21">38&lt;TAO&lt;=40</BitsValue>
+                                <BitsValue val="22">40&lt;TAO&lt;=42</BitsValue>
+                                <BitsValue val="23">42&lt;TAO&lt;=44</BitsValue>
+                                <BitsValue val="24">44&lt;TAO&lt;=46</BitsValue>
+                                <BitsValue val="25">46&lt;TAO&lt;=48</BitsValue>
+                                <BitsValue val="26">48&lt;TAO&lt;=50</BitsValue>
+                                <BitsValue val="27">50&lt;TAO&lt;=52</BitsValue>
+                                <BitsValue val="28">52&lt;TAO&lt;=54</BitsValue>
+                                <BitsValue val="29">54&lt;TAO&lt;=56</BitsValue>
+                                <BitsValue val="30">56&lt;TAO&lt;=58</BitsValue>
+                                <BitsValue val="31">TAO&gt;58</BitsValue>
+                            </Bits>
+                            <Bits bit="2">
+                                <BitsShortName>spare</BitsShortName>
+                                <BitsName>Spare bits set to zero</BitsName>
+                                <BitsConst>0</BitsConst>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension indicator</BitsName>
+                                <BitsValue val="0">no extension</BitsValue>
+                                <BitsValue val="1">extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                    </Variable>
                     <Fixed length="2">
                         <Bits from="16" to="1">
                             <BitsShortName>TNH</BitsShortName>

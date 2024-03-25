@@ -415,7 +415,7 @@
             <Fixed length="7">
                 <Bits from="56" to="55">
                     <BitsShortName>STI</BitsShortName>
-                    <BitsValue val="0">Callsign or registration downlinked from transponde</BitsValue>
+                    <BitsValue val="0">Callsign or registration downlinked from transponder</BitsValue>
                     <BitsValue val="1">Callsign not downlinked from transponder</BitsValue>
                     <BitsValue val="2">Registration not downlinked from transponder</BitsValue>
                 </Bits>
@@ -1481,7 +1481,7 @@
                 <Bits from="23" to="22">
                     <BitsShortName>SVR</BitsShortName>
                     <BitsName>Alert severity</BitsName>
-                    <BitsValue val="0">End fo alert</BitsValue>
+                    <BitsValue val="0">End of alert</BitsValue>
                     <BitsValue val="1">Pre-alarm</BitsValue>
                     <BitsValue val="2">Severe alert</BitsValue>
                 </Bits>

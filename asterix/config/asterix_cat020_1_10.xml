@@ -3,17 +3,17 @@
 
 <!--
 
-    Asterix Category 020 v1.7 definition
+    Asterix Category 020 v1.10 definition
 
     Author:   B.Bertrand
     Created:  2013-01-08
     Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
-    Modified:  16.10.2019. (dsalantic) Added BDS register definition in I250
-
+    Modified:  25.3.2024. (dsalantic) Updated to v1.10
+                                      Added BDS register definition in I250 and I260
+                                      RE field updated to version 1.4
 -->
 
-<Category id="020" name="Multilateration Target Reports" ver="1.7">
-
+<Category id="020" name="Multilateration Target Reports" ver="1.10">
 
     <DataItem id="010" rule="mandatory">
         <DataItemName>Data Source Identifier</DataItemName>
@@ -121,6 +121,25 @@
                         <BitsValue val="1">Extension into next extent</BitsValue>
                     </Bits>
                 </Fixed>
+                <Fixed length="1">
+                    <Bits from="8" to="7">
+                        <BitsShortName>CF</BitsShortName>
+                        <BitsValue val="0">Target with 24-bit ICAO address</BitsValue>
+                        <BitsValue val="1">Target with a non-ICAO 24-bit address</BitsValue>
+                        <BitsValue val="2">Non-ADS-B Message</BitsValue>
+                        <BitsValue val="3">Information not available</BitsValue>
+                    </Bits>
+                    <Bits from="6" to="2">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to 0</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits bit="1" fx="1">
+                        <BitsShortName>FX</BitsShortName>
+                        <BitsValue val="0">End of Data Item</BitsValue>
+                        <BitsValue val="1">Extension into next extent</BitsValue>
+                    </Bits>
+                </Fixed>
             </Variable>
         </DataItemFormat>
     </DataItem>
@@ -176,7 +195,7 @@
 
     <DataItem id="042" rule="optional">
         <DataItemName>Position in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated position in Cartesian Coordinates, in two’s complement representation.</DataItemDefinition>
+        <DataItemDefinition>Calculated position in Cartesian Coordinates, in two's complement representation.</DataItemDefinition>
         <DataItemFormat desc="Six-octet fixed length Data Item.">
             <Fixed length="6">
                 <Bits from="48" to="25" encode="signed">
@@ -247,7 +266,7 @@
                 <Bits bit="6">
                     <BitsShortName>L</BitsShortName>
                     <BitsValue val="0">Mode-1 code derived from the reply of the transponder</BitsValue>
-                    <BitsValue val="1">Smoothed Mode-2 code as provided by a local tracker n</BitsValue>
+                    <BitsValue val="1">Smoothed Mode-1 code as provided by a local tracker</BitsValue>
                 </Bits>
                 <Bits from="5" to="1">
                     <!-- encode="octal" not supported on 5 bits -->
@@ -346,6 +365,7 @@
                 </Bits>
                 <Bits from="12" to="1">
                     <BitsShortName>QXi</BitsShortName>
+                    <BitsName>Quality pulse Xi</BitsName>
                     <!--
                     <BitsValue val="0">High quality pulse Xi</BitsValue>
                     <BitsValue val="1">Low quality pulse Xi</BitsValue>
@@ -357,7 +377,7 @@
 
     <DataItem id="105" rule="optional">
         <DataItemName>Geometric Height (WGS-84)</DataItemName>
-        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Vertical distance between the target and the projection of its position on the earth's ellipsoid, as defined by WGS84, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -371,7 +391,7 @@
 
     <DataItem id="110" rule="optional">
         <DataItemName>Measured Height (Local Cartesian Coordinates)</DataItemName>
-        <DataItemDefinition>Height above local 2D co-ordinate system in reference to the MLT System Reference Point as defined in item I019/610, in two’s complement form, based on a direct measurement not related to barometric pressure.</DataItemDefinition>
+        <DataItemDefinition>Height above local 2D co-ordinate system in reference to the MLT System Reference Point as defined in item I019/610, in two's complement form, based on a direct measurement not related to barometric pressure.</DataItemDefinition>
         <DataItemFormat desc="Two-octet fixed length Data Item.">
             <Fixed length="2">
                 <Bits from="16" to="1" encode="signed">
@@ -395,6 +415,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>The time of day value is reset to zero each day at midnight.</DataItemNote>
     </DataItem>
 
     <DataItem id="161" rule="optional">
@@ -433,8 +454,8 @@
                     </Bits>
                     <Bits bit="6">
                         <BitsShortName>CST</BitsShortName>
-                        <BitsValue val="0">Not extrapolated</BitsValue>
-                        <BitsValue val="1">Extrapolated</BitsValue>
+                        <BitsValue val="0">Not Coasted</BitsValue>
+                        <BitsValue val="1">Coasted</BitsValue>
                     </Bits>
                     <Bits from="5" to="4">
                         <BitsShortName>CDM</BitsShortName>
@@ -482,7 +503,7 @@
 
     <DataItem id="202" rule="optional">
         <DataItemName>Calculated Track Velocity in Cartesian Coordinates</DataItemName>
-        <DataItemDefinition>Calculated track velocity expressed in Cartesian Coordinates, in two’s complement representation.</DataItemDefinition>
+        <DataItemDefinition>Calculated track velocity expressed in Cartesian Coordinates, in two's complement representation.</DataItemDefinition>
         <DataItemFormat desc="Four-octet fixed length Data Item.">
             <Fixed length="4">
                 <Bits from="32" to="17" encode="signed">
@@ -501,18 +522,18 @@
 
     <DataItem id="210" rule="optional">
         <DataItemName>Calculated Acceleration</DataItemName>
-        <DataItemDefinition>Calculated Acceleration of the target, in two’s complement form.</DataItemDefinition>
+        <DataItemDefinition>Calculated Acceleration of the target, in two's complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length data item.">
             <Fixed length="2">
                 <Bits from="16" to="9" encode="signed">
                     <BitsShortName>Ax</BitsShortName>
                     <BitsName>Ax</BitsName>
-                    <BitsUnit scale="0.25" min="-31" max="31">m/s²</BitsUnit>
+                    <BitsUnit scale="0.25" min="-31" max="31">m/s2</BitsUnit>
                 </Bits>
                 <Bits from="8" to="1" encode="signed">
                     <BitsShortName>Ay</BitsShortName>
                     <BitsName>Ay</BitsName>
-                    <BitsUnit scale="0.25" min="-31" max="31">m/s²</BitsUnit>
+                    <BitsUnit scale="0.25" min="-31" max="31">m/s2</BitsUnit>
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -520,7 +541,7 @@
 
     <DataItem id="220" rule="optional">
         <DataItemName>Target Address</DataItemName>
-        <DataItemDefinition>Target address (ICAO 24-bit address) assigned uniquely to each Target.</DataItemDefinition>
+        <DataItemDefinition>Target address (24-bit address) assigned to each Target.</DataItemDefinition>
         <DataItemFormat desc="Three-octet fixed length Data Item.">
             <Fixed length="3">
                 <Bits from="24" to="1" encode="hex">
@@ -529,6 +550,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>The type of address (ICAO or non-ICAO address, type of message) is defined by the CF-indication in Data Item I020/020, second extension, bits 8/7.</DataItemNote>
     </DataItem>
 
     <DataItem id="230" rule="mandatory">
@@ -544,6 +566,9 @@
                     <BitsValue val="2">Comm. A, Comm. B and Uplink ELM</BitsValue>
                     <BitsValue val="3">Comm. A, Comm. B, Uplink ELM and Downlink ELM</BitsValue>
                     <BitsValue val="4">Level 5 Transponder capability</BitsValue>
+                    <BitsValue val="5">Not assigned</BitsValue>
+                    <BitsValue val="6">Not assigned</BitsValue>
+                    <BitsValue val="7">Not assigned</BitsValue>
                 </Bits>
                 <Bits from="13" to="11">
                     <BitsShortName>STAT</BitsShortName>
@@ -627,14 +652,108 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="260" rule="mandatory">
+    <DataItem id="260" >
         <DataItemName>ACAS Resolution Advisory Report</DataItemName>
         <DataItemDefinition>Currently active Resolution Advisory (RA), if any, generated by the ACAS associated with the transponder transmitting the report and threat identity data.</DataItemDefinition>
-        <DataItemFormat desc="Seven-octet fixed length Data Item.">
+        <DataItemFormat desc="Seven-octet fixed length Data Item">
             <Fixed length="7">
-                <Bits from="56" to="1">
-                    <BitsShortName>MB_Data</BitsShortName>
-                    <BitsName>(MB Data) 56-bit message conveying Mode S Comm B message data of BDS Register 3,0.</BitsName>
+                <Bits from="56" to="49" encode="hex">
+                    <BitsShortName>BDS30</BitsShortName>
+                    <BitsName>BDS code 3,0</BitsName>
+                </Bits>
+                <Bits bit="48">
+                    <BitsShortName>ARA41</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 41</BitsName>
+                    <BitsValue val="0">There is more than one threat and the RA is intended to provide separation below some threat(s) and above some other threat(s) or no RA has been generated (when MTE = 0)</BitsValue>
+                    <BitsValue val="1">Either there is only one threat or the RA is intended to provide separation in the same direction for all threats</BitsValue>
+                </Bits>
+                <Bits bit="47">
+                    <BitsShortName>ARA42</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 42</BitsName>
+                    <BitsValue val="0">RA is preventive or RA does not require a correction in the upward sense</BitsValue>
+                    <BitsValue val="1">RA is corrective or RA requires a correction in the upward sense</BitsValue>
+                </Bits>
+                <Bits bit="46">
+                    <BitsShortName>ARA43</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 43</BitsName>
+                    <BitsValue val="0">Upward sense RA has been generated or RA does not require a positive climb</BitsValue>
+                    <BitsValue val="1">Downward sense RA has been generated or RA requires a positive climb</BitsValue>
+                </Bits>
+                <Bits bit="45">
+                    <BitsShortName>ARA44</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 44</BitsName>
+                    <BitsValue val="0">RA is not increased rate or RA does not require a correction in the downward sense</BitsValue>
+                    <BitsValue val="1">RA is increased rate or RA requires a correction in the downward sense</BitsValue>
+                </Bits>
+                <Bits bit="44">
+                    <BitsShortName>ARA45</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 45</BitsName>
+                    <BitsValue val="0">RA is not a sense reversal or RA does not require a positive descend</BitsValue>
+                    <BitsValue val="1">RA is a sense reversal or RA requires a positive descend</BitsValue>
+                </Bits>
+                <Bits bit="43">
+                    <BitsShortName>ARA46</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 46</BitsName>
+                    <BitsValue val="0">RA is not altitude crossing or RA does not require a crossing</BitsValue>
+                    <BitsValue val="1">RA is altitude crossing or RA requires a crossing</BitsValue>
+                </Bits>
+                <Bits bit="42">
+                    <BitsShortName>ARA47</BitsShortName>
+                    <BitsName>Active Resolution Advisories bit 47</BitsName>
+                    <BitsValue val="0">RA is vertical speed limit or RA is not a sense reversal</BitsValue>
+                    <BitsValue val="1">RA is positive or RA is a sense reversal</BitsValue>
+                </Bits>
+                <Bits from="41" to="35">
+                    <BitsShortName>ACAS3</BitsShortName>
+                    <BitsName>Reserved for ACAS III</BitsName>                        
+                </Bits>
+                <Bits bit="34">
+                    <BitsShortName>RAC55</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 55</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass below</BitsValue>
+                </Bits>
+                <Bits bit="33">
+                    <BitsShortName>RAC56</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 56</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not pass above</BitsValue>
+                </Bits>
+                <Bits bit="32">
+                    <BitsShortName>RAC57</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 57</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn left</BitsValue>
+                </Bits>
+                <Bits bit="31">
+                    <BitsShortName>RAC58</BitsShortName>
+                    <BitsName>Resolution Advisory Complement bit 58</BitsName>
+                    <BitsValue val="0">Not Active</BitsValue>
+                    <BitsValue val="1">Active Do not turn right</BitsValue>
+                </Bits>
+                <Bits bit="30">
+                    <BitsShortName>RAT</BitsShortName>
+                    <BitsName>RA Terminated</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
+                </Bits>
+                <Bits bit="29">
+                    <BitsShortName>MTE</BitsShortName>
+                    <BitsName>Multiple Threat Encounter</BitsName>                        
+                    <BitsValue val="0">No</BitsValue>
+                    <BitsValue val="1">Yes</BitsValue>                      
+                </Bits>
+                <Bits from="28" to="27">
+                    <BitsShortName>TTI</BitsShortName>
+                    <BitsName>Threat Type Indicator</BitsName>     
+                    <BitsValue val="0">No identity data in TID</BitsValue>
+                    <BitsValue val="1">TID contains a Mode S transponder address</BitsValue>
+                    <BitsValue val="2">TID contains altitude, range and bearing data</BitsValue>
+                    <BitsValue val="3">Not assigned</BitsValue>
+                </Bits>
+                <Bits from="26" to="1">
+                    <BitsShortName>TID</BitsShortName>
+                    <BitsName>Threat Identity Data</BitsName>                        
                 </Bits>
             </Fixed>
         </DataItemFormat>
@@ -683,7 +802,7 @@
                 <Bits from="7" to="1">
                     <BitsShortName>MSG</BitsShortName>
                     <BitsValue val="1">Towing aircraft</BitsValue>
-                    <BitsValue val="2">"Follow me" operation</BitsValue>
+                    <BitsValue val="2">Follow me operation</BitsValue>
                     <BitsValue val="3">Runway check</BitsValue>
                     <BitsValue val="4">Emergency operation (fire, medical...)</BitsValue>
                     <BitsValue val="5">Work in progress (maintenance, birds scarer, sweepers...)</BitsValue>
@@ -693,8 +812,8 @@
     </DataItem>
 
     <DataItem id="400" rule="optional">
-        <DataItemName>Contributing Receivers</DataItemName>
-        <DataItemDefinition>Overview of Receiver Units, which have contributed to the Target Detection</DataItemDefinition>
+        <DataItemName>Contributing Devices</DataItemName>
+        <DataItemDefinition>Overview of the devices, which have contributed to the Target Detection. In case of active Multilateration systems this may include transmitters.</DataItemDefinition>
         <DataItemFormat desc="Repetitive Data Item starting with a one-octet Field Repetition Indicator (REP) followed by at least one Contributing Receiver Units list comprising one octet">
             <Repetitive>
                 <Fixed length="1">
@@ -769,7 +888,7 @@
                     </Bits>
                     <Bits from="16" to="1" encode="signed">
                         <BitsShortName>SDPxy</BitsShortName>
-                        <BitsName>Correlation coefficient in two’s complement</BitsName>
+                        <BitsName>Correlation coefficient in two's complement</BitsName>
                         <BitsUnit scale="0.25"/>
                     </Bits>
                 </Fixed>
@@ -786,7 +905,7 @@
 
     <DataItem id="RE">
         <DataItemName>Reserved Expansion Field</DataItemName>
-        <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 020 (Multilateration Target Reports)</DataItemDefinition>
+        <DataItemDefinition>Reserved Expansion Field of ASTERIX Cat 020 (Multilateration Target Reports) v1.4</DataItemDefinition>
         <DataItemFormat desc="One byte length field, followed by a one byte items indicator and the encoded items.">
             <Explicit>
                 <Compound>
@@ -817,8 +936,13 @@
                                 <BitsName>Data Ages</BitsName>
                                 <BitsPresence>5</BitsPresence>
                             </Bits>
-                            <Bits from="3" to="2">
-                                <BitsShortName>sb</BitsShortName>
+                            <Bits bit="3">
+                                <BitsShortName>HPDOP</BitsShortName>
+                                <BitsName>High Precision DOP</BitsName>
+                                <BitsPresence>4</BitsPresence>
+                            </Bits>
+                            <Bits bit="2">
+                                <BitsShortName>spare</BitsShortName>
                                 <BitsName>Spare bits set to 0</BitsName>
                             </Bits>
                             <Bits bit="1" fx="1">
@@ -851,7 +975,7 @@
                                     <BitsPresence>4</BitsPresence>
                                 </Bits>
                                 <Bits from="4" to="2">
-                                    <BitsShortName>sb</BitsShortName>
+                                    <BitsShortName>spare</BitsShortName>
                                     <BitsName>Spare bits set to 0</BitsName>
                                     <BitsConst>0</BitsConst>
                                 </Bits>
@@ -874,7 +998,7 @@
                             </Bits>
                             <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>DOPxy</BitsShortName>
-                                <BitsName>DOP Covariance Component in two’s complement form</BitsName>
+                                <BitsName>DOP Covariance Component in two's complement form</BitsName>
                                 <BitsUnit scale="0.25"/>
                             </Bits>
                         </Fixed>
@@ -891,7 +1015,7 @@
                             </Bits>
                             <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>COVxy</BitsShortName>
-                                <BitsName>XY Covariance Component in two’s complement form</BitsName>
+                                <BitsName>XY Covariance Component in two's complement form</BitsName>
                                 <BitsUnit scale="0.25">m</BitsUnit>
                             </Bits>
                         </Fixed>
@@ -915,7 +1039,7 @@
                             </Bits>
                             <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>COV_WGS</BitsShortName>
-                                <BitsName>Lat/Long Covariance Component in two’s complement form</BitsName>
+                                <BitsName>Lat/Long Covariance Component in two's complement form</BitsName>
                                 <BitsUnit scale="0.000005364418029785156">deg</BitsUnit>
                             </Bits>
                         </Fixed>
@@ -934,7 +1058,7 @@
                         </Bits>
                         <Bits from="16" to="1">
                             <BitsShortName>TA</BitsShortName>
-                            <BitsName>Track Angle clockwise reference to “True North”</BitsName>
+                            <BitsName>Track Angle clockwise reference to True North</BitsName>
                             <BitsUnit scale="0.0054931640625">deg</BitsUnit>
                         </Bits>
                     </Fixed>
@@ -1058,7 +1182,7 @@
                                     <BitsPresence>17</BitsPresence>
                                 </Bits>
                                 <Bits from="5" to="2">
-                                    <BitsShortName>sb</BitsShortName>
+                                    <BitsShortName>spare</BitsShortName>
                                     <BitsName>Spare bits set to 0</BitsName>
                                     <BitsConst>0</BitsConst>
                                 </Bits>
@@ -1093,7 +1217,7 @@
                                     <BitsName>Comm B Data Buffer Store 2 Address</BitsName>
                                 </Bits>
                                 <Bits from="8" to="1">
-                                    <BitsShortName>MBA</BitsShortName>
+                                    <BitsShortName>BDSA</BitsShortName>
                                     <BitsName>Age of the information in the BDS report indicated in bits 16/9</BitsName>
                                     <BitsUnit scale="0.1">s</BitsUnit>
                                 </Bits>
@@ -1198,6 +1322,23 @@
                             </Bits>
                         </Fixed>
                     </Compound>
+                    <Fixed length="6">
+                        <Bits from="48" to="33">
+                            <BitsShortName>HPDOPx</BitsShortName>
+                            <BitsName>HPDOP along x axis</BitsName>
+                            <BitsUnit scale="0.00390625">s</BitsUnit>
+                        </Bits>
+                        <Bits from="32" to="17">
+                            <BitsShortName>HPDOPy</BitsShortName>
+                            <BitsName>HPDOP along y axis</BitsName>
+                            <BitsUnit scale="0.00390625">s</BitsUnit>
+                        </Bits>
+                        <Bits from="16" to="1" encode="signed">
+                            <BitsShortName>HPDOPxy</BitsShortName>
+                            <BitsName>HPDOP Pearson Correlation Coefficient in two's complement form</BitsName>
+                            <BitsUnit scale="0,000030517578125"/>
+                        </Bits>
+                    </Fixed>
                 </Compound>               
             </Explicit>
         </DataItemFormat>    

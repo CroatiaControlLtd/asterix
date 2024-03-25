@@ -3,17 +3,15 @@
 
 <!--
 
-    Asterix Category 023 v1.2 definition
+    Asterix Category 023 v1.3 definition
 
-    Author:   unknown
-    Created:  2013-01-28
-    Modified:  28.4.2014. (dsalantic) Special characters removed from BitsShortName, some BitsShortName renamed, tabs aligned
+    Author:   D.Salantic (based on v1.2 implementation)
+    Created:  2024-02-22
     
 
 -->
 
-<Category id="023" name="Surveillance Data Exchange – Part 16 CNS/ATM Ground Station and Service Status Reports" ver="1.2">
-
+<Category id="023" name="CNS/ATM Ground Station and Service Status Reports" ver="1.3">
 
     <DataItem id="000" rule="mandatory">
         <DataItemName>Report Type</DataItemName>
@@ -86,6 +84,7 @@
                 </Bits>
             </Fixed>
         </DataItemFormat>
+        <DataItemNote>The time of day value is reset to zero each day at midnight</DataItemNote>
     </DataItem>
 
     <DataItem id="100" rule="optional">
