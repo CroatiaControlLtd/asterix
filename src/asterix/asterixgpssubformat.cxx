@@ -95,6 +95,9 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 return false;
             }
         } else {
+            // Space for GPS postbytes (10 bytes)
+            unsigned char GPSPost[10];
+
             // Do only once, read GPS header (2200 bytes)
             if (device.IsOnStart()) {
                 unsigned char gpsHeader[2200];
@@ -120,10 +123,22 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
 
             if (dataLen <= 3) {
                 LOGERROR(1, "Wrong Asterix data length (%d)\n", dataLen);
+                readSize = 10;
+                // skip GPS post after failure
+                if (!device.Read((void *) GPSPost, &readSize)) {
+                    LOGERROR(1, "Couldn't read GPS post bytes.\n");
+                    return false; // double fail
+                }
                 return false;
             }
             if (leftBytes != 0 && dataLen > leftBytes) {
                 LOGERROR(1, "Not enough data for packet! Size = %d, left = %d.\n", dataLen, leftBytes);
+                readSize = 10;
+                // skip GPS post after failure
+                if (!device.Read((void *) GPSPost, &readSize)) {
+                    LOGERROR(1, "Couldn't read GPS post bytes.\n");
+                    return false; // double fail
+                }
                 return false;
             }
 
@@ -145,8 +160,6 @@ bool CAsterixGPSSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, C
                 return false;
             }
 
-            // Read GPS postbytes (10 bytes)
-            unsigned char GPSPost[10];
             readSize = 10;
             if (!device.Read((void *) GPSPost, &readSize)) {
                 LOGERROR(1, "Couldn't read GPS post bytes.\n");
