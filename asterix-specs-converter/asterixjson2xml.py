@@ -330,6 +330,9 @@ class Variation(object):
 
     @staticmethod
     def create(parent, item):
+        if not 'variation' in item:
+           return None
+
         variation = item['variation']
         vt = variation['type']
 
@@ -623,7 +626,9 @@ class TopItem(object):
                     for line in definition.splitlines():
                         tell(xmlquote(line))
                 tell('</DataItemDefinition>')
-            Variation.create(self, item).render()
+            variation = Variation.create(self, item)
+            if variation:
+                variation.render()
             if remark:
                 tell('<DataItemNote>')
                 with indent:
