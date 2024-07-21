@@ -79,13 +79,16 @@ bool DataItemFormatRepetitive::getText(std::string &strResult, std::string &strH
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             std::string tmpStr = format("[");
+            if (nRepetition == 0) {
+                ret = true;
+            } else {
+                while (nRepetition--) {
+                    ret |= pF->getText(tmpStr, strHeader, formatType, pData, fixedLength);
+                    pData += fixedLength;
 
-            while (nRepetition--) {
-                ret |= pF->getText(tmpStr, strHeader, formatType, pData, fixedLength);
-                pData += fixedLength;
-
-                if (nRepetition > 0)
-                    tmpStr += format(",");
+                    if (nRepetition > 0)
+                        tmpStr += format(",");
+                }
             }
             tmpStr += format("]");
 
@@ -95,9 +98,13 @@ bool DataItemFormatRepetitive::getText(std::string &strResult, std::string &strH
             break;
         }
         default: {
-            while (nRepetition--) {
-                ret |= pF->getText(strResult, strHeader, formatType, pData, fixedLength);
-                pData += fixedLength;
+            if (nRepetition == 0) {
+                ret = true;
+            } else {
+                while (nRepetition--) {
+                    ret |= pF->getText(strResult, strHeader, formatType, pData, fixedLength);
+                    pData += fixedLength;
+                }   
             }
             break;
         }
