@@ -128,6 +128,9 @@ python_parse_with_offset(const unsigned char *pBuf, Py_ssize_t len, unsigned int
             delete pData;
             PyObject *py_m_nPos = Py_BuildValue("l", m_nPos);
             PyObject *py_output = PyTuple_Pack(2, lst, py_m_nPos);
+            // Decrease references since the tuple holds references to them now
+            Py_DECREF(lst);
+            Py_DECREF(py_m_nPos);
             return py_output;
         }
     }
