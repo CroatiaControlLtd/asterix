@@ -502,7 +502,6 @@
                     <Bits from="4" to="3">
                         <BitsShortName>RT20</BitsShortName>
                         <BitsName>Reference Transponder 20 Status</BitsName>
-                        <BitsName></BitsName>
                         <BitsValue val="0">Unknown</BitsValue>
                         <BitsValue val="1">Warning</BitsValue>
                         <BitsValue val="2">Faulted</BitsValue>
