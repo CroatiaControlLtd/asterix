@@ -275,3 +275,6 @@ Issue #232 When CAT48/250 is 0, no output is displayed
 
 2.8.7 (python_v0.7.7)
 Issue #231 Memory leak in parse_with_offset python function
+
+2.8.8 (python_v0.7.8)
+Issue #235 CAT004 cartesian values changed to signed

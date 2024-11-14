@@ -1543,12 +1543,12 @@
                             </Bits>
                         </Fixed>
                         <Fixed length="6">
-                            <Bits from="48" to="25">
+                            <Bits from="48" to="25" encode="signed">
                                 <BitsShortName>X</BitsShortName>
                                 <BitsName>X-Coordinate</BitsName>
                                 <BitsUnit scale="0.5">m</BitsUnit>
                             </Bits>
-                            <Bits from="24" to="1">
+                            <Bits from="24" to="1" encode="signed">
                                 <BitsShortName>Y</BitsShortName>
                                 <BitsName>Y-Coordinate</BitsName>
                                 <BitsUnit scale="0.5">m</BitsUnit>
@@ -1574,12 +1574,12 @@
                             </Bits>
                         </Fixed>
                         <Fixed length="4">
-                            <Bits from="32" to="17">
+                            <Bits from="32" to="17" encode="signed">
                                 <BitsShortName>Vx</BitsShortName>
                                 <BitsName>Velocity, x-component</BitsName>
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
                             </Bits>
-                            <Bits from="16" to="1">
+                            <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>Vy</BitsShortName>
                                 <BitsName>Velocity, y-component</BitsName>
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
@@ -1635,12 +1635,12 @@
                             </Bits>
                         </Fixed>
                         <Fixed length="6">
-                            <Bits from="48" to="25">
+                            <Bits from="48" to="25" encode="signed">
                                 <BitsShortName>X</BitsShortName>
                                 <BitsName>X-Coordinate</BitsName>
                                 <BitsUnit scale="0.5">m</BitsUnit>
                             </Bits>
-                            <Bits from="24" to="1">
+                            <Bits from="24" to="1" encode="signed">
                                 <BitsShortName>Y</BitsShortName>
                                 <BitsName>Y-Coordinate</BitsName>
                                 <BitsUnit scale="0.5">m</BitsUnit>
@@ -1666,12 +1666,12 @@
                             </Bits>
                         </Fixed>
                         <Fixed length="4">
-                            <Bits from="32" to="17">
+                            <Bits from="32" to="17" encode="signed">
                                 <BitsShortName>Vx</BitsShortName>
                                 <BitsName>Velocity, x-component</BitsName>
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
                             </Bits>
-                            <Bits from="16" to="1">
+                            <Bits from="16" to="1" encode="signed">
                                 <BitsShortName>Vy</BitsShortName>
                                 <BitsName>Velocity, y-component</BitsName>
                                 <BitsUnit scale="0.25">m/s</BitsUnit>
