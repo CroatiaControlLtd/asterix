@@ -278,3 +278,8 @@ Issue #231 Memory leak in parse_with_offset python function
 
 2.8.8 (python_v0.7.8)
 Issue #235 CAT004 cartesian values changed to signed
+
+2.8.9 (python_v0.7.9)
+Issue #236 Changed Item I010/131 to unsigned
+           Corrected Item I001/100 
+           Corrected Item I252/110 

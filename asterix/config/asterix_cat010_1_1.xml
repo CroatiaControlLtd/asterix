@@ -12,6 +12,7 @@
                08.05.2017. (ifsnop) Removed wrong compound definition from cat10/di270.
                24.07.2017. (ifsnop) Changed dataitem name "001" to "000", as per Eurocontrol Definition.
                16.10.2019. (dsalantic) Added BDS register definition in I250
+               21.02.2025. (dsalantic) Changed item 131 to unsigned
 
 -->
 
@@ -292,7 +293,7 @@
         <DataItemDefinition>Relative strength of received signal.</DataItemDefinition>
         <DataItemFormat desc="One-Octet fixed length data item.">
             <Fixed length="1">
-                <Bits from="8" to="1" encode="signed">
+                <Bits from="8" to="1" encode="unsigned">
                     <BitsShortName>PAM</BitsShortName>
                     <BitsName>Primary Plot Amplitude</BitsName>
                 </Bits>
