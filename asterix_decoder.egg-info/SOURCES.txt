@@ -40,11 +40,11 @@ asterix/config/asterix_cat004_1_12.xml
 asterix/config/asterix_cat008_1_0.xml
 asterix/config/asterix_cat010_1_1.xml
 asterix/config/asterix_cat011_1_2.xml
-asterix/config/asterix_cat019_1_2.xml
-asterix/config/asterix_cat020_1_7.xml
-asterix/config/asterix_cat021_2_4.xml
-asterix/config/asterix_cat023_1_2.xml
-asterix/config/asterix_cat025_1_2.xml
+asterix/config/asterix_cat019_1_3.xml
+asterix/config/asterix_cat020_1_10.xml
+asterix/config/asterix_cat021_2_6.xml
+asterix/config/asterix_cat023_1_3.xml
+asterix/config/asterix_cat025_1_5.xml
 asterix/config/asterix_cat030_6_2.xml
 asterix/config/asterix_cat031_6_2.xml
 asterix/config/asterix_cat032_7_0.xml
@@ -73,7 +73,9 @@ asterix/sample_data/cat_062_065.pcap
 asterix/test/__init__.py
 asterix/test/parsing_error_1.xml
 asterix/test/parsing_error_2.xml
+asterix/test/test_cat62error.py
 asterix/test/test_init.py
+asterix/test/test_memory_leak.py
 asterix/test/test_parse.py
 asterix/test/valgrind-python.supp.txt
 asterix_decoder.egg-info/PKG-INFO

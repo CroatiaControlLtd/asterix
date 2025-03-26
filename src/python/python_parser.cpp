@@ -87,6 +87,11 @@ PyObject *python_parse(const unsigned char *pBuf, Py_ssize_t len, int verbose) {
 
     if (inputParser) {
         AsterixData *pData = inputParser->parsePacket(pBuf, len, nTimestamp);
+        if (inputParser->raisedErrorFlag()){
+            PyErr_SetString(PyExc_RuntimeError, "Error parsing packet");
+            inputParser->clearErrorFlag();
+            return NULL;
+        }
         if (pData) { // convert to Python format
             PyObject *lst = pData->getData(verbose);
             delete pData;
