@@ -41,9 +41,9 @@ bool CAsterixPcapSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
     CAsterixFormatDescriptor &Descriptor((CAsterixFormatDescriptor &) formatDescriptor);
     unsigned short m_nDataLength = 0;
     static time_t lastFileTimeSec = 0;
-    static suseconds_t lastFileTimeUSec = 0;
+    static useconds_t lastFileTimeUSec = 0;
     static time_t lastMyTimeSec = 0;
-    static suseconds_t lastMyTimeUSec = 0;
+    static useconds_t lastMyTimeUSec = 0;
 
     if (device.IsOnStart()) {
         pcap_hdr_t m_ePcapFileHeader;

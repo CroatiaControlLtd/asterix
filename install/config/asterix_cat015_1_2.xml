@@ -1,0 +1,1732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Category SYSTEM "asterix.dtd">
+
+<!--  
+
+    Asterix Category 15 v1.2 definition 
+    
+    Author:   shayan
+    Created:  16.07.2019.
+    Modified: 08.09.2025. (shayan) : I062/SP defined as Explicit (content unknown)
+              23.10.2025. (dsalantic): Reviewed and corrected 
+
+-->
+
+
+<Category id="15" name="INCS Target Reports" ver="1.2">
+
+    <DataItem id="000" rule="mandatory">
+        <DataItemName>Message Type</DataItemName> 
+        <DataItemDefinition>This data item conveys the report type and whether the output is periodically updated or asynchronous depending upon external events.</DataItemDefinition>
+        <DataItemFormat desc="One-octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="2">
+                    <BitsShortName>MT</BitsShortName>
+                    <BitsName>Message Type</BitsName>
+                    <BitsValue val="1">Measurement Plot</BitsValue>
+                    <BitsValue val="2">Measurement Track</BitsValue>
+                    <BitsValue val="3">Sensor Centric Plot</BitsValue>
+                    <BitsValue val="4">Sensor Centric Track</BitsValue>
+                    <BitsValue val="5">Track End Message</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>RG</BitsShortName>
+                    <BitsName>Report Generation</BitsName>
+                    <BitsValue val="0">Periodic Report</BitsValue>
+                    <BitsValue val="1">Event Driven Report</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. See Section 4.7 and ANNEX A for definitions of the Message Types. 2. Values 6 to 127 are reserved for future use 3. Periodic Report: A periodic report is one transmitted periodically with an independently configurable period. 4. Event Driven Report: An Event Driven Report is one generated in response to the occurrence of an external event such as an RF echo off a target.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="010" rule="mandatory">
+        <DataItemName>Data Source Identifier</DataItemName>
+        <DataItemDefinition>Identification of the sensor from which the data is received.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="9">
+                    <BitsShortName>SAC</BitsShortName>
+                    <BitsName>System Area Code</BitsName>
+                </Bits>
+                <Bits from="8" to="1">
+                    <BitsShortName>SIC</BitsShortName>
+                    <BitsName>System Identification Code</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The up-to-date list of SACs is published on the EUROCONTROL Web Site 2. The SICs are allocated by the national authority responsible for the surveillance infrastructure. 3. The SIC and SAC values shall be formatted as binary unsigned integers.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="015" rule="optional">
+        <DataItemName>Service Identification</DataItemName>
+        <DataItemDefinition>Identification of the service provided to one or more users.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length data item.">
+            <Fixed length="1">
+                <Bits from="8" to="1">
+                    <BitsShortName>SID</BitsShortName>
+                    <BitsName>Service Identification</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The Service Identification is allocated by the system. 2. The SID value shall be formatted as binary unsigned integers.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="020" rule="mandatory">
+        <DataItemName>Target Report Descriptor</DataItemName>
+        <DataItemDefinition>Type and characteristics of the data as transmitted by a system.</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of one-octet, followed by one-octet Extensions as necessary.">
+            <Fixed length="1">
+                <Bits from="8" to="7">
+                    <BitsShortName>MoMu</BitsShortName>
+                    <BitsName>Mono-Static Target Report or Multi-Static Target Report</BitsName>
+                    <BitsValue val="0">Mono-Static Sensor</BitsValue>
+                    <BitsValue val="1">Multi-Static Sensor</BitsValue>
+                    <BitsValue val="2">Other</BitsValue>
+                    <BitsValue val="3">Unknown</BitsValue>
+                </Bits>
+                <Bits from="6" to="5">
+                    <BitsShortName>TTAX</BitsShortName>
+                    <BitsName>Target Taxonomy</BitsName>
+                    <BitsValue val="0">Actual Target Report</BitsValue>
+                    <BitsValue val="1">Reference Target</BitsValue>
+                    <BitsValue val="2">Synthetic Target</BitsValue>
+                    <BitsValue val="3">Simulated / Replayed Target</BitsValue>
+                </Bits>
+                <Bits from="4" to="3">
+                    <BitsShortName>SCD</BitsShortName>
+                    <BitsName>Scanning Direction</BitsName>
+                    <BitsValue val="0">unknown</BitsValue>
+                    <BitsValue val="1">forward</BitsValue>
+                    <BitsValue val="2">backward</BitsValue>
+                    <BitsValue val="3">static</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to 0</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="1" fx="1">
+                    <BitsShortName>FX</BitsShortName>
+                    <BitsValue val="0">End of data item</BitsValue>
+                    <BitsValue val="1">Extension into first Extension</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The MoMu bit is used to indicate whether the target report was constructed from a multi-static (including bi-static) or mono-static sensor. Its setting dictates the interpretation of data items I015/625 and I015/626. The meaning of the value “other” shall be described in the system ICD. 2. In this context, a Reference Target Report stems from a non-aircraft target based on RF received externally to the system boundary. This may be generated, for example, by an external RF generator or a Permanent Echo or from a device, which is deployed in line of sight of the sensor. 3. A synthetic target is an internally generated diagnostic signal prior to the generation of the ASTERIX Category 015 target report. For example used to support test processes. 4. This value is used to represent externally generated targets or recorded data injected into the output data stream of the INCS system e.g. for test or training purposes. 5. This indication is used to inform about the scanning direction of the system (e.g. left/right, up/down, clockwise/anti-clockwise). It's exact meaning is implementation dependent and shall be described in the system ICD.</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="030" rule="optional" >
+        <DataItemName>Warning/Error Conditions</DataItemName>
+        <DataItemDefinition>Warning/error conditions detected by a system for the target report involved.</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of one-octet, followed by one-octet Extensions as necessary.">
+            <Fixed length="1">
+                <Bits from="8" to="2">
+                    <BitsShortName>W/E Value</BitsShortName>
+                    <BitsName>Warning/Error Condition Value</BitsName>
+                </Bits>
+                <Bits bit="1" fx="1">
+                    <BitsShortName>FX</BitsShortName>
+                    <BitsValue val="0">End of data item</BitsValue>
+                    <BitsValue val="1">Extension following (next W/E value)</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. It has to be stressed that a series of one or more W/E conditions can be reported per target report. 2. The nature of the warning / error condition may differ between sensor types and the declaration and use of such alerts is driven by end user requirements. 3. Potential applications could be to indicate that the target report correlates with road infrastructure (terrestrial vehicles) or a wind turbine or that it is a fixed or slow moving return or originating from an area of high clutter. Such data items could also be used to indicate the presence of interference – either deliberate or accidental. 4. The Warning/Error Condition Values from 1-31 are reserved for designation by the ASTERIX Maintenance Group. System implementers are free to use values of 32 and above. The allocation of the remaining values of this data item shall be defined in a local Interface Control Document. 5. The value of “0” must not be assigned.</DataItemNote>
+    </DataItem>     
+
+    <DataItem id="050" rule="optional">
+        <DataItemName>Update Period</DataItemName>
+        <DataItemDefinition>Period until next expected output of a target report for this target.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length data item.">
+            <Fixed length="2">
+                <Bits from="15" to="16">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bits set to zero</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits from="14" to="1">
+                    <BitsShortName>UPD</BitsShortName>
+                    <BitsName>Update period</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. It is not necessary that all targets detected by the INCS sensor have target reports generated at the same update period. 2. This data item indicates the period until the next expected output of a target report for this target relative to the Time of Applicability contained in data item I015/145</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="145" rule="mandatory">
+        <DataItemName>Time of Applicability</DataItemName>
+        <DataItemDefinition>Absolute time stamping for applicability of the measured information expressed as UTC.</DataItemDefinition>
+        <DataItemFormat desc="Three-octet fixed length data item.">
+            <Fixed length="3">
+                <Bits from="24" to="1">
+                    <BitsShortName>ToA</BitsShortName>
+                    <BitsName>Time of Applicability</BitsName>
+                    <BitsUnit scale="0.0078125">s</BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The Time of Applicability refers to the information contained in data item I015/600, I015/601, I015/625, I015/626, I015/627, I015/628 whichever is available. In case of a Track End Message (Message Type = 5) it refers to the time at which the track is terminated and the track number (data item I015/161) is released for re-use. 2. A distributed sensor, such as an MSPSR, may have multiple elements that are each individually time stamped which are consolidated in to a target report. Rather than provide details of each time stamped message, this data item conveys the time of applicability of position of the target report. 3. The Time of Applicability value is reset to zero each day at midnight. 4. The Time of Applicability value shall be formatted as a binary unsigned integer.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="161" rule="mandatory">
+        <DataItemName>Track/Plot Number</DataItemName>
+        <DataItemDefinition>An integer value representing a unique reference to a track/plot record.</DataItemDefinition>
+        <DataItemFormat desc="Two-octet fixed length data item.">
+            <Fixed length="2">
+                <Bits from="16" to="1">
+                    <BitsShortName>TrkN</BitsShortName>
+                    <BitsName>Track number</BitsName>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. Track numbers are required for Sensor and Measurement Tracks. However, for Sensor and Measurement Plots the inclusion of a track number is optional – depending upon whether the INCS sensor has used tracking processing to reduce the false alarm rates. 2. The track number is allocated by the system. 3. The track number value shall be formatted as binary unsigned integers.</DataItemNote>
+    </DataItem>
+
+    <DataItem id="170" rule="mandatory">
+        <DataItemName>Track/Plot Status</DataItemName>
+        <DataItemDefinition>Status of Track/Plot.</DataItemDefinition>
+        <DataItemFormat desc="Variable length data item comprising a first part of one-octet, followed by one-octet Extensions as necessary.">
+            <Fixed length="1">
+                <Bits bit="8">
+                    <BitsShortName>BIZ</BitsShortName>
+                    <BitsName>BIZ</BitsName>
+                    <BitsValue val="0">Target not in Blind Zone</BitsValue>
+                    <BitsValue val="1">Target in Blind Zone</BitsValue>
+                </Bits>
+                <Bits bit="7">
+                    <BitsShortName>BAZ</BitsShortName>
+                    <BitsName>BAZ</BitsName>
+                    <BitsValue val="0">Target not in Blanked Zone</BitsValue>
+                    <BitsValue val="1">Target in Blanked Zone</BitsValue>
+                </Bits>
+                <Bits bit="6">
+                    <BitsShortName>TUR</BitsShortName>
+                    <BitsName>TUR</BitsName>
+                    <BitsValue val="0">Track Alive</BitsValue>
+                    <BitsValue val="1">Track Terminated by User Request</BitsValue>
+                </Bits>
+                <Bits bit="5">
+                    <BitsShortName>spare</BitsShortName>
+                    <BitsName>Spare bit, set to "0"</BitsName>
+                    <BitsConst>0</BitsConst>
+                </Bits>
+                <Bits bit="4">
+                    <BitsShortName>CSTP</BitsShortName>
+                    <BitsName>Coasted - Position</BitsName>
+                    <BitsValue val="0">Not extrapolated</BitsValue>
+                    <BitsValue val="1">Extrapolated</BitsValue>
+                </Bits>
+                <Bits bit="3">
+                    <BitsShortName>CSTH</BitsShortName>
+                    <BitsName>Coasted – Height</BitsName>
+                    <BitsValue val="0">Not extrapolated</BitsValue>
+                    <BitsValue val="1">Extrapolated</BitsValue>
+                </Bits>
+                <Bits bit="2">
+                    <BitsShortName>CNF</BitsShortName>
+                    <BitsName>Confirmed vs. Tentative Track</BitsName>
+                    <BitsValue val="0">Confirmed Track</BitsValue>
+                    <BitsValue val="1">Tentative Track</BitsValue>
+                </Bits>
+                <Bits bit="1">
+                    <BitsShortName>FX</BitsShortName>
+                    <BitsName>FX</BitsName>
+                    <BitsValue val="0">End of Data Item</BitsValue>
+                    <BitsValue val="1">Extension into next octet</BitsValue>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. The indication for CSTP and/or CSTH applies only to data items I015/600 and I015/605 respectively. In case one of these data items is not present, CSTP and/or CSTH has no meaning. 2. A coasted track is one for which the sensor detections have been interrupted and whose position/height is being predicted based on the previously received responses. 3. The blind zone or blanked zone are predictable zones where no detection is predicted. If bit 5 is set and TTS = 1 then the track is coasted because it is in a blind zone or sector blank zone. 4. The indication TUR=1 shall be sent only with Message Type = 5 "Track End Message".</DataItemNote>
+    </DataItem>
+
+    <DataItem id="270" rule="optional">
+        <DataItemName>Target Size and Orientation</DataItemName>
+        <DataItemDefinition>Data item containing the size and orientation information of the target.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>LEN</BitsShortName>
+                            <BitsName>Target Length</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>WDT</BitsShortName>
+                            <BitsName>Target Width</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>HGT</BitsShortName>
+                            <BitsName>Target Height</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>ORT</BitsShortName>
+                            <BitsName>Target Orientation</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="4">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to zero</BitsName>
+                        </Bits>
+                        <Bits bit="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>FX</BitsName>
+                            <BitsValue val="0">End of Primary Subfield</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <DataItemNote>If length and width cannot be clearly determined, the greater value of the two shall be transmitted as length..</DataItemNote>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="unsigned">
+                        <BitsShortName>LGT</BitsShortName>
+                        <BitsName>Target Length</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="unsigned">
+                        <BitsShortName>WDT</BitsShortName>
+                        <BitsName>Target Width</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="unsigned">
+                        <BitsShortName>HGT</BitsShortName>
+                        <BitsName>Target Height</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="unsigned">
+                        <BitsShortName>ORT</BitsShortName>
+                        <BitsName>Target Orientation</BitsName>
+                        <BitsUnit scale="0.00549316406" max="360">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="300" rule="optional">
+        <DataItemName>Object Classification</DataItemName>
+        <DataItemDefinition>Classification result of the object detection.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item starting with a one-octet field repetition indicator (REP) followed by at least one classification result and corresponding probability comprising two-octets.">
+        <Repetitive>
+            <Fixed length="2">
+                <Bits from="8" to="16" encode="unsigned">
+                    <BitsShortName>CLS</BitsShortName>
+                    <BitsName>Classification</BitsName>
+                </Bits>
+                <Bits from="1" to="7" encode="unsigned">
+                    <BitsShortName>PRB</BitsShortName>
+                    <BitsName>Probability</BitsName>
+                    <BitsUnit scale="1">per cent</BitsUnit>
+                </Bits>
+            </Fixed>
+        </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>1. INCS processing may be able to provide an indication of the nature of the target e.g. road vehicle or aircraft with the potential for further discrimination in the type of the aircraft e.g. two engine, fixed wing/helicopter etc. Before including requirements for target classification it is necessary to consider the operational manner in which such information would be used and how/if such data would be made available to the controllers. 2. Target classification is attributing, with an acceptable degree of confidence, a target report as having originated from a specific object or target type e.g. fixed wing aircraft, flock of birds etc. (It should be noted that the probabilities assigned to a target do not necessarily need to add up to 100%) The ability of an INCS sensor to classify the targets it detects is dependent upon the systems capabilities and is driven by end user requirements. The use of this optional data item is to be agreed between parties such as the system manufacturer, the system operator agency and the end user. The allocation of the CLS octet is to be defined in a local Interface Control Document that shall be agreed by both parties. 3. If this functionality is implemented in the sensor, the classification result (CLS), PRB and REP value shall be formatted as a binary unsigned integer.</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="400" rule="optional">
+        <DataItemName>Measurement Identifier</DataItemName>
+        <DataItemDefinition>An identifier pointing to a measurement that was created from a specific contributing Tx/Rx Pair where the Pair Identifier refers to the index which details both the transmitter characteristics (DVB-T, DAB, FM, dedicated etc.) and the receiver characteristics. These are defined in ASTERIX Category 016 – Data Item I016/300).</DataItemDefinition>
+        <DataItemFormat desc="Five-octet fixed length data item.">
+            <Fixed length="5">
+                <Bits from="25" to="40">
+                    <BitsShortName>PID</BitsShortName>
+                    <BitsName>Pair Identifier</BitsName>
+                </Bits>
+                <Bits from="1" to="24">
+                    <BitsShortName>ON</BitsShortName>
+                    <BitsName>Observation Number</BitsName>
+                    <BitsUnit max="16777215"></BitsUnit>
+                </Bits>
+            </Fixed>
+        </DataItemFormat>
+        <DataItemNote>1. INCS sensors may achieve their operational requirements based upon different techniques and technologies. Some may utilise multiple transmitter stations or multiple receiver stations. This data items provides the means for subsequent processing stages to be able to analyse the target report data based upon the system components that contributed to the formation of the target report. See ANNEX A for further details. 2. The Pair Identifier shall be defined in ASTERIX Category 016 (Data Item I016/300). 3. The Observation Number is identifying an element of 'raw data' information. The sensor plots and sensor tracks are usually composed of several raw data information. Therefore, the Observation number is defined in the Measurement Plots and Measurement Tracks.</DataItemNote>
+    </DataItem> 
+
+    <DataItem id="480" rule="optional">
+        <DataItemName>Associations</DataItemName>
+        <DataItemDefinition>Information on which Measurement Identifiers contributed to the Sensor Centric Plot / Sensor Centric Track.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item starting with a one-octet field repetition indicator (REP) followed by at least one five-octet Measurement Identifier.">
+        <Repetitive>
+            <Fixed length="5">
+                <Bits from="40" to="1">
+                    <BitsShortName>MID</BitsShortName>
+                    <BitsName>Measurement Identifier</BitsName>
+                </Bits>
+            </Fixed>
+        </Repetitive>
+        </DataItemFormat>
+    </DataItem> 
+
+    <DataItem id="600" rule="optional">
+        <DataItemName>Horizontal Position Information</DataItemName>
+        <DataItemDefinition>Data item containing the horizontal position information of the target.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>P84</BitsShortName>
+                            <BitsName>Horizontal Position in WGS-84 Coordinates</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>HPR</BitsShortName>
+                            <BitsName>Horizontal Position Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>HPP</BitsShortName>
+                            <BitsName>Horizontal Position Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="5">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Primary Subfield</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="8">
+                    <Bits from="64" to="33" encode="signed">
+                        <BitsShortName>Lat</BitsShortName>
+                        <BitsName>Latitude in WGS.84 in two's complement. Range -90 &lt; latitude &lt; 90 deg.</BitsName>
+                        <BitsUnit scale="0.00000008381903171539307">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="32" to="1" encode="signed">
+                        <BitsShortName>Lon</BitsShortName>
+                        <BitsName>Longitude in WGS.84 in two's complement. Range -180 &lt; longitude &lt; 180 deg.</BitsName>
+                        <BitsUnit scale="0.00000008381903171539307">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="5">
+                    <Bits from="40" to="25" encode="signed">
+                        <BitsShortName>Rs_HPx</BitsShortName>
+                        <BitsName>Horizontal position resolution of the target in target centric Cartesian coordinates (X-component)</BitsName>
+                        <BitsUnit scale="0.5" max="32767">m</BitsUnit>
+                    </Bits>
+                    <Bits from="24" to="9" encode="signed">
+                        <BitsShortName>Rs_HPy</BitsShortName>
+                        <BitsName>Horizontal position resolution of the target in target centric Cartesian coordinates (Y-component)</BitsName>
+                        <BitsUnit scale="0.5" max="32767">m</BitsUnit>
+                    </Bits>
+                    <Bits from="8" to="1" encode="signed">
+                        <BitsShortName>CoRs_HPxy</BitsShortName>
+                        <BitsName>Correlation of horizontal position resolution of X and Y components, in Two's complement.</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="5">
+                    <Bits from="40" to="25" encode="signed">
+                        <BitsShortName>SD_HPx</BitsShortName>
+                        <BitsName>Standard Deviation of horizontal position of the target in target centric Cartesian coordinates (X-component)</BitsName>
+                        <BitsUnit scale="0.25" max="16383.75">m</BitsUnit>
+                    </Bits>
+                    <Bits from="24" to="9" encode="signed">
+                        <BitsShortName>SD_HPy</BitsShortName>
+                        <BitsName>Standard Deviation of horizontal position of the target in target centric Cartesian coordinates (Y-component)</BitsName>
+                        <BitsUnit scale="0.25" max="16383.75">m</BitsUnit>
+                    </Bits>
+                    <Bits from="8" to="1" encode="signed">
+                        <BitsShortName>CoSD_HPxy</BitsShortName>
+                        <BitsName>Correlation of standard deviation of horizontal position of X and Y components, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="601" rule="optional">
+        <DataItemName>Geometric Height Information</DataItemName>
+        <DataItemDefinition>Data item containing the geometric height information of the target in WGS 84 height above ellipsoid.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of up to two-octet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>GH</BitsShortName>
+                            <BitsName>Geometric Height (WGS-84)</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Rs_GH</BitsShortName>
+                            <BitsName>Geometric Height Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_GH</BitsShortName>
+                            <BitsName>Geometric Height Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>CI6</BitsShortName>
+                            <BitsName>Confidence Interval for Geometric Height (67%)</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>CI9</BitsShortName>
+                            <BitsName>Confidence Interval for Geometric Height (95%)</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>Co_GHHP</BitsShortName>
+                            <BitsName>Correlation of Geometric Height and Horizontal Position</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>Co_GHHV</BitsShortName>
+                            <BitsName>Correlation of Geometric Height and Horizontal Velocity</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                        </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>Co_GHHA</BitsShortName>
+                            <BitsName>Correlation of Geometric Height and Horizontal Acceleration</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of Primary Subfield</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="1" to="24" encode="signed">
+                        <BitsShortName>GH</BitsShortName>
+                        <BitsName>Geometric Height (WGS-84)</BitsName>
+                        <BitsUnit scale="0.01" min="-83286" max="83286">m</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="3">
+                    <Bits from="1" to="24">
+                        <BitsShortName>Rs_GH</BitsShortName>
+                        <BitsName>Geometric Height Resolution</BitsName>
+                        <BitsUnit scale="0.01" max="167,772.15">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="1" to="24">
+                        <BitsShortName>SD_GH</BitsShortName>
+                        <BitsName>Geometric Height Precision</BitsName>
+                        <BitsUnit scale="0.01" max="167,772.15">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="13">
+                        <BitsShortName>UCI6</BitsShortName>
+                        <BitsName>Upper confidence interval for Geometric Height (%67)</BitsName>
+                        <BitsUnit scale="16" max="65520">m</BitsUnit>
+                    </Bits>
+                    <Bits from="12" to="1">
+                        <BitsShortName>LCI6</BitsShortName>
+                        <BitsName>Lower confidence interval for Geometric Height (%67)</BitsName>
+                        <BitsUnit scale="16" max="65520">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="24" to="13">
+                        <BitsShortName>UCI9</BitsShortName>
+                        <BitsName>Upper confidence interval for Geometric Height (95%)</BitsName>
+                        <BitsUnit scale="16" max="65520">m</BitsUnit>
+                    </Bits>
+                    <Bits from="12" to="1">
+                        <BitsShortName>LCI9</BitsShortName>
+                        <BitsName>Lower confidence interval for Geometric Height (95%)</BitsName>
+                        <BitsUnit scale="16" max="65520">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="9" encode="signed">
+                        <BitsShortName>Co_GHHPx</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Position of (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="12" to="1" encode="signed">
+                        <BitsShortName>Co_GHHPy</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Position of (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="9" encode="signed">
+                        <BitsShortName>Co_GHHVx</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Velocity of (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="12" to="1" encode="signed">
+                        <BitsShortName>Co_GHHVy</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Velocity of (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="16" to="9" encode="signed">
+                        <BitsShortName>Co_GHHAx</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Acceleration of (X-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="12" to="1" encode="signed">
+                        <BitsShortName>Co_GHHAy</BitsShortName>
+                        <BitsName>Correlation of Geometric Height converted into metres and Horizontal Acceleration of (Y-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="602" rule="optional">
+        <DataItemName>Horizontal Velocity Information</DataItemName>
+        <DataItemDefinition>Magnitude of the Horizontal Velocity Vector.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>HV</BitsShortName>
+                            <BitsName>Horizontal Velocity Vector</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Rs_HV</BitsShortName>
+                            <BitsName>Horizontal Velocity Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_HV</BitsShortName>
+                            <BitsName>Horizontal Velocity Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_HVHP</BitsShortName>
+                            <BitsName>Correlation of Horizontal Velocity and Horizontal Position</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="4">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                        </Fixed>
+                </Variable>
+                <Fixed length="5">
+                    <Bits from="21" to="40" encode="signed">
+                        <BitsShortName>HVx</BitsShortName>
+                        <BitsName>Horizontal Velocity (X-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.01" min="-5247.87" max="5247.87">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="20" encode="signed">
+                        <BitsShortName>HVy</BitsShortName>
+                        <BitsName>Horizontal Velocity (Y-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.01" min="-5247.87" max="5247.87">m/s</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="5">
+                    <Bits from="25" to="40">
+                        <BitsShortName>RsHVx</BitsShortName>
+                        <BitsName>Horizontal velocity resolution of the target in target centric Cartesian coordinates (X-component)</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="24">
+                        <BitsShortName>Rs_HVy</BitsShortName>
+                        <BitsName>Horizontal velocity resolution of the target in target centric Cartesian coordinates (Y-component)</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>CoRs_HVXY</BitsShortName>
+                        <BitsName>Correlation of horizontal position resolution of X and Y components, in Two's complement.</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="5">
+                    <Bits from="25" to="40">
+                        <BitsShortName>SD_HVx</BitsShortName>
+                        <BitsName>Standard Deviation of horizontal velocity (X-component)</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="24">
+                        <BitsShortName>SD_HVy</BitsShortName>
+                        <BitsName>Standard Deviation of horizontal velocity (Y-component)</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8">
+                        <BitsShortName>Co_HVxy</BitsShortName>
+                        <BitsName>Correlation of standard deviation of horizontal velocity of X and Y components, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="25" to="32" encode="signed">
+                        <BitsShortName>Co_HVxHPx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Velocity (X-component) and Horizontal Position (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="17" to="24" encode="signed">
+                        <BitsShortName>Co_HVxHPy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Velocity (X-component) and Horizontal Position (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_HVyHPx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Velocity (Y-component) and Horizontal Position (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_HVyHPy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Velocity (Y-component) and Horizontal Position (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="603" rule="optional">
+        <DataItemName>Horizontal Acceleration Information</DataItemName>
+        <DataItemDefinition>Magnitude of the Horizontal Acceleration Vector.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>HA</BitsShortName>
+                            <BitsName>Horizontal Acceleration Vector</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>SD_HA</BitsShortName>
+                            <BitsName>Horizontal Acceleration Precision</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>Co_HAHP</BitsShortName>
+                            <BitsName>Correlation of Horizontal Acceleration and Horizontal Position</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_HAHV</BitsShortName>
+                            <BitsName>Correlation of Horizontal Acceleration and Horizontal Velocity</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="4">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                        </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="13" to="24" encode="signed">
+                        <BitsShortName>HAx</BitsShortName>
+                        <BitsName>Horizontal Acceleration (X-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0625" min="-128" max="128">m/s2</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="12">
+                        <BitsShortName>HAy</BitsShortName>
+                        <BitsName>Horizontal Acceleration (Y-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0625" min="-128" max="128">m/s2</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="4">
+                    <Bits from="21" to="32">
+                        <BitsShortName>SD_HAx</BitsShortName>
+                        <BitsName>Standard Deviation of Horizontal Acceleration (X-component)</BitsName>
+                        <BitsUnit scale="0.0625" max="255.9375">m/s2</BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="20">
+                        <BitsShortName>SD_HAy</BitsShortName>
+                        <BitsName>Standard Deviation of Horizontal Acceleration (Y-component)</BitsName>
+                        <BitsUnit scale="0.0625" max="255.9375">m/s2</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_HAxy</BitsShortName>
+                        <BitsName>Correlation of standard deviation of Horizontal Acceleration of X and Y components, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="25" to="32" encode="signed">
+                        <BitsShortName>Co_HAxHPx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (X-component) and Horizontal Position (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="17" to="24" encode="signed">
+                        <BitsShortName>Co_HAxHPy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (X-component) and Horizontal Position (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_HAyHPx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (Y-component) and Horizontal Position (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_HAyHPy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (Y-component) and Horizontal Position (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="25" to="32" encode="signed">
+                        <BitsShortName>Co_HAxHVx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (X-component) and Horizontal Velocity (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="17" to="24" encode="signed">
+                        <BitsShortName>Co_HAxHVy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (X-component) and Horizontal Velocity (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_HAyHVx</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (Y-component) and Horizontal Velocity (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_HAyHVy</BitsShortName>
+                        <BitsName>Correlation of Horizontal Acceleration (Y-component) and Horizontal Velocity (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="604" rule="optional">
+        <DataItemName>Vertical Velocity Information</DataItemName>
+        <DataItemDefinition>Vertical velocity as given by the rate of change of the Geometric Height.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>VV</BitsShortName>
+                            <BitsName>Vertical Velocity Vector</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Rs_VV</BitsShortName>
+                            <BitsName>Vertical Velocity Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_VV</BitsShortName>
+                            <BitsName>Vertical Velocity Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_VVHP</BitsShortName>
+                            <BitsName>Correlation of Vertical Velocity and Horizontal Position</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>Co_VVHV</BitsShortName>
+                            <BitsName>Correlation of Vertical Velocity and Horizontal Velocity</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>Co_VVHA</BitsShortName>
+                            <BitsName>Correlation of Vertical Velocity and Horizontal Acceleration</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                        </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="1" to="24" encode="signed">
+                        <BitsShortName>VV</BitsShortName>
+                        <BitsName>Vertical Velocity, in Two's complement</BitsName>
+                        <BitsUnit scale="0.01" min="-83886.07" max="83886.07">m/s</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="3">
+                    <Bits from="1" to="16">
+                        <BitsShortName>RS_VV</BitsShortName>
+                        <BitsName>Vertical Velocity resolution</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="3">
+                    <Bits from="9" to="24">
+                        <BitsShortName>SD_VV</BitsShortName>
+                        <BitsName>Standard Deviation of Vertical velocity</BitsName>
+                        <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VVGH</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity and Geometric Height, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VVHPx</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (X-component) and Horizontal Position (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VVHPy</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (Y-component) and Horizontal Position (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VVHVx</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (X-component) and Horizontal Velocity (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VVHVy</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (Y-component) and Horizontal Velocity (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VVHAx</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (X-component) and Horizontal Acceleration (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VVHAy</BitsShortName>
+                        <BitsName>Correlation of Vertical Velocity (Y-component) and Horizontal Acceleration (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="605" rule="optional">
+        <DataItemName>Vertical Acceleration Information</DataItemName>
+        <DataItemDefinition>Rate of change of vertical speed.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>VA</BitsShortName>
+                            <BitsName>Vertical Acceleration</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Rs_VA</BitsShortName>
+                            <BitsName>Vertical Acceleration Precision</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>Co_VAHP</BitsShortName>
+                            <BitsName>Correlation of Vertical Acceleration and Horizontal Position</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_VAHV</BitsShortName>
+                            <BitsName>Correlation of Vertical Acceleration and Horizontal Velocity</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>Co_VAHA</BitsShortName>
+                            <BitsName>Correlation of Vertical Acceleration and Horizontal Acceleration</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="3">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                        </Fixed>
+                </Variable>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="signed">
+                        <BitsShortName>VA</BitsShortName>
+                        <BitsName>Vertical Acceleration, in Two's complement</BitsName>
+                        <BitsUnit scale="0.01" min="-327.67" max="327.67">m/s2</BitsUnit>
+                    </Bits>
+                </Fixed> 
+                <Fixed length="4">
+                    <Bits from="17" to="32">
+                        <BitsShortName>SD_VA</BitsShortName>
+                        <BitsName>Standard Deviation of Vertical Acceleration</BitsName>
+                        <BitsUnit scale="0.01" min="15" max="167.772">m/s2</BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VAGH</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Geometric Height, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VAVV</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Vertical Velocity, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VAHPx</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Position (X-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VAHPy</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Position (Y-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VAHVx</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Velocity (X-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VAHVy</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Velocity (Y-component), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_VAHAx</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Acceleration (Xcomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_VAHAy</BitsShortName>
+                        <BitsName>Correlation of Vertical Acceleration and Horizontal Acceleration (Ycomponent), in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="625" rule="optional">
+        <DataItemName>Range Information</DataItemName>
+        <DataItemDefinition>The targets range information is given relative to the sensor reference point(s).</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet extensible, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>R</BitsShortName>
+                            <BitsName>Range</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Rs_R</BitsShortName>
+                            <BitsName>Range Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_R</BitsShortName>
+                            <BitsName>Range Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>RR</BitsShortName>
+                            <BitsName>Range Rate</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>Rs_RR</BitsShortName>
+                            <BitsName>Range Rate Resolution</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>SD_RR</BitsShortName>
+                            <BitsName>Range Rate Precision</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>RA</BitsShortName>
+                            <BitsName>Range Acceleration</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into first Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>SD_RA</BitsShortName>
+                            <BitsName>Range Acceleration Precision</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="7">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsValue val="0">End of data item</BitsValue>
+                            <BitsValue val="1">Extension into second Extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="1" to="24" encode="signed">
+                        <BitsShortName>RNG</BitsShortName>
+                        <BitsName>Range, in Two's complement</BitsName>
+                        <BitsUnit scale="0.1" min="-838860.7" max="838860.7">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="1" to="24">
+                        <BitsShortName>RS_R</BitsShortName>
+                        <BitsName>Range Resolution</BitsName>
+                        <BitsUnit scale="0.1" max="1677721.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="1" to="24">
+                        <BitsShortName>SD_R</BitsShortName>
+                        <BitsName>Standard Deviation of Range</BitsName>
+                        <BitsUnit scale="0.1" max="1677721.5">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="1" to="24" encode="signed">
+                        <BitsShortName>RR</BitsShortName>
+                        <BitsName>Range Rate, in Two's complement</BitsName>
+                        <BitsUnit scale="0.1" min="-838860.7" max="838860.7">m/s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="1" to="24">
+                        <BitsShortName>Rs_RR</BitsShortName>
+                        <BitsName>Range Rate Resolution</BitsName>
+                        <BitsUnit scale="0.1" max="1677721.5">m/s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="9" to="32">
+                        <BitsShortName>SD_RR</BitsShortName>
+                        <BitsName>Standard Deviation of Range Rate</BitsName>
+                        <BitsUnit scale="0.1" min="-1677721.5" max="1677721.5">m/s</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_RRR</BitsShortName>
+                        <BitsName>Correlation of Range Rate and Range, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="signed">
+                        <BitsShortName>RA</BitsShortName>
+                        <BitsName>Range Acceleration</BitsName>
+                        <BitsUnit scale="0.015625" min="-512" max="512"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="17" to="32">
+                        <BitsShortName>SD_RA</BitsShortName>
+                        <BitsName>Standard Deviation of Range Acceleration</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="9" to="16" encode="signed">
+                        <BitsShortName>Co_RAR</BitsShortName>
+                        <BitsName>Correlation of Range Acceleration and Range, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_RARR</BitsShortName>
+                        <BitsName>Correlation of Range Acceleration and Range Rate, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem> 
+
+    <DataItem id="626" rule="optional">
+        <DataItemName>Doppler Information</DataItemName>
+        <DataItemDefinition>Doppler measurement of the Target.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of up to two-octets, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>DV</BitsShortName>
+                            <BitsName>Doppler Velocity</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>SD_DV</BitsShortName>
+                            <BitsName>Doppler Velocity Precision</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>DA</BitsShortName>
+                            <BitsName>Doppler Acceleration</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>SD_DA</BitsShortName>
+                            <BitsName>Doppler Acceleration Precision</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_DVR</BitsShortName>
+                            <BitsName>Correlation Doppler Velocity and Range</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_DVRR</BitsShortName>
+                            <BitsName>Correlation Doppler Velocity and Range Rate</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>Co_DVRA</BitsShortName>
+                            <BitsName>Correlation Doppler Velocity and Range Acceleration</BitsName>
+                            <BitsPresence>7</BitsPresence>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>Co_DVR</BitsShortName>
+                            <BitsName>Correlation Doppler Velocity and Range Acceleration</BitsName>
+                            <BitsPresence>8</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>Co_DVRR</BitsShortName>
+                            <BitsName>Correlation Doppler Acceleration and Range Rate</BitsName>
+                            <BitsPresence>9</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>Co_DVRA</BitsShortName>
+                            <BitsName>Correlation Doppler Acceleration and Range Acceleration</BitsName>
+                            <BitsPresence>10</BitsPresence>
+                        </Bits>
+                        <Bits from="5" to="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="3">
+                    <Bits from="1" to="24" encode="signed">
+                        <BitsShortName>DV</BitsShortName>
+                        <BitsName>Doppler Velocity, in Two's complement</BitsName>
+                        <BitsUnit scale="0.01" min="-838860.7" max="838860.7">m/s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>SD_DV</BitsShortName>
+                        <BitsName>Standard Deviation of Doppler Velocity</BitsName>
+                        <BitsUnit scale="0.015625" max="1024">m/s</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="signed">
+                        <BitsShortName>DA</BitsShortName>
+                        <BitsName>Doppler Acceleration, in Two's complement</BitsName>
+                        <BitsUnit scale="0.015625" min="512" max="512">m/s2</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="9" to="24">
+                        <BitsShortName>SD_DA</BitsShortName>
+                        <BitsName>Standard Deviation of Doppler Acceleration</BitsName>
+                        <BitsUnit scale="0.015625" max="1024">m/s2</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DADV</BitsShortName>
+                        <BitsName>Correlation of Doppler Acceleration and Doppler Velocity, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DVR</BitsShortName>
+                        <BitsName>Correlation of Doppler Velocity and Range, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8"  encode="signed">
+                        <BitsShortName>Co_DVRR</BitsShortName>
+                        <BitsName>Correlation of Doppler Velocity and Range Rate , in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DVRA</BitsShortName>
+                        <BitsName>Correlation of Doppler Velocity and Range Acceleration , in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DAR</BitsShortName>
+                        <BitsName>Correlation of Doppler Acceleration and Range, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DARR</BitsShortName>
+                        <BitsName>Correlation of Doppler Acceleration and Range Rate, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_DARA</BitsShortName>
+                        <BitsName>Correlation of Doppler Acceleration and Range Acceleration, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem> 
+
+    <DataItem id="627" rule="optional">
+        <DataItemName>Azimuth Information</DataItemName>
+        <DataItemDefinition>Azimuth information that is provided relative to the sensor or component reference point.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of up to two-octets, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>Az</BitsShortName>
+                            <BitsName>Azimuth</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>RS_Az</BitsShortName>
+                            <BitsName>Azimuth Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_Az</BitsShortName>
+                            <BitsName>Azimuth Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>AzR</BitsShortName>
+                            <BitsName>Azimuth Rate</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>SD_AzR</BitsShortName>
+                            <BitsName>Azimuth Rate Precision</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>AzEx</BitsShortName>
+                            <BitsName>Azimuth Extent</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>Az</BitsShortName>
+                        <BitsName>Azimuth</BitsName>
+                        <BitsUnit scale="0.0054931640625" max="360">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>RS_Az</BitsShortName>
+                        <BitsName>Azimuth Resolution</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>SD_Az</BitsShortName>
+                        <BitsName>Standard Deviation of Azimuth</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="signed">
+                        <BitsShortName>AzR</BitsShortName>
+                        <BitsName>Azimuth Rate</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg/sec</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="9" to="24">
+                        <BitsShortName>SD_AzR</BitsShortName>
+                        <BitsName>Standard Deviation of Azimuth Rate</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg/sec</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_AzRAz</BitsShortName>
+                        <BitsName>Correlation of Azimuth Rate and Azimuth, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="17" to="32">
+                        <BitsShortName>AzExS</BitsShortName>
+                        <BitsName>Azimuth Extent Start</BitsName>
+                        <BitsUnit scale="0.0054931640625" max="360">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="16">
+                        <BitsShortName>AzExE</BitsShortName>
+                        <BitsName>Azimuth Extent End</BitsName>
+                        <BitsUnit scale="0.0054931640625" max="360">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>      
+
+    <DataItem id="628" rule="optional">
+        <DataItemName>Elevation Information</DataItemName>
+        <DataItemDefinition>Information related to the elevation angle provided by the sensor. (Predominantly used by electro-optic sensors).</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of up to two-octets, followed by the indicated subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>El</BitsShortName>
+                            <BitsName>Elevation</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>RS_El</BitsShortName>
+                            <BitsName>Elevation Resolution</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>SD_El</BitsShortName>
+                            <BitsName>Elevation Precision</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>ER</BitsShortName>
+                            <BitsName>Elevation Rate</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits bit="4">
+                            <BitsShortName>SD_ER</BitsShortName>
+                            <BitsName>Elevation Rate Precision</BitsName>
+                            <BitsPresence>5</BitsPresence>
+                        </Bits>
+                        <Bits bit="3">
+                            <BitsShortName>ElEx</BitsShortName>
+                            <BitsName>Elevation Extent</BitsName>
+                            <BitsPresence>6</BitsPresence>
+                        </Bits>
+                        <Bits bit="2">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>El</BitsShortName>
+                        <BitsName>Elevation, in Two's complement</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg/sec</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>RS_El</BitsShortName>
+                        <BitsName>Elevation Resolution</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16">
+                        <BitsShortName>SD_El</BitsShortName>
+                        <BitsName>Standard Deviation of Elevation</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="1" to="16" encode="signed">
+                        <BitsShortName>ElR</BitsShortName>
+                        <BitsName>Elevation Rate, in Two's complement</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg/sec</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="3">
+                    <Bits from="9" to="24">
+                        <BitsShortName>SD_ElR</BitsShortName>
+                        <BitsName>Standard Deviation of Elevation Rate</BitsName>
+                        <BitsUnit scale="0.0006866455078125" max="45">deg/sec</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>Co_ElREL</BitsShortName>
+                        <BitsName>Correlation of Elevation Rate and Elevation, in Two's complement</BitsName>
+                        <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="4">
+                    <Bits from="17" to="32">
+                        <BitsShortName>ElExS</BitsShortName>
+                        <BitsName>Elevation Extent Start</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="1" to="16">
+                        <BitsShortName>ElExE</BitsShortName>
+                        <BitsName>Elevation Extent End</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem> 
+
+    <DataItem id="630" rule="optional">
+        <DataItemName>Path Quality</DataItemName>
+        <DataItemDefinition>Measure characterising the signal quality associated with a specific target echo signal.</DataItemDefinition>
+        <DataItemFormat desc="Compound data item, comprising a primary subfield of oneoctet, followed by one or more defined subfields.">
+            <Compound>
+                <Variable>
+                    <Fixed length="1">
+                        <Bits bit="8">
+                            <BitsShortName>DPP</BitsShortName>
+                            <BitsName>Direct Path - Power</BitsName>
+                            <BitsPresence>1</BitsPresence>
+                        </Bits>
+                        <Bits bit="7">
+                            <BitsShortName>DPS</BitsShortName>
+                            <BitsName>Direct Path - SNR</BitsName>
+                            <BitsPresence>2</BitsPresence>
+                        </Bits>
+                        <Bits bit="6">
+                            <BitsShortName>RPP</BitsShortName>
+                            <BitsName>Reflected Path - Power</BitsName>
+                            <BitsPresence>3</BitsPresence>
+                        </Bits>
+                        <Bits bit="5">
+                            <BitsShortName>RPS</BitsShortName>
+                            <BitsName>Reflected Path - SNR</BitsName>
+                            <BitsPresence>4</BitsPresence>
+                        </Bits>
+                        <Bits from="2" to="4">
+                            <BitsShortName>spare</BitsShortName>
+                            <BitsName>Spare bits, set to 0</BitsName>
+                        </Bits>
+                        <Bits bit="1" fx="1">
+                            <BitsShortName>FX</BitsShortName>
+                            <BitsName>Extension indicator</BitsName>
+                            <BitsValue val="0">no extension</BitsValue>
+                            <BitsValue val="1">extension</BitsValue>
+                        </Bits>
+                    </Fixed>
+                </Variable>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>DPP</BitsShortName>
+                        <BitsName>Power of direct path, in Two's complement</BitsName>
+                        <BitsUnit scale="1" min="-128" max="127">dBm</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>DPS</BitsShortName>
+                        <BitsName>Direct Path - Signal to Noise Ratio (SNR)</BitsName>
+                        <BitsUnit scale="1" min="-128" max="127">dBm</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="2">
+                    <Bits from="10" to="16">
+                        <BitsShortName>spare</BitsShortName>
+                        <BitsName>Spare bits set to zero</BitsName>
+                        <BitsConst>0</BitsConst>
+                    </Bits>
+                    <Bits from="1" to="9" encode="signed">
+                        <BitsShortName>RPP</BitsShortName>
+                        <BitsName>Reflected Path - Power</BitsName>
+                        <BitsUnit scale="1" min="-256" max="256">dBm</BitsUnit>
+                    </Bits>
+                </Fixed>
+                <Fixed length="1">
+                    <Bits from="1" to="8" encode="signed">
+                        <BitsShortName>RPS</BitsShortName>
+                        <BitsName>Reflected Path - Signal to Noise Ratio (SNR)</BitsName>
+                        <BitsUnit scale="1" min="-128" max="127">dBm</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Compound>
+        </DataItemFormat>
+    </DataItem>
+
+    <DataItem id="631" rule="optional">
+        <DataItemName>Contour (Azimuth, Elevation Angle, Range Extent)</DataItemName>
+        <DataItemDefinition>Azimuth, elevation angles and range extent of all elementary presences constituting a plot.</DataItemDefinition>
+        <DataItemFormat desc="Repetitive data item starting with a one-octet field repetition indicator (REP) indicating the number of presences associated to the plot, followed by at least one eight-octets contour information.">
+            <Repetitive>
+                <Fixed length="8">
+                    <Bits from="64" to="49">
+                        <BitsShortName>AzCon</BitsShortName>
+                        <BitsName>Azimuth Contour</BitsName>
+                        <BitsUnit scale="0.0054931640625" max="360">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="48" to="33">
+                        <BitsShortName>ElCon</BitsShortName>
+                        <BitsName>Elevation Contour, in Two's complement</BitsName>
+                        <BitsUnit scale="0.00274658203125" min="-90" max="90">deg</BitsUnit>
+                    </Bits>
+                    <Bits from="32" to="17">
+                        <BitsShortName>RgConStop</BitsShortName>
+                        <BitsName>Range Contour Stop</BitsName>
+                        <BitsUnit scale="0.152587890625">m</BitsUnit>
+                    </Bits>
+                    <Bits from="16" to="1">
+                        <BitsShortName>RgConStart</BitsShortName>
+                        <BitsName>Range Contour Start</BitsName>
+                        <BitsUnit scale="0.152587890625">m</BitsUnit>
+                    </Bits>
+                </Fixed>
+            </Repetitive>
+        </DataItemFormat>
+        <DataItemNote>1. The azimuth shall increment in a clockwise manner relative to geographic North centred at the System Reference Point. 2. The elevation shall be given with respect to the local WGS-84 tangential plane of the receiver dedicated by I015/400. 3. If populated, the range contour requires a start and stop point. The stop point is to be greater or equal than the start point.</DataItemNote>
+    </DataItem>
+<!-- Shayan Done -->
+
+    <!--Special Purpose Field - content unknown --> 	
+    <DataItem id="SP" >
+        <DataItemName>Special Purpose Field</DataItemName>
+        <DataItemDefinition>SP</DataItemDefinition>
+        <DataItemFormat desc="Explicit">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>SP</BitsShortName>
+                        <BitsName>SP</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>		
+
+    <!--Reserved Field - content unknown --> 	
+    <DataItem id="RE" >
+        <DataItemName>Reserved Field</DataItemName>
+        <DataItemDefinition>RE</DataItemDefinition>
+        <DataItemFormat desc="Explicit">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>RE</BitsShortName>
+                        <BitsName>RE</BitsName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>   
+
+    <UAP>
+        <UAPItem bit="0" frn="1" len="2">010</UAPItem>
+        <UAPItem bit="1" frn="2" len="1">000</UAPItem>
+        <UAPItem bit="2" frn="3" len="2">015</UAPItem>
+        <UAPItem bit="3" frn="4" len="1+">020</UAPItem>
+        <UAPItem bit="4" frn="5" len="1+">030</UAPItem>
+        <UAPItem bit="5" frn="6" len="3">145</UAPItem>
+        <UAPItem bit="6" frn="7" len="2">161</UAPItem>
+        <UAPItem bit="7" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="8" frn="8" len="1">170</UAPItem>
+        <UAPItem bit="9" frn="9" len="2">050</UAPItem>
+        <UAPItem bit="10" frn="10" len="1+">270</UAPItem>
+        <UAPItem bit="11" frn="11" len="1+2n">300</UAPItem>
+        <UAPItem bit="12" frn="12" len="5">400</UAPItem>
+        <UAPItem bit="13" frn="13" len="1+">600</UAPItem>
+        <UAPItem bit="14" frn="14" len="1+">601</UAPItem>
+        <UAPItem bit="15" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="16" frn="15" len="1+">602</UAPItem>
+        <UAPItem bit="17" frn="16" len="1+">603</UAPItem>
+        <UAPItem bit="18" frn="17" len="1+">604</UAPItem>
+        <UAPItem bit="19" frn="18" len="1+">605</UAPItem>
+        <UAPItem bit="20" frn="19" len="1+5n">480</UAPItem>
+        <UAPItem bit="21" frn="20" len="1+">625</UAPItem>
+        <UAPItem bit="22" frn="21" len="1+">626</UAPItem>
+        <UAPItem bit="23" frn="FX" len="-">-</UAPItem>
+        <UAPItem bit="24" frn="22" len="1+">627</UAPItem>
+        <UAPItem bit="25" frn="23" len="1">628</UAPItem>
+        <UAPItem bit="26" frn="24" len="1+">630</UAPItem>
+        <UAPItem bit="27" frn="25" len="1+8n">631</UAPItem>
+        <UAPItem bit="28" frn="26" len="1+">SP</UAPItem>
+        <UAPItem bit="29" frn="27" len="-">-</UAPItem>
+        <UAPItem bit="30" frn="28" len="-">-</UAPItem>
+        <UAPItem bit="31" frn="FX" len="-">-</UAPItem>
+    </UAP>
+</Category>
