@@ -122,7 +122,7 @@
         <DataItemFormat desc="Variable length data item comprising a first part of one-octet, followed by one-octet Extensions as necessary.">
             <Fixed length="1">
                 <Bits from="8" to="2">
-                    <BitsShortName>W/E Value</BitsShortName>
+                    <BitsShortName>WE</BitsShortName>
                     <BitsName>Warning/Error Condition Value</BitsName>
                 </Bits>
                 <Bits bit="1" fx="1">
@@ -309,6 +309,7 @@
                         <BitsUnit scale="0.00549316406" max="360">deg</BitsUnit>
                     </Bits>
                 </Fixed>
+            </Compound>
             </DataItemFormat>
     </DataItem>
 
@@ -652,7 +653,7 @@
                 </Fixed> 
                 <Fixed length="5">
                     <Bits from="25" to="40">
-                        <BitsShortName>RsHVx</BitsShortName>
+                        <BitsShortName>Rs_HVx</BitsShortName>
                         <BitsName>Horizontal velocity resolution of the target in target centric Cartesian coordinates (X-component)</BitsName>
                         <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
                     </Bits>
@@ -662,7 +663,7 @@
                         <BitsUnit scale="0.01" max="655.35">m/s</BitsUnit>
                     </Bits>
                     <Bits from="1" to="8" encode="signed">
-                        <BitsShortName>CoRs_HVXY</BitsShortName>
+                        <BitsShortName>CoRs_HVxy</BitsShortName>
                         <BitsName>Correlation of horizontal position resolution of X and Y components, in Two's complement.</BitsName>
                         <BitsUnit scale="0.0078125" min="-1" max="1"></BitsUnit>
                     </Bits>
