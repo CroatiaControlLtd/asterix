@@ -3,12 +3,13 @@
 
 <!--  
 
-    Asterix Category 15 v1.2 definition 
+    Asterix Category 15 v1.0 definition 
     
-    Author:   shayan
-    Created:  16.07.2019.
-    Modified: 08.09.2025. (shayan) : I062/SP defined as Explicit (content unknown)
+    Author:   msktechy
+    Created:  08.09.2025.
+    Modified: 14.10.2025. (msktechy) : Created Cat I015
               23.10.2025. (dsalantic): Reviewed and corrected 
+              28.10.2025. (msktechy) : Updated comments and fixed Category 15 Version
 
 -->
 
@@ -1660,7 +1661,6 @@
         </DataItemFormat>
         <DataItemNote>1. The azimuth shall increment in a clockwise manner relative to geographic North centred at the System Reference Point. 2. The elevation shall be given with respect to the local WGS-84 tangential plane of the receiver dedicated by I015/400. 3. If populated, the range contour requires a start and stop point. The stop point is to be greater or equal than the start point.</DataItemNote>
     </DataItem>
-<!-- Shayan Done -->
 
     <!--Special Purpose Field - content unknown --> 	
     <DataItem id="SP" >
