@@ -286,3 +286,6 @@ Issue #236 Changed Item I010/131 to unsigned
 
 2.8.10 (python_v0.7.10)
 Added CAT015
+
+2.8.11 (python_v0.7.11)
+Issue #250 Wrong types in CAT004 definition

@@ -26,7 +26,7 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define _VERSION        2.8.10
-#define _VERSION_STR   "2.8.10"
+#define _VERSION        2.8.11
+#define _VERSION_STR   "2.8.11"
 
 #endif
