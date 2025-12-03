@@ -616,7 +616,7 @@
         <DataItemDefinition>Longitudinal deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length Data Item">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="signed">
                     <BitsShortName>LD</BitsShortName>
                     <BitsName>Longitudinal deviation</BitsName>
                     <BitsUnit scale="32">m</BitsUnit>
@@ -631,7 +631,7 @@
         <DataItemDefinition>Transversal distance deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length Data Item">
             <Fixed length="3">
-                <Bits from="24" to="1">
+                <Bits from="24" to="1" encode="signed">
                     <BitsShortName>TDD</BitsShortName>
                     <BitsName>Transversal Distance Deviation</BitsName>
                     <BitsUnit scale="0.5">m</BitsUnit>
@@ -646,7 +646,7 @@
         <DataItemDefinition>Vertical Deviation from planned altitude, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length Data Item">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="signed">
                     <BitsShortName>VD</BitsShortName>
                     <BitsName>Vertical deviation</BitsName>
                     <BitsUnit scale="25">ft</BitsUnit>

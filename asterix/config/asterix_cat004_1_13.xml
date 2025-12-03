@@ -8,10 +8,11 @@
     Author:   Ivana Zrinusic
     Created:  24.11.2015.
     Modified: 24.11.2015.
-	Modified: 25.1.20201. Damir Salantic - v1.12
+    Modified: 25.1.2021. Damir Salantic - v1.12
+    Modified: 20.6.2025. Damir Salantic - v1.13 + RE v1.4
 -->
 
-<Category id="4" name="Safety Net Messages" ver="1.12">
+<Category id="4" name="Safety Net Messages" ver="1.13">
 
     <DataItem id="000" rule="mandatory">
         <DataItemName>Message Type</DataItemName>   
@@ -616,7 +617,7 @@
         <DataItemDefinition>Longitudinal deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length Data Item">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="signed">
                     <BitsShortName>LD</BitsShortName>
                     <BitsName>Longitudinal deviation</BitsName>
                     <BitsUnit scale="32">m</BitsUnit>
@@ -631,7 +632,7 @@
         <DataItemDefinition>Transversal distance deviation for Route Adherence Monitoring, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Three-Octet fixed length Data Item">
             <Fixed length="3">
-                <Bits from="24" to="1">
+                <Bits from="24" to="1" encode="signed">
                     <BitsShortName>TDD</BitsShortName>
                     <BitsName>Transversal Distance Deviation</BitsName>
                     <BitsUnit scale="0.5">m</BitsUnit>
@@ -646,7 +647,7 @@
         <DataItemDefinition>Vertical Deviation from planned altitude, in two’s complement form.</DataItemDefinition>
         <DataItemFormat desc="Two-Octet fixed length Data Item">
             <Fixed length="2">
-                <Bits from="16" to="1">
+                <Bits from="16" to="1" encode="signed">
                     <BitsShortName>VD</BitsShortName>
                     <BitsName>Vertical deviation</BitsName>
                     <BitsUnit scale="25">ft</BitsUnit>
@@ -1463,9 +1464,9 @@
         </DataItemFormat>
     </DataItem>
 
-    <DataItem id="RE">
-        <DataItemName>Reserved Expansion Data Field</DataItemName>
-        <DataItemDefinition>Field used to introduce intermediate changes for elementary surveillance</DataItemDefinition>
+    <DataItem id="RE" rule="optional">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>Field used to carry additional information items, indicated by the Items Indicator.</DataItemDefinition>
         <DataItemFormat desc="One byte length field, followed by a two byte fixed length data item.">
             <Explicit>
                 <Compound>
@@ -1473,15 +1474,68 @@
                         <Fixed length="1">
                             <Bits bit="8">
                                 <BitsShortName>TI1</BitsShortName>
-                                <BitsName>Information Target 1</BitsName>
+                                <BitsName>Information Target 1 present</BitsName>
                                 <BitsPresence>1</BitsPresence>
                             </Bits>
                             <Bits bit="7">
                                 <BitsShortName>TI2</BitsShortName>
-                                <BitsName>Information Target 2</BitsName>
+                                <BitsName>Information Target 2 present</BitsName>
                                 <BitsPresence>2</BitsPresence>
                             </Bits>
-                            <Bits from="6" to="2">
+                            <Bits bit="6">
+                                <BitsShortName>ET1</BitsShortName>
+                                <BitsName>Extended Information Target 1 present</BitsName>
+                                <BitsPresence>3</BitsPresence>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>ET2</BitsShortName>
+                                <BitsName>Extended Information Target 2 present</BitsName>
+                                <BitsPresence>4</BitsPresence>
+                            </Bits>
+                            <Bits bit="4">
+                                <BitsShortName>CON</BitsShortName>
+                                <BitsName>Conflict Information present</BitsName>
+                                <BitsPresence>5</BitsPresence>
+                            </Bits>
+                            <Bits bit="3">
+                                <BitsShortName>TTG</BitsShortName>
+                                <BitsName>Time to Go present</BitsName>
+                                <BitsPresence>6</BitsPresence>
+                            </Bits>
+                            <Bits bit="2">
+                                <BitsShortName>FBD</BitsShortName>
+                                <BitsName>Deviation from Expected Flight Behaviour present</BitsName>
+                                <BitsPresence>7</BitsPresence>
+                            </Bits>
+                            <Bits bit="1" fx="1">
+                                <BitsShortName>FX</BitsShortName>
+                                <BitsName>Extension Indicator</BitsName>
+                                <BitsValue val="0">No extension</BitsValue>
+                                <BitsValue val="1">Extension</BitsValue>
+                            </Bits>
+                        </Fixed>
+                        <Fixed length="1">
+                            <Bits bit="8">
+                                <BitsShortName>AFI</BitsShortName>
+                                <BitsName>Alert Function Identifier present</BitsName>
+                                <BitsPresence>8</BitsPresence>
+                            </Bits>
+                            <Bits bit="7">
+                                <BitsShortName>AFT</BitsShortName>
+                                <BitsName>Alert Free Text present</BitsName>
+                                <BitsPresence>9</BitsPresence>
+                            </Bits>
+                            <Bits bit="6">
+                                <BitsShortName>FASI</BitsShortName>
+                                <BitsName>Final Approach Support Tool Information present</BitsName>
+                                <BitsPresence>10</BitsPresence>
+                            </Bits>
+                            <Bits bit="5">
+                                <BitsShortName>EAN</BitsShortName>
+                                <BitsName>Extended Area Name present</BitsName>
+                                <BitsPresence>11</BitsPresence>
+                            </Bits>
+                            <Bits from="4" to="2">
                                 <BitsShortName>spare</BitsShortName>
                                 <BitsName>Spare bits set to 0</BitsName>
                                 <BitsConst>0</BitsConst>
