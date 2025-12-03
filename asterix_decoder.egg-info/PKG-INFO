@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
-Name: asterix-decoder
-Version: 0.7.4
+Metadata-Version: 2.4
+Name: asterix_decoder
+Version: 0.7.9
 Summary: ASTERIX decoder in Python
 Home-page: https://github.com/CroatiaControlLtd/asterix
 Download-URL: https://github.com/CroatiaControlLtd/asterix
@@ -27,6 +27,17 @@ Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 License-File: LICENSE
 License-File: COPYING
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: platform
+Dynamic: summary
 
 asterix
 =======
