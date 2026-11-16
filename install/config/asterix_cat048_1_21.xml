@@ -1203,6 +1203,25 @@
         <DataItemNote/>
     </DataItem>     
 
+    <!--
+        Reserved Expansion Field. Keep the field opaque; the explicit length
+        allows the decoder to skip it without interpreting Appendix A.
+    -->
+    <DataItem id="RE">
+        <DataItemName>Reserved Expansion Field</DataItemName>
+        <DataItemDefinition>Opaque reserved expansion data.</DataItemDefinition>
+        <DataItemFormat desc="Explicit data item.">
+            <Explicit>
+                <Fixed length="1">
+                    <Bits from="8" to="1">
+                        <BitsShortName>VAL</BitsShortName>
+                    </Bits>
+                </Fixed>
+            </Explicit>
+        </DataItemFormat>
+        <DataItemNote/>
+    </DataItem>
+
     <UAP>
         <UAPItem bit="0" frn="1" len="2">010</UAPItem>
         <UAPItem bit="1" frn="2" len="3">140</UAPItem>
