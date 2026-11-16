@@ -170,6 +170,17 @@ class AsterixParseTest(unittest.TestCase):
                                                  'ARC': {'val': 1},
                                                  'SI': {'val': 0}})
 
+    def test_ParseCAT048WithRE(self):
+        data = bytes.fromhex(
+            "30 00 0F 81 01 01 02 AA 55 03 7E 6D 80 AA 55"
+        )
+        packets = asterix.parse(data)
+
+        self.assertEqual(len(packets), 2)
+        for packet in packets:
+            self.assertEqual(packet["I010"]["SAC"]["val"], 170)
+            self.assertEqual(packet["I010"]["SIC"]["val"], 85)
+
     def test_ParseCAT062CAT065(self):
         self.maxDiff = None
         sample_filename = asterix.get_sample_file('cat062cat065.raw')
