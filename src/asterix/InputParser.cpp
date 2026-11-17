@@ -71,6 +71,7 @@ InputParser::parsePacket(const unsigned char *m_pBuffer, unsigned int m_nBufferS
             // parse Asterix data
             if (dataLen <= 3 || dataLen > m_nDataLength) {
                 Tracer::Error("Wrong Asterix data length (%d)", dataLen);
+                this->raisedError = true;
 
                 if (dataLen <= 3) {
                     // otherwise finish

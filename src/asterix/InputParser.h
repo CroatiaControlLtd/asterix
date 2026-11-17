@@ -48,10 +48,13 @@ public:
     bool filterOutItem(int cat, std::string item, const char *name);
 
     bool isFiltered(int cat, std::string item, const char *name);
+    bool raisedErrorFlag() { return raisedError; }
+    void clearErrorFlag() { raisedError = false; }
+
 
 private:
     AsterixDefinition *m_pDefinition; // Asterix definitions
-
+    bool raisedError = false; 
 };
 
 #endif /* INPUTPARSER_H_ */
