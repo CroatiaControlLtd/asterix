@@ -86,7 +86,13 @@ void XMLParser::Error(const char *errstr, const char *param1) {
 
 void XMLParser::Error(const char *errstr) {
     char strLine[1024];
-    snprintf(strLine, 1024, " in file: %s line: %d", m_pFileName, (int) XML_GetCurrentLineNumber(m_Parser));
+    // Expat 2.9.0 added XML_GetCurrentLineNumber64 and deprecated XML_GetCurrentLineNumber
+#if XML_MAJOR_VERSION > 2 || (XML_MAJOR_VERSION == 2 && XML_MINOR_VERSION >= 9)
+    unsigned long long line = XML_GetCurrentLineNumber64(m_Parser);
+#else
+    unsigned long long line = XML_GetCurrentLineNumber(m_Parser);
+#endif
+    snprintf(strLine, 1024, " in file: %s line: %llu", m_pFileName, line);
     std::string tmpstr(errstr);
     tmpstr += strLine;
     tmpstr += "\n";
