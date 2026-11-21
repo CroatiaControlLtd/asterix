@@ -1,0 +1,33 @@
+<ASTERIX ver="1" cat="48" length="45" crc="AB659C3E" timestamp="T" srcip="0.0.0.0" hexdata="FDF70219C9356D4DA0C5AFF1E0020005283C660C10C236D4182001C0780031BC0000400DEB07B9582E410020F5">
+    <I010>
+        <SAC>25</SAC>
+        <SIC>201</SIC>
+    </I010>
+    <I040>
+        <RHO>197.6835938</RHO>
+        <THETA>340.1367188</THETA>
+    </I040>
+    <I220>
+        <ACAddr>3C660C</ACAddr>
+    </I220>
+    <I240>
+        <TId>DLH65A  </TId>
+    </I240>
+    <I250>
+        <MCP_ALT_STATUS>1</MCP_ALT_STATUS>
+        <MCP_ALT>33008.0000000</MCP_ALT>
+        <FMS_ALT_STATUS>0</FMS_ALT_STATUS>
+        <FMS_ALT>0.0000000</FMS_ALT>
+        <BP_STATUS>1</BP_STATUS>
+        <BP>227.0000000</BP>
+        <res1>0</res1>
+        <MODE_STATUS>0</MODE_STATUS>
+        <VNAV>0</VNAV>
+        <ALT_HOLD>0</ALT_HOLD>
+        <APP>0</APP>
+        <res2>0</res2>
+        <TARGET_ALT_STATUS>0</TARGET_ALT_STATUS>
+        <TARGET_ALT_SOURCE>0</TARGET_ALT_SOURCE>
+        <BDS>40</BDS>
+    </I250>
+</ASTERIX>

@@ -22,6 +22,7 @@
  */
 
 #include "Tracer.h"
+#include <string>
 #include <stdio.h>
 #include <iostream>
 #include <stdarg.h>
@@ -57,16 +58,29 @@ void Tracer::Delete() {
 }
 
 void Tracer::Error(const char *format, ...) {
-    char buffer[1024];
-    va_list args;
-    va_start (args, format);
-    vsnprintf(buffer, 1024, format, args);
-    va_end (args);
+    // any length: some messages carry a whole data block in hex
+    char small[1024];
+    va_list args, again;
+    va_start(args, format);
+    va_copy(again, args);
+    int n = vsnprintf(small, sizeof(small), format, args);
+    va_end(args);
+    std::string message;
+    if (n >= (int) sizeof(small)) {
+        message.resize(n);
+        vsnprintf(&message[0], n + 1, format, again);
+    } else if (n >= 0) {
+        message = small;
+    }
+    va_end(again);
+    const char *buffer = message.c_str();
     Tracer &instance = Tracer::instance();
+    // the print functions are printf-like: buffer is already formatted, so it must not be the format
+    // again (a '%' coming from the data or a file name would read arguments that do not exist)
     if (instance.pPrintFunc) {
-        instance.pPrintFunc(buffer);
+        instance.pPrintFunc("%s", buffer);
     } else if (instance.pPrintFunc2) {
-        instance.pPrintFunc2(buffer);
+        instance.pPrintFunc2("%s", buffer);
     } else {
         puts(buffer);
     }

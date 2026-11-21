@@ -289,3 +289,90 @@ Added CAT015
 
 2.8.11 (python_v0.7.11)
 Issue #250 Wrong types in CAT004 definition
+
+2.8.11-ifsnop.1 (python_v0.7.11 unchanged)
+First version of the fork https://github.com/ifsnop/asterix, based on CroatiaControlLtd/asterix 2.8.11.
+The original project has not been updated since December 2025.
+Security fixes (found with AddressSanitizer/UBSan and fuzzing):
+           Out-of-bounds reads when computing item lengths of truncated or malformed records
+           Out-of-bounds reads in PCAP link/IP/UDP headers and ORADIS headers, endless loop with ORADIS byte count 0
+           Stack overflow parsing BDS entries of -LF filter files
+           Memory leak with ORADIS input
+           Invalid casts of Repetitive sub-formats (BDS) to Fixed
+           Non printable characters in ASCII fields copied to the output
+           Stack and static buffer overflows building file names in the disk device
+           TCP client socket used after close, definition object leaked when asterix.ini is missing
+Source IP of each record in TXT, JSON and XML outputs (UDP multicast input and GPS files)
+New output format -jx / --json-hex: compact JSON, one record per line, with hex and mask of each field
+
+2.8.11-ifsnop.2 (python_v0.7.11 unchanged)
+-jx / --json-hex made to change a value and write it back to ASTERIX:
+           "fspec" (FSPEC bytes) and "hexdata" (data items after the FSPEC): the record is fspec+hexdata
+           "pos" in every field: byte offset of its hex in hexdata (first byte of hexdata is pos 0)
+           "mask" whenever a field does not fill its hex bytes, so hexdata[pos..] = (hex & ~mask) | (value & mask)
+           Unique keys: FX bits numbered by extent (FX0, FX1, ...), other repeated names numbered (spare, spare1)
+-j record header changed (incompatible with the original): "fspec" printed separately and "hexdata" holds
+           only the data items after the FSPEC (in the original, hexdata was the whole record)
+
+2.8.11-ifsnop.3 (python_v0.7.11 unchanged)
+Faster decoding with byte-identical output: -jx about 8x faster (51 MB GPS file: 68 s -> 8.5 s),
+           other output formats 2-2.6x faster:
+           format() formats once into a stack buffer instead of twice through the heap
+           -jx fields written without allocations (hex, mask and pos built in place, mask built once per field)
+           Items written straight into the output string instead of copied through temporary strings
+           -jx unique keys computed once per format instead of a std::set per field
+           Cached FRN -> item and Compound presence-bit lookups
+           Disk input: no ftell/fstat/select system calls per packet
+make rebuilds objects when an included header changes (dependency targets were never matched);
+           run make clean once after updating
+
+2.8.11-ifsnop.4 (python_v0.7.11 unchanged)
+Record header with the FSPEC apart in -jh, -je and the default text output, as in -j and -jx (incompatible):
+           "fspec" (JSON) / "Fspec:" (text) has the FSPEC bytes and "hexdata" / "HexData:" only the data
+           items after the FSPEC: the record is fspec+hexdata. XML keeps the whole record in hexdata.
+-h documents the default text output and lists -G and -xh in the usage line
+Format strings: text from input data or file names is never used as a printf format
+           (a definitions file name with % made the program crash); format/argument type mismatches fixed
+Python publish workflow runs only by hand; CodeQL workflow updated (codeql-action v4, make build)
+Text fields (ASCII encoding: callsign, aircraft type, airports, runway, stand, SID/STAR, CAT004
+           designators...) only print A-Z, 0-9, space and '.' (radio channel names, I205/090); any other
+           byte is printed as '@'. A quote or backslash in damaged data made -j/-jx invalid JSON.
+           Visible on captures that pad these fields with control characters: they used to print as
+           spaces and now print as '@' (e.g. callsign DLHEGN + 0x01 -> DLHEGN@). -jx "hex" keeps the raw bytes.
+Malformed records: decoding goes on after them as before, and a WARNING on stderr gives the record
+           number and the whole data block in hex (CAT, LEN, data) for later analysis. Decoder messages
+           are no longer cut at 1024 characters.
+Fixes found by the new test suite:
+           HDLC input from files: files under 4 KB decoded nothing and longer files lost their last
+           partial 4 KB buffer
+           HDLC: a frame with an Asterix block length of 0 looped forever
+           PCAP: a corrupt packet length (incl_len) allocated up to 4 GB and could abort (std::bad_alloc);
+           lengths over 262144 bytes or past the end of the file are rejected
+           FINAL: a byte count smaller than the record header wrapped around to almost 4 GB (same abort)
+           XMLParser: a definitions file that failed inside <Category> leaked that category
+Test suite (tests/, see tests/README.md), run by GitHub Actions on every push and pull request:
+           golden outputs: 13 inputs x 8 output formats x with and without -LF, including synthetic FINAL,
+           HDLC and ORADIS files generated from the real samples (tests/tools/gen_samples.py)
+           -jx consistency (fspec, length, crc, hex/mask/pos/val, unique keys) and agreement of -j, -jh,
+           -je, text and XML; write-back of edited values through hex/mask/pos
+           stdin, UDP multicast and loop mode input; command line options
+           malformed inputs (one per fixed bug) and mutated inputs under AddressSanitizer/UBSan, valid JSON
+           whatever the input; unit tests (bit fields, getLength contract of every item of every category,
+           parser, UAP selection, record headers); libFuzzer; line coverage floor (65%, from 48%)
+CMake: minimum version 3.10; the decoder is a static library; options ASTERIX_TESTS, ASTERIX_FUZZ and
+           ASTERIX_COVERAGE. install/test/test.sh prints the diff of a failed case.
+
+2.8.11-ifsnop.5 (python_v0.7.11 unchanged)
+-j, -jh, -x and -xh about twice as fast as in ifsnop.4, output byte for byte the same: the field key,
+           numeric value and text value no longer go through format() (51 MB GPS file: -j 15.4 s -> 7.7 s,
+           39.9 s before any optimization; -jh 15.6 -> 8.5 s; -x 17.6 -> 8.8 s; -xh 22.0 -> 10.8 s)
+README: build and coverage badges of this fork; the coverage job publishes the line coverage to the
+           badges branch on each push to master
+
+2.8.11-ifsnop.6 (python_v0.7.11 unchanged)
+-LF about 40% faster: items with no field in the filter are only measured to step over them, never
+           copied, walked or printed; the -j/-jx record header no longer goes through format()
+           (2.7 GB GPS capture, "bzip2 -dc | asterix -LF ... -G -j": 5m05s -> 2m59s)
+stdin is read in 64 KB blocks instead of 3 read() + 1 select() per packet; live input is not delayed
+-LF fix: an item not in the filter holding an empty Repetitive (e.g. CAT062 I390 "TOD":[]) was printed;
+           it is now left out. With -LF, errors inside items not in the filter are no longer reported

@@ -36,7 +36,7 @@ public:
     ~DataItemFormatBDS();
 
     DataItemFormatBDS *clone() const { return new DataItemFormatBDS(*this); } // Return clone of object
-    long getLength(const unsigned char *pData);
+    long getLength(const unsigned char *pData, long nMaxLength);
 
     bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
                  long nLength); // appends value description to strResult

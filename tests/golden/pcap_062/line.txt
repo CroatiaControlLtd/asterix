@@ -1,0 +1,1593 @@
+
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16310542 (127426.1093750 s)
+Asterix.CAT062.105.Lat 807336548 (4330.8907342 deg)
+Asterix.CAT062.105.Lon 217096450 (1164.5961106 deg)
+Asterix.CAT062.185.Vx -3579 (-894.7500000 m/s)
+Asterix.CAT062.185.Vy 7 (1.7500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 29 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  78D K4A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16725
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 90 (22.5000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS ATILOWW
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16316928 (127476.0000000 s)
+Asterix.CAT062.105.Lat 1914581223 (10270.6140321 deg)
+Asterix.CAT062.105.Lon 219710469 (1178.6188012 deg)
+Asterix.CAT062.185.Vx 28165 (7041.2500000 m/s)
+Asterix.CAT062.185.Vy 10249 (2562.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 47 Warning: Value should be set to 0
+Asterix.CAT062.245.TId W      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17222
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.295.MHG 69 (17.2500000 sec)
+Asterix.CAT062.390.CS DLHEGN@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16363013 (127836.0390625 s)
+Asterix.CAT062.105.Lat -1558144112 (-8358.5363674 deg)
+Asterix.CAT062.105.Lon 149189633 (800.3155571 deg)
+Asterix.CAT062.185.Vx 22789 (5697.2500000 m/s)
+Asterix.CAT062.185.Vy 30727 (7681.7500000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 31 Warning: Value should be set to 0
+Asterix.CAT062.245.TId XIH    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21571
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 53 (13.2500000 sec)
+Asterix.CAT062.295.MDA 55 (13.7500000 sec)
+Asterix.CAT062.295.MD4 75 (18.7500000 sec)
+Asterix.CAT062.390.CS EGGDLGZ
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16363021 (127836.1015625 s)
+Asterix.CAT062.105.Lat -316631000 (-1698.5410452 deg)
+Asterix.CAT062.105.Lon 149511168 (802.0404053 deg)
+Asterix.CAT062.185.Vx 16647 (4161.7500000 m/s)
+Asterix.CAT062.185.Vy 2056 (514.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 18 Warning: Value should be set to 0
+Asterix.CAT062.245.TId XM     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 20019
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 0 (default value)
+Asterix.CAT062.080.MRH 1 (Geometric altitude more reliable)
+Asterix.CAT062.080.SRC 5 (speed look-up table)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 72 (18.0000000 sec)
+Asterix.CAT062.295.MHG 32 (8.0000000 sec)
+Asterix.CAT062.390.CS EBBRLLB
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16376077 (127938.1015625 s)
+Asterix.CAT062.105.Lat 1461714421 (7841.2471944 deg)
+Asterix.CAT062.105.Lon 155936527 (836.5087169 deg)
+Asterix.CAT062.185.Vx 19717 (4929.2500000 m/s)
+Asterix.CAT062.185.Vy -14328 (-3582.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 1 Warning: Value should be set to 0
+Asterix.CAT062.245.TId Q      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21333
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 1 (Age of the last received SSR track update is higher than system dependent threshold)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 0 (Default value)
+Asterix.CAT062.080.SUC 1 (Special Used Code (Mode A codes to be defined in the system to mark a track with special interest))
+Asterix.CAT062.080.AAC 1 (Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track))
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.390.CS SZBZZZZ
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16382466 (127988.0156250 s)
+Asterix.CAT062.105.Lat -1960864585 (-10518.8973337 deg)
+Asterix.CAT062.105.Lon 160347405 (860.1705104 deg)
+Asterix.CAT062.185.Vx 19973 (4993.2500000 m/s)
+Asterix.CAT062.185.Vy 10247 (2561.7500000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 55 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  2X    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16730
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 1 (Age of the last received SSR track update is higher than system dependent threshold)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 0 (Default value)
+Asterix.CAT062.080.SUC 0 (Default value)
+Asterix.CAT062.080.AAC 1 (Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track))
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.SDS 0 (Combined)
+Asterix.CAT062.080.EMS 4 (No communications)
+Asterix.CAT062.080.PFT 0 (No indication)
+Asterix.CAT062.080.FPLT 0 (Default value)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 69 (17.2500000 sec)
+Asterix.CAT062.390.CS WALIRF@
+Asterix.CAT062.390.GATOAT 0 (Unknown)
+Asterix.CAT062.390.FR1FR2 0 (Instrument Flight Rules)
+Asterix.CAT062.390.RVSM 2 (Exempt)
+Asterix.CAT062.390.HPR 0 (Normal Priority Flight)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16389121 (128040.0078125 s)
+Asterix.CAT062.105.Lat -1138771206 (-6108.8447893 deg)
+Asterix.CAT062.105.Lon 162202637 (870.1227504 deg)
+Asterix.CAT062.185.Vx 16902 (4225.5000000 m/s)
+Asterix.CAT062.185.Vy 26631 (6657.7500000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 63 Warning: Value should be set to 0
+Asterix.CAT062.245.TId   L    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17747
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 2 (Unknown target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 0 (No Mode 5 interrogation)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 32 (8.0000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS KPRLIRN
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 3087
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16402181 (128142.0390625 s)
+Asterix.CAT062.105.Lat -819985583 (-4398.7454456 deg)
+Asterix.CAT062.105.Lon 175141902 (939.5343769 deg)
+Asterix.CAT062.185.Vx 11266 (2816.5000000 m/s)
+Asterix.CAT062.185.Vy -22522 (-5630.5000000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 53 Warning: Value should be set to 0
+Asterix.CAT062.245.TId I      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17730
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 52 (13.0000000 sec)
+Asterix.CAT062.295.MHG 51 (12.7500000 sec)
+Asterix.CAT062.390.CS LDPLLDZ
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16402191 (128142.1171875 s)
+Asterix.CAT062.105.Lat 589354632 (3161.5446138 deg)
+Asterix.CAT062.105.Lon 176359694 (946.0671222 deg)
+Asterix.CAT062.185.Vx 23813 (5953.2500000 m/s)
+Asterix.CAT062.185.Vy -14329 (-3582.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 41 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  H     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19535
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 5 (speed look-up table)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.MHG 80 (20.0000000 sec)
+Asterix.CAT062.295.SAL 87 (21.7500000 sec)
+Asterix.CAT062.295.FSS 65 (16.2500000 sec)
+Asterix.CAT062.295.GVR 76 (19.0000000 sec)
+Asterix.CAT062.295.RAN 73 (18.2500000 sec)
+Asterix.CAT062.295.GSP 82 (20.5000000 sec)
+Asterix.CAT062.295.EMC 70 (17.5000000 sec)
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16408845 (128194.1015625 s)
+Asterix.CAT062.105.Lat 1159767060 (6221.4753270 deg)
+Asterix.CAT062.105.Lon 179310338 (961.8956101 deg)
+Asterix.CAT062.185.Vx -19707 (-4926.7500000 m/s)
+Asterix.CAT062.185.Vy 20488 (5122.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 1 Warning: Value should be set to 0
+Asterix.CAT062.245.TId EK     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 20044
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 54 (13.5000000 sec)
+Asterix.CAT062.295.MDA 55 (13.7500000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS IRFLOWW
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16408838 (128194.0468750 s)
+Asterix.CAT062.105.Lat -450962509 (-2419.1514140 deg)
+Asterix.CAT062.105.Lon 180000002 (965.5952561 deg)
+Asterix.CAT062.185.Vx -3836 (-959.0000000 m/s)
+Asterix.CAT062.185.Vy 24582 (6145.5000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 19 Warning: Value should be set to 0
+Asterix.CAT062.245.TId 3      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19522
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 54 (13.5000000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MHG 64 (16.0000000 sec)
+Asterix.CAT062.390.CS ATILIPE
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16415495 (128246.0546875 s)
+Asterix.CAT062.105.Lat -668920720 (-3588.3703709 deg)
+Asterix.CAT062.105.Lon 181466638 (973.4629047 deg)
+Asterix.CAT062.185.Vx 18691 (4672.7500000 m/s)
+Asterix.CAT062.185.Vy -26620 (-6655.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 4 Warning: Value should be set to 0
+Asterix.CAT062.245.TId        A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17236
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 3 (triangulation)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 52 (13.0000000 sec)
+Asterix.CAT062.295.MDA 53 (13.2500000 sec)
+Asterix.CAT062.295.MD5 32 (8.0000000 sec)
+Asterix.CAT062.390.CS LOWWLDS
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16421901 (128296.1015625 s)
+Asterix.CAT062.105.Lat 840972583 (4511.3284868 deg)
+Asterix.CAT062.105.Lon 187724303 (1007.0316356 deg)
+Asterix.CAT062.185.Vx 27397 (6849.2500000 m/s)
+Asterix.CAT062.185.Vy -14328 (-3582.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 6 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WO     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21590
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 76 (19.0000000 sec)
+Asterix.CAT062.295.SAL 70 (17.5000000 sec)
+Asterix.CAT062.295.FSS 80 (20.0000000 sec)
+Asterix.CAT062.295.COM 79 (19.7500000 sec)
+Asterix.CAT062.295.GVR 76 (19.0000000 sec)
+Asterix.CAT062.295.RAN 84 (21.0000000 sec)
+Asterix.CAT062.295.GSP 70 (17.5000000 sec)
+Asterix.CAT062.295.EMC 69 (17.2500000 sec)
+Asterix.CAT062.295.POS 1 (0.2500000 sec)
+Asterix.CAT062.295.PUN 8 (2.0000000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16421903 (128296.1171875 s)
+Asterix.CAT062.105.Lat -1843385302 (-9888.6893499 deg)
+Asterix.CAT062.105.Lon 189140740 (1014.6299958 deg)
+Asterix.CAT062.185.Vx -30971 (-7742.7500000 m/s)
+Asterix.CAT062.185.Vy 10248 (2562.0000000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 19 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WLD    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16709
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.SAL 68 (17.0000000 sec)
+Asterix.CAT062.390.CS LLGTS@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16428546 (128348.0156250 s)
+Asterix.CAT062.105.Lat 908100334 (4871.4298046 deg)
+Asterix.CAT062.105.Lon 190250765 (1020.5846339 deg)
+Asterix.CAT062.185.Vx 22528 (5632.0000000 m/s)
+Asterix.CAT062.185.Vy -4094 (-1023.5000000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 33 Warning: Value should be set to 0
+Asterix.CAT062.245.TId ASXD OXA
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17235
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 65 (16.2500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD4 64 (16.0000000 sec)
+Asterix.CAT062.295.MHG 76 (19.0000000 sec)
+Asterix.CAT062.390.CS ZALKPR@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16428554 (128348.0781250 s)
+Asterix.CAT062.105.Lat -1541466251 (-8269.0693492 deg)
+Asterix.CAT062.105.Lon 191958797 (1029.7472316 deg)
+Asterix.CAT062.185.Vx 17157 (4289.2500000 m/s)
+Asterix.CAT062.185.Vy 10247 (2561.7500000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 59 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  Y     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16708
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 4 (height from coverage)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 52 (13.0000000 sec)
+Asterix.CAT062.295.MD4 32 (8.0000000 sec)
+Asterix.CAT062.390.CS LJLJLGA
+Asterix.CAT062.040.TrkN 2831
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16428545 (128348.0078125 s)
+Asterix.CAT062.105.Lat -601847248 (-3228.5602283 deg)
+Asterix.CAT062.105.Lon 190759950 (1023.3161151 deg)
+Asterix.CAT062.185.Vx 6400 (1600.0000000 m/s)
+Asterix.CAT062.185.Vy 14338 (3584.5000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 8 Warning: Value should be set to 0
+Asterix.CAT062.245.TId 1  D B A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 14657
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD1 71 (17.7500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD4 32 (8.0000000 sec)
+Asterix.CAT062.295.MHG 96 (24.0000000 sec)
+Asterix.CAT062.390.CS DVALDZA
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16434949 (128398.0390625 s)
+Asterix.CAT062.105.Lat 52466686 (281.4532363 deg)
+Asterix.CAT062.105.Lon 192975620 (1035.2018952 deg)
+Asterix.CAT062.185.Vx 21504 (5376.0000000 m/s)
+Asterix.CAT062.185.Vy 24579 (6144.7500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 58 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  RPH 7LA
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 18263
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.MD4 68 (17.0000000 sec)
+Asterix.CAT062.295.SAL 68 (17.0000000 sec)
+Asterix.CAT062.295.FSS 83 (20.7500000 sec)
+Asterix.CAT062.295.COM 76 (19.0000000 sec)
+Asterix.CAT062.295.SAB 68 (17.0000000 sec)
+Asterix.CAT062.295.GVR 90 (22.5000000 sec)
+Asterix.CAT062.295.RAN 65 (16.2500000 sec)
+Asterix.CAT062.295.TAN 1 (0.2500000 sec)
+Asterix.CAT062.295.GSP 8 (2.0000000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16434945 (128398.0078125 s)
+Asterix.CAT062.105.Lat 1662960306 (8920.8142483 deg)
+Asterix.CAT062.105.Lon 193426944 (1037.6229858 deg)
+Asterix.CAT062.185.Vx 24581 (6145.2500000 m/s)
+Asterix.CAT062.185.Vy 10249 (2562.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 4 Warning: Value should be set to 0
+Asterix.CAT062.245.TId Z H    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19792
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 49 (12.2500000 sec)
+Asterix.CAT062.390.TYP 1 (Unit 1 internal flight number)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.390.NBR 4540481
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16441612 (128450.0937500 s)
+Asterix.CAT062.105.Lat -266302271 (-1428.5567039 deg)
+Asterix.CAT062.105.Lon 194444034 (1043.0790818 deg)
+Asterix.CAT062.185.Vx -22523 (-5630.7500000 m/s)
+Asterix.CAT062.185.Vy -4088 (-1022.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 29 Warning: Value should be set to 0
+Asterix.CAT062.245.TId G7     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 22362
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 52 (13.0000000 sec)
+Asterix.CAT062.295.MDA 56 (14.0000000 sec)
+Asterix.CAT062.295.MHG 78 (19.5000000 sec)
+Asterix.CAT062.390.CS LIRFLHB
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16448001 (128500.0078125 s)
+Asterix.CAT062.105.Lat 1830800909 (9821.1814052 deg)
+Asterix.CAT062.105.Lon 199207694 (1068.6333454 deg)
+Asterix.CAT062.185.Vx 27397 (6849.2500000 m/s)
+Asterix.CAT062.185.Vy 30728 (7682.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 48 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WML    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16709
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 51 (12.7500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.390.CS EDDMLGA
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16448002 (128500.0156250 s)
+Asterix.CAT062.105.Lat -1323371490 (-7099.1178811 deg)
+Asterix.CAT062.105.Lon 201028354 (1078.4001267 deg)
+Asterix.CAT062.185.Vx -24827 (-6206.7500000 m/s)
+Asterix.CAT062.185.Vy 30728 (7682.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 20 Warning: Value should be set to 0
+Asterix.CAT062.245.TId K P    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16730
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 1 (Military Identification present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MD5 0 (No Mode 5 interrogation)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 1 (Age of the last received SSR track update is higher than system dependent threshold)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 0 (Default value)
+Asterix.CAT062.080.SUC 1 (Special Used Code (Mode A codes to be defined in the system to mark a track with special interest))
+Asterix.CAT062.080.AAC 0 (Default value)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.390.CS IRFLYBE
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16448003 (128500.0234375 s)
+Asterix.CAT062.105.Lat -2095061653 (-11238.7865049 deg)
+Asterix.CAT062.105.Lon 200312066 (1074.5576584 deg)
+Asterix.CAT062.185.Vx -19451 (-4862.7500000 m/s)
+Asterix.CAT062.185.Vy -24569 (-6142.2500000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 35 Warning: Value should be set to 0
+Asterix.CAT062.245.TId   T    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21569
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 4 (height from coverage)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 64 (16.0000000 sec)
+Asterix.CAT062.295.MD5 68 (17.0000000 sec)
+Asterix.CAT062.295.MHG 84 (21.0000000 sec)
+Asterix.CAT062.295.SAL 77 (19.2500000 sec)
+Asterix.CAT062.295.FSS 66 (16.5000000 sec)
+Asterix.CAT062.295.SAB 69 (17.2500000 sec)
+Asterix.CAT062.295.GVR 80 (20.0000000 sec)
+Asterix.CAT062.295.RAN 87 (21.7500000 sec)
+Asterix.CAT062.295.GSP 65 (16.2500000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16454664 (128552.0625000 s)
+Asterix.CAT062.105.Lat 874437359 (4690.8475345 deg)
+Asterix.CAT062.105.Lon 201748225 (1082.2618157 deg)
+Asterix.CAT062.185.Vx 26885 (6721.2500000 m/s)
+Asterix.CAT062.185.Vy -14328 (-3582.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 61 Warning: Value should be set to 0
+Asterix.CAT062.245.TId V88    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17987
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 69 (17.2500000 sec)
+Asterix.CAT062.295.MDA 71 (17.7500000 sec)
+Asterix.CAT062.295.MD5 75 (18.7500000 sec)
+Asterix.CAT062.295.MHG 75 (18.7500000 sec)
+Asterix.CAT062.295.SAL 76 (19.0000000 sec)
+Asterix.CAT062.295.FSS 71 (17.7500000 sec)
+Asterix.CAT062.295.COM 84 (21.0000000 sec)
+Asterix.CAT062.295.BVR 83 (20.7500000 sec)
+Asterix.CAT062.295.GSP 1 (0.2500000 sec)
+Asterix.CAT062.295.MET 8 (2.0000000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16454668 (128552.0937500 s)
+Asterix.CAT062.105.Lat 1931534386 (10361.5578854 deg)
+Asterix.CAT062.105.Lon 202259720 (1085.0056887 deg)
+Asterix.CAT062.185.Vx 512 (128.0000000 m/s)
+Asterix.CAT062.185.Vy -14335 (-3583.7500000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 25 Warning: Value should be set to 0
+Asterix.CAT062.245.TId ETT    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17477
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD1 32 (8.0000000 sec)
+Asterix.CAT062.295.MD4 32 (8.0000000 sec)
+Asterix.CAT062.295.TAS 80 (20.0000000 sec)
+Asterix.CAT062.295.COM 76 (19.0000000 sec)
+Asterix.CAT062.390.CS LOLHSM@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16467726 (128654.1093750 s)
+Asterix.CAT062.105.Lat 1662991859 (8920.9835118 deg)
+Asterix.CAT062.105.Lon 214807041 (1152.3147637 deg)
+Asterix.CAT062.185.Vx -23035 (-5758.7500000 m/s)
+Asterix.CAT062.185.Vy 10248 (2562.0000000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 32 Warning: Value should be set to 0
+Asterix.CAT062.245.TId V D    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 20289
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 3 (triangulation)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 52 (13.0000000 sec)
+Asterix.CAT062.295.MHG 32 (8.0000000 sec)
+Asterix.CAT062.390.CS LFPGLGA
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16474382 (128706.1093750 s)
+Asterix.CAT062.105.Lat 807336930 (4330.8927834 deg)
+Asterix.CAT062.105.Lon 217035778 (1164.2706406 deg)
+Asterix.CAT062.185.Vx -3579 (-894.7500000 m/s)
+Asterix.CAT062.185.Vy 7 (1.7500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 27 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  5D    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16725
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 90 (22.5000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS ATILOWW
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16480768 (128756.0000000 s)
+Asterix.CAT062.105.Lat 1914580822 (10270.6118810 deg)
+Asterix.CAT062.105.Lon 219849477 (1179.3644983 deg)
+Asterix.CAT062.185.Vx 28165 (7041.2500000 m/s)
+Asterix.CAT062.185.Vy 10249 (2562.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 47 Warning: Value should be set to 0
+Asterix.CAT062.245.TId W      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17222
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.295.MHG 69 (17.2500000 sec)
+Asterix.CAT062.390.CS DLHEGN@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16526853 (129116.0390625 s)
+Asterix.CAT062.105.Lat -1558144437 (-8358.5381109 deg)
+Asterix.CAT062.105.Lon 149315329 (800.9898430 deg)
+Asterix.CAT062.185.Vx 22789 (5697.2500000 m/s)
+Asterix.CAT062.185.Vy 30727 (7681.7500000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 29 Warning: Value should be set to 0
+Asterix.CAT062.245.TId XJD    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21571
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 53 (13.2500000 sec)
+Asterix.CAT062.295.MDA 55 (13.7500000 sec)
+Asterix.CAT062.295.MD4 75 (18.7500000 sec)
+Asterix.CAT062.390.CS EGGDLGZ
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16526861 (129116.1015625 s)
+Asterix.CAT062.105.Lat -316631349 (-1698.5429174 deg)
+Asterix.CAT062.105.Lon 149641472 (802.7394104 deg)
+Asterix.CAT062.185.Vx 16647 (4161.7500000 m/s)
+Asterix.CAT062.185.Vy 2056 (514.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 19 Warning: Value should be set to 0
+Asterix.CAT062.245.TId XM     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 20019
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 0 (default value)
+Asterix.CAT062.080.MRH 1 (Geometric altitude more reliable)
+Asterix.CAT062.080.SRC 5 (speed look-up table)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 72 (18.0000000 sec)
+Asterix.CAT062.295.MHG 32 (8.0000000 sec)
+Asterix.CAT062.390.CS EBBRLLB
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16539917 (129218.1015625 s)
+Asterix.CAT062.105.Lat 1461714343 (7841.2467760 deg)
+Asterix.CAT062.105.Lon 156121615 (837.5016063 deg)
+Asterix.CAT062.185.Vx 19717 (4929.2500000 m/s)
+Asterix.CAT062.185.Vy -14328 (-3582.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 0
+Asterix.CAT062.245.TId Q T    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21333
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 1 (Age of the last received SSR track update is higher than system dependent threshold)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 0 (Default value)
+Asterix.CAT062.080.SUC 1 (Special Used Code (Mode A codes to be defined in the system to mark a track with special interest))
+Asterix.CAT062.080.AAC 1 (Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track))
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.390.CS SZBZZZZ
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16546306 (129268.0156250 s)
+Asterix.CAT062.105.Lat -1960864969 (-10518.8993937 deg)
+Asterix.CAT062.105.Lon 160264973 (859.7283107 deg)
+Asterix.CAT062.185.Vx 19973 (4993.2500000 m/s)
+Asterix.CAT062.185.Vy 10247 (2561.7500000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 55 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  4     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16730
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 1 (Age of the last received SSR track update is higher than system dependent threshold)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 0 (Default value)
+Asterix.CAT062.080.SUC 0 (Default value)
+Asterix.CAT062.080.AAC 1 (Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track))
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.SDS 0 (Combined)
+Asterix.CAT062.080.EMS 4 (No communications)
+Asterix.CAT062.080.PFT 0 (No indication)
+Asterix.CAT062.080.FPLT 0 (Default value)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 69 (17.2500000 sec)
+Asterix.CAT062.390.CS WALIRF@
+Asterix.CAT062.390.GATOAT 0 (Unknown)
+Asterix.CAT062.390.FR1FR2 0 (Instrument Flight Rules)
+Asterix.CAT062.390.RVSM 2 (Exempt)
+Asterix.CAT062.390.HPR 0 (Normal Priority Flight)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16552961 (129320.0078125 s)
+Asterix.CAT062.105.Lat -1138771625 (-6108.8470370 deg)
+Asterix.CAT062.105.Lon 162133005 (869.7492152 deg)
+Asterix.CAT062.185.Vx 16902 (4225.5000000 m/s)
+Asterix.CAT062.185.Vy 26631 (6657.7500000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 1 Warning: Value should be set to 0
+Asterix.CAT062.245.TId        A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17747
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 2 (Unknown target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 0 (No Mode 5 interrogation)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 32 (8.0000000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS KPRLIRN
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 3087
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16566021 (129422.0390625 s)
+Asterix.CAT062.105.Lat -819985299 (-4398.7439221 deg)
+Asterix.CAT062.105.Lon 175254030 (940.1358783 deg)
+Asterix.CAT062.185.Vx 11266 (2816.5000000 m/s)
+Asterix.CAT062.185.Vy -22522 (-5630.5000000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 50 Warning: Value should be set to 0
+Asterix.CAT062.245.TId ISL    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17730
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 52 (13.0000000 sec)
+Asterix.CAT062.295.MHG 51 (12.7500000 sec)
+Asterix.CAT062.390.CS LDPLLDZ
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16566031 (129422.1171875 s)
+Asterix.CAT062.105.Lat 589354252 (3161.5425754 deg)
+Asterix.CAT062.105.Lon 176277006 (945.6235492 deg)
+Asterix.CAT062.185.Vx 23813 (5953.2500000 m/s)
+Asterix.CAT062.185.Vy -14329 (-3582.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 41 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  O     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19535
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 5 (speed look-up table)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.MHG 80 (20.0000000 sec)
+Asterix.CAT062.295.SAL 87 (21.7500000 sec)
+Asterix.CAT062.295.FSS 65 (16.2500000 sec)
+Asterix.CAT062.295.GVR 76 (19.0000000 sec)
+Asterix.CAT062.295.RAN 73 (18.2500000 sec)
+Asterix.CAT062.295.GSP 82 (20.5000000 sec)
+Asterix.CAT062.295.EMC 70 (17.5000000 sec)
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16572685 (129474.1015625 s)
+Asterix.CAT062.105.Lat 1159767487 (6221.4776176 deg)
+Asterix.CAT062.105.Lon 179392770 (962.3378098 deg)
+Asterix.CAT062.185.Vx -19707 (-4926.7500000 m/s)
+Asterix.CAT062.185.Vy 20488 (5122.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 1 Warning: Value should be set to 0
+Asterix.CAT062.245.TId EJ     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 20044
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 54 (13.5000000 sec)
+Asterix.CAT062.295.MDA 55 (13.7500000 sec)
+Asterix.CAT062.295.MD5 64 (16.0000000 sec)
+Asterix.CAT062.390.CS IRFLOWW
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16572678 (129474.0468750 s)
+Asterix.CAT062.105.Lat -450962380 (-2419.1507220 deg)
+Asterix.CAT062.105.Lon 179867138 (964.8825181 deg)
+Asterix.CAT062.185.Vx -3836 (-959.0000000 m/s)
+Asterix.CAT062.185.Vy 24582 (6145.5000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 19 Warning: Value should be set to 0
+Asterix.CAT062.245.TId 3      A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19522
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 54 (13.5000000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MHG 64 (16.0000000 sec)
+Asterix.CAT062.390.CS ATILIPE
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16579079 (129524.0546875 s)
+Asterix.CAT062.105.Lat -668920987 (-3588.3718032 deg)
+Asterix.CAT062.105.Lon 181472270 (973.4931171 deg)
+Asterix.CAT062.185.Vx 18691 (4672.7500000 m/s)
+Asterix.CAT062.185.Vy -26620 (-6655.0000000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 56 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  L     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17236
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 3 (triangulation)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 52 (13.0000000 sec)
+Asterix.CAT062.295.MDA 53 (13.2500000 sec)
+Asterix.CAT062.295.MD5 32 (8.0000000 sec)
+Asterix.CAT062.390.CS LOWWLDS
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16585741 (129576.1015625 s)
+Asterix.CAT062.105.Lat 840972244 (4511.3266683 deg)
+Asterix.CAT062.105.Lon 187865615 (1007.7896923 deg)
+Asterix.CAT062.185.Vx 27397 (6849.2500000 m/s)
+Asterix.CAT062.185.Vy -14328 (-3582.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 6 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WO     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21590
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 76 (19.0000000 sec)
+Asterix.CAT062.295.SAL 70 (17.5000000 sec)
+Asterix.CAT062.295.FSS 80 (20.0000000 sec)
+Asterix.CAT062.295.COM 79 (19.7500000 sec)
+Asterix.CAT062.295.GVR 76 (19.0000000 sec)
+Asterix.CAT062.295.RAN 84 (21.0000000 sec)
+Asterix.CAT062.295.GSP 70 (17.5000000 sec)
+Asterix.CAT062.295.EMC 69 (17.2500000 sec)
+Asterix.CAT062.295.POS 1 (0.2500000 sec)
+Asterix.CAT062.295.PUN 8 (2.0000000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16585743 (129576.1171875 s)
+Asterix.CAT062.105.Lat -1843385628 (-9888.6910987 deg)
+Asterix.CAT062.105.Lon 189277444 (1015.3633332 deg)
+Asterix.CAT062.185.Vx -30971 (-7742.7500000 m/s)
+Asterix.CAT062.185.Vy 10248 (2562.0000000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 19 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WLD    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16709
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 1 (Slave Track Promotion)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 1 (Friendly target)
+Asterix.CAT062.080.ME 1 (Military Emergency present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 2 (Unknown target)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.SAL 68 (17.0000000 sec)
+Asterix.CAT062.390.CS LLGTS@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16592386 (129628.0156250 s)
+Asterix.CAT062.105.Lat 908100504 (4871.4307165 deg)
+Asterix.CAT062.105.Lon 190255117 (1020.6079799 deg)
+Asterix.CAT062.185.Vx 22528 (5632.0000000 m/s)
+Asterix.CAT062.185.Vy -4094 (-1023.5000000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 33 Warning: Value should be set to 0
+Asterix.CAT062.245.TId ASXD OXA
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 17235
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 0 (no source)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD1 65 (16.2500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD4 64 (16.0000000 sec)
+Asterix.CAT062.295.MHG 76 (19.0000000 sec)
+Asterix.CAT062.390.CS ZALKPR@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16592385 (129628.0078125 s)
+Asterix.CAT062.105.Lat -601847224 (-3228.5600996 deg)
+Asterix.CAT062.105.Lon 190706702 (1023.0304706 deg)
+Asterix.CAT062.185.Vx 6400 (1600.0000000 m/s)
+Asterix.CAT062.185.Vy 14338 (3584.5000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 37 Warning: Value should be set to 0
+Asterix.CAT062.245.TId 1  D A A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 14657
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD1 71 (17.7500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.295.MD4 32 (8.0000000 sec)
+Asterix.CAT062.295.MHG 96 (24.0000000 sec)
+Asterix.CAT062.390.CS DVALDZA
+Asterix.CAT062.390.TYPE @@@@
+Asterix.CAT062.390.WTC @
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16598794 (129678.0781250 s)
+Asterix.CAT062.105.Lat -1541466700 (-8269.0717578 deg)
+Asterix.CAT062.105.Lon 192035853 (1030.1605922 deg)
+Asterix.CAT062.185.Vx 17157 (4289.2500000 m/s)
+Asterix.CAT062.185.Vy 10247 (2561.7500000 m/s)
+Asterix.CAT062.245.STI 3 (Invalid)
+Asterix.CAT062.245.spare 59 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  Y     A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16708
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 4 (height from coverage)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 52 (13.0000000 sec)
+Asterix.CAT062.295.MD4 32 (8.0000000 sec)
+Asterix.CAT062.390.CS LJLJLGA
+Asterix.CAT062.040.TrkN 2831
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16598789 (129678.0390625 s)
+Asterix.CAT062.105.Lat 52466577 (281.4526516 deg)
+Asterix.CAT062.105.Lon 192931076 (1034.9629426 deg)
+Asterix.CAT062.185.Vx 21504 (5376.0000000 m/s)
+Asterix.CAT062.185.Vy 22531 (5632.7500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 44 Warning: Value should be set to 0
+Asterix.CAT062.245.TId  R H 6 A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 18263
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 64 (16.0000000 sec)
+Asterix.CAT062.295.MDA 69 (17.2500000 sec)
+Asterix.CAT062.295.MD4 68 (17.0000000 sec)
+Asterix.CAT062.295.SAL 68 (17.0000000 sec)
+Asterix.CAT062.295.FSS 83 (20.7500000 sec)
+Asterix.CAT062.295.COM 76 (19.0000000 sec)
+Asterix.CAT062.295.SAB 68 (17.0000000 sec)
+Asterix.CAT062.295.GVR 90 (22.5000000 sec)
+Asterix.CAT062.295.RAN 65 (16.2500000 sec)
+Asterix.CAT062.295.TAN 1 (0.2500000 sec)
+Asterix.CAT062.295.GSP 8 (2.0000000 sec)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16598785 (129678.0078125 s)
+Asterix.CAT062.105.Lat 1662959832 (8920.8117056 deg)
+Asterix.CAT062.105.Lon 193524480 (1038.1462097 deg)
+Asterix.CAT062.185.Vx 24581 (6145.2500000 m/s)
+Asterix.CAT062.185.Vy 10249 (2562.2500000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 4 Warning: Value should be set to 0
+Asterix.CAT062.245.TId Z H    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 19792
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 2 (3D radar)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 56 (14.0000000 sec)
+Asterix.CAT062.295.MDA 49 (12.2500000 sec)
+Asterix.CAT062.390.TYP 1 (Unit 1 internal flight number)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.390.NBR 4540481
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16605452 (129730.0937500 s)
+Asterix.CAT062.105.Lat -266301920 (-1428.5548210 deg)
+Asterix.CAT062.105.Lon 194568706 (1043.7478745 deg)
+Asterix.CAT062.185.Vx -22523 (-5630.7500000 m/s)
+Asterix.CAT062.185.Vy -4088 (-1022.0000000 m/s)
+Asterix.CAT062.245.STI 0 (Callsign or registration downlinked from target)
+Asterix.CAT062.245.spare 28 Warning: Value should be set to 0
+Asterix.CAT062.245.TId G 8    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 22362
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 6 (default height)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 52 (13.0000000 sec)
+Asterix.CAT062.295.MDA 56 (14.0000000 sec)
+Asterix.CAT062.295.MHG 78 (19.5000000 sec)
+Asterix.CAT062.390.CS LIRFLHB
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16611841 (129780.0078125 s)
+Asterix.CAT062.105.Lat 1830800566 (9821.1795652 deg)
+Asterix.CAT062.105.Lon 199350542 (1069.3996418 deg)
+Asterix.CAT062.185.Vx 27397 (6849.2500000 m/s)
+Asterix.CAT062.185.Vy 30728 (7682.0000000 m/s)
+Asterix.CAT062.245.STI 2 (Registration not downlinked from target)
+Asterix.CAT062.245.spare 48 Warning: Value should be set to 0
+Asterix.CAT062.245.TId WML    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 16709
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 1 (GNSS)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 1 (first message transmitted to the user for the track)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 1 (ADS-B data inconsistent with other surveillance information)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 0 (Complementary service used)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.295.MD2 51 (12.7500000 sec)
+Asterix.CAT062.295.MDA 32 (8.0000000 sec)
+Asterix.CAT062.390.CS EDDMLGA
+Asterix.CAT062.040.TrkN 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 89
+Asterix.CAT062.070.ToT 16611843 (129780.0234375 s)
+Asterix.CAT062.105.Lat -2095061217 (-11238.7841660 deg)
+Asterix.CAT062.105.Lon 200331010 (1074.6592820 deg)
+Asterix.CAT062.185.Vx -19451 (-4862.7500000 m/s)
+Asterix.CAT062.185.Vy -24569 (-6142.2500000 m/s)
+Asterix.CAT062.245.STI 1 (Callsign not downlinked from target)
+Asterix.CAT062.245.spare 35 Warning: Value should be set to 0
+Asterix.CAT062.245.TId   T    A
+Asterix.CAT062.380.IM 0 (Air Speed = IAS (LSB 2^-14 NM/s))
+Asterix.CAT062.380.AS 21384
+Asterix.CAT062.040.TrkN 21569
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 1 (SPI present in the last report received from a sensor capable of decoding this data)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 4 (height from coverage)
+Asterix.CAT062.080.CNF 1 (Tentative track)
+Asterix.CAT062.080.FX 0 (end of data item)
+Asterix.CAT062.295.MD2 48 (12.0000000 sec)
+Asterix.CAT062.295.MDA 64 (16.0000000 sec)
+Asterix.CAT062.295.MD5 68 (17.0000000 sec)
+Asterix.CAT062.295.MHG 84 (21.0000000 sec)
+Asterix.CAT062.295.SAL 77 (19.2500000 sec)
+Asterix.CAT062.295.FSS 66 (16.5000000 sec)
+Asterix.CAT062.295.SAB 69 (17.2500000 sec)
+Asterix.CAT062.295.GVR 80 (20.0000000 sec)
+Asterix.CAT062.295.RAN 87 (21.7500000 sec)
+Asterix.CAT062.295.GSP 65 (16.2500000 sec)

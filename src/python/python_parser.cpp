@@ -116,7 +116,7 @@ python_parse_with_offset(const unsigned char *pBuf, Py_ssize_t len, unsigned int
             while (m_nDataLength > 3 && current_blocks_count < blocks_count) {
                 const unsigned char *pBuf_offset = (pBuf + m_nPos);
                 DataBlock *block = inputParser->parse_next_data_block(
-                        pBuf_offset, m_nPos, len, nTimestamp, m_nDataLength);
+                        pBuf_offset, m_nPos, len, nTimestamp, 0, m_nDataLength);
                 if (block) {
                     pData->m_lDataBlocks.push_back(block);
                     current_blocks_count++;

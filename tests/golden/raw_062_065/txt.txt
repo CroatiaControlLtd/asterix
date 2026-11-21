@@ -1,0 +1,358 @@
+
+
+-------------------------
+Data Block 1
+Category: 62
+Len: 180
+Timestamp: T
+HexData: 3E00B7
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 66
+CRC: 943598B9
+Source IP: 0.0.0.0
+Fspec: BFCFFD02
+HexData: 1964043C5FD5007F3E9B0025188DF8B42AFCC2FCFF3302A8000008BE137411030118701D00FF2890000002741B100274FFB9DC190DBAB0B880027408BE40
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 015 : Service Identification
+[ 04 ]
+	Service Identification: 4
+
+Item 070 : Time Of Track Information
+[ 3C 5F D5 ]
+	Time Of Track Information: 3956693 (30911.6640625 s)
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 7F 3E 9B 00 25 18 8D ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 8339099 (44.7344130 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 2431117 (13.0415279 deg)
+
+Item 100 : Calculated Track Position. (Cartesian)
+[ F8 B4 2A FC C2 FC ]
+	X: -478166 (-239083.0000000 m)
+	Y: -212228 (-106114.0000000 m)
+
+Item 185 : Calculated Track Velocity (Cartesian)
+[ FF 33 02 A8 ]
+	Vx: -205 (-51.2500000 m/s)
+	Vy: 680 (170.0000000 m/s)
+
+Item 210 : Calculated Acceleration (Cartesian)
+[ 00 00 ]
+	Ax: 0 (0.0000000 m/s2)
+	Ay: 0 (0.0000000 m/s2)
+
+Item 060 : Track Mode 3/A Code
+[ 08 BE ]
+	Change in Mode 3/A: 0 (Code validated)
+	Change in Mode 3/A: 0 (Default)
+	Change in Mode 3/A: 0 (No Change)
+	Spare bits set to 0: 0
+	Mode-3/A reply in octal representation: 4276
+
+Item 040 : Track Number
+[ 13 74 ]
+	Track number: 4980
+
+Item 080 : Track Status
+[ 11 03 01 18 ]
+	MON: 0 (Multisensor track)
+	SPI: 0 (default value)
+	Most Reliable Height: 0 (Barometric altitude (Mode C) more reliable)
+	Source of calculated track altitude for I062/130: 4 (height from coverage)
+	CNF: 0 (Confirmed track)
+	FX: 1 (extension into first extent)
+	SIM: 0 (Actual track)
+	TSE: 0 (default value)
+	TSB: 0 (default value)
+	FPC: 0 (Not flight-plan correlated)
+	AFF: 0 (default value)
+	STP: 0 (default value)
+	KOS: 1 (Background service used)
+	FX: 1 (Extension into next extent)
+	AMA: 0 (track not resulting from amalgamation process)
+	MD4: 0 (No Mode 4 interrogation)
+	ME: 0 (default value)
+	MI: 0 (default value)
+	MD5: 0 (No Mode 5 interrogation)
+	FX: 1 (Extension into next extent)
+	CST: 0 (Default value)
+	PSR: 0 (Default value)
+	SSR: 0 (Default value)
+	MDS: 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+	ADS: 1 (Age of the last received ADS-B track update is higher than system dependent threshold)
+	SUC: 0 (Default value)
+	AAC: 0 (Default value)
+	FX: 0 (End of data item)
+
+Item 290 : System Track Update Ages
+[ 70 1D 00 FF ]
+	Age of the last primary detection used to update the track: 29 (7.2500000 sec)
+	Age of the last secondary detection used to update the track: 0 (0.0000000 sec)
+	Age of the last Mode S detection used to update the track: 255 (63.7500000 sec)
+
+Item 200 : Mode of Movement
+[ 28 ]
+	Transversal Acceleration: 0 (Constant Course)
+	Longitudinal Acceleration: 2 (Decreasing Groundspeed)
+	Vertical Rate: 2 (Descent)
+	Altitude Discrepancy Flag: 0 (No altitude discrepancy)
+	Spare bit set to zero: 0
+
+Item 295 : Track Data Ages
+[ 90 00 00 ]
+	MFL: 0 (0.0000000 sec)
+	MDA: 0 (0.0000000 sec)
+
+Item 136 : Measured Flight Level
+[ 02 74 ]
+	Measured Flight Level: 628 (15700.0000000 ft)
+
+Item 130 : Calculated Track Geometric Altitude
+[ 1B 10 ]
+	Altitude: 6928 (43300.0000000 ft)
+
+Item 135 : Calculated Track Barometric Altitude
+[ 02 74 ]
+	QNH: 0 (No QNH correction applied)
+	Calculated Track Barometric Alt: 628 (15700.0000000 ft)
+
+Item 220 : Calculated Rate Of Climb/Descent)
+[ FF B9 ]
+	Rate of Climb/Descent: -71 (-443.7500000 ft/min)
+
+Item 340 : Measured In Data Item Formation
+[ DC 19 0D BA B0 B8 80 02 74 08 BE 40 ]
+	System Area Code: 25
+	System Identification Code: 13
+	Measured distance: 47792 (186.6875000 NM)
+	Measured azimuth: 47232 (259.4531250 deg)
+	CV: 0 (Code validated)
+	CG: 0 (Default)
+	Last Measured Mode C Code: 628 (157.0000000 FL)
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (MODE 3/A code as derived from the reply of the transponder)
+	Spare bit set to zero: 0
+	Mode 3/A reply under the form of 4 digits in octal representation: 4276
+	Report Type: 2 (Single SSR detection)
+	SIM: 0 (Actual target report)
+	RAB: 0 (Report from aircraft transponder)
+	TST: 0 (Real target report)
+	Spare bits set to zero: 0
+-------------------------
+Data Record 2
+Len: 114
+CRC: 0F55FD0E
+Source IP: 0.0.0.0
+Fspec: BFDFFF02
+HexData: 1964043C5FEA008123DC002B0BA6FDC917FEE5EB0236FD550000055DC1203C0A554D8134DF2CE020F61F290D13010870040000009000000578161205780000FFE10019645358443437323341BE122D44423733384D4544444C48454C582000200578DC190D5D32C10B0578055DA0
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 015 : Service Identification
+[ 04 ]
+	Service Identification: 4
+
+Item 070 : Time Of Track Information
+[ 3C 5F EA ]
+	Time Of Track Information: 3956714 (30911.8281250 s)
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 81 23 DC 00 2B 0B A6 ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 8463324 (45.4008079 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 2821030 (15.1331842 deg)
+
+Item 100 : Calculated Track Position. (Cartesian)
+[ FD C9 17 FE E5 EB ]
+	X: -145129 (-72564.5000000 m)
+	Y: -72213 (-36106.5000000 m)
+
+Item 185 : Calculated Track Velocity (Cartesian)
+[ 02 36 FD 55 ]
+	Vx: 566 (141.5000000 m/s)
+	Vy: -683 (-170.7500000 m/s)
+
+Item 210 : Calculated Acceleration (Cartesian)
+[ 00 00 ]
+	Ax: 0 (0.0000000 m/s2)
+	Ay: 0 (0.0000000 m/s2)
+
+Item 060 : Track Mode 3/A Code
+[ 05 5D ]
+	Change in Mode 3/A: 0 (Code validated)
+	Change in Mode 3/A: 0 (Default)
+	Change in Mode 3/A: 0 (No Change)
+	Spare bits set to 0: 0
+	Mode-3/A reply in octal representation: 2535
+
+Item 380 : Aircraft Derived Data
+[ C1 20 3C 0A 55 4D 81 34 DF 2C E0 20 F6 ]
+	Target Address: 3C0A55
+	Target Identification: SXD4723 
+	Communications capability of the transponder: 1 (Comm. A and Comm. B capability)
+	Flight Status: 0 (No alert, no SPI, aircraft airborne)
+	Spare bits set to zero: 0
+	Specific service capability: 1 (Yes)
+	Altitude reporting capability: 1 (25 ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 6
+
+Item 040 : Track Number
+[ 1F 29 ]
+	Track number: 7977
+
+Item 080 : Track Status
+[ 0D 13 01 08 ]
+	MON: 0 (Multisensor track)
+	SPI: 0 (default value)
+	Most Reliable Height: 0 (Barometric altitude (Mode C) more reliable)
+	Source of calculated track altitude for I062/130: 3 (triangulation)
+	CNF: 0 (Confirmed track)
+	FX: 1 (extension into first extent)
+	SIM: 0 (Actual track)
+	TSE: 0 (default value)
+	TSB: 0 (default value)
+	FPC: 1 (Flight plan correlated)
+	AFF: 0 (default value)
+	STP: 0 (default value)
+	KOS: 1 (Background service used)
+	FX: 1 (Extension into next extent)
+	AMA: 0 (track not resulting from amalgamation process)
+	MD4: 0 (No Mode 4 interrogation)
+	ME: 0 (default value)
+	MI: 0 (default value)
+	MD5: 0 (No Mode 5 interrogation)
+	FX: 1 (Extension into next extent)
+	CST: 0 (Default value)
+	PSR: 0 (Default value)
+	SSR: 0 (Default value)
+	MDS: 0 (Default value)
+	ADS: 1 (Age of the last received ADS-B track update is higher than system dependent threshold)
+	SUC: 0 (Default value)
+	AAC: 0 (Default value)
+	FX: 0 (End of data item)
+
+Item 290 : System Track Update Ages
+[ 70 04 00 00 ]
+	Age of the last primary detection used to update the track: 4 (1.0000000 sec)
+	Age of the last secondary detection used to update the track: 0 (0.0000000 sec)
+	Age of the last Mode S detection used to update the track: 0 (0.0000000 sec)
+
+Item 200 : Mode of Movement
+[ 00 ]
+	Transversal Acceleration: 0 (Constant Course)
+	Longitudinal Acceleration: 0 (Constant Groundspeed)
+	Vertical Rate: 0 (Level)
+	Altitude Discrepancy Flag: 0 (No altitude discrepancy)
+	Spare bit set to zero: 0
+
+Item 295 : Track Data Ages
+[ 90 00 00 ]
+	MFL: 0 (0.0000000 sec)
+	MDA: 0 (0.0000000 sec)
+
+Item 136 : Measured Flight Level
+[ 05 78 ]
+	Measured Flight Level: 1400 (35000.0000000 ft)
+
+Item 130 : Calculated Track Geometric Altitude
+[ 16 12 ]
+	Altitude: 5650 (35312.5000000 ft)
+
+Item 135 : Calculated Track Barometric Altitude
+[ 05 78 ]
+	QNH: 0 (No QNH correction applied)
+	Calculated Track Barometric Alt: 1400 (35000.0000000 ft)
+
+Item 220 : Calculated Rate Of Climb/Descent)
+[ 00 00 ]
+	Rate of Climb/Descent: 0 (0.0000000 ft/min)
+
+Item 390 : Flight Plan Related Data
+[ FF E1 00 19 64 53 58 44 34 37 32 33 41 BE 12 2D 44 42 37 33 38 4D 45 44 44 4C 48 45 4C 58 20 00 20 05 78 ]
+	System Area Code: 25
+	System Identification Code: 100
+	Callsign: SXD4723
+	TYP: 1 (Unit 1 internal flight number)
+	spare bits set to zero: 0
+	NBR: 29233709
+	GATOAT: 1 (General Air Traffic)
+	FR1FR2: 0 (Instrument Flight Rules)
+	RVSM: 1 (Approved)
+	HPR: 0 (Normal Priority Flight)
+	spare bit set to zero: 0
+	Type of Aircraft: B738
+	Wake Turbulence Category: M
+	Departure Airport: EDDL
+	Destination Airport: HELX
+	First number:  
+	Second number: @
+	Letter:  
+	Current Cleared Flight Level: 1400 (350.0000000 FL)
+
+Item 340 : Measured In Data Item Formation
+[ DC 19 0D 5D 32 C1 0B 05 78 05 5D A0 ]
+	System Area Code: 25
+	System Identification Code: 13
+	Measured distance: 23858 (93.1953125 NM)
+	Measured azimuth: 49419 (271.4666748 deg)
+	CV: 0 (Code validated)
+	CG: 0 (Default)
+	Last Measured Mode C Code: 1400 (350.0000000 FL)
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (MODE 3/A code as derived from the reply of the transponder)
+	Spare bit set to zero: 0
+	Mode 3/A reply under the form of 4 digits in octal representation: 2535
+	Report Type: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RAB: 0 (Report from aircraft transponder)
+	TST: 0 (Real target report)
+	Spare bits set to zero: 0
+
+-------------------------
+Data Block 2
+Category: 65
+Len: 9
+Timestamp: T
+HexData: 41000C
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 9
+CRC: ED9D3EB1
+Source IP: 0.0.0.0
+Fspec: F8
+HexData: 196402043C608718
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	Source Area Code: 25
+	Source Identification Code: 100
+
+Item 000 : Message Type
+[ 02 ]
+	Message Type: 2 (End of Batch)
+
+Item 015 : Service Identification
+[ 04 ]
+	Service Identification: 4
+
+Item 030 : Time Of Message
+[ 3C 60 87 ]
+	Time Of Message: 3956871 (30913.0546875 s)
+
+Item 020 : Batch Number
+[ 18 ]
+	Batch Number: 24

@@ -344,8 +344,8 @@ bool CTcpDevice::Connect() {
             // Enable local address reuse
             int opt = 1;
             if (setsockopt(_socketDesc, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) != 0) {
+                // not fatal (same as in Init()); the socket stays open for bind() and connect()
                 LOGWARNING(1, "Error %d on setsockopt(). %s\n", errno, strerror(errno));
-                close(_socketDesc);
             }
 
             if (bind(_socketDesc, (struct sockaddr *) &_clientAddr, sizeof(_clientAddr)) < 0) {

@@ -237,7 +237,7 @@ bool CChannelFactory::ReadPacket() {
         return false;
     }
 
-    // Get thr format descriptor and number
+    // Get the format descriptor and number
     CBaseFormatDescriptor *formatDescriptor = _inputChannel->GetFormatDescriptor();
     if (formatDescriptor == NULL) {
         LOGERROR(1, "ReadPacket() - Cannot get the format descriptor.\n");

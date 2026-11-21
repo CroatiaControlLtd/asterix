@@ -1,0 +1,606 @@
+
+
+-------------------------
+Data Block 1
+Category: 48
+Len: 56
+Timestamp: 2.179688
+HexData: 30003B
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 56
+CRC: B7648B14
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10000BEA83D64A8DC0B0E0500E01102C3E48BA7501378C38D6002BE800030A4000040CC3A5F33FFE4006006DC09C8923F4620FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3D 64 A8 DC ]
+	RHO: 15716 (61.3906250 NM)
+	THETA: 43228 (237.4584961 deg)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 02 BE 80 00 30 A4 00 00 40 CC 3A 5F 33 FF E4 00 60 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+-------------------------
+Data Block 2
+Category: 48
+Len: 62
+Timestamp: 2.679688
+HexData: 300041
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 39
+CRC: 27DF1200
+Source IP: 10.143.210.17
+Fspec: FFD702
+HexData: 14C1000100A83115C9AB0FFF00F0E01804BB344041DF7DF76070CE030A00012A564620A0
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 15 C9 AB ]
+	RHO: 12565 (49.0820312 NM)
+	THETA: 51627 (283.5955811 deg)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+-------------------------
+Data Record 2
+Len: 23
+CRC: D5A98C8A
+Source IP: 10.143.210.17
+Fspec: F316
+HexData: 14C100012421800F00DC8B18140000170000000020
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC 8B ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56459 (310.1385498 deg)
+
+-------------------------
+Data Block 3
+Category: 34
+Len: 16
+Timestamp: 2.882812
+HexData: 220013
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 16
+CRC: A9B4D46A
+Source IP: 10.143.210.17
+Fspec: EE
+HexData: 14C10100016E020198404040900088
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+-------------------------
+Data Block 4
+Category: 48
+Len: 56
+Timestamp: 4.132812
+HexData: 30003B
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 56
+CRC: D254BF2A
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10001BCA8822427CC01160197E0560ABA4CA9EC4994B25C182002848000316C000040CFCA0B1DBF2FE860062106248F174E20FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 82 24 27 CC ]
+	RHO: 33316 (130.1406250 NM)
+	THETA: 10188 (55.9643555 deg)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 84 80 00 31 6C 00 00 40 CF CA 0B 1D BF 2F E8 60 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+-------------------------
+Data Block 5
+Category: 48
+Len: 22
+Timestamp: 4.484375
+HexData: 300019
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 22
+CRC: 8B99C068
+Source IP: 10.143.210.17
+Fspec: F316
+HexData: 14C10001E520063B3CE618182A07DA01A0C9C720
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 06 3B 3C E6 ]
+	RHO: 1595 (6.2304688 NM)
+	THETA: 15590 (85.6384277 deg)
+
+-------------------------
+Data Block 6
+Category: 48
+Len: 48
+Timestamp: 6.187500
+HexData: 300033
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 48
+CRC: 6BB3CBF7
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10002BFA83DE8A8AF0B0E0500E01102C4E48BA7501378C38D6001BE800030A400004006DC09C3925D4620FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3D E8 A8 AF ]
+	RHO: 15848 (61.9062500 NM)
+	THETA: 43183 (237.2113037 deg)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 01 BE 80 00 30 A4 00 00 40 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+-------------------------
+Data Block 7
+Category: 48
+Len: 62
+Timestamp: 6.687500
+HexData: 300041
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 39
+CRC: D1827E34
+Source IP: 10.143.210.17
+Fspec: FFD702
+HexData: 14C1000301A83117C9AC0FFF00F0E01003BB344041DF7DF76070CE030A0001FD0A4620A0
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 17 C9 AC ]
+	RHO: 12567 (49.0898438 NM)
+	THETA: 51628 (283.6010742 deg)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+-------------------------
+Data Record 2
+Len: 23
+CRC: 438513CF
+Source IP: 10.143.210.17
+Fspec: F316
+HexData: 14C100032421800F00DC8418140000170000000020
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC 84 ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56452 (310.1000977 deg)
+
+-------------------------
+Data Block 8
+Category: 34
+Len: 16
+Timestamp: 6.882812
+HexData: 220013
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 16
+CRC: 1E1A0695
+Source IP: 10.143.210.17
+Fspec: EE
+HexData: 14C10100036F020198404040900088
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+-------------------------
+Data Block 9
+Category: 48
+Len: 56
+Timestamp: 8.132812
+HexData: 30003B
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 56
+CRC: A6AA4B31
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10003BDA881CF27DD01160196E04E09B94CA9EC4994B25C182002848000316C0000408039AD273FFC9850062106288F3F4620FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 81 CF 27 DD ]
+	RHO: 33231 (129.8085938 NM)
+	THETA: 10205 (56.0577393 deg)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 84 80 00 31 6C 00 00 40 80 39 AD 27 3F FC 98 50 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Roll Angle Status: 1
+	Roll Angle: 1 (0.1757812 deg)
+	True Track Angle Status: 1
+	True Track Angle: -810 (-142.3828125 deg)
+	Ground Speed Status: 1
+	Ground Speed: 156 (312.0000000 kt)
+	Track Angle Rate Status: 1
+	Track Angle Rate: -1 (-0.0312500 deg/sec)
+	True Airspeed Status: 1
+	True Airspeed: 152 (304.0000000 kt)
+	BDS register: 50
+
+-------------------------
+Data Block 10
+Category: 48
+Len: 12
+Timestamp: 8.132812
+HexData: 30000F
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 12
+CRC: 6D1997FD
+Source IP: 10.143.210.17
+Fspec: E112
+HexData: 14C100040A0007DA2180
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+-------------------------
+Data Block 11
+Category: 48
+Len: 22
+Timestamp: 9.382812
+HexData: 300019
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 22
+CRC: 2C6FF70C
+Source IP: 10.143.210.17
+Fspec: F316
+HexData: 14C10004542016F1749318054305D5014BACBEA0
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 16 F1 74 93 ]
+	RHO: 5873 (22.9414062 NM)
+	THETA: 29843 (163.9324951 deg)
+
+-------------------------
+Data Block 12
+Category: 48
+Len: 56
+Timestamp: 10.179688
+HexData: 30003B
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 56
+CRC: 9B0A787D
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10004BFA83E6EA87D0B0E0500E01904C2E48BA7501378C38D6002BE800030A4000040803929444004F75006DC09C292674620FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 3E 6E A8 7D ]
+	RHO: 15982 (62.4296875 NM)
+	THETA: 43133 (236.9366455 deg)
+
+Item 220 : Aircraft Address
+[ E4 8B A7 ]
+	AircraftAddress: E48BA7
+
+Item 240 : Aircraft Identification
+[ 50 13 78 C3 8D 60 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: TAM8085 
+
+Item 250 : Mode S Comm B data
+[ 02 BE 80 00 30 A4 00 00 40 80 39 29 44 40 04 F7 50 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2000 (32000.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2130 (213.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+	Roll Angle Status: 1
+	Roll Angle: 1 (0.1757812 deg)
+	True Track Angle Status: 1
+	True Track Angle: -876 (-153.9843750 deg)
+	Ground Speed Status: 1
+	Ground Speed: 273 (546.0000000 kt)
+	Track Angle Rate Status: 0
+	Track Angle Rate: 0 (0.0000000 deg/sec)
+	True Airspeed Status: 1
+	True Airspeed: 247 (494.0000000 kt)
+	BDS register: 50
+
+-------------------------
+Data Block 13
+Category: 48
+Len: 62
+Timestamp: 10.679688
+HexData: 300041
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 39
+CRC: B9148BDC
+Source IP: 10.143.210.17
+Fspec: FFD702
+HexData: 14C1000502A83117C9AA0FFF00F0E01003BB344041DF7DF76070CE030A0000C2F24620A0
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 31 17 C9 AA ]
+	RHO: 12567 (49.0898438 NM)
+	THETA: 51626 (283.5900879 deg)
+
+Item 220 : Aircraft Address
+[ 34 40 41 ]
+	AircraftAddress: 344041
+
+Item 240 : Aircraft Identification
+[ DF 7D F7 60 70 CE ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: 7777XGCN
+-------------------------
+Data Record 2
+Len: 23
+CRC: 9AD948AB
+Source IP: 10.143.210.17
+Fspec: F316
+HexData: 14C100052521800F00DCCE18130000170000000020
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 0F 00 DC CE ]
+	RHO: 3840 (15.0000000 NM)
+	THETA: 56526 (310.5065918 deg)
+
+-------------------------
+Data Block 14
+Category: 34
+Len: 16
+Timestamp: 10.882812
+HexData: 220013
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 16
+CRC: 3A05CC48
+Source IP: 10.143.210.17
+Fspec: EE
+HexData: 14C10100056F020098404040900088
+
+Item 000 : Message Type
+[ 01 ]
+	Message Type: 1 (North Marker message)
+
+-------------------------
+Data Block 15
+Category: 48
+Len: 56
+Timestamp: 12.132812
+HexData: 30003B
+Src IP: 10.143.210.17
+-------------------------
+Data Record 1
+Len: 56
+CRC: 57BC499B
+Source IP: 10.143.210.17
+Fspec: FFF702
+HexData: 14C10005BEA8817D27E701160195E04E0AB24CA9EC4994B25C18200210010680ED000010848000316C000040062106188FEE4620FD
+
+Item 010 : Data Source Identifier
+[ 14 C1 ]
+	System Area Code: 20
+	System Identification Code: 193
+
+Item 040 : Measured Position in Polar Coordinates
+[ 81 7D 27 E7 ]
+	RHO: 33149 (129.4882812 NM)
+	THETA: 10215 (56.1126709 deg)
+
+Item 220 : Aircraft Address
+[ 4C A9 EC ]
+	AircraftAddress: 4CA9EC
+
+Item 240 : Aircraft Identification
+[ 49 94 B2 5C 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: RYR2WA  
+
+Item 250 : Mode S Comm B data
+[ 02 10 01 06 80 ED 00 00 10 84 80 00 31 6C 00 00 40 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 144 (2304.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2230 (223.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40

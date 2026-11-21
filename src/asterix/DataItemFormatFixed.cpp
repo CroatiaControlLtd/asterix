@@ -25,12 +25,14 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataItemFormatFixed::DataItemFormatFixed(int id)
-        : DataItemFormat(id), m_nLength(0) {
+        : DataItemFormat(id), m_nLength(0), m_bJsonPrefixesSet(false), m_bPresenceBitsSet(false) {
 }
 
 DataItemFormatFixed::DataItemFormatFixed(const DataItemFormatFixed &obj)
-        : DataItemFormat(obj.m_nID), m_nLength(obj.m_nLength) {
+        : DataItemFormat(obj.m_nID), m_nLength(obj.m_nLength), m_bJsonPrefixesSet(false), m_bPresenceBitsSet(false) {
     std::list<DataItemFormat *>::iterator it = ((DataItemFormat &) obj).m_lSubItems.begin();
 
     while (it != obj.m_lSubItems.end()) {
@@ -55,7 +57,7 @@ long DataItemFormatFixed::getLength() {
     return m_nLength;
 }
 
-long DataItemFormatFixed::getLength(const unsigned char *) {
+long DataItemFormatFixed::getLength(const unsigned char *, long) { // no data is read
     return m_nLength;
 }
 
@@ -121,6 +123,38 @@ std::string &DataItemFormatFixed::getPartName(int part) {
 }
 
 bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char *pData, int part) {
+    // Called for every secondary part of every Compound item: the bit of each part is looked up once.
+    if (!m_bPresenceBitsSet) {
+        m_bPresenceBitsSet = true;
+        std::list<DataItemFormat *>::iterator bitit;
+        for (bitit = m_lSubItems.begin(); bitit != m_lSubItems.end(); bitit++) {
+            DataItemBits *bit = (DataItemBits *) (*bitit);
+            if (bit == NULL) {
+                m_vPresenceBits.clear(); // let the loop below report it
+                break;
+            }
+            int p = bit->m_nPresenceOfField;
+            if (p > 0) {
+                if ((size_t) p >= m_vPresenceBits.size())
+                    m_vPresenceBits.resize(p + 1, 0);
+                if (m_vPresenceBits[p] == 0) // the first bit with this part is the one used
+                    m_vPresenceBits[p] = bit->m_nFrom >= 1 ? bit->m_nFrom : -1;
+            }
+        }
+        if (bitit == m_lSubItems.end() && m_vPresenceBits.empty())
+            m_vPresenceBits.push_back(0); // no parts at all, cache is still valid
+    }
+    if (part > 0 && !m_vPresenceBits.empty()) {
+        int bitnr = (size_t) part < m_vPresenceBits.size() ? m_vPresenceBits[part] : 0;
+        if (bitnr == 0)
+            return false;
+        if (bitnr > 0 && bitnr <= m_nLength * 8) {
+            int shift = (bitnr - 1) % 8;
+            return (pData[m_nLength - 1 - (bitnr - 1) / 8] & (0x01 << shift)) != 0;
+        }
+        // out of range: the loop below reports it
+    }
+
     // go through all bits and find which has BitsPresence set to part
     std::list<DataItemFormat *>::iterator bitit;
     for (bitit = m_lSubItems.begin(); bitit != m_lSubItems.end(); bitit++) {
@@ -158,6 +192,44 @@ bool DataItemFormatFixed::isSecondaryPartPresent(const unsigned char *pData, int
 
 bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
                                   unsigned char *pData, long nLength) {
+    if (formatType == CAsterixFormat::EJSONX) {
+        if (!m_bJsonPrefixesSet) {
+            std::set<std::string> jsonKeys; // a Fixed item on its own is one JSON object
+            makeJsonPrefixes(jsonKeys, 0, m_vJsonPrefixes);
+            m_bJsonPrefixesSet = true;
+        }
+        return getText(strResult, strHeader, formatType, pData, nLength, m_vJsonPrefixes);
+    }
+    static const std::vector<std::string> noPrefixes;
+    return getText(strResult, strHeader, formatType, pData, nLength, noPrefixes);
+}
+
+/*
+ * Key of a bits field in EJSONX, unique within the JSON object being written:
+ *  - extension (FX) bits are numbered by extent: FX0, FX1, ... so FXn is always the FX of extent n
+ *  - any other repeated name gets the first free number: spare, spare1, spare2, ...
+ */
+static std::string jsonUniqueKey(DataItemBits *bv, std::set<std::string> &jsonKeys, int extent) {
+    std::string base = bv->getJsonBaseName();
+    std::string key = bv->m_bExtension ? base + std::to_string(extent) : base;
+    for (int n = 1; jsonKeys.count(key); n++) {
+        key = base + std::to_string(n);
+    }
+    jsonKeys.insert(key);
+    return key;
+}
+
+void DataItemFormatFixed::makeJsonPrefixes(std::set<std::string> &jsonKeys, int extent,
+                                           std::vector<std::string> &jsonPrefixes) {
+    std::list<DataItemFormat *>::iterator it;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+        DataItemBits *bv = (DataItemBits *) (*it);
+        jsonPrefixes.push_back("\"" + jsonUniqueKey(bv, jsonKeys, extent) + "\":{");
+    }
+}
+
+bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
+                                  unsigned char *pData, long nLength, const std::vector<std::string> &jsonPrefixes) {
     if (m_nLength != nLength) {
         Tracer::Error("Length doesn't match!!!");
         return false;
@@ -165,6 +237,7 @@ bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             strResult += '{';
@@ -175,13 +248,23 @@ bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader
     bool ret = false;
     std::list<DataItemFormat *>::iterator it;
     DataItemBits *bv = NULL;
-    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
+    size_t nField = 0;
+    for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++, nField++) {
         bv = (DataItemBits *) (*it);
-        ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength);
+        if (gFiltering && !bv->m_bFiltered) {
+            continue; // not in the filter (checked here too, it is most of the calls with -LF)
+        }
+        if (formatType == CAsterixFormat::EJSONX) {
+            const std::string *pPrefix = nField < jsonPrefixes.size() ? &jsonPrefixes[nField] : NULL;
+            ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength, pPrefix);
+        } else {
+            ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength);
+        }
     }
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             if (strResult[strResult.length() - 1] == ',')

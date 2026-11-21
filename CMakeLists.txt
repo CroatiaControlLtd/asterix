@@ -19,7 +19,7 @@
 #
 # AUTHOR:  Damir Salantic, Croatia Control Ltd.
 
-cmake_minimum_required(VERSION 2.8.4)
+cmake_minimum_required(VERSION 3.10)
 
 project(asterix)
 
@@ -38,26 +38,22 @@ include(FindEXPAT)
 find_package(EXPAT REQUIRED)
 include_directories(${EXPAT_INCLUDE_DIRS})
 
-add_executable(${PROJECT_NAME}
+# Coverage build (tests/tools/coverage_report.py): cmake -DASTERIX_COVERAGE=ON with gcc
+option(ASTERIX_COVERAGE "Build with gcov instrumentation" OFF)
+if (ASTERIX_COVERAGE)
+    add_compile_options(--coverage -O0)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
+endif ()
+
+option(ASTERIX_TESTS "Build the unit tests" OFF)
+option(ASTERIX_FUZZ "Build the fuzz target" OFF)
+
+# Decoder (data item formats, definitions, parser): used by the application, the unit tests and the fuzzer
+add_library(asterix_decoder STATIC
         src/asterix/AsterixData.cpp
         src/asterix/AsterixData.h
         src/asterix/AsterixDefinition.cpp
         src/asterix/AsterixDefinition.h
-        src/asterix/asterixfinalsubformat.cxx
-        src/asterix/asterixfinalsubformat.hxx
-        src/asterix/asterixformat.cxx
-        src/asterix/asterixformat.hxx
-        src/asterix/asterixformatdescriptor.hxx
-        src/asterix/asterixgpssubformat.cxx
-        src/asterix/asterixgpssubformat.hxx
-        src/asterix/asterixhdlcparsing.c
-        src/asterix/asterixhdlcparsing.h
-        src/asterix/asterixhdlcsubformat.cxx
-        src/asterix/asterixhdlcsubformat.hxx
-        src/asterix/asterixpcapsubformat.cxx
-        src/asterix/asterixpcapsubformat.hxx
-        src/asterix/asterixrawsubformat.cxx
-        src/asterix/asterixrawsubformat.hxx
         src/asterix/Category.cpp
         src/asterix/Category.h
         src/asterix/DataBlock.cpp
@@ -95,7 +91,30 @@ add_executable(${PROJECT_NAME}
         src/asterix/Utils.cpp
         src/asterix/Utils.h
         src/asterix/XMLParser.cpp
-        src/asterix/XMLParser.h
+        src/asterix/XMLParser.h)
+target_link_libraries(asterix_decoder ${EXPAT_LIBRARIES})
+if (ASTERIX_FUZZ AND CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # coverage feedback for libFuzzer (build only the fuzz_parse target in such a build)
+    target_compile_options(asterix_decoder PRIVATE -fsanitize=fuzzer-no-link)
+endif ()
+
+# Application: input/output channels, packet formats, command line
+add_executable(${PROJECT_NAME}
+        src/asterix/asterixfinalsubformat.cxx
+        src/asterix/asterixfinalsubformat.hxx
+        src/asterix/asterixformat.cxx
+        src/asterix/asterixformat.hxx
+        src/asterix/asterixformatdescriptor.hxx
+        src/asterix/asterixgpssubformat.cxx
+        src/asterix/asterixgpssubformat.hxx
+        src/asterix/asterixhdlcparsing.c
+        src/asterix/asterixhdlcparsing.h
+        src/asterix/asterixhdlcsubformat.cxx
+        src/asterix/asterixhdlcsubformat.hxx
+        src/asterix/asterixpcapsubformat.cxx
+        src/asterix/asterixpcapsubformat.hxx
+        src/asterix/asterixrawsubformat.cxx
+        src/asterix/asterixrawsubformat.hxx
         src/engine/basedevice.hxx
         src/engine/baseformat.hxx
         src/engine/baseformatdescriptor.hxx
@@ -124,4 +143,32 @@ add_executable(${PROJECT_NAME}
         src/main/asterix.h
         src/main/version.h)
 
-target_link_libraries(${PROJECT_NAME} ${EXPAT_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} asterix_decoder ${EXPAT_LIBRARIES})
+if (ASTERIX_COVERAGE)
+    target_sources(${PROJECT_NAME} PRIVATE tests/tools/gcov_flush.c)
+endif ()
+
+# Unit tests (tests/unit): cmake -DASTERIX_TESTS=ON, then ctest (run from the build directory)
+if (ASTERIX_TESTS)
+    enable_testing()
+    file(GLOB ASTERIX_UNIT_TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit/*.cpp)
+    add_executable(asterix_unit_tests ${ASTERIX_UNIT_TEST_SOURCES})
+    target_link_libraries(asterix_unit_tests asterix_decoder ${EXPAT_LIBRARIES})
+    add_test(NAME unit_tests COMMAND asterix_unit_tests install/config/asterix.ini
+             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+    add_test(NAME cli_tests COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/tests/run_tests.sh $<TARGET_FILE:${PROJECT_NAME}>
+             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+endif ()
+
+# Fuzz target (tests/fuzz): cmake -DASTERIX_FUZZ=ON with clang (libFuzzer). With another compiler it is
+# built as a plain program that runs the files given as arguments.
+if (ASTERIX_FUZZ)
+    add_executable(fuzz_parse tests/fuzz/fuzz_parse.cpp)
+    target_link_libraries(fuzz_parse asterix_decoder ${EXPAT_LIBRARIES})
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        target_compile_options(fuzz_parse PRIVATE -fsanitize=fuzzer)
+        target_link_libraries(fuzz_parse -fsanitize=fuzzer)
+    else ()
+        target_compile_definitions(fuzz_parse PRIVATE FUZZ_STANDALONE)
+    endif ()
+endif ()

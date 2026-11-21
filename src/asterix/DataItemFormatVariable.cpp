@@ -51,7 +51,26 @@ DataItemFormatVariable::~DataItemFormatVariable() {
     }
 }
 
-long DataItemFormatVariable::getLength(const unsigned char *pData) {
+const std::vector<std::string> &DataItemFormatVariable::getJsonPrefixes(int extent) {
+    // part at index e uses sub item e, or the last sub item when there are fewer (as getText does)
+    while ((int) m_vJsonPrefixes.size() <= extent) {
+        int e = (int) m_vJsonPrefixes.size();
+        std::list<DataItemFormat *>::iterator it = m_lSubItems.begin();
+        for (int i = 0; i < e && it != m_lSubItems.end(); i++) {
+            std::list<DataItemFormat *>::iterator next = it;
+            if (++next == m_lSubItems.end())
+                break;
+            it = next;
+        }
+        if (m_lSubItems.size() == 1)
+            m_sJsonKeys.clear(); // each extent is its own object in the list
+        m_vJsonPrefixes.push_back(std::vector<std::string>());
+        ((DataItemFormatFixed *) (*it))->makeJsonPrefixes(m_sJsonKeys, e, m_vJsonPrefixes.back());
+    }
+    return m_vJsonPrefixes[extent];
+}
+
+long DataItemFormatVariable::getLength(const unsigned char *pData, long nMaxLength) {
     long length = 0;
     std::list<DataItemFormat *>::iterator it;
     bool lastPart = false;
@@ -60,8 +79,12 @@ long DataItemFormatVariable::getLength(const unsigned char *pData) {
     DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
 
     do {
-        lastPart = dip->isLastPart(pData);
         long partlen = dip->getLength();
+        if (partlen <= 0 || length + partlen > nMaxLength) {
+            // the FX chain runs past the available data (isLastPart would read beyond it)
+            return nMaxLength + 1;
+        }
+        lastPart = dip->isLastPart(pData);
 
         length += partlen;
         pData += partlen;
@@ -90,12 +113,13 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
         listOfSubItems = true;
 
     it = m_lSubItems.begin();
-    std::string tmpResult;
+    int extent = 0;                 // index of the current part, numbers the FX bits in EJSONX
 
     DataItemFormatFixed *dip = (DataItemFormatFixed *) (*it);
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             if (listOfSubItems)
@@ -111,19 +135,27 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
         switch (formatType) {
             case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONX:
             case CAsterixFormat::EJSONH:
             case CAsterixFormat::EJSONE: {
-                tmpResult = "";
-                ret |= dip->getText(tmpResult, strHeader, formatType, pData, dip->getLength());
-                if (tmpResult.length() > 2) { // if result != {}
-                    if (listOfSubItems)
-                        strResult += '{';
-                    strResult += tmpResult.substr(1, tmpResult.length() - 2); // trim {}
-                    if (listOfSubItems)
-                        strResult += '}';
+                // the part is written as {...} straight into strResult, then the braces are trimmed in place
+                const std::string::size_type partStart = strResult.length();
+                if (formatType == CAsterixFormat::EJSONX) {
+                    ret |= dip->getText(strResult, strHeader, formatType, pData, dip->getLength(),
+                                        getJsonPrefixes(extent));
+                } else {
+                    ret |= dip->getText(strResult, strHeader, formatType, pData, dip->getLength());
+                }
+                if (strResult.length() - partStart > 2) { // if result != {}
+                    if (!listOfSubItems) { // a list keeps {} around each part
+                        strResult.erase(partStart, 1);
+                        strResult.erase(strResult.length() - 1);
+                    }
                     if (!lastPart) {
                         strResult += ',';
                     }
+                } else {
+                    strResult.resize(partStart);
                 }
             }
                 break;
@@ -134,6 +166,7 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
         pData += dip->getLength();
         nLength -= dip->getLength();
+        extent++;
 
         if (it != m_lSubItems.end()) {
             it++;
@@ -145,6 +178,7 @@ bool DataItemFormatVariable::getText(std::string &strResult, std::string &strHea
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             if (strResult[strResult.length() - 1] == ',') {

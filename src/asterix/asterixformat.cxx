@@ -54,7 +54,8 @@ const char *CAsterixFormat::_FormatName[CAsterixFormat::ETotalFormats] =
                 "ASTERIX_ORADIS_RAW",
                 "ASTERIX_ORADIS_PCAP",
                 "ASTERIX_OUT",
-                "ASTERIX_GPS"
+                "ASTERIX_GPS",
+                "ASTERIX_JSONX"
         };
 
 //CBaseFormatDescriptor* CAsterixFormat::m_pFormatDescriptor = NULL;
@@ -83,6 +84,7 @@ CAsterixFormat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice 
         case EJSON:
         case EJSONH:
         case EJSONE:
+        case EJSONX:
             //todo not supported
             return false;
         default:
@@ -117,6 +119,7 @@ CAsterixFormat::WritePacket(CBaseFormatDescriptor &formatDescriptor, CBaseDevice
         case EJSON:
         case EJSONH:
         case EJSONE:
+        case EJSONX:
         case ETxt:
         case EOut: {
             CAsterixFormatDescriptor &Descriptor((CAsterixFormatDescriptor &) formatDescriptor);
@@ -168,6 +171,7 @@ bool CAsterixFormat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor, CBas
         case EJSON:
         case EJSONH:
         case EJSONE:
+        case EJSONX:
         case EOut:
             return false;
         default:
@@ -202,6 +206,7 @@ bool CAsterixFormat::HeartbeatProcessing(
         case EJSON:
         case EJSONH:
         case EJSONE:
+        case EJSONX:
         case EOut:
             return false;
         default:
@@ -212,13 +217,28 @@ bool CAsterixFormat::HeartbeatProcessing(
 }
 
 static void debug_trace(char const *format, ...) {
-    char buffer[1025];
-    va_list args;
-    va_start (args, format);
-    vsnprintf(buffer, 1024, format, args);
-    va_end (args);
-    strcat(buffer, "\n");
-    LOGERROR(1, "%s", buffer);
+    // any length: some messages carry a whole data block in hex
+    char small[1025];
+    va_list args, again;
+    va_start(args, format);
+    va_copy(again, args);
+    int n = vsnprintf(small, sizeof(small), format, args);
+    va_end(args);
+    std::string message;
+    if (n >= (int) sizeof(small)) {
+        message.resize(n);
+        vsnprintf(&message[0], n + 1, format, again);
+    } else if (n >= 0) {
+        message = small;
+    }
+    va_end(again);
+    // decoder messages that start with "Warning: " are warnings (the data went on being decoded)
+    static const char warningPrefix[] = "Warning: ";
+    if (message.compare(0, sizeof(warningPrefix) - 1, warningPrefix) == 0) {
+        LOGWARNING(1, "%s\n", message.c_str() + sizeof(warningPrefix) - 1);
+    } else {
+        LOGERROR(1, "%s\n", message.c_str());
+    }
 }
 
 CBaseFormatDescriptor *CAsterixFormat::CreateFormatDescriptor
@@ -228,15 +248,15 @@ CBaseFormatDescriptor *CAsterixFormat::CreateFormatDescriptor
 
         Tracer::Configure(debug_trace);
 
-        // initialize Fulliautomatix engine
-        AsterixDefinition *pDefinition = new AsterixDefinition();
-
-        // open asterix.ini file
+        // open asterix.ini file (before allocating anything, so nothing leaks if it fails)
         FILE *fpini = fopen(gAsterixDefinitionsFile, "rt");
         if (!fpini) {
             LOGERROR(1, "Failed to open definitions file");
             return NULL;
         }
+
+        // initialize Fulliautomatix engine
+        AsterixDefinition *pDefinition = new AsterixDefinition();
 
         // extract ini file path
         std::string strInifile = gAsterixDefinitionsFile;

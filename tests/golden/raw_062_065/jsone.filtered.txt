@@ -1,0 +1,55 @@
+{"id":1,
+"cat":62,
+"length":66,
+"crc":"943598B9",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"BFCFFD02",
+"hexdata":"1964043C5FD5007F3E9B0025188DF8B42AFCC2FCFF3302A8000008BE137411030118701D00FF2890000002741B100274FFB9DC190DBAB0B880027408BE40",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=44.7344130, "hex"="007F3E9B", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=13.0415279, "hex"="0025188D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}}}},
+{"id":2,
+"cat":62,
+"length":114,
+"crc":"0F55FD0E",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"BFDFFF02",
+"hexdata":"1964043C5FEA008123DC002B0BA6FDC917FEE5EB0236FD550000055DC1203C0A554D8134DF2CE020F61F290D13010870040000009000000578161205780000FFE10019645358443437323341BE122D44423733384D4544444C48454C582000200578DC190D5D32C10B0578055DA0",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=45.4008079, "hex"="008123DC", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=15.1331842, "hex"="002B0BA6", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"ADR":{
+		"ADR":{"val"="3C0A55", "hex"="3C0A55", "name"="Target Address"}},
+		"ID":{
+		"ACID":{"val"="SXD4723 ", "hex"="4D8134DF2CE0", "name"="Target Identification"}},
+		"COM":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="Communications capability of the transponder", "meaning"="Comm. A and Comm. B capability"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="Flight Status", "meaning"="No alert, no SPI, aircraft airborne"},
+		"SSC":{"val"=1, "hex"="F6", "mask"="10000000", "name"="Specific service capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="F6", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25 ft resolution"},
+		"AIC":{"val"=1, "hex"="F6", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"B1A":{"val"=1, "hex"="F6", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"B1B":{"val"=6, "hex"="F6", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}}},
+{"id":1,
+"cat":65,
+"length":9,
+"crc":"ED9D3EB1",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"F8",
+"hexdata":"196402043C608718",
+"CAT065":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="Source Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="Source Identification Code"}}}},

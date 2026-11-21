@@ -48,6 +48,7 @@ static void DisplayCopyright() {
 #ifdef _DEBUG
     std::cerr << " DEBUG version";
 #endif
+    std::cerr << "\nFork of CroatiaControlLtd/asterix " _UPSTREAM_VERSION_STR ", maintained at " _FORK_URL;
     std::cerr
             << "\n\nCopyright (c) 2013 Croatia Control Ltd. (www.crocontrol.hr)\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions. See COPYING file for details.\n";
 }
@@ -59,7 +60,7 @@ static void show_usage(std::string name) {
             << "\nReads and parses ASTERIX data from stdin, file or network multicast stream\nand prints it in textual presentation on standard output.\n\n"
             << "Usage:\n"
             << name
-            << " [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh|-je] [-d filename] [-LF filename] -f filename|-i (mcastaddress:ipaddress:port[:srcaddress]@)+"
+            << " [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H|-G] [-l|-x|-xh|-j|-jh|-je|-jx] [-d filename] [-LF filename] -f filename|-i (mcastaddress:ipaddress:port[:srcaddress]@)+"
             << "\n\nOptions:"
             << "\n\t-h,--help\tShow this help message and exit."
             << "\n\t-V,--version\tShow version information and exit."
@@ -79,12 +80,22 @@ static void show_usage(std::string name) {
             << "\n\t-G,--gps\tAsterix packet is encapsulated in GPS packet."
             << "\n\nOutput format"
             << "\n------------"
+            << "\n\t(default)\tWith no output format option, output is printed as human readable text: for each data block its category,"
+            << "\n\t\t\tlength, timestamp and source IP, and for each record its length, CRC, source IP, Fspec (FSPEC bytes) and"
+            << "\n\t\t\tHexData (data items after the FSPEC: the record is Fspec+HexData), followed by every item with its fields,"
+            << "\n\t\t\tvalues, units and meanings."
             << "\n\t-l,--line\tOutput will be printed as one line per item. This format is suitable for parsing."
             << "\n\t-x,--xml\tOutput will be printed in compact line-delimited XML format (one object per line, suitable for parsing)."
             << "\n\t-xh,--xmlh\tOutput will be printed in human readable XML format (suitable for file storage)."
             << "\n\t-j,--json\tOutput will be printed in compact line-delimited JSON format (one object per line, suitable for parsing)."
+            << "\n\t\t\tThe record header has \"fspec\" (FSPEC bytes) and \"hexdata\" (data items after the FSPEC): the record is fspec+hexdata."
             << "\n\t-jh,--jsonh\tOutput will be printed in human readable JSON format (suitable for file storage)."
+            << "\n\t\t\tThe record header has \"fspec\" (FSPEC bytes) and \"hexdata\" (data items after the FSPEC): the record is fspec+hexdata."
             << "\n\t-je,--json-extensive\tOutput will be printed in extensive JSON format (with both hex and scaled value and description of each item)."
+            << "\n\t\t\tThe record header has \"fspec\" (FSPEC bytes) and \"hexdata\" (data items after the FSPEC): the record is fspec+hexdata."
+            << "\n\t-jx,--json-hex\tOutput will be printed in compact line-delimited JSON format with hex and mask of each item (one object per line, suitable for parsing)."
+            << "\n\t\t\tThe record header has \"fspec\" (FSPEC bytes) and \"hexdata\" (data items after the FSPEC): the record is fspec+hexdata."
+            << "\n\t\t\tEach field has \"hex\", \"mask\" (when it does not fill its bytes) and \"pos\" (byte offset of hex in hexdata)."
             << "\n\nData source"
             << "\n------------"
             << "\n\t-f filename\tFile generated from libpcap (tcpdump or Wireshark) or file in FINAL or HDLC format.\n\t\t\tFor example: -f filename.pcap"
@@ -203,6 +214,13 @@ int main(int argc, const char *argv[]) {
                 return 1;
             }
             strOutputFormat = "ASTERIX_JSONH";
+        } else if ((arg == "-jx") || (arg == "--json-hex")) {
+            if (strOutputFormat != "ASTERIX_TXT") {
+                std::cerr << "Error: Option -jx not allowed because output format already defined as " + strOutputFormat
+                          << std::endl;
+                return 1;
+            }
+            strOutputFormat = "ASTERIX_JSONX";
         } else if ((arg == "-je") || (arg == "--json-extensive")) {
             if (strOutputFormat != "ASTERIX_TXT") {
                 std::cerr << "Error: Option -je not allowed because output format already defined as " + strOutputFormat

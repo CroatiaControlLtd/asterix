@@ -57,6 +57,7 @@ public:
         EOradisPcap,    // PCAP file format with ORADIS header
         EOut,           // textual output (one line text, easy for parsing)
         EGPS,           // GPS (timestamped datablocks + 2200 bytes header)
+        EJSONX,         // JSON compact line-delimited form (like EJSON) with hex and mask of each item
         ETotalFormats
     };
 

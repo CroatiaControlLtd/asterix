@@ -25,6 +25,10 @@
 #define UAP_H_
 
 #include "UAPItem.h"
+#include <vector>
+
+class Category;
+class DataItemDescription;
 
 class UAP {
 public:
@@ -44,6 +48,16 @@ public:
 #endif
 
     std::string getDataItemIDByUAPfrn(int uapfrn);
+
+    /**
+     * Same as cat->getDataItemDescription(getDataItemIDByUAPfrn(uapfrn)), cached per FRN:
+     * it is called for every item of every record.
+     */
+    DataItemDescription *getDataItemDescriptionByUAPfrn(Category *cat, int uapfrn);
+
+private:
+    Category *m_pFrnCacheCategory;
+    std::vector<DataItemDescription *> m_vFrnCache; //!< index FRN, NULL until looked up
 };
 
 #endif /* UAP_H_ */

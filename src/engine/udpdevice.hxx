@@ -57,7 +57,8 @@ private:
     bool _server;
     struct sockaddr_in _mcastAddr;
     struct in_addr _interfaceAddr;
-    struct in_addr _sourceAddr;
+    struct in_addr _sourceAddr; // from the subscribe command line option
+    uint32_t _nSrcIP; // IP from the recvfrom syscall
     int _port;
     std::vector<int> _socketDesc;
     fd_set _descToRead;
@@ -96,6 +97,9 @@ public:
     virtual unsigned int
     MaxPacketSize() { return MAX_UDP_PACKET_SIZE; } // return maximal packet size (only for packet devices)
     virtual unsigned int BytesLeftToRead() { return 0; } // return number of bytes left to read or 0 if unknown
+
+    unsigned int getLastSourceIP() { return this->_nSrcIP; }
+    void setLastSourceIP(uint32_t nIP) { this->_nSrcIP = nIP; }
 
 private:
     void Init(const char *mcastAddress, const char *interfaceAddress, const char *srcAddress, const int port,

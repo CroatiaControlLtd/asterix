@@ -81,9 +81,41 @@ public:
 
     bool m_bFiltered; //! item shall be printed when filter is applied
 
+private:
+    std::string m_strJsonMask;            //!< EJSONX ,"mask":"..." text (empty: no mask) for bits below
+    int m_nJsonMaskFrom, m_nJsonMaskTo;   //!< m_nFrom, m_nTo m_strJsonMask was built for (0: not built)
+
+public:
+
     DataItemBits *clone() const { return new DataItemBits(*this); } // Return clone of object
     bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
                  long nLength); // appends value to strResult
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength, const std::string *pJsonPrefix); // same, in EJSONX starts with *pJsonPrefix ("key":{), NULL: short name
+    std::string getJsonBaseName() const { return m_strShortName.empty() ? m_strName : m_strShortName; }
+
+    /**
+     * While an object of this class exists, EJSONX fields add "pos": the byte offset of their hex in
+     * the record hexdata. pItemData is the item's data buffer (every format passes pointers inside it)
+     * and nItemOffset the item's position in hexdata. NULL disables "pos". Output is single threaded.
+     */
+    class JsonPosition {
+    public:
+        JsonPosition(const unsigned char *pItemData, long nItemOffset)
+                : m_pPrevData(s_pItemData), m_nPrevOffset(s_nItemOffset) {
+            s_pItemData = pItemData;
+            s_nItemOffset = nItemOffset;
+        }
+        ~JsonPosition() {
+            s_pItemData = m_pPrevData;
+            s_nItemOffset = m_nPrevOffset;
+        }
+        static const unsigned char *s_pItemData;
+        static long s_nItemOffset;
+    private:
+        const unsigned char *m_pPrevData;
+        long m_nPrevOffset;
+    };
     std::string printDescriptors(std::string header); // print items format descriptors
     bool filterOutItem(const char *name); // mark item for filtering
     bool isFiltered(const char *) { return m_bFiltered; } // true if item is in filter (shall be printed)
@@ -100,7 +132,7 @@ public:
     void insertToDict(PyObject* p, unsigned char* pData, long nLength, int description);
 #endif
 
-    long getLength(const unsigned char *pData);
+    long getLength(const unsigned char *pData, long nMaxLength);
 
 private:
     unsigned char *getBits(unsigned char *pData, int bytes, int frombit, int tobit);
@@ -118,6 +150,8 @@ private:
     unsigned char *getHexBitStringFullByte(unsigned char *pData, int bytes, int frombit, int tobit);
 
     unsigned char *getHexBitStringMask(int bytes, int frombit, int tobit);
+
+    void appendJsonHexMask(std::string &strResult, unsigned char *pData, long nLength); // ,"hex":"..."[,"mask":"..."]
 
     char *getASCII(unsigned char *pData, int bytes, int frombit, int tobit);
 

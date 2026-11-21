@@ -51,7 +51,8 @@ public:
             m_pBuffer(NULL),
             m_nBufferSize(0),
             m_nDataSize(0),
-            m_nTimeStamp(0) {
+            m_nTimeStamp(0),
+            m_nIP(0) {
     }
 
     /**
@@ -110,6 +111,23 @@ public:
         m_nTimeStamp = ts;
     }
 
+    void SetIP(unsigned char ip0, unsigned char ip1, unsigned char ip2, unsigned char ip3) {
+        uint32_t v =
+            ((uint32_t)ip0 << 24) |
+            ((uint32_t)ip1 << 16) |
+            ((uint32_t)ip2 <<  8) |
+            ((uint32_t)ip3      );
+        m_nIP = v;
+    }
+
+    void SetIP(unsigned int ip) {
+        m_nIP = ip;
+    }
+
+    unsigned int GetIP() {
+        return m_nIP;
+    }
+
     // used only in PCAP (TODO)
     typedef enum {
         NET_ETHERNET = 0,
@@ -132,6 +150,7 @@ private:
     unsigned int m_nBufferSize; // input buffer size
     unsigned int m_nDataSize; // size of data in buffer
     double m_nTimeStamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    uint32_t m_nIP; // src ip of packet
 };
 
 #endif

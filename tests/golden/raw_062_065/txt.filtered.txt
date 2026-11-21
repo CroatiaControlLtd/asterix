@@ -1,0 +1,75 @@
+
+
+-------------------------
+Data Block 1
+Category: 62
+Len: 180
+Timestamp: T
+HexData: 3E00B7
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 66
+CRC: 943598B9
+Source IP: 0.0.0.0
+Fspec: BFCFFD02
+HexData: 1964043C5FD5007F3E9B0025188DF8B42AFCC2FCFF3302A8000008BE137411030118701D00FF2890000002741B100274FFB9DC190DBAB0B880027408BE40
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 7F 3E 9B 00 25 18 8D ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 8339099 (44.7344130 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 2431117 (13.0415279 deg)
+-------------------------
+Data Record 2
+Len: 114
+CRC: 0F55FD0E
+Source IP: 0.0.0.0
+Fspec: BFDFFF02
+HexData: 1964043C5FEA008123DC002B0BA6FDC917FEE5EB0236FD550000055DC1203C0A554D8134DF2CE020F61F290D13010870040000009000000578161205780000FFE10019645358443437323341BE122D44423733384D4544444C48454C582000200578DC190D5D32C10B0578055DA0
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 81 23 DC 00 2B 0B A6 ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 8463324 (45.4008079 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 2821030 (15.1331842 deg)
+
+Item 380 : Aircraft Derived Data
+[ C1 20 3C 0A 55 4D 81 34 DF 2C E0 20 F6 ]
+	Target Address: 3C0A55
+	Target Identification: SXD4723 
+	Communications capability of the transponder: 1 (Comm. A and Comm. B capability)
+	Flight Status: 0 (No alert, no SPI, aircraft airborne)
+	Specific service capability: 1 (Yes)
+	Altitude reporting capability: 1 (25 ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 6
+
+-------------------------
+Data Block 2
+Category: 65
+Len: 9
+Timestamp: T
+HexData: 41000C
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 9
+CRC: ED9D3EB1
+Source IP: 0.0.0.0
+Fspec: F8
+HexData: 196402043C608718
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	Source Area Code: 25
+	Source Identification Code: 100

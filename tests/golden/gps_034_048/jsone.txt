@@ -1,0 +1,1160 @@
+{"id":1,
+"cat":48,
+"length":56,
+"crc":"B7648B14",
+"timestamp":2.179688,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10000BEA83D64A8DC0B0E0500E01102C3E48BA7501378C38D6002BE800030A4000040CC3A5F33FFE4006006DC09C8923F4620FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=1.4843750, "hex"="0000BE", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=61.3906250, "hex"="3D64", "name"="RHO"},
+		"THETA":{"val"=237.4584961, "hex"="A8DC", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0B", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0B", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0B", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0B", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="5416", "hex"="0B0E", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=320.0000000, "hex"="0500", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=0.7470703, "hex"="11", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=2, "hex"="02", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-61.0000000, "hex"="C3", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="E48BA7", "hex"="E48BA7", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="TAM8085 ", "hex"="501378C38D60", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="BE", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=32000.0000000, "hex"="BE80", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800030", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="30", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=213.0000000, "hex"="30A4", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="A400", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}},{
+		"HDG_STATUS":{"val"=1, "hex"="CC", "mask"="10000000", "name"="Heading Status"},
+		"HDG":{"val"=-145.7226562, "hex"="CC3A", "mask"="0111111111110000", "name"="Magnetic Heading"},
+		"IAS_STAT":{"val"=1, "hex"="3A", "mask"="00001000", "name"="Indicated Airspeed Status"},
+		"IAS":{"val"=303.0000000, "hex"="3A5F", "mask"="0000011111111110", "name"="Indicated Airspeed"},
+		"MACH_STATUS":{"val"=1, "hex"="5F", "mask"="00000001", "name"="Mach Speed Status"},
+		"MACH":{"val"=0.8280000, "hex"="33FF", "mask"="1111111111000000", "name"="Mach Speed"},
+		"BAR_STATUS":{"val"=1, "hex"="FF", "mask"="00100000", "name"="Barometric Altitude Rate Status"},
+		"BAR":{"val"=-128.0000000, "hex"="FFE4", "mask"="0001111111111000", "name"="Barometric Altitude Rate"},
+		"IVV_STATUS":{"val"=1, "hex"="E4", "mask"="00000100", "name"="Inertial Vertical Velocity Status"},
+		"IVV":{"val"=0.0000000, "hex"="E400", "mask"="0000001111111111", "name"="Inertial Vertical Velocity"},
+		"BDS":{"val"="60", "hex"="60", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1756, "hex"="06DC", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=550.1953125, "hex"="09C8", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=205.6585693, "hex"="923F", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":1,
+"cat":48,
+"length":39,
+"crc":"27DF1200",
+"timestamp":2.679688,
+"srcip":"10.143.210.17",
+"fspec":"FFD702",
+"hexdata":"14C1000100A83115C9AB0FFF00F0E01804BB344041DF7DF76070CE030A00012A564620A0",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=2.0000000, "hex"="000100", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=49.0820312, "hex"="3115", "name"="RHO"},
+		"THETA":{"val"=283.5955811, "hex"="C9AB", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0F", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0F", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0F", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0F", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="7777", "hex"="0FFF", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="00", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="00", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=60.0000000, "hex"="00F0", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=1.0546875, "hex"="18", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=4, "hex"="04", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-69.0000000, "hex"="BB", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="344041", "hex"="344041", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="7777XGCN", "hex"="DF7DF76070CE", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I161":{
+		"Tn":{"val"=778, "hex"="030A", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.2197266, "hex"="0001", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=59.5349121, "hex"="2A56", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="A0", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=0, "hex"="A0", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="100ft resolution"},
+		"AIC":{"val"=1, "hex"="A0", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=0, "hex"="A0", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=0, "hex"="A0", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":2,
+"cat":48,
+"length":23,
+"crc":"D5A98C8A",
+"timestamp":2.679688,
+"srcip":"10.143.210.17",
+"fspec":"F316",
+"hexdata":"14C100012421800F00DC8B18140000170000000020",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=2.2812500, "hex"="000124", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="21", "mask"="11100000", "name"="TYP", "meaning"="Single PSR detection"},
+		"SIM":{"val"=0, "hex"="21", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="21", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="21", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="21", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=1, "hex"="21", "mask"="00000001", "name"="FX", "meaning"="Extension into first extent"},
+		"TST":{"val"=1, "hex"="80", "mask"="10000000", "name"="TST", "meaning"="Test target report"},
+		"spare":{"val"=0, "hex"="80", "mask"="01000000", "name"="spare bit set to 0"},
+		"XPP":{"val"=0, "hex"="80", "mask"="00100000", "name"="XPP", "meaning"="No X-Pulse present"},
+		"ME":{"val"=0, "hex"="80", "mask"="00010000", "name"="ME", "meaning"="Default"},
+		"MI":{"val"=0, "hex"="80", "mask"="00001000", "name"="MI", "meaning"="Default"},
+		"FOEFRI":{"val"=0, "hex"="80", "mask"="00000110", "name"="FOE/FRI", "meaning"="No mode 4 interrogation"},
+		"FX":{"val"=0, "hex"="80", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=15.0000000, "hex"="0F00", "name"="RHO"},
+		"THETA":{"val"=310.1385498, "hex"="DC8B", "name"="THETA"}},
+	"I130":{
+		"PRLP":{
+		"PRL":{"val"=0.8789062, "hex"="14", "name"="Primary Plot Runlength"}},
+		"PAMP":{
+		"PAM":{"val"=0.0000000, "hex"="00", "name"="Amplitude of Primary plot"}}},
+	"I161":{
+		"Tn":{"val"=23, "hex"="0017", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.0000000, "hex"="0000", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=0.0000000, "hex"="0000", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="20", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=1, "hex"="20", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="20", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="20", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="20", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":34,
+"length":16,
+"crc":"A9B4D46A",
+"timestamp":2.882812,
+"srcip":"10.143.210.17",
+"fspec":"EE",
+"hexdata":"14C10100016E020198404040900088",
+"CAT034":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I000":{
+		"MsgTyp":{"val"=1, "hex"="01", "name"="Message Type", "meaning"="North Marker message"}},
+	"I030":{
+		"ToD":{"val"=2.8593750, "hex"="00016E", "name"="Time of day"}},
+	"I041":{
+		"RotS":{"val"=4.0078125, "hex"="0201", "name"="Antenna rotation speed"}},
+	"I050":{
+		"COM":{
+		"NOGO":{"val"=0, "hex"="40", "mask"="10000000", "name"="Operational Release Status of the System", "meaning"="System is released for operational use"},
+		"RDPC":{"val"=1, "hex"="40", "mask"="01000000", "name"="Radar Data Processor Chain Selection Status", "meaning"="RDPC-2 selected"},
+		"RDPR":{"val"=0, "hex"="40", "mask"="00100000", "name"="Event to signal a reset/restart of the selected Radar Data Processor Chain", "meaning"="Default"},
+		"OVLRDP":{"val"=0, "hex"="40", "mask"="00010000", "name"="Radar Data Processor Overload Indicator", "meaning"="No overload"},
+		"OVLXMT":{"val"=0, "hex"="40", "mask"="00001000", "name"="Transmission Subsystem Overload Status", "meaning"="No overload"},
+		"MSC":{"val"=0, "hex"="40", "mask"="00000100", "name"="Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"TSV":{"val"=0, "hex"="40", "mask"="00000010", "name"="Time Source Validity", "meaning"="Time source valid"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"PSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected PSR antenna", "meaning"="antenna 1"},
+		"PSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="PSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"PSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="PSSR Overload condition", "meaning"="No overload"},
+		"PSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="PSSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}},
+		"SSR":{
+		"SSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected SSR antenna", "meaning"="antenna 1"},
+		"SSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="SSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"SSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="SSR Overload condition", "meaning"="No overload"},
+		"SSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="SSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}}},
+	"I060":{
+		"COM":{
+		"spare":{"val"=0, "hex"="00", "mask"="10000000", "name"="spare bit set to 0"},
+		"REDRDP":{"val"=0, "hex"="00", "mask"="01110000", "name"="Reduction Steps in use for an overload of the RDP", "meaning"="No reduction active"},
+		"REDXMT":{"val"=0, "hex"="00", "mask"="00001110", "name"="Reduction Steps in use for an overload of the Transmission subsystem", "meaning"="No reduction active"},
+		"spare":{"val"=0, "hex"="00", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"POL":{"val"=1, "hex"="88", "mask"="10000000", "name"="Polarization in use by PSR", "meaning"="Circular"},
+		"PSRREDRAD":{"val"=0, "hex"="88", "mask"="01110000", "name"="Reduction Steps in use as result of an overload within the PSR subsystem", "meaning"="No reduction active"},
+		"STC":{"val"=2, "hex"="88", "mask"="00001100", "name"="Sensitivity Time Control Map in use", "meaning"="STC Map-3"},
+		"spare":{"val"=0, "hex"="88", "mask"="00000011", "name"="spare bit set to 0"}}}}},
+{"id":1,
+"cat":48,
+"length":56,
+"crc":"D254BF2A",
+"timestamp":4.132812,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10001BCA8822427CC01160197E0560ABA4CA9EC4994B25C182002848000316C000040CFCA0B1DBF2FE860062106248F174E20FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=3.4687500, "hex"="0001BC", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=130.1406250, "hex"="8224", "name"="RHO"},
+		"THETA":{"val"=55.9643555, "hex"="27CC", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="01", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="01", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="0426", "hex"="0116", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=101.7500000, "hex"="0197", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=3.7792969, "hex"="56", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=10, "hex"="0A", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-70.0000000, "hex"="BA", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="4CA9EC", "hex"="4CA9EC", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="RYR2WA  ", "hex"="4994B25C1820", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="84", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=2304.0000000, "hex"="8480", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800031", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="31", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=223.0000000, "hex"="316C", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="6C00", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}},{
+		"HDG_STATUS":{"val"=1, "hex"="CF", "mask"="10000000", "name"="Heading Status"},
+		"HDG":{"val"=-135.7031250, "hex"="CFCA", "mask"="0111111111110000", "name"="Magnetic Heading"},
+		"IAS_STAT":{"val"=1, "hex"="CA", "mask"="00001000", "name"="Indicated Airspeed Status"},
+		"IAS":{"val"=261.0000000, "hex"="CA0B", "mask"="0000011111111110", "name"="Indicated Airspeed"},
+		"MACH_STATUS":{"val"=1, "hex"="0B", "mask"="00000001", "name"="Mach Speed Status"},
+		"MACH":{"val"=0.4720000, "hex"="1DBF", "mask"="1111111111000000", "name"="Mach Speed"},
+		"BAR_STATUS":{"val"=1, "hex"="BF", "mask"="00100000", "name"="Barometric Altitude Rate Status"},
+		"BAR":{"val"=-864.0000000, "hex"="BF2F", "mask"="0001111111111000", "name"="Barometric Altitude Rate"},
+		"IVV_STATUS":{"val"=1, "hex"="2F", "mask"="00000100", "name"="Inertial Vertical Velocity Status"},
+		"IVV":{"val"=-768.0000000, "hex"="2FE8", "mask"="0000001111111111", "name"="Inertial Vertical Velocity"},
+		"BDS":{"val"="60", "hex"="60", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1569, "hex"="0621", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=345.4101562, "hex"="0624", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=201.2200928, "hex"="8F17", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="4E", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="4E", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="4E", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=1, "hex"="4E", "mask"="00001000", "name"="MAH", "meaning"="Horizontal manoeuvring sensed"},
+		"CDM":{"val"=3, "hex"="4E", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="4E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":1,
+"cat":48,
+"length":22,
+"crc":"8B99C068",
+"timestamp":4.484375,
+"srcip":"10.143.210.17",
+"fspec":"F316",
+"hexdata":"14C10001E520063B3CE618182A07DA01A0C9C720",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=3.7890625, "hex"="0001E5", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="20", "mask"="11100000", "name"="TYP", "meaning"="Single PSR detection"},
+		"SIM":{"val"=0, "hex"="20", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="20", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="20", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="20", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=6.2304688, "hex"="063B", "name"="RHO"},
+		"THETA":{"val"=85.6384277, "hex"="3CE6", "name"="THETA"}},
+	"I130":{
+		"PRLP":{
+		"PRL":{"val"=1.0546875, "hex"="18", "name"="Primary Plot Runlength"}},
+		"PAMP":{
+		"PAM":{"val"=42.0000000, "hex"="2A", "name"="Amplitude of Primary plot"}}},
+	"I161":{
+		"Tn":{"val"=2010, "hex"="07DA", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=91.4062500, "hex"="01A0", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=283.7493896, "hex"="C9C7", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="20", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=1, "hex"="20", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="20", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="20", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="20", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":48,
+"length":48,
+"crc":"6BB3CBF7",
+"timestamp":6.187500,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10002BFA83DE8A8AF0B0E0500E01102C4E48BA7501378C38D6001BE800030A400004006DC09C3925D4620FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=5.4921875, "hex"="0002BF", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=61.9062500, "hex"="3DE8", "name"="RHO"},
+		"THETA":{"val"=237.2113037, "hex"="A8AF", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0B", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0B", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0B", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0B", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="5416", "hex"="0B0E", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=320.0000000, "hex"="0500", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=0.7470703, "hex"="11", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=2, "hex"="02", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-60.0000000, "hex"="C4", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="E48BA7", "hex"="E48BA7", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="TAM8085 ", "hex"="501378C38D60", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="BE", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=32000.0000000, "hex"="BE80", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800030", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="30", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=213.0000000, "hex"="30A4", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="A400", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1756, "hex"="06DC", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=549.0966797, "hex"="09C3", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=205.8233643, "hex"="925D", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":1,
+"cat":48,
+"length":39,
+"crc":"D1827E34",
+"timestamp":6.687500,
+"srcip":"10.143.210.17",
+"fspec":"FFD702",
+"hexdata":"14C1000301A83117C9AC0FFF00F0E01003BB344041DF7DF76070CE030A0001FD0A4620A0",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=6.0078125, "hex"="000301", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=49.0898438, "hex"="3117", "name"="RHO"},
+		"THETA":{"val"=283.6010742, "hex"="C9AC", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0F", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0F", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0F", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0F", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="7777", "hex"="0FFF", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="00", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="00", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=60.0000000, "hex"="00F0", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=0.7031250, "hex"="10", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=3, "hex"="03", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-69.0000000, "hex"="BB", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="344041", "hex"="344041", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="7777XGCN", "hex"="DF7DF76070CE", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I161":{
+		"Tn":{"val"=778, "hex"="030A", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.2197266, "hex"="0001", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=355.8361816, "hex"="FD0A", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="A0", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=0, "hex"="A0", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="100ft resolution"},
+		"AIC":{"val"=1, "hex"="A0", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=0, "hex"="A0", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=0, "hex"="A0", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":2,
+"cat":48,
+"length":23,
+"crc":"438513CF",
+"timestamp":6.687500,
+"srcip":"10.143.210.17",
+"fspec":"F316",
+"hexdata":"14C100032421800F00DC8418140000170000000020",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=6.2812500, "hex"="000324", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="21", "mask"="11100000", "name"="TYP", "meaning"="Single PSR detection"},
+		"SIM":{"val"=0, "hex"="21", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="21", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="21", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="21", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=1, "hex"="21", "mask"="00000001", "name"="FX", "meaning"="Extension into first extent"},
+		"TST":{"val"=1, "hex"="80", "mask"="10000000", "name"="TST", "meaning"="Test target report"},
+		"spare":{"val"=0, "hex"="80", "mask"="01000000", "name"="spare bit set to 0"},
+		"XPP":{"val"=0, "hex"="80", "mask"="00100000", "name"="XPP", "meaning"="No X-Pulse present"},
+		"ME":{"val"=0, "hex"="80", "mask"="00010000", "name"="ME", "meaning"="Default"},
+		"MI":{"val"=0, "hex"="80", "mask"="00001000", "name"="MI", "meaning"="Default"},
+		"FOEFRI":{"val"=0, "hex"="80", "mask"="00000110", "name"="FOE/FRI", "meaning"="No mode 4 interrogation"},
+		"FX":{"val"=0, "hex"="80", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=15.0000000, "hex"="0F00", "name"="RHO"},
+		"THETA":{"val"=310.1000977, "hex"="DC84", "name"="THETA"}},
+	"I130":{
+		"PRLP":{
+		"PRL":{"val"=0.8789062, "hex"="14", "name"="Primary Plot Runlength"}},
+		"PAMP":{
+		"PAM":{"val"=0.0000000, "hex"="00", "name"="Amplitude of Primary plot"}}},
+	"I161":{
+		"Tn":{"val"=23, "hex"="0017", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.0000000, "hex"="0000", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=0.0000000, "hex"="0000", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="20", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=1, "hex"="20", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="20", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="20", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="20", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":34,
+"length":16,
+"crc":"1E1A0695",
+"timestamp":6.882812,
+"srcip":"10.143.210.17",
+"fspec":"EE",
+"hexdata":"14C10100036F020198404040900088",
+"CAT034":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I000":{
+		"MsgTyp":{"val"=1, "hex"="01", "name"="Message Type", "meaning"="North Marker message"}},
+	"I030":{
+		"ToD":{"val"=6.8671875, "hex"="00036F", "name"="Time of day"}},
+	"I041":{
+		"RotS":{"val"=4.0078125, "hex"="0201", "name"="Antenna rotation speed"}},
+	"I050":{
+		"COM":{
+		"NOGO":{"val"=0, "hex"="40", "mask"="10000000", "name"="Operational Release Status of the System", "meaning"="System is released for operational use"},
+		"RDPC":{"val"=1, "hex"="40", "mask"="01000000", "name"="Radar Data Processor Chain Selection Status", "meaning"="RDPC-2 selected"},
+		"RDPR":{"val"=0, "hex"="40", "mask"="00100000", "name"="Event to signal a reset/restart of the selected Radar Data Processor Chain", "meaning"="Default"},
+		"OVLRDP":{"val"=0, "hex"="40", "mask"="00010000", "name"="Radar Data Processor Overload Indicator", "meaning"="No overload"},
+		"OVLXMT":{"val"=0, "hex"="40", "mask"="00001000", "name"="Transmission Subsystem Overload Status", "meaning"="No overload"},
+		"MSC":{"val"=0, "hex"="40", "mask"="00000100", "name"="Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"TSV":{"val"=0, "hex"="40", "mask"="00000010", "name"="Time Source Validity", "meaning"="Time source valid"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"PSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected PSR antenna", "meaning"="antenna 1"},
+		"PSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="PSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"PSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="PSSR Overload condition", "meaning"="No overload"},
+		"PSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="PSSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}},
+		"SSR":{
+		"SSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected SSR antenna", "meaning"="antenna 1"},
+		"SSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="SSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"SSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="SSR Overload condition", "meaning"="No overload"},
+		"SSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="SSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}}},
+	"I060":{
+		"COM":{
+		"spare":{"val"=0, "hex"="00", "mask"="10000000", "name"="spare bit set to 0"},
+		"REDRDP":{"val"=0, "hex"="00", "mask"="01110000", "name"="Reduction Steps in use for an overload of the RDP", "meaning"="No reduction active"},
+		"REDXMT":{"val"=0, "hex"="00", "mask"="00001110", "name"="Reduction Steps in use for an overload of the Transmission subsystem", "meaning"="No reduction active"},
+		"spare":{"val"=0, "hex"="00", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"POL":{"val"=1, "hex"="88", "mask"="10000000", "name"="Polarization in use by PSR", "meaning"="Circular"},
+		"PSRREDRAD":{"val"=0, "hex"="88", "mask"="01110000", "name"="Reduction Steps in use as result of an overload within the PSR subsystem", "meaning"="No reduction active"},
+		"STC":{"val"=2, "hex"="88", "mask"="00001100", "name"="Sensitivity Time Control Map in use", "meaning"="STC Map-3"},
+		"spare":{"val"=0, "hex"="88", "mask"="00000011", "name"="spare bit set to 0"}}}}},
+{"id":1,
+"cat":48,
+"length":56,
+"crc":"A6AA4B31",
+"timestamp":8.132812,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10003BDA881CF27DD01160196E04E09B94CA9EC4994B25C182002848000316C0000408039AD273FFC9850062106288F3F4620FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=7.4765625, "hex"="0003BD", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=129.8085938, "hex"="81CF", "name"="RHO"},
+		"THETA":{"val"=56.0577393, "hex"="27DD", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="01", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="01", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="0426", "hex"="0116", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=101.5000000, "hex"="0196", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=3.4277344, "hex"="4E", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=9, "hex"="09", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-71.0000000, "hex"="B9", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="4CA9EC", "hex"="4CA9EC", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="RYR2WA  ", "hex"="4994B25C1820", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="84", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=2304.0000000, "hex"="8480", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800031", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="31", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=223.0000000, "hex"="316C", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="6C00", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}},{
+		"RA_STATUS":{"val"=1, "hex"="80", "mask"="10000000", "name"="Roll Angle Status"},
+		"RA":{"val"=0.1757812, "hex"="8039", "mask"="0111111111100000", "name"="Roll Angle"},
+		"TTA_STATUS":{"val"=1, "hex"="39", "mask"="00010000", "name"="True Track Angle Status"},
+		"TTA":{"val"=-142.3828125, "hex"="39AD", "mask"="0000111111111110", "name"="True Track Angle"},
+		"GS_STATUS":{"val"=1, "hex"="AD", "mask"="00000001", "name"="Ground Speed Status"},
+		"GS":{"val"=312.0000000, "hex"="273F", "mask"="1111111111000000", "name"="Ground Speed"},
+		"TAR_STATUS":{"val"=1, "hex"="3F", "mask"="00100000", "name"="Track Angle Rate Status"},
+		"TAR":{"val"=-0.0312500, "hex"="3FFC", "mask"="0001111111111000", "name"="Track Angle Rate"},
+		"TAS_STATUS":{"val"=1, "hex"="FC", "mask"="00000100", "name"="True Airspeed Status"},
+		"TAS":{"val"=304.0000000, "hex"="FC98", "mask"="0000001111111111", "name"="True Airspeed"},
+		"BDS":{"val"="50", "hex"="50", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1569, "hex"="0621", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=346.2890625, "hex"="0628", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=201.4398193, "hex"="8F3F", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":1,
+"cat":48,
+"length":12,
+"crc":"6D1997FD",
+"timestamp":8.132812,
+"srcip":"10.143.210.17",
+"fspec":"E112",
+"hexdata":"14C100040A0007DA2180",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=8.0781250, "hex"="00040A", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=0, "hex"="00", "mask"="11100000", "name"="TYP", "meaning"="No detection"},
+		"SIM":{"val"=0, "hex"="00", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="00", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="00", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="00", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="00", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"Tn":{"val"=2010, "hex"="07DA", "mask"="0000111111111111", "name"="Track Number"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="21", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=1, "hex"="21", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="21", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="21", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="21", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=1, "hex"="21", "mask"="00000001", "name"="FX", "meaning"="Extension into first extent"},
+		"TRE":{"val"=1, "hex"="80", "mask"="10000000", "name"="TRE", "meaning"="Last report for a track"},
+		"GHO":{"val"=0, "hex"="80", "mask"="01000000", "name"="GHO", "meaning"="True target track"},
+		"SUP":{"val"=0, "hex"="80", "mask"="00100000", "name"="SUP", "meaning"="Track from cluster network - NO"},
+		"TCC":{"val"=0, "hex"="80", "mask"="00010000", "name"="TCC", "meaning"="Radar plane"},
+		"spare":{"val"=0, "hex"="80", "mask"="00001110", "name"="spare bits set to 0"},
+		"FX":{"val"=0, "hex"="80", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":48,
+"length":22,
+"crc":"2C6FF70C",
+"timestamp":9.382812,
+"srcip":"10.143.210.17",
+"fspec":"F316",
+"hexdata":"14C10004542016F1749318054305D5014BACBEA0",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=8.6562500, "hex"="000454", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="20", "mask"="11100000", "name"="TYP", "meaning"="Single PSR detection"},
+		"SIM":{"val"=0, "hex"="20", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="20", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="20", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="20", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=22.9414062, "hex"="16F1", "name"="RHO"},
+		"THETA":{"val"=163.9324951, "hex"="7493", "name"="THETA"}},
+	"I130":{
+		"PRLP":{
+		"PRL":{"val"=0.2197266, "hex"="05", "name"="Primary Plot Runlength"}},
+		"PAMP":{
+		"PAM":{"val"=67.0000000, "hex"="43", "name"="Amplitude of Primary plot"}}},
+	"I161":{
+		"Tn":{"val"=1493, "hex"="05D5", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=72.7294922, "hex"="014B", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=242.9187012, "hex"="ACBE", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=1, "hex"="A0", "mask"="10000000", "name"="CNF", "meaning"="Tentative Track"},
+		"RAD":{"val"=1, "hex"="A0", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="A0", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="A0", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="A0", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=0, "hex"="A0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":48,
+"length":56,
+"crc":"9B0A787D",
+"timestamp":10.179688,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10004BFA83E6EA87D0B0E0500E01904C2E48BA7501378C38D6002BE800030A4000040803929444004F75006DC09C292674620FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=9.4921875, "hex"="0004BF", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=62.4296875, "hex"="3E6E", "name"="RHO"},
+		"THETA":{"val"=236.9366455, "hex"="A87D", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0B", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0B", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0B", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0B", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="5416", "hex"="0B0E", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=320.0000000, "hex"="0500", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=1.0986328, "hex"="19", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=4, "hex"="04", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-62.0000000, "hex"="C2", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="E48BA7", "hex"="E48BA7", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="TAM8085 ", "hex"="501378C38D60", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="BE", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=32000.0000000, "hex"="BE80", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800030", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="30", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=213.0000000, "hex"="30A4", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="A400", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}},{
+		"RA_STATUS":{"val"=1, "hex"="80", "mask"="10000000", "name"="Roll Angle Status"},
+		"RA":{"val"=0.1757812, "hex"="8039", "mask"="0111111111100000", "name"="Roll Angle"},
+		"TTA_STATUS":{"val"=1, "hex"="39", "mask"="00010000", "name"="True Track Angle Status"},
+		"TTA":{"val"=-153.9843750, "hex"="3929", "mask"="0000111111111110", "name"="True Track Angle"},
+		"GS_STATUS":{"val"=1, "hex"="29", "mask"="00000001", "name"="Ground Speed Status"},
+		"GS":{"val"=546.0000000, "hex"="4440", "mask"="1111111111000000", "name"="Ground Speed"},
+		"TAR_STATUS":{"val"=0, "hex"="40", "mask"="00100000", "name"="Track Angle Rate Status"},
+		"TAR":{"val"=0.0000000, "hex"="4004", "mask"="0001111111111000", "name"="Track Angle Rate"},
+		"TAS_STATUS":{"val"=1, "hex"="04", "mask"="00000100", "name"="True Airspeed Status"},
+		"TAS":{"val"=494.0000000, "hex"="04F7", "mask"="0000001111111111", "name"="True Airspeed"},
+		"BDS":{"val"="50", "hex"="50", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1756, "hex"="06DC", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=548.8769531, "hex"="09C2", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=205.8782959, "hex"="9267", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":1,
+"cat":48,
+"length":39,
+"crc":"B9148BDC",
+"timestamp":10.679688,
+"srcip":"10.143.210.17",
+"fspec":"FFD702",
+"hexdata":"14C1000502A83117C9AA0FFF00F0E01003BB344041DF7DF76070CE030A0000C2F24620A0",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=10.0156250, "hex"="000502", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=49.0898438, "hex"="3117", "name"="RHO"},
+		"THETA":{"val"=283.5900879, "hex"="C9AA", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0F", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0F", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0F", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0F", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="7777", "hex"="0FFF", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="00", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="00", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=60.0000000, "hex"="00F0", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=0.7031250, "hex"="10", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=3, "hex"="03", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-69.0000000, "hex"="BB", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="344041", "hex"="344041", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="7777XGCN", "hex"="DF7DF76070CE", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I161":{
+		"Tn":{"val"=778, "hex"="030A", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.0000000, "hex"="0000", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=274.1418457, "hex"="C2F2", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="A0", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=0, "hex"="A0", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="100ft resolution"},
+		"AIC":{"val"=1, "hex"="A0", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=0, "hex"="A0", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=0, "hex"="A0", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},
+{"id":2,
+"cat":48,
+"length":23,
+"crc":"9AD948AB",
+"timestamp":10.679688,
+"srcip":"10.143.210.17",
+"fspec":"F316",
+"hexdata":"14C100052521800F00DCCE18130000170000000020",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=10.2890625, "hex"="000525", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="21", "mask"="11100000", "name"="TYP", "meaning"="Single PSR detection"},
+		"SIM":{"val"=0, "hex"="21", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=0, "hex"="21", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 1"},
+		"SPI":{"val"=0, "hex"="21", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="21", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=1, "hex"="21", "mask"="00000001", "name"="FX", "meaning"="Extension into first extent"},
+		"TST":{"val"=1, "hex"="80", "mask"="10000000", "name"="TST", "meaning"="Test target report"},
+		"spare":{"val"=0, "hex"="80", "mask"="01000000", "name"="spare bit set to 0"},
+		"XPP":{"val"=0, "hex"="80", "mask"="00100000", "name"="XPP", "meaning"="No X-Pulse present"},
+		"ME":{"val"=0, "hex"="80", "mask"="00010000", "name"="ME", "meaning"="Default"},
+		"MI":{"val"=0, "hex"="80", "mask"="00001000", "name"="MI", "meaning"="Default"},
+		"FOEFRI":{"val"=0, "hex"="80", "mask"="00000110", "name"="FOE/FRI", "meaning"="No mode 4 interrogation"},
+		"FX":{"val"=0, "hex"="80", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=15.0000000, "hex"="0F00", "name"="RHO"},
+		"THETA":{"val"=310.5065918, "hex"="DCCE", "name"="THETA"}},
+	"I130":{
+		"PRLP":{
+		"PRL":{"val"=0.8349609, "hex"="13", "name"="Primary Plot Runlength"}},
+		"PAMP":{
+		"PAM":{"val"=0.0000000, "hex"="00", "name"="Amplitude of Primary plot"}}},
+	"I161":{
+		"Tn":{"val"=23, "hex"="0017", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=0.0000000, "hex"="0000", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=0.0000000, "hex"="0000", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="20", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=1, "hex"="20", "mask"="01100000", "name"="RAD", "meaning"="PSR Track"},
+		"DOU":{"val"=0, "hex"="20", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="20", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=0, "hex"="20", "mask"="00000110", "name"="CDM", "meaning"="Maintaining"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}}},
+{"id":1,
+"cat":34,
+"length":16,
+"crc":"3A05CC48",
+"timestamp":10.882812,
+"srcip":"10.143.210.17",
+"fspec":"EE",
+"hexdata":"14C10100056F020098404040900088",
+"CAT034":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I000":{
+		"MsgTyp":{"val"=1, "hex"="01", "name"="Message Type", "meaning"="North Marker message"}},
+	"I030":{
+		"ToD":{"val"=10.8671875, "hex"="00056F", "name"="Time of day"}},
+	"I041":{
+		"RotS":{"val"=4.0000000, "hex"="0200", "name"="Antenna rotation speed"}},
+	"I050":{
+		"COM":{
+		"NOGO":{"val"=0, "hex"="40", "mask"="10000000", "name"="Operational Release Status of the System", "meaning"="System is released for operational use"},
+		"RDPC":{"val"=1, "hex"="40", "mask"="01000000", "name"="Radar Data Processor Chain Selection Status", "meaning"="RDPC-2 selected"},
+		"RDPR":{"val"=0, "hex"="40", "mask"="00100000", "name"="Event to signal a reset/restart of the selected Radar Data Processor Chain", "meaning"="Default"},
+		"OVLRDP":{"val"=0, "hex"="40", "mask"="00010000", "name"="Radar Data Processor Overload Indicator", "meaning"="No overload"},
+		"OVLXMT":{"val"=0, "hex"="40", "mask"="00001000", "name"="Transmission Subsystem Overload Status", "meaning"="No overload"},
+		"MSC":{"val"=0, "hex"="40", "mask"="00000100", "name"="Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"TSV":{"val"=0, "hex"="40", "mask"="00000010", "name"="Time Source Validity", "meaning"="Time source valid"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"PSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected PSR antenna", "meaning"="antenna 1"},
+		"PSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="PSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"PSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="PSSR Overload condition", "meaning"="No overload"},
+		"PSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="PSSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}},
+		"SSR":{
+		"SSRANT":{"val"=0, "hex"="40", "mask"="10000000", "name"="Selected SSR antenna", "meaning"="antenna 1"},
+		"SSRCHAB":{"val"=2, "hex"="40", "mask"="01100000", "name"="SSR Channel A/B selection status", "meaning"="Channel B only selected"},
+		"SSROVL":{"val"=0, "hex"="40", "mask"="00010000", "name"="SSR Overload condition", "meaning"="No overload"},
+		"SSRMSC":{"val"=0, "hex"="40", "mask"="00001000", "name"="SSR Monitoring System Connected Status", "meaning"="Monitoring system connected"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000111", "name"="spare bit set to 0"}}},
+	"I060":{
+		"COM":{
+		"spare":{"val"=0, "hex"="00", "mask"="10000000", "name"="spare bit set to 0"},
+		"REDRDP":{"val"=0, "hex"="00", "mask"="01110000", "name"="Reduction Steps in use for an overload of the RDP", "meaning"="No reduction active"},
+		"REDXMT":{"val"=0, "hex"="00", "mask"="00001110", "name"="Reduction Steps in use for an overload of the Transmission subsystem", "meaning"="No reduction active"},
+		"spare":{"val"=0, "hex"="00", "mask"="00000001", "name"="spare bit set to 0"}},
+		"PSR":{
+		"POL":{"val"=1, "hex"="88", "mask"="10000000", "name"="Polarization in use by PSR", "meaning"="Circular"},
+		"PSRREDRAD":{"val"=0, "hex"="88", "mask"="01110000", "name"="Reduction Steps in use as result of an overload within the PSR subsystem", "meaning"="No reduction active"},
+		"STC":{"val"=2, "hex"="88", "mask"="00001100", "name"="Sensitivity Time Control Map in use", "meaning"="STC Map-3"},
+		"spare":{"val"=0, "hex"="88", "mask"="00000011", "name"="spare bit set to 0"}}}}},
+{"id":1,
+"cat":48,
+"length":56,
+"crc":"57BC499B",
+"timestamp":12.132812,
+"srcip":"10.143.210.17",
+"fspec":"FFF702",
+"hexdata":"14C10005BEA8817D27E701160195E04E0AB24CA9EC4994B25C18200210010680ED000010848000316C000040062106188FEE4620FD",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=20, "hex"="14", "name"="System Area Code"},
+		"SIC":{"val"=193, "hex"="C1", "name"="System Identification Code"}},
+	"I140":{
+		"ToD":{"val"=11.4843750, "hex"="0005BE", "name"="Time Of Day"}},
+	"I020":{
+		"TYP":{"val"=5, "hex"="A8", "mask"="11100000", "name"="TYP", "meaning"="Single ModeS Roll-Call"},
+		"SIM":{"val"=0, "hex"="A8", "mask"="00010000", "name"="SIM", "meaning"="Actual target report"},
+		"RDP":{"val"=1, "hex"="A8", "mask"="00001000", "name"="RDP", "meaning"="Report from RDP Chain 2"},
+		"SPI":{"val"=0, "hex"="A8", "mask"="00000100", "name"="SPI", "meaning"="Absence of SPI"},
+		"RAB":{"val"=0, "hex"="A8", "mask"="00000010", "name"="RAB", "meaning"="Report from aircraft transponder"},
+		"FX":{"val"=0, "hex"="A8", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I040":{
+		"RHO":{"val"=129.4882812, "hex"="817D", "name"="RHO"},
+		"THETA":{"val"=56.1126709, "hex"="27E7", "name"="THETA"}},
+	"I070":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="01", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="01", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="0426", "hex"="0116", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="01", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="01", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"FL":{"val"=101.2500000, "hex"="0195", "mask"="0011111111111111", "name"="FlightLevel"}},
+	"I130":{
+		"SRLP":{
+		"SRL":{"val"=3.4277344, "hex"="4E", "name"="SSR Plot Runlength"}},
+		"SRRP":{
+		"SRR":{"val"=10, "hex"="0A", "name"="SSR-Number of received reply"}},
+		"SAMP":{
+		"SAM":{"val"=-78.0000000, "hex"="B2", "name"="SSR-Reply amplitude"}}},
+	"I220":{
+		"ACAddr":{"val"="4CA9EC", "hex"="4CA9EC", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="RYR2WA  ", "hex"="4994B25C1820", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"VAL":{"val"="10010680ED0000", "hex"="10010680ED0000", "name"="BDS value"},
+		"BDS":{"val"="10", "hex"="10", "name"="BDS register"}},{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="84", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=2304.0000000, "hex"="8480", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="80", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="800031", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="31", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=223.0000000, "hex"="316C", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="6C00", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}}],
+	"I161":{
+		"Tn":{"val"=1569, "hex"="0621", "mask"="0000111111111111", "name"="Track Number"}},
+	"I200":{
+		"CGS":{"val"=342.7734375, "hex"="0618", "name"="Calculated groundspeed"},
+		"CHdg":{"val"=202.4011230, "hex"="8FEE", "name"="Calculated heading"}},
+	"I170":{
+		"CNF":{"val"=0, "hex"="46", "mask"="10000000", "name"="CNF", "meaning"="Confirmed Track"},
+		"RAD":{"val"=2, "hex"="46", "mask"="01100000", "name"="RAD", "meaning"="SSR/ModeS Track"},
+		"DOU":{"val"=0, "hex"="46", "mask"="00010000", "name"="DOU", "meaning"="Normal confidence"},
+		"MAH":{"val"=0, "hex"="46", "mask"="00001000", "name"="MAH", "meaning"="No horizontal man. sensed"},
+		"CDM":{"val"=3, "hex"="46", "mask"="00000110", "name"="CDM", "meaning"="Invalid"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I230":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="COM"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="STAT"},
+		"SI":{"val"=0, "hex"="20", "mask"="00000010", "name"="SI/II Transponder Capability", "meaning"="SI-Code Capable"},
+		"spare":{"val"=0, "hex"="20", "mask"="00000001", "name"="spare bit set to 0"},
+		"ModeSSSC":{"val"=1, "hex"="FD", "mask"="10000000", "name"="ModeS Specific Service Capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="FD", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25ft resolution"},
+		"AIC":{"val"=1, "hex"="FD", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"BDS16":{"val"=1, "hex"="FD", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"BDS37":{"val"=13, "hex"="FD", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}},

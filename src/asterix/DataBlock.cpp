@@ -28,8 +28,8 @@
 
 extern bool gFiltering;
 
-DataBlock::DataBlock(Category *cat, unsigned long len, const unsigned char *data, double nTimestamp)
-        : m_pCategory(cat), m_nLength(len), m_nTimestamp(nTimestamp), m_bFormatOK(false) {
+DataBlock::DataBlock(Category *cat, unsigned long len, const unsigned char *data, double nTimestamp, unsigned int nIP)
+        : m_pCategory(cat), m_nLength(len), m_nTimestamp(nTimestamp), m_nIP(nIP), m_bFormatOK(false) {
     const unsigned char *m_pItemDataStart = data;
     long nUnparsed = len;
     int counter = 1;
@@ -40,7 +40,7 @@ DataBlock::DataBlock(Category *cat, unsigned long len, const unsigned char *data
     }
 
     while (nUnparsed > 0) {
-        DataRecord *dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, nTimestamp);
+        DataRecord *dr = new DataRecord(cat, counter++, nUnparsed, m_pItemDataStart, nTimestamp, nIP);
 
         if (!dr) {
             Tracer::Error("Error DataBlock format.");
@@ -56,6 +56,29 @@ DataBlock::DataBlock(Category *cat, unsigned long len, const unsigned char *data
 
         m_pItemDataStart += dr->m_nLength;
         nUnparsed -= dr->m_nLength;
+    }
+
+    // A malformed record does not stop the block: decoding goes on from where that record stopped (ASTERIX
+    // records carry no length, so this is the only place to go on from). Most records after it decode
+    // correctly, some may be wrong: report the whole block, as received, to be able to check it later.
+    int nBadRecord = 0, nRecord = 0, nAfterBad = 0;
+    for (std::list<DataRecord *>::iterator it = m_lDataRecords.begin(); it != m_lDataRecords.end(); ++it) {
+        nRecord++;
+        if (nBadRecord == 0 && !(*it)->m_bFormatOK)
+            nBadRecord = nRecord;
+        else if (nBadRecord != 0 && (*it)->m_bFormatOK)
+            nAfterBad++;
+    }
+    if (nBadRecord != 0) {
+        std::string strBlock;
+        unsigned long nBlockLength = len + 3;  // the 3-byte header (CAT, LEN) is not in data
+        appendHexByte(strBlock, (unsigned char) (m_pCategory ? m_pCategory->m_id : 0));
+        appendHexByte(strBlock, (unsigned char) ((nBlockLength >> 8) & 0xFF));
+        appendHexByte(strBlock, (unsigned char) (nBlockLength & 0xFF));
+        appendHexBytes(strBlock, data, len);
+        Tracer::Error("Warning: malformed record %d in data block CAT%03d (%lu bytes), %d record(s) decoded after it "
+                      "may be wrong. Block: %s", nBadRecord, m_pCategory ? m_pCategory->m_id : 0, nBlockLength,
+                      nAfterBad, strBlock.c_str());
     }
 
     if (nUnparsed > 0) {
@@ -86,7 +109,10 @@ bool DataBlock::getText(std::string &strResult, const unsigned int formatType) {
             strResult += format("\nCategory: %d", m_pCategory->m_id);
             strResult += format("\nLen: %ld", m_nLength);
             strResult += format("\nTimestamp: %lf", m_nTimestamp);
-            strResult += format("\nHexData: %02X%02X%02X", m_pCategory->m_id, ((m_nLength + 3) >> 8) & 0xff, (m_nLength + 3) & 0xff);
+            strResult += format("\nHexData: %02X%02X%02X", (unsigned int) m_pCategory->m_id,
+                                (unsigned int) (((m_nLength + 3) >> 8) & 0xff), (unsigned int) ((m_nLength + 3) & 0xff));
+            strResult += format("\nSrc IP: %u.%u.%u.%u",
+                                (m_nIP >> 24) & 0xff, (m_nIP >> 16) & 0xff, (m_nIP >> 8) & 0xff, m_nIP & 0xff);
             break;
         case CAsterixFormat::EOut:
             strHeader = format("Asterix.CAT%03d", m_pCategory->m_id);

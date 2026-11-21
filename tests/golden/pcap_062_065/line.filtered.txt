@@ -1,0 +1,29 @@
+
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.105.Lat 7674108 (41.1671233 deg)
+Asterix.CAT062.105.Lon 2928345 (15.7088667 deg)
+Asterix.CAT062.380.ADR 4CA7A8
+Asterix.CAT062.380.ACID RYR174C 
+Asterix.CAT062.380.COM 1 (Comm. A and Comm. B capability)
+Asterix.CAT062.380.STAT 0 (No alert, no SPI, aircraft airborne)
+Asterix.CAT062.380.SSC 1 (Yes)
+Asterix.CAT062.380.ARC 1 (25 ft resolution)
+Asterix.CAT062.380.AIC 1 (Yes)
+Asterix.CAT062.380.B1A 1
+Asterix.CAT062.380.B1B 6
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.105.Lat 7720677 (41.4169389 deg)
+Asterix.CAT062.105.Lon 3614397 (19.3891364 deg)
+Asterix.CAT062.380.ADR 4CAC7F
+Asterix.CAT062.380.ACID ISS2007 
+Asterix.CAT062.380.COM 1 (Comm. A and Comm. B capability)
+Asterix.CAT062.380.STAT 0 (No alert, no SPI, aircraft airborne)
+Asterix.CAT062.380.SSC 1 (Yes)
+Asterix.CAT062.380.ARC 1 (25 ft resolution)
+Asterix.CAT062.380.AIC 1 (Yes)
+Asterix.CAT062.380.B1A 1
+Asterix.CAT062.380.B1B 6
+Asterix.CAT065.010.SAC 25
+Asterix.CAT065.010.SIC 100

@@ -28,7 +28,7 @@
 
 class DataBlock {
 public:
-    DataBlock(Category *cat, unsigned long len, const unsigned char *data, double nTimestamp = 0.0);
+    DataBlock(Category *cat, unsigned long len, const unsigned char *data, double nTimestamp = 0.0, unsigned int nIP = 0);
 
     virtual
     ~DataBlock();
@@ -36,6 +36,7 @@ public:
     Category *m_pCategory;
     unsigned long m_nLength;
     double m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    unsigned int m_nIP; // source ip when reading GPS files
     bool m_bFormatOK;
 
     std::list<DataRecord *> m_lDataRecords;

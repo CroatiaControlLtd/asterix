@@ -40,7 +40,15 @@ public:
 
     long parse(const unsigned char *pData, long len);
 
+    /**
+     * Length of the item of description pDesc at pData (len bytes left in the record), reporting the
+     * same errors as parse(). Used to step over an item without copying it.
+     */
+    static long getLength(DataItemDescription *pDesc, const unsigned char *pData, long len);
+
     long getLength() { return m_nLength; }
+
+    long m_nOffset; //!< position of this item in the record data after the FSPEC (EJSONX "pos")
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)
     fulliautomatix_data* getData(int byteoffset);

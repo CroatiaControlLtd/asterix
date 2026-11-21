@@ -167,7 +167,7 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
         unsigned char *pPacketPtr = (unsigned char *) Descriptor.GetBuffer();
         int m_nDataLength = Descriptor.GetBufferLen();
 
-        while (m_nDataLength > 0) {
+        while (m_nDataLength >= 6) { // room for the ORADIS header
             // parse ORADIS header (6 bytes)
             // Byte count (1) (MSB)
             // Byte count (2) (LSB)
@@ -185,7 +185,7 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
             // skip time
             pPacketPtr += 4;
 
-            if (byteCount > m_nDataLength)
+            if (byteCount < 6 || byteCount > m_nDataLength) // byte count includes the 6-byte header
                 break;
 
             // Parse ASTERIX data
@@ -197,6 +197,7 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
             } else {
                 Descriptor.m_pAsterixData->m_lDataBlocks.splice(Descriptor.m_pAsterixData->m_lDataBlocks.end(),
                                                                 m_ptmpAsterixData->m_lDataBlocks);
+                delete m_ptmpAsterixData; // its blocks were moved, the container is empty
             }
 
             pPacketPtr += (byteCount - 6);
@@ -204,7 +205,8 @@ bool CAsterixRawSubformat::ProcessPacket(CBaseFormatDescriptor &formatDescriptor
         }
     } else {
         Descriptor.m_pAsterixData = Descriptor.m_InputParser.parsePacket(Descriptor.GetBuffer(),
-                                                                         Descriptor.GetBufferLen(), dTimestamp);
+                                                                         Descriptor.GetBufferLen(),
+                                                                         dTimestamp, device.getLastSourceIP());
     }
 
     return true;

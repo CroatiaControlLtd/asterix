@@ -89,6 +89,8 @@
 class CDiskDevice : public CBaseDevice {
 private:
     FILE *_fileStream;
+    long _inputPos;   // read position in the input file, -1 unknown (ask ftell)
+    long _inputSize;  // input file size last seen by fstat, -1 unknown
     bool _input;
     unsigned int _inputDelay;
     unsigned int _mode;

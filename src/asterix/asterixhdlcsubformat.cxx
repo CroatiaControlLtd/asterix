@@ -64,6 +64,13 @@ bool CAsterixHDLCSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor, 
 
     // read available data to read buffer
     size_t readSize = MAX_RXBUF;
+    // A file device only reads complete buffers: ask for what is left when that is less than a buffer,
+    // or files under 4 KB decode nothing and the end of longer ones is lost.
+    // BytesLeftToRead() is 0 when unknown (serial, stdin): those devices keep reading MAX_RXBUF.
+    unsigned int leftBytes = device.BytesLeftToRead();
+    if (leftBytes > 0 && leftBytes < readSize) {
+        readSize = leftBytes;
+    }
 
     if (!device.Read((void *) RxBuf, &readSize)) {
         LOGERROR(1, "Couldn't read HDLC packet.\n");

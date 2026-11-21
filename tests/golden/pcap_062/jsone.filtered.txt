@@ -1,0 +1,912 @@
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"0FE6E780",
+"timestamp":46065763.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F8E10E301EFA640CF0A102F20500071DEF7E0400BD011053884155413834385A404C4154494C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4330.8907342, "hex"="301EFA64", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1164.5961106, "hex"="0CF0A102", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"68C510C0",
+"timestamp":46065964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F8FA00721E30E70D1884056E0528092F5E870000000110538843464734363020404544444C4845474E0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=10270.6140321, "hex"="721E30E7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1178.6188012, "hex"="0D188405", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"9C6366BD",
+"timestamp":46067364.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9AE05A3209B9008E4740159057807DF6092000000011053885443583835374B40454747444C475A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-8358.5363674, "hex"="A3209B90", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=800.3155571, "hex"="08E47401", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"C057B021",
+"timestamp":46067364.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9AE0DED20982808E95C00410708081260D0000000011053884E33353242482040454242524C4C42",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-1698.5410452, "hex"="ED209828", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=802.0404053, "hex"="08E95C00", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"E4E5ED31",
+"timestamp":46067764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9E10D571FFDF5094B670F4D05C8088147BA0000000110538853554935353620404C535A425A5A5A5A0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=7841.2471944, "hex"="571FFDF5", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=836.5087169, "hex"="094B670F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"0385F569",
+"timestamp":46067964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9FA028B1F94B7098EB50D4E05280777972600000001105388415A413535332040455057414C4952460108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-10518.8973337, "hex"="8B1F94B7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=860.1705104, "hex"="098EB50D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"5D2C3529",
+"timestamp":46068164.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA1401BC1FBAFA09AB040D420668077F92E30000000110538845534B33504420404C4B50524C49524E0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-6108.8447893, "hex"="BC1FBAFA", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=870.1227504, "hex"="09AB040D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"F6F80737",
+"timestamp":46068563.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA4705CF2003510A70740E2C02A806F525B70000000110538845424A32303433404C44504C4C445A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-4398.7454456, "hex"="CF200351", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=939.5343769, "hex"="0A70740E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"52400F3C",
+"timestamp":46068563.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA470F2320D6880A83090E5D05C807299487000000011053884C4F543331332040455057414C495246010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=3161.5446138, "hex"="2320D688", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=946.0671222, "hex"="0A83090E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"6C997BD3",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA610D4520A4140AB00F02B30550080114B7000000011053884E4C5938343637404C4952464C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=6221.4753270, "hex"="4520A414", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=961.8956101, "hex"="0AB00F02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"93377BB4",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA6106E51EDBB30ABA9502F104600693CE70000000011053884C424332323620404C4154494C4950450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-2419.1514140, "hex"="E51EDBB3", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=965.5952561, "hex"="0ABA9502", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"29F06B60",
+"timestamp":46068965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA7B07D82114700AD0F60E490398048487A70000000110538843544E34343520404C4F57574C4453",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-3588.3703709, "hex"="D8211470", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=973.4629047, "hex"="0AD0F60E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"07FCC32C",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA940D322039270B30720F6B05C808865CFB0000000110538854564631353334404C46504F4C544645010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4511.3284868, "hex"="32203927", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1007.0316356, "hex"="0B30720F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"59CEDBBC",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA940F92202C2A0B460F0487052808535CC10000000110538841454535343120404544444C4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-9888.6893499, "hex"="92202C2A", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1014.6299958, "hex"="0B460F04", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"151AE27A",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE02362082EE0B56FF0D5800F002E105360400F601105388435341325A4120404C445A414C4B50520108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4871.4298046, "hex"="362082EE", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1020.5846339, "hex"="0B56FF0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"DC8D8F5A",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE0AA41F17750B710F0D43052807FB6D9A0000000110538841445238383420404C4A4C4A4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-8269.0693492, "hex"="A41F1775", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1029.7472316, "hex"="0B710F0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"16A651AD",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE01DC208A300B5EC40E1900380208C64F040029011053883941445A472020604C4456414C445A4101080C0300",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-3228.5602283, "hex"="DC208A30", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1023.3161151, "hex"="0B5EC40E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"E7DCD5ED",
+"timestamp":46069565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAC705032093FE0B809304540060033AA12408FF73011053884757493239373640454444534C445A41010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=281.4532363, "hex"="032093FE", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1035.2018952, "hex"="0B809304", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":42,
+"crc":"0E230151",
+"timestamp":46069565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAC701631EC2B20B87760060052809046A52000000011053884D50483038312040454841",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=8920.8142483, "hex"="631EC2B2", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1037.6229858, "hex"="0B877600", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"4A042425",
+"timestamp":46069764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAE10CF0208CC10B96FB02A805F0081D1F7A00000001105388575A5A3234384E404C4952464C4842",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-1428.5567039, "hex"="F0208CC1", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1043.0790818, "hex"="0B96FB02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"0ED18C81",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA016D1FCE0D0BDFAB0E6B057808B05CD30000000110538841454538303320404544444D4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=9821.1814052, "hex"="6D1FCE0D", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1068.6333454, "hex"="0BDFAB0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"78CC21C9",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA02B11EF41E0BFB73029F057808142E6400000001105388415A4135393420404C4952464C5942450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-7099.1178811, "hex"="B11EF41E", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1078.4001267, "hex"="0BFB7302", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"1146F1A9",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA03831FE56B0BF08502B405A0076303A500000001105388544152373332304044544D4245505741010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-11238.7865049, "hex"="831FE56B", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1074.5576584, "hex"="0BF08502", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"D116EE1A",
+"timestamp":46070165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB1408341EDAEF0C066F016905C808BD5B8E00000001105388464341383735434045474B4B4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4690.8475345, "hex"="341EDAEF", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1082.2618157, "hex"="0C066F01", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"97837D71",
+"timestamp":46070165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB140C7320E0320C0E3D080200C801D915450000000110538844454649442020504C444C4F4C48534D0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=10361.5578854, "hex"="7320E032", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1085.0056887, "hex"="0C0E3D08", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"4E25DCCB",
+"timestamp":46070565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB470E631F3DF30CCDB201A6052808605A21000000011053884F414C32303420404C4650474C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=8920.9835118, "hex"="631F3DF3", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1152.3147637, "hex"="0CCDB201", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"30112176",
+"timestamp":46070765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB610E301EFBE20CEFB402F20500071BEF51000000011053884155413834385A404C4154494C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4330.8927834, "hex"="301EFBE2", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1164.2706406, "hex"="0CEFB402", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"226EB9AF",
+"timestamp":46070964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB7A00721E2F560D1AA3056E0528092F5E8B0000000110538843464734363020404544444C4845474E0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=10270.6118810, "hex"="721E2F56", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1179.3644983, "hex"="0D1AA305", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"03FCEDFA",
+"timestamp":46072366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC2E05A3209A4B08E65F0159057807DD60A1000000011053885443583835374B40454747444C475A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-8358.5381109, "hex"="A3209A4B", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=800.9898430, "hex"="08E65F01", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"67B8E7D7",
+"timestamp":46072366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC2E0DED2096CB08EB5900410708081360D7000000011053884E33353242482040454242524C4C42",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-1698.5429174, "hex"="ED2096CB", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=802.7394104, "hex"="08EB5900", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"39D2C064",
+"timestamp":46072765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC610D571FFDA7094E3A0F4D05C8088047B50000000110538853554935353620404C535A425A5A5A5A0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=7841.2467760, "hex"="571FFDA7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=837.5016063, "hex"="094E3A0F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"BA7CD3EE",
+"timestamp":46072965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC7A028B1F9337098D730D4E05280777974800000001105388415A413535332040455057414C4952460108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-10518.8993937, "hex"="8B1F9337", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=859.7283107, "hex"="098D730D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"FD426EF8",
+"timestamp":46073165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC9401BC1FB95709A9F40D420668078192FA0000000110538845534B33504420404C4B50524C49524E0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-6108.8470370, "hex"="BC1FB957", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=869.7492152, "hex"="09A9F40D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"A8E87753",
+"timestamp":46073564.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCC705CF20046D0A722A0E2C02A806F225330000000110538845424A32303433404C44504C4C445A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-4398.7439221, "hex"="CF20046D", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=940.1358783, "hex"="0A722A0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"87697957",
+"timestamp":46073564.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCC70F2320D50C0A81C60E5D05C8072994F0000000011053884C4F543331332040455057414C495246010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=3161.5425754, "hex"="2320D50C", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=945.6235492, "hex"="0A81C60E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"ECF0D918",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCE10D4520A5BF0AB15102B30550080114A8000000011053884E4C5938343637404C4952464C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=6221.4776176, "hex"="4520A5BF", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=962.3378098, "hex"="0AB15102", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"71931B09",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCE106E51EDC340AB88E02F104600693CE79000000011053884C424332323620404C4154494C4950450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-2419.1507220, "hex"="E51EDC34", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=964.8825181, "hex"="0AB88E02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"6A6FFA3C",
+"timestamp":46073965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCFA07D82113650AD10C0E490398047884CA0000000110538843544E34343520404C4F57574C4453",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-3588.3718032, "hex"="D8211365", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=973.4931171, "hex"="0AD10C0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"E80A250E",
+"timestamp":46074165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD140D322037D40B329A0F6B05C808865CFB0000000110538854564631353334404C46504F4C544645010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4511.3266683, "hex"="322037D4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1007.7896923, "hex"="0B329A0F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"31787C42",
+"timestamp":46074165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD140F92202AE40B48250487052808535CC10000000110538841454535343120404544444C4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-9888.6910987, "hex"="92202AE4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1015.3633332, "hex"="0B482504", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"AA2ACCD2",
+"timestamp":46074365.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD2E02362083980B57100D5800F002E105360400F601105388435341325A4120404C445A414C4B50520108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=4871.4307165, "hex"="36208398", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1020.6079799, "hex"="0B57100D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"19356BFF",
+"timestamp":46074365.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD2E01DC208A480B5DF40E1900380225C65F040017011053883941445A472020604C4456414C445A4101080C0300",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-3228.5600996, "hex"="DC208A48", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1023.0304706, "hex"="0B5DF40E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"AD82C925",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD470AA41F15B40B723C0D43052807FB6D9A0000000110538841445238383420404C4A4C4A4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-8269.0717578, "hex"="A41F15B4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1030.1605922, "hex"="0B723C0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"3C7878DE",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD4705032093910B7FE504540058032CA12B08FF67011053884757493239373640454444534C445A41010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=281.4526516, "hex"="03209391", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1034.9629426, "hex"="0B7FE504", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":42,
+"crc":"7CEEB689",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD4701631EC0D80B88F30060052809046A52000000011053884D50483038312040454841",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=8920.8117056, "hex"="631EC0D8", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1038.1462097, "hex"="0B88F300", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"2A41D354",
+"timestamp":46074764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD610CF0208E200B98E202A805F0081C1FAE00000001105388575A5A3234384E404C4952464C4842",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-1428.5548210, "hex"="F0208E20", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1043.7478745, "hex"="0B98E202", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"8A0E5DA0",
+"timestamp":46074965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD7A016D1FCCB60BE1D90E6B057808B05CD30000000110538841454538303320404544444D4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=9821.1795652, "hex"="6D1FCCB6", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1069.3996418, "hex"="0BE1D90E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"85CE3BD1",
+"timestamp":46074965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD7A03831FE71F0BF0CF02B405A0076303A500000001105388544152373332304044544D4245505741010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=-11238.7841660, "hex"="831FE71F", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1074.6592820, "hex"="0BF0CF02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},

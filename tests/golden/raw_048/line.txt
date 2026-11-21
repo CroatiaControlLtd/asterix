@@ -1,0 +1,61 @@
+
+Asterix.CAT048.010.SAC 25
+Asterix.CAT048.010.SIC 201
+Asterix.CAT048.140.ToD 3501389 (27354.6015625 s)
+Asterix.CAT048.020.TYP 5 (Single ModeS Roll-Call)
+Asterix.CAT048.020.SIM 0 (Actual target report)
+Asterix.CAT048.020.RDP 0 (Report from RDP Chain 1)
+Asterix.CAT048.020.SPI 0 (Absence of SPI)
+Asterix.CAT048.020.RAB 0 (Report from aircraft transponder)
+Asterix.CAT048.020.FX 0 (End of Data Item)
+Asterix.CAT048.040.RHO 50607 (197.6835938 NM)
+Asterix.CAT048.040.THETA 61920 (340.1367188 deg)
+Asterix.CAT048.070.V 0 (Code validated)
+Asterix.CAT048.070.G 0 (Default)
+Asterix.CAT048.070.L 0 (Mode-3/A code as derived from the reply of the transponder)
+Asterix.CAT048.070.spare 0
+Asterix.CAT048.070.Mode3A 1000
+Asterix.CAT048.090.V 0 (Code validated)
+Asterix.CAT048.090.G 0 (Default)
+Asterix.CAT048.090.FL 1320 (330.0000000 FL)
+Asterix.CAT048.220.ACAddr 3C660C
+Asterix.CAT048.240.TId DLH65A  
+Asterix.CAT048.250.MCP_ALT_STATUS 1
+Asterix.CAT048.250.MCP_ALT 2063 (33008.0000000 ft)
+Asterix.CAT048.250.FMS_ALT_STATUS 0
+Asterix.CAT048.250.FMS_ALT 0 (0.0000000 ft)
+Asterix.CAT048.250.BP_STATUS 1
+Asterix.CAT048.250.BP 2270 (227.0000000 mb)
+Asterix.CAT048.250.res1 0
+Asterix.CAT048.250.MODE_STATUS 0
+Asterix.CAT048.250.VNAV 0 (Not active)
+Asterix.CAT048.250.ALT_HOLD 0 (Not active)
+Asterix.CAT048.250.APP 0 (Not active)
+Asterix.CAT048.250.res2 0
+Asterix.CAT048.250.TARGET_ALT_STATUS 0 (No source information provided)
+Asterix.CAT048.250.TARGET_ALT_SOURCE 0 (Unknown)
+Asterix.CAT048.250.BDS 40
+Asterix.CAT048.161.Tn 3563
+Asterix.CAT048.200.CGS 1977 (434.3994141 kt)
+Asterix.CAT048.200.CHdg 22574 (124.0026855 deg)
+Asterix.CAT048.170.CNF 0 (Confirmed Track)
+Asterix.CAT048.170.RAD 2 (SSR/ModeS Track)
+Asterix.CAT048.170.DOU 0 (Normal confidence)
+Asterix.CAT048.170.MAH 0 (No horizontal man. sensed)
+Asterix.CAT048.170.CDM 0 (Maintaining)
+Asterix.CAT048.170.FX 1 (Extension into first extent)
+Asterix.CAT048.170.TRE 0 (Track still alive)
+Asterix.CAT048.170.GHO 0 (True target track)
+Asterix.CAT048.170.SUP 0 (Track from cluster network - NO)
+Asterix.CAT048.170.TCC 0 (Radar plane)
+Asterix.CAT048.170.spare 0
+Asterix.CAT048.170.FX 0 (End of Data Item)
+Asterix.CAT048.230.COM 1
+Asterix.CAT048.230.STAT 0
+Asterix.CAT048.230.SI 0 (SI-Code Capable)
+Asterix.CAT048.230.spare 0
+Asterix.CAT048.230.ModeSSSC 1 (Yes)
+Asterix.CAT048.230.ARC 1 (25ft resolution)
+Asterix.CAT048.230.AIC 1 (Yes)
+Asterix.CAT048.230.BDS16 1
+Asterix.CAT048.230.BDS37 5

@@ -1,0 +1,382 @@
+{"id":1,
+"cat":1,
+"length":23,
+"crc":"166B4DBF",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9A00EB2767F189408AA42D8033405C8800D400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="A0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="A0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=2, "hex"="A0", "mask"="00110000", "name"="SSRPSR", "meaning"="Sole secondary detection"},
+		"ANT":{"val"=0, "hex"="A0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="A0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="A0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="A0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3762, "hex"="0EB2", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=236.9921875, "hex"="767F", "name"="RHO"},
+		"THETA":{"val"=34.5629883, "hex"="1894", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=487.9600000, "hex"="08AA", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=93.9990234, "hex"="42D8", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="03", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="03", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="03", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="03", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="1464", "hex"="0334", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=370.0000000, "hex"="05C8", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.1015625, "hex"="800D", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":2,
+"cat":1,
+"length":23,
+"crc":"451BDC4F",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9B00F7561EC1A14077EB5550E5205508014400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="B0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="B0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=3, "hex"="B0", "mask"="00110000", "name"="SSRPSR", "meaning"="Combined primary and secondary detection"},
+		"ANT":{"val"=0, "hex"="B0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="B0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="B0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="B0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3957, "hex"="0F75", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=195.8437500, "hex"="61EC", "name"="RHO"},
+		"THETA":{"val"=36.6723633, "hex"="1A14", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=421.9600000, "hex"="077E", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=254.9981689, "hex"="B555", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0E", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0E", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0E", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0E", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="7122", "hex"="0E52", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=340.0000000, "hex"="0550", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.1562500, "hex"="8014", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":3,
+"cat":1,
+"length":23,
+"crc":"B1116CF7",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9B00DCA69DE1A7C07F011110E3006188016400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="B0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="B0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=3, "hex"="B0", "mask"="00110000", "name"="SSRPSR", "meaning"="Combined primary and secondary detection"},
+		"ANT":{"val"=0, "hex"="B0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="B0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="B0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="B0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3530, "hex"="0DCA", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=211.7343750, "hex"="69DE", "name"="RHO"},
+		"THETA":{"val"=37.2436523, "hex"="1A7C", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=447.0400000, "hex"="07F0", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=23.9996338, "hex"="1111", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0E", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0E", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0E", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0E", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="7060", "hex"="0E30", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="06", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="06", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=390.0000000, "hex"="0618", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.1718750, "hex"="8016", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":1,
+"cat":1,
+"length":23,
+"crc":"AA452E46",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9B00D685C881CE008424FA4004A04D88022400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="B0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="B0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=3, "hex"="B0", "mask"="00110000", "name"="SSRPSR", "meaning"="Combined primary and secondary detection"},
+		"ANT":{"val"=0, "hex"="B0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="B0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="B0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="B0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3432, "hex"="0D68", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=185.0625000, "hex"="5C88", "name"="RHO"},
+		"THETA":{"val"=40.6054688, "hex"="1CE0", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=465.0800000, "hex"="0842", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=111.9946289, "hex"="4FA4", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="00", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="00", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="00", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="00", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="0112", "hex"="004A", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="04", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="04", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=310.0000000, "hex"="04D8", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.2656250, "hex"="8022", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":1,
+"cat":2,
+"length":8,
+"crc":"E1A938EC",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F0",
+"hexdata":"19C90250598117",
+"CAT002":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I000":{
+		"type":{"val"=2, "hex"="02", "name"="Message Type", "meaning"="Sector crossing message"}},
+	"I020":{
+		"Azi":{"val"=112.5000000, "hex"="50", "name"="Antenna azimuth"}},
+	"I030":{
+		"ToD":{"val"=45826.1796875, "hex"="598117", "name"="Time of day"}}}},
+{"id":1,
+"cat":1,
+"length":23,
+"crc":"52C8CF8E",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9B00CE173571E28081DD1100AC405A08028400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="B0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="B0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=3, "hex"="B0", "mask"="00110000", "name"="SSRPSR", "meaning"="Combined primary and secondary detection"},
+		"ANT":{"val"=0, "hex"="B0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="B0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="B0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="B0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3297, "hex"="0CE1", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=230.6796875, "hex"="7357", "name"="RHO"},
+		"THETA":{"val"=42.4072266, "hex"="1E28", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=456.9400000, "hex"="081D", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=293.9941406, "hex"="D110", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="0A", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="0A", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="0A", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="0A", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="5304", "hex"="0AC4", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=360.0000000, "hex"="05A0", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.3125000, "hex"="8028", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":1,
+"cat":1,
+"length":23,
+"crc":"D32E1DA2",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9A00C10514C212C05DCE2D7059E025A8038400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="A0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="A0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=2, "hex"="A0", "mask"="00110000", "name"="SSRPSR", "meaning"="Sole secondary detection"},
+		"ANT":{"val"=0, "hex"="A0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="A0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="A0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="A0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3088, "hex"="0C10", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=162.5937500, "hex"="514C", "name"="RHO"},
+		"THETA":{"val"=46.6479492, "hex"="212C", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=330.0000000, "hex"="05DC", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=318.9935303, "hex"="E2D7", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="05", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="05", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="2636", "hex"="059E", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="02", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="02", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=150.5000000, "hex"="025A", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.4375000, "hex"="8038", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},
+{"id":1,
+"cat":1,
+"length":23,
+"crc":"6E189DDB",
+"timestamp":45826414.000000,
+"srcip":"0.0.0.0",
+"fspec":"F7C6",
+"hexdata":"19C9B00F0D37FE21C80755D1C605A505A0803B400E",
+"CAT001":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I020":{
+		"TYP":{"val"=1, "hex"="B0", "mask"="10000000", "name"="TYP", "meaning"="Track"},
+		"SIM":{"val"=0, "hex"="B0", "mask"="01000000", "name"="SIM", "meaning"="Actual plot or track"},
+		"SSRPSR":{"val"=3, "hex"="B0", "mask"="00110000", "name"="SSRPSR", "meaning"="Combined primary and secondary detection"},
+		"ANT":{"val"=0, "hex"="B0", "mask"="00001000", "name"="ANT", "meaning"="Target report from antenna 1"},
+		"SPI":{"val"=0, "hex"="B0", "mask"="00000100", "name"="SPI", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="B0", "mask"="00000010", "name"="RAB", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="B0", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I161":{
+		"tpn":{"val"=3853, "hex"="0F0D", "name"="Track Plot Number"}},
+	"I040":{
+		"RHO":{"val"=111.9843750, "hex"="37FE", "name"="RHO"},
+		"THETA":{"val"=47.5048828, "hex"="21C8", "name"="THETA"}},
+	"I200":{
+		"CalcGS":{"val"=412.9400000, "hex"="0755", "name"="Calculated groundspeed"},
+		"CalcHdg":{"val"=294.9938965, "hex"="D1C6", "name"="Calculated heading"}},
+	"I070":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"L":{"val"=0, "hex"="05", "mask"="00100000", "name"="L", "meaning"="Mode-3/A code as derived from the reply of the transponder"},
+		"spare":{"val"=0, "hex"="05", "mask"="00010000", "name"="spare bit set to 0"},
+		"Mode3A":{"val"="2645", "hex"="05A5", "mask"="0000111111111111", "name"="Mode-3/A reply code"}},
+	"I090":{
+		"V":{"val"=0, "hex"="05", "mask"="10000000", "name"="V", "meaning"="Code validated"},
+		"G":{"val"=0, "hex"="05", "mask"="01000000", "name"="G", "meaning"="Default"},
+		"ModeC":{"val"=360.0000000, "hex"="05A0", "mask"="0011111111111111", "name"="Mode-C reply code"}},
+	"I141":{
+		"Time":{"val"=256.4609375, "hex"="803B", "name"="Time"}},
+	"I170":{
+		"CON":{"val"=0, "hex"="40", "mask"="10000000", "name"="CON", "meaning"="Confirmed track"},
+		"RAD":{"val"=1, "hex"="40", "mask"="01000000", "name"="RAD", "meaning"="SSR/Combined track"},
+		"MAN":{"val"=0, "hex"="40", "mask"="00100000", "name"="MAN", "meaning"="Default"},
+		"DOU":{"val"=0, "hex"="40", "mask"="00010000", "name"="DOU", "meaning"="Default"},
+		"RDPC":{"val"=0, "hex"="40", "mask"="00001000", "name"="RDPC", "meaning"="RDP Chain 1"},
+		"spare":{"val"=0, "hex"="40", "mask"="00000100", "name"="spare bits set to 0"},
+		"GHO":{"val"=0, "hex"="40", "mask"="00000010", "name"="GHO", "meaning"="Default"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}},
+	"I210":[{
+		"Qty":{"val"=7, "hex"="0E", "mask"="11111110", "name"="Quality indicator"},
+		"FX":{"val"=0, "hex"="0E", "mask"="00000001", "name"="FX", "meaning"="End of Data Item"}}]}},

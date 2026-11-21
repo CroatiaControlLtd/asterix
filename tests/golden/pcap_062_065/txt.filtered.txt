@@ -1,0 +1,87 @@
+
+
+-------------------------
+Data Block 1
+Category: 62
+Len: 158
+Timestamp: 45827401.000000
+HexData: 3E00A1
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 79
+CRC: 07311CBF
+Source IP: 0.0.0.0
+Fspec: BFDFFD02
+HexData: 1964015981B3007518FC002CAED9FF196BF086600393FF43000002BDC1204CA7A84994B1DF40E020F612691903010870170D0D00900D0D061816CD06180000DC190C93BA88E8061802BDA0
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 75 18 FC 00 2C AE D9 ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 7674108 (41.1671233 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 2928345 (15.7088667 deg)
+
+Item 380 : Aircraft Derived Data
+[ C1 20 4C A7 A8 49 94 B1 DF 40 E0 20 F6 ]
+	Target Address: 4CA7A8
+	Target Identification: RYR174C 
+	Communications capability of the transponder: 1 (Comm. A and Comm. B capability)
+	Flight Status: 0 (No alert, no SPI, aircraft airborne)
+	Specific service capability: 1 (Yes)
+	Altitude reporting capability: 1 (25 ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 6
+-------------------------
+Data Record 2
+Len: 79
+CRC: 6DE77D52
+Source IP: 0.0.0.0
+Fspec: BFDFFD02
+HexData: 1964015981B30075CEE5003726BD08813BF18A9FFCBDFFF10009087DC1204CAC7F2534F2C30DE020F61AAF11030108702010104090101005F01A7505F00000DC190CB98E5EB505F0087DA0
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	System Area Code: 25
+	System Identification Code: 100
+
+Item 105 : Calculated Position In WGS-84 Co-ordinates
+[ 00 75 CE E5 00 37 26 BD ]
+	Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.: 7720677 (41.4169389 deg)
+	Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.: 3614397 (19.3891364 deg)
+
+Item 380 : Aircraft Derived Data
+[ C1 20 4C AC 7F 25 34 F2 C3 0D E0 20 F6 ]
+	Target Address: 4CAC7F
+	Target Identification: ISS2007 
+	Communications capability of the transponder: 1 (Comm. A and Comm. B capability)
+	Flight Status: 0 (No alert, no SPI, aircraft airborne)
+	Specific service capability: 1 (Yes)
+	Altitude reporting capability: 1 (25 ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 6
+
+-------------------------
+Data Block 2
+Category: 65
+Len: 9
+Timestamp: 45827401.000000
+HexData: 41000C
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 9
+CRC: 5EE45750
+Source IP: 0.0.0.0
+Fspec: F8
+HexData: 196402015981B301
+
+Item 010 : Data Source Identifier
+[ 19 64 ]
+	Source Area Code: 25
+	Source Identification Code: 100

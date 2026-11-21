@@ -1,0 +1,159 @@
+name: "Tests"
+
+# What each job runs is described in tests/README.md.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '0 4 * * 1'   # weekly: longer fuzzing run
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  make:
+    name: make build, install/test and tests/run_tests.sh
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libexpat1-dev valgrind
+      - name: Build (release and debug)
+        run: |
+          make -C src -j"$(nproc)"
+          make -C src debug -j"$(nproc)"
+      - name: install/test (expected outputs, valgrind)
+        run: cd install/test && bash test.sh
+      - name: tests/run_tests.sh
+        run: MEMLIMIT_KB=2000000 tests/run_tests.sh obj/main/release/asterix
+      - name: Generated test inputs are up to date
+        run: |
+          python3 tests/tools/gen_samples.py > /dev/null
+          git diff --exit-code tests/data
+
+  cmake:
+    name: CMake C++11 (${{ matrix.compiler }}), unit tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libexpat1-dev
+      - name: Configure and build
+        run: |
+          if [ "${{ matrix.compiler }}" = clang ]; then export CC=clang CXX=clang++; else export CC=gcc CXX=g++; fi
+          cmake -S . -B build -DASTERIX_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wall"
+          cmake --build build -j"$(nproc)"
+      # unit tests, and tests/run_tests.sh with the C++11 binary (snprintf path of %.7lf)
+      - name: ctest
+        run: ctest --test-dir build --output-on-failure
+
+  sanitizers:
+    name: AddressSanitizer + UBSan (unit tests, regression tests, mutated inputs)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libexpat1-dev
+      - name: Build with sanitizers
+        run: |
+          FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -O1 -g"
+          cmake -S . -B build -DASTERIX_TESTS=ON -DASTERIX_FUZZ=ON -DCMAKE_BUILD_TYPE=Debug \
+                -DCMAKE_C_FLAGS="$FLAGS" -DCMAKE_CXX_FLAGS="$FLAGS" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+          cmake --build build -j"$(nproc)"
+      - name: Unit tests
+        env:
+          ASAN_OPTIONS: detect_leaks=1
+          UBSAN_OPTIONS: print_stacktrace=1
+        run: build/install/asterix_unit_tests install/config/asterix.ini
+      - name: Regression tests and mutated inputs
+        env:
+          ASAN_OPTIONS: detect_leaks=1
+          UBSAN_OPTIONS: print_stacktrace=1
+        run: |
+          python3 tests/tools/mutate.py "$RUNNER_TEMP/mutants" 40 1
+          MUTANTS="$RUNNER_TEMP/mutants" tests/run_tests.sh build/install/asterix
+      - name: Decoder on every test input (fuzz target, standalone build)
+        env:
+          ASAN_OPTIONS: detect_leaks=1
+        run: build/install/fuzz_parse tests/data/*.raw tests/data/bad/*.raw install/sample_data/*.raw install/sample_data/*.ast "$RUNNER_TEMP"/mutants/*.raw
+
+  fuzz:
+    name: libFuzzer (clang, ASan + UBSan)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libexpat1-dev
+      - name: Build fuzz target
+        run: |
+          FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -O1 -g"
+          CC=clang CXX=clang++ cmake -S . -B build -DASTERIX_FUZZ=ON -DCMAKE_BUILD_TYPE=Debug \
+                -DCMAKE_C_FLAGS="$FLAGS" -DCMAKE_CXX_FLAGS="$FLAGS" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+          cmake --build build --target fuzz_parse -j"$(nproc)"
+      - name: Fuzz
+        run: |
+          mkdir -p corpus artifacts
+          cp tests/data/*.raw install/sample_data/*.raw install/sample_data/*.ast corpus/
+          SECONDS_TO_RUN=60
+          if [ "${{ github.event_name }}" = schedule ]; then SECONDS_TO_RUN=1800; fi
+          build/install/fuzz_parse -max_total_time=$SECONDS_TO_RUN -max_len=4096 -timeout=10 \
+                -artifact_prefix=artifacts/ corpus/
+      - name: Keep the crashing input
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-artifacts
+          path: artifacts/
+
+  coverage:
+    name: Line coverage
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # only to publish the README badge to the badges branch, on pushes to master
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libexpat1-dev
+      - name: Build with coverage
+        run: |
+          cmake -S . -B build -DASTERIX_TESTS=ON -DASTERIX_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug
+          cmake --build build -j"$(nproc)"
+      - name: Run the tests
+        run: |
+          build/install/asterix_unit_tests install/config/asterix.ini
+          python3 tests/tools/mutate.py "$RUNNER_TEMP/mutants" 40 1
+          MEMLIMIT_KB=2000000 MUTANTS="$RUNNER_TEMP/mutants" tests/run_tests.sh build/install/asterix
+      - name: Report (fails under tests/coverage_min.txt)
+        run: COVERAGE_BADGE="$RUNNER_TEMP/coverage.json" python3 tests/tools/coverage_report.py build
+      # README badge: shields.io reads badges/coverage.json; the branch holds that one file in one commit
+      - name: Publish the coverage badge (pushes to master)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd "$RUNNER_TEMP"
+          mkdir badges && cp coverage.json badges/ && cd badges
+          git init -q -b badges
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add coverage.json
+          git commit -q -m "Coverage badge for ${GITHUB_SHA::7}: $(sed -E 's/.*"message": "([^"]*)".*/\1/' coverage.json)"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" badges

@@ -45,7 +45,10 @@ DataItemFormatExplicit::DataItemFormatExplicit(const DataItemFormatExplicit &obj
 DataItemFormatExplicit::~DataItemFormatExplicit() {
 }
 
-long DataItemFormatExplicit::getLength(const unsigned char *pData) {
+long DataItemFormatExplicit::getLength(const unsigned char *pData, long nMaxLength) {
+    if (nMaxLength < 1) { // the length byte itself is missing
+        return nMaxLength + 1;
+    }
     return (long) (*pData);
 }
 
@@ -56,19 +59,24 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
     bool ret = false;
 
     if (nLength <= 1) {
-        Tracer::Error("Not enough data in Explicit. There is %d byte.", nLength);
+        Tracer::Error("Not enough data in Explicit. There is %ld byte.", nLength);
         return false;
     }
 
     pData++; // skip explicit length byte (it is already in nLength)
 
+    int nFullLength = nLength - 1; // calculate full length
+
     // calculate the size of all sub items
     for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
         DataItemFormat *di = (DataItemFormat *) (*it);
-        bodyLength += di->getLength(pData + bodyLength); // calculate length of body
+        long subLength = di->getLength(pData + bodyLength, nFullLength - bodyLength); // calculate length of body
+        if (subLength > nFullLength - bodyLength) {
+            Tracer::Error("Not enough data in Explicit body. There are %d bytes.", nFullLength);
+            return false;
+        }
+        bodyLength += subLength;
     }
-
-    int nFullLength = nLength - 1; // calculate full length
 
     // full length must be multiple of body length
     if (bodyLength == 0 || nFullLength % bodyLength != 0) {
@@ -81,6 +89,7 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
     if (nFullLength != bodyLength) {
         switch (formatType) {
             case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONX:
             case CAsterixFormat::EJSONH:
             case CAsterixFormat::EJSONE: {
                 tmpStr += format("[");
@@ -97,6 +106,7 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
             if (nFullLength != bodyLength) {
                 switch (formatType) {
                     case CAsterixFormat::EJSON:
+                    case CAsterixFormat::EJSONX:
                     case CAsterixFormat::EJSONH:
                     case CAsterixFormat::EJSONE: {
                         tmpStr += format(",");
@@ -109,6 +119,7 @@ bool DataItemFormatExplicit::getText(std::string &strResult, std::string &strHea
     if (nFullLength != bodyLength) {
         switch (formatType) {
             case CAsterixFormat::EJSON:
+            case CAsterixFormat::EJSONX:
             case CAsterixFormat::EJSONH:
             case CAsterixFormat::EJSONE: {
                 if (tmpStr[tmpStr.length() - 1] == ',') {
@@ -190,7 +201,7 @@ fulliautomatix_data* DataItemFormatExplicit::getData(unsigned char* pData, long,
     }
 
     // TODO : fix this as it is in DataItemFormatExplicit::getText
-    int fixedLength = pFixed->getLength(pData);
+    int fixedLength = pFixed->getLength();
     unsigned char nFullLength = *pData;
 
     firstData = lastData = newDataUL(NULL, PID_LEN, byteoffset, 1, nFullLength);
@@ -223,13 +234,17 @@ PyObject* DataItemFormatExplicit::getObject(unsigned char* pData, long nLength, 
 
     pData++; // skip explicit length byte (it is already in nLength)
 
+    int nFullLength = nLength - 1; // calculate full length
+
     // calculate the size of all sub items
     for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++) {
         DataItemFormat *di = (DataItemFormat *) (*it);
-        bodyLength += di->getLength(pData + bodyLength); // calculate length of body
+        long subLength = di->getLength(pData + bodyLength, nFullLength - bodyLength); // calculate length of body
+        if (subLength > nFullLength - bodyLength) {
+            return Py_BuildValue("s", "Not enough data in Explicit body.");
+        }
+        bodyLength += subLength;
     }
-
-    int nFullLength = nLength - 1; // calculate full length
 
     // full length must be multiple of body length
     if (bodyLength == 0 || nFullLength % bodyLength != 0) {

@@ -44,7 +44,7 @@ public:
     std::string m_strItemID; // <!ELEMENT UAPItem (#PCDATA)>
 
     UAPItem *clone() const { return new UAPItem(*this); } // Return clone of object
-    long getLength(const unsigned char *) {
+    long getLength(const unsigned char *, long) {
         Tracer::Error("Function should not be called!");
         return 0;
     }

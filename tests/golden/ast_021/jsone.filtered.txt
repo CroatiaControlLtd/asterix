@@ -1,0 +1,30 @@
+{"id":1,
+"cat":21,
+"length":41,
+"crc":"AB9CC708",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"C51D3101432304",
+"hexdata":"000101402BB73EFA65BA0000013841763ADAB9F500020008CB540D0D0D0508F00162",
+"CAT021":{
+	"I010":{
+		"SAC":{"val"=0, "hex"="00", "name"="System Area Code"},
+		"SIC":{"val"=1, "hex"="01", "name"="System Identification Code"}},
+	"I130":{
+		"Lat":{"val"=61.4753294, "hex"="2BB73E", "name"="Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg."},
+		"Lon":{"val"=-7.8786993, "hex"="FA65BA", "name"="Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg."}}}},
+{"id":1,
+"cat":21,
+"length":44,
+"crc":"25672B6B",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"C51D3101432304",
+"hexdata":"000101402BB73AFA65B30000023841950A485A0C00021508AD5501100A0A0AFF050870F140",
+"CAT021":{
+	"I010":{
+		"SAC":{"val"=0, "hex"="00", "name"="System Area Code"},
+		"SIC":{"val"=1, "hex"="01", "name"="System Identification Code"}},
+	"I130":{
+		"Lat":{"val"=61.4752436, "hex"="2BB73A", "name"="Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg."},
+		"Lon":{"val"=-7.8788495, "hex"="FA65B3", "name"="Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg."}}}},

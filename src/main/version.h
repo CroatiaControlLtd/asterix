@@ -26,7 +26,14 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define _VERSION        2.8.11
-#define _VERSION_STR   "2.8.11"
+/*
+ * This is a fork of https://github.com/CroatiaControlLtd/asterix, which has not been updated
+ * since December 2025. Fork versions are "<upstream version>-ifsnop.<fork revision>".
+ */
+#define _VERSION        2.8.11-ifsnop.6
+#define _VERSION_STR   "2.8.11-ifsnop.6"
+
+#define _UPSTREAM_VERSION_STR "2.8.11"
+#define _FORK_URL      "https://github.com/ifsnop/asterix"
 
 #endif

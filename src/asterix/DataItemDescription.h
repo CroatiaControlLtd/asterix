@@ -63,6 +63,8 @@ public:
 
     _eRule m_eRule;
 
+    bool m_bFiltered; //! at least one field of this item is in the filter (-LF), so the item may be printed
+
 };
 
 #endif /* DATAITEMDESCRIPTION_H_ */

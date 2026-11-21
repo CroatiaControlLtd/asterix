@@ -1,0 +1,16 @@
+# Inputs of the golden-output, consistency and robustness tests (tests/run_tests.sh, tests/tools/*.py).
+# name | input options (paths relative to the repository root) | "mask" when records are stamped with the
+# wall-clock time (raw and ORADIS file input): timestamps are masked before comparing.
+pcap_062|-P -f install/sample_data/asterix.pcap|
+pcap_034_048|-P -f install/sample_data/cat_034_048.pcap|
+pcap_062_065|-P -f install/sample_data/cat_062_065.pcap|
+oradis_pcap_001_002|-R -f install/sample_data/cat_001_002.pcap|
+raw_048|-f install/sample_data/cat048.raw|mask
+raw_062_065|-f install/sample_data/cat062cat065.raw|mask
+ast_021|-f install/sample_data/cat21_re.ast|mask
+gps_034_048|-G -f install/sample_data/parsegps.gps|
+raw_001_002|-f tests/data/cat_001_002.raw|mask
+oradis_001_002|-O -f tests/data/cat_001_002.oradis|mask
+final_001_002|-F -f tests/data/cat_001_002.final|
+hdlc_001_002|-H -f tests/data/cat_001_002.hdlc|
+multicat|-f tests/data/multicat.raw|mask

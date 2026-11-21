@@ -1,0 +1,51 @@
+
+
+-------------------------
+Data Block 1
+Category: 21
+Len: 41
+Timestamp: T
+HexData: 15002C
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 41
+CRC: AB9CC708
+Source IP: 0.0.0.0
+Fspec: C51D3101432304
+HexData: 000101402BB73EFA65BA0000013841763ADAB9F500020008CB540D0D0D0508F00162
+
+Item 010 : Data Source Identification
+[ 00 01 ]
+	System Area Code: 0
+	System Identification Code: 1
+
+Item 130 : Position in WGS-84 Co-ordinates
+[ 2B B7 3E FA 65 BA ]
+	Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.: 2864958 (61.4753294 deg)
+	Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.: -367174 (-7.8786993 deg)
+
+-------------------------
+Data Block 2
+Category: 21
+Len: 44
+Timestamp: T
+HexData: 15002F
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 44
+CRC: 25672B6B
+Source IP: 0.0.0.0
+Fspec: C51D3101432304
+HexData: 000101402BB73AFA65B30000023841950A485A0C00021508AD5501100A0A0AFF050870F140
+
+Item 010 : Data Source Identification
+[ 00 01 ]
+	System Area Code: 0
+	System Identification Code: 1
+
+Item 130 : Position in WGS-84 Co-ordinates
+[ 2B B7 3A FA 65 B3 ]
+	Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.: 2864954 (61.4752436 deg)
+	Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.: -367181 (-7.8788495 deg)

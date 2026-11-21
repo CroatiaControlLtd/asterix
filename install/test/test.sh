@@ -13,6 +13,7 @@ test_compare () {
 	  echo "OK      " $1
 	else
 	  echo "Failed  " $1
+	  diff <(echo "$expected") <(echo "$result") | head -20 | sed 's/^/        /'
 	  failedtests=$[$failedtests +1]
 	fi
 }
@@ -33,6 +34,7 @@ test_output () {
 
 test_compare "Test filter" "$exec -d $config -L" "../sample_output/filter.txt"
 test_compare "Test json CAT_062_065" "$exec -d $config -P -j -f ../sample_data/cat_062_065.pcap" "../sample_output/cat_062_065_json.txt"
+test_compare "Test jsonx CAT_062_065" "$exec -d $config -P -jx -f ../sample_data/cat_062_065.pcap" "../sample_output/cat_062_065_jsonx.txt"
 test_compare "Test json CAT_001_002" "$exec -d $config -R -j -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filter.txt" "../sample_output/cat_001_002_json.txt"
 test_compare "Test jsonh CAT_001_002" "$exec -d $config -R -jh -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filter.txt" "../sample_output/cat_001_002_jsonh.txt"
 test_compare "Test xml CAT_001_002" "$exec -d $config -R -x -f ../sample_data/cat_001_002.pcap -LF ../sample_output/filter.txt" "../sample_output/cat_001_002.xml"

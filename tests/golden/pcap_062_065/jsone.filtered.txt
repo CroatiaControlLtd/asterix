@@ -1,0 +1,68 @@
+{"id":1,
+"cat":62,
+"length":79,
+"crc":"07311CBF",
+"timestamp":45827401.000000,
+"srcip":"0.0.0.0",
+"fspec":"BFDFFD02",
+"hexdata":"1964015981B3007518FC002CAED9FF196BF086600393FF43000002BDC1204CA7A84994B1DF40E020F612691903010870170D0D00900D0D061816CD06180000DC190C93BA88E8061802BDA0",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=41.1671233, "hex"="007518FC", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=15.7088667, "hex"="002CAED9", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"ADR":{
+		"ADR":{"val"="4CA7A8", "hex"="4CA7A8", "name"="Target Address"}},
+		"ID":{
+		"ACID":{"val"="RYR174C ", "hex"="4994B1DF40E0", "name"="Target Identification"}},
+		"COM":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="Communications capability of the transponder", "meaning"="Comm. A and Comm. B capability"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="Flight Status", "meaning"="No alert, no SPI, aircraft airborne"},
+		"SSC":{"val"=1, "hex"="F6", "mask"="10000000", "name"="Specific service capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="F6", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25 ft resolution"},
+		"AIC":{"val"=1, "hex"="F6", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"B1A":{"val"=1, "hex"="F6", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"B1B":{"val"=6, "hex"="F6", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}}},
+{"id":2,
+"cat":62,
+"length":79,
+"crc":"6DE77D52",
+"timestamp":45827401.000000,
+"srcip":"0.0.0.0",
+"fspec":"BFDFFD02",
+"hexdata":"1964015981B30075CEE5003726BD08813BF18A9FFCBDFFF10009087DC1204CAC7F2534F2C30DE020F61AAF11030108702010104090101005F01A7505F00000DC190CB98E5EB505F0087DA0",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I105":{
+		"Lat":{"val"=41.4169389, "hex"="0075CEE5", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=19.3891364, "hex"="003726BD", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I380":{
+		"ADR":{
+		"ADR":{"val"="4CAC7F", "hex"="4CAC7F", "name"="Target Address"}},
+		"ID":{
+		"ACID":{"val"="ISS2007 ", "hex"="2534F2C30DE0", "name"="Target Identification"}},
+		"COM":{
+		"COM":{"val"=1, "hex"="20", "mask"="11100000", "name"="Communications capability of the transponder", "meaning"="Comm. A and Comm. B capability"},
+		"STAT":{"val"=0, "hex"="20", "mask"="00011100", "name"="Flight Status", "meaning"="No alert, no SPI, aircraft airborne"},
+		"SSC":{"val"=1, "hex"="F6", "mask"="10000000", "name"="Specific service capability", "meaning"="Yes"},
+		"ARC":{"val"=1, "hex"="F6", "mask"="01000000", "name"="Altitude reporting capability", "meaning"="25 ft resolution"},
+		"AIC":{"val"=1, "hex"="F6", "mask"="00100000", "name"="Aircraft identification capability", "meaning"="Yes"},
+		"B1A":{"val"=1, "hex"="F6", "mask"="00010000", "name"="BDS 1,0 bit 16"},
+		"B1B":{"val"=6, "hex"="F6", "mask"="00001111", "name"="BDS 1,0 bits 37/40"}}}}},
+{"id":1,
+"cat":65,
+"length":9,
+"crc":"5EE45750",
+"timestamp":45827401.000000,
+"srcip":"0.0.0.0",
+"fspec":"F8",
+"hexdata":"196402015981B301",
+"CAT065":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="Source Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="Source Identification Code"}}}},

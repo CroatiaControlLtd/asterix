@@ -1,0 +1,136 @@
+{"id":1,
+"cat":21,
+"length":41,
+"crc":"AB9CC708",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"C51D3101432304",
+"hexdata":"000101402BB73EFA65BA0000013841763ADAB9F500020008CB540D0D0D0508F00162",
+"CAT021":{
+	"I010":{
+		"SAC":{"val"=0, "hex"="00", "name"="System Area Code"},
+		"SIC":{"val"=1, "hex"="01", "name"="System Identification Code"}},
+	"I040":{
+		"ATP":{"val"=0, "hex"="01", "mask"="11100000", "name"="Address Type", "meaning"="24-Bit ICAO address"},
+		"ARC":{"val"=0, "hex"="01", "mask"="00011000", "name"="Altitude Reporting Capability", "meaning"="25 ft"},
+		"RC":{"val"=0, "hex"="01", "mask"="00000100", "name"="Range Check", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="01", "mask"="00000010", "name"="Report Type", "meaning"="Report from target transponder"},
+		"FX":{"val"=1, "hex"="01", "mask"="00000001", "name"="Field Extension", "meaning"="Extension into first extent"},
+		"DCR":{"val"=0, "hex"="40", "mask"="10000000", "name"="Differential Correction", "meaning"="No differential correction (ADS-B)"},
+		"GBS":{"val"=1, "hex"="40", "mask"="01000000", "name"="Ground Bit Setting", "meaning"="Ground Bit set"},
+		"SIM":{"val"=0, "hex"="40", "mask"="00100000", "name"="Simulated Target", "meaning"="Actual target report"},
+		"TST":{"val"=0, "hex"="40", "mask"="00010000", "name"="Test Target", "meaning"="Default"},
+		"SAA":{"val"=0, "hex"="40", "mask"="00001000", "name"="Selected Altitude Available", "meaning"="Equipment capable to provide Selected Altitude"},
+		"CL":{"val"=0, "hex"="40", "mask"="00000110", "name"="Confidence Level", "meaning"="Report valid"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="Field Extension", "meaning"="End of item"}},
+	"I130":{
+		"Lat":{"val"=61.4753294, "hex"="2BB73E", "name"="Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg."},
+		"Lon":{"val"=-7.8786993, "hex"="FA65BA", "name"="Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg."}},
+	"I080":{
+		"TAddr":{"val"="000001", "hex"="000001", "name"="Target Address"}},
+	"I073":{
+		"time_reception_position":{"val"=28802.9218750, "hex"="384176", "name"="Time of Message Reception of Position"}},
+	"I074":{
+		"FSI":{"val"=0, "hex"="3A", "mask"="11000000", "name"="Full Second Indication", "meaning"="TOMRp whole seconds = (I021/073) Whole seconds"},
+		"time_reception_position_highprecision":{"val"=919599999.6736646, "hex"="3ADAB9F5", "mask"="00111111111111111111111111111111", "name"="Fractional part of the time of message reception for position in the ground station."}},
+	"I090":{
+		"NUCr_or_NACv":{"val"=0, "hex"="00", "mask"="11100000", "name"="Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity"},
+		"NUCp_or_NIC":{"val"=0, "hex"="00", "mask"="00011110", "name"="Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC."},
+		"FX":{"val"=0, "hex"="00", "mask"="00000001", "name"="Extension Indicator", "meaning"="End of Data Item"}},
+	"I210":{
+		"spare":{"val"=0, "hex"="02", "mask"="10000000", "name"="Spare bits set to zero"},
+		"VNS":{"val"=0, "hex"="02", "mask"="01000000", "name"="Version Not Supported", "meaning"="The MOPS Version is supported by the GS"},
+		"VN":{"val"=0, "hex"="02", "mask"="00111000", "name"="Version Number", "meaning"="ED102/DO-260 [Ref. 8]"},
+		"LTT":{"val"=2, "hex"="02", "mask"="00000111", "name"="Link Technology Type", "meaning"="1090 ES"}},
+	"I020":{
+		"ECAT":{"val"=0, "hex"="00", "name"="Emitter Category", "meaning"="No ADS-B Emitter Category Information"}},
+	"I016":{
+		"RP":{"val"=4.0000000, "hex"="08", "name"="Report Period"}},
+	"I132":{
+		"MAM":{"val"=-53.0000000, "hex"="CB", "name"="Message Amplitude"}},
+	"I295":{
+		"TRD":{
+		"TRD":{"val"=1.3000000, "hex"="0D", "name"="Age of the Target Report Descriptor, item I021/040"}},
+		"QI":{
+		"QI":{"val"=1.3000000, "hex"="0D", "name"="Age of the Quality Indicators, item I021/090"}},
+		"MAM":{
+		"MAM":{"val"=1.3000000, "hex"="0D", "name"="Age of the message amplitude, item I021/132"}}},
+	"IRE":{
+		"SGV":{
+		"STP":{"val"=1, "hex"="F0", "mask"="10000000", "name"="Aircraft stopped", "meaning"="Aircraft has stopped"},
+		"HTS":{"val"=1, "hex"="F0", "mask"="01000000", "name"="Heading/Ground Track", "meaning"="Heading/Ground Track is valid"},
+		"HTT":{"val"=1, "hex"="F0", "mask"="00100000", "name"="Heading/Ground data", "meaning"="Ground Track provided"},
+		"HRD":{"val"=1, "hex"="F0", "mask"="00010000", "name"="SGV Horizontal Reference Direction", "meaning"="Magnetic North"},
+		"GSS":{"val"=0.0000000, "hex"="F001", "mask"="0000111111111110", "name"="Ground Speed"},
+		"FX":{"val"=1, "hex"="01", "mask"="00000001", "name"="Extension indicator", "meaning"="extension"},
+		"HGT":{"val"=137.8125000, "hex"="62", "mask"="11111110", "name"="Heading/Ground Track information"},
+		"FX":{"val"=0, "hex"="62", "mask"="00000001", "name"="Extension indicator", "meaning"="no extension"}}}}},
+{"id":1,
+"cat":21,
+"length":44,
+"crc":"25672B6B",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"C51D3101432304",
+"hexdata":"000101402BB73AFA65B30000023841950A485A0C00021508AD5501100A0A0AFF050870F140",
+"CAT021":{
+	"I010":{
+		"SAC":{"val"=0, "hex"="00", "name"="System Area Code"},
+		"SIC":{"val"=1, "hex"="01", "name"="System Identification Code"}},
+	"I040":{
+		"ATP":{"val"=0, "hex"="01", "mask"="11100000", "name"="Address Type", "meaning"="24-Bit ICAO address"},
+		"ARC":{"val"=0, "hex"="01", "mask"="00011000", "name"="Altitude Reporting Capability", "meaning"="25 ft"},
+		"RC":{"val"=0, "hex"="01", "mask"="00000100", "name"="Range Check", "meaning"="Default"},
+		"RAB":{"val"=0, "hex"="01", "mask"="00000010", "name"="Report Type", "meaning"="Report from target transponder"},
+		"FX":{"val"=1, "hex"="01", "mask"="00000001", "name"="Field Extension", "meaning"="Extension into first extent"},
+		"DCR":{"val"=0, "hex"="40", "mask"="10000000", "name"="Differential Correction", "meaning"="No differential correction (ADS-B)"},
+		"GBS":{"val"=1, "hex"="40", "mask"="01000000", "name"="Ground Bit Setting", "meaning"="Ground Bit set"},
+		"SIM":{"val"=0, "hex"="40", "mask"="00100000", "name"="Simulated Target", "meaning"="Actual target report"},
+		"TST":{"val"=0, "hex"="40", "mask"="00010000", "name"="Test Target", "meaning"="Default"},
+		"SAA":{"val"=0, "hex"="40", "mask"="00001000", "name"="Selected Altitude Available", "meaning"="Equipment capable to provide Selected Altitude"},
+		"CL":{"val"=0, "hex"="40", "mask"="00000110", "name"="Confidence Level", "meaning"="Report valid"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="Field Extension", "meaning"="End of item"}},
+	"I130":{
+		"Lat":{"val"=61.4752436, "hex"="2BB73A", "name"="Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg."},
+		"Lon":{"val"=-7.8788495, "hex"="FA65B3", "name"="Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg."}},
+	"I080":{
+		"TAddr":{"val"="000002", "hex"="000002", "name"="Target Address"}},
+	"I073":{
+		"time_reception_position":{"val"=28803.1640625, "hex"="384195", "name"="Time of Message Reception of Position"}},
+	"I074":{
+		"FSI":{"val"=0, "hex"="0A", "mask"="11000000", "name"="Full Second Indication", "meaning"="TOMRp whole seconds = (I021/073) Whole seconds"},
+		"time_reception_position_highprecision":{"val"=160666000.0979900, "hex"="0A485A0C", "mask"="00111111111111111111111111111111", "name"="Fractional part of the time of message reception for position in the ground station."}},
+	"I090":{
+		"NUCr_or_NACv":{"val"=0, "hex"="00", "mask"="11100000", "name"="Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity"},
+		"NUCp_or_NIC":{"val"=0, "hex"="00", "mask"="00011110", "name"="Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC."},
+		"FX":{"val"=0, "hex"="00", "mask"="00000001", "name"="Extension Indicator", "meaning"="End of Data Item"}},
+	"I210":{
+		"spare":{"val"=0, "hex"="02", "mask"="10000000", "name"="Spare bits set to zero"},
+		"VNS":{"val"=0, "hex"="02", "mask"="01000000", "name"="Version Not Supported", "meaning"="The MOPS Version is supported by the GS"},
+		"VN":{"val"=0, "hex"="02", "mask"="00111000", "name"="Version Number", "meaning"="ED102/DO-260 [Ref. 8]"},
+		"LTT":{"val"=2, "hex"="02", "mask"="00000111", "name"="Link Technology Type", "meaning"="1090 ES"}},
+	"I020":{
+		"ECAT":{"val"=21, "hex"="15", "name"="Emitter Category", "meaning"="surface service vehicle"}},
+	"I016":{
+		"RP":{"val"=4.0000000, "hex"="08", "name"="Report Period"}},
+	"I132":{
+		"MAM":{"val"=-83.0000000, "hex"="AD", "name"="Message Amplitude"}},
+	"I295":{
+		"TRD":{
+		"TRD":{"val"=1.0000000, "hex"="0A", "name"="Age of the Target Report Descriptor, item I021/040"}},
+		"QI":{
+		"QI":{"val"=1.0000000, "hex"="0A", "name"="Age of the Quality Indicators, item I021/090"}},
+		"MAM":{
+		"MAM":{"val"=1.0000000, "hex"="0A", "name"="Age of the message amplitude, item I021/132"}},
+		"TID":{
+		"TID":{"val"=25.5000000, "hex"="FF", "name"="Age of the Target Identification, item I021/170"}}},
+	"IRE":{
+		"SGV":{
+		"STP":{"val"=0, "hex"="70", "mask"="10000000", "name"="Aircraft stopped", "meaning"="Aircraft has not stopped"},
+		"HTS":{"val"=1, "hex"="70", "mask"="01000000", "name"="Heading/Ground Track", "meaning"="Heading/Ground Track is valid"},
+		"HTT":{"val"=1, "hex"="70", "mask"="00100000", "name"="Heading/Ground data", "meaning"="Ground Track provided"},
+		"HRD":{"val"=1, "hex"="70", "mask"="00010000", "name"="SGV Horizontal Reference Direction", "meaning"="Magnetic North"},
+		"GSS":{"val"=15.0000000, "hex"="70F1", "mask"="0000111111111110", "name"="Ground Speed"},
+		"FX":{"val"=1, "hex"="F1", "mask"="00000001", "name"="Extension indicator", "meaning"="extension"},
+		"HGT":{"val"=90.0000000, "hex"="40", "mask"="11111110", "name"="Heading/Ground Track information"},
+		"FX":{"val"=0, "hex"="40", "mask"="00000001", "name"="Extension indicator", "meaning"="no extension"}}}}},

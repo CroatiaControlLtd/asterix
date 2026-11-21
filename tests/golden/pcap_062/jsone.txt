@@ -1,0 +1,3231 @@
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46065763.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"0FE6E780",
+"timestamp":46065763.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F8E10E301EFA640CF0A102F20500071DEF7E0400BD011053884155413834385A404C4154494C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127426.1093750, "hex"="F8E10E", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4330.8907342, "hex"="301EFA64", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1164.5961106, "hex"="0CF0A102", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-894.7500000, "hex"="F205", "name"="Vx"},
+		"Vy":{"val"=1.7500000, "hex"="0007", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="1D", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=29, "hex"="1D", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" 78D K4A", "hex"="EF7E0400BD01", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16725, "hex"="4155", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=22.5000000, "hex"="5A", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ATILOWW", "hex"="4154494C4F5757", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"68C510C0",
+"timestamp":46065964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F8FA00721E30E70D1884056E0528092F5E870000000110538843464734363020404544444C4845474E0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127476.0000000, "hex"="F8FA00", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=10270.6140321, "hex"="721E30E7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1178.6188012, "hex"="0D188405", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=7041.2500000, "hex"="6E05", "name"="Vx"},
+		"Vy":{"val"=2562.2500000, "hex"="2809", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="2F", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=47, "hex"="2F", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="W      A", "hex"="5E8700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17222, "hex"="4346", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="47", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="47", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="47", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="47", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=1, "hex"="47", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="47", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="34", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="34", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="34", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="34", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="34", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="34", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="34", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="34", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}},
+		"MHG":{
+		"MHG":{"val"=17.2500000, "hex"="45", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="DLHEGN@", "hex"="444C4845474E01", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="08", "name"="Wake Turbulence Category"}}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46067165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"9C6366BD",
+"timestamp":46067364.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9AE05A3209B9008E4740159057807DF6092000000011053885443583835374B40454747444C475A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127836.0390625, "hex"="F9AE05", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-8358.5363674, "hex"="A3209B90", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=800.3155571, "hex"="08E47401", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5697.2500000, "hex"="5905", "name"="Vx"},
+		"Vy":{"val"=7681.7500000, "hex"="7807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="DF", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=31, "hex"="DF", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="XIH    A", "hex"="609200000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21571, "hex"="5443", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="58", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="58", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="58", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="58", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=0, "hex"="58", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="58", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.2500000, "hex"="35", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.7500000, "hex"="37", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=18.7500000, "hex"="4B", "name"="MD4"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EGGDLGZ", "hex"="454747444C475A", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"C057B021",
+"timestamp":46067364.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9AE0DED20982808E95C00410708081260D0000000011053884E33353242482040454242524C4C42",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127836.1015625, "hex"="F9AE0D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-1698.5410452, "hex"="ED209828", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=802.0404053, "hex"="08E95C00", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4161.7500000, "hex"="4107", "name"="Vx"},
+		"Vy":{"val"=514.0000000, "hex"="0808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="12", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=18, "hex"="12", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="XM     A", "hex"="60D000000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=20019, "hex"="4E33", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="35", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=0, "hex"="35", "mask"="01000000", "name"="SPI", "meaning"="default value"},
+		"MRH":{"val"=1, "hex"="35", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Geometric altitude more reliable"},
+		"SRC":{"val"=5, "hex"="35", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="speed look-up table"},
+		"CNF":{"val"=0, "hex"="35", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=18.0000000, "hex"="48", "name"="MD1"}},
+		"MHG":{
+		"MHG":{"val"=8.0000000, "hex"="20", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EBBRLLB", "hex"="454242524C4C42", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"E4E5ED31",
+"timestamp":46067764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9E10D571FFDF5094B670F4D05C8088147BA0000000110538853554935353620404C535A425A5A5A5A0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127938.1015625, "hex"="F9E10D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=7841.2471944, "hex"="571FFDF5", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=836.5087169, "hex"="094B670F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4929.2500000, "hex"="4D05", "name"="Vx"},
+		"Vy":{"val"=-3582.0000000, "hex"="C808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="81", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=1, "hex"="81", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="Q      A", "hex"="47BA00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21333, "hex"="5355", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="49", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="49", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="49", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="49", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="49", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="49", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="35", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="35", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="35", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="35", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="35", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"CST":{"val"=0, "hex"="36", "mask"="10000000", "name"="CST", "meaning"="Default value"},
+		"PSR":{"val"=0, "hex"="36", "mask"="01000000", "name"="PSR", "meaning"="Default value"},
+		"SSR":{"val"=1, "hex"="36", "mask"="00100000", "name"="SSR", "meaning"="Age of the last received SSR track update is higher than system dependent threshold"},
+		"MDS":{"val"=1, "hex"="36", "mask"="00010000", "name"="MDS", "meaning"="Age of the last received Mode S track update is higher than system dependent threshold"},
+		"ADS":{"val"=0, "hex"="36", "mask"="00001000", "name"="ADS", "meaning"="Default value"},
+		"SUC":{"val"=1, "hex"="36", "mask"="00000100", "name"="SUC", "meaning"="Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"},
+		"AAC":{"val"=1, "hex"="36", "mask"="00000010", "name"="AAC", "meaning"="Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"},
+		"FX":{"val"=0, "hex"="36", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="SZBZZZZ", "hex"="535A425A5A5A5A", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"0385F569",
+"timestamp":46067964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459F9FA028B1F94B7098EB50D4E05280777972600000001105388415A413535332040455057414C4952460108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=127988.0156250, "hex"="F9FA02", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-10518.8973337, "hex"="8B1F94B7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=860.1705104, "hex"="098EB50D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4993.2500000, "hex"="4E05", "name"="Vx"},
+		"Vy":{"val"=2561.7500000, "hex"="2807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="77", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=55, "hex"="77", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" 2X    A", "hex"="972600000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16730, "hex"="415A", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="35", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="35", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="35", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="35", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="35", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"CST":{"val"=0, "hex"="33", "mask"="10000000", "name"="CST", "meaning"="Default value"},
+		"PSR":{"val"=0, "hex"="33", "mask"="01000000", "name"="PSR", "meaning"="Default value"},
+		"SSR":{"val"=1, "hex"="33", "mask"="00100000", "name"="SSR", "meaning"="Age of the last received SSR track update is higher than system dependent threshold"},
+		"MDS":{"val"=1, "hex"="33", "mask"="00010000", "name"="MDS", "meaning"="Age of the last received Mode S track update is higher than system dependent threshold"},
+		"ADS":{"val"=0, "hex"="33", "mask"="00001000", "name"="ADS", "meaning"="Default value"},
+		"SUC":{"val"=0, "hex"="33", "mask"="00000100", "name"="SUC", "meaning"="Default value"},
+		"AAC":{"val"=1, "hex"="33", "mask"="00000010", "name"="AAC", "meaning"="Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"},
+		"FX":{"val"=1, "hex"="33", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"SDS":{"val"=0, "hex"="20", "mask"="11000000", "name"="SDS", "meaning"="Combined"},
+		"EMS":{"val"=4, "hex"="20", "mask"="00111000", "name"="EMS", "meaning"="No communications"},
+		"PFT":{"val"=0, "hex"="20", "mask"="00000100", "name"="PFT", "meaning"="No indication"},
+		"FPLT":{"val"=0, "hex"="20", "mask"="00000010", "name"="FPLT", "meaning"="Default value"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=17.2500000, "hex"="45", "name"="MD1"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="WALIRF@", "hex"="57414C49524601", "name"="Callsign"}},
+		"FCT":{
+		"GATOAT":{"val"=0, "hex"="08", "mask"="11000000", "name"="GATOAT", "meaning"="Unknown"},
+		"FR1FR2":{"val"=0, "hex"="08", "mask"="00110000", "name"="FR1FR2", "meaning"="Instrument Flight Rules"},
+		"RVSM":{"val"=2, "hex"="08", "mask"="00001100", "name"="RVSM", "meaning"="Exempt"},
+		"HPR":{"val"=0, "hex"="08", "mask"="00000010", "name"="HPR", "meaning"="Normal Priority Flight"},
+		"spare":{"val"=0, "hex"="08", "mask"="00000001", "name"="spare bit set to zero"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"5D2C3529",
+"timestamp":46068164.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA1401BC1FBAFA09AB040D420668077F92E30000000110538845534B33504420404C4B50524C49524E0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128040.0078125, "hex"="FA1401", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-6108.8447893, "hex"="BC1FBAFA", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=870.1227504, "hex"="09AB040D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4225.5000000, "hex"="4206", "name"="Vx"},
+		"Vy":{"val"=6657.7500000, "hex"="6807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="7F", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=63, "hex"="7F", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="  L    A", "hex"="92E300000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17747, "hex"="4553", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4B", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4B", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4B", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="4B", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=1, "hex"="4B", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="4B", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="33", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="33", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="33", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="33", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="33", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="33", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="33", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=1, "hex"="33", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="50", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=2, "hex"="50", "mask"="01100000", "name"="MD4", "meaning"="Unknown target"},
+		"ME":{"val"=1, "hex"="50", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="50", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=0, "hex"="50", "mask"="00000110", "name"="MD5", "meaning"="No Mode 5 interrogation"},
+		"FX":{"val"=0, "hex"="50", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=8.0000000, "hex"="20", "name"="MD1"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="KPRLIRN", "hex"="4B50524C49524E", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068164.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":8,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068364.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":6,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068364.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068364.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"135DDC39",
+"timestamp":46068364.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0C0F",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=3087, "hex"="0C0F", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"F6F80737",
+"timestamp":46068563.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA4705CF2003510A70740E2C02A806F525B70000000110538845424A32303433404C44504C4C445A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128142.0390625, "hex"="FA4705", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-4398.7454456, "hex"="CF200351", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=939.5343769, "hex"="0A70740E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=2816.5000000, "hex"="2C02", "name"="Vx"},
+		"Vy":{"val"=-5630.5000000, "hex"="A806", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="F5", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=53, "hex"="F5", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="I      A", "hex"="25B700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17730, "hex"="4542", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4A", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4A", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4A", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="4A", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=1, "hex"="4A", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="4A", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.0000000, "hex"="34", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=12.7500000, "hex"="33", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LDPLLDZ", "hex"="4C44504C4C445A", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"52400F3C",
+"timestamp":46068563.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA470F2320D6880A83090E5D05C807299487000000011053884C4F543331332040455057414C495246010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128142.1171875, "hex"="FA470F", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=3161.5446138, "hex"="2320D688", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=946.0671222, "hex"="0A83090E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5953.2500000, "hex"="5D05", "name"="Vx"},
+		"Vy":{"val"=-3582.2500000, "hex"="C807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="29", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=41, "hex"="29", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" H     A", "hex"="948700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19535, "hex"="4C4F", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="54", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="54", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="54", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=5, "hex"="54", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="speed look-up table"},
+		"CNF":{"val"=0, "hex"="54", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="54", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=20.0000000, "hex"="50", "name"="MHG"}},
+		"SAL":{
+		"SAL":{"val"=21.7500000, "hex"="57", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=16.2500000, "hex"="41", "name"="FSS"}},
+		"GVR":{
+		"GVR":{"val"=19.0000000, "hex"="4C", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=18.2500000, "hex"="49", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=20.5000000, "hex"="52", "name"="GSP"}},
+		"EMC":{
+		"EMC":{"val"=17.5000000, "hex"="46", "name"="EMC"}}},
+	"I390":{
+		"TOD":[]}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"6C997BD3",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA610D4520A4140AB00F02B30550080114B7000000011053884E4C5938343637404C4952464C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128194.1015625, "hex"="FA610D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=6221.4753270, "hex"="4520A414", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=961.8956101, "hex"="0AB00F02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-4926.7500000, "hex"="B305", "name"="Vx"},
+		"Vy":{"val"=5122.0000000, "hex"="5008", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="01", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=1, "hex"="01", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="EK     A", "hex"="14B700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=20044, "hex"="4E4C", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="59", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="59", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="59", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="59", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=0, "hex"="59", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="59", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.5000000, "hex"="36", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.7500000, "hex"="37", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="IRFLOWW", "hex"="4952464C4F5757", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"93377BB4",
+"timestamp":46068772.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA6106E51EDBB30ABA9502F104600693CE70000000011053884C424332323620404C4154494C4950450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128194.0468750, "hex"="FA6106", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-2419.1514140, "hex"="E51EDBB3", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=965.5952561, "hex"="0ABA9502", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-959.0000000, "hex"="F104", "name"="Vx"},
+		"Vy":{"val"=6145.5000000, "hex"="6006", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="93", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=19, "hex"="93", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="3      A", "hex"="CE7000000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19522, "hex"="4C42", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="43", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="43", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="43", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="43", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=1, "hex"="43", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="43", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.5000000, "hex"="36", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=16.0000000, "hex"="40", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ATILIPE", "hex"="4154494C495045", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"29F06B60",
+"timestamp":46068965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA7B07D82114700AD0F60E490398048487A70000000110538843544E34343520404C4F57574C4453",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128246.0546875, "hex"="FA7B07", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-3588.3703709, "hex"="D8211470", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=973.4629047, "hex"="0AD0F60E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4672.7500000, "hex"="4903", "name"="Vx"},
+		"Vy":{"val"=-6655.0000000, "hex"="9804", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="84", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=4, "hex"="84", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="       A", "hex"="87A700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17236, "hex"="4354", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4E", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4E", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4E", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=3, "hex"="4E", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="triangulation"},
+		"CNF":{"val"=1, "hex"="4E", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="4E", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.0000000, "hex"="34", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.2500000, "hex"="35", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=8.0000000, "hex"="20", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LOWWLDS", "hex"="4C4F57574C4453", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46068965.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":6,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"07FCC32C",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA940D322039270B30720F6B05C808865CFB0000000110538854564631353334404C46504F4C544645010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128296.1015625, "hex"="FA940D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4511.3284868, "hex"="32203927", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1007.0316356, "hex"="0B30720F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6849.2500000, "hex"="6B05", "name"="Vx"},
+		"Vy":{"val"=-3582.0000000, "hex"="C808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="86", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=6, "hex"="86", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WO     A", "hex"="5CFB00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21590, "hex"="5456", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="46", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="46", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="46", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="46", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=1, "hex"="46", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=19.0000000, "hex"="4C", "name"="MDA"}},
+		"SAL":{
+		"SAL":{"val"=17.5000000, "hex"="46", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=20.0000000, "hex"="50", "name"="FSS"}},
+		"COM":{
+		"COM":{"val"=19.7500000, "hex"="4F", "name"="COM"}},
+		"GVR":{
+		"GVR":{"val"=19.0000000, "hex"="4C", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=21.0000000, "hex"="54", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=17.5000000, "hex"="46", "name"="GSP"}},
+		"EMC":{
+		"EMC":{"val"=17.2500000, "hex"="45", "name"="EMC"}},
+		"POS":{
+		"POS":{"val"=0.2500000, "hex"="01", "name"="POS"}},
+		"PUN":{
+		"PUN":{"val"=2.0000000, "hex"="08", "name"="PUN"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"59CEDBBC",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FA940F92202C2A0B460F0487052808535CC10000000110538841454535343120404544444C4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128296.1171875, "hex"="FA940F", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-9888.6893499, "hex"="92202C2A", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1014.6299958, "hex"="0B460F04", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-7742.7500000, "hex"="8705", "name"="Vx"},
+		"Vy":{"val"=2562.0000000, "hex"="2808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="53", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=19, "hex"="53", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WLD    A", "hex"="5CC100000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16709, "hex"="4145", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="45", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="45", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="45", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="45", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="45", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="45", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="34", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="34", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="34", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="34", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="34", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=0, "hex"="34", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"SAL":{
+		"SAL":{"val"=17.0000000, "hex"="44", "name"="SAL"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LLGTS@@", "hex"="4C4C4754530108", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46069165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"151AE27A",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE02362082EE0B56FF0D5800F002E105360400F601105388435341325A4120404C445A414C4B50520108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128348.0156250, "hex"="FAAE02", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4871.4298046, "hex"="362082EE", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1020.5846339, "hex"="0B56FF0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5632.0000000, "hex"="5800", "name"="Vx"},
+		"Vy":{"val"=-1023.5000000, "hex"="F002", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="E1", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=33, "hex"="E1", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="ASXD OXA", "hex"="05360400F601", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17235, "hex"="4353", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=16.2500000, "hex"="41", "name"="MD1"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=16.0000000, "hex"="40", "name"="MD4"}},
+		"MHG":{
+		"MHG":{"val"=19.0000000, "hex"="4C", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ZALKPR@", "hex"="5A414C4B505201", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="08", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"DC8D8F5A",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE0AA41F17750B710F0D43052807FB6D9A0000000110538841445238383420404C4A4C4A4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128348.0781250, "hex"="FAAE0A", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-8269.0693492, "hex"="A41F1775", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1029.7472316, "hex"="0B710F0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4289.2500000, "hex"="4305", "name"="Vx"},
+		"Vy":{"val"=2561.7500000, "hex"="2807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="FB", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=59, "hex"="FB", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" Y     A", "hex"="6D9A00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16708, "hex"="4144", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="52", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="52", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="52", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=4, "hex"="52", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="height from coverage"},
+		"CNF":{"val"=1, "hex"="52", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="52", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.0000000, "hex"="34", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=8.0000000, "hex"="20", "name"="MD4"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LJLJLGA", "hex"="4C4A4C4A4C4741", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"5C1C4AFE",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0B0F",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=2831, "hex"="0B0F", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"16A651AD",
+"timestamp":46069366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAAE01DC208A300B5EC40E1900380208C64F040029011053883941445A472020604C4456414C445A4101080C0300",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128348.0078125, "hex"="FAAE01", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-3228.5602283, "hex"="DC208A30", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1023.3161151, "hex"="0B5EC40E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=1600.0000000, "hex"="1900", "name"="Vx"},
+		"Vy":{"val"=3584.5000000, "hex"="3802", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="08", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=8, "hex"="08", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="1  D B A", "hex"="C64F04002901", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=14657, "hex"="3941", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="44", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="44", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="44", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="44", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="44", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="44", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=17.7500000, "hex"="47", "name"="MD1"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=8.0000000, "hex"="20", "name"="MD4"}},
+		"MHG":{
+		"MHG":{"val"=24.0000000, "hex"="60", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="DVALDZA", "hex"="4456414C445A41", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080C03", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"E7DCD5ED",
+"timestamp":46069565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAC705032093FE0B809304540060033AA12408FF73011053884757493239373640454444534C445A41010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128398.0390625, "hex"="FAC705", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=281.4532363, "hex"="032093FE", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1035.2018952, "hex"="0B809304", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5376.0000000, "hex"="5400", "name"="Vx"},
+		"Vy":{"val"=6144.7500000, "hex"="6003", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="3A", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=58, "hex"="3A", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" RPH 7LA", "hex"="A12408FF7301", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=18263, "hex"="4757", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="49", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="49", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="49", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="49", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="49", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="49", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=17.0000000, "hex"="44", "name"="MD4"}},
+		"SAL":{
+		"SAL":{"val"=17.0000000, "hex"="44", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=20.7500000, "hex"="53", "name"="FSS"}},
+		"COM":{
+		"COM":{"val"=19.0000000, "hex"="4C", "name"="COM"}},
+		"SAB":{
+		"SAB":{"val"=17.0000000, "hex"="44", "name"="SAB"}},
+		"GVR":{
+		"GVR":{"val"=22.5000000, "hex"="5A", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=16.2500000, "hex"="41", "name"="RAN"}},
+		"TAN":{
+		"TAN":{"val"=0.2500000, "hex"="01", "name"="TAN"}},
+		"GSP":{
+		"GSP":{"val"=2.0000000, "hex"="08", "name"="GSP"}}}}},
+{"id":1,
+"cat":62,
+"length":42,
+"crc":"0E230151",
+"timestamp":46069565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAC701631EC2B20B87760060052809046A52000000011053884D50483038312040454841",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128398.0078125, "hex"="FAC701", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=8920.8142483, "hex"="631EC2B2", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1037.6229858, "hex"="0B877600", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6145.2500000, "hex"="6005", "name"="Vx"},
+		"Vy":{"val"=2562.2500000, "hex"="2809", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="04", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=4, "hex"="04", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="Z H    A", "hex"="6A5200000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19792, "hex"="4D50", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="48", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="48", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="48", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="48", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="48", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="48", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=12.2500000, "hex"="31", "name"="MDA"}}},
+	"I390":{
+		"IFI":{
+		"TYP":{"val"=1, "hex"="40", "mask"="11000000", "name"="TYP", "meaning"="Unit 1 internal flight number"},
+		"spare":{"val"=0, "hex"="40", "mask"="00111000", "name"="spare bits set to zero"},
+		"NBR":{"val"=4540481, "hex"="40454841", "mask"="00000111111111111111111111111111", "name"="NBR"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"4A042425",
+"timestamp":46069764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAE10CF0208CC10B96FB02A805F0081D1F7A00000001105388575A5A3234384E404C4952464C4842",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128450.0937500, "hex"="FAE10C", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-1428.5567039, "hex"="F0208CC1", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1043.0790818, "hex"="0B96FB02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-5630.7500000, "hex"="A805", "name"="Vx"},
+		"Vy":{"val"=-1022.0000000, "hex"="F008", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="1D", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=29, "hex"="1D", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="G7     A", "hex"="1F7A00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=22362, "hex"="575A", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="5A", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="5A", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="5A", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="5A", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=1, "hex"="5A", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="5A", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.0000000, "hex"="34", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=14.0000000, "hex"="38", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=19.5000000, "hex"="4E", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LIRFLHB", "hex"="4C4952464C4842", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46069764.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46069764.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"0ED18C81",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA016D1FCE0D0BDFAB0E6B057808B05CD30000000110538841454538303320404544444D4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128500.0078125, "hex"="FAFA01", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=9821.1814052, "hex"="6D1FCE0D", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1068.6333454, "hex"="0BDFAB0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6849.2500000, "hex"="6B05", "name"="Vx"},
+		"Vy":{"val"=7682.0000000, "hex"="7808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="B0", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=48, "hex"="B0", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WML    A", "hex"="5CD300000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16709, "hex"="4145", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="45", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="45", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="45", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="45", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="45", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="45", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.7500000, "hex"="33", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EDDMLGA", "hex"="4544444D4C4741", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"78CC21C9",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA02B11EF41E0BFB73029F057808142E6400000001105388415A4135393420404C4952464C5942450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128500.0156250, "hex"="FAFA02", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-7099.1178811, "hex"="B11EF41E", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1078.4001267, "hex"="0BFB7302", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-6206.7500000, "hex"="9F05", "name"="Vx"},
+		"Vy":{"val"=7682.0000000, "hex"="7808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="14", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=20, "hex"="14", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="K P    A", "hex"="2E6400000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16730, "hex"="415A", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="39", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="39", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="39", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=1, "hex"="39", "mask"="00001000", "name"="MI", "meaning"="Military Identification present in the last report received from a sensor capable of decoding this data"},
+		"MD5":{"val"=0, "hex"="39", "mask"="00000110", "name"="MD5", "meaning"="No Mode 5 interrogation"},
+		"FX":{"val"=1, "hex"="39", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"CST":{"val"=0, "hex"="34", "mask"="10000000", "name"="CST", "meaning"="Default value"},
+		"PSR":{"val"=0, "hex"="34", "mask"="01000000", "name"="PSR", "meaning"="Default value"},
+		"SSR":{"val"=1, "hex"="34", "mask"="00100000", "name"="SSR", "meaning"="Age of the last received SSR track update is higher than system dependent threshold"},
+		"MDS":{"val"=1, "hex"="34", "mask"="00010000", "name"="MDS", "meaning"="Age of the last received Mode S track update is higher than system dependent threshold"},
+		"ADS":{"val"=0, "hex"="34", "mask"="00001000", "name"="ADS", "meaning"="Default value"},
+		"SUC":{"val"=1, "hex"="34", "mask"="00000100", "name"="SUC", "meaning"="Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"},
+		"AAC":{"val"=0, "hex"="34", "mask"="00000010", "name"="AAC", "meaning"="Default value"},
+		"FX":{"val"=0, "hex"="34", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="IRFLYBE", "hex"="4952464C594245", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"1146F1A9",
+"timestamp":46069965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FAFA03831FE56B0BF08502B405A0076303A500000001105388544152373332304044544D4245505741010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128500.0234375, "hex"="FAFA03", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-11238.7865049, "hex"="831FE56B", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1074.5576584, "hex"="0BF08502", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-4862.7500000, "hex"="B405", "name"="Vx"},
+		"Vy":{"val"=-6142.2500000, "hex"="A007", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="63", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=35, "hex"="63", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="  T    A", "hex"="03A500000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21569, "hex"="5441", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="52", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="52", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="52", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=4, "hex"="52", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="height from coverage"},
+		"CNF":{"val"=1, "hex"="52", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="52", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=16.0000000, "hex"="40", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=17.0000000, "hex"="44", "name"="MD5"}},
+		"MHG":{
+		"MHG":{"val"=21.0000000, "hex"="54", "name"="MHG"}},
+		"SAL":{
+		"SAL":{"val"=19.2500000, "hex"="4D", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=16.5000000, "hex"="42", "name"="FSS"}},
+		"SAB":{
+		"SAB":{"val"=17.2500000, "hex"="45", "name"="SAB"}},
+		"GVR":{
+		"GVR":{"val"=20.0000000, "hex"="50", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=21.7500000, "hex"="57", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=16.2500000, "hex"="41", "name"="GSP"}}},
+	"I390":{
+		"TOD":[]}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"D116EE1A",
+"timestamp":46070165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB1408341EDAEF0C066F016905C808BD5B8E00000001105388464341383735434045474B4B4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128552.0625000, "hex"="FB1408", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4690.8475345, "hex"="341EDAEF", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1082.2618157, "hex"="0C066F01", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6721.2500000, "hex"="6905", "name"="Vx"},
+		"Vy":{"val"=-3582.0000000, "hex"="C808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="BD", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=61, "hex"="BD", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="V88    A", "hex"="5B8E00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17987, "hex"="4643", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=17.2500000, "hex"="45", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.7500000, "hex"="47", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=18.7500000, "hex"="4B", "name"="MD5"}},
+		"MHG":{
+		"MHG":{"val"=18.7500000, "hex"="4B", "name"="MHG"}},
+		"SAL":{
+		"SAL":{"val"=19.0000000, "hex"="4C", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=17.7500000, "hex"="47", "name"="FSS"}},
+		"COM":{
+		"COM":{"val"=21.0000000, "hex"="54", "name"="COM"}},
+		"BVR":{
+		"BVR":{"val"=20.7500000, "hex"="53", "name"="BVR"}},
+		"GSP":{
+		"GSP":{"val"=0.2500000, "hex"="01", "name"="GSP"}},
+		"MET":{
+		"MET":{"val"=2.0000000, "hex"="08", "name"="MET"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"97837D71",
+"timestamp":46070165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB140C7320E0320C0E3D080200C801D915450000000110538844454649442020504C444C4F4C48534D0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128552.0937500, "hex"="FB140C", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=10361.5578854, "hex"="7320E032", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1085.0056887, "hex"="0C0E3D08", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=128.0000000, "hex"="0200", "name"="Vx"},
+		"Vy":{"val"=-3583.7500000, "hex"="C801", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="D9", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=25, "hex"="D9", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="ETT    A", "hex"="154500000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17477, "hex"="4445", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="46", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="46", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="46", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="46", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=1, "hex"="46", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=8.0000000, "hex"="20", "name"="MD1"}},
+		"MD4":{
+		"MD4":{"val"=8.0000000, "hex"="20", "name"="MD4"}},
+		"TAS":{
+		"TAS":{"val"=20.0000000, "hex"="50", "name"="TAS"}},
+		"COM":{
+		"COM":{"val"=19.0000000, "hex"="4C", "name"="COM"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LOLHSM@", "hex"="4C4F4C48534D01", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="08", "name"="Wake Turbulence Category"}}}}},
+{"id":6,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46070165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":8,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46070365.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46070365.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"4E25DCCB",
+"timestamp":46070565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB470E631F3DF30CCDB201A6052808605A21000000011053884F414C32303420404C4650474C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128654.1093750, "hex"="FB470E", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=8920.9835118, "hex"="631F3DF3", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1152.3147637, "hex"="0CCDB201", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-5758.7500000, "hex"="A605", "name"="Vx"},
+		"Vy":{"val"=2562.0000000, "hex"="2808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="60", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=32, "hex"="60", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="V D    A", "hex"="5A2100000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=20289, "hex"="4F41", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4C", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4C", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4C", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=3, "hex"="4C", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="triangulation"},
+		"CNF":{"val"=0, "hex"="4C", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="4C", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.0000000, "hex"="34", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=8.0000000, "hex"="20", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LFPGLGA", "hex"="4C4650474C4741", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46070565.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46070765.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"30112176",
+"timestamp":46070765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB610E301EFBE20CEFB402F20500071BEF51000000011053884155413834385A404C4154494C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128706.1093750, "hex"="FB610E", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4330.8927834, "hex"="301EFBE2", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1164.2706406, "hex"="0CEFB402", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-894.7500000, "hex"="F205", "name"="Vx"},
+		"Vy":{"val"=1.7500000, "hex"="0007", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="1B", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=27, "hex"="1B", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" 5D    A", "hex"="EF5100000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16725, "hex"="4155", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=22.5000000, "hex"="5A", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ATILOWW", "hex"="4154494C4F5757", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"226EB9AF",
+"timestamp":46070964.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FB7A00721E2F560D1AA3056E0528092F5E8B0000000110538843464734363020404544444C4845474E0108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=128756.0000000, "hex"="FB7A00", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=10270.6118810, "hex"="721E2F56", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1179.3644983, "hex"="0D1AA305", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=7041.2500000, "hex"="6E05", "name"="Vx"},
+		"Vy":{"val"=2562.2500000, "hex"="2809", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="2F", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=47, "hex"="2F", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="W      A", "hex"="5E8B00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17222, "hex"="4346", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="47", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="47", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="47", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="47", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=1, "hex"="47", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="47", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="34", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="34", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="34", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="34", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="34", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="34", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="34", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="34", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}},
+		"MHG":{
+		"MHG":{"val"=17.2500000, "hex"="45", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="DLHEGN@", "hex"="444C4845474E01", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="08", "name"="Wake Turbulence Category"}}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46072165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"03FCEDFA",
+"timestamp":46072366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC2E05A3209A4B08E65F0159057807DD60A1000000011053885443583835374B40454747444C475A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129116.0390625, "hex"="FC2E05", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-8358.5381109, "hex"="A3209A4B", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=800.9898430, "hex"="08E65F01", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5697.2500000, "hex"="5905", "name"="Vx"},
+		"Vy":{"val"=7681.7500000, "hex"="7807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="DD", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=29, "hex"="DD", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="XJD    A", "hex"="60A100000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21571, "hex"="5443", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="58", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="58", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="58", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="58", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=0, "hex"="58", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="58", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.2500000, "hex"="35", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.7500000, "hex"="37", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=18.7500000, "hex"="4B", "name"="MD4"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EGGDLGZ", "hex"="454747444C475A", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"67B8E7D7",
+"timestamp":46072366.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC2E0DED2096CB08EB5900410708081360D7000000011053884E33353242482040454242524C4C42",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129116.1015625, "hex"="FC2E0D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-1698.5429174, "hex"="ED2096CB", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=802.7394104, "hex"="08EB5900", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4161.7500000, "hex"="4107", "name"="Vx"},
+		"Vy":{"val"=514.0000000, "hex"="0808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="13", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=19, "hex"="13", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="XM     A", "hex"="60D700000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=20019, "hex"="4E33", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="35", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=0, "hex"="35", "mask"="01000000", "name"="SPI", "meaning"="default value"},
+		"MRH":{"val"=1, "hex"="35", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Geometric altitude more reliable"},
+		"SRC":{"val"=5, "hex"="35", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="speed look-up table"},
+		"CNF":{"val"=0, "hex"="35", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=18.0000000, "hex"="48", "name"="MD1"}},
+		"MHG":{
+		"MHG":{"val"=8.0000000, "hex"="20", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EBBRLLB", "hex"="454242524C4C42", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"39D2C064",
+"timestamp":46072765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC610D571FFDA7094E3A0F4D05C8088047B50000000110538853554935353620404C535A425A5A5A5A0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129218.1015625, "hex"="FC610D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=7841.2467760, "hex"="571FFDA7", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=837.5016063, "hex"="094E3A0F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4929.2500000, "hex"="4D05", "name"="Vx"},
+		"Vy":{"val"=-3582.0000000, "hex"="C808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="80", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=0, "hex"="80", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="Q T    A", "hex"="47B500000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21333, "hex"="5355", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="49", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="49", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="49", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="49", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="49", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="49", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="35", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="35", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="35", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="35", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="35", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"CST":{"val"=0, "hex"="36", "mask"="10000000", "name"="CST", "meaning"="Default value"},
+		"PSR":{"val"=0, "hex"="36", "mask"="01000000", "name"="PSR", "meaning"="Default value"},
+		"SSR":{"val"=1, "hex"="36", "mask"="00100000", "name"="SSR", "meaning"="Age of the last received SSR track update is higher than system dependent threshold"},
+		"MDS":{"val"=1, "hex"="36", "mask"="00010000", "name"="MDS", "meaning"="Age of the last received Mode S track update is higher than system dependent threshold"},
+		"ADS":{"val"=0, "hex"="36", "mask"="00001000", "name"="ADS", "meaning"="Default value"},
+		"SUC":{"val"=1, "hex"="36", "mask"="00000100", "name"="SUC", "meaning"="Special Used Code (Mode A codes to be defined in the system to mark a track with special interest)"},
+		"AAC":{"val"=1, "hex"="36", "mask"="00000010", "name"="AAC", "meaning"="Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"},
+		"FX":{"val"=0, "hex"="36", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="SZBZZZZ", "hex"="535A425A5A5A5A", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"BA7CD3EE",
+"timestamp":46072965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC7A028B1F9337098D730D4E05280777974800000001105388415A413535332040455057414C4952460108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129268.0156250, "hex"="FC7A02", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-10518.8993937, "hex"="8B1F9337", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=859.7283107, "hex"="098D730D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4993.2500000, "hex"="4E05", "name"="Vx"},
+		"Vy":{"val"=2561.7500000, "hex"="2807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="77", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=55, "hex"="77", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" 4     A", "hex"="974800000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16730, "hex"="415A", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="35", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="35", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="35", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="35", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="35", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"CST":{"val"=0, "hex"="33", "mask"="10000000", "name"="CST", "meaning"="Default value"},
+		"PSR":{"val"=0, "hex"="33", "mask"="01000000", "name"="PSR", "meaning"="Default value"},
+		"SSR":{"val"=1, "hex"="33", "mask"="00100000", "name"="SSR", "meaning"="Age of the last received SSR track update is higher than system dependent threshold"},
+		"MDS":{"val"=1, "hex"="33", "mask"="00010000", "name"="MDS", "meaning"="Age of the last received Mode S track update is higher than system dependent threshold"},
+		"ADS":{"val"=0, "hex"="33", "mask"="00001000", "name"="ADS", "meaning"="Default value"},
+		"SUC":{"val"=0, "hex"="33", "mask"="00000100", "name"="SUC", "meaning"="Default value"},
+		"AAC":{"val"=1, "hex"="33", "mask"="00000010", "name"="AAC", "meaning"="Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track)"},
+		"FX":{"val"=1, "hex"="33", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"SDS":{"val"=0, "hex"="20", "mask"="11000000", "name"="SDS", "meaning"="Combined"},
+		"EMS":{"val"=4, "hex"="20", "mask"="00111000", "name"="EMS", "meaning"="No communications"},
+		"PFT":{"val"=0, "hex"="20", "mask"="00000100", "name"="PFT", "meaning"="No indication"},
+		"FPLT":{"val"=0, "hex"="20", "mask"="00000010", "name"="FPLT", "meaning"="Default value"},
+		"FX":{"val"=0, "hex"="20", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=17.2500000, "hex"="45", "name"="MD1"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="WALIRF@", "hex"="57414C49524601", "name"="Callsign"}},
+		"FCT":{
+		"GATOAT":{"val"=0, "hex"="08", "mask"="11000000", "name"="GATOAT", "meaning"="Unknown"},
+		"FR1FR2":{"val"=0, "hex"="08", "mask"="00110000", "name"="FR1FR2", "meaning"="Instrument Flight Rules"},
+		"RVSM":{"val"=2, "hex"="08", "mask"="00001100", "name"="RVSM", "meaning"="Exempt"},
+		"HPR":{"val"=0, "hex"="08", "mask"="00000010", "name"="HPR", "meaning"="Normal Priority Flight"},
+		"spare":{"val"=0, "hex"="08", "mask"="00000001", "name"="spare bit set to zero"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"FD426EF8",
+"timestamp":46073165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FC9401BC1FB95709A9F40D420668078192FA0000000110538845534B33504420404C4B50524C49524E0108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129320.0078125, "hex"="FC9401", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-6108.8470370, "hex"="BC1FB957", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=869.7492152, "hex"="09A9F40D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4225.5000000, "hex"="4206", "name"="Vx"},
+		"Vy":{"val"=6657.7500000, "hex"="6807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="81", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=1, "hex"="81", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="       A", "hex"="92FA00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17747, "hex"="4553", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4B", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4B", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4B", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="4B", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=1, "hex"="4B", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="4B", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="33", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="33", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="33", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="33", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="33", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="33", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="33", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=1, "hex"="33", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="50", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=2, "hex"="50", "mask"="01100000", "name"="MD4", "meaning"="Unknown target"},
+		"ME":{"val"=1, "hex"="50", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="50", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=0, "hex"="50", "mask"="00000110", "name"="MD5", "meaning"="No Mode 5 interrogation"},
+		"FX":{"val"=0, "hex"="50", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=8.0000000, "hex"="20", "name"="MD1"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="KPRLIRN", "hex"="4B50524C49524E", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":8,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073366.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":6,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073366.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073366.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"135DDC39",
+"timestamp":46073366.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0C0F",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=3087, "hex"="0C0F", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"A8E87753",
+"timestamp":46073564.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCC705CF20046D0A722A0E2C02A806F225330000000110538845424A32303433404C44504C4C445A",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129422.0390625, "hex"="FCC705", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-4398.7439221, "hex"="CF20046D", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=940.1358783, "hex"="0A722A0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=2816.5000000, "hex"="2C02", "name"="Vx"},
+		"Vy":{"val"=-5630.5000000, "hex"="A806", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="F2", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=50, "hex"="F2", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="ISL    A", "hex"="253300000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17730, "hex"="4542", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4A", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4A", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4A", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="4A", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=1, "hex"="4A", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="4A", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.0000000, "hex"="34", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=12.7500000, "hex"="33", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LDPLLDZ", "hex"="4C44504C4C445A", "name"="Callsign"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"87697957",
+"timestamp":46073564.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCC70F2320D50C0A81C60E5D05C8072994F0000000011053884C4F543331332040455057414C495246010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129422.1171875, "hex"="FCC70F", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=3161.5425754, "hex"="2320D50C", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=945.6235492, "hex"="0A81C60E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5953.2500000, "hex"="5D05", "name"="Vx"},
+		"Vy":{"val"=-3582.2500000, "hex"="C807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="29", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=41, "hex"="29", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" O     A", "hex"="94F000000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19535, "hex"="4C4F", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="54", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="54", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="54", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=5, "hex"="54", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="speed look-up table"},
+		"CNF":{"val"=0, "hex"="54", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="54", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=20.0000000, "hex"="50", "name"="MHG"}},
+		"SAL":{
+		"SAL":{"val"=21.7500000, "hex"="57", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=16.2500000, "hex"="41", "name"="FSS"}},
+		"GVR":{
+		"GVR":{"val"=19.0000000, "hex"="4C", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=18.2500000, "hex"="49", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=20.5000000, "hex"="52", "name"="GSP"}},
+		"EMC":{
+		"EMC":{"val"=17.5000000, "hex"="46", "name"="EMC"}}},
+	"I390":{
+		"TOD":[]}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"ECF0D918",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCE10D4520A5BF0AB15102B30550080114A8000000011053884E4C5938343637404C4952464C4F57570108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129474.1015625, "hex"="FCE10D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=6221.4776176, "hex"="4520A5BF", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=962.3378098, "hex"="0AB15102", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-4926.7500000, "hex"="B305", "name"="Vx"},
+		"Vy":{"val"=5122.0000000, "hex"="5008", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="01", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=1, "hex"="01", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="EJ     A", "hex"="14A800000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=20044, "hex"="4E4C", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="59", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="59", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="59", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="59", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=0, "hex"="59", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="59", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.5000000, "hex"="36", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.7500000, "hex"="37", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=16.0000000, "hex"="40", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="IRFLOWW", "hex"="4952464C4F5757", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"71931B09",
+"timestamp":46073765.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCE106E51EDC340AB88E02F104600693CE79000000011053884C424332323620404C4154494C4950450108000000",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129474.0468750, "hex"="FCE106", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-2419.1507220, "hex"="E51EDC34", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=964.8825181, "hex"="0AB88E02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-959.0000000, "hex"="F104", "name"="Vx"},
+		"Vy":{"val"=6145.5000000, "hex"="6006", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="93", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=19, "hex"="93", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="3      A", "hex"="CE7900000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19522, "hex"="4C42", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="43", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="43", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="43", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="43", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=1, "hex"="43", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=1, "hex"="43", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.5000000, "hex"="36", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=16.0000000, "hex"="40", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ATILIPE", "hex"="4154494C495045", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080000", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"6A6FFA3C",
+"timestamp":46073965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FCFA07D82113650AD10C0E490398047884CA0000000110538843544E34343520404C4F57574C4453",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129524.0546875, "hex"="FCFA07", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-3588.3718032, "hex"="D8211365", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=973.4931171, "hex"="0AD10C0E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4672.7500000, "hex"="4903", "name"="Vx"},
+		"Vy":{"val"=-6655.0000000, "hex"="9804", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="78", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=56, "hex"="78", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" L     A", "hex"="84CA00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17236, "hex"="4354", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="4E", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="4E", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="4E", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=3, "hex"="4E", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="triangulation"},
+		"CNF":{"val"=1, "hex"="4E", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="4E", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.0000000, "hex"="34", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.2500000, "hex"="35", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=8.0000000, "hex"="20", "name"="MD5"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LOWWLDS", "hex"="4C4F57574C4453", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46073965.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":6,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46074165.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"E80A250E",
+"timestamp":46074165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD140D322037D40B329A0F6B05C808865CFB0000000110538854564631353334404C46504F4C544645010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129576.1015625, "hex"="FD140D", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4511.3266683, "hex"="322037D4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1007.7896923, "hex"="0B329A0F", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6849.2500000, "hex"="6B05", "name"="Vx"},
+		"Vy":{"val"=-3582.0000000, "hex"="C808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="86", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=6, "hex"="86", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WO     A", "hex"="5CFB00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21590, "hex"="5456", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="46", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="46", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="46", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="46", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=1, "hex"="46", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="46", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=19.0000000, "hex"="4C", "name"="MDA"}},
+		"SAL":{
+		"SAL":{"val"=17.5000000, "hex"="46", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=20.0000000, "hex"="50", "name"="FSS"}},
+		"COM":{
+		"COM":{"val"=19.7500000, "hex"="4F", "name"="COM"}},
+		"GVR":{
+		"GVR":{"val"=19.0000000, "hex"="4C", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=21.0000000, "hex"="54", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=17.5000000, "hex"="46", "name"="GSP"}},
+		"EMC":{
+		"EMC":{"val"=17.2500000, "hex"="45", "name"="EMC"}},
+		"POS":{
+		"POS":{"val"=0.2500000, "hex"="01", "name"="POS"}},
+		"PUN":{
+		"PUN":{"val"=2.0000000, "hex"="08", "name"="PUN"}}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"31787C42",
+"timestamp":46074165.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD140F92202AE40B48250487052808535CC10000000110538841454535343120404544444C4C475453010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129576.1171875, "hex"="FD140F", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-9888.6910987, "hex"="92202AE4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1015.3633332, "hex"="0B482504", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-7742.7500000, "hex"="8705", "name"="Vx"},
+		"Vy":{"val"=2562.0000000, "hex"="2808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="53", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=19, "hex"="53", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WLD    A", "hex"="5CC100000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16709, "hex"="4145", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="45", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="45", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="45", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="45", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="45", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="45", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="35", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="35", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="35", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="35", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="35", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=1, "hex"="35", "mask"="00000100", "name"="STP", "meaning"="Slave Track Promotion"},
+		"KOS":{"val"=0, "hex"="35", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=1, "hex"="35", "mask"="00000001", "name"="FX", "meaning"="Extension into next extent"},
+		"AMA":{"val"=0, "hex"="34", "mask"="10000000", "name"="AMA", "meaning"="track not resulting from amalgamation process"},
+		"MD4":{"val"=1, "hex"="34", "mask"="01100000", "name"="MD4", "meaning"="Friendly target"},
+		"ME":{"val"=1, "hex"="34", "mask"="00010000", "name"="ME", "meaning"="Military Emergency present in the last report received from a sensor capable of decoding this data"},
+		"MI":{"val"=0, "hex"="34", "mask"="00001000", "name"="MI", "meaning"="default value"},
+		"MD5":{"val"=2, "hex"="34", "mask"="00000110", "name"="MD5", "meaning"="Unknown target"},
+		"FX":{"val"=0, "hex"="34", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"SAL":{
+		"SAL":{"val"=17.0000000, "hex"="44", "name"="SAL"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LLGTS@@", "hex"="4C4C4754530108", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46074166.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":49,
+"crc":"AA2ACCD2",
+"timestamp":46074365.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD2E02362083980B57100D5800F002E105360400F601105388435341325A4120404C445A414C4B50520108",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129628.0156250, "hex"="FD2E02", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=4871.4307165, "hex"="36208398", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1020.6079799, "hex"="0B57100D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5632.0000000, "hex"="5800", "name"="Vx"},
+		"Vy":{"val"=-1023.5000000, "hex"="F002", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="E1", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=33, "hex"="E1", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="ASXD OXA", "hex"="05360400F601", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=17235, "hex"="4353", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="41", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="41", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="41", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=0, "hex"="41", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="no source"},
+		"CNF":{"val"=0, "hex"="41", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="41", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=16.2500000, "hex"="41", "name"="MD1"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=16.0000000, "hex"="40", "name"="MD4"}},
+		"MHG":{
+		"MHG":{"val"=19.0000000, "hex"="4C", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="ZALKPR@", "hex"="5A414C4B505201", "name"="Callsign"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="08", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":52,
+"crc":"19356BFF",
+"timestamp":46074365.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD2E01DC208A480B5DF40E1900380225C65F040017011053883941445A472020604C4456414C445A4101080C0300",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129628.0078125, "hex"="FD2E01", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-3228.5600996, "hex"="DC208A48", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1023.0304706, "hex"="0B5DF40E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=1600.0000000, "hex"="1900", "name"="Vx"},
+		"Vy":{"val"=3584.5000000, "hex"="3802", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="25", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=37, "hex"="25", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="1  D A A", "hex"="C65F04001701", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=14657, "hex"="3941", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="44", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="44", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="44", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="44", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="44", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="44", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD1":{
+		"MD1":{"val"=17.7500000, "hex"="47", "name"="MD1"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=8.0000000, "hex"="20", "name"="MD4"}},
+		"MHG":{
+		"MHG":{"val"=24.0000000, "hex"="60", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="DVALDZA", "hex"="4456414C445A41", "name"="Callsign"}},
+		"TAC":{
+		"TYPE":{"val"="@@@@", "hex"="01080C03", "name"="Type of Aircraft"}},
+		"WTC":{
+		"WTC":{"val"="@", "hex"="00", "name"="Wake Turbulence Category"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"AD82C925",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD470AA41F15B40B723C0D43052807FB6D9A0000000110538841445238383420404C4A4C4A4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129678.0781250, "hex"="FD470A", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-8269.0717578, "hex"="A41F15B4", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1030.1605922, "hex"="0B723C0D", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=4289.2500000, "hex"="4305", "name"="Vx"},
+		"Vy":{"val"=2561.7500000, "hex"="2807", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=3, "hex"="FB", "mask"="11000000", "name"="STI", "meaning"="Invalid"},
+		"spare":{"val"=59, "hex"="FB", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" Y     A", "hex"="6D9A00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16708, "hex"="4144", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="52", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="52", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="52", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=4, "hex"="52", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="height from coverage"},
+		"CNF":{"val"=1, "hex"="52", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="52", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=13.0000000, "hex"="34", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=8.0000000, "hex"="20", "name"="MD4"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LJLJLGA", "hex"="4C4A4C4A4C4741", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"5C1C4AFE",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0B0F",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=2831, "hex"="0B0F", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"3C7878DE",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD4705032093910B7FE504540058032CA12B08FF67011053884757493239373640454444534C445A41010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129678.0390625, "hex"="FD4705", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=281.4526516, "hex"="03209391", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1034.9629426, "hex"="0B7FE504", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=5376.0000000, "hex"="5400", "name"="Vx"},
+		"Vy":{"val"=5632.7500000, "hex"="5803", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="2C", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=44, "hex"="2C", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"=" R H 6 A", "hex"="A12B08FF6701", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=18263, "hex"="4757", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="49", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="49", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="49", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="49", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="49", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="49", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="32", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="32", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="32", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="32", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=0, "hex"="32", "mask"="00001000", "name"="AFF", "meaning"="default value"},
+		"STP":{"val"=0, "hex"="32", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=1, "hex"="32", "mask"="00000010", "name"="KOS", "meaning"="Background service used"},
+		"FX":{"val"=0, "hex"="32", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=16.0000000, "hex"="40", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=17.2500000, "hex"="45", "name"="MDA"}},
+		"MD4":{
+		"MD4":{"val"=17.0000000, "hex"="44", "name"="MD4"}},
+		"SAL":{
+		"SAL":{"val"=17.0000000, "hex"="44", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=20.7500000, "hex"="53", "name"="FSS"}},
+		"COM":{
+		"COM":{"val"=19.0000000, "hex"="4C", "name"="COM"}},
+		"SAB":{
+		"SAB":{"val"=17.0000000, "hex"="44", "name"="SAB"}},
+		"GVR":{
+		"GVR":{"val"=22.5000000, "hex"="5A", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=16.2500000, "hex"="41", "name"="RAN"}},
+		"TAN":{
+		"TAN":{"val"=0.2500000, "hex"="01", "name"="TAN"}},
+		"GSP":{
+		"GSP":{"val"=2.0000000, "hex"="08", "name"="GSP"}}}}},
+{"id":1,
+"cat":62,
+"length":42,
+"crc":"7CEEB689",
+"timestamp":46074565.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD4701631EC0D80B88F30060052809046A52000000011053884D50483038312040454841",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129678.0078125, "hex"="FD4701", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=8920.8117056, "hex"="631EC0D8", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1038.1462097, "hex"="0B88F300", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6145.2500000, "hex"="6005", "name"="Vx"},
+		"Vy":{"val"=2562.2500000, "hex"="2809", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="04", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=4, "hex"="04", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="Z H    A", "hex"="6A5200000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=19792, "hex"="4D50", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="48", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="48", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="48", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=2, "hex"="48", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="3D radar"},
+		"CNF":{"val"=0, "hex"="48", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=0, "hex"="48", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=14.0000000, "hex"="38", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=12.2500000, "hex"="31", "name"="MDA"}}},
+	"I390":{
+		"IFI":{
+		"TYP":{"val"=1, "hex"="40", "mask"="11000000", "name"="TYP", "meaning"="Unit 1 internal flight number"},
+		"spare":{"val"=0, "hex"="40", "mask"="00111000", "name"="spare bits set to zero"},
+		"NBR":{"val"=4540481, "hex"="40454841", "mask"="00000111111111111111111111111111", "name"="NBR"}}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"2A41D354",
+"timestamp":46074764.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD610CF0208E200B98E202A805F0081C1FAE00000001105388575A5A3234384E404C4952464C4842",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129730.0937500, "hex"="FD610C", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-1428.5548210, "hex"="F0208E20", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1043.7478745, "hex"="0B98E202", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-5630.7500000, "hex"="A805", "name"="Vx"},
+		"Vy":{"val"=-1022.0000000, "hex"="F008", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=0, "hex"="1C", "mask"="11000000", "name"="STI", "meaning"="Callsign or registration downlinked from target"},
+		"spare":{"val"=28, "hex"="1C", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="G 8    A", "hex"="1FAE00000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=22362, "hex"="575A", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="5A", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="5A", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="5A", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=6, "hex"="5A", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="default height"},
+		"CNF":{"val"=1, "hex"="5A", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="5A", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=13.0000000, "hex"="34", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=14.0000000, "hex"="38", "name"="MDA"}},
+		"MHG":{
+		"MHG":{"val"=19.5000000, "hex"="4E", "name"="MHG"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="LIRFLHB", "hex"="4C4952464C4842", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46074764.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":4,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46074765.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":46,
+"crc":"8A0E5DA0",
+"timestamp":46074965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD7A016D1FCCB60BE1D90E6B057808B05CD30000000110538841454538303320404544444D4C4741",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129780.0078125, "hex"="FD7A01", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=9821.1795652, "hex"="6D1FCCB6", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1069.3996418, "hex"="0BE1D90E", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=6849.2500000, "hex"="6B05", "name"="Vx"},
+		"Vy":{"val"=7682.0000000, "hex"="7808", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=2, "hex"="B0", "mask"="11000000", "name"="STI", "meaning"="Registration not downlinked from target"},
+		"spare":{"val"=48, "hex"="B0", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="WML    A", "hex"="5CD300000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=16709, "hex"="4145", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="45", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="45", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="45", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=1, "hex"="45", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="GNSS"},
+		"CNF":{"val"=0, "hex"="45", "mask"="00000010", "name"="CNF", "meaning"="Confirmed track"},
+		"FX":{"val"=1, "hex"="45", "mask"="00000001", "name"="FX", "meaning"="extension into first extent"},
+		"SIM":{"val"=0, "hex"="38", "mask"="10000000", "name"="SIM", "meaning"="Actual track"},
+		"TSE":{"val"=0, "hex"="38", "mask"="01000000", "name"="TSE", "meaning"="default value"},
+		"TSB":{"val"=1, "hex"="38", "mask"="00100000", "name"="TSB", "meaning"="first message transmitted to the user for the track"},
+		"FPC":{"val"=1, "hex"="38", "mask"="00010000", "name"="FPC", "meaning"="Flight plan correlated"},
+		"AFF":{"val"=1, "hex"="38", "mask"="00001000", "name"="AFF", "meaning"="ADS-B data inconsistent with other surveillance information"},
+		"STP":{"val"=0, "hex"="38", "mask"="00000100", "name"="STP", "meaning"="default value"},
+		"KOS":{"val"=0, "hex"="38", "mask"="00000010", "name"="KOS", "meaning"="Complementary service used"},
+		"FX":{"val"=0, "hex"="38", "mask"="00000001", "name"="FX", "meaning"="End of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.7500000, "hex"="33", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=8.0000000, "hex"="20", "name"="MDA"}}},
+	"I390":{
+		"CSN":{
+		"CS":{"val"="EDDMLGA", "hex"="4544444D4C4741", "name"="Callsign"}}}}},
+{"id":3,
+"cat":62,
+"length":4,
+"crc":"2F578EA4",
+"timestamp":46074965.000000,
+"srcip":"0.0.0.0",
+"fspec":"0108",
+"hexdata":"0000",
+"CAT062":{
+	"I040":{
+		"TrkN":{"val"=0, "hex"="0000", "name"="Track number"}}}},
+{"id":1,
+"cat":62,
+"length":50,
+"crc":"85CE3BD1",
+"timestamp":46074965.000000,
+"srcip":"0.0.0.0",
+"fspec":"BB3D42",
+"hexdata":"196459FD7A03831FE71F0BF0CF02B405A0076303A500000001105388544152373332304044544D4245505741010800",
+"CAT062":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=100, "hex"="64", "name"="System Identification Code"}},
+	"I015":{
+		"SID":{"val"=89, "hex"="59", "name"="Service Identification"}},
+	"I070":{
+		"ToT":{"val"=129780.0234375, "hex"="FD7A03", "name"="Time Of Track Information"}},
+	"I105":{
+		"Lat":{"val"=-11238.7841660, "hex"="831FE71F", "name"="Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg."},
+		"Lon":{"val"=1074.6592820, "hex"="0BF0CF02", "name"="Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg."}},
+	"I185":{
+		"Vx":{"val"=-4862.7500000, "hex"="B405", "name"="Vx"},
+		"Vy":{"val"=-6142.2500000, "hex"="A007", "name"="Vy"}},
+	"I245":{
+		"STI":{"val"=1, "hex"="63", "mask"="11000000", "name"="STI", "meaning"="Callsign not downlinked from target"},
+		"spare":{"val"=35, "hex"="63", "mask"="00111111", "name"="Spare bits set to zero"},
+		"TId":{"val"="  T    A", "hex"="03A500000001", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I380":{
+		"IAS":{
+		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
+	"I040":{
+		"TrkN":{"val"=21569, "hex"="5441", "name"="Track number"}},
+	"I080":{
+		"MON":{"val"=0, "hex"="52", "mask"="10000000", "name"="MON", "meaning"="Multisensor track"},
+		"SPI":{"val"=1, "hex"="52", "mask"="01000000", "name"="SPI", "meaning"="SPI present in the last report received from a sensor capable of decoding this data"},
+		"MRH":{"val"=0, "hex"="52", "mask"="00100000", "name"="Most Reliable Height", "meaning"="Barometric altitude (Mode C) more reliable"},
+		"SRC":{"val"=4, "hex"="52", "mask"="00011100", "name"="Source of calculated track altitude for I062/130", "meaning"="height from coverage"},
+		"CNF":{"val"=1, "hex"="52", "mask"="00000010", "name"="CNF", "meaning"="Tentative track"},
+		"FX":{"val"=0, "hex"="52", "mask"="00000001", "name"="FX", "meaning"="end of data item"}},
+	"I295":{
+		"MD2":{
+		"MD2":{"val"=12.0000000, "hex"="30", "name"="MD2"}},
+		"MDA":{
+		"MDA":{"val"=16.0000000, "hex"="40", "name"="MDA"}},
+		"MD5":{
+		"MD5":{"val"=17.0000000, "hex"="44", "name"="MD5"}},
+		"MHG":{
+		"MHG":{"val"=21.0000000, "hex"="54", "name"="MHG"}},
+		"SAL":{
+		"SAL":{"val"=19.2500000, "hex"="4D", "name"="SAL"}},
+		"FSS":{
+		"FSS":{"val"=16.5000000, "hex"="42", "name"="FSS"}},
+		"SAB":{
+		"SAB":{"val"=17.2500000, "hex"="45", "name"="SAB"}},
+		"GVR":{
+		"GVR":{"val"=20.0000000, "hex"="50", "name"="GVR"}},
+		"RAN":{
+		"RAN":{"val"=21.7500000, "hex"="57", "name"="RAN"}},
+		"GSP":{
+		"GSP":{"val"=16.2500000, "hex"="41", "name"="GSP"}}},
+	"I390":{
+		"TOD":[]}}},

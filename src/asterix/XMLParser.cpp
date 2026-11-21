@@ -86,7 +86,13 @@ void XMLParser::Error(const char *errstr, const char *param1) {
 
 void XMLParser::Error(const char *errstr) {
     char strLine[1024];
-    snprintf(strLine, 1024, " in file: %s line: %d", m_pFileName, (int) XML_GetCurrentLineNumber(m_Parser));
+    // Expat 2.9.0 added XML_GetCurrentLineNumber64 and deprecated XML_GetCurrentLineNumber
+#if XML_MAJOR_VERSION > 2 || (XML_MAJOR_VERSION == 2 && XML_MINOR_VERSION >= 9)
+    unsigned long long line = XML_GetCurrentLineNumber64(m_Parser);
+#else
+    unsigned long long line = XML_GetCurrentLineNumber(m_Parser);
+#endif
+    snprintf(strLine, 1024, " in file: %s line: %llu", m_pFileName, line);
     std::string tmpstr(errstr);
     tmpstr += strLine;
     tmpstr += "\n";
@@ -94,7 +100,7 @@ void XMLParser::Error(const char *errstr) {
 #ifdef PYTHON_WRAPPER
     PyErr_SetString(PyExc_SyntaxError, (char*)tmpstr.c_str());
 #else
-    Tracer::Error((char *) tmpstr.c_str());
+    Tracer::Error("%s", tmpstr.c_str()); // the text holds file data: never use it as the format
 #endif
 
     m_bErrorDetectedStopParsing = true;
@@ -759,6 +765,8 @@ XMLParser::XMLParser()
  */
 XMLParser::~XMLParser() {
     XML_ParserFree(m_Parser);
+    // a category is handed to the definitions at </Category>: if parsing stopped before, it is still ours
+    delete m_pCategory;
 }
 
 /*!

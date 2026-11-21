@@ -55,7 +55,12 @@ public:
 #endif
 
     virtual DataItemFormat *clone() const = 0; // Copy constructor
-    virtual long getLength(const unsigned char *pData) = 0;
+    /**
+     * Length of the item that starts at pData. Implementations never read more than nMaxLength
+     * bytes from pData; if the item does not fit in nMaxLength bytes, a value greater than
+     * nMaxLength is returned (callers already treat that as "not enough data").
+     */
+    virtual long getLength(const unsigned char *pData, long nMaxLength) = 0;
 
     virtual bool
     getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,

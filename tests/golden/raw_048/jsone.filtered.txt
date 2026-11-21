@@ -1,0 +1,35 @@
+{"id":1,
+"cat":48,
+"length":45,
+"crc":"AB659C3E",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"FDF702",
+"hexdata":"19C9356D4DA0C5AFF1E0020005283C660C10C236D4182001C0780031BC0000400DEB07B9582E410020F5",
+"CAT048":{
+	"I010":{
+		"SAC":{"val"=25, "hex"="19", "name"="System Area Code"},
+		"SIC":{"val"=201, "hex"="C9", "name"="System Identification Code"}},
+	"I040":{
+		"RHO":{"val"=197.6835938, "hex"="C5AF", "name"="RHO"},
+		"THETA":{"val"=340.1367188, "hex"="F1E0", "name"="THETA"}},
+	"I220":{
+		"ACAddr":{"val"="3C660C", "hex"="3C660C", "name"="AircraftAddress"}},
+	"I240":{
+		"TId":{"val"="DLH65A  ", "hex"="10C236D41820", "name"="Characters 1-8 (coded on 6 bits each) defining target identification"}},
+	"I250":[{
+		"MCP_ALT_STATUS":{"val"=1, "hex"="C0", "mask"="10000000", "name"="MCP Altitude Status"},
+		"MCP_ALT":{"val"=33008.0000000, "hex"="C078", "mask"="0111111111111000", "name"="MCP/FCU Selected Altitude"},
+		"FMS_ALT_STATUS":{"val"=0, "hex"="78", "mask"="00000100", "name"="FMS Altitude Status"},
+		"FMS_ALT":{"val"=0.0000000, "hex"="780031", "mask"="000000111111111111000000", "name"="FMS Selected Altitude"},
+		"BP_STATUS":{"val"=1, "hex"="31", "mask"="00100000", "name"="Barometric Pressure Status"},
+		"BP":{"val"=227.0000000, "hex"="31BC", "mask"="0001111111111110", "name"="Barometric Pressure"},
+		"res1":{"val"=0, "hex"="BC00", "name"="Reserved 1"},
+		"MODE_STATUS":{"val"=0, "hex"="00", "mask"="00000001", "name"="Status of MCP/FCU Mode Bits"},
+		"VNAV":{"val"=0, "hex"="00", "mask"="10000000", "name"="VNAV Mode", "meaning"="Not active"},
+		"ALT_HOLD":{"val"=0, "hex"="00", "mask"="01000000", "name"="ALT HOLD Mode", "meaning"="Not active"},
+		"APP":{"val"=0, "hex"="00", "mask"="00100000", "name"="APPROACH Mode", "meaning"="Not active"},
+		"res2":{"val"=0, "hex"="00", "mask"="00011000", "name"="Reserved 2"},
+		"TARGET_ALT_STATUS":{"val"=0, "hex"="00", "mask"="00000100", "name"="Status of Target ALT source bits", "meaning"="No source information provided"},
+		"TARGET_ALT_SOURCE":{"val"=0, "hex"="00", "mask"="00000011", "name"="Target ALT source", "meaning"="Unknown"},
+		"BDS":{"val"="40", "hex"="40", "name"="BDS register"}}]}},

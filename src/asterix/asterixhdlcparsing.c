@@ -362,10 +362,16 @@ int proc_hdlc_frame(int len)
     int offset = 2;
 
     while (len_to_check > 0) {
+        if (len_to_check < 3) {
+            return 0; // no room left for an Asterix header: not a valid frame
+        }
         int cat = (int) Frame[offset]; // [CAT]
         int packet_len = (int) Frame[offset + 1]; // [ALEN_H]
         packet_len <<= 8;
         packet_len |= (int) Frame[offset + 2]; // [ALEN_L]
+        if (packet_len < 3) {
+            return 0; // an Asterix block holds at least its 3-byte header (a length of 0 looped forever)
+        }
 
         switch (cat) {
             case 1:

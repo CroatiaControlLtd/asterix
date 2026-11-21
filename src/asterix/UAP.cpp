@@ -22,9 +22,10 @@
  */
 
 #include "UAP.h"
+#include "Category.h"
 
 UAP::UAP()
-        : m_nUseIfBitSet(0), m_nUseIfByteNr(0), m_nIsSetTo(0) {
+        : m_nUseIfBitSet(0), m_nUseIfByteNr(0), m_nIsSetTo(0), m_pFrnCacheCategory(NULL) {
 }
 
 UAP::~UAP() {
@@ -78,4 +79,23 @@ std::string UAP::getDataItemIDByUAPfrn(int uapfrn) {
         }
     }
     return "";
+}
+
+DataItemDescription *UAP::getDataItemDescriptionByUAPfrn(Category *cat, int uapfrn) {
+    if (cat != m_pFrnCacheCategory) {
+        m_vFrnCache.clear();
+        m_pFrnCacheCategory = cat;
+    }
+    if (uapfrn < 0) {
+        return cat->getDataItemDescription(getDataItemIDByUAPfrn(uapfrn));
+    }
+    if ((size_t) uapfrn >= m_vFrnCache.size()) {
+        m_vFrnCache.resize(uapfrn + 1, NULL);
+    }
+    DataItemDescription *&cached = m_vFrnCache[uapfrn];
+    if (cached == NULL) {
+        // the category keeps its descriptions (and creates missing ones) in a list, so the pointer stays valid
+        cached = cat->getDataItemDescription(getDataItemIDByUAPfrn(uapfrn));
+    }
+    return cached;
 }

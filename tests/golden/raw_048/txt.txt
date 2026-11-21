@@ -1,0 +1,115 @@
+
+
+-------------------------
+Data Block 1
+Category: 48
+Len: 45
+Timestamp: T
+HexData: 300030
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 45
+CRC: AB659C3E
+Source IP: 0.0.0.0
+Fspec: FDF702
+HexData: 19C9356D4DA0C5AFF1E0020005283C660C10C236D4182001C0780031BC0000400DEB07B9582E410020F5
+
+Item 010 : Data Source Identifier
+[ 19 C9 ]
+	System Area Code: 25
+	System Identification Code: 201
+
+Item 140 : Time Of Day
+[ 35 6D 4D ]
+	Time Of Day: 3501389 (27354.6015625 s)
+
+Item 020 : Target Report Descriptor
+[ A0 ]
+	TYP: 5 (Single ModeS Roll-Call)
+	SIM: 0 (Actual target report)
+	RDP: 0 (Report from RDP Chain 1)
+	SPI: 0 (Absence of SPI)
+	RAB: 0 (Report from aircraft transponder)
+	FX: 0 (End of Data Item)
+
+Item 040 : Measured Position in Polar Coordinates
+[ C5 AF F1 E0 ]
+	RHO: 50607 (197.6835938 NM)
+	THETA: 61920 (340.1367188 deg)
+
+Item 070 : Mode-3/A Code
+[ 02 00 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	L: 0 (Mode-3/A code as derived from the reply of the transponder)
+	spare bit set to 0: 0
+	Mode-3/A reply code: 1000
+
+Item 090 : Flight Level
+[ 05 28 ]
+	V: 0 (Code validated)
+	G: 0 (Default)
+	FlightLevel: 1320 (330.0000000 FL)
+
+Item 220 : Aircraft Address
+[ 3C 66 0C ]
+	AircraftAddress: 3C660C
+
+Item 240 : Aircraft Identification
+[ 10 C2 36 D4 18 20 ]
+	Characters 1-8 (coded on 6 bits each) defining target identification: DLH65A  
+
+Item 250 : Mode S Comm B data
+[ 01 C0 78 00 31 BC 00 00 40 ]
+	MCP Altitude Status: 1
+	MCP/FCU Selected Altitude: 2063 (33008.0000000 ft)
+	FMS Altitude Status: 0
+	FMS Selected Altitude: 0 (0.0000000 ft)
+	Barometric Pressure Status: 1
+	Barometric Pressure: 2270 (227.0000000 mb)
+	Reserved 1: 0
+	Status of MCP/FCU Mode Bits: 0
+	VNAV Mode: 0 (Not active)
+	ALT HOLD Mode: 0 (Not active)
+	APPROACH Mode: 0 (Not active)
+	Reserved 2: 0
+	Status of Target ALT source bits: 0 (No source information provided)
+	Target ALT source: 0 (Unknown)
+	BDS register: 40
+
+Item 161 : Track Number
+[ 0D EB ]
+	Track Number: 3563
+
+Item 200 : Calculated Track Velocity in Polar Coordinates
+[ 07 B9 58 2E ]
+	Calculated groundspeed: 1977 (434.3994141 kt)
+	Calculated heading: 22574 (124.0026855 deg)
+
+Item 170 : Track Status
+[ 41 00 ]
+	CNF: 0 (Confirmed Track)
+	RAD: 2 (SSR/ModeS Track)
+	DOU: 0 (Normal confidence)
+	MAH: 0 (No horizontal man. sensed)
+	CDM: 0 (Maintaining)
+	FX: 1 (Extension into first extent)
+	TRE: 0 (Track still alive)
+	GHO: 0 (True target track)
+	SUP: 0 (Track from cluster network - NO)
+	TCC: 0 (Radar plane)
+	spare bits set to 0: 0
+	FX: 0 (End of Data Item)
+
+Item 230 : Comm capability
+[ 20 F5 ]
+	COM: 1
+	STAT: 0
+	SI/II Transponder Capability: 0 (SI-Code Capable)
+	spare bit set to 0: 0
+	ModeS Specific Service Capability: 1 (Yes)
+	Altitude reporting capability: 1 (25ft resolution)
+	Aircraft identification capability: 1 (Yes)
+	BDS 1,0 bit 16: 1
+	BDS 1,0 bits 37/40: 5

@@ -34,6 +34,88 @@ std::string format_arg_list(const char *fmt, va_list args);
 
 std::string format(const char *fmt, ...);
 
+/*
+ * Fast appends used by the output code instead of format(). Each one writes exactly what
+ * the printf conversion named in its comment would write.
+ */
+static const char HEXDIGITS_UPPER[] = "0123456789ABCDEF";
+
+// "%02X" of one byte
+inline void appendHexByte(std::string &s, unsigned char b) {
+    s += HEXDIGITS_UPPER[b >> 4];
+    s += HEXDIGITS_UPPER[b & 0x0F];
+}
+
+// "%02X" of each byte in pData[0..n-1]
+inline void appendHexBytes(std::string &s, const unsigned char *pData, size_t n) {
+    size_t old = s.length();
+    s.resize(old + 2 * n);
+    char *p = &s[old];
+    for (size_t i = 0; i < n; i++) {
+        *p++ = HEXDIGITS_UPPER[pData[i] >> 4];
+        *p++ = HEXDIGITS_UPPER[pData[i] & 0x0F];
+    }
+}
+
+// "%ld" written at p (up to 20 chars, no terminator); returns the end
+inline char *writeLong(char *p, long value) {
+    char buffer[24];
+    char *end = buffer + sizeof(buffer);
+    char *q = end;
+    unsigned long u = value < 0 ? 0UL - (unsigned long) value : (unsigned long) value;
+    do {
+        *--q = (char) ('0' + u % 10);
+        u /= 10;
+    } while (u);
+    if (value < 0)
+        *--q = '-';
+    memcpy(p, q, end - q);
+    return p + (end - q);
+}
+
+// "%ld"
+inline void appendLong(std::string &s, long value) {
+    char buffer[24];
+    s.append(buffer, writeLong(buffer, value) - buffer);
+}
+
+// "%.*lf" with the given precision ("%lf" is precision 6)
+void appendDoubleFixed(std::string &s, double value, int precision);
+
+// "%.7lf"
+void appendDouble7(std::string &s, double value);
+
+// "%08X"
+inline void appendHex32(std::string &s, uint32_t value) {
+    char buffer[8];
+    for (int i = 7; i >= 0; i--) {
+        buffer[i] = HEXDIGITS_UPPER[value & 0x0F];
+        value >>= 4;
+    }
+    s.append(buffer, 8);
+}
+
+// "%03d"
+inline void appendInt03(std::string &s, int value) {
+    if (value >= 0 && value < 1000) {
+        char buffer[3] = {(char) ('0' + value / 100), (char) ('0' + value / 10 % 10), (char) ('0' + value % 10)};
+        s.append(buffer, 3);
+    } else {
+        s += format("%03d", value);
+    }
+}
+
+// "%u.%u.%u.%u" of the 4 bytes of an IPv4 address, most significant first
+inline void appendIPv4(std::string &s, unsigned int ip) {
+    appendLong(s, (long) ((ip >> 24) & 0xFF));
+    s += '.';
+    appendLong(s, (long) ((ip >> 16) & 0xFF));
+    s += '.';
+    appendLong(s, (long) ((ip >> 8) & 0xFF));
+    s += '.';
+    appendLong(s, (long) (ip & 0xFF));
+}
+
 uint32_t crc32(const void *pBuffer, size_t nLength, uint32_t nPreviousCrc32 = 0);
 
 const uint32_t Crc32Lookup[256] = {

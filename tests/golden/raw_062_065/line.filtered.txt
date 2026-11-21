@@ -1,0 +1,20 @@
+
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.105.Lat 8339099 (44.7344130 deg)
+Asterix.CAT062.105.Lon 2431117 (13.0415279 deg)
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.105.Lat 8463324 (45.4008079 deg)
+Asterix.CAT062.105.Lon 2821030 (15.1331842 deg)
+Asterix.CAT062.380.ADR 3C0A55
+Asterix.CAT062.380.ACID SXD4723 
+Asterix.CAT062.380.COM 1 (Comm. A and Comm. B capability)
+Asterix.CAT062.380.STAT 0 (No alert, no SPI, aircraft airborne)
+Asterix.CAT062.380.SSC 1 (Yes)
+Asterix.CAT062.380.ARC 1 (25 ft resolution)
+Asterix.CAT062.380.AIC 1 (Yes)
+Asterix.CAT062.380.B1A 1
+Asterix.CAT062.380.B1B 6
+Asterix.CAT065.010.SAC 25
+Asterix.CAT065.010.SIC 100

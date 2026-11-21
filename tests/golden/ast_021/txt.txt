@@ -1,0 +1,192 @@
+
+
+-------------------------
+Data Block 1
+Category: 21
+Len: 41
+Timestamp: T
+HexData: 15002C
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 41
+CRC: AB9CC708
+Source IP: 0.0.0.0
+Fspec: C51D3101432304
+HexData: 000101402BB73EFA65BA0000013841763ADAB9F500020008CB540D0D0D0508F00162
+
+Item 010 : Data Source Identification
+[ 00 01 ]
+	System Area Code: 0
+	System Identification Code: 1
+
+Item 040 : Target Report Descriptor
+[ 01 40 ]
+	Address Type: 0 (24-Bit ICAO address)
+	Altitude Reporting Capability: 0 (25 ft)
+	Range Check: 0 (Default)
+	Report Type: 0 (Report from target transponder)
+	Field Extension: 1 (Extension into first extent)
+	Differential Correction: 0 (No differential correction (ADS-B))
+	Ground Bit Setting: 1 (Ground Bit set)
+	Simulated Target: 0 (Actual target report)
+	Test Target: 0 (Default)
+	Selected Altitude Available: 0 (Equipment capable to provide Selected Altitude)
+	Confidence Level: 0 (Report valid)
+	Field Extension: 0 (End of item)
+
+Item 130 : Position in WGS-84 Co-ordinates
+[ 2B B7 3E FA 65 BA ]
+	Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.: 2864958 (61.4753294 deg)
+	Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.: -367174 (-7.8786993 deg)
+
+Item 080 : Target Address
+[ 00 00 01 ]
+	Target Address: 000001
+
+Item 073 : Time of Message Reception for Position
+[ 38 41 76 ]
+	Time of Message Reception of Position: 3686774 (28802.9218750 s)
+
+Item 074 : Time of Message Reception of Position-High Precision
+[ 3A DA B9 F5 ]
+	Full Second Indication: 0 (TOMRp whole seconds = (I021/073) Whole seconds)
+	Fractional part of the time of message reception for position in the ground station.: 987412981 (919599999.6736646 ns)
+
+Item 090 : Quality Indicators
+[ 00 ]
+	Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity: 0
+	Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC.: 0
+	Extension Indicator: 0 (End of Data Item)
+
+Item 210 : MOPS Version
+[ 02 ]
+	Spare bits set to zero: 0
+	Version Not Supported: 0 (The MOPS Version is supported by the GS)
+	Version Number: 0 (ED102/DO-260 [Ref. 8])
+	Link Technology Type: 2 (1090 ES)
+
+Item 020 : Emitter Category
+[ 00 ]
+	Emitter Category: 0 (No ADS-B Emitter Category Information)
+
+Item 016 : Service Management
+[ 08 ]
+	Report Period: 8 (4.0000000 s)
+
+Item 132 : Message Amplitude
+[ CB ]
+	Message Amplitude: -53 (-53.0000000 dBm)
+
+Item 295 : Data Ages
+[ 54 0D 0D 0D ]
+	Age of the Target Report Descriptor, item I021/040: 13 (1.3000000 s)
+	Age of the Quality Indicators, item I021/090: 13 (1.3000000 s)
+	Age of the message amplitude, item I021/132: 13 (1.3000000 s)
+
+Item RE : Reserved Expansion Field
+[ 05 08 F0 01 62 ]
+	Aircraft stopped: 1 (Aircraft has stopped)
+	Heading/Ground Track: 1 (Heading/Ground Track is valid)
+	Heading/Ground data: 1 (Ground Track provided)
+	SGV Horizontal Reference Direction: 1 (Magnetic North)
+	Ground Speed: 0 (0.0000000 kt)
+	Extension indicator: 1 (extension)
+	Heading/Ground Track information: 49 (137.8125000 deg)
+	Extension indicator: 0 (no extension)
+
+-------------------------
+Data Block 2
+Category: 21
+Len: 44
+Timestamp: T
+HexData: 15002F
+Src IP: 0.0.0.0
+-------------------------
+Data Record 1
+Len: 44
+CRC: 25672B6B
+Source IP: 0.0.0.0
+Fspec: C51D3101432304
+HexData: 000101402BB73AFA65B30000023841950A485A0C00021508AD5501100A0A0AFF050870F140
+
+Item 010 : Data Source Identification
+[ 00 01 ]
+	System Area Code: 0
+	System Identification Code: 1
+
+Item 040 : Target Report Descriptor
+[ 01 40 ]
+	Address Type: 0 (24-Bit ICAO address)
+	Altitude Reporting Capability: 0 (25 ft)
+	Range Check: 0 (Default)
+	Report Type: 0 (Report from target transponder)
+	Field Extension: 1 (Extension into first extent)
+	Differential Correction: 0 (No differential correction (ADS-B))
+	Ground Bit Setting: 1 (Ground Bit set)
+	Simulated Target: 0 (Actual target report)
+	Test Target: 0 (Default)
+	Selected Altitude Available: 0 (Equipment capable to provide Selected Altitude)
+	Confidence Level: 0 (Report valid)
+	Field Extension: 0 (End of item)
+
+Item 130 : Position in WGS-84 Co-ordinates
+[ 2B B7 3A FA 65 B3 ]
+	Latitude in WGS.84 in two's complement. Range -90 <= Lat <= 90 deg.: 2864954 (61.4752436 deg)
+	Longitude in WGS.84 in two's complement. Range -180 <= longitude < 180 deg.: -367181 (-7.8788495 deg)
+
+Item 080 : Target Address
+[ 00 00 02 ]
+	Target Address: 000002
+
+Item 073 : Time of Message Reception for Position
+[ 38 41 95 ]
+	Time of Message Reception of Position: 3686805 (28803.1640625 s)
+
+Item 074 : Time of Message Reception of Position-High Precision
+[ 0A 48 5A 0C ]
+	Full Second Indication: 0 (TOMRp whole seconds = (I021/073) Whole seconds)
+	Fractional part of the time of message reception for position in the ground station.: 172513804 (160666000.0979900 ns)
+
+Item 090 : Quality Indicators
+[ 00 ]
+	Navigation Uncertainty Category for velocity or Navigation Accuracy Category for Velocity: 0
+	Navigation Uncertainty Category for Position NUCp or Navigation Integrity Category NIC.: 0
+	Extension Indicator: 0 (End of Data Item)
+
+Item 210 : MOPS Version
+[ 02 ]
+	Spare bits set to zero: 0
+	Version Not Supported: 0 (The MOPS Version is supported by the GS)
+	Version Number: 0 (ED102/DO-260 [Ref. 8])
+	Link Technology Type: 2 (1090 ES)
+
+Item 020 : Emitter Category
+[ 15 ]
+	Emitter Category: 21 (surface service vehicle)
+
+Item 016 : Service Management
+[ 08 ]
+	Report Period: 8 (4.0000000 s)
+
+Item 132 : Message Amplitude
+[ AD ]
+	Message Amplitude: -83 (-83.0000000 dBm)
+
+Item 295 : Data Ages
+[ 55 01 10 0A 0A 0A FF ]
+	Age of the Target Report Descriptor, item I021/040: 10 (1.0000000 s)
+	Age of the Quality Indicators, item I021/090: 10 (1.0000000 s)
+	Age of the message amplitude, item I021/132: 10 (1.0000000 s)
+	Age of the Target Identification, item I021/170: 255 (25.5000000 s)
+
+Item RE : Reserved Expansion Field
+[ 05 08 70 F1 40 ]
+	Aircraft stopped: 0 (Aircraft has not stopped)
+	Heading/Ground Track: 1 (Heading/Ground Track is valid)
+	Heading/Ground data: 1 (Ground Track provided)
+	SGV Horizontal Reference Direction: 1 (Magnetic North)
+	Ground Speed: 120 (15.0000000 kt)
+	Extension indicator: 1 (extension)
+	Heading/Ground Track information: 32 (90.0000000 deg)
+	Extension indicator: 0 (no extension)

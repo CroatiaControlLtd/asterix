@@ -28,7 +28,7 @@
 
 class DataRecord {
 public:
-    DataRecord(Category *cat, int id, unsigned long len, const unsigned char *data, double nTimestamp);
+    DataRecord(Category *cat, int id, unsigned long len, const unsigned char *data, double nTimestamp, unsigned int nIP);
 
     virtual
     ~DataRecord();
@@ -39,6 +39,7 @@ public:
     unsigned long m_nFSPECLength;
     unsigned char *m_pFSPECData;
     double m_nTimestamp; // Date and time when this packet was captured. This value is in seconds since January 1, 1970 00:00:00 GMT
+    unsigned m_nIP; // source ip when reading from GPS
     uint32_t m_nCrc;
     char *m_pHexData; // hexa conversion of data to display
     bool m_bFormatOK;

@@ -24,6 +24,8 @@
 #ifndef DATAITEMFORMATFIXED_H_
 #define DATAITEMFORMATFIXED_H_
 
+#include <set>
+#include <vector>
 #include "DataItemFormat.h"
 #include "DataItemBits.h"
 
@@ -38,6 +40,13 @@ public:
 
     int m_nLength;
 
+private:
+    bool m_bJsonPrefixesSet;                   //!< m_vJsonPrefixes is built
+    bool m_bPresenceBitsSet;                   //!< m_vPresenceBits is built
+    std::vector<int> m_vPresenceBits;          //!< index part: bit number of its BitsPresence bit, 0 none, -1 use the list
+    std::vector<std::string> m_vJsonPrefixes;  //!< EJSONX prefixes of this item on its own (empty object, extent 0)
+
+public:
     DataItemFormatFixed *clone() const { return new DataItemFormatFixed(*this); } // Return clone of object
     long getLength();
 
@@ -47,10 +56,24 @@ public:
 
     std::string &getPartName(int part);
 
-    long getLength(const unsigned char *pData);
+    long getLength(const unsigned char *pData, long nMaxLength);
 
     bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
                  long nLength); // appends value description to strResult
+    /**
+     * Same as getText, but in EJSONX each bits field starts with jsonPrefixes[i] ("key":{ of the
+     * i-th bits field), built by makeJsonPrefixes so that keys are unique within the JSON object.
+     */
+    bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
+                 long nLength, const std::vector<std::string> &jsonPrefixes);
+    /**
+     * EJSONX keys of the bits fields, made unique within the JSON object being written:
+     * jsonKeys holds the keys already used in that object (shared by all parts of a Variable item)
+     * and extent is the index of this part (0 for the first one), used to number FX bits: FX0, FX1...
+     * The new keys are added to jsonKeys and their prefixes ("key":{) appended to jsonPrefixes.
+     * The result depends only on the format, so callers compute it once and keep it.
+     */
+    void makeJsonPrefixes(std::set<std::string> &jsonKeys, int extent, std::vector<std::string> &jsonPrefixes);
     std::string printDescriptors(std::string header); // print items format descriptors
     bool filterOutItem(const char *name); // mark item for filtering
     bool isFiltered(const char *name);

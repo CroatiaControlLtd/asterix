@@ -1,0 +1,65 @@
+
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 2 (Sole secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 3 (Combined primary and secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 3 (Combined primary and secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 3 (Combined primary and secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT002.000.type 2 (Sector crossing message)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 3 (Combined primary and secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 2 (Sole secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)
+Asterix.CAT001.010.SAC 25
+Asterix.CAT001.010.SIC 201
+Asterix.CAT001.020.TYP 1 (Track)
+Asterix.CAT001.020.SIM 0 (Actual plot or track)
+Asterix.CAT001.020.SSRPSR 3 (Combined primary and secondary detection)
+Asterix.CAT001.020.ANT 0 (Target report from antenna 1)
+Asterix.CAT001.020.SPI 0 (Default)
+Asterix.CAT001.020.RAB 0 (Default)
+Asterix.CAT001.020.FX 0 (End of Data Item)

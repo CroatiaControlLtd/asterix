@@ -22,12 +22,15 @@
  */
 
 #include "DataItem.h"
+#include "DataItemBits.h"
 #include "Tracer.h"
 #include "Utils.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataItem::DataItem(DataItemDescription *pDesc)
-        : m_pDescription(pDesc), m_pData(NULL), m_nLength(0) {
+        : m_pDescription(pDesc), m_nOffset(0), m_pData(NULL), m_nLength(0) {
 }
 
 DataItem::~DataItem() {
@@ -36,27 +39,37 @@ DataItem::~DataItem() {
 }
 
 bool DataItem::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType) {
+    if (gFiltering && !m_pDescription->m_bFiltered) {
+        return false; // no field of this item is in the filter
+    }
+
     std::string newHeader;
-    std::string strNewResult;
     std::string indent("    ");  // 4 spaces make an indent.
+
+    // The item is written straight into strResult; if it has nothing to print, it is cut off again.
+    const std::string::size_type itemStart = strResult.length();
+    std::string &strNewResult = strResult;
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
-            strNewResult = format("\"I%s\":", m_pDescription->m_strID.c_str());
+        case CAsterixFormat::EJSONX:
+            strNewResult.append("\"I", 2);
+            strNewResult += m_pDescription->m_strID;
+            strNewResult.append("\":", 2);
             break;
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE:
-            strNewResult = format("\t\"I%s\":", m_pDescription->m_strID.c_str());
+            strNewResult += format("\t\"I%s\":", m_pDescription->m_strID.c_str());
             break;
         case CAsterixFormat::EXML:
-            strNewResult = format("<I%s>", m_pDescription->m_strID.c_str());
+            strNewResult += format("<I%s>", m_pDescription->m_strID.c_str());
             break;
         case CAsterixFormat::EXMLH:
-            strNewResult = format("\n%s", indent.c_str());  // New line and indent 1 level (4 spaces).
+            strNewResult += format("\n%s", indent.c_str());  // New line and indent 1 level (4 spaces).
             strNewResult += format("<I%s>", m_pDescription->m_strID.c_str());
             break;
         case CAsterixFormat::ETxt:
-            strNewResult = format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(),
+            strNewResult += format("\n\nItem %s : %s", m_pDescription->m_strID.c_str(),
                                   m_pDescription->m_strName.c_str());
             strNewResult += format("\n[ ");
             for (int i = 0; i < m_nLength; i++) {
@@ -69,10 +82,12 @@ bool DataItem::getText(std::string &strResult, std::string &strHeader, const uns
             break;
     }
 
+    // EJSONX fields report their byte position in the record: tell them where this item's copy starts
+    DataItemBits::JsonPosition jsonPos(formatType == CAsterixFormat::EJSONX ? m_pData : NULL, m_nOffset);
     if (false == m_pDescription->getText(strNewResult, newHeader, formatType, m_pData, m_nLength)) {
+        strResult.resize(itemStart);
         return false;
     }
-    strResult += strNewResult;
 
     switch (formatType) {
         case CAsterixFormat::EXML:
@@ -83,6 +98,7 @@ bool DataItem::getText(std::string &strResult, std::string &strHeader, const uns
             strResult += format("</I%s>", m_pDescription->m_strID.c_str());
             break;
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE:
             // replace last ',' with '}'
@@ -95,27 +111,34 @@ bool DataItem::getText(std::string &strResult, std::string &strHeader, const uns
     return true;
 }
 
-long DataItem::parse(const unsigned char *pData, long len) {
-    if (m_pDescription == NULL || m_pDescription->m_pFormat == NULL) {
+long DataItem::getLength(DataItemDescription *pDesc, const unsigned char *pData, long len) {
+    if (pDesc == NULL || pDesc->m_pFormat == NULL) {
         Tracer::Error("DataItem::parse NULL pointer");
         return 0;
     }
 
-    m_nLength = m_pDescription->m_pFormat->getLength(pData);
+    long nLength = pDesc->m_pFormat->getLength(pData, len);
 
-    if (m_nLength > len) {
+    if (nLength > len) {
         // Print unparsed bytes
         std::string strNewResult;
         for (int i = 0; i < len; i++) {
             strNewResult += format("%02X ", *(pData + i));
         }
-        Tracer::Error("DataItem::parse needed length=%d , and there is only %d : [ %s ]", m_nLength, len,
+        Tracer::Error("DataItem::parse needed length=%ld , and there is only %ld : [ %s ]", nLength, len,
                       strNewResult.c_str());
-    } else if (m_nLength > 0) {
+    } else if (nLength <= 0) {
+        Tracer::Error("DataItem::parse length=0");
+    }
+    return nLength;
+}
+
+long DataItem::parse(const unsigned char *pData, long len) {
+    m_nLength = getLength(m_pDescription, pData, len);
+
+    if (m_nLength > 0 && m_nLength <= len) {
         m_pData = new unsigned char[m_nLength];
         memcpy(m_pData, pData, m_nLength);
-    } else {
-        Tracer::Error("DataItem::parse length=0");
     }
     return m_nLength;
 }

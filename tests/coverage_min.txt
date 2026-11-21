@@ -1,0 +1,3 @@
+63.0
+# Minimum line coverage of src/ (percent), checked by tests/tools/coverage_report.py in the CI coverage job.
+# Raise it when coverage goes up; never lower it to make a change pass.

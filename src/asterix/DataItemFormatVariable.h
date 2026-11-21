@@ -37,7 +37,7 @@ public:
     ~DataItemFormatVariable();
 
     DataItemFormatVariable *clone() const { return new DataItemFormatVariable(*this); } // Return clone of object
-    long getLength(const unsigned char *pData);
+    long getLength(const unsigned char *pData, long nMaxLength);
 
     bool getText(std::string &strResult, std::string &strHeader, const unsigned int formatType, unsigned char *pData,
                  long nLength); // appends value description to strResult
@@ -46,6 +46,18 @@ public:
     bool isFiltered(const char *name);
 
     bool isVariable() { return true; }; // true if this is Variable format
+
+private:
+    /**
+     * EJSONX prefixes ("key":{) of the bits fields of the part at index extent. Keys depend only on
+     * the format (and, unless each part is its own object, on the parts before it), so they are
+     * built once per extent and kept.
+     */
+    const std::vector<std::string> &getJsonPrefixes(int extent);
+    std::vector<std::vector<std::string> > m_vJsonPrefixes; //!< index extent
+    std::set<std::string> m_sJsonKeys;                      //!< keys used by the extents in m_vJsonPrefixes
+
+public:
     const char *getDescription(const char *field, const char *value); // return description ef element
 
 #if defined(WIRESHARK_WRAPPER) || defined(ETHEREAL_WRAPPER)

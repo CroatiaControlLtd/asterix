@@ -1,0 +1,192 @@
+
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 4
+Asterix.CAT062.070.ToT 3956693 (30911.6640625 s)
+Asterix.CAT062.105.Lat 8339099 (44.7344130 deg)
+Asterix.CAT062.105.Lon 2431117 (13.0415279 deg)
+Asterix.CAT062.100.X -478166 (-239083.0000000 m)
+Asterix.CAT062.100.Y -212228 (-106114.0000000 m)
+Asterix.CAT062.185.Vx -205 (-51.2500000 m/s)
+Asterix.CAT062.185.Vy 680 (170.0000000 m/s)
+Asterix.CAT062.210.Ax 0 (0.0000000 m/s2)
+Asterix.CAT062.210.Ay 0 (0.0000000 m/s2)
+Asterix.CAT062.060.V 0 (Code validated)
+Asterix.CAT062.060.G 0 (Default)
+Asterix.CAT062.060.CH 0 (No Change)
+Asterix.CAT062.060.spare 0
+Asterix.CAT062.060.Mode3A 4276
+Asterix.CAT062.040.TrkN 4980
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 0 (default value)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 4 (height from coverage)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 0 (default value)
+Asterix.CAT062.080.FPC 0 (Not flight-plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 0 (No Mode 4 interrogation)
+Asterix.CAT062.080.ME 0 (default value)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 0 (No Mode 5 interrogation)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 0 (Default value)
+Asterix.CAT062.080.MDS 1 (Age of the last received Mode S track update is higher than system dependent threshold)
+Asterix.CAT062.080.ADS 1 (Age of the last received ADS-B track update is higher than system dependent threshold)
+Asterix.CAT062.080.SUC 0 (Default value)
+Asterix.CAT062.080.AAC 0 (Default value)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.290.PSR 29 (7.2500000 sec)
+Asterix.CAT062.290.SSR 0 (0.0000000 sec)
+Asterix.CAT062.290.MDS 255 (63.7500000 sec)
+Asterix.CAT062.200.TRANSA 0 (Constant Course)
+Asterix.CAT062.200.LONGA 2 (Decreasing Groundspeed)
+Asterix.CAT062.200.VERTA 2 (Descent)
+Asterix.CAT062.200.ADF 0 (No altitude discrepancy)
+Asterix.CAT062.200.spare 0
+Asterix.CAT062.295.MFL 0 (0.0000000 sec)
+Asterix.CAT062.295.MDA 0 (0.0000000 sec)
+Asterix.CAT062.136.MFL 628 (15700.0000000 ft)
+Asterix.CAT062.130.Alt 6928 (43300.0000000 ft)
+Asterix.CAT062.135.QNH 0 (No QNH correction applied)
+Asterix.CAT062.135.CTBA 628 (15700.0000000 ft)
+Asterix.CAT062.220.RoC -71 (-443.7500000 ft/min)
+Asterix.CAT062.340.SAC 25
+Asterix.CAT062.340.SIC 13
+Asterix.CAT062.340.RHO 47792 (186.6875000 NM)
+Asterix.CAT062.340.THETA 47232 (259.4531250 deg)
+Asterix.CAT062.340.CV 0 (Code validated)
+Asterix.CAT062.340.CG 0 (Default)
+Asterix.CAT062.340.ModeC 628 (157.0000000 FL)
+Asterix.CAT062.340.V 0 (Code validated)
+Asterix.CAT062.340.G 0 (Default)
+Asterix.CAT062.340.L 0 (MODE 3/A code as derived from the reply of the transponder)
+Asterix.CAT062.340.spare 0
+Asterix.CAT062.340.Mode3A 4276
+Asterix.CAT062.340.TYP 2 (Single SSR detection)
+Asterix.CAT062.340.SIM 0 (Actual target report)
+Asterix.CAT062.340.RAB 0 (Report from aircraft transponder)
+Asterix.CAT062.340.TST 0 (Real target report)
+Asterix.CAT062.340.spare 0
+Asterix.CAT062.010.SAC 25
+Asterix.CAT062.010.SIC 100
+Asterix.CAT062.015.SID 4
+Asterix.CAT062.070.ToT 3956714 (30911.8281250 s)
+Asterix.CAT062.105.Lat 8463324 (45.4008079 deg)
+Asterix.CAT062.105.Lon 2821030 (15.1331842 deg)
+Asterix.CAT062.100.X -145129 (-72564.5000000 m)
+Asterix.CAT062.100.Y -72213 (-36106.5000000 m)
+Asterix.CAT062.185.Vx 566 (141.5000000 m/s)
+Asterix.CAT062.185.Vy -683 (-170.7500000 m/s)
+Asterix.CAT062.210.Ax 0 (0.0000000 m/s2)
+Asterix.CAT062.210.Ay 0 (0.0000000 m/s2)
+Asterix.CAT062.060.V 0 (Code validated)
+Asterix.CAT062.060.G 0 (Default)
+Asterix.CAT062.060.CH 0 (No Change)
+Asterix.CAT062.060.spare 0
+Asterix.CAT062.060.Mode3A 2535
+Asterix.CAT062.380.ADR 3C0A55
+Asterix.CAT062.380.ACID SXD4723 
+Asterix.CAT062.380.COM 1 (Comm. A and Comm. B capability)
+Asterix.CAT062.380.STAT 0 (No alert, no SPI, aircraft airborne)
+Asterix.CAT062.380.spare 0
+Asterix.CAT062.380.SSC 1 (Yes)
+Asterix.CAT062.380.ARC 1 (25 ft resolution)
+Asterix.CAT062.380.AIC 1 (Yes)
+Asterix.CAT062.380.B1A 1
+Asterix.CAT062.380.B1B 6
+Asterix.CAT062.040.TrkN 7977
+Asterix.CAT062.080.MON 0 (Multisensor track)
+Asterix.CAT062.080.SPI 0 (default value)
+Asterix.CAT062.080.MRH 0 (Barometric altitude (Mode C) more reliable)
+Asterix.CAT062.080.SRC 3 (triangulation)
+Asterix.CAT062.080.CNF 0 (Confirmed track)
+Asterix.CAT062.080.FX 1 (extension into first extent)
+Asterix.CAT062.080.SIM 0 (Actual track)
+Asterix.CAT062.080.TSE 0 (default value)
+Asterix.CAT062.080.TSB 0 (default value)
+Asterix.CAT062.080.FPC 1 (Flight plan correlated)
+Asterix.CAT062.080.AFF 0 (default value)
+Asterix.CAT062.080.STP 0 (default value)
+Asterix.CAT062.080.KOS 1 (Background service used)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.AMA 0 (track not resulting from amalgamation process)
+Asterix.CAT062.080.MD4 0 (No Mode 4 interrogation)
+Asterix.CAT062.080.ME 0 (default value)
+Asterix.CAT062.080.MI 0 (default value)
+Asterix.CAT062.080.MD5 0 (No Mode 5 interrogation)
+Asterix.CAT062.080.FX 1 (Extension into next extent)
+Asterix.CAT062.080.CST 0 (Default value)
+Asterix.CAT062.080.PSR 0 (Default value)
+Asterix.CAT062.080.SSR 0 (Default value)
+Asterix.CAT062.080.MDS 0 (Default value)
+Asterix.CAT062.080.ADS 1 (Age of the last received ADS-B track update is higher than system dependent threshold)
+Asterix.CAT062.080.SUC 0 (Default value)
+Asterix.CAT062.080.AAC 0 (Default value)
+Asterix.CAT062.080.FX 0 (End of data item)
+Asterix.CAT062.290.PSR 4 (1.0000000 sec)
+Asterix.CAT062.290.SSR 0 (0.0000000 sec)
+Asterix.CAT062.290.MDS 0 (0.0000000 sec)
+Asterix.CAT062.200.TRANSA 0 (Constant Course)
+Asterix.CAT062.200.LONGA 0 (Constant Groundspeed)
+Asterix.CAT062.200.VERTA 0 (Level)
+Asterix.CAT062.200.ADF 0 (No altitude discrepancy)
+Asterix.CAT062.200.spare 0
+Asterix.CAT062.295.MFL 0 (0.0000000 sec)
+Asterix.CAT062.295.MDA 0 (0.0000000 sec)
+Asterix.CAT062.136.MFL 1400 (35000.0000000 ft)
+Asterix.CAT062.130.Alt 5650 (35312.5000000 ft)
+Asterix.CAT062.135.QNH 0 (No QNH correction applied)
+Asterix.CAT062.135.CTBA 1400 (35000.0000000 ft)
+Asterix.CAT062.220.RoC 0 (0.0000000 ft/min)
+Asterix.CAT062.390.SAC 25
+Asterix.CAT062.390.SIC 100
+Asterix.CAT062.390.CS SXD4723
+Asterix.CAT062.390.TYP 1 (Unit 1 internal flight number)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.390.NBR 29233709
+Asterix.CAT062.390.GATOAT 1 (General Air Traffic)
+Asterix.CAT062.390.FR1FR2 0 (Instrument Flight Rules)
+Asterix.CAT062.390.RVSM 1 (Approved)
+Asterix.CAT062.390.HPR 0 (Normal Priority Flight)
+Asterix.CAT062.390.spare 0
+Asterix.CAT062.390.TYPE B738
+Asterix.CAT062.390.WTC M
+Asterix.CAT062.390.DEP EDDL
+Asterix.CAT062.390.DES HELX
+Asterix.CAT062.390.NU1  
+Asterix.CAT062.390.NU2 @
+Asterix.CAT062.390.LTR  
+Asterix.CAT062.390.CFL 1400 (350.0000000 FL)
+Asterix.CAT062.340.SAC 25
+Asterix.CAT062.340.SIC 13
+Asterix.CAT062.340.RHO 23858 (93.1953125 NM)
+Asterix.CAT062.340.THETA 49419 (271.4666748 deg)
+Asterix.CAT062.340.CV 0 (Code validated)
+Asterix.CAT062.340.CG 0 (Default)
+Asterix.CAT062.340.ModeC 1400 (350.0000000 FL)
+Asterix.CAT062.340.V 0 (Code validated)
+Asterix.CAT062.340.G 0 (Default)
+Asterix.CAT062.340.L 0 (MODE 3/A code as derived from the reply of the transponder)
+Asterix.CAT062.340.spare 0
+Asterix.CAT062.340.Mode3A 2535
+Asterix.CAT062.340.TYP 5 (Single ModeS Roll-Call)
+Asterix.CAT062.340.SIM 0 (Actual target report)
+Asterix.CAT062.340.RAB 0 (Report from aircraft transponder)
+Asterix.CAT062.340.TST 0 (Real target report)
+Asterix.CAT062.340.spare 0
+Asterix.CAT065.010.SAC 25
+Asterix.CAT065.010.SIC 100
+Asterix.CAT065.000.Typ 2 (End of Batch)
+Asterix.CAT065.015.SID 4
+Asterix.CAT065.030.ToD 3956871 (30913.0546875 s)
+Asterix.CAT065.020.BTN 24

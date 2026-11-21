@@ -59,13 +59,17 @@ bool CAsterixFinalSubformat::ReadPacket(CBaseFormatDescriptor &formatDescriptor,
     neededLen <<= 8;
     neededLen |= finalRecordHeader.m_nByteCountLSB;
 
-    neededLen -= sizeof(finalRecordHeader); // minus header
-    neededLen -= sizeof(padding); // minus padding
-
-    if (neededLen <= 0) {
+    // the byte count includes the header and the padding: anything not larger than both together is
+    // corrupt (neededLen is unsigned: subtracting first wrapped around to almost 4 GB, std::bad_alloc)
+    unsigned long leftBytes = device.BytesLeftToRead(); // 0 when unknown
+    if (neededLen <= sizeof(finalRecordHeader) + sizeof(padding) ||
+        (leftBytes > 0 && neededLen - sizeof(finalRecordHeader) > leftBytes)) {
         LOGERROR(1, "Wrong final record header.\n");
         return false;
     }
+
+    neededLen -= sizeof(finalRecordHeader); // minus header
+    neededLen -= sizeof(padding); // minus padding
 
     if (gSynchronous) { // In synchronous mode make delays between packets to simulate real tempo
         struct timeval currTime;

@@ -10,6 +10,18 @@ More about ASTERIX protocol you can find here: http://www.eurocontrol.int/servic
 
 Asterix application was developed by Croatia Control Ltd.
 
+FORK NOTICE
+===========
+
+This is a fork of https://github.com/CroatiaControlLtd/asterix, maintained at
+https://github.com/ifsnop/asterix. The original project has not been updated since
+December 2025, and its decoder had memory-safety problems (out-of-bounds reads on
+malformed or truncated input, leaks, invalid casts) that needed to be fixed. They are
+fixed in this fork.
+
+Fork versions are numbered <upstream version>-ifsnop.<n>. This is 2.8.11-ifsnop.6,
+based on upstream 2.8.11. See HISTORY for the changes.
+
 This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.
 
 BUILDING FOR WINDOWS
@@ -70,16 +82,34 @@ asterix.exe will be created in asterix/install
 
 USING CMAKE
 ===========
-If you have CMake installed, on any platform run:
+If you have CMake (3.10 or later) installed, on any platform run:
 
 cmake .
 make 
+
+Options: -DASTERIX_TESTS=ON builds the unit tests (run them with ctest), -DASTERIX_FUZZ=ON the fuzz
+target (libFuzzer with clang), -DASTERIX_COVERAGE=ON a gcov build.
+
+
+TESTS
+=====
+Every push and pull request runs the whole suite in GitHub Actions (.github/workflows/tests.yml).
+To run it locally, from the repository root:
+
+make -C src && make -C src debug
+(cd install/test && bash test.sh)      expected outputs and valgrind
+tests/run_tests.sh                     golden outputs of every input and output format, -jx
+                                       consistency and write-back, stdin/multicast, malformed inputs, CLI
+cmake -S . -B build -DASTERIX_TESTS=ON && cmake --build build && ctest --test-dir build
+
+tests/README.md describes every layer (sanitizers, mutated inputs, fuzzing, coverage) and what to
+update when an output changes on purpose.
 
 
 USAGE
 =====
 
-asterix [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H] [-l|-x|-j|-jh|-je] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
+asterix [-h] [-V] [-v] [-L] [-o] [-s] [-P|-O|-R|-F|-H|-G] [-l|-x|-xh|-j|-jh|-je|-jx] [-d filename] [-LF filename] -f filename|-i mcastaddress:ipaddress:port[:srcaddress]
 
 Options:
    -h,--help        Show this help message and exit.
@@ -100,12 +130,26 @@ Input format:
    -G,--gps         Asterix packet is encapsulated in GPS packet.
 
 Output format:
+   (default)             With no output format option, output is printed as human readable text: for each data block its category,
+                         length, timestamp and source IP, and for each record its length, CRC, source IP, Fspec (FSPEC bytes) and
+                         HexData (data items after the FSPEC: the record is Fspec+HexData), followed by every item with its fields,
+                         values, units and meanings (in the original project HexData was the whole record).
    -l,--line             Output will be printed as one line per item. This format is suitable for parsing.
    -x,--xml              Output will be printed in compact line-delimited XML format (one object per line, suitable for parsing).
    -xh,--xmlh            Output will be printed in human readable XML format (suitable for file storage).
    -j,--json             Output will be printed in compact line-delimited JSON format (one object per line, suitable for parsing).
+                         The record header has "fspec" (FSPEC bytes) and "hexdata" (data items after the FSPEC):
+                         the whole record is fspec+hexdata (in the original project hexdata was the whole record).
    -jh,--jsonh           Output will be printed in human readable JSON format (suitable for file storage).
+                         The record header has "fspec" (FSPEC bytes) and "hexdata" (data items after the FSPEC): the record is fspec+hexdata.
    -je,--json-extensive  Output will be printed in extensive JSON format (with both hex and scaled value and description of each item).
+                         The record header has "fspec" (FSPEC bytes) and "hexdata" (data items after the FSPEC): the record is fspec+hexdata.
+   -jx,--json-hex        Output will be printed in compact line-delimited JSON format with hex and mask of each item (one object per line, suitable for parsing).
+                         Each record has "fspec" (FSPEC bytes) and "hexdata" (data items after the FSPEC): the record is fspec+hexdata.
+                         Each field is {"val":...,"hex":"..."[,"mask":"..."],"pos":N}. "pos" is the byte offset of hex in hexdata and
+                         "mask" (present when the field does not fill its hex bytes) its bits, so a value is written back with
+                         hexdata[pos..] = (hex & ~mask) | (value & mask). Keys are unique: FX bits are numbered by extent
+                         (FX0, FX1, ...), other repeated names get a number (spare, spare1).
 
 
 Data source:

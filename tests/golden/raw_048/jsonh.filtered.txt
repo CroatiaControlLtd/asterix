@@ -1,0 +1,35 @@
+{"id":1,
+"cat":48,
+"length":45,
+"crc":"AB659C3E",
+"timestamp":T,
+"srcip":"0.0.0.0",
+"fspec":"FDF702",
+"hexdata":"19C9356D4DA0C5AFF1E0020005283C660C10C236D4182001C0780031BC0000400DEB07B9582E410020F5",
+"CAT048":{
+	"I010":{
+		"SAC":25,
+		"SIC":201},
+	"I040":{
+		"RHO":197.6835938,
+		"THETA":340.1367188},
+	"I220":{
+		"ACAddr":"3C660C"},
+	"I240":{
+		"TId":"DLH65A  "},
+	"I250":[{
+		"MCP_ALT_STATUS":1,
+		"MCP_ALT":33008.0000000,
+		"FMS_ALT_STATUS":0,
+		"FMS_ALT":0.0000000,
+		"BP_STATUS":1,
+		"BP":227.0000000,
+		"res1":0,
+		"MODE_STATUS":0,
+		"VNAV":0,
+		"ALT_HOLD":0,
+		"APP":0,
+		"res2":0,
+		"TARGET_ALT_STATUS":0,
+		"TARGET_ALT_SOURCE":0,
+		"BDS":"40"}]}},

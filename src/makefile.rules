@@ -54,37 +54,30 @@ $(TARGET_EXE): $(OBJS_WITH_PATH) $(DEPEND_LIBS)
 #
 # Build rules
 #
+# -MMD writes $(OBJ_DIR)/X.d while compiling, with the object as target ($(OBJ_DIR)/X.o: X.cpp headers...),
+# so a change in any header the source includes rebuilds the object (included at the end of this file).
+# -MP adds an empty rule per header, so a deleted or renamed header does not stop the build.
 $(OBJ_DIR)/%.o: %.c
 	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
-	$(CC) -c -o $(OBJ_DIR)/$*.o $(CFLAGS) $(EXTRACFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
-	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
-	@rm -f $(OBJ_DIR)/$*.P;
+	$(CC) -c -o $(OBJ_DIR)/$*.o $(CFLAGS) $(EXTRACFLAGS) -MMD -MP -MF $(OBJ_DIR)/$*.d $<
 #	[ -s $*.d ] || rm -f $*.d
 
 $(OBJ_DIR)/%.o: %.cxx
 	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
-	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
-	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
-	@rm -f $(OBJ_DIR)/$*.P;
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -MMD -MP -MF $(OBJ_DIR)/$*.d $<
 
 
 $(OBJ_DIR)/%.o: %.cpp
 	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
-	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
-	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
-	@rm -f $(OBJ_DIR)/$*.P;
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -MMD -MP -MF $(OBJ_DIR)/$*.d $<
 
 $(OBJ_DIR)/%.o: %.C
 	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
-	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
-	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
-	@rm -f $(OBJ_DIR)/$*.P;
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -MMD -MP -MF $(OBJ_DIR)/$*.d $<
 
 $(OBJ_DIR)/%.o: %.cc
 	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi;)
-	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -Wp,-MD,$(OBJ_DIR)/$*.P $<
-	@sed 's/\($*\)\.o[ :]*/$(OBJ_DIR_SED)\/\1.o $(OBJ_DIR_SED)\/$*.d : /g' < $(OBJ_DIR)/$*.P > $(OBJ_DIR)/$*.d;
-	@rm -f $(OBJ_DIR)/$*.P;
+	$(CXX) -c -o $(OBJ_DIR)/$*.o $(CXXFLAGS) $(EXTRACXXFLAGS) -MMD -MP -MF $(OBJ_DIR)/$*.d $<
 
 #%.d: %.c
 #	$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi;)

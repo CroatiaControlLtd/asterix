@@ -45,7 +45,7 @@ DataItemFormatCompound::DataItemFormatCompound(const DataItemFormatCompound &obj
 DataItemFormatCompound::~DataItemFormatCompound() {
 }
 
-long DataItemFormatCompound::getLength(const unsigned char *pData) {
+long DataItemFormatCompound::getLength(const unsigned char *pData, long nMaxLength) {
     long totalLength = 0;
     std::list<DataItemFormat *>::iterator it;
     std::list<DataItemFormat *>::iterator it2;
@@ -61,7 +61,10 @@ long DataItemFormatCompound::getLength(const unsigned char *pData) {
         return 0;
     }
 
-    int primaryPartLength = pCompoundPrimary->getLength(pData);
+    long primaryPartLength = pCompoundPrimary->getLength(pData, nMaxLength);
+    if (primaryPartLength > nMaxLength) {
+        return nMaxLength + 1;
+    }
     const unsigned char *pSecData = pData + primaryPartLength;
     totalLength += primaryPartLength;
 
@@ -76,7 +79,10 @@ long DataItemFormatCompound::getLength(const unsigned char *pData) {
         while (it2 != m_lSubItems.end()) { // parse secondary parts
             if (dip->isSecondaryPartPresent(pData, secondaryPart)) {
                 DataItemFormat *dip2 = (DataItemFormat *) (*it2);
-                int skip = dip2->getLength(pSecData);
+                long skip = dip2->getLength(pSecData, nMaxLength - totalLength);
+                if (skip > nMaxLength - totalLength) {
+                    return nMaxLength + 1;
+                }
                 pSecData += skip;
                 totalLength += skip;
             }
@@ -93,7 +99,7 @@ long DataItemFormatCompound::getLength(const unsigned char *pData) {
 }
 
 bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType,
-                                     unsigned char *pData, long) {
+                                     unsigned char *pData, long nLength) {
     bool ret = false;
     std::list<DataItemFormat *>::iterator it;
     std::list<DataItemFormat *>::iterator it2;
@@ -111,6 +117,7 @@ bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHea
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             strResult += '{';
@@ -118,8 +125,14 @@ bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHea
             break;
     }
 
-    int primaryPartLength = pCompoundPrimary->getLength(pData);
+    long primaryPartLength = pCompoundPrimary->getLength(pData, nLength);
+    if (primaryPartLength > nLength) {
+        Tracer::Error("Not enough data in Compound primary part");
+        return false;
+    }
     unsigned char *pSecData = pData + primaryPartLength;
+    long nSecRemaining = nLength - primaryPartLength; // bytes left for the secondary parts
+    bool bTruncated = false;
 
     for (it = pCompoundPrimary->m_lSubItems.begin(); it != pCompoundPrimary->m_lSubItems.end(); it++) {
         int secondaryPart = 1;
@@ -132,35 +145,44 @@ bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHea
         while (it2 != m_lSubItems.end()) { // parse secondary parts
             if (dip->isSecondaryPartPresent(pData, secondaryPart)) {
                 DataItemFormat *dip2 = (DataItemFormat *) (*it2);
-                int skip = 0;
-                std::string tmpStr = "";
+                long skip = dip2->getLength(pSecData, nSecRemaining);
+                if (skip > nSecRemaining) {
+                    Tracer::Error("Not enough data in Compound secondary part");
+                    bTruncated = true;
+                    break;
+                }
+                nSecRemaining -= skip;
 
                 switch (formatType) {
                     case CAsterixFormat::EJSONH:
-                    case CAsterixFormat::EJSONE: {
-                        tmpStr += "\n\t\t";
-                    }
-                        /* no break */
+                    case CAsterixFormat::EJSONE:
+                    case CAsterixFormat::EJSONX:
                     case CAsterixFormat::EJSON: {
-                        tmpStr += "\"" + dip->getPartName(secondaryPart) + "\":";
+                        // written straight into strResult, cut off again if the part prints nothing
+                        const std::string::size_type partStart = strResult.length();
+                        if (formatType == CAsterixFormat::EJSONH || formatType == CAsterixFormat::EJSONE) {
+                            strResult += "\n\t\t";
+                        }
+                        strResult += '"';
+                        strResult += dip->getPartName(secondaryPart);
+                        strResult += "\":";
 
-                        skip = dip2->getLength(pSecData);
-                        bool r = dip2->getText(tmpStr, strHeader, formatType, pSecData, skip);
+                        bool r = dip2->getText(strResult, strHeader, formatType, pSecData, skip);
                         ret |= r;
                         pSecData += skip;
 
                         if (r) {
-                            strResult += tmpStr;
                             // replace last ',' with '}'
                             if (strResult[strResult.length() - 1] == ',') {
                                 strResult[strResult.length() - 1] = '}';
                             }
                             strResult += ",";
+                        } else {
+                            strResult.resize(partStart);
                         }
                     }
                         break;
                     default: {
-                        skip = dip2->getLength(pSecData);
                         ret |= dip2->getText(strResult, strHeader, formatType, pSecData, skip);
                         pSecData += skip;
                     }
@@ -171,6 +193,9 @@ bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHea
             secondaryPart++;
         }
 
+        if (bTruncated)
+            break;
+
         pData += dip->getLength();
 
         if (lastPart)
@@ -179,6 +204,7 @@ bool DataItemFormatCompound::getText(std::string &strResult, std::string &strHea
 
     switch (formatType) {
         case CAsterixFormat::EJSON:
+        case CAsterixFormat::EJSONX:
         case CAsterixFormat::EJSONH:
         case CAsterixFormat::EJSONE: {
             if (strResult[strResult.length() - 1] == ',') {
@@ -264,7 +290,7 @@ fulliautomatix_definitions* DataItemFormatCompound::getWiresharkDefinitions()
     return startDef;
 }
 
-fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long, int byteoffset)
+fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long len, int byteoffset)
 {
     fulliautomatix_data *lastData = NULL, *firstData = NULL;
 
@@ -284,8 +310,14 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long,
         return 0;
     }
 
-    int primaryPartLength = pCompoundPrimary->getLength(pData);
+    long primaryPartLength = pCompoundPrimary->getLength(pData, len);
+    if (primaryPartLength > len)
+    {
+        Tracer::Error("Not enough data in Compound primary part");
+        return 0;
+    }
     unsigned char* pSecData = pData + primaryPartLength;
+    long nSecRemaining = len - primaryPartLength;
 
     lastData = firstData = newDataTree(NULL, byteoffset, primaryPartLength, (char*)"Compound item header");
 
@@ -311,7 +343,13 @@ fulliautomatix_data* DataItemFormatCompound::getData(unsigned char* pData, long,
             if (dip->isSecondaryPartPresent(pData, secondaryPart))
             {
                 DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-                int skip = dip2->getLength(pSecData);
+                long skip = dip2->getLength(pSecData, nSecRemaining);
+                if (skip > nSecRemaining)
+                {
+                    Tracer::Error("Not enough data in Compound secondary part");
+                    return firstData;
+                }
+                nSecRemaining -= skip;
                 lastData->next = dip2->getData(pSecData, skip, byteoffset);
                 while(lastData->next)
                 lastData = lastData->next;
@@ -358,8 +396,14 @@ void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, lon
         return;
     }
 
-    int primaryPartLength = pCompoundPrimary->getLength(pData);
+    long primaryPartLength = pCompoundPrimary->getLength(pData, nLength);
+    if (primaryPartLength > nLength)
+    {
+        Tracer::Error("Not enough data in Compound primary part");
+        return;
+    }
     unsigned char* pSecData = pData + primaryPartLength;
+    long nSecRemaining = nLength - primaryPartLength;
 
     for ( it=pCompoundPrimary->m_lSubItems.begin(); it != pCompoundPrimary->m_lSubItems.end(); it++ )
     {
@@ -374,13 +418,20 @@ void DataItemFormatCompound::insertToDict(PyObject* p, unsigned char* pData, lon
         { // parse secondary parts
             if (dip->isSecondaryPartPresent(pData, secondaryPart))
             {
+                DataItemFormat* dip2 = (DataItemFormat*)(*it2);
+                long skip = dip2->getLength(pSecData, nSecRemaining);
+                if (skip > nSecRemaining)
+                {
+                    Tracer::Error("Not enough data in Compound secondary part");
+                    return;
+                }
+                nSecRemaining -= skip;
+
                 // get the name of secondary part group
                 std::string tmpStr =  dip->getPartName(secondaryPart);
                 PyObject* k1 = Py_BuildValue("s", tmpStr.c_str());
 
                 // get dictionary from secondary part
-                DataItemFormat* dip2 = (DataItemFormat*)(*it2);
-                int skip = dip2->getLength(pSecData);
                 PyObject* p1 = dip2->getObject(pSecData, skip, description);
 
                 // insert new dictionary to parent dictionary

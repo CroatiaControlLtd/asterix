@@ -73,8 +73,8 @@ CAT001:I100:QB1
 CAT001:I100:QD1                                              
 CAT001:I100:QB2                                              
 CAT001:I100:QD2                                              
-CAT001:I100:QB1                                              
-CAT001:I100:QD1                                              
+CAT001:I100:QB4                                              
+CAT001:I100:QD4                                              
 CAT001:I120:mrdp                                             Speed
 CAT001:I130:Ind                                              Indicator
 CAT001:I130:FX                                               extension into next extent
@@ -717,6 +717,154 @@ CAT011:I610:I11                                              Indicator 11
 CAT011:I610:I12                                              Indicator 12
 CAT011:ISP:VAL                                               
 CAT011:IRE:VAL                                               
+CAT015:I000:MT                                               Message Type
+CAT015:I000:RG                                               Report Generation
+CAT015:I010:SAC                                              System Area Code
+CAT015:I010:SIC                                              System Identification Code
+CAT015:I015:SID                                              Service Identification
+CAT015:I020:MoMu                                             Mono-Static Target Report or Multi-Static Target Report
+CAT015:I020:TTAX                                             Target Taxonomy
+CAT015:I020:SCD                                              Scanning Direction
+CAT015:I020:spare                                            Spare bits set to 0
+CAT015:I020:FX                                               
+CAT015:I030:WE                                               Warning/Error Condition Value
+CAT015:I030:FX                                               
+CAT015:I050:spare                                            Spare bits set to zero
+CAT015:I050:UPD                                              Update period
+CAT015:I145:ToA                                              Time of Applicability
+CAT015:I161:TrkN                                             Track number
+CAT015:I170:BIZ                                              BIZ
+CAT015:I170:BAZ                                              BAZ
+CAT015:I170:TUR                                              TUR
+CAT015:I170:spare                                            Spare bit, set to "0"
+CAT015:I170:CSTP                                             Coasted - Position
+CAT015:I170:CSTH                                             Coasted – Height
+CAT015:I170:CNF                                              Confirmed vs. Tentative Track
+CAT015:I170:FX                                               FX
+CAT015:I270:LGT                                              Target Length
+CAT015:I270:WDT                                              Target Width
+CAT015:I270:HGT                                              Target Height
+CAT015:I270:ORT                                              Target Orientation
+CAT015:I300:CLS                                              Classification
+CAT015:I300:PRB                                              Probability
+CAT015:I400:PID                                              Pair Identifier
+CAT015:I400:ON                                               Observation Number
+CAT015:I480:MID                                              Measurement Identifier
+CAT015:I600:Lat                                              Latitude in WGS.84 in two's complement. Range -90 < latitude < 90 deg.
+CAT015:I600:Lon                                              Longitude in WGS.84 in two's complement. Range -180 < longitude < 180 deg.
+CAT015:I600:Rs_HPx                                           Horizontal position resolution of the target in target centric Cartesian coordinates (X-component)
+CAT015:I600:Rs_HPy                                           Horizontal position resolution of the target in target centric Cartesian coordinates (Y-component)
+CAT015:I600:CoRs_HPxy                                        Correlation of horizontal position resolution of X and Y components, in Two's complement.
+CAT015:I600:SD_HPx                                           Standard Deviation of horizontal position of the target in target centric Cartesian coordinates (X-component)
+CAT015:I600:SD_HPy                                           Standard Deviation of horizontal position of the target in target centric Cartesian coordinates (Y-component)
+CAT015:I600:CoSD_HPxy                                        Correlation of standard deviation of horizontal position of X and Y components, in Two's complement
+CAT015:I601:GH                                               Geometric Height (WGS-84)
+CAT015:I601:Rs_GH                                            Geometric Height Resolution
+CAT015:I601:SD_GH                                            Geometric Height Precision
+CAT015:I601:UCI6                                             Upper confidence interval for Geometric Height (%67)
+CAT015:I601:LCI6                                             Lower confidence interval for Geometric Height (%67)
+CAT015:I601:UCI9                                             Upper confidence interval for Geometric Height (95%)
+CAT015:I601:LCI9                                             Lower confidence interval for Geometric Height (95%)
+CAT015:I601:Co_GHHPx                                         Correlation of Geometric Height converted into metres and Horizontal Position of (Xcomponent), in Two's complement
+CAT015:I601:Co_GHHPy                                         Correlation of Geometric Height converted into metres and Horizontal Position of (Ycomponent), in Two's complement
+CAT015:I601:Co_GHHVx                                         Correlation of Geometric Height converted into metres and Horizontal Velocity of (Xcomponent), in Two's complement
+CAT015:I601:Co_GHHVy                                         Correlation of Geometric Height converted into metres and Horizontal Velocity of (Ycomponent), in Two's complement
+CAT015:I601:Co_GHHAx                                         Correlation of Geometric Height converted into metres and Horizontal Acceleration of (X-component), in Two's complement
+CAT015:I601:Co_GHHAy                                         Correlation of Geometric Height converted into metres and Horizontal Acceleration of (Y-component), in Two's complement
+CAT015:I602:HVx                                              Horizontal Velocity (X-component), in Two's complement
+CAT015:I602:HVy                                              Horizontal Velocity (Y-component), in Two's complement
+CAT015:I602:Rs_HVx                                           Horizontal velocity resolution of the target in target centric Cartesian coordinates (X-component)
+CAT015:I602:Rs_HVy                                           Horizontal velocity resolution of the target in target centric Cartesian coordinates (Y-component)
+CAT015:I602:CoRs_HVxy                                        Correlation of horizontal position resolution of X and Y components, in Two's complement.
+CAT015:I602:SD_HVx                                           Standard Deviation of horizontal velocity (X-component)
+CAT015:I602:SD_HVy                                           Standard Deviation of horizontal velocity (Y-component)
+CAT015:I602:Co_HVxy                                          Correlation of standard deviation of horizontal velocity of X and Y components, in Two's complement
+CAT015:I602:Co_HVxHPx                                        Correlation of Horizontal Velocity (X-component) and Horizontal Position (Xcomponent), in Two's complement
+CAT015:I602:Co_HVxHPy                                        Correlation of Horizontal Velocity (X-component) and Horizontal Position (Ycomponent), in Two's complement
+CAT015:I602:Co_HVyHPx                                        Correlation of Horizontal Velocity (Y-component) and Horizontal Position (Xcomponent), in Two's complement
+CAT015:I602:Co_HVyHPy                                        Correlation of Horizontal Velocity (Y-component) and Horizontal Position (Ycomponent), in Two's complement
+CAT015:I603:HAx                                              Horizontal Acceleration (X-component), in Two's complement
+CAT015:I603:HAy                                              Horizontal Acceleration (Y-component), in Two's complement
+CAT015:I603:SD_HAx                                           Standard Deviation of Horizontal Acceleration (X-component)
+CAT015:I603:SD_HAy                                           Standard Deviation of Horizontal Acceleration (Y-component)
+CAT015:I603:Co_HAxy                                          Correlation of standard deviation of Horizontal Acceleration of X and Y components, in Two's complement
+CAT015:I603:Co_HAxHPx                                        Correlation of Horizontal Acceleration (X-component) and Horizontal Position (Xcomponent), in Two's complement
+CAT015:I603:Co_HAxHPy                                        Correlation of Horizontal Acceleration (X-component) and Horizontal Position (Ycomponent), in Two's complement
+CAT015:I603:Co_HAyHPx                                        Correlation of Horizontal Acceleration (Y-component) and Horizontal Position (Xcomponent), in Two's complement
+CAT015:I603:Co_HAyHPy                                        Correlation of Horizontal Acceleration (Y-component) and Horizontal Position (Ycomponent), in Two's complement
+CAT015:I603:Co_HAxHVx                                        Correlation of Horizontal Acceleration (X-component) and Horizontal Velocity (Xcomponent), in Two's complement
+CAT015:I603:Co_HAxHVy                                        Correlation of Horizontal Acceleration (X-component) and Horizontal Velocity (Ycomponent), in Two's complement
+CAT015:I603:Co_HAyHVx                                        Correlation of Horizontal Acceleration (Y-component) and Horizontal Velocity (Xcomponent), in Two's complement
+CAT015:I603:Co_HAyHVy                                        Correlation of Horizontal Acceleration (Y-component) and Horizontal Velocity (Ycomponent), in Two's complement
+CAT015:I604:VV                                               Vertical Velocity, in Two's complement
+CAT015:I604:RS_VV                                            Vertical Velocity resolution
+CAT015:I604:SD_VV                                            Standard Deviation of Vertical velocity
+CAT015:I604:Co_VVGH                                          Correlation of Vertical Velocity and Geometric Height, in Two's complement
+CAT015:I604:Co_VVHPx                                         Correlation of Vertical Velocity (X-component) and Horizontal Position (Xcomponent), in Two's complement
+CAT015:I604:Co_VVHPy                                         Correlation of Vertical Velocity (Y-component) and Horizontal Position (Ycomponent), in Two's complement
+CAT015:I604:Co_VVHVx                                         Correlation of Vertical Velocity (X-component) and Horizontal Velocity (Xcomponent), in Two's complement
+CAT015:I604:Co_VVHVy                                         Correlation of Vertical Velocity (Y-component) and Horizontal Velocity (Ycomponent), in Two's complement
+CAT015:I604:Co_VVHAx                                         Correlation of Vertical Velocity (X-component) and Horizontal Acceleration (Xcomponent), in Two's complement
+CAT015:I604:Co_VVHAy                                         Correlation of Vertical Velocity (Y-component) and Horizontal Acceleration (Ycomponent), in Two's complement
+CAT015:I605:VA                                               Vertical Acceleration, in Two's complement
+CAT015:I605:SD_VA                                            Standard Deviation of Vertical Acceleration
+CAT015:I605:Co_VAGH                                          Correlation of Vertical Acceleration and Geometric Height, in Two's complement
+CAT015:I605:Co_VAVV                                          Correlation of Vertical Acceleration and Vertical Velocity, in Two's complement
+CAT015:I605:Co_VAHPx                                         Correlation of Vertical Acceleration and Horizontal Position (X-component), in Two's complement
+CAT015:I605:Co_VAHPy                                         Correlation of Vertical Acceleration and Horizontal Position (Y-component), in Two's complement
+CAT015:I605:Co_VAHVx                                         Correlation of Vertical Acceleration and Horizontal Velocity (X-component), in Two's complement
+CAT015:I605:Co_VAHVy                                         Correlation of Vertical Acceleration and Horizontal Velocity (Y-component), in Two's complement
+CAT015:I605:Co_VAHAx                                         Correlation of Vertical Acceleration and Horizontal Acceleration (Xcomponent), in Two's complement
+CAT015:I605:Co_VAHAy                                         Correlation of Vertical Acceleration and Horizontal Acceleration (Ycomponent), in Two's complement
+CAT015:I625:RNG                                              Range, in Two's complement
+CAT015:I625:RS_R                                             Range Resolution
+CAT015:I625:SD_R                                             Standard Deviation of Range
+CAT015:I625:RR                                               Range Rate, in Two's complement
+CAT015:I625:Rs_RR                                            Range Rate Resolution
+CAT015:I625:SD_RR                                            Standard Deviation of Range Rate
+CAT015:I625:Co_RRR                                           Correlation of Range Rate and Range, in Two's complement
+CAT015:I625:RA                                               Range Acceleration
+CAT015:I625:SD_RA                                            Standard Deviation of Range Acceleration
+CAT015:I625:Co_RAR                                           Correlation of Range Acceleration and Range, in Two's complement
+CAT015:I625:Co_RARR                                          Correlation of Range Acceleration and Range Rate, in Two's complement
+CAT015:I626:DV                                               Doppler Velocity, in Two's complement
+CAT015:I626:SD_DV                                            Standard Deviation of Doppler Velocity
+CAT015:I626:DA                                               Doppler Acceleration, in Two's complement
+CAT015:I626:SD_DA                                            Standard Deviation of Doppler Acceleration
+CAT015:I626:Co_DADV                                          Correlation of Doppler Acceleration and Doppler Velocity, in Two's complement
+CAT015:I626:Co_DVR                                           Correlation of Doppler Velocity and Range, in Two's complement
+CAT015:I626:Co_DVRR                                          Correlation of Doppler Velocity and Range Rate , in Two's complement
+CAT015:I626:Co_DVRA                                          Correlation of Doppler Velocity and Range Acceleration , in Two's complement
+CAT015:I626:Co_DAR                                           Correlation of Doppler Acceleration and Range, in Two's complement
+CAT015:I626:Co_DARR                                          Correlation of Doppler Acceleration and Range Rate, in Two's complement
+CAT015:I626:Co_DARA                                          Correlation of Doppler Acceleration and Range Acceleration, in Two's complement
+CAT015:I627:Az                                               Azimuth
+CAT015:I627:RS_Az                                            Azimuth Resolution
+CAT015:I627:SD_Az                                            Standard Deviation of Azimuth
+CAT015:I627:AzR                                              Azimuth Rate
+CAT015:I627:SD_AzR                                           Standard Deviation of Azimuth Rate
+CAT015:I627:Co_AzRAz                                         Correlation of Azimuth Rate and Azimuth, in Two's complement
+CAT015:I627:AzExS                                            Azimuth Extent Start
+CAT015:I627:AzExE                                            Azimuth Extent End
+CAT015:I628:El                                               Elevation, in Two's complement
+CAT015:I628:RS_El                                            Elevation Resolution
+CAT015:I628:SD_El                                            Standard Deviation of Elevation
+CAT015:I628:ElR                                              Elevation Rate, in Two's complement
+CAT015:I628:SD_ElR                                           Standard Deviation of Elevation Rate
+CAT015:I628:Co_ElREL                                         Correlation of Elevation Rate and Elevation, in Two's complement
+CAT015:I628:ElExS                                            Elevation Extent Start
+CAT015:I628:ElExE                                            Elevation Extent End
+CAT015:I630:DPP                                              Power of direct path, in Two's complement
+CAT015:I630:DPS                                              Direct Path - Signal to Noise Ratio (SNR)
+CAT015:I630:spare                                            Spare bits set to zero
+CAT015:I630:RPP                                              Reflected Path - Power
+CAT015:I630:RPS                                              Reflected Path - Signal to Noise Ratio (SNR)
+CAT015:I631:AzCon                                            Azimuth Contour
+CAT015:I631:ElCon                                            Elevation Contour, in Two's complement
+CAT015:I631:RgConStop                                        Range Contour Stop
+CAT015:I631:RgConStart                                       Range Contour Start
+CAT015:ISP:SP                                                SP
+CAT015:IRE:RE                                                RE
 CAT019:I000:MsgTyp                                           Message Type
 CAT019:I010:SAC                                              System Area Code
 CAT019:I010:SIC                                              System Identification Code
@@ -1986,6 +2134,7 @@ CAT048:I260:MTE                                              Multiple Threat Enc
 CAT048:I260:TTI                                              Threat Type Indicator
 CAT048:I260:TID                                              Threat Identity Data
 CAT048:ISP:SP                                                SP
+CAT048:IRE:VAL                                               
 CAT062:I010:SAC                                              System Area Code
 CAT062:I010:SIC                                              System Identification Code
 CAT062:I015:SID                                              Service Identification
