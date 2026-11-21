@@ -2,6 +2,7 @@
  * Utils: format() and the append helpers must write exactly what printf would.
  */
 #include <climits>
+#include <cstdarg>
 #include <cmath>
 #include <cstdio>
 #include <string>
@@ -12,6 +13,15 @@
 static std::string printfString(const char *fmt, double v) {
     char buf[512];
     snprintf(buf, sizeof(buf), fmt, v);
+    return buf;
+}
+
+static std::string printfAny(const char *fmt, ...) {
+    char buf[512];
+    va_list args;
+    va_start(args, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    va_end(args);
     return buf;
 }
 
@@ -81,6 +91,40 @@ TEST_CASE("appendDouble7: same text as %.7lf") {
             CHECK_EQ(s, expected);
             break;
         }
+    }
+}
+
+TEST_CASE("appendDoubleFixed, appendHex32, appendInt03, appendIPv4: same text as printf (record header)") {
+    double values[] = {0.0, -0.0, 12.5, 28801.429688, 28801.4296875, 46074965.0, 1795228755.539296, -1.0000005,
+                       1e-7, 0.0000005, 1e20, -1e300};
+    for (size_t i = 0; i < sizeof(values) / sizeof(values[0]); i++) {
+        for (int precision = 0; precision <= 7; precision++) {
+            std::string s;
+            appendDoubleFixed(s, values[i], precision);
+            CHECK_EQ(s, printfAny("%.*lf", precision, values[i]));
+        }
+        std::string s;
+        appendDoubleFixed(s, values[i], 6);
+        CHECK_EQ(s, printfAny("%lf", values[i]));
+    }
+    uint32_t hex[] = {0u, 1u, 0xABCDEFu, 0x166B4DBFu, 0xFFFFFFFFu, 0x80000000u};
+    for (size_t i = 0; i < sizeof(hex) / sizeof(hex[0]); i++) {
+        std::string s;
+        appendHex32(s, hex[i]);
+        CHECK_EQ(s, printfAny("%08X", hex[i]));
+    }
+    int cats[] = {0, 1, 21, 48, 255, 999, 1000, -5};
+    for (size_t i = 0; i < sizeof(cats) / sizeof(cats[0]); i++) {
+        std::string s;
+        appendInt03(s, cats[i]);
+        CHECK_EQ(s, printfAny("%03d", cats[i]));
+    }
+    unsigned int ips[] = {0u, 0x0AE7D111u, 0xFFFFFFFFu, 0x7F000001u};
+    for (size_t i = 0; i < sizeof(ips) / sizeof(ips[0]); i++) {
+        std::string s;
+        appendIPv4(s, ips[i]);
+        CHECK_EQ(s, printfAny("%u.%u.%u.%u", ips[i] >> 24, (ips[i] >> 16) & 0xFF, (ips[i] >> 8) & 0xFF,
+                                 ips[i] & 0xFF));
     }
 }
 

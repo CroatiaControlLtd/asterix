@@ -35,6 +35,12 @@
  */
 class CStdDevice : public CBaseDevice {
 private:
+    // stdin is read in blocks of up to this size (a read() returns what is available, it does not wait for
+    // the block to fill), so reading a packet does not cost a system call per field of its header
+    static const size_t READ_BUFFER_SIZE = 65536;
+    unsigned char *_readBuffer;
+    size_t _readPos;     //!< next byte to give in _readBuffer
+    size_t _readEnd;     //!< end of the bytes read into _readBuffer
 
 public:
 

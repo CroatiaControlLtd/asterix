@@ -158,7 +158,12 @@ bool Category::filterOutItem(std::string item, const char *name) {
     for (it = m_lDataItems.begin(); it != m_lDataItems.end(); it++) {
         di = (DataItemDescription *) (*it);
         if (di->m_strID == item) {
-            return di->m_pFormat->filterOutItem(name);
+            if (di->m_pFormat->filterOutItem(name)) {
+                // items with no field in the filter are skipped when records are parsed and printed
+                di->m_bFiltered = true;
+                return true;
+            }
+            return false;
         }
     }
     return false;

@@ -33,32 +33,44 @@
 #include "stddevice.hxx"
 
 
-CStdDevice::CStdDevice() {
+CStdDevice::CStdDevice()
+        : _readBuffer(new unsigned char[READ_BUFFER_SIZE]), _readPos(0), _readEnd(0) {
     _opened = true;  // STDIO/STDOUT are always opened
 }
 
 
 CStdDevice::~CStdDevice() {
+    delete[] _readBuffer;
 }
 
 
 bool CStdDevice::Read(void *data, size_t len) {
     // Read a message from the standard input (blocking)
-    ssize_t bytesLeftToRead = len;
+    size_t bytesLeftToRead = len;
     char* pData = (char*)data;
 
     while(bytesLeftToRead > 0) {
-        ssize_t bytesRead = read(STDIN_FILENO, pData, bytesLeftToRead);
-        if (bytesRead < 0) {
-            LOGERROR(1, "Error reading from stdin.\n");
-            CountReadError();
-            return false;
-        } else if (bytesRead == 0) {
-            _opened = false;
-            return false;
+        if (_readPos == _readEnd) {
+            // buffer empty: one read() of whatever is available, up to the buffer size
+            ssize_t bytesRead = read(STDIN_FILENO, _readBuffer, READ_BUFFER_SIZE);
+            if (bytesRead < 0) {
+                LOGERROR(1, "Error reading from stdin.\n");
+                CountReadError();
+                return false;
+            } else if (bytesRead == 0) {
+                _opened = false;
+                return false;
+            }
+            _readPos = 0;
+            _readEnd = (size_t) bytesRead;
         }
-        pData += bytesRead;
-        bytesLeftToRead -= bytesRead;
+        size_t n = _readEnd - _readPos;
+        if (n > bytesLeftToRead)
+            n = bytesLeftToRead;
+        memcpy(pData, _readBuffer + _readPos, n);
+        _readPos += n;
+        pData += n;
+        bytesLeftToRead -= n;
     }
     _onstart = false;
 
@@ -92,6 +104,10 @@ bool CStdDevice::Write(const void *data, size_t len) {
 bool CStdDevice::Select(const unsigned int secondsToWait) {
     fd_set descToRead;
     int selectVal;
+
+    if (_readPos < _readEnd) {
+        return true; // data already read from stdin and not given yet
+    }
 
     while (1) {
         // Configure 'set' of single stdin file descriptor
