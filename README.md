@@ -12,7 +12,7 @@ asterix
 > **This is a fork of [CroatiaControlLtd/asterix](https://github.com/CroatiaControlLtd/asterix).**
 > The original project has not been updated since December 2025 (last commit for 2.8.11 on 2025-12-03, last release v2.8.10). Its decoder had memory-safety problems that needed to be fixed, and they are fixed here. ASTERIX data usually comes from the network, so malformed or truncated packets made the original code read past its buffers, which can crash it.
 >
-> Fork versions are numbered `<upstream version>-ifsnop.<n>`. The current one is **2.8.11-ifsnop.5**, based on upstream 2.8.11 (`asterix -V` shows both).
+> Fork versions are numbered `<upstream version>-ifsnop.<n>`. The current one is **2.8.11-ifsnop.6**, based on upstream 2.8.11 (`asterix -V` shows both).
 >
 > Changes in this fork (see [HISTORY](HISTORY)):
 > - **Security fixes**: out-of-bounds reads on truncated or malformed records (item lengths, PCAP and ORADIS headers), a stack overflow with `-LF` filters on BDS items, memory leaks with ORADIS input, invalid pointer casts, and string overflows in file naming. Found with AddressSanitizer/UBSan and fuzzing.
@@ -27,7 +27,7 @@ asterix
 > - **`-h`** documents the default text output (used when no output format option is given).
 > - **Text fields** (callsign, aircraft type, airports, stands...) only print `A-Z`, `0-9`, space and `.`; any other byte, including control characters used as padding, is printed as `@`, so JSON and XML outputs are always valid.
 > - **Malformed records**: decoding goes on after them as before, and a `WARNING` on stderr gives the whole data block in hex for later analysis.
-> - **Faster decoding, same output**: on a 51 MB GPS file, `-jx` takes 8.5 s instead of 68 s (8 times faster), `-j` 7.2 s instead of 40 s (5.5 times), and `-jh`, `-x`, `-xh` and the other formats are 2 to 5 times faster. The output is byte for byte the same as before.
+> - **Faster decoding, same output**: on a 51 MB GPS file, `-jx` takes 8.5 s instead of 68 s (8 times faster), `-j` 7.2 s instead of 40 s (5.5 times), and `-jh`, `-x`, `-xh` and the other formats are 2 to 5 times faster. The output is byte for byte the same as before. With `-LF`, items with no field in the filter are skipped instead of decoded, and stdin is read in blocks: piping a 2.7 GB GPS capture through `bzip2 -dc | asterix -LF ... -G -j` takes 2m59s instead of 5m05s.
 > - **Build**: `make` now rebuilds the objects that include a header when it changes (the original makefiles never did). Run `make clean` once after updating. CMake needs version 3.10 or later.
 > - **Test suite run on every push and pull request** (GitHub Actions, see [tests/README.md](tests/README.md)): golden outputs of every input format and output format, consistency and write-back checks of `-jx`, stdin/multicast input, malformed and mutated inputs under AddressSanitizer/UBSan, unit tests, libFuzzer and a line coverage floor (about 65%, from 48%).
 > - **Fixes found by the test suite**: HDLC files under 4 KB decoded nothing and longer ones lost their end; an HDLC block length of 0 looped forever; corrupt PCAP packet lengths and FINAL byte counts allocated up to 4 GB and could abort; a definitions file that failed to parse leaked memory.

@@ -368,3 +368,11 @@ CMake: minimum version 3.10; the decoder is a static library; options ASTERIX_TE
            39.9 s before any optimization; -jh 15.6 -> 8.5 s; -x 17.6 -> 8.8 s; -xh 22.0 -> 10.8 s)
 README: build and coverage badges of this fork; the coverage job publishes the line coverage to the
            badges branch on each push to master
+
+2.8.11-ifsnop.6 (python_v0.7.11 unchanged)
+-LF about 40% faster: items with no field in the filter are only measured to step over them, never
+           copied, walked or printed; the -j/-jx record header no longer goes through format()
+           (2.7 GB GPS capture, "bzip2 -dc | asterix -LF ... -G -j": 5m05s -> 2m59s)
+stdin is read in 64 KB blocks instead of 3 read() + 1 select() per packet; live input is not delayed
+-LF fix: an item not in the filter holding an empty Repetitive (e.g. CAT062 I390 "TOD":[]) was printed;
+           it is now left out. With -LF, errors inside items not in the filter are no longer reported
