@@ -552,8 +552,6 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
     else if (m_strShortName.empty())
         m_strShortName = m_strName;
 
-    std::string indent("    ");  // 4 spaces make an indent.
-
     switch (formatType) {
         case CAsterixFormat::EJSON:
             strResult += '"';
@@ -583,9 +581,7 @@ bool DataItemBits::getText(std::string &strResult, std::string &strHeader, const
             strResult += '>';
             break;
         case CAsterixFormat::EXMLH:
-            strResult += '\n';  // New line and indent 2 levels (8 spaces).
-            strResult += indent;
-            strResult += indent;
+            strResult.append("\n        ", 9);  // New line and indent 2 levels (8 spaces).
             strResult += '<';
             strResult += m_strShortName;
             strResult += '>';

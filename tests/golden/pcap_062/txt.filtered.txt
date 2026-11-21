@@ -358,9 +358,6 @@ Item 380 : Aircraft Derived Data
 	IAS/Mach No: 0 (Air Speed = IAS (LSB 2^-14 NM/s))
 	Air Speed: 21384
 
-Item 390 : Flight Plan Related Data
-[ 01 08 00 ]
-
 -------------------------
 Data Block 21
 Category: 62
@@ -877,9 +874,6 @@ Item 380 : Aircraft Derived Data
 	IAS/Mach No: 0 (Air Speed = IAS (LSB 2^-14 NM/s))
 	Air Speed: 21384
 
-Item 390 : Flight Plan Related Data
-[ 01 08 00 ]
-
 -------------------------
 Data Block 47
 Category: 62
@@ -1376,9 +1370,6 @@ Item 380 : Aircraft Derived Data
 	IAS/Mach No: 0 (Air Speed = IAS (LSB 2^-14 NM/s))
 	Air Speed: 21384
 
-Item 390 : Flight Plan Related Data
-[ 01 08 00 ]
-
 -------------------------
 Data Block 76
 Category: 62
@@ -1864,6 +1855,3 @@ Item 380 : Aircraft Derived Data
 [ 10 53 88 ]
 	IAS/Mach No: 0 (Air Speed = IAS (LSB 2^-14 NM/s))
 	Air Speed: 21384
-
-Item 390 : Flight Plan Related Data
-[ 01 08 00 ]

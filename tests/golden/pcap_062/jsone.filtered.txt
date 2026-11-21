@@ -168,9 +168,7 @@
 	"I380":{
 		"IAS":{
 		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
-		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
-	"I390":{
-		"TOD":[]}}},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
 {"id":1,
 "cat":62,
 "length":52,
@@ -436,9 +434,7 @@
 	"I380":{
 		"IAS":{
 		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
-		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
-	"I390":{
-		"TOD":[]}}},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
 {"id":1,
 "cat":62,
 "length":50,
@@ -666,9 +662,7 @@
 	"I380":{
 		"IAS":{
 		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
-		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
-	"I390":{
-		"TOD":[]}}},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},
 {"id":1,
 "cat":62,
 "length":52,
@@ -915,6 +909,4 @@
 	"I380":{
 		"IAS":{
 		"IM":{"val"=0, "hex"="53", "mask"="10000000", "name"="IAS/Mach No", "meaning"="Air Speed = IAS (LSB 2^-14 NM/s)"},
-		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}},
-	"I390":{
-		"TOD":[]}}},
+		"AS":{"val"=21384, "hex"="5388", "mask"="0111111111111111", "name"="Air Speed"}}}}},

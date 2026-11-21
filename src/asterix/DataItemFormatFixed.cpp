@@ -25,6 +25,8 @@
 #include "Tracer.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataItemFormatFixed::DataItemFormatFixed(int id)
         : DataItemFormat(id), m_nLength(0), m_bJsonPrefixesSet(false), m_bPresenceBitsSet(false) {
 }
@@ -249,6 +251,9 @@ bool DataItemFormatFixed::getText(std::string &strResult, std::string &strHeader
     size_t nField = 0;
     for (it = m_lSubItems.begin(); it != m_lSubItems.end(); it++, nField++) {
         bv = (DataItemBits *) (*it);
+        if (gFiltering && !bv->m_bFiltered) {
+            continue; // not in the filter (checked here too, it is most of the calls with -LF)
+        }
         if (formatType == CAsterixFormat::EJSONX) {
             const std::string *pPrefix = nField < jsonPrefixes.size() ? &jsonPrefixes[nField] : NULL;
             ret |= bv->getText(strResult, strHeader, formatType, pData, m_nLength, pPrefix);

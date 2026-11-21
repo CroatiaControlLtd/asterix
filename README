@@ -19,7 +19,7 @@ December 2025, and its decoder had memory-safety problems (out-of-bounds reads o
 malformed or truncated input, leaks, invalid casts) that needed to be fixed. They are
 fixed in this fork.
 
-Fork versions are numbered <upstream version>-ifsnop.<n>. This is 2.8.11-ifsnop.5,
+Fork versions are numbered <upstream version>-ifsnop.<n>. This is 2.8.11-ifsnop.6,
 based on upstream 2.8.11. See HISTORY for the changes.
 
 This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See COPYING file for details.

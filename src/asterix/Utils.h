@@ -79,8 +79,42 @@ inline void appendLong(std::string &s, long value) {
     s.append(buffer, writeLong(buffer, value) - buffer);
 }
 
+// "%.*lf" with the given precision ("%lf" is precision 6)
+void appendDoubleFixed(std::string &s, double value, int precision);
+
 // "%.7lf"
 void appendDouble7(std::string &s, double value);
+
+// "%08X"
+inline void appendHex32(std::string &s, uint32_t value) {
+    char buffer[8];
+    for (int i = 7; i >= 0; i--) {
+        buffer[i] = HEXDIGITS_UPPER[value & 0x0F];
+        value >>= 4;
+    }
+    s.append(buffer, 8);
+}
+
+// "%03d"
+inline void appendInt03(std::string &s, int value) {
+    if (value >= 0 && value < 1000) {
+        char buffer[3] = {(char) ('0' + value / 100), (char) ('0' + value / 10 % 10), (char) ('0' + value % 10)};
+        s.append(buffer, 3);
+    } else {
+        s += format("%03d", value);
+    }
+}
+
+// "%u.%u.%u.%u" of the 4 bytes of an IPv4 address, most significant first
+inline void appendIPv4(std::string &s, unsigned int ip) {
+    appendLong(s, (long) ((ip >> 24) & 0xFF));
+    s += '.';
+    appendLong(s, (long) ((ip >> 16) & 0xFF));
+    s += '.';
+    appendLong(s, (long) ((ip >> 8) & 0xFF));
+    s += '.';
+    appendLong(s, (long) (ip & 0xFF));
+}
 
 uint32_t crc32(const void *pBuffer, size_t nLength, uint32_t nPreviousCrc32 = 0);
 

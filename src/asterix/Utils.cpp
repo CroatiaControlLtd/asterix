@@ -81,22 +81,27 @@ std::string format(const char *fmt, ...) {
     return s;
 }
 
-void appendDouble7(std::string &s, double value) {
+void appendDoubleFixed(std::string &s, double value, int precision) {
 #if ASTERIX_HAVE_FLOAT_TO_CHARS
-    // std::to_chars with a precision is specified to give the same result as printf("%.7f")
+    // std::to_chars with a precision is specified to give the same result as printf("%.*f")
     char buffer[400];
-    std::to_chars_result r = std::to_chars(buffer, buffer + sizeof(buffer), value, std::chars_format::fixed, 7);
+    std::to_chars_result r = std::to_chars(buffer, buffer + sizeof(buffer), value, std::chars_format::fixed,
+                                           precision);
     if (r.ec == std::errc()) {
         s.append(buffer, r.ptr - buffer);
         return;
     }
 #endif
     char small[64];
-    int size = snprintf(small, sizeof(small), "%.7lf", value);
+    int size = snprintf(small, sizeof(small), "%.*f", precision, value);
     if (size >= 0 && (size_t) size < sizeof(small))
         s.append(small, size);
     else
-        s += format("%.7lf", value);
+        s += format("%.*f", precision, value);
+}
+
+void appendDouble7(std::string &s, double value) {
+    appendDoubleFixed(s, value, 7);
 }
 
 uint32_t crc32(const void *pBuffer, size_t nLength, uint32_t nPreviousCrc32) {

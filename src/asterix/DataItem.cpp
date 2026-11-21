@@ -27,6 +27,8 @@
 #include "Utils.h"
 #include "asterixformat.hxx"
 
+extern bool gFiltering;
+
 DataItem::DataItem(DataItemDescription *pDesc)
         : m_pDescription(pDesc), m_nOffset(0), m_pData(NULL), m_nLength(0) {
 }
@@ -37,6 +39,10 @@ DataItem::~DataItem() {
 }
 
 bool DataItem::getText(std::string &strResult, std::string &strHeader, const unsigned int formatType) {
+    if (gFiltering && !m_pDescription->m_bFiltered) {
+        return false; // no field of this item is in the filter
+    }
+
     std::string newHeader;
     std::string indent("    ");  // 4 spaces make an indent.
 
@@ -105,27 +111,34 @@ bool DataItem::getText(std::string &strResult, std::string &strHeader, const uns
     return true;
 }
 
-long DataItem::parse(const unsigned char *pData, long len) {
-    if (m_pDescription == NULL || m_pDescription->m_pFormat == NULL) {
+long DataItem::getLength(DataItemDescription *pDesc, const unsigned char *pData, long len) {
+    if (pDesc == NULL || pDesc->m_pFormat == NULL) {
         Tracer::Error("DataItem::parse NULL pointer");
         return 0;
     }
 
-    m_nLength = m_pDescription->m_pFormat->getLength(pData, len);
+    long nLength = pDesc->m_pFormat->getLength(pData, len);
 
-    if (m_nLength > len) {
+    if (nLength > len) {
         // Print unparsed bytes
         std::string strNewResult;
         for (int i = 0; i < len; i++) {
             strNewResult += format("%02X ", *(pData + i));
         }
-        Tracer::Error("DataItem::parse needed length=%ld , and there is only %ld : [ %s ]", m_nLength, len,
+        Tracer::Error("DataItem::parse needed length=%ld , and there is only %ld : [ %s ]", nLength, len,
                       strNewResult.c_str());
-    } else if (m_nLength > 0) {
+    } else if (nLength <= 0) {
+        Tracer::Error("DataItem::parse length=0");
+    }
+    return nLength;
+}
+
+long DataItem::parse(const unsigned char *pData, long len) {
+    m_nLength = getLength(m_pDescription, pData, len);
+
+    if (m_nLength > 0 && m_nLength <= len) {
         m_pData = new unsigned char[m_nLength];
         memcpy(m_pData, pData, m_nLength);
-    } else {
-        Tracer::Error("DataItem::parse length=0");
     }
     return m_nLength;
 }

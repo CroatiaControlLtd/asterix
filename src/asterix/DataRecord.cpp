@@ -26,6 +26,9 @@
 #include "Tracer.h"
 #include "Utils.h"
 #include "asterixformat.hxx"
+#include <vector>
+
+extern bool gFiltering;
 
 DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned char *data, double nTimestamp, unsigned int nIP)
         : m_pCategory(cat), m_nID(nID), m_nLength(len), m_nFSPECLength(0), m_pFSPECData(NULL), m_nTimestamp(nTimestamp),
@@ -39,7 +42,9 @@ DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned
         return;
     }
 
-    // parse FSPEC
+    // parse FSPEC: descriptions of the items present, in record order
+    std::vector<DataItemDescription *> itemDescs;
+    itemDescs.reserve(16);
     unsigned int nFSPEC = 0;
     int nFRN = 1;
     bool lastFSPEC = false;
@@ -52,8 +57,7 @@ DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned
             if (FSPEC & bitmask) {
                 DataItemDescription *dataitemdesc = pUAP->getDataItemDescriptionByUAPfrn(m_pCategory, nFRN);
                 if (dataitemdesc) {
-                    DataItem *di = new DataItem(dataitemdesc);
-                    m_lDataItems.push_back(di);
+                    itemDescs.push_back(dataitemdesc);
                 } else {
                     Tracer::Error("Description of UAP FRN %d in category %03d not found", nFRN, m_pCategory->m_id);
                     return;
@@ -80,23 +84,33 @@ DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned
 
     bool errorReported = false;
 
-    // parse DataItems
-    std::list<DataItem *>::iterator it;
-    for (it = m_lDataItems.begin(); it != m_lDataItems.end(); it++) {
-        DataItem *di = (DataItem *) (*it);
+    // parse DataItems. When filtering (-LF), an item with no field in the filter prints nothing: only its
+    // length is read, to step over it, and no DataItem (nor copy of its bytes) is made.
+    size_t nItem;
+    for (nItem = 0; nItem < itemDescs.size(); nItem++) {
+        DataItemDescription *desc = itemDescs[nItem];
 
-        if (di->m_pDescription == NULL || di->m_pDescription->m_pFormat == NULL) {
-            Tracer::Error("DataItem format not defined for CAT%03d/I%s", cat->m_id,
-                          di->m_pDescription->m_strID.c_str());
+        if (desc->m_pFormat == NULL) {
+            Tracer::Error("DataItem format not defined for CAT%03d/I%s", cat->m_id, desc->m_strID.c_str());
             errorReported = true;
             break;
         }
 
-        di->m_nOffset = (long) (m_pItemDataStart - data) - (long) m_nFSPECLength;
-        long usedbytes = di->parse(m_pItemDataStart, nUnparsed);
+        long usedbytes;
+        if (gFiltering && !desc->m_bFiltered) {
+            usedbytes = DataItem::getLength(desc, m_pItemDataStart, nUnparsed);
+        } else {
+            DataItem *di = new DataItem(desc);
+            di->m_nOffset = (long) (m_pItemDataStart - data) - (long) m_nFSPECLength;
+            usedbytes = di->parse(m_pItemDataStart, nUnparsed);
+            if (usedbytes <= 0 || usedbytes > nUnparsed) {
+                delete di;
+            } else {
+                m_lDataItems.push_back(di);
+            }
+        }
         if (usedbytes <= 0 || usedbytes > nUnparsed) {
-            Tracer::Error("Wrong length in DataItem format for CAT%03d/I%s", cat->m_id,
-                          di->m_pDescription->m_strID.c_str());
+            Tracer::Error("Wrong length in DataItem format for CAT%03d/I%s", cat->m_id, desc->m_strID.c_str());
             errorReported = true;
             break;
         }
@@ -110,15 +124,9 @@ DataRecord::DataRecord(Category *cat, int nID, unsigned long len, const unsigned
         m_nLength -= nUnparsed;
     }
 
-    if (it != m_lDataItems.end()) {
+    if (nItem < itemDescs.size()) {
         if (errorReported == false) {
             Tracer::Error("Not enough data in record for CAT%03d", cat->m_id);
-        }
-
-        while (it != m_lDataItems.end()) {
-            DataItem *di = (DataItem *) (*it);
-            delete di;
-            it = m_lDataItems.erase(it);
         }
     } else {
         m_bFormatOK = true;
@@ -207,14 +215,28 @@ bool DataRecord::getText(std::string &strResult, std::string &strHeader, const u
             break;
         case CAsterixFormat::EJSON:
         case CAsterixFormat::EJSONX: {
-            // same text as one format() of the whole header; the long hex strings are appended directly
-            strNewResult += format(
-                    "{\"id\":%d,\"cat\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%lf,\"srcip\":\"%u.%u.%u.%u\",\"fspec\":\"",
-                    m_nID, m_pCategory->m_id, m_nLength, m_nCrc, m_nTimestamp, ip[0], ip[1], ip[2], ip[3]);
+            // same text as format("{\"id\":%d,\"cat\":%d,\"length\":%ld,\"crc\":\"%08X\",\"timestamp\":%lf,
+            // \"srcip\":\"%u.%u.%u.%u\",\"fspec\":\"...\",\"hexdata\":\"...\",\"CAT%03d\":{"), written without printf
+            // because it is done for every record
+            strNewResult.append("{\"id\":", 6);
+            appendLong(strNewResult, m_nID);
+            strNewResult.append(",\"cat\":", 7);
+            appendLong(strNewResult, m_pCategory->m_id);
+            strNewResult.append(",\"length\":", 10);
+            appendLong(strNewResult, (long) m_nLength);
+            strNewResult.append(",\"crc\":\"", 8);
+            appendHex32(strNewResult, m_nCrc);
+            strNewResult.append("\",\"timestamp\":", 14);
+            appendDoubleFixed(strNewResult, m_nTimestamp, 6);
+            strNewResult.append(",\"srcip\":\"", 10);
+            appendIPv4(strNewResult, m_nIP);
+            strNewResult.append("\",\"fspec\":\"", 11);
             strNewResult += strFSPEC;
             strNewResult.append("\",\"hexdata\":\"", 13);
             strNewResult += pItemsHex;
-            strNewResult += format("\",\"CAT%03d\":{", m_pCategory->m_id);
+            strNewResult.append("\",\"CAT", 6);
+            appendInt03(strNewResult, m_pCategory->m_id);
+            strNewResult.append("\":{", 3);
             break;
         }
         case CAsterixFormat::EJSONH:

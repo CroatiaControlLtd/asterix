@@ -183,3 +183,51 @@ TEST_CASE("warning messages longer than 1024 characters are not cut") {
         longest = std::max(longest, tracerMessages()[i].size());
     CHECK(longest > 2 * data.size());
 }
+
+TEST_CASE("-LF: items with no field in the filter are stepped over, the rest prints as without filter") {
+    extern bool gFiltering;
+    // a parser of its own: filtering marks the definitions it is applied to
+    static AsterixDefinition *def = NULL;
+    if (!def) {
+        def = new AsterixDefinition();
+        loadDefinitions(g_definitionsFile, def);
+    }
+    InputParser filtered(def);
+    REQUIRE(filtered.filterOutItem(1, "010", "SIC"));
+    REQUIRE(filtered.filterOutItem(1, "040", "THETA"));
+    REQUIRE(filtered.filterOutItem(1, "170", "GHO"));
+
+    std::vector<unsigned char> data = block(1, std::string(CAT001_RECORD) + CAT001_RECORD);
+    std::string all = text(parse(data).get(), CAsterixFormat::EJSONX);
+
+    gFiltering = true;
+    std::unique_ptr<AsterixData> d(filtered.parsePacket(&data[0], (unsigned int) data.size(), 12.5));
+    std::string j = text(d.get(), CAsterixFormat::EJSON);
+    std::string jx = text(d.get(), CAsterixFormat::EJSONX);
+    std::string txt = text(d.get(), CAsterixFormat::ETxt);
+    gFiltering = false;
+
+    // only the 3 items with a field in the filter are made, in both records
+    REQUIRE(d->m_lDataBlocks.size() == 1);
+    DataBlock *b = d->m_lDataBlocks.front();
+    REQUIRE(b->m_lDataRecords.size() == 2);
+    for (std::list<DataRecord *>::iterator r = b->m_lDataRecords.begin(); r != b->m_lDataRecords.end(); ++r) {
+        CHECK((*r)->m_bFormatOK);
+        CHECK_EQ((*r)->m_lDataItems.size(), (size_t) 3);
+        CHECK_EQ((*r)->m_nLength, (unsigned long) 23);
+    }
+    CHECK(j.find("\"CAT001\":{\"I010\":{\"SIC\":201},\"I040\":{\"THETA\":34.5629883},\"I170\":{\"GHO\":0}}}\n")
+          != std::string::npos);
+    CHECK(j.find("\"id\":2,") != std::string::npos);  // the second record is found after the stepped over items
+    CHECK(txt.find("Item 040") != std::string::npos);
+    CHECK(txt.find("Item 020") == std::string::npos);
+    // -jx: same header, same field text (val, hex, mask, pos) as without filter
+    const char *fields[] = {"\"SIC\":{", "\"THETA\":{", "\"GHO\":{"};
+    for (size_t i = 0; i < 3; i++) {
+        size_t a = all.find(fields[i]);
+        REQUIRE(a != std::string::npos);
+        std::string field = all.substr(a, all.find('}', a) - a + 1);
+        CHECK(jx.find(field) != std::string::npos);
+    }
+    CHECK_EQ(jx.substr(0, jx.find("\"CAT001\"")), all.substr(0, all.find("\"CAT001\"")));
+}
